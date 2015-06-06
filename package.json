@@ -1,0 +1,15 @@
+{
+  "name": "webdevfavs-server",
+  "description": "Web Dev Organiser",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "~4.12.4",
+    "express-session": "~1.11.2",
+    "passport": "~0.2.2",
+    "passport-twitter": "~1.0.3",
+    "mongoose": "~4.0.5",
+    "connect-mongostore": "~0.1.4",
+    "twitter": "~1.2.5"
+  }
+}
