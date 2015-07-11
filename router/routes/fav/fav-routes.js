@@ -42,7 +42,8 @@ router.post('/', ensureAuthenticated, function(req, res) {
   var fav = {
     user: req.body.fav.user,
     createdDate: req.body.fav.createdDate,
-    body: req.body.fav.body
+    body: req.body.fav.body,
+    author: req.body.fav.author
   };
 
   if (req.user.id === req.body.fav.user) {
@@ -55,11 +56,13 @@ router.post('/', ensureAuthenticated, function(req, res) {
       }
       // copy of fav
       var emberFav = {
-        id: fav._id, // created by Mongo when saved is called
+        id: fav._id, // created by Mongo when save is called
         user: fav.user,
         body: fav.body,
-        createdDate: fav.createdDate
+        createdDate: fav.createdDate,
+        author: fav.author
       };
+      console.log('Fav created with author ' + fav.author);
       return res.send({'fav': emberFav});
     });
   }
@@ -78,51 +81,32 @@ router.delete('/:id', ensureAuthenticated, function(req, res) {
   });
 });
 
-// router.getMyFavs method ?
+
 function getMyFavs (req, res) {
-  var users = [];
-  var query = {};
   var emberFavs = [];
-  var loggedInUser = req.user;
+  var query = {user: req.query.user};
+  // var query = {user: 'stevetyler_uk'};
+  
+  console.log(req);
 
-  if (req.user) {
-    // var search = req.user.following;
-    // search.push(req.user.id);
-    query = {user: loggedInUser};
-    // console.log(search);
-
-    Fav.find(query, function(err, favs) {
-      if (err) {
-        console.log(query);
-        return res.status(404).end();
-      }
-      // Mongo requires _id value
-      favs.forEach(function(fav) {
-        var emberFav = {
-          id: fav._id,
-          user: fav.user,
-          body: fav.body,
-          createdDate: fav.createdDate
-        };
-        emberFavs.push(emberFav);
-        // users.push(fav.user);
-        return res.send({'favs': emberFavs});
-
-      });
-      // User.find({id: {$in: users}}, function(err, users) {
-      //   var favsUsers = [];
-      //   if (err) {
-      //     res.status(403).end();
-      //   }
-      //   users.forEach(function(user) {
-      //     var usr = user.makeEmberUser(loggedInUser);
-      //     favsUsers.push(usr);
-      //   });
-      //   logger.info(favsUsers);
-      //   return res.send({favs: emberFavs, users: favsUsers});
-      // });
+  Fav.find(query, function(err, favs) {
+    if (err) {
+      console.log(query);
+      return res.status(404).end();
+    }
+    // Mongo requires _id value
+    favs.forEach(function(fav) {
+      var emberFav = {
+        id: fav._id,
+        user: fav.user,
+        body: fav.body,
+        createdDate: fav.createdDate,
+        author: fav.author
+      };
+      emberFavs.push(emberFav);
     });
-  }
+    return res.send({'favs': emberFavs});
+  });
 }
 
 function getUserFavs(req, res) {
@@ -139,7 +123,8 @@ function getUserFavs(req, res) {
         id: fav._id,
         user: fav.user,
         body: fav.body,
-        createdDate: fav.createdDate
+        createdDate: fav.createdDate,
+        author: fav.author
       };
       emberFavs.push(emberFav);
     });
@@ -161,6 +146,7 @@ function getTwitterFavs(req, res) {
     favs.forEach(function(fav) {
       var emberFav = {
         id: fav._id,
+        author: fav.author,
         user: fav.user,
         body: fav.body,
         createdDate: fav.createdDate
