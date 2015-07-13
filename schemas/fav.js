@@ -3,8 +3,9 @@ var Schema = mongoose.Schema;
 
 var favSchema = new Schema({
   id: String,
-  author: String,
   user: String,
+  tags: [String],
+  author: String,
   createdDate: Date,
   body: String,
   twitterTweetAuthor: String,
