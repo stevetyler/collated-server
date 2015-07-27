@@ -10,6 +10,7 @@ var configAuth = require('./../../../auth');
 
 var User = db.model('User');
 var Fav = db.model('Fav');
+var Tag = db.model('Tag');
 
 var FavImporter = require("../../../lib/import-favs.js");
   
@@ -81,9 +82,9 @@ router.delete('/:id', ensureAuthenticated, function(req, res) {
   });
 });
 
-
 function getMyFavs (req, res) {
   var emberFavs = [];
+  var emberTags = [];
   var query = {user: req.query.user};
   // var query = {user: 'stevetyler_uk'};
   
@@ -106,6 +107,22 @@ function getMyFavs (req, res) {
       emberFavs.push(emberFav);
     });
     return res.send({'favs': emberFavs});
+    // find all user tags, then fav tags
+    // Tag.find(query, function(err, tags) {
+    //   if (err) {
+    //     res.status(403).end();
+    //   }
+    //   tags.forEach(function(tag) {
+    //     var emberTag = {
+    //       id: tag._id,
+    //       user: tag.user,
+    //       name: tag.name,
+    //       colour: tag.colour
+    //     };
+    //     emberTags.push(emberTag);
+    //     return res.send({'favs': emberFavs, 'tags': emberTags});
+    //   });
+    // });
   });
 }
 

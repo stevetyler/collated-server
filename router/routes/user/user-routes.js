@@ -56,8 +56,6 @@ router.get('/:id', function(req, res) {
   });
 });
 
-
-
 // user post requests
 
 router.post('/', function(req, res) {
@@ -121,10 +119,6 @@ function handleIsAuthenticatedRequest(req, res) {
   } else {
     return res.send({ users: [] } );
   }
-}
-
-function handleResetPassword(req, res) {
-
 }
 
 
