@@ -76,38 +76,6 @@ userSchema.statics.encryptPassword = function (savedPassword, cb) {
   });
 };
 
-userSchema.statics.assignAvatar = function (id) {
-  var image, path;
-
-  switch (id) {
-    case 'css-tricks' : image = 'css-tricks.jpg';
-    break;
-    case 'ember-london' : image = 'ember-london.jpg';
-    break;
-    case 'js-daily' : image = 'js-daily.jpg';
-    break;
-    case 'rach' : image = 'rach.jpg';
-    break;
-    case 'sitepoint' : image = 'sitepoint.jpg';
-    break;
-    case 'steve' : image = 'steve.jpg';
-    break;
-    case 'talent-buddy' : image = 'talent-buddy.jpg';
-    break;
-    case 'tech-insight' : image = 'tech-insight.jpg';
-    break;
-    case 'vlad' : image = 'vlad.jpg';
-    break;
-    default : image = 'guest.jpg';
-  }
-  path = '/assets/img/avatars/' + image;
-  return path;
-};
-
-
-
-
-
 
 
 module.exports = userSchema;
