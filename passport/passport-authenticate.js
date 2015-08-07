@@ -62,7 +62,7 @@ passport.use(new TwitterStrategy({
         var newUser = {};
 
         newUser.id = profile._json.screen_name;
-        newUser.imageURL = profile._json.profile_image_url;
+        newUser.imageURL = changeTwitterURL(profile._json.profile_image_url);
         newUser.name = profile._json.name;
         newUser.twitterAccessToken = token;
         newUser.twitterSecretToken = tokenSecret;
@@ -82,8 +82,6 @@ passport.use(new TwitterStrategy({
   })
 );
 
-
-
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -97,6 +95,17 @@ passport.deserializeUser(function(id, done) {
     return done(null, user);
   });
 });
+
+function changeTwitterURL(url) {
+  //change normal to bigger in url
+  var newUrl;
+
+  if (url.lastIndexOf('normal') !== -1) {
+    newUrl = url.substring(0, url.lastIndexOf('normal')) + 'bigger.jpeg';
+    return newUrl;
+  }
+}
+
 
 
 
