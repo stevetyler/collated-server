@@ -25,7 +25,6 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
   return emberUser;
 };
 
-
 userSchema.methods.isFollowed = function (loggedInUser) {
   if (loggedInUser) {
     var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
@@ -38,7 +37,6 @@ userSchema.methods.isFollowed = function (loggedInUser) {
 // statics are generic functions
 // called on the model ie User
 userSchema.statics.createUser = function(user, done) {
-
   var User = this.model('User');
 
   // User.encryptPassword async function, then create user in database

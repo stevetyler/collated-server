@@ -9,12 +9,10 @@ var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').e
 var User = db.model('User');
 var Tag = db.model('Tag');
 
-/*
-* Requesting tags for myFavs or user page
-*/
 
-router.get('/', function(req, res) {
-  
+// Requesting tags for myFavs or user page
+
+router.get('/', function(req, res) {  
   if (req.query.operation === 'userTags') {
     // logger.info('GET favs for myFavs');
     handleUserTagsRequest(req, res);
@@ -24,9 +22,8 @@ router.get('/', function(req, res) {
   }
 });
 
-/*
-* Creating a tag from myFavs
-*/
+
+// Creating a tag from myFavs
 
 router.post('/', ensureAuthenticated, function(req, res) {
   var tag = {
@@ -90,7 +87,7 @@ function handleUserTagsRequest(req, res) {
         id: tag.id,
         colour: tag.colour,
         user: tag.user
-      }
+      };
       emberTags.push(emberTag);
     });
     return res.send({'tags': emberTags});

@@ -23,11 +23,14 @@ router.get('/', function(req, res) {
   if (req.query.operation === 'myFavs') {
     // logger.info('GET favs for myFavs');
     getMyFavs(req, res);
+  } else if (req.query.operation === 'addFavTags') {
+
+  } else if (req,query.operation === 'removeFavTags') {
+
   } else if (req.query.operation === 'userFavs') {
     // logger.info('GET favs for user/index route');
     getUserFavs(req, res);
   } else if (req.query.operation === 'importFavs') {
-
     getTwitterFavs(req, res);
   }
   else {
@@ -44,7 +47,8 @@ router.post('/', ensureAuthenticated, function(req, res) {
     user: req.body.fav.user,
     createdDate: req.body.fav.createdDate,
     body: req.body.fav.body,
-    author: req.body.fav.author
+    author: req.body.fav.author,
+    // tags: ['Undefined']
   };
 
   if (req.user.id === req.body.fav.user) {
@@ -63,8 +67,12 @@ router.post('/', ensureAuthenticated, function(req, res) {
         createdDate: fav.createdDate,
         author: fav.author
       };
-      console.log('Fav created with author ' + fav.author);
+      console.log('Fav created with id ' + fav._id);
       return res.send({'fav': emberFav});
+    }).then(function() {
+
+      // add undefined tag
+
     });
   }
   else {
@@ -86,7 +94,6 @@ function getMyFavs (req, res) {
   var emberFavs = [];
   var emberTags = [];
   var query = {user: req.query.user};
-  // var query = {user: 'stevetyler_uk'};
   
   console.log(req);
 
@@ -102,7 +109,8 @@ function getMyFavs (req, res) {
         user: fav.user,
         body: fav.body,
         createdDate: fav.createdDate,
-        author: fav.author
+        author: fav.author,
+        tags: fav.tags
       };
       emberFavs.push(emberFav);
     });
@@ -147,6 +155,28 @@ function getUserFavs(req, res) {
     });
     return res.send({'favs': emberFavs});
   });
+}
+
+
+function addTagId(favId, tagId, done) {
+  Fav.findOneAndUpdate(
+    {id: favId},
+    {$push: {tags: tagId}},
+
+    function(err, fav) {
+      if (err) {
+
+      }
+
+    }
+
+  )
+
+}
+
+function removeTagId(tagId, loggedInUserId, done) {
+
+
 }
 
 function getTwitterFavs(req, res) {

@@ -64,7 +64,7 @@ router.post('/', function(req, res) {
     User.findOne({id: req.body.user.id}, function (err, user) {
       if (user) {
         // user already exists
-        res.status(400).end();
+        return res.status(400).end();
       }
       else {
         User.createUser(req.body.user, function(err, user) {
@@ -80,6 +80,7 @@ router.post('/', function(req, res) {
           });
         });
       }
+      // create default tags
     });
   }
 });

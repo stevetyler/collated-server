@@ -6,4 +6,12 @@ var tagSchema = new Schema({
   colour: String
 });
 
+
+tagSchema.statics.createDefaultTags = function() {
+	
+
+
+};
+
+
 module.exports = tagSchema;
