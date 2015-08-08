@@ -7,7 +7,7 @@ var userSchema = new Schema({
   id: String,
   name: String,
   password: String,
-  imageURL: String,
+  imageUrl: String,
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
@@ -20,7 +20,7 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
   var emberUser = {
     id: this.id,
     name: this.name,
-    imageURL: this.imageURL,
+    imageUrl: this.imageUrl,
     isFollowed: this.isFollowed(loggedInUser)
   };
   return emberUser;
@@ -47,7 +47,7 @@ userSchema.statics.createUser = function(user, done) {
       done(err);
     }
     user.password = encryptedPassword;
-    user.imageURL = User.assignAvatar(user.id);
+    user.imageUrl = User.assignAvatar(user.id);
 
     // returns mongodb user
     // Mongoose function === newUser.save() used previously in old
