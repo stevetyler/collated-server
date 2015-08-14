@@ -21,7 +21,8 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
-    isFollowed: this.isFollowed(loggedInUser)
+    tagColoursAvailable: this.tagColoursAvailable
+    // isFollowed: this.isFollowed(loggedInUser)
   };
   return emberUser;
 };
