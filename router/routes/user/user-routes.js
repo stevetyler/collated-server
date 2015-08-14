@@ -7,6 +7,7 @@ var passwordGenerator = require('password-generator');
 var router = require('express').Router(); // Router middleware
 
 var User = db.model('User');
+var Tag = db.model('Tag');
 
 // user get requests
 
@@ -39,51 +40,69 @@ router.get('/', function(req, res) {
   }
 });
 
-router.get('/:id', function(req, res) {
-  var userId = req.params.id;
-  var loggedInUser = req.user;
+// router.get('/:id', function(req, res) {
+//   var userId = req.params.id;
+//   var loggedInUser = req.user;
 
-  User.findOne({id: userId}, function(err, user) {
-    if (err) {
-      return res.status(500).end();
-    }
-    if (!user) {
-      return res.status(404).end();
-    }
-    var emberUser = user.makeEmberUser(user, loggedInUser);
+//   User.findOne({id: userId}, function(err, user) {
+//     if (err) {
+//       return res.status(500).end();
+//     }
+//     if (!user) {
+//       return res.status(404).end();
+//     }
+//     var emberUser = user.makeEmberUser(user, loggedInUser);
 
-    res.send({'user': emberUser});
-  });
-});
+//     res.send({'user': emberUser});
+//   });
+// });
 
-// user post requests
+// user post requests for manual login only
 
-router.post('/', function(req, res) {
-  console.log('post log');
-  if (req.body.user) {
-    User.findOne({id: req.body.user.id}, function (err, user) {
-      if (user) {
-        // user already exists
-        return res.status(400).end();
-      }
-      else {
-        User.createUser(req.body.user, function(err, user) {
-          if (err) {
-            return res.status(500).end();
-          }
-          req.logIn(user, function(err) {
-            if (err) {
-              return res.status(500).end();
-            }
-            var emberUser = user.makeEmberUser(null); // null because no loggedinuser
-            return res.send({'user': emberUser});
-          });
-        });
-      }
-      // create default tags
-    });
-  }
-});
+// router.post('/', function(req, res) {
+//   var defaultTag;
+
+//   if (req.body.user) {
+//     User.findOne({id: req.body.user.id}, function (err, user) {
+//       if (user) {
+//         // user already exists
+//         return res.status(400).end();
+//       }
+//       else {
+//         User.createUser(req.body.user, function(err, user) {
+//           if (err) {
+//             return res.status(500).end();
+//           }
+//           req.logIn(user, function(err) {
+//             if (err) {
+//               return res.status(500).end();
+//             }
+//             var emberUser = user.makeEmberUser(null); // null because no loggedinuser
+//             // return res.send({'user': emberUser});
+//           });
+//         });
+//       }
+//       Tag.findOne({id: 'Undefined'}, function(err, tag) {
+
+//         if (tag) {
+//           res.status(500).end();
+//         }
+//         else {
+//           console.log('Creating undefined tag');
+//           defaultTag = {
+//             id: 'Undefined',
+//             colour: 'white',
+//             user: req.body.user.id
+//           };
+//           Tag.create(defaultTag, function(err, tag) {
+//             done(err, tag);
+//           });
+//         }
+//         return res.send({'user': emberUser});
+//       });
+//     });
+//   }
+// });
 
 
 // function definitions

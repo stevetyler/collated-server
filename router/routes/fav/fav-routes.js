@@ -158,18 +158,26 @@ function addTagId(favId, tagId, done) {
   Fav.findOneAndUpdate(
     {id: favId},
     {$push: {tags: tagId}},
-
     function(err, fav) {
       if (err) {
-
+        return done(err);
       }
+      done(null);
     }
   );
 }
 
 function removeTagId(tagId, loggedInUserId, done) {
-
-
+  Fav.findOneAndUpdate(
+    {id: favId},
+    {$pull: {tags: tagId}},
+    function(err, fav) {
+      if (err) {
+        return done(err);
+      }
+      done(null);
+    }
+  );
 }
 
 function getTwitterFavs(req, res) {

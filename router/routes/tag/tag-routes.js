@@ -12,7 +12,7 @@ var Tag = db.model('Tag');
 
 // Requesting tags for myFavs or user page
 
-router.get('/', function(req, res) {  
+router.get('/', function(req, res) {
   if (req.query.operation === 'userTags') {
     // logger.info('GET favs for myFavs');
     handleUserTagsRequest(req, res);
