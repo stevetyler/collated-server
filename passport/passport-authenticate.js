@@ -7,6 +7,8 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 var configAuth = require('./../auth'); // import Twitter consumer key & secret
 
 var User = db.model('User');
+var Tag = db.model('Tag');
+var tagColours = ['white', 'gold', 'pink', 'plum', 'orange', 'darkorange', 'salmon', 'chocolate', 'indianred', 'cornflowerblue', 'royalblue', 'slateblue', 'mediumseagreen', 'darkcyan', 'dimgray'];
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -45,7 +47,9 @@ passport.use(new TwitterStrategy({
   },
   // twitter will send back token and profile
   function(token, tokenSecret, profile, done) {
-    console.log(profile);
+    // console.log(profile);
+    var newUser;
+
     User.findOne({ twitterId: profile._json.id_str }, function(err, user) {
       logger.info('user found from twitter: ', profile);
       if(err) {
@@ -58,15 +62,15 @@ passport.use(new TwitterStrategy({
           return done(err, user);
         });
       } else {
-
         var newUser = {};
 
         newUser.id = profile._json.screen_name;
-        newUser.imageUrl = changeTwitterURL(profile._json.profile_image_url);
+        newUser.imageUrl = modifyTwitterURL(profile._json.profile_image_url);
         newUser.name = profile._json.name;
         newUser.twitterAccessToken = token;
         newUser.twitterSecretToken = tokenSecret;
         newUser.twitterId = profile._json.id_str;
+        // newUser.tagColoursAvailable = tagColours;
 
         User.create(newUser, function(err, user) {
           if (err) {
@@ -74,10 +78,30 @@ passport.use(new TwitterStrategy({
             // must return err or done will be called twice
             return done(err);
           }
-          logger.info('User Created: ', user.id);
+          newUser = user;
+          // logger.info('User Created: ', user.id);
           return done(null, user);
         });
       }
+      // error if tag exists - can't set headers before they are sent
+      // Tag.findOne({id: 'Undefined'}, function(err, tag) {
+      //   if (tag) {
+      //     logger.error('Tag exists', tag);
+      //     return done(null, newUser);
+      //   }
+      //   else {
+      //     // console.log('Creating undefined tag');
+      //     defaultTag = {
+      //       id: 'Undefined',
+      //       colour: 'white',
+      //       user: newUser.id
+      //     };
+      //     Tag.create(defaultTag, function(err, tag) {
+      //       done(err, tag);
+      //     });
+      //   }
+      //   return done(null, newUser);
+      // });
     });
   })
 );
@@ -96,7 +120,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-function changeTwitterURL(url) {
+function modifyTwitterURL(url) {
   var newUrl;
 
   if (url.lastIndexOf('normal') !== -1) {
