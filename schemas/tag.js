@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var tagSchema = new Schema({
   id: String,
-  colour: String
+  colour: String,
+  user: String
 });
 
 
@@ -13,7 +14,7 @@ tagSchema.methods.makeEmberTag = function(tag, user) {
 		id: this.id,
 		colour: this.colour,
 		user: this.user.id
-	}
+	};
 };
 
 
