@@ -1,4 +1,4 @@
-// var bcrypt = require('bcrypt');
+ // var bcrypt = require('bcrypt');
 var db = require('./../database/database');
 var LocalStrategy = require('passport-local').Strategy;
 var logger = require('nlogger').logger(module);
