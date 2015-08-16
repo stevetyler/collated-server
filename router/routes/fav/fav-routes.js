@@ -44,7 +44,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
     createdDate: req.body.fav.createdDate,
     body: req.body.fav.body,
     author: req.body.fav.author,
-    // tags: ['Undefined']
+    tags: ['Undefined']
   };
 
   if (req.user.id === req.body.fav.user) {
@@ -61,7 +61,8 @@ router.post('/', ensureAuthenticated, function(req, res) {
         user: fav.user,
         body: fav.body,
         createdDate: fav.createdDate,
-        author: fav.author
+        author: fav.author,
+        tags: fav.tags
       };
       console.log('Fav created with id ' + fav._id);
       return res.send({'fav': emberFav});
