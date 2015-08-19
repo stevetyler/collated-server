@@ -15,13 +15,16 @@ var userSchema = new Schema({
   tagColoursAvailable: [String]
 });
 
+
+var tagColours = ['white', 'gold', 'pink', 'plum', 'orange', 'darkorange', 'salmon', 'chocolate', 'indianred', 'cornflowerblue', 'royalblue', 'slateblue', 'mediumseagreen', 'darkcyan', 'dimgray'];
+
 // methods are called on instances of the User object ie actual objects
 userSchema.methods.makeEmberUser = function (loggedInUser) {
   var emberUser = {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
-    tagColoursAvailable: this.tagColoursAvailable
+    tagColoursAvailable: tagColours
     // isFollowed: this.isFollowed(loggedInUser)
   };
   return emberUser;
