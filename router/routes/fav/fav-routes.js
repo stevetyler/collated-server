@@ -198,7 +198,8 @@ function getTwitterFavs(req, res) {
         author: fav.author,
         user: fav.user,
         body: fav.body,
-        createdDate: fav.createdDate
+        createdDate: fav.createdDate,
+        tags: fav.tags
       };
       emberFavs.push(emberFav);
     });
