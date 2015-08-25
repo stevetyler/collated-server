@@ -77,6 +77,20 @@ router.post('/', ensureAuthenticated, function(req, res) {
   }
 });
 
+router.put('/:id', ensureAuthenticated, function(req, res) {
+  Fav.update(
+    {_id: req.params.id},
+    {$set: {tags: req.body.fav.tags}},
+    function(err) {
+      if (err) {
+      console.log(err);
+      return res.status(404).end();
+    }
+    return res.send();
+    }    
+  );
+});
+
 router.delete('/:id', ensureAuthenticated, function(req, res) {
   Fav.remove({ _id: req.params.id }, function (err) {
     if (err) {
@@ -155,31 +169,31 @@ function getUserFavs(req, res) {
 }
 
 
-function addTagId(favId, tagId, done) {
-  Fav.findOneAndUpdate(
-    {id: favId},
-    {$push: {tags: tagId}},
-    function(err, fav) {
-      if (err) {
-        return done(err);
-      }
-      done(null);
-    }
-  );
-}
+// function addTagId(favId, tagId, done) {
+//   Fav.findOneAndUpdate(
+//     {id: favId},
+//     {$push: {tags: tagId}},
+//     function(err, fav) {
+//       if (err) {
+//         return done(err);
+//       }
+//       done(null);
+//     }
+//   );
+// }
 
-function removeTagId(tagId, loggedInUserId, done) {
-  Fav.findOneAndUpdate(
-    {id: favId},
-    {$pull: {tags: tagId}},
-    function(err, fav) {
-      if (err) {
-        return done(err);
-      }
-      done(null);
-    }
-  );
-}
+// function removeTagId(tagId, loggedInUserId, done) {
+//   Fav.findOneAndUpdate(
+//     {id: favId},
+//     {$pull: {tags: tagId}},
+//     function(err, fav) {
+//       if (err) {
+//         return done(err);
+//       }
+//       done(null);
+//     }
+//   );
+// }
 
 function getTwitterFavs(req, res) {
   var emberFavs = [];
