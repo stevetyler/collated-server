@@ -53,6 +53,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
           // };
           console.log('Tag created with name ' + tag.id);
           console.log('Tag created with colour ' + tag.colour);
+          console.log('Tag created with user ' + tag.user);
           return res.send({'tag': tag});
         });
       }
@@ -75,9 +76,9 @@ router.delete('/:id', ensureAuthenticated, function(req, res) {
 
 function handleUserTagsRequest(req, res) {
   var emberTags = [];
-  var query = req.query.user;
+  var id = req.query.user;
 
-  Tag.find(query, function(err, tags) {
+  Tag.find({user: id}, function(err, tags) {
     if (err) {
       console.log(query);
       return res.status(404).end();
@@ -88,12 +89,12 @@ function handleUserTagsRequest(req, res) {
         colour: tag.colour,
         user: tag.user
       };
+      console.log('emberTag user ' + emberTag.user);
       emberTags.push(emberTag);
     });
     return res.send({'tags': emberTags});
   });
 }
-
 
 module.exports = router;
 
