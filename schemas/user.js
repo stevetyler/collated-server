@@ -16,7 +16,9 @@ var userSchema = new Schema({
 });
 
 
-var tagColours = ['white', 'gold', 'pink', 'plum', 'orange', 'darkorange', 'salmon', 'chocolate', 'indianred', 'cornflowerblue', 'royalblue', 'slateblue', 'mediumseagreen', 'darkcyan', 'dimgray'];
+/* 
+    Old methods used in Telegram - not in use
+*/
 
 // methods are called on instances of the User object ie actual objects
 userSchema.methods.makeEmberUser = function (loggedInUser) {
@@ -25,7 +27,6 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
     name: this.name,
     imageUrl: this.imageUrl,
     tagColoursAvailable: tagColours
-    // isFollowed: this.isFollowed(loggedInUser)
   };
   return emberUser;
 };
