@@ -83,11 +83,11 @@ router.put('/:id', ensureAuthenticated, function(req, res) {
     {$set: {tags: req.body.fav.tags}},
     function(err) {
       if (err) {
-      console.log(err);
-      return res.status(404).end();
-    }
-    return res.send();
-    }    
+        console.log(err);
+        return res.status(401).end();
+      }
+    return res.send({});
+    }  
   );
 });
 
@@ -95,7 +95,7 @@ router.delete('/:id', ensureAuthenticated, function(req, res) {
   Fav.remove({ _id: req.params.id }, function (err) {
     if (err) {
       console.log(err);
-      return res.status(404).end();
+      return res.status(401).end();
     }
     return res.send({});
   });
