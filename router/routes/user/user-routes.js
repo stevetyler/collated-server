@@ -57,52 +57,19 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-// user post requests for manual login only
-
-// router.post('/', function(req, res) {
-//   var defaultTag;
-
-//   if (req.body.user) {
-//     User.findOne({id: req.body.user.id}, function (err, user) {
-//       if (user) {
-//         // user already exists
-//         return res.status(400).end();
-//       }
-//       else {
-//         User.createUser(req.body.user, function(err, user) {
-//           if (err) {
-//             return res.status(500).end();
-//           }
-//           req.logIn(user, function(err) {
-//             if (err) {
-//               return res.status(500).end();
-//             }
-//             var emberUser = user.makeEmberUser(null); // null because no loggedinuser
-//             // return res.send({'user': emberUser});
-//           });
-//         });
-//       }
-//       Tag.findOne({id: 'Undefined'}, function(err, tag) {
-
-//         if (tag) {
-//           res.status(500).end();
-//         }
-//         else {
-//           console.log('Creating undefined tag');
-//           defaultTag = {
-//             id: 'Undefined',
-//             colour: 'white',
-//             user: req.body.user.id
-//           };
-//           Tag.create(defaultTag, function(err, tag) {
-//             done(err, tag);
-//           });
-//         }
-//         return res.send({'user': emberUser});
-//       });
-//     });
-//   }
-// });
+router.put('/:id', function(req, res) {
+  User.update(
+    {id: req.params.id},
+    {$set: {tagColoursAvailable: req.body.user.tagColoursAvailable}},
+    function(err) {
+      if(err) {
+        console.log(err);
+        return res.status(401).end();
+      }
+      return res.send({});
+    }
+  );
+});
 
 
 // function definitions
