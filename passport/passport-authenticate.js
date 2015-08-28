@@ -8,7 +8,7 @@ var configAuth = require('./../auth'); // import Twitter consumer key & secret
 
 var User = db.model('User');
 var Tag = db.model('Tag');
-
+var tagColours = ['white', 'gold', 'pink', 'plum', 'orange', 'darkorange', 'salmon', 'chocolate', 'indianred', 'cornflowerblue', 'royalblue', 'slateblue', 'mediumseagreen', 'darkcyan', 'dimgray'];
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -70,7 +70,7 @@ passport.use(new TwitterStrategy({
         newUser.twitterAccessToken = token;
         newUser.twitterSecretToken = tokenSecret;
         newUser.twitterId = profile._json.id_str;
-        // newUser.tagColoursAvailable = tagColours;
+        newUser.tagColoursAvailable = tagColours;
 
         User.create(newUser, function(err, user) {
           if (err) {
@@ -123,8 +123,17 @@ passport.deserializeUser(function(id, done) {
 function modifyTwitterURL(url) {
   var newUrl;
 
-  if (url.lastIndexOf('normal') !== -1) {
-    newUrl = url.substring(0, url.lastIndexOf('normal')) + 'bigger.jpeg';
+  if (url.indexOf('default_profile') !== -1) {
+    return url;
+  }
+  else if (url.lastIndexOf('normal.jpg') !== -1) {
+    // use regex instead
+    newUrl = url.substring(0, url.lastIndexOf('normal.jpg')) + 'bigger.jpg';
+    return newUrl;
+  }
+  else if (url.lastIndexOf('normal.jpeg') !== -1) {
+    // use regex instead
+    newUrl = url.substring(0, url.lastIndexOf('normal.jpeg')) + 'bigger.jpeg';
     return newUrl;
   }
   else {
