@@ -26,6 +26,9 @@ router.get('/', function(req, res) {
   } else if (req.query.operation === 'userFavs') {
     // logger.info('GET favs for user/index route');
     getUserFavs(req, res);
+  } else if (req.query.operation === 'filterFavs') {
+    // logger.info('GET favs for user/index route');
+    getFilteredFavs(req, res);
   } else if (req.query.operation === 'importFavs') {
     getTwitterFavs(req, res);
   }
@@ -126,22 +129,6 @@ function getMyFavs (req, res) {
       emberFavs.push(emberFav);
     });
     return res.send({'favs': emberFavs});
-    // find all user tags, then fav tags
-    // Tag.find(query, function(err, tags) {
-    //   if (err) {
-    //     res.status(403).end();
-    //   }
-    //   tags.forEach(function(tag) {
-    //     var emberTag = {
-    //       id: tag._id,
-    //       user: tag.user,
-    //       name: tag.name,
-    //       colour: tag.colour
-    //     };
-    //     emberTags.push(emberTag);
-    //     return res.send({'favs': emberFavs, 'tags': emberTags});
-    //   });
-    // });
   });
 }
 
@@ -160,7 +147,8 @@ function getUserFavs(req, res) {
         user: fav.user,
         body: fav.body,
         createdDate: fav.createdDate,
-        author: fav.author
+        author: fav.author,
+        tags: fav.tags
       };
       emberFavs.push(emberFav);
     });
@@ -168,32 +156,32 @@ function getUserFavs(req, res) {
   });
 }
 
+function getFilteredFavs(req, res) {
+  var tagIds = req.query.tags.toString().split('+');
+  var emberFavs = [];
+  var query = {user: req.query.user, tags: tagIds};
+  // console.log(tagIds);
 
-// function addTagId(favId, tagId, done) {
-//   Fav.findOneAndUpdate(
-//     {id: favId},
-//     {$push: {tags: tagId}},
-//     function(err, fav) {
-//       if (err) {
-//         return done(err);
-//       }
-//       done(null);
-//     }
-//   );
-// }
+  Fav.find(query, function(err, favs) {
+    if (err) {
+      // console.log('sending 404');
+      return res.status(404).end();
+    }
+    favs.forEach(function(fav) {
+      var emberFav = {
+        id: fav._id,
+        user: fav.user,
+        body: fav.body,
+        createdDate: fav.createdDate,
+        author: fav.author,
+        tags: fav.tags
+      };
+      emberFavs.push(emberFav);
+    });
+    return res.send({'favs': emberFavs});
+  });
+}
 
-// function removeTagId(tagId, loggedInUserId, done) {
-//   Fav.findOneAndUpdate(
-//     {id: favId},
-//     {$pull: {tags: tagId}},
-//     function(err, fav) {
-//       if (err) {
-//         return done(err);
-//       }
-//       done(null);
-//     }
-//   );
-// }
 
 function getTwitterFavs(req, res) {
   var emberFavs = [];
