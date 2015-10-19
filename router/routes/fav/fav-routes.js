@@ -159,7 +159,7 @@ function getUserFavs(req, res) {
 function getFilteredFavs(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var emberFavs = [];
-  var query = {user: req.query.user, tags: {$in:tagIds}};
+  var query = {user: req.query.user, tags: {$all:tagIds}};
   // console.log(tagIds);
 
   Fav.find(query, function(err, favs) {
