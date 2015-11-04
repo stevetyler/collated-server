@@ -25,39 +25,42 @@ router.get('/', function(req, res) {
 
 // Creating a tag from myFavs
 
+// user should be based on session not req
+// match req.user with authenticated user and throw error if not
+
 router.post('/', ensureAuthenticated, function(req, res) {
-  var tag = {
-    id: req.body.tag.id,
-    colour: req.body.tag.colour,
-    user: req.body.tag.user
-  };
   var newTag;
 
-  if (req.body.tag.id) {
-    Tag.findOne({id: req.body.tag.id}, function(err, data) {
-      if (data) {
-        // tag already exists
-        res.status(400).end();
-      }
-      else {
-        newTag = new Tag(tag);
-        newTag.save(function(err, tag) {
-          if (err) {
-            // sends different error from browser to identify origin
-            res.status(501).end();
-          }
-          // copy of tag, needed?
-          // var emberTag = {
-          //   id: tag.id, 
-          //   colour: tag.colour
-          // };
-          console.log('Tag created with name ' + tag.id);
-          console.log('Tag created with colour ' + tag.colour);
-          console.log('Tag created with user ' + tag.user);
-          return res.send({'tag': tag});
-        });
-      }
-    });
+  if (req.user.id === req.body.tag.user) {
+    var tag = {
+      id: req.body.tag.id,
+      colour: req.body.tag.colour,
+      user: req.body.tag.user
+    };
+    
+    if (req.body.tag.id) {
+      Tag.findOne({id: req.body.tag.id}, function(err, data) {
+        if (data) {
+          // tag already exists
+          res.status(400).end();
+        }
+        else {
+          newTag = new Tag(tag);
+          newTag.save(function(err, tag) {
+            if (err) {
+              // sends different error from browser to identify origin
+              res.status(501).end();
+            }
+            // copy of tag, needed?
+            // var emberTag = {
+            //   id: tag.id, 
+            //   colour: tag.colour
+            // };
+            return res.send({'tag': tag});
+          });
+        }
+      });
+    }
   }
   else {
     return res.status(401).end();
