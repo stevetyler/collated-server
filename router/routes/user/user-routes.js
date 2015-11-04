@@ -15,7 +15,7 @@ router.get('/auth/twitter', passport.authenticate('twitter'), function(req, res)
      logger.info('Redirecting to Twitter');
 });
 
-router.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/stevetyler_uk/favs', failureRedirect: '/'
+router.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/with-account', failureRedirect: '/'
 
 }));
 
