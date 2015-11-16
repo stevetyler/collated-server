@@ -11,8 +11,7 @@ var userSchema = new Schema({
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
-  twitterLastTweetId: String,
-  tagColoursAvailable: [String]
+  twitterLastTweetId: String
 });
 
 
@@ -25,8 +24,7 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
   var emberUser = {
     id: this.id,
     name: this.name,
-    imageUrl: this.imageUrl,
-    tagColoursAvailable: tagColours
+    imageUrl: this.imageUrl
   };
   return emberUser;
 };
