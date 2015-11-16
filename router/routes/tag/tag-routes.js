@@ -39,7 +39,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
     };
     
     if (req.body.tag.id) {
-      Tag.findOne({id: req.body.tag.id}, function(err, data) {
+      Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, function(err, data) {
         if (data) {
           // tag already exists
           res.status(400).end();
