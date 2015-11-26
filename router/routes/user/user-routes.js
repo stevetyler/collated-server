@@ -40,22 +40,22 @@ router.get('/', function(req, res) {
   }
 });
 
-// router.get('/:id', function(req, res) {
-//   var userId = req.params.id;
-//   var loggedInUser = req.user;
+router.get('/:id', function(req, res) {
+  var userId = req.params.id;
+  var loggedInUser = req.user;
 
-//   User.findOne({id: userId}, function(err, user) {
-//     if (err) {
-//       return res.status(500).end();
-//     }
-//     if (!user) {
-//       return res.status(404).end();
-//     }
-//     var emberUser = user.makeEmberUser(user, loggedInUser);
+  User.findOne({id: userId}, function(err, user) {
+    if (err) {
+      return res.status(500).end();
+    }
+    if (!user) {
+      return res.status(404).end();
+    }
+    var emberUser = user.makeEmberUser(user, loggedInUser); // why 2 params?
 
-//     res.send({'user': emberUser});
-//   });
-// });
+    res.send({'user': emberUser});
+  });
+});
 
 router.put('/:id', function(req, res) {
   User.update(

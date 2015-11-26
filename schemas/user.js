@@ -15,12 +15,11 @@ var userSchema = new Schema({
 });
 
 
-/* 
-    Old methods used in Telegram - not in use
-*/
+
 
 // methods are called on instances of the User object ie actual objects
-userSchema.methods.makeEmberUser = function (loggedInUser) {
+// is param needed?
+userSchema.methods.makeEmberUser = function (requestedUser) {
   var emberUser = {
     id: this.id,
     name: this.name,
@@ -28,6 +27,10 @@ userSchema.methods.makeEmberUser = function (loggedInUser) {
   };
   return emberUser;
 };
+
+/* 
+    Old methods used in Telegram - not in use
+*/
 
 userSchema.methods.isFollowed = function (loggedInUser) {
   if (loggedInUser) {
