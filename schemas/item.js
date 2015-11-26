@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var favSchema = new Schema({
+var itemSchema = new Schema({
   id: String,
   user: String,
   tags: [String],
@@ -13,4 +13,4 @@ var favSchema = new Schema({
   twitterLastTweetId: String
 });
 
-module.exports = favSchema;
+module.exports = itemSchema;

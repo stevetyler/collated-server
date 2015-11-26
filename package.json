@@ -1,6 +1,6 @@
 {
-  "name": "webdevfavs-server",
-  "description": "Web Dev Organiser",
+  "name": "collated-server",
+  "description": "Web Content Organiser",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

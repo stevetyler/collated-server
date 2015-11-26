@@ -10,11 +10,11 @@ var User = db.model('User');
 var Tag = db.model('Tag');
 
 
-// Requesting tags for myFavs or user page
+// Requesting tags for myItems or user page
 
 router.get('/', function(req, res) {
   if (req.query.operation === 'userTags') {
-    // logger.info('GET favs for myFavs');
+    // logger.info('GET items for myItems');
     handleUserTagsRequest(req, res);
   }
   else {
@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
 });
 
 
-// Creating a tag from myFavs
+// Creating a tag from myItems
 
 // user should be based on session not req
 // match req.user with authenticated user and throw error if not
