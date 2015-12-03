@@ -71,6 +71,33 @@ router.put('/:id', function(req, res) {
   );
 });
 
+router.post('/', function(req, res) {
+  console.log('post log');
+  if (req.body.user) {
+    User.findOne({id: req.body.user.id}, function (err, user) {
+      if (user) {
+        // user already exists
+        res.status(400).end();
+      }
+      else {
+        User.createUser(req.body.user, function(err, user) {
+          if (err) {
+            return res.status(500).end();
+          }
+          req.logIn(user, function(err) {
+            if (err) {
+              return res.status(500).end();
+            }
+            var emberUser = user.makeEmberUser(null); // null because no loggedinuser
+            return res.send({'user': emberUser});
+          });
+        });
+      }
+    });
+  }
+});
+
+
 
 // function definitions
 

@@ -1,4 +1,4 @@
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 var logger = require('nlogger').logger(module);
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -15,8 +15,6 @@ var userSchema = new Schema({
 });
 
 
-
-
 // methods are called on instances of the User object ie actual objects
 // is param needed?
 userSchema.methods.makeEmberUser = function (requestedUser) {
@@ -26,19 +24,6 @@ userSchema.methods.makeEmberUser = function (requestedUser) {
     imageUrl: this.imageUrl
   };
   return emberUser;
-};
-
-/* 
-    Old methods used in Telegram - not in use
-*/
-
-userSchema.methods.isFollowed = function (loggedInUser) {
-  if (loggedInUser) {
-    var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
-    // logger.info('The loggedin user is following user \'' + user.id + '\': ', userIsFollowing);
-    return userIsFollowing ? true : false;
-  }
-  return false;
 };
 
 // statics are generic functions
@@ -64,6 +49,7 @@ userSchema.statics.createUser = function(user, done) {
 };
 
 
+// bcrypt not installing
 userSchema.statics.encryptPassword = function (savedPassword, cb) {
 	bcrypt.genSalt(10, function(err, salt) {
 		if (err) {
@@ -81,6 +67,13 @@ userSchema.statics.encryptPassword = function (savedPassword, cb) {
   });
 };
 
-
+// userSchema.methods.isFollowed = function (loggedInUser) {
+//   if (loggedInUser) {
+//     var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
+//     // logger.info('The loggedin user is following user \'' + user.id + '\': ', userIsFollowing);
+//     return userIsFollowing ? true : false;
+//   }
+//   return false;
+// };
 
 module.exports = userSchema;
