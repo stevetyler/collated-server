@@ -1,0 +1,2 @@
+2015-12-05 17:01:01.463 WARN  nlogger - Config file not found. Using default configuration.
+2015-12-05 17:01:01.465 INFO  ../database/database:2 - load database.js

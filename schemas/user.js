@@ -11,6 +11,7 @@ var userSchema = new Schema({
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
+  twitterFirstTweetId: String,
   twitterLastTweetId: String
 });
 
