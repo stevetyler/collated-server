@@ -17,7 +17,6 @@ var ItemImporter = require("../../../lib/import-items.js");
 /*
 * Requesting items for myItems or user page
 */
-
 router.get('/', function(req, res) {
   console.log(req.query.operation);
   if (req.query.operation === 'myItems') {
@@ -90,7 +89,7 @@ router.put('/:id', ensureAuthenticated, function(req, res) {
         return res.status(401).end();
       }
     return res.send({});
-    }  
+    }
   );
 });
 

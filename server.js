@@ -1,5 +1,6 @@
 var db = require('./database/database');
 var express = require('express');
+var autoroute = require('express-autoroute');
 
 var app = express();
 // var server = app.listen(3000, function() {
@@ -12,6 +13,8 @@ var app = express();
 // var myFunc = require('./express-config');
 // myFunc(app);
 require('./express-config')(app);
+
+autoroute(app, {});
 
 require('./router')(app);
 
