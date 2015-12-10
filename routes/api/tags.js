@@ -9,11 +9,9 @@ module.exports.autoroute = {
 	get: {
 		'/tags' : getTags
 	},
-
 	post: {
 		'/tags': [ensureAuthenticated, postTags]
 	},
-
 	delete: {
 		'/tags/:id': [ensureAuthenticated, deleteTag]
 	}
@@ -34,7 +32,7 @@ function getTags(req, res){
 			colour: tag.colour,
 			user: tag.user
 		};
-		console.log('emberTag user ' + emberTag.user);
+		//console.log('emberTag user ' + emberTag.user);
 		emberTags.push(emberTag);
 		});
 		return res.send({'tags': emberTags});
@@ -61,7 +59,6 @@ function postTags(req, res){
           newTag = new Tag(tag);
           newTag.save(function(err, tag) {
             if (err) {
-              // sends different error from browser to identify origin
               res.status(501).end();
             }
             // copy of tag, needed?

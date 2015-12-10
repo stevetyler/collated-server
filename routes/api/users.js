@@ -1,26 +1,30 @@
-// var exports = module.exports = {};
 var async = require('async');
-var db = require('../../../database/database');
+var db = require('../../database/database');
 var logger = require('nlogger').logger(module);
-var passport = require('../../../passport/passport-authenticate');
+//var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
+var passport = require('../../passport/passport-authenticate');
 var passwordGenerator = require('password-generator');
-var router = require('express').Router(); // Router middleware
 
 var User = db.model('User');
 var Tag = db.model('Tag');
 
-// user get requests
+module.exports.autoroute = {
+	get: {
+    '/users/auth/twitter' : passport.authenticate('twitter'),
+    '/users/auth/twitter/callback' : passport.authenticate('twitter', { successRedirect: '/with-account', failureRedirect: '/'
+  }),
+		'/users' : getUser,
+    '/users/:id' : getUserId
+	},
+	put: {
+		'/users/:id': putUser
+	},
+  post: {
+    '/users': postUser
+  }
+};
 
-router.get('/auth/twitter', passport.authenticate('twitter'), function(req, res) {
-     logger.info('Redirecting to Twitter');
-});
-
-router.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/with-account', failureRedirect: '/'
-
-}));
-
-
-router.get('/', function(req, res) {
+function getUser(req, res) {
   var operation = req.query.operation;
   var user, userId, loggedInUser;
 
@@ -38,68 +42,7 @@ router.get('/', function(req, res) {
       return res.send({'users': users});
     });
   }
-});
-
-router.get('/:id', function(req, res) {
-  var userId = req.params.id;
-  var loggedInUser = req.user;
-
-  User.findOne({id: userId}, function(err, user) {
-    if (err) {
-      return res.status(500).end();
-    }
-    if (!user) {
-      return res.status(404).end();
-    }
-    var emberUser = user.makeEmberUser(user, loggedInUser); // why 2 params?
-
-    res.send({'user': emberUser});
-  });
-});
-
-router.put('/:id', function(req, res) {
-  User.update(
-    {id: req.params.id},
-    {$set: {tagColoursAvailable: req.body.user.tagColoursAvailable}},
-    function(err) {
-      if(err) {
-        console.log(err);
-        return res.status(401).end();
-      }
-      return res.send({});
-    }
-  );
-});
-
-router.post('/', function(req, res) {
-  console.log('post log');
-  if (req.body.user) {
-    User.findOne({id: req.body.user.id}, function (err, user) {
-      if (user) {
-        // user already exists
-        res.status(400).end();
-      }
-      else {
-        User.createUser(req.body.user, function(err, user) {
-          if (err) {
-            return res.status(500).end();
-          }
-          req.logIn(user, function(err) {
-            if (err) {
-              return res.status(500).end();
-            }
-            var emberUser = user.makeEmberUser(null); // null because no loggedinuser
-            return res.send({'user': emberUser});
-          });
-        });
-      }
-    });
-  }
-});
-
-
-
-// function definitions
+}
 
 function handleLoginRequest(req, res) {
   // uses 'local' calback function created by new LocalStrategy
@@ -135,7 +78,64 @@ function handleIsAuthenticatedRequest(req, res) {
   }
 }
 
+function getUserId(req, res) {
+  var userId = req.params.id;
+  var loggedInUser = req.user;
 
-module.exports = router;
+  User.findOne({id: userId}, function(err, user) {
+    if (err) {
+      return res.status(500).end();
+    }
+    if (!user) {
+      return res.status(404).end();
+    }
+    var emberUser = user.makeEmberUser(user, loggedInUser); // why 2 params?
+
+    res.send({'user': emberUser});
+  });  
+}
+
+function putUser(req, res) {
+  User.update(
+    {id: req.params.id},
+    {$set: {tagColoursAvailable: req.body.user.tagColoursAvailable}},
+    function(err) {
+      if(err) {
+        console.log(err);
+        return res.status(401).end();
+      }
+      return res.send({});
+    }
+  );
+}
+
+function postUser(req, res) {
+  console.log('post log');
+  if (req.body.user) {
+    User.findOne({id: req.body.user.id}, function (err, user) {
+      if (user) {
+        // user already exists
+        res.status(400).end();
+      }
+      else {
+        User.createUser(req.body.user, function(err, user) {
+          if (err) {
+            return res.status(500).end();
+          }
+          req.logIn(user, function(err) {
+            if (err) {
+              return res.status(500).end();
+            }
+            var emberUser = user.makeEmberUser(null); // null because no loggedinuser
+            return res.send({'user': emberUser});
+          });
+        });
+      }
+    });
+  }
+}
+
+
+
 
 
