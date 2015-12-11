@@ -39,7 +39,7 @@ userSchema.statics.createUser = function(user, done) {
       done(err);
     }
     user.password = encryptedPassword;
-    user.imageUrl = User.assignAvatar(user.id);
+    //user.imageUrl = User.assignAvatar(user.id);
 
     // returns mongodb user
     // Mongoose function === newUser.save() used previously in old
@@ -66,6 +66,20 @@ userSchema.statics.encryptPassword = function (savedPassword, cb) {
     return cb(err, hash);
     });
   });
+};
+
+userSchema.statics.assignAvatar = function (id) {
+  var image, path;
+
+  switch (id) {
+    case 'css-tricks' : image = 'css-tricks.jpg';
+    break;
+    case 'ember-london' : image = 'ember-london.jpg';
+    break;
+    default : image = 'guest.jpg';
+  }
+  path = '/assets/img/avatars/' + image;
+  return path;
 };
 
 // userSchema.methods.isFollowed = function (loggedInUser) {

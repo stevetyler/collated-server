@@ -1,6 +1,6 @@
-var db = require('../../database/database');
+var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
-var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
+var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
 var User = db.model('User');
 var Tag = db.model('Tag');

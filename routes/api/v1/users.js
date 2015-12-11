@@ -1,8 +1,8 @@
 var async = require('async');
-var db = require('../../database/database');
+var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
 //var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
-var passport = require('../../passport/passport-authenticate');
+var passport = require('../../../passport/passport-authenticate');
 var passwordGenerator = require('password-generator');
 
 var User = db.model('User');
@@ -10,9 +10,6 @@ var Tag = db.model('Tag');
 
 module.exports.autoroute = {
 	get: {
-    '/users/auth/twitter' : passport.authenticate('twitter'),
-    '/users/auth/twitter/callback' : passport.authenticate('twitter', { successRedirect: '/with-account', failureRedirect: '/'
-  }),
 		'/users' : getUser,
     '/users/:id' : getUserId
 	},
@@ -20,7 +17,8 @@ module.exports.autoroute = {
 		'/users/:id': putUser
 	},
   post: {
-    '/users': postUser
+    '/users': postUser,
+    '/users/logout': handleLogoutRequest
   }
 };
 
@@ -31,8 +29,6 @@ function getUser(req, res) {
   if (operation === 'login') { handleLoginRequest(req, res); }
 
   else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
-
-  else if (operation === 'logout') { handleLogoutRequest(req, res); }
 
   else {
     User.find({}, function(err, users) {

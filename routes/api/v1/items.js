@@ -1,12 +1,12 @@
-var db = require('../../database/database');
+var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
-var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
+var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 var Twitter = require('twitter');
-var configAuth = require('./../../auth');
+var configAuth = require('../../../auth');
 var User = db.model('User');
 var Item = db.model('Item');
 var Tag = db.model('Tag');
-var ItemImporter = require("../../lib/import-items.js");
+var ItemImporter = require("../../../lib/import-items.js");
 
 module.exports.autoroute = {
 	get: {
