@@ -11,7 +11,8 @@ var Tag = db.model('Tag');
 module.exports.autoroute = {
 	get: {
 		'/users' : getUser,
-    '/users/:id' : getUserId
+    '/users/:id' : getUserId,
+    '/users/authenticated': handleIsAuthenticatedRequest
 	},
 	put: {
 		'/users/:id': putUser
@@ -28,8 +29,7 @@ function getUser(req, res) {
 
   if (operation === 'login') { handleLoginRequest(req, res); }
 
-  else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
-
+  // else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
   else {
     User.find({}, function(err, users) {
       if (err) {
