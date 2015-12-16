@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
 var db = require('./../database/database');
-var LocalStrategy = require('passport-local').Strategy;
+//var LocalStrategy = require('passport-local').Strategy;
 var logger = require('nlogger').logger(module);
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
@@ -10,34 +10,32 @@ var User = db.model('User');
 var Tag = db.model('Tag');
 var tagColours = ["cp-colour-1", "cp-colour-2", "cp-colour-3", "cp-colour-4", "cp-colour-5", "cp-colour-6", "cp-colour-7", "cp-colour-8", "cp-colour-9", "cp-colour-10", "cp-colour-11", "cp-colour-12", "cp-colour-13", "cp-colour-14", "cp-colour-15", "cp-colour-16", "cp-colour-17", "cp-colour-18"];
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({id: username}, function (err, user){
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        return done(null, null, {message: 'Incorrect username'});
-      }
-      bcrypt.compare(password, user.password, function(err, res) {
-        if (err) {
-          logger.error('Bcrypt password compare error: ', err);
-        }
-        if (res) {
-          // logger.info('Bcrypt passed: ', res);
-          // logger.info('local returning user: ', user.id);
-          return done(null, user);
-        } else {
-          // logger.warn('Bcrypt failed: ', 'query: ',password);
-          // logger.warn( ' user.password: ', user.password);
-          return done(null, false, { message: 'Incorrect password.' } );
-        }
-      });
-    });
-  }
-));
- 
-// console.log(configAuth.twitterAuth.callbackURL);
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({id: username}, function (err, user){
+//       if (err) {
+//         return done(err);
+//       }
+//       if (!user) {
+//         return done(null, null, {message: 'Incorrect username'});
+//       }
+//       bcrypt.compare(password, user.password, function(err, res) {
+//         if (err) {
+//           logger.error('Bcrypt password compare error: ', err);
+//         }
+//         if (res) {
+//           // logger.info('Bcrypt passed: ', res);
+//           // logger.info('local returning user: ', user.id);
+//           return done(null, user);
+//         } else {
+//           // logger.warn('Bcrypt failed: ', 'query: ',password);
+//           // logger.warn( ' user.password: ', user.password);
+//           return done(null, false, { message: 'Incorrect password.' } );
+//         }
+//       });
+//     });
+//   }
+// ));
 
 passport.use(new TwitterStrategy({
     // pull in the app consumer key and secret from auth.js file
@@ -59,6 +57,7 @@ passport.use(new TwitterStrategy({
       if(user) {
         // update user tokens
         User.findOneAndUpdate({twitterId: profile._json.id_str}, {twitterAccessToken: token, twitterSecretToken: tokenSecret}, function(err, user) {
+          console.log("TWITTER LOGIN", user);
           return done(err, user);
         });
       } else {
@@ -80,6 +79,7 @@ passport.use(new TwitterStrategy({
           }
           newUser = user;
           // logger.info('User Created: ', user.id);
+          console.log("NEW TWITTER LOGIN", user);
           return done(null, user);
         });
       }
@@ -112,6 +112,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
   // Async function, done was being called every time
+  console.log("user deserialize", id);
   User.findOne({id: id}, function(err, user) {
     if (err) {
       return done(err);

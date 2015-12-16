@@ -7,12 +7,12 @@ var passwordGenerator = require('password-generator');
 
 var User = db.model('User');
 var Tag = db.model('Tag');
-
+console.log("loading users file");
 module.exports.autoroute = {
 	get: {
 		'/users' : getUser,
-    '/users/:id' : getUserId,
-    '/users/authenticated': handleIsAuthenticatedRequest
+		'/users/authenticated': handleIsAuthenticatedRequest,
+    '/users/:id' : getUserId
 	},
 	put: {
 		'/users/:id': putUser
@@ -24,12 +24,14 @@ module.exports.autoroute = {
 };
 
 function getUser(req, res) {
+	console.log("getuser ");
   var operation = req.query.operation;
   var user, userId, loggedInUser;
 
   if (operation === 'login') { handleLoginRequest(req, res); }
 
-  // else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
+  //else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
+
   else {
     User.find({}, function(err, users) {
       if (err) {
@@ -67,6 +69,8 @@ function handleLogoutRequest(req, res) {
 }
 
 function handleIsAuthenticatedRequest(req, res) {
+	console.log("handleIsAuthenticatedRequest");
+	console.log(req.user);
   if (req.isAuthenticated()) {
     return res.send({ users:[req.user] });
   } else {
@@ -88,7 +92,7 @@ function getUserId(req, res) {
     var emberUser = user.makeEmberUser(user, loggedInUser); // why 2 params?
 
     res.send({'user': emberUser});
-  });  
+  });
 }
 
 function putUser(req, res) {
@@ -130,8 +134,3 @@ function postUser(req, res) {
     });
   }
 }
-
-
-
-
-
