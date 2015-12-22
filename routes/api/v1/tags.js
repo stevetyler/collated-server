@@ -48,7 +48,7 @@ function postTags(req, res){
       colour: req.body.tag.colour,
       user: req.body.tag.user
     };
-    
+
     if (req.body.tag.id) {
       Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, function(err, data) {
         if (data) {
@@ -63,7 +63,7 @@ function postTags(req, res){
             }
             // copy of tag, needed?
             // var emberTag = {
-            //   id: tag.id, 
+            //   id: tag.id,
             //   colour: tag.colour
             // };
             return res.send({'tag': tag});
