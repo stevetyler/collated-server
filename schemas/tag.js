@@ -7,8 +7,6 @@ var tagSchema = new Schema({
   user: String
 });
 
-
-
 tagSchema.methods.makeEmberTag = function(tag, user) {
 	var emberTag = {
 		id: this.id,
@@ -16,7 +14,6 @@ tagSchema.methods.makeEmberTag = function(tag, user) {
 		user: this.user.id
 	};
 };
-
 
 tagSchema.statics.createTag = function(tag, done) {
 	var Tag = this.model('Tag');
