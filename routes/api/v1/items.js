@@ -16,7 +16,7 @@ module.exports.autoroute = {
 		'/items': [ensureAuthenticated, postItems]
 	},
 	put: {
-		'/items': [ensureAuthenticated, putItems]
+		'/items/:id': [ensureAuthenticated, putItems]
 	},
 	delete: {
 		'/items/:id': [ensureAuthenticated, deleteItems]
@@ -45,7 +45,7 @@ function getMyItems (req, res) {
   var emberItems = [];
   var emberTags = [];
   var query = {user: req.query.user};
-  
+
   console.log(req);
 
   Item.find(query, function(err, items) {
@@ -124,7 +124,7 @@ function getTwitterItems(req, res) {
 
   console.log('Get Twitter Items');
   console.log(req.user.twitterAccessToken, req.user.twitterSecretToken);
-  
+
   // manual import, pass whole user not just id which is inefficient
   ItemImporter.importItems(req.user, function(err, items) {
     if (err) {
@@ -205,4 +205,3 @@ function deleteItems(req, res) {
     return res.send({});
   });
 }
-
