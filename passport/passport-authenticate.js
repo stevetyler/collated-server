@@ -8,7 +8,6 @@ var configAuth = require('./../auth'); // import Twitter consumer key & secret
 
 var User = db.model('User');
 var Tag = db.model('Tag');
-var tagColours = ["cp-colour-1", "cp-colour-2", "cp-colour-3", "cp-colour-4", "cp-colour-5", "cp-colour-6", "cp-colour-7", "cp-colour-8", "cp-colour-9", "cp-colour-10", "cp-colour-11", "cp-colour-12", "cp-colour-13", "cp-colour-14", "cp-colour-15", "cp-colour-16", "cp-colour-17", "cp-colour-18"];
 
 // passport.use(new LocalStrategy(
 //   function(username, password, done) {
