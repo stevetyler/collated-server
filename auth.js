@@ -1,11 +1,11 @@
 
 if(process.env.NODE_ENV === 'production') {
-	console.log("Running In Production")
+	console.log("Running In Production");
 	module.exports = {
 		'twitterAuth' : {
 			'consumerKey': 'XyvBxHeu6CQp0WXyo8zMngtQn',
 			'consumerSecret': 'Pq92CeMt3Cnx6SWrgOWG7Pk580eaHhZoDMCmdFOdPZwbqvfsF8',
-			'callbackURL': 'http://www.collated.net/api/users/auth/twitter/callback'
+			'callbackURL': 'http://collated.net/api/users/auth/twitter/callback'
 		}
 	};
 } else {
