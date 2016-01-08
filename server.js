@@ -17,24 +17,14 @@ var app = express();
 // // load middleware first before router
 require('./express-config')(app);
 
-// app.get('/', function(req, res){
-//   // req.session.myNumber = req.session.myNumber ? req.session.myNumber++ : 1;
-//   if(!req.session.myNumber) {
-//     req.session.myNumber = 1;
-//   } else {
-//     req.session.myNumber++;
-//   }
-//   res.send('hello ' + req.session.myNumber);
-// })
-
 autoroute(app, {});
-//
-// // error handling
+
+// error handling
 app.use(function(err, req, res, next) {
     if (err) throw err;
     res.status(err.status || 500);
 });
-//
+
 // http://blog.mongolab.com/2013/11/deep-dive-into-connection-pooling/
 // waiting for 'open' event from mongoose.connection
 db.once('open', function() {
