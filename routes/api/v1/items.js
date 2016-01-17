@@ -7,10 +7,12 @@ var User = db.model('User');
 var Item = db.model('Item');
 var Tag = db.model('Tag');
 var ItemImporter = require("../../../lib/import-items.js");
+var MetaInspector = require('node-metainspector');
 
 module.exports.autoroute = {
 	get: {
-		'/items' : getItems
+		'/items': getItems,
+		'/items/get-title': getTitle,
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItems]
@@ -41,16 +43,33 @@ function getItems(req, res) {
   }
 }
 
+function getTitle(req, res) {
+	//console.log('get title called', req.query.data);
+  var client = new MetaInspector(req.query.data, { timeout: 5000 });
+	//var title;
+
+	client.on("fetch", function(){
+		if (client) {
+			var title = client.title;
+			//console.log('title', title);
+			return res.send(title);
+		}
+    //console.log("Links: " + client.links.join(","));
+  });
+  client.on("error", function(err){
+			return res.status('404').end();
+  });
+  client.fetch();
+}
+
 function getMyItems (req, res) {
   var emberItems = [];
   var emberTags = [];
   var query = {user: req.query.user};
 
-  console.log(req);
-
   Item.find(query, function(err, items) {
     if (err) {
-      console.log(query);
+      //console.log(query);
       return res.status(404).end();
     }
     // Mongo requires _id value
@@ -122,11 +141,10 @@ function getFilteredItems(req, res) {
 function getTwitterItems(req, res) {
   var emberItems = [];
 
-  console.log('Get Twitter Items');
-  console.log(req.user.twitterAccessToken, req.user.twitterSecretToken);
+  //console.log('Get Twitter Items');
+  //console.log(req.user.twitterAccessToken, req.user.twitterSecretToken);
 
-  // manual import, pass whole user not just id which is inefficient
-  ItemImporter.importItems(req.user, function(err, items) {
+  ItemImporter.importItems(req.user, req.query.options, function(err, items) {
     if (err) {
       return res.status(400).end();
     }
