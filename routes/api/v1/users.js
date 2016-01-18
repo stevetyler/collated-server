@@ -30,8 +30,6 @@ function getUser(req, res) {
 
   if (operation === 'login') { handleLoginRequest(req, res); }
 
-  //else if (operation === 'authenticated') { handleIsAuthenticatedRequest(req, res); }
-
   else {
     User.find({}, function(err, users) {
       if (err) {
@@ -69,8 +67,8 @@ function handleLogoutRequest(req, res) {
 }
 
 function handleIsAuthenticatedRequest(req, res) {
-	console.log("handleIsAuthenticatedRequest");
-	console.log(req.user);
+	//console.log("handleIsAuthenticatedRequest");
+	//console.log(req.user);
   if (req.isAuthenticated()) {
     return res.send({ users:[req.user] });
   } else {
