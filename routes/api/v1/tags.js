@@ -1,9 +1,11 @@
+var async = require('async');
 var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
 var User = db.model('User');
 var Tag = db.model('Tag');
+var Item = db.model('Item');
 
 module.exports.autoroute = {
 	get: {
@@ -17,24 +19,43 @@ module.exports.autoroute = {
 	}
 };
 
+// function countItems(tag) {
+// 	Item.count({tags: {$in: [tag]}}, function(err, count) {
+// 		if (err) {
+// 			return res.status(404).end();
+// 		}
+// 		return count;
+// 	});
+// }
+
 function getTags(req, res){
 	var emberTags = [];
 	var id = req.query.user;
 
 	Tag.find({user: id}, function(err, tags) {
 		if (err) {
-			console.log(query);
 			return res.status(404).end();
 		}
-		tags.forEach(function(tag) {
-		var emberTag = {
-			id: tag.id,
-			colour: tag.colour,
-			user: tag.user
-		};
-		//console.log('emberTag user ' + emberTag.user);
-		emberTags.push(emberTag);
+		async.each(tags, function(tag, done) {
+			Item.count({tags: {$in: [tag.id]}}, function(err, count) {
+				if (err) {
+					return res.status(404).end();
+				}
+				var emberTag = {
+					id: tag.id,
+					colour: tag.colour,
+					user: tag.user,
+					itemCount: count
+				};
+				// console.log('emberTag', emberTag); // ok
+				// console.log('emberTags inner', emberTags);
+				emberTags.push(emberTag);
+			}).then(function(emberTag) {
+				done();
+			});
 		});
+	}).then(function() {
+		//console.log('emberTags outer', emberTags);
 		return res.send({'tags': emberTags});
 	});
 }
