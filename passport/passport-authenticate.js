@@ -56,7 +56,7 @@ passport.use(new TwitterStrategy({
       if(user) {
         // update user tokens
         User.findOneAndUpdate({twitterId: profile._json.id_str}, {twitterAccessToken: token, twitterSecretToken: tokenSecret}, function(err, user) {
-          console.log("TWITTER LOGIN", user);
+          //console.log("TWITTER LOGIN", user);
           return done(err, user);
         });
       } else {
@@ -78,7 +78,7 @@ passport.use(new TwitterStrategy({
           }
           newUser = user;
           // logger.info('User Created: ', user.id);
-          console.log("NEW TWITTER LOGIN", user);
+          //console.log("NEW TWITTER LOGIN", user);
           return done(null, user);
         });
       }
