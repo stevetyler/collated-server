@@ -4,14 +4,17 @@ var Schema = mongoose.Schema;
 var tagSchema = new Schema({
   id: String,
   colour: String,
-  user: String
+  user: String,
+  itemCount: String
 });
 
+// not in use
 tagSchema.methods.makeEmberTag = function(tag, user) {
 	var emberTag = {
 		id: this.id,
 		colour: this.colour,
-		user: this.user.id
+		user: this.user.id,
+    itemCount: this.itemCount
 	};
 };
 
