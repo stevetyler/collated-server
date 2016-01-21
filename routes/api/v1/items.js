@@ -50,7 +50,7 @@ function getTitle(req, res) {
 
 	client.on("fetch", function(){
 		if (client) {
-			var title = client.title;
+			var title = client.title + ' | Link';
 			//console.log('title', title);
 			return res.send(title);
 		}
@@ -201,25 +201,29 @@ function postItems(req, res) {
 }
 
 function putItems(req, res) {
-	Item.update(
-    {_id: req.params.id},
-    {$set: {tags: req.body.item.tags}},
-    function(err) {
-      if (err) {
-        console.log(err);
-        return res.status(401).end();
-      }
-    return res.send({});
-    }
-  );
+	if (req.user.id === req.body.item.user) {
+		Item.update(
+	    {_id: req.params.id},
+	    {$set: {tags: req.body.item.tags}},
+	    function(err) {
+	      if (err) {
+	        console.log(err);
+	        return res.status(401).end();
+	      }
+	    return res.send({});
+	    }
+	  );
+	}
 }
 
 function deleteItems(req, res) {
-	Item.remove({ _id: req.params.id }, function (err) {
-    if (err) {
-      console.log(err);
-      return res.status(401).end();
-    }
-    return res.send({});
-  });
+	if (req.user.id === req.body.item.user) {
+		Item.remove({ _id: req.params.id }, function (err) {
+	    if (err) {
+	      console.log(err);
+	      return res.status(401).end();
+	    }
+	    return res.send({});
+	  });
+	}
 }
