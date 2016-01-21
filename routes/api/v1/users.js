@@ -14,9 +14,6 @@ module.exports.autoroute = {
 		'/users/authenticated': handleIsAuthenticatedRequest,
     '/users/:id' : getUserId
 	},
-	put: {
-		'/users/:id': putUser
-	},
   post: {
     '/users': postUser,
     '/users/logout': handleLogoutRequest
@@ -91,20 +88,6 @@ function getUserId(req, res) {
 
     res.send({'user': emberUser});
   });
-}
-
-function putUser(req, res) {
-  User.update(
-    {id: req.params.id},
-    {$set: {tagColoursAvailable: req.body.user.tagColoursAvailable}},
-    function(err) {
-      if(err) {
-        console.log(err);
-        return res.status(401).end();
-      }
-      return res.send({});
-    }
-  );
 }
 
 function postUser(req, res) {
