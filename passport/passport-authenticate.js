@@ -45,10 +45,9 @@ passport.use(new TwitterStrategy({
   // twitter will send back token and profile
   function(token, tokenSecret, profile, done) {
     // console.log(profile);
-    var newUser;
 
     User.findOne({ twitterId: profile._json.id_str }, function(err, user) {
-      logger.info('user found from twitter: ', profile);
+      //logger.info('user found from twitter: ', profile);
       if(err) {
         console.log(err);
         done(err);
@@ -68,7 +67,7 @@ passport.use(new TwitterStrategy({
         newUser.twitterAccessToken = token;
         newUser.twitterSecretToken = tokenSecret;
         newUser.twitterId = profile._json.id_str;
-        newUser.tagColoursAvailable = tagColours;
+        //console.log('new user created', newUser);
 
         User.create(newUser, function(err, user) {
           if (err) {
@@ -76,31 +75,35 @@ passport.use(new TwitterStrategy({
             // must return err or done will be called twice
             return done(err);
           }
-          newUser = user;
+          //newUser = user;
           // logger.info('User Created: ', user.id);
           //console.log("NEW TWITTER LOGIN", user);
-          return done(null, user);
+          //console.log('User create', user);
+          return user;
+        }).then(function(user) {
+          //console.log('create user id', user.id); // undefined
+
+          Tag.findOne({id: 'Undefined', user: user.id}, function(err, tag) {
+            if (tag) {
+              logger.error('Tag exists', tag);
+              return done(null, user);
+            }
+            else {
+              // console.log('Creating undefined tag');
+              defaultTag = {
+                id: 'Undefined',
+                colour: 'cp-colour-1',
+                user: user.id,
+                itemCount: 1
+              };
+              Tag.create(defaultTag, function(err, tag) {
+                done(err, tag);
+              });
+            }
+            return done(null, user);
+          });
         });
       }
-      // error if tag exists - can't set headers before they are sent
-      // Tag.findOne({id: 'Undefined'}, function(err, tag) {
-      //   if (tag) {
-      //     logger.error('Tag exists', tag);
-      //     return done(null, newUser);
-      //   }
-      //   else {
-      //     // console.log('Creating undefined tag');
-      //     defaultTag = {
-      //       id: 'Undefined',
-      //       colour: 'white',
-      //       user: newUser.id
-      //     };
-      //     Tag.create(defaultTag, function(err, tag) {
-      //       done(err, tag);
-      //     });
-      //   }
-      //   return done(null, newUser);
-      // });
     });
   })
 );

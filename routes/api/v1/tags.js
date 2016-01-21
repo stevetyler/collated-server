@@ -37,7 +37,7 @@ function getTags(req, res){
 			return res.status(404).end();
 		}
 		async.each(tags, function(tag, done) {
-			Item.count({tags: {$in: [tag.id]}}, function(err, count) {
+			Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
 				if (err) {
 					return res.status(404).end();
 				}
@@ -99,11 +99,13 @@ function postTags(req, res){
 }
 
 function deleteTag(req, res){
-	Tag.remove({ id: req.params.id }, function (err) {
-    if (err) {
-      console.log(err);
-      return res.status(404).end();
-    }
-    return res.send({});
-  });
+	if (req.user.id === req.body.tag.user) {
+		Tag.remove({ id: req.params.id }, function (err) {
+	    if (err) {
+	      console.log(err);
+	      return res.status(404).end();
+	    }
+	    return res.send({});
+	  });
+	}
 }
