@@ -36,6 +36,9 @@ function getTags(req, res){
 		if (err) {
 			return res.status(404).end();
 		}
+		return tags;
+	})
+	.exec().then(function(tags) {
 		async.each(tags, function(tag, done) {
 			Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
 				if (err) {
@@ -47,16 +50,18 @@ function getTags(req, res){
 					user: tag.user,
 					itemCount: count
 				};
-				// console.log('emberTag', emberTag); // ok
+				//console.log('emberTags inner', emberTags.length); // ok
 				// console.log('emberTags inner', emberTags);
 				emberTags.push(emberTag);
-			}).then(function(emberTag) {
 				done();
 			});
+		}, function(err) {
+			if (err) {
+				console.log(err);
+			}
+			//console.log('emberTags outer', emberTags.length);
+			return res.send({'tags': emberTags});
 		});
-	}).then(function() {
-		//console.log('emberTags outer', emberTags);
-		return res.send({'tags': emberTags});
 	});
 }
 
