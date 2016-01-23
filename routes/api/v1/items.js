@@ -217,13 +217,11 @@ function putItems(req, res) {
 }
 
 function deleteItems(req, res) {
-	if (req.user.id === req.body.item.user) {
-		Item.remove({ _id: req.params.id }, function (err) {
-	    if (err) {
-	      console.log(err);
-	      return res.status(401).end();
-	    }
-	    return res.send({});
-	  });
-	}
+	Item.remove({ _id: req.params.id }, function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(401).end();
+    }
+    return res.send({});
+  });
 }
