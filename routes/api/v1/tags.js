@@ -100,13 +100,11 @@ function postTags(req, res){
 }
 
 function deleteTag(req, res){
-	if (req.user.id === req.body.tag.user) {
-		Tag.remove({ id: req.params.id }, function (err) {
-	    if (err) {
-	      console.log(err);
-	      return res.status(404).end();
-	    }
-	    return res.send({});
-	  });
-	}
+	Tag.remove({ id: req.params.id }, function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(404).end();
+    }
+    return res.send({});
+  });
 }
