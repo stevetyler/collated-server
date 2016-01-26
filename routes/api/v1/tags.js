@@ -47,7 +47,6 @@ function getTags(req, res){
 					user: tag.user,
 					itemCount: count
 				};
-				//console.log('emberTags inner', emberTags.length); // ok
 				emberTags.push(emberTag);
 				done();
 			});
@@ -55,7 +54,6 @@ function getTags(req, res){
 			if (err) {
 				console.log(err);
 			}
-			//console.log('emberTags outer', emberTags.length);
 			return res.send({'tags': emberTags});
 		});
 	});
@@ -83,11 +81,11 @@ function postTags(req, res){
             if (err) {
               res.status(501).end();
             }
-            // copy of tag, needed?
-            // var emberTag = {
-            //   id: tag.id,
-            //   colour: tag.colour
-            // };
+            var emberTag = {
+              id: tag.id,
+              colour: tag.colour,
+							user: tag.user
+            };
             return res.send({'tag': tag});
           });
         }
