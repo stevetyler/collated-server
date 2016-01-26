@@ -1,13 +1,64 @@
 var bcrypt = require('bcrypt');
-var db = require('./../database/database');
 //var LocalStrategy = require('passport-local').Strategy;
 var logger = require('nlogger').logger(module);
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
-var configAuth = require('./../auth'); // import Twitter consumer key & secret
+
+var configAuth = require('./../auth');
+var db = require('./../database/database');
 
 var User = db.model('User');
 var Tag = db.model('Tag');
+
+passport.use(new TwitterStrategy({
+    consumerKey: configAuth.twitterAuth.consumerKey,
+    consumerSecret: configAuth.twitterAuth.consumerSecret,
+    callbackURL: configAuth.twitterAuth.callbackURL
+  },
+  function(token, tokenSecret, profile, done) {
+    User.findOne({ twitterId: profile._json.id_str }).exec().then(function(user) {
+      if(user) {
+        user.twitterAccessToken = token;
+        user.twitterSecretToken = tokenSecret;
+
+        return user.save();
+      } else {
+        // must return promise
+        return User.create({
+          id: profile._json.screen_name,
+          imageUrl: modifyTwitterURL(profile._json.profile_image_url),
+          name: profile._json.name,
+          twitterAccessToken: token,
+          twitterSecretToken:tokenSecret,
+          twitterId:  profile._json.id_str
+        });
+      }
+    })
+    // ^^ find or create user
+    .then(function(user){
+      return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
+        if (!tag) {
+          return Tag.create({
+            id: 'Undefined',
+            colour: 'cp-colour-1',
+            user: user.id,
+            itemCount: 1
+          }).then(function(){
+            return user;
+          });
+        }
+        return user;
+      });
+    })
+    .then(function(user){
+      return done(null, user);
+    })
+    .then(null, function(err){
+      console.log(err);
+      done(err);
+    });
+  })
+);
 
 // passport.use(new LocalStrategy(
 //   function(username, password, done) {
@@ -35,78 +86,6 @@ var Tag = db.model('Tag');
 //     });
 //   }
 // ));
-
-passport.use(new TwitterStrategy({
-    // pull in the app consumer key and secret from auth.js file
-    consumerKey: configAuth.twitterAuth.consumerKey,
-    consumerSecret: configAuth.twitterAuth.consumerSecret,
-    callbackURL: configAuth.twitterAuth.callbackURL
-  },
-  // twitter will send back token and profile
-  function(token, tokenSecret, profile, done) {
-    // console.log(profile);
-
-    User.findOne({ twitterId: profile._json.id_str }, function(err, user) {
-      //logger.info('user found from twitter: ', profile);
-      if(err) {
-        console.log(err);
-        done(err);
-      }
-      if(user) {
-        // update user tokens
-        User.findOneAndUpdate({twitterId: profile._json.id_str}, {twitterAccessToken: token, twitterSecretToken: tokenSecret}, function(err, user) {
-          //console.log("TWITTER LOGIN", user);
-          return done(err, user);
-        });
-      } else {
-        var newUser = {};
-
-        newUser.id = profile._json.screen_name;
-        newUser.imageUrl = modifyTwitterURL(profile._json.profile_image_url);
-        newUser.name = profile._json.name;
-        newUser.twitterAccessToken = token;
-        newUser.twitterSecretToken = tokenSecret;
-        newUser.twitterId = profile._json.id_str;
-        //console.log('new user created', newUser);
-
-        User.create(newUser, function(err, user) {
-          if (err) {
-            logger.error('User not Created', err);
-            // must return err or done will be called twice
-            return done(err);
-          }
-          //newUser = user;
-          // logger.info('User Created: ', user.id);
-          //console.log("NEW TWITTER LOGIN", user);
-          //console.log('User create', user);
-          return user;
-        }).then(function(user) {
-          //console.log('create user id', user.id); // undefined
-
-          Tag.findOne({id: 'Undefined', user: user.id}, function(err, tag) {
-            if (tag) {
-              logger.error('Tag exists', tag);
-              return done(null, user);
-            }
-            else {
-              // console.log('Creating undefined tag');
-              defaultTag = {
-                id: 'Undefined',
-                colour: 'cp-colour-1',
-                user: user.id,
-                itemCount: 1
-              };
-              Tag.create(defaultTag, function(err, tag) {
-                done(err, tag);
-              });
-            }
-            return done(null, user);
-          });
-        });
-      }
-    });
-  })
-);
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
