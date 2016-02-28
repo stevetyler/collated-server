@@ -84,7 +84,17 @@ function getUserId(req, res) {
     if (!user) {
       return res.status(404).end();
     }
-    var emberUser = user.makeEmberUser(user, loggedInUser); // why 2 params?
+
+		// Plans.findOne({_id: user.plan}).exec().then(function(plan){
+		// 	var permissions;
+		// 	if(!plan){
+		// 		permissions = [];
+		// 	} else {
+		// 		permissions = plan.permission;
+		// 	}
+		// })
+
+    var emberUser = user.makeEmberUser(user, loggedInUser); // pass in permissions when needed
 
     res.send({'user': emberUser});
   });
