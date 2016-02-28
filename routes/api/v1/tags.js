@@ -14,6 +14,9 @@ module.exports.autoroute = {
 	post: {
 		'/tags': [ensureAuthenticated, postTags]
 	},
+	// put: {
+	// 	'/tags/:id': [ensureAuthenticated, putTag]
+	// },
 	delete: {
 		'/tags/:id': [ensureAuthenticated, deleteTag]
 	}
@@ -45,7 +48,8 @@ function getTags(req, res){
 					id: tag.id,
 					colour: tag.colour,
 					user: tag.user,
-					itemCount: count
+					itemCount: count,
+					isPrivate: tag.isPrivate
 				};
 				emberTags.push(emberTag);
 				done();
@@ -66,7 +70,8 @@ function postTags(req, res){
     var tag = {
       id: req.body.tag.id,
       colour: req.body.tag.colour,
-      user: req.body.tag.user
+      user: req.body.tag.user,
+			isPrivate: req.body.tag.isPrivate
     };
 
     if (req.body.tag.id) {
@@ -84,7 +89,8 @@ function postTags(req, res){
             var emberTag = {
               id: tag.id,
               colour: tag.colour,
-							user: tag.user
+							user: tag.user,
+							isPrivate: tag.isPrivate
             };
             return res.send({'tag': tag});
           });
@@ -96,6 +102,26 @@ function postTags(req, res){
     return res.status(401).end();
   }
 }
+
+function putTag(req, res) {
+	if (req.user.id === req.body.tag.user) {
+		Tag.update({id: req.params.id},
+	    {$set: {
+				id: req.body.tag.id,
+				colour: req.body.tag.colour,
+				isPrivate: req.body.tag.isPrivate
+			}},
+	    function(err) {
+	      if (err) {
+	        console.log(err);
+	        return res.status(401).end();
+	      }
+	    return res.send({});
+	    }
+	  );
+	}
+}
+
 
 function deleteTag(req, res){
 	Tag.remove({ id: req.params.id }, function (err) {

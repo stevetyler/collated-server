@@ -5,7 +5,8 @@ var tagSchema = new Schema({
   id: String,
   colour: String,
   user: String,
-  itemCount: String
+  itemCount: String,
+  isPrivate: String
 });
 
 // not in use
