@@ -8,6 +8,8 @@ var Item = db.model('Item');
 var Tag = db.model('Tag');
 var ItemImporter = require("../../../lib/import-items.js");
 var MetaInspector = require('node-metainspector');
+var textSearch = require('mongoose-text-search');
+
 
 module.exports.autoroute = {
 	get: {
@@ -35,6 +37,9 @@ function getItems(req, res) {
   else if (req.query.operation === 'filterItems') {
   	getFilteredItems(req, res);
   }
+	else if (req.query.operation === 'searchItems') {
+		getSearchItems(req, res);
+	}
   else if (req.query.operation === 'importItems') {
     getTwitterItems(req, res);
   }
@@ -119,6 +124,31 @@ function getFilteredItems(req, res) {
   // console.log(tagIds);
 
   Item.find(query, function(err, items) {
+    if (err) {
+      // console.log('sending 404');
+      return res.status(404).end();
+    }
+    items.forEach(function(item) {
+      var emberItem = {
+        id: item._id,
+        user: item.user,
+        body: item.body,
+        createdDate: item.createdDate,
+        author: item.author,
+        tags: item.tags
+      };
+      emberItems.push(emberItem);
+    });
+    return res.send({'items': emberItems});
+  });
+}
+
+function getSearchItems(req, res) {
+	var string = req.query.search;
+
+	//var query = {user: req.query.user, body: {$in:search}};
+
+	Item.find(query, function(err, items) {
     if (err) {
       // console.log('sending 404');
       return res.status(404).end();
