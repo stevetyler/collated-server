@@ -13,6 +13,7 @@
     "express-autoroute": "^1.2.1",
     "express-session": "~1.12.1",
     "mongoose": "~4.0.5",
+    "mongoose-text-search": "0.0.2",
     "nlogger": "^1.0.0",
     "node-metainspector": "^1.2.0",
     "passport": "~0.2.2",
