@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var tagSchema = new Schema({
   id: String,
+  newId: String,
   colour: String,
   user: String,
   itemCount: String,
