@@ -14,9 +14,9 @@ module.exports.autoroute = {
 	post: {
 		'/tags': [ensureAuthenticated, postTags]
 	},
-	// put: {
-	// 	'/tags/:id': [ensureAuthenticated, putTag]
-	// },
+	put: {
+		'/tags/:id': [ensureAuthenticated, putTag]
+	},
 	delete: {
 		'/tags/:id': [ensureAuthenticated, deleteTag]
 	}
@@ -105,13 +105,14 @@ function postTags(req, res){
 
 function putTag(req, res) {
 	if (req.user.id === req.body.tag.user) {
+		//console.log(req.body);
 		Tag.update({id: req.params.id},
 	    {$set: {
-				id: req.body.tag.id,
+				//id: req.body.tag.newId,
 				colour: req.body.tag.colour,
 				isPrivate: req.body.tag.isPrivate
 			}},
-	    function(err) {
+	    function(err, tag) {
 	      if (err) {
 	        console.log(err);
 	        return res.status(401).end();
