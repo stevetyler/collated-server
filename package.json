@@ -19,6 +19,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "~1.0.3",
     "password-generator": "~1.0.0",
+    "stripe": "^4.4.0",
     "twitter": "~1.2.5"
   },
   "devDependencies": {
