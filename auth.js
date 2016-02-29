@@ -14,6 +14,10 @@ if(process.env.NODE_ENV === 'production') {
 			'consumerKey': 'LQeZCC9ekkkwJpJiXoIzJ0pbC',
 			'consumerSecret': 'm9bITFxUC0g6ZtSZSW1GpV5I5I6hAMctKt7IUWD7WbJqKV7sja',
 			'callbackURL': 'http://www.collated-dev.net/api/users/auth/twitter/callback'
+		},
+		'stripeAuth' : {
+			'testSecretKey': 'sk_test_izGkB2GmYEIiHPxDbP6pU0Cp',
+			'testPublishableKey': 'pk_test_DDjpbO1sCt8tREcXLZ8y9z3O'
 		}
 	};
 }
