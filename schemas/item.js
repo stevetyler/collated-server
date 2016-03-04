@@ -10,7 +10,8 @@ var itemSchema = new Schema({
   body: String,
   twitterTweetAuthor: String,
   twitterTweetId: String,
-  twitterLastTweetId: String
+  twitterLastTweetId: String,
+  isPrivate: String
 });
 
 module.exports = itemSchema;
