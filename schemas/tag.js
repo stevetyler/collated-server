@@ -10,8 +10,13 @@ var tagSchema = new Schema({
   isPrivate: String
 });
 
+
+tagSchema.methods.getPrivateTags = function(user, tags, done) {
+
+};
+
 // not in use
-tagSchema.methods.makeEmberTag = function(tag, user) {
+tagSchema.methods.makeEmberTag = function(tag, user, done) {
 	var emberTag = {
 		id: this.id,
 		colour: this.colour,
