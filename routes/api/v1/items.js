@@ -28,10 +28,7 @@ module.exports.autoroute = {
 };
 
 function getItems(req, res) {
-	if (req.query.operation === 'myItems') {
-    getMyItems(req, res);
-  }
-  else if (req.query.operation === 'userItems') {
+  if (req.query.operation === 'userItems') {
     getUserItems(req, res);
   }
   else if (req.query.operation === 'filterItems') {
@@ -67,56 +64,51 @@ function getTitle(req, res) {
   client.fetch();
 }
 
-function getMyItems (req, res) {
-  var emberItems = [];
-  var emberTags = [];
-  var query = {user: req.query.user};
-
-  Item.find(query, function(err, items) {
-    if (err) {
-      //console.log(query);
-      return res.status(404).end();
-    }
-    // Mongo requires _id value
-    items.forEach(function(item) {
-      var emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags
-      };
-      emberItems.push(emberItem);
-    });
-    return res.send({'items': emberItems});
-  });
-}
-
 function getUserItems(req, res) {
   var emberItems = [];
-  var query = {user: req.query.user};
+  var privateTags = [];
 
-  Item.find(query, function(err, items) {
-    if (err) {
-      // console.log('sending 404');
-      return res.status(404).end();
-    }
-    items.forEach(function(item) {
-      var emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags
-      };
-      emberItems.push(emberItem);
-    });
-    return res.send({'items': emberItems});
-  });
+	Tag.find({user: req.query.user, isPrivate: 'true'}, function(err, tags) {
+		if (tags) {
+			tags.forEach(function(tag) {
+				privateTags.push(tag.id);
+			});
+		}
+		// console.log('private Tags', privateTags);
+		// if return privateTags to then, yields array of objects with private tags ids??
+	})
+	.exec().then(function() {
+		Item.find({user: req.query.user}, function(err, items) {
+	    if (err) {
+	      return res.status(404).end();
+	    }
+	    items.forEach(function(item) {
+				var isPrivate = false;
+				var itemTags = item.tags;
+				var emberItem;
+
+				for (var i = 0; i < privateTags.length; i++) {
+					if (item.tags.indexOf(privateTags[i]) !== -1) {
+						isPrivate = true;
+					}
+				}
+				emberItem = {
+	        id: item._id,
+	        user: item.user,
+	        body: item.body,
+	        createdDate: item.createdDate,
+	        author: item.author,
+	        tags: item.tags,
+					isPrivate: isPrivate
+	      };
+	      emberItems.push(emberItem);
+	    });
+	    return res.send({'items': emberItems});
+	  });
+	});
 }
 
+// create method to find private tags
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var emberItems = [];
@@ -135,7 +127,8 @@ function getFilteredItems(req, res) {
         body: item.body,
         createdDate: item.createdDate,
         author: item.author,
-        tags: item.tags
+        tags: item.tags,
+				isPrivate: false
       };
       emberItems.push(emberItem);
     });
