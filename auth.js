@@ -5,7 +5,7 @@ if(process.env.NODE_ENV === 'production') {
 		'twitterAuth' : {
 			'consumerKey': 'XyvBxHeu6CQp0WXyo8zMngtQn',
 			'consumerSecret': 'Pq92CeMt3Cnx6SWrgOWG7Pk580eaHhZoDMCmdFOdPZwbqvfsF8',
-			'callbackURL': 'https://www.collated.net/api/users/auth/twitter/callback'
+			'callbackURL': 'http://www.collated.net/api/users/auth/twitter/callback'
 		}
 	};
 } else {
