@@ -20,7 +20,8 @@ passport.use(new TwitterStrategy({
       if(user) {
         user.twitterAccessToken = token;
         user.twitterSecretToken = tokenSecret;
-
+        user.imageUrl = modifyTwitterURL(profile._json.profile_image_url);
+        // console.log(user.imageUrl);
         return user.save();
       } else {
         // must return promise
@@ -102,24 +103,28 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+function convertToHttps(url) {
+  return url.replace(/^http:\/\//i, 'https://');
+}
+
 function modifyTwitterURL(url) {
   var newUrl;
 
   if (url.indexOf('default_profile') !== -1) {
-    return url;
+    return convertToHttps(url);
   }
   else if (url.lastIndexOf('normal.jpg') !== -1) {
     // use regex instead
     newUrl = url.substring(0, url.lastIndexOf('normal.jpg')) + 'bigger.jpg';
-    return newUrl;
+    return convertToHttps(newUrl);
   }
   else if (url.lastIndexOf('normal.jpeg') !== -1) {
     // use regex instead
     newUrl = url.substring(0, url.lastIndexOf('normal.jpeg')) + 'bigger.jpeg';
-    return newUrl;
+    return convertToHttps(newUrl);
   }
   else {
-    return url;
+    return convertToHttps(url);
   }
 }
 
