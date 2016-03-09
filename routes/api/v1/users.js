@@ -1,13 +1,15 @@
 var async = require('async');
-var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
+var passwordGenerator = require('password-generator');
+
+var db = require('../../../database/database');
 //var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
 var passport = require('../../../passport/passport-authenticate');
-var passwordGenerator = require('password-generator');
 
 var User = db.model('User');
 var Tag = db.model('Tag');
-console.log("loading users file");
+//console.log("loading users file");
+
 module.exports.autoroute = {
 	get: {
 		'/users' : getUser,

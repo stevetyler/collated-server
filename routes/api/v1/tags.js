@@ -1,11 +1,12 @@
 var async = require('async');
-var db = require('../../../database/database');
 var logger = require('nlogger').logger(module);
+
+var db = require('../../../database/database');
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
 var User = db.model('User');
-var Tag = db.model('Tag');
 var Item = db.model('Item');
+var Tag = db.model('Tag');
 
 module.exports.autoroute = {
 	get: {
