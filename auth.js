@@ -6,6 +6,11 @@ if(process.env.NODE_ENV === 'production') {
 			'consumerKey': 'XyvBxHeu6CQp0WXyo8zMngtQn',
 			'consumerSecret': 'Pq92CeMt3Cnx6SWrgOWG7Pk580eaHhZoDMCmdFOdPZwbqvfsF8',
 			'callbackURL': 'https://www.collated.net/api/users/auth/twitter/callback'
+		},
+		'facebookAuth' : {
+			'clientID': '1721418721405997',
+    	'clientSecret': 'e781661208f5ea1ed2cc34dd082827b8',
+    	'callbackURL': 'https://www.collated.net/api/users/auth/facebook/callback'
 		}
 	};
 } else {
@@ -18,6 +23,11 @@ if(process.env.NODE_ENV === 'production') {
 		'stripeAuth' : {
 			'testSecretKey': 'sk_test_izGkB2GmYEIiHPxDbP6pU0Cp',
 			'testPublishableKey': 'pk_test_DDjpbO1sCt8tREcXLZ8y9z3O'
+		},
+		'facebookAuth' : {
+			'clientID': '701467179956411',
+    	'clientSecret': 'ea827fe75118ba12e6789577f32c9576',
+    	'callbackURL': 'http://www.collated-dev.net/api/users/auth/facebook/callback'
 		}
 	};
 }
