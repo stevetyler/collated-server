@@ -1,5 +1,5 @@
-var testKey = 'sk_test_izGkB2GmYEIiHPxDbP6pU0Cp';
-var stripe = require('stripe')(testKey);
+var configAuth = require('./../../../auth');
+var stripe = require('stripe')(configAuth.stripeAuth.testSecretKey);
 
 module.exports.autoroute = {
 	get: {
