@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt');
 var logger = require('nlogger').logger(module);
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var configAuth = require('./../auth');
 var db = require('./../database/database');
@@ -61,32 +62,58 @@ passport.use(new TwitterStrategy({
   })
 );
 
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.findOne({id: username}, function (err, user){
-//       if (err) {
-//         return done(err);
-//       }
-//       if (!user) {
-//         return done(null, null, {message: 'Incorrect username'});
-//       }
-//       bcrypt.compare(password, user.password, function(err, res) {
-//         if (err) {
-//           logger.error('Bcrypt password compare error: ', err);
-//         }
-//         if (res) {
-//           // logger.info('Bcrypt passed: ', res);
-//           // logger.info('local returning user: ', user.id);
-//           return done(null, user);
-//         } else {
-//           // logger.warn('Bcrypt failed: ', 'query: ',password);
-//           // logger.warn( ' user.password: ', user.password);
-//           return done(null, false, { message: 'Incorrect password.' } );
-//         }
-//       });
-//     });
-//   }
-// ));
+passport.use(new FacebookStrategy({
+    clientID : configAuth.facebookAuth.clientID,
+    clientSecret : configAuth.facebookAuth.clientSecret,
+    callbackURL : configAuth.facebookAuth.callbackURL,
+    profileFields : ['id', 'displayName', 'photos', 'profileUrl']
+  },
+  function(accessToken, secretToken, profile, done) {
+    var newId = profile.displayName.toLowerCase().split(' ').join('.');
+
+    // find facebookId or id
+    User.findOne({ facebookId : profile.id}).exec().then(function(user) {
+      if (user) {
+        user.facebookAccessToken = accessToken;
+        user.facebookSecretToken = secretToken;
+        user.imageUrl = profile.photos[0].value;
+        return user.save();
+      } else {
+        return User.create({
+          id: newId,
+          name: profile.displayName,
+          imageUrl: profile.photos[0].value,
+          facebookAccessToken: accessToken,
+          facebookSecretToken: secretToken,
+          facebookId: profile.id
+        });
+      }
+    })
+    .then(function(user){
+      return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
+        if (!tag) {
+          return Tag.create({
+            id: 'Undefined',
+            colour: 'cp-colour-1',
+            user: user.id,
+            itemCount: 1
+          }).then(function(){
+            return user;
+          });
+        }
+        return user;
+      });
+    })
+    .then(function(user){
+      console.log('new fb user created', user);
+      return done(null, user);
+    })
+    .then(null, function(err){
+      console.log(err);
+      done(err);
+    });
+  }
+));
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -102,6 +129,39 @@ passport.deserializeUser(function(id, done) {
     return done(null, user);
   });
 });
+
+
+// function findAndGenerateId(user) {
+//   var queryId = user.name.toLowerCase().split(' ').join('.');
+//
+//   User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
+//     var tmp = 0;
+//     var newId;
+//     // find all ids that contain queryId and increment if found
+//     if (!users) {
+//       newId = queryId;
+//     }
+//     else if (users.length === 1) {
+//       newId = queryId + '.' + '1';
+//     }
+//     else if (users.length > 1) {
+//       // search for highest id eg steve.tyler.3
+//       users.forEach(function(user) {
+//         var userId = user.id.split('.');
+//         var num = parseInt(userId[2], 10);
+//
+//         if (userId.length === 2 ) {
+//           if (num > tmp) {
+//             tmp = num;
+//           }
+//         }
+//       });
+//       tmp++;
+//       newId = queryId + '.' + tmp.toString();
+//     }
+//     return newId;
+//   });
+// }
 
 function convertToHttps(url) {
   return url.replace(/^http:\/\//i, 'https://');
