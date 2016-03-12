@@ -1,20 +1,22 @@
 var bcrypt = require('bcrypt');
 var logger = require('nlogger').logger(module);
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
+var Schema = mongoose.Schema;
 var userSchema = new Schema({
   id: String,
   name: String,
   password: String,
   imageUrl: String,
+  facebookAccessToken: String,
+  facebookSecretToken: String,
+  facebookId: String,
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
   twitterFirstTweetId: String,
   twitterLastTweetId: String
 });
-
 
 // methods are called on instances of the User object ie actual objects
 // is param needed?
