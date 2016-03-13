@@ -69,9 +69,9 @@ passport.use(new FacebookStrategy({
     profileFields : ['id', 'displayName', 'photos', 'profileUrl']
   },
   function(accessToken, secretToken, profile, done) {
-    var newId = profile.displayName.toLowerCase().split(' ').join('.');
-
-    // find facebookId or id
+    var displayName = profile.displayName;
+    var newId;
+    console.log()
     User.findOne({ facebookId : profile.id}).exec().then(function(user) {
       if (user) {
         user.facebookAccessToken = accessToken;
@@ -79,6 +79,47 @@ passport.use(new FacebookStrategy({
         user.imageUrl = profile.photos[0].value;
         return user.save();
       } else {
+        return user;
+      }
+    })
+    //.then(findAndGenerateId())
+    .then(function(user) {
+      console.log('findAndGenerate called');
+      var queryId = displayName.toLowerCase().split(' ').join('.');
+
+      if (!user) {
+        User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
+          var tmp = 0;
+          var newId;
+          // find all ids that contain queryId and increment if found
+          if (!users) {
+            newId = queryId;
+          }
+          else if (users.length === 1) {
+            newId = queryId + '.' + '1';
+          }
+          else if (users.length > 1) {
+            // search for highest id eg steve.tyler.3
+            users.forEach(function(user) {
+              var userId = user.id.split('.');
+              var num = parseInt(userId[2], 10);
+
+              if (userId.length === 2 ) {
+                if (num > tmp) {
+                  tmp = num;
+                }
+              }
+            });
+            tmp++;
+            newId = queryId + '.' + tmp.toString();
+          }
+        });
+      }
+      return user;
+    })
+    .then(function(user) {
+      if (!user) {
+        console.log('user doesn\'t exist');
         return User.create({
           id: newId,
           name: profile.displayName,
@@ -87,9 +128,13 @@ passport.use(new FacebookStrategy({
           facebookSecretToken: secretToken,
           facebookId: profile.id
         });
+      } else {
+        console.log('user exists');
       }
+      return user;
     })
     .then(function(user){
+      console.log(user);
       return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
         if (!tag) {
           return Tag.create({
@@ -132,35 +177,38 @@ passport.deserializeUser(function(id, done) {
 
 
 // function findAndGenerateId(user) {
-//   var queryId = user.name.toLowerCase().split(' ').join('.');
+//   console.log('findAndGenerate called');
 //
-//   User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
-//     var tmp = 0;
-//     var newId;
-//     // find all ids that contain queryId and increment if found
-//     if (!users) {
-//       newId = queryId;
-//     }
-//     else if (users.length === 1) {
-//       newId = queryId + '.' + '1';
-//     }
-//     else if (users.length > 1) {
-//       // search for highest id eg steve.tyler.3
-//       users.forEach(function(user) {
-//         var userId = user.id.split('.');
-//         var num = parseInt(userId[2], 10);
+//   if (!user) {
+//     var queryId = displayName.toLowerCase().split(' ').join('.');
+//     User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
+//       var tmp = 0;
+//       var newId;
+//       // find all ids that contain queryId and increment if found
+//       if (!users) {
+//         newId = queryId;
+//       }
+//       else if (users.length === 1) {
+//         newId = queryId + '.' + '1';
+//       }
+//       else if (users.length > 1) {
+//         // search for highest id eg steve.tyler.3
+//         users.forEach(function(user) {
+//           var userId = user.id.split('.');
+//           var num = parseInt(userId[2], 10);
 //
-//         if (userId.length === 2 ) {
-//           if (num > tmp) {
-//             tmp = num;
+//           if (userId.length === 2 ) {
+//             if (num > tmp) {
+//               tmp = num;
+//             }
 //           }
-//         }
-//       });
-//       tmp++;
-//       newId = queryId + '.' + tmp.toString();
-//     }
-//     return newId;
-//   });
+//         });
+//         tmp++;
+//         newId = queryId + '.' + tmp.toString();
+//       }
+//     });
+//   }
+//   return user;
 // }
 
 function convertToHttps(url) {
