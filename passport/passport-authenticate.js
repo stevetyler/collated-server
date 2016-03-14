@@ -71,7 +71,7 @@ passport.use(new FacebookStrategy({
   function(accessToken, secretToken, profile, done) {
     var displayName = profile.displayName;
     var newId;
-    console.log()
+    console.log();
     User.findOne({ facebookId : profile.id}).exec().then(function(user) {
       if (user) {
         user.facebookAccessToken = accessToken;
@@ -82,7 +82,7 @@ passport.use(new FacebookStrategy({
         return user;
       }
     })
-    //.then(findAndGenerateId())
+    //.then(findAndGenerateId)
     .then(function(user) {
       console.log('findAndGenerate called');
       var queryId = displayName.toLowerCase().split(' ').join('.');
@@ -176,40 +176,40 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-// function findAndGenerateId(user) {
-//   console.log('findAndGenerate called');
-//
-//   if (!user) {
-//     var queryId = displayName.toLowerCase().split(' ').join('.');
-//     User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
-//       var tmp = 0;
-//       var newId;
-//       // find all ids that contain queryId and increment if found
-//       if (!users) {
-//         newId = queryId;
-//       }
-//       else if (users.length === 1) {
-//         newId = queryId + '.' + '1';
-//       }
-//       else if (users.length > 1) {
-//         // search for highest id eg steve.tyler.3
-//         users.forEach(function(user) {
-//           var userId = user.id.split('.');
-//           var num = parseInt(userId[2], 10);
-//
-//           if (userId.length === 2 ) {
-//             if (num > tmp) {
-//               tmp = num;
-//             }
-//           }
-//         });
-//         tmp++;
-//         newId = queryId + '.' + tmp.toString();
-//       }
-//     });
-//   }
-//   return user;
-// }
+function findAndGenerateId(user) {
+  console.log('findAndGenerate called');
+
+  if (!user) {
+    var queryId = displayName.toLowerCase().split(' ').join('.');
+    User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
+      var tmp = 0;
+      var newId;
+      // find all ids that contain queryId and increment if found
+      if (!users) {
+        newId = queryId;
+      }
+      else if (users.length === 1) {
+        newId = queryId + '.' + '1';
+      }
+      else if (users.length > 1) {
+        // search for highest id eg steve.tyler.3
+        users.forEach(function(user) {
+          var userId = user.id.split('.');
+          var num = parseInt(userId[2], 10);
+
+          if (userId.length === 2 ) {
+            if (num > tmp) {
+              tmp = num;
+            }
+          }
+        });
+        tmp++;
+        newId = queryId + '.' + tmp.toString();
+      }
+    });
+  }
+  return user;
+}
 
 function convertToHttps(url) {
   return url.replace(/^http:\/\//i, 'https://');
