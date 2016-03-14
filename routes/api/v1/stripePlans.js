@@ -11,10 +11,10 @@ function getStripePlans(req, res) {
   stripe.plans.retrieve(req.params.id, function(err, plan) {
     if (err) {
       console.log(err);
-      return res.status(401).end();
+      return res.status(401).send();
     }
     else {
-      return res.send({'plans': plan});
+      return res.send({'stripePlan': plan});
     }
   });
 }

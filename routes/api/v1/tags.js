@@ -109,7 +109,7 @@ function putTag(req, res) {
 		//console.log(req.body);
 		Tag.update({id: req.params.id},
 	    {$set: {
-				//id: req.body.tag.newId,
+				//id: req.body.tag.newId, // set new id on items as well
 				colour: req.body.tag.colour,
 				isPrivate: req.body.tag.isPrivate
 			}},
