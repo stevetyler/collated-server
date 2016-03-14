@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var userSchema = require('../schemas/user');
 var itemSchema = require('../schemas/item');
 var tagSchema = require('../schemas/tag');
-var planSchema = require('../schemas/tag');
+var planSchema = require('../schemas/plan');
 
 // TTL errors when creating new user :
 // http://stackoverflow.com/questions/22698661/mongodb-error-setting-ttl-index-on-collection-sessions
