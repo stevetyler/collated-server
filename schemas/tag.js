@@ -7,7 +7,8 @@ var tagSchema = new Schema({
   colour: String,
   user: String,
   itemCount: String,
-  isPrivate: String
+  isPrivate: String,
+  isReserved: String
 });
 
 
