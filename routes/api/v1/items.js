@@ -193,7 +193,7 @@ function postItems(req, res) {
     createdDate: req.body.item.createdDate,
     body: req.body.item.body,
     author: req.body.item.author,
-    tags: ['Undefined']
+    tags: req.body.item.tags
   };
 
   if (req.user.id === req.body.item.user) {
