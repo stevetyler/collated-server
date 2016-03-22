@@ -75,8 +75,6 @@ function getUserItems(req, res) {
 				privateTags.push(tag.id);
 			});
 		}
-		// console.log('private Tags', privateTags);
-		// if return privateTags to then, yields array of objects with private tags ids??
 	})
 	.exec().then(function() {
 		Item.find({user: req.query.user}, function(err, items) {

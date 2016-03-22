@@ -23,15 +23,6 @@ module.exports.autoroute = {
 	}
 };
 
-// function countItems(tag) {
-// 	Item.count({tags: {$in: [tag]}}, function(err, count) {
-// 		if (err) {
-// 			return res.status(404).end();
-// 		}
-// 		return count;
-// 	});
-// }
-
 function getTags(req, res){
 	var emberTags = [];
 	var id = req.query.user;
