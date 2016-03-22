@@ -68,8 +68,10 @@ function getTitle(req, res) {
 function getUserItems(req, res) {
   var emberItems = [];
   var privateTags = [];
+	var queryPrivateTags = {user: req.query.user, isPrivate: 'true'};
+	var queryUser = {user: req.query.user};
 
-	Tag.find({user: req.query.user, isPrivate: 'true'}, function(err, tags) {
+	Tag.find(queryPrivateTags, function(err, tags) {
 		if (tags) {
 			tags.forEach(function(tag) {
 				privateTags.push(tag.id);
@@ -77,9 +79,9 @@ function getUserItems(req, res) {
 		}
 	})
 	.exec().then(function() {
-		Item.find({user: req.query.user}, function(err, items) {
+		Item.find(queryUser, function(err, items) {
 	    if (err) {
-	      return res.status(404).end();
+	      return res.status(404).send();
 	    }
 	    items.forEach(function(item) {
 				var isPrivate = false;
@@ -107,32 +109,51 @@ function getUserItems(req, res) {
 	});
 }
 
-// create method to find private tags
+// DRY!! create method to find private tags
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var emberItems = [];
-  var query = {user: req.query.user, tags: {$all:tagIds}};
-  // console.log(tagIds);
+	var privateTags = [];
+  var queryFilterTags = {user: req.query.user, tags: {$all:tagIds}};
+	var queryPrivateTags = {user: req.query.user, isPrivate: 'true'};
 
-  Item.find(query, function(err, items) {
-    if (err) {
-      // console.log('sending 404');
-      return res.status(404).end();
-    }
-    items.forEach(function(item) {
-      var emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags,
-				isPrivate: false
-      };
-      emberItems.push(emberItem);
-    });
-    return res.send({'items': emberItems});
-  });
+	Tag.find(queryPrivateTags, function(err, tags) {
+		if (tags) {
+			tags.forEach(function(tag) {
+				privateTags.push(tag.id);
+			});
+		}
+	})
+	.exec().then(function() {
+	  Item.find(queryFilterTags, function(err, items) {
+	    if (err) {
+	      // console.log('sending 404');
+	      return res.status(404).send();
+	    }
+	    items.forEach(function(item) {
+				var isPrivate = false;
+				var itemTags = item.tags;
+				var emberItem;
+
+				for (var i = 0; i < privateTags.length; i++) {
+					if (item.tags.indexOf(privateTags[i]) !== -1) {
+						isPrivate = true;
+					}
+				}
+	      emberItem = {
+	        id: item._id,
+	        user: item.user,
+	        body: item.body,
+	        createdDate: item.createdDate,
+	        author: item.author,
+	        tags: item.tags,
+					isPrivate: isPrivate
+	      };
+	      emberItems.push(emberItem);
+	    });
+	    return res.send({'items': emberItems});
+	  });
+	});
 }
 
 function getSearchItems(req, res) {

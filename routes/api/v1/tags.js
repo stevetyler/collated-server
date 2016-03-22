@@ -95,6 +95,7 @@ function postTags(req, res){
   }
 }
 
+// update so that items are made private as well
 function putTag(req, res) {
 	if (req.user.id === req.body.tag.user) {
 		//console.log(req.body);
