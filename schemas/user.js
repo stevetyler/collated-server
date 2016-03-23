@@ -8,6 +8,8 @@ var userSchema = new Schema({
   name: String,
   password: String,
   imageUrl: String,
+  email: String,
+  permissions: String,
   facebookAccessToken: String,
   facebookSecretToken: String,
   facebookId: String,
