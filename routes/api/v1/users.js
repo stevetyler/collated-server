@@ -14,11 +14,13 @@ module.exports.autoroute = {
 	get: {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
-    '/users/:id' : getUserId
+    '/users/:id' : getUserId,
+		'/users/checkId/:id': checkIdIsAvailable // not working?
 	},
   post: {
     '/users': postUser,
-    '/users/logout': handleLogoutRequest
+    '/users/logout': handleLogoutRequest,
+		'/users/checkId/:id': checkIdIsAvailable
   }
 };
 
@@ -37,6 +39,28 @@ function getUser(req, res) {
       return res.send({'users': users});
     });
   }
+}
+
+function checkIdIsAvailable(req, res) {
+	//console.log('check id');
+	var queryId = req.params.id;
+	console.log('query id', queryId);
+
+	return User.find({id: queryId}, function(err, user) {
+		console.log('user found', user);
+		if (err) {
+			res.status(401).send();
+		}
+		else if (!user.length) {
+			console.log(queryId, 'id not found');
+		}
+		else if (user.length) {
+			console.log(queryId, 'id found');
+		}
+	});
+
+	//return res.status(401).send();
+
 }
 
 function handleLoginRequest(req, res) {
