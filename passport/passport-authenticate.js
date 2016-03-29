@@ -27,7 +27,7 @@ passport.use(new TwitterStrategy({
       } else {
         // must return promise
         return User.create({
-          id: profile._json.screen_name, // generate
+          //id: profile._json.screen_name, // give _id temporarily?
           imageUrl: modifyTwitterURL(profile._json.profile_image_url),
           name: profile._json.name,
           twitterAccessToken: token,
@@ -79,54 +79,8 @@ passport.use(new FacebookStrategy({
         user.imageUrl = profile.photos[0].value;
         return user.save();
       } else {
-        return user;
-      }
-    })
-    .then(function(user) {
-      //console.log('findAndGenerate called');
-      console.log('user', user);
-
-      if (!user) {
-        var queryId = profile.displayName.toLowerCase().split(' ').join('.');
-        console.log('queryId', queryId);
-
-        return User.find({id: {$regex: queryId, $options: "i"}}, function(users) {
-          var tmp = 1;
-
-          console.log('users found', users);
-          // find all ids that contain queryId and increment if found
-          if (!users) {
-            newId = queryId;
-          }
-          else if (users && users.length === 1) {
-            newId = queryId + '.' + '2';
-          }
-          else if (users && users.length > 1) {
-            // search for highest id eg steve.tyler.3
-            users.forEach(function(user) {
-              var userId = user.id.split('.');
-              var num = parseInt(userId[2], 10);
-
-              if (userId.length === 2 ) {
-                if (num > tmp) {
-                  tmp = num;
-                }
-              }
-            });
-            tmp++;
-            newId = queryId + '.' + tmp.toString();
-          }
-          console.log('newId', newId);
-        });
-      }
-      else {
-        return user;
-      }
-    })
-    .then(function(user) {
-      if (newId) {
-        return User.create({
-          id: newId,
+          return User.create({
+          //id: 'steve.tyler',
           name: profile.displayName,
           imageUrl: profile.photos[0].value,
           facebookAccessToken: accessToken,
@@ -134,34 +88,31 @@ passport.use(new FacebookStrategy({
           facebookId: profile.id
         });
       }
-      else {
-        return user;
-      }
     })
-    .then(function(user){
-      console.log('find tag for user', user);
-      if (newId) {
-        return Tag.create({
-          id: 'Undefined',
-          colour: 'cp-colour-1',
-          user: user.id,
-          isReserved: true
-        }
-        // {
-        //   id: 'Private',
-        //   colour: 'cp-colour-1',
-        //   user: user.id,
-        //   isReserved: true,
-        //   isPrivate: true
-        // }
-        )
-        .then(function() {
-          return user;
-        });
-      } else {
-        return user;
-      }
-    })
+    // .then(function(user){
+    //   console.log('find tag for user', user);
+    //   if (newId) {
+    //     return Tag.create({
+    //       id: 'Undefined',
+    //       colour: 'cp-colour-1',
+    //       user: user.id,
+    //       isReserved: true
+    //     }
+    //     // {
+    //     //   id: 'Private',
+    //     //   colour: 'cp-colour-1',
+    //     //   user: user.id,
+    //     //   isReserved: true,
+    //     //   isPrivate: true
+    //     // }
+    //     )
+    //     .then(function() {
+    //       return user;
+    //     });
+    //   } else {
+    //     return user;
+    //   }
+    // })
     .then(function(user){
       if (user) {
         console.log('new fb user created', user);
@@ -176,13 +127,13 @@ passport.use(new FacebookStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
   // Async function, done was being called every time
   console.log("user deserialize", id);
-  User.findOne({id: id}, function(err, user) {
+  User.findOne({_id: id}, function(err, user) {
     if (err) {
       return done(err);
     }
