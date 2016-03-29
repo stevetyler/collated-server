@@ -15,7 +15,7 @@ module.exports.autoroute = {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
     '/users/:id' : getUserId,
-		'/users/checkId/:id': checkIdIsAvailable // not working with Ember.ajax
+		'/users/checkId': checkIdIsAvailable // not working with Ember.ajax
 	},
   post: {
     '/users': postUser,
@@ -45,9 +45,9 @@ function getUser(req, res) {
 }
 
 function checkIdIsAvailable(req, res) {
-	//console.log('check id');
+	console.log('req.query', req.query);
 	var queryId = req.query.id;
-	console.log('query id', queryId);
+	//console.log('query id', queryId);
 
 	return User.find({id: queryId}, function(err, user) {
 		if (err) {
@@ -55,11 +55,11 @@ function checkIdIsAvailable(req, res) {
 		}
 		else if (!user.length) {
 			console.log(queryId, 'id not found');
-			res.status(401).send();
+			return res.status(401).send();
 		}
 		else if (user.length) {
 			console.log(queryId, 'id found');
-			res.status(401).send();
+			return res.status(400).send();
 		}
 	});
 
