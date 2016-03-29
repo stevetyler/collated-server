@@ -26,7 +26,8 @@ userSchema.methods.makeEmberUser = function (requestedUser) {
   var emberUser = {
     id: this.id,
     name: this.name,
-    imageUrl: this.imageUrl
+    imageUrl: this.imageUrl,
+    email: this.email
   };
   return emberUser;
 };
