@@ -15,12 +15,11 @@ module.exports.autoroute = {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
     '/users/:id' : getUserId,
-		'/users/checkId/:id': checkIdIsAvailable // not working?
+		'/users/checkId/:id': checkIdIsAvailable // not working with Ember.ajax
 	},
   post: {
     '/users': postUser,
-    '/users/logout': handleLogoutRequest,
-		'/users/checkId/:id': checkIdIsAvailable
+    '/users/logout': handleLogoutRequest
   }
 };
 
@@ -30,6 +29,10 @@ function getUser(req, res) {
   var user, userId, loggedInUser;
 
   if (operation === 'login') { handleLoginRequest(req, res); }
+
+	else if (operation === 'checkId') {
+		checkIdIsAvailable(req, res);
+	}
 
   else {
     User.find({}, function(err, users) {
@@ -43,19 +46,20 @@ function getUser(req, res) {
 
 function checkIdIsAvailable(req, res) {
 	//console.log('check id');
-	var queryId = req.params.id;
+	var queryId = req.query.id;
 	console.log('query id', queryId);
 
 	return User.find({id: queryId}, function(err, user) {
-		console.log('user found', user);
 		if (err) {
 			res.status(401).send();
 		}
 		else if (!user.length) {
 			console.log(queryId, 'id not found');
+			res.status(401).send();
 		}
 		else if (user.length) {
 			console.log(queryId, 'id found');
+			res.status(401).send();
 		}
 	});
 
