@@ -14,8 +14,8 @@ module.exports.autoroute = {
 	get: {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
-    '/users/:id' : getUserId,
-		'/users/checkId': checkIdIsAvailable // not working with Ember.ajax
+		'/users/checkIdExists': checkIdExists, // not working with Ember.ajax if placed last
+    '/users/:id' : getUserId // must be last in autoroute ?
 	},
   post: {
     '/users': postUser,
@@ -30,8 +30,8 @@ function getUser(req, res) {
 
   if (operation === 'login') { handleLoginRequest(req, res); }
 
-	else if (operation === 'checkId') {
-		checkIdIsAvailable(req, res);
+	else if (operation === 'checkIdExists') {
+		checkIdExists(req, res);
 	}
 
   else {
@@ -44,27 +44,21 @@ function getUser(req, res) {
   }
 }
 
-function checkIdIsAvailable(req, res) {
-	console.log('req.query', req.query);
+function checkIdExists(req, res) {
+	//console.log('checkIdExists called', req.query);
 	var queryId = req.query.id;
-	//console.log('query id', queryId);
 
 	return User.find({id: queryId}, function(err, user) {
 		if (err) {
 			res.status(401).send();
 		}
 		else if (!user.length) {
-			console.log(queryId, 'id not found');
-			return res.status(401).send();
+			return res.send( {'users': []} );
 		}
 		else if (user.length) {
-			console.log(queryId, 'id found');
-			return res.status(400).send();
+			return res.send( {'users': user} );
 		}
 	});
-
-	//return res.status(401).send();
-
 }
 
 function handleLoginRequest(req, res) {
