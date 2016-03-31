@@ -15,6 +15,7 @@ module.exports.autoroute = {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
 		'/users/checkIdExists': checkIdExists, // not working with Ember.ajax if placed last
+		'/users/update': updateUser,
     '/users/:id' : getUserId // must be last in autoroute ?
 	},
   post: {
@@ -122,6 +123,30 @@ function getUserId(req, res) {
 
     res.send({'user': emberUser});
   });
+}
+
+function updateUser(req, res) {
+	console.log('updateUser',req.query);
+
+	var mongoId = req.query._id;
+	var id = req.query.id;
+	var name = req.query.name;
+	var email = req.query.email;
+
+	User.findOneAndUpdate({_id: mongoId},
+		{$set: {
+			//id: id,
+			name: name,
+			email: email
+		}
+	})
+	.exec().then(function(user) {
+		console.log(user);
+		return res.send({'users': [user]});
+	})
+	.then(null, function(err) {
+		return res.status(401).send();
+	});
 }
 
 function postUser(req, res) {
