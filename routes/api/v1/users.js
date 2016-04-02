@@ -1,10 +1,10 @@
 var async = require('async');
 var logger = require('nlogger').logger(module);
 var passwordGenerator = require('password-generator');
+var passport = require('../../../passport/passport-authenticate');
 
 var db = require('../../../database/database');
 //var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
-var passport = require('../../../passport/passport-authenticate');
 
 var User = db.model('User');
 var Tag = db.model('Tag');
@@ -126,22 +126,21 @@ function getUserId(req, res) {
 }
 
 function updateUser(req, res) {
-	console.log('updateUser',req.query);
-
+	//console.log('updateUser',req.query);
 	var mongoId = req.query._id;
 	var id = req.query.id;
 	var name = req.query.name;
 	var email = req.query.email;
 
-	User.findOneAndUpdate({_id: mongoId},
-		{$set: {
-			//id: id,
-			name: name,
-			email: email
+	User.findOne({_id: mongoId}).exec().then(function(user) {
+		if (user) {
+			user.id = id;
+			user.name = name;
+			user.email = email;
+			return user.save();
 		}
 	})
-	.exec().then(function(user) {
-		console.log(user);
+	.then(function(user) {
 		return res.send({'users': [user]});
 	})
 	.then(null, function(err) {
