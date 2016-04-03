@@ -37,22 +37,22 @@ passport.use(new TwitterStrategy({
       }
     })
     // ^^ find or create user
-    .then(function(user){
-      return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
-        if (!tag) {
-          return Tag.create({
-            id: 'Undefined',
-            colour: 'cp-colour-1',
-            user: user.id,
-            itemCount: 1
-          }).then(function(){
-            return user;
-          });
-        } else {
-          return user;
-        }
-      });
-    })
+    // .then(function(user){
+    //   return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
+    //     if (!tag) {
+    //       return Tag.create({
+    //         id: 'Undefined',
+    //         colour: 'cp-colour-1',
+    //         user: user.id,
+    //         itemCount: 1
+    //       }).then(function(){
+    //         return user;
+    //       });
+    //     } else {
+    //       return user;
+    //     }
+    //   });
+    // })
     .then(function(user){
       return done(null, user);
     })
@@ -89,30 +89,6 @@ passport.use(new FacebookStrategy({
         });
       }
     })
-    // .then(function(user){
-    //   console.log('find tag for user', user);
-    //   if (newId) {
-    //     return Tag.create({
-    //       id: 'Undefined',
-    //       colour: 'cp-colour-1',
-    //       user: user.id,
-    //       isReserved: true
-    //     }
-    //     // {
-    //     //   id: 'Private',
-    //     //   colour: 'cp-colour-1',
-    //     //   user: user.id,
-    //     //   isReserved: true,
-    //     //   isPrivate: true
-    //     // }
-    //     )
-    //     .then(function() {
-    //       return user;
-    //     });
-    //   } else {
-    //     return user;
-    //   }
-    // })
     .then(function(user){
       if (user) {
         console.log('new fb user created', user);
