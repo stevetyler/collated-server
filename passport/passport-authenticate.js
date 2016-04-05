@@ -1,6 +1,6 @@
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
 //var LocalStrategy = require('passport-local').Strategy;
-var logger = require('nlogger').logger(module);
+//var logger = require('nlogger').logger(module);
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -9,7 +9,6 @@ var configAuth = require('./../auth');
 var db = require('./../database/database');
 
 var User = db.model('User');
-var Tag = db.model('Tag');
 
 passport.use(new TwitterStrategy({
     consumerKey: configAuth.twitterAuth.consumerKey,
@@ -37,22 +36,6 @@ passport.use(new TwitterStrategy({
       }
     })
     // ^^ find or create user
-    // .then(function(user){
-    //   return Tag.findOne({id: 'Undefined', user: user.id}).exec().then(function(tag){
-    //     if (!tag) {
-    //       return Tag.create({
-    //         id: 'Undefined',
-    //         colour: 'cp-colour-1',
-    //         user: user.id,
-    //         itemCount: 1
-    //       }).then(function(){
-    //         return user;
-    //       });
-    //     } else {
-    //       return user;
-    //     }
-    //   });
-    // })
     .then(function(user){
       return done(null, user);
     })
@@ -70,8 +53,6 @@ passport.use(new FacebookStrategy({
     profileFields : ['id', 'displayName', 'photos', 'profileUrl']
   },
   function(accessToken, secretToken, profile, done) {
-    var newId;
-
     User.findOne({ facebookId : profile.id}).exec().then(function(user) {
       if (user) {
         user.facebookAccessToken = accessToken;
@@ -79,8 +60,7 @@ passport.use(new FacebookStrategy({
         user.imageUrl = profile.photos[0].value;
         return user.save();
       } else {
-          return User.create({
-          //id: 'steve.tyler',
+        return User.create({
           name: profile.displayName,
           imageUrl: profile.photos[0].value,
           facebookAccessToken: accessToken,
@@ -108,7 +88,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
   // Async function, done was being called every time
-  console.log("user deserialize", id);
+  //console.log("user deserialize", id);
   User.findOne({_id: id}, function(err, user) {
     if (err) {
       return done(err);
@@ -180,8 +160,5 @@ function modifyTwitterURL(url) {
     return convertToHttps(url);
   }
 }
-
-
-
 
 module.exports = passport;
