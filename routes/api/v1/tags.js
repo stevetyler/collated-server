@@ -1,10 +1,9 @@
 var async = require('async');
-var logger = require('nlogger').logger(module);
+//var logger = require('nlogger').logger(module);
 
 var db = require('../../../database/database');
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
-var User = db.model('User');
 var Item = db.model('Item');
 var Tag = db.model('Tag');
 
@@ -26,31 +25,44 @@ module.exports.autoroute = {
 function getTags(req, res){
 	var emberTags = [];
 	var id = req.query.user;
-
-	Tag.find({user: id}, function(err, tags) {
-		if (err) {
-			return res.status(404).end();
-		}
-		async.each(tags, function(tag, done) {
-			Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
-				if (err) {
-					return res.status(404).end();
-				}
-				var emberTag = {
-					id: tag.id,
-					colour: tag.colour,
-					user: tag.user,
-					itemCount: count,
-					isPrivate: tag.isPrivate
-				};
-				emberTags.push(emberTag);
-				done();
-			});
-		}, function(err) {
+	//var user = req.query;
+	console.log(`req.query.user ${id}`);
+  Tag.findOne({id: 'Undefined', user: id}).exec().then(function(tag){
+    if (!tag) {
+			console.log('tag created called');
+      return Tag.create({
+        id: 'Undefined',
+        colour: 'cp-colour-1',
+        user: id,
+        itemCount: 0
+      });
+    }
+  }).then(function() {
+		Tag.find({user: id}, function(err, tags) {
 			if (err) {
-				console.log(err);
+				return res.status(404).end();
 			}
-			return res.send({'tags': emberTags});
+			async.each(tags, function(tag, done) {
+				Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
+					if (err) {
+						return res.status(404).end();
+					}
+					var emberTag = {
+						id: tag.id,
+						colour: tag.colour,
+						user: tag.user,
+						itemCount: count,
+						isPrivate: tag.isPrivate
+					};
+					emberTags.push(emberTag);
+					done();
+				});
+			}, function(err) {
+				if (err) {
+					console.log(err);
+				}
+				return res.send({'tags': emberTags});
+			});
 		});
 	});
 }

@@ -1,7 +1,12 @@
 var async = require('async');
 var logger = require('nlogger').logger(module);
 var passwordGenerator = require('password-generator');
+var bodyParser = require('body-parser');
+
 var passport = require('../../../passport/passport-authenticate');
+var mailchimp = require('../../../lib/mailchimp');
+
+var mailchimpListID = '2867adef0d';
 
 var db = require('../../../database/database');
 //var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
@@ -15,8 +20,10 @@ module.exports.autoroute = {
 		'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
 		'/users/checkIdExists': checkIdExists, // not working with Ember.ajax if placed last
-		'/users/update': updateUser,
     '/users/:id' : getUserId // must be last in autoroute ?
+	},
+	put: {
+		'/users/update': [bodyParser.urlencoded(), bodyParser.json(), updateUser],
 	},
   post: {
     '/users': postUser,
@@ -109,7 +116,6 @@ function getUserId(req, res) {
     if (!user) {
       return res.status(404).end();
     }
-
 		// Plans.findOne({_id: user.plan}).exec().then(function(plan){
 		// 	var permissions;
 		// 	if(!plan){
@@ -118,7 +124,6 @@ function getUserId(req, res) {
 		// 		permissions = plan.permission;
 		// 	}
 		// })
-
     var emberUser = user.makeEmberUser(user, loggedInUser); // pass in permissions when needed
 
     res.send({'user': emberUser});
@@ -127,24 +132,37 @@ function getUserId(req, res) {
 
 function updateUser(req, res) {
 	//console.log('updateUser',req.query);
-	var mongoId = req.query._id;
-	var id = req.query.id;
-	var name = req.query.name;
-	var email = req.query.email;
+	//console.log(req.body);
 
-	User.findOne({_id: mongoId}).exec().then(function(user) {
-		if (user) {
-			user.id = id;
-			user.name = name;
-			user.email = email;
-			return user.save();
+	var id = req.body.id;
+	var name = req.body.name;
+	var email = req.body.email;
+	var subscribe = req.body.subscribe;
+
+	User.findOne({_id: req.user._id}).exec().then(function(user) {
+		if(!user) {
+			throw new Error('User Not Found');
 		}
+		user.id = id;
+		user.name = name;
+		user.email = email;
+		return user.save();
+	})
+	.then(function(user){
+		if(subscribe){
+			mailchimp(email, mailchimpListID).then( function() {
+				console.log(`Successfully subscribed ${email} to ${mailchimpListID}`);
+			}, function(err){
+				console.error('Error subscribing user to mailchimp', err);
+			});
+		}
+		return user;
 	})
 	.then(function(user) {
 		return res.send({'users': [user]});
 	})
 	.then(null, function(err) {
-		return res.status(401).send();
+		return res.status(401).send(err.message);
 	});
 }
 
