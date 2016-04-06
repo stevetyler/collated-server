@@ -12,7 +12,7 @@ module.exports.autoroute = {
 		'/tags' : getTags
 	},
 	post: {
-		'/tags': [ensureAuthenticated, postTags]
+		'/tags': [ensureAuthenticated, postTag]
 	},
 	put: {
 		'/tags/:id': [ensureAuthenticated, putTag]
@@ -67,7 +67,7 @@ function getTags(req, res){
 	});
 }
 
-function postTags(req, res){
+function postTag(req, res){
 	var newTag;
 
   if (req.user.id === req.body.tag.user) {
@@ -110,24 +110,37 @@ function postTags(req, res){
 // update so that items are made private as well
 function putTag(req, res) {
 	if (req.user.id === req.body.tag.user) {
+		var isPrivate = req.body.tag.isPrivate;
 		//console.log(req.body);
 		Tag.update({id: req.params.id},
 	    {$set: {
 				//id: req.body.tag.newId, // set new id on items as well
 				colour: req.body.tag.colour,
 				isPrivate: req.body.tag.isPrivate
-			}},
-	    function(err, tag) {
-	      if (err) {
-	        console.log(err);
-	        return res.status(401).end();
-	      }
-	    return res.send({});
-	    }
-	  );
+				}
+			}
+		).exec().then(function() {
+			if (isPrivate) {
+				Item.find({user: req.user, isPrivate: 'true'}, function(err, items) {
+			    if (err) {
+			      return res.status(404).send();
+			    }
+			    items.forEach(function(item) {
+						item.isPrivate = true;
+						return item.save();
+			    });
+				});
+			}
+		})
+		.then(function() {
+			return res.send({});
+		})
+		.then(null, function(err) {
+			console.log(err);
+			return res.status(401).end();
+		});
 	}
 }
-
 
 function deleteTag(req, res){
 	Tag.remove({ id: req.params.id }, function (err) {

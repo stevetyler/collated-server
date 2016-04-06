@@ -14,4 +14,11 @@ var itemSchema = new Schema({
   isPrivate: String
 });
 
+
+itemSchema.methods.makePrivate = function() {
+
+
+};
+
+
 module.exports = itemSchema;

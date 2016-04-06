@@ -85,7 +85,7 @@ function getUserItems(req, res) {
 	    }
 	    items.forEach(function(item) {
 				var isPrivate = false;
-				var itemTags = item.tags;
+				//var itemTags = item.tags;
 				var emberItem;
 
 				for (var i = 0; i < privateTags.length; i++) {
@@ -156,30 +156,30 @@ function getFilteredItems(req, res) {
 	});
 }
 
-function getSearchItems(req, res) {
-	var string = req.query.search;
-
-	//var query = {user: req.query.user, body: {$in:search}};
-
-	Item.find(query, function(err, items) {
-    if (err) {
-      // console.log('sending 404');
-      return res.status(404).end();
-    }
-    items.forEach(function(item) {
-      var emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags
-      };
-      emberItems.push(emberItem);
-    });
-    return res.send({'items': emberItems});
-  });
-}
+// function getSearchItems(req, res) {
+// 	var string = req.query.search;
+//
+// 	//var query = {user: req.query.user, body: {$in:search}};
+//
+// 	Item.find(query, function(err, items) {
+//     if (err) {
+//       // console.log('sending 404');
+//       return res.status(404).end();
+//     }
+//     items.forEach(function(item) {
+//       var emberItem = {
+//         id: item._id,
+//         user: item.user,
+//         body: item.body,
+//         createdDate: item.createdDate,
+//         author: item.author,
+//         tags: item.tags
+//       };
+//       emberItems.push(emberItem);
+//     });
+//     return res.send({'items': emberItems});
+//   });
+// }
 
 function getTwitterItems(req, res) {
   var emberItems = [];
