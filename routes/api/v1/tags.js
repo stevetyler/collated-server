@@ -109,10 +109,12 @@ function postTag(req, res){
 
 // update so that items are made private as well
 function putTag(req, res) {
+	var tagId = req.params.id;
+
 	if (req.user.id === req.body.tag.user) {
 		var isPrivate = req.body.tag.isPrivate;
 		//console.log(req.body);
-		Tag.update({id: req.params.id},
+		Tag.update({id: tagId},
 	    {$set: {
 				//id: req.body.tag.newId, // set new id on items as well
 				colour: req.body.tag.colour,
@@ -120,17 +122,15 @@ function putTag(req, res) {
 				}
 			}
 		).exec().then(function() {
-			if (isPrivate) {
-				Item.find({user: req.user, isPrivate: 'true'}, function(err, items) {
-			    if (err) {
-			      return res.status(404).send();
-			    }
-			    items.forEach(function(item) {
-						item.isPrivate = true;
-						return item.save();
-			    });
-				});
-			}
+			Item.find({user: req.user, tags: {$in: [tagId]}}, function(err, items) {
+		    if (err) {
+		      return res.status(404).send();
+		    }
+		    items.forEach(function(item) {
+					item.isPrivate = isPrivate;
+					return item.save();
+		    });
+			});
 		})
 		.then(function() {
 			return res.send({});
