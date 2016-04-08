@@ -25,8 +25,7 @@ module.exports.autoroute = {
 function getTags(req, res){
 	var emberTags = [];
 	var id = req.query.user;
-	//var user = req.query;
-	console.log(`req.query.user ${id}`);
+
   Tag.findOne({id: 'Undefined', user: id}).exec().then(function(tag){
     if (!tag) {
 			console.log('tag created called');
@@ -81,21 +80,13 @@ function postTag(req, res){
     if (req.body.tag.id) {
       Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, function(err, data) {
         if (data) {
-          // tag already exists
           res.status(400).end();
-        }
-        else {
+        } else {
           newTag = new Tag(tag);
           newTag.save(function(err, tag) {
             if (err) {
               res.status(501).end();
             }
-            var emberTag = {
-              id: tag.id,
-              colour: tag.colour,
-							user: tag.user,
-							isPrivate: tag.isPrivate
-            };
             return res.send({'tag': tag});
           });
         }
@@ -107,14 +98,12 @@ function postTag(req, res){
   }
 }
 
-// update so that items are made private as well
 function putTag(req, res) {
 	var tagId = req.params.id;
+	var isPrivate = req.body.tag.isPrivate;
 
 	if (req.user.id === req.body.tag.user) {
-		var isPrivate = req.body.tag.isPrivate;
-		//console.log(req.body);
-		Tag.update({id: tagId},
+		Tag.update({id: tagId, user: req.user.id},
 	    {$set: {
 				//id: req.body.tag.newId, // set new id on items as well
 				colour: req.body.tag.colour,
@@ -122,7 +111,7 @@ function putTag(req, res) {
 				}
 			}
 		).exec().then(function() {
-			Item.find({user: req.user, tags: {$in: [tagId]}}, function(err, items) {
+			Item.find({user: req.user.id, tags: {$in: [tagId]}}, function(err, items) {
 		    if (err) {
 		      return res.status(404).send();
 		    }
