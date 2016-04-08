@@ -23,7 +23,6 @@ module.exports.autoroute = {
 };
 
 function getTags(req, res){
-	var emberTags = [];
 	var id = req.query.user;
 
   Tag.findOne({id: 'Undefined', user: id}).exec().then(function(tag){
@@ -37,6 +36,9 @@ function getTags(req, res){
       });
     }
   }).then(function() {
+		var allEmberTags = [];
+		var publicEmberTags = [];
+
 		Tag.find({user: id}, function(err, tags) {
 			if (err) {
 				return res.status(404).end();
@@ -53,14 +55,28 @@ function getTags(req, res){
 						itemCount: count,
 						isPrivate: tag.isPrivate
 					};
-					emberTags.push(emberTag);
+
+					if (tag.isPrivate === 'true') {
+						allEmberTags.push(emberTag);
+					} else {
+						allEmberTags.push(emberTag);
+						publicEmberTags.push(emberTag);
+					}
 					done();
 				});
 			}, function(err) {
 				if (err) {
 					console.log(err);
 				}
-				return res.send({'tags': emberTags});
+				if (!req.user) {
+					return res.send({'tags': publicEmberTags});
+				}
+				else if (req.user.id === req.query.user) {
+					return res.send({'tags': allEmberTags});
+				}
+				else {
+					return res.send({'tags': publicEmberTags});
+				}
 			});
 		});
 	});
