@@ -1,14 +1,14 @@
-var logger = require('nlogger').logger(module);
-var Twitter = require('twitter');
+//var logger = require('nlogger').logger(module);
+//var Twitter = require('twitter');
 var MetaInspector = require('node-metainspector');
-var textSearch = require('mongoose-text-search');
+//var textSearch = require('mongoose-text-search');
 
 var db = require('../../../database/database');
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-var configAuth = require('../../../auth');
-var ItemImporter = require("../../../lib/import-items.js");
+//var configAuth = require('../../../auth');
+var ItemImporter = require('../../../lib/import-items.js');
 
-var User = db.model('User');
+//var User = db.model('User');
 var Item = db.model('Item');
 var Tag = db.model('Tag');
 
@@ -18,7 +18,7 @@ module.exports.autoroute = {
 		'/items/get-title': getTitle,
 	},
 	post: {
-		'/items': [ensureAuthenticated, postItems]
+		'/items': [ensureAuthenticated, postItem]
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -47,11 +47,10 @@ function getItems(req, res) {
 }
 
 function getTitle(req, res) {
-	//console.log('get title called', req.query.data);
   var client = new MetaInspector(req.query.data, { timeout: 5000 });
 	//var title;
 
-	client.on("fetch", function(){
+	client.on('fetch', function(){
 		if (client) {
 			var title = client.title + ' | Link';
 			//console.log('title', title);
@@ -59,14 +58,16 @@ function getTitle(req, res) {
 		}
     //console.log("Links: " + client.links.join(","));
   });
-  client.on("error", function(err){
-			return res.status('404').end();
+  client.on('error', function(err){
+		console.log(err);
+		return res.status('404').end();
   });
   client.fetch();
 }
 
 function getUserItems(req, res) {
-  var emberItems = [];
+  var allEmberItems = [];
+	var publicEmberItems = [];
 	var query = {user: req.query.user};
 
 	Item.find(query, function(err, items) {
@@ -85,13 +86,30 @@ function getUserItems(req, res) {
         tags: item.tags,
 				isPrivate: item.isPrivate
       };
-      emberItems.push(emberItem);
+			if (item.isPrivate === 'true') {
+				allEmberItems.push(emberItem);
+			}
+			else {
+				allEmberItems.push(emberItem);
+				publicEmberItems.push(emberItem);
+			}
     });
-    return res.send({'items': emberItems});
+		if (!req.user) {
+			return res.send({'items': publicEmberItems});
+		}
+		else if (req.user.id === req.query.user) {
+			return res.send({'items': allEmberItems});
+		}
+		else {
+			return res.send({'items': publicEmberItems});
+		}
   });
 }
 
-// DRY!! create method to find private tags
+// function returnEmberItems (query, items) {
+//
+// }
+
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var emberItems = [];
@@ -147,7 +165,6 @@ function getFilteredItems(req, res) {
 
 function getTwitterItems(req, res) {
   var emberItems = [];
-
   //console.log('Get Twitter Items');
   //console.log(req.user.twitterAccessToken, req.user.twitterSecretToken);
 
@@ -170,7 +187,7 @@ function getTwitterItems(req, res) {
   });
 }
 
-function postItems(req, res) {
+function postItem(req, res) {
 	var item = {
     user: req.body.item.user,
     createdDate: req.body.item.createdDate,
@@ -184,22 +201,18 @@ function postItems(req, res) {
 
     newItem.save(function(err, item) {
       if (err) {
-        // sends different error from browser to identify origin
         res.status(501).end();
       }
-      // copy of item
       var emberItem = {
-        id: item._id, // created by Mongo when save is called
+        id: item._id,
         user: item.user,
         body: item.body,
         createdDate: item.createdDate,
         author: item.author,
         tags: item.tags
       };
-      console.log('Item created with id ' + item._id);
+      //console.log('Item created with id ' + item._id);
       return res.send({'item': emberItem});
-    }).then(function() {
-      // add undefined tag
     });
   }
   else {
@@ -208,18 +221,27 @@ function postItems(req, res) {
 }
 
 function putItems(req, res) {
+	var itemTags = req.body.item.tags;
+	var isPrivate = false;
+
 	if (req.user.id === req.body.item.user) {
-		Item.update(
-	    {_id: req.params.id},
-	    {$set: {tags: req.body.item.tags}},
-	    function(err) {
-	      if (err) {
-	        console.log(err);
-	        return res.status(401).end();
-	      }
-	    return res.send({});
-	    }
-	  );
+		Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
+		.exec().then(function(tags) {
+			if (tags.length) {
+				isPrivate = true;
+			}
+			Item.update(
+		    {_id: req.params.id},
+		    {$set: {tags: req.body.item.tags, isPrivate: isPrivate}},
+		    function(err) {
+		      if (err) {
+		        console.log(err);
+		        return res.status(401).end();
+		      }
+		    return res.send({});
+		    }
+		  );
+		});
 	}
 }
 
