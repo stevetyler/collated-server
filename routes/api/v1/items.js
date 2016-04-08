@@ -66,26 +66,46 @@ function getTitle(req, res) {
 }
 
 function getUserItems(req, res) {
-  var allEmberItems = [];
-	var publicEmberItems = [];
 	var query = {user: req.query.user};
 
+	returnEmberItems(req, res, query);
+}
+
+function getFilteredItems(req, res) {
+  var tagIds = req.query.tags.toString().split('+');
+  var query = {user: req.query.user, tags: {$all:tagIds}};
+
+  returnEmberItems(req, res, query);
+}
+
+// function getSearchItems(req, res) {
+// 	var string = req.query.search;
+//
+// 	//var query = {user: req.query.user, body: {$in:search}};
+//
+//
+// }
+
+function returnEmberItems(req, res, query) {
+	var allEmberItems = [];
+	var publicEmberItems = [];
+
 	Item.find(query, function(err, items) {
-    if (err) {
-      return res.status(404).send();
-    }
-    items.forEach(function(item) {
+		if (err) {
+			return res.status(404).send();
+		}
+		items.forEach(function(item) {
 			var emberItem;
 
 			emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags,
+				id: item._id,
+				user: item.user,
+				body: item.body,
+				createdDate: item.createdDate,
+				author: item.author,
+				tags: item.tags,
 				isPrivate: item.isPrivate
-      };
+			};
 			if (item.isPrivate === 'true') {
 				allEmberItems.push(emberItem);
 			}
@@ -93,7 +113,7 @@ function getUserItems(req, res) {
 				allEmberItems.push(emberItem);
 				publicEmberItems.push(emberItem);
 			}
-    });
+		});
 		if (!req.user) {
 			return res.send({'items': publicEmberItems});
 		}
@@ -103,65 +123,8 @@ function getUserItems(req, res) {
 		else {
 			return res.send({'items': publicEmberItems});
 		}
-  });
+	});
 }
-
-// function returnEmberItems (query, items) {
-//
-// }
-
-function getFilteredItems(req, res) {
-  var tagIds = req.query.tags.toString().split('+');
-  var emberItems = [];
-  var query = {user: req.query.user, tags: {$all:tagIds}};
-
-  Item.find(query, function(err, items) {
-    if (err) {
-      // console.log('sending 404');
-      return res.status(404).send();
-    }
-    items.forEach(function(item) {
-			var emberItem;
-
-      emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags,
-				isPrivate: item.isPrivate
-      };
-      emberItems.push(emberItem);
-    });
-    return res.send({'items': emberItems});
-  });
-}
-
-// function getSearchItems(req, res) {
-// 	var string = req.query.search;
-//
-// 	//var query = {user: req.query.user, body: {$in:search}};
-//
-// 	Item.find(query, function(err, items) {
-//     if (err) {
-//       // console.log('sending 404');
-//       return res.status(404).end();
-//     }
-//     items.forEach(function(item) {
-//       var emberItem = {
-//         id: item._id,
-//         user: item.user,
-//         body: item.body,
-//         createdDate: item.createdDate,
-//         author: item.author,
-//         tags: item.tags
-//       };
-//       emberItems.push(emberItem);
-//     });
-//     return res.send({'items': emberItems});
-//   });
-// }
 
 function getTwitterItems(req, res) {
   var emberItems = [];
@@ -188,6 +151,8 @@ function getTwitterItems(req, res) {
 }
 
 function postItem(req, res) {
+	var isPrivate = false;
+	var itemTags = req.body.item.tags;
 	var item = {
     user: req.body.item.user,
     createdDate: req.body.item.createdDate,
@@ -196,28 +161,35 @@ function postItem(req, res) {
     tags: req.body.item.tags
   };
 
-  if (req.user.id === req.body.item.user) {
-    var newItem = new Item(item);
+	Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
+		if (tags.length) {
+			isPrivate = true;
+		}
+	}).then(function() {
+		if (req.user.id === req.body.item.user) {
+	    var newItem = new Item(item);
 
-    newItem.save(function(err, item) {
-      if (err) {
-        res.status(501).end();
-      }
-      var emberItem = {
-        id: item._id,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        author: item.author,
-        tags: item.tags
-      };
-      //console.log('Item created with id ' + item._id);
-      return res.send({'item': emberItem});
-    });
-  }
-  else {
-    return res.status(401).end();
-  }
+	    newItem.save(function(err, item) {
+	      if (err) {
+	        res.status(501).end();
+	      }
+	      var emberItem = {
+	        id: item._id,
+	        user: item.user,
+	        body: item.body,
+	        createdDate: item.createdDate,
+	        author: item.author,
+	        tags: item.tags,
+					isPrivate: isPrivate
+	      };
+	      //console.log('Item created with id ' + item._id);
+	      return res.send({'item': emberItem});
+	    });
+	  }
+	  else {
+	    return res.status(401).end();
+	  }
+	});
 }
 
 function putItems(req, res) {
