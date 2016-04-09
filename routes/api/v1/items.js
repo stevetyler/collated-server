@@ -151,19 +151,20 @@ function getTwitterItems(req, res) {
 }
 
 function postItem(req, res) {
-	var isPrivate = false;
+	//var isPrivate = false;
 	var itemTags = req.body.item.tags;
 	var item = {
     user: req.body.item.user,
     createdDate: req.body.item.createdDate,
     body: req.body.item.body,
     author: req.body.item.author,
-    tags: req.body.item.tags
+    tags: req.body.item.tags,
+		isPrivate: false
   };
 
 	Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
 		if (tags.length) {
-			isPrivate = true;
+			item.isPrivate = true;
 		}
 	}).then(function() {
 		if (req.user.id === req.body.item.user) {
@@ -180,7 +181,7 @@ function postItem(req, res) {
 	        createdDate: item.createdDate,
 	        author: item.author,
 	        tags: item.tags,
-					isPrivate: isPrivate
+					isPrivate: item.isPrivate
 	      };
 	      //console.log('Item created with id ' + item._id);
 	      return res.send({'item': emberItem});
