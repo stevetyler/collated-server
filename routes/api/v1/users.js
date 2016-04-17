@@ -1,6 +1,6 @@
 var async = require('async');
 var logger = require('nlogger').logger(module);
-var passwordGenerator = require('password-generator');
+//var passwordGenerator = require('password-generator');
 var bodyParser = require('body-parser');
 
 var passport = require('../../../passport/passport-authenticate');
@@ -32,7 +32,7 @@ module.exports.autoroute = {
 };
 
 function getUser(req, res) {
-	console.log("getuser ");
+	//console.log("getuser ");
   var operation = req.query.operation;
   var user, userId, loggedInUser;
 
@@ -60,6 +60,9 @@ function checkIdExists(req, res) {
 		if (err) {
 			res.status(401).send();
 		}
+		else if (!queryId) {
+			return res.send( {'users': []} );
+		}
 		else if (!user.length) {
 			return res.send( {'users': []} );
 		}
@@ -70,7 +73,7 @@ function checkIdExists(req, res) {
 }
 
 function handleLoginRequest(req, res) {
-  // uses 'local' calback function created by new LocalStrategy
+  // uses 'local' callback function created by new LocalStrategy
   passport.authenticate('local', function(err, user, info) {
     logger.info(user);
     if (err) {
