@@ -10,7 +10,6 @@ var itemSchema = new Schema({
   body: String,
   twitterTweetAuthor: String,
   twitterTweetId: String,
-  twitterLastTweetId: String,
   isPrivate: String
 });
 

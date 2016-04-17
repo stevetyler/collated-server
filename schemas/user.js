@@ -16,8 +16,8 @@ var userSchema = new Schema({
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
-  twitterFirstTweetId: String,
-  twitterLastTweetId: String
+  twitterNewestTweetId: String,
+  twitterOldestTweetId: String
 });
 
 // methods are called on instances of the User object ie actual objects
