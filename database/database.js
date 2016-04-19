@@ -6,10 +6,15 @@ var userSchema = require('../schemas/user');
 var itemSchema = require('../schemas/item');
 var tagSchema = require('../schemas/tag');
 var planSchema = require('../schemas/plan');
+var auth = require('../auth');
 
-// TTL errors when creating new user :
-// http://stackoverflow.com/questions/22698661/mongodb-error-setting-ttl-index-on-collection-sessions
-mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
+}
+else {
+  //mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
+  mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+}
 
 mongoose.connection.model('User', userSchema);
 mongoose.connection.model('Item', itemSchema);
