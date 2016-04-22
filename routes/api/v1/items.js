@@ -150,6 +150,31 @@ function getTwitterItems(req, res) {
   });
 }
 
+function putItems(req, res) {
+	var itemTags = req.body.item.tags;
+	var isPrivate = false;
+
+	if (req.user.id === req.body.item.user) {
+		Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
+		.exec().then(function(tags) {
+			if (tags.length) {
+				isPrivate = true;
+			}
+			Item.update(
+		    {_id: req.params.id},
+		    {$set: {tags: req.body.item.tags, isPrivate: isPrivate}},
+		    function(err) {
+		      if (err) {
+		        console.log(err);
+		        return res.status(401).end();
+		      }
+		    return res.send({});
+		    }
+		  );
+		});
+	}
+}
+
 function postItem(req, res) {
 	//var isPrivate = false;
 	var itemTags = req.body.item.tags;
@@ -191,31 +216,6 @@ function postItem(req, res) {
 	    return res.status(401).end();
 	  }
 	});
-}
-
-function putItems(req, res) {
-	var itemTags = req.body.item.tags;
-	var isPrivate = false;
-
-	if (req.user.id === req.body.item.user) {
-		Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
-		.exec().then(function(tags) {
-			if (tags.length) {
-				isPrivate = true;
-			}
-			Item.update(
-		    {_id: req.params.id},
-		    {$set: {tags: req.body.item.tags, isPrivate: isPrivate}},
-		    function(err) {
-		      if (err) {
-		        console.log(err);
-		        return res.status(401).end();
-		      }
-		    return res.send({});
-		    }
-		  );
-		});
-	}
 }
 
 function deleteItems(req, res) {
