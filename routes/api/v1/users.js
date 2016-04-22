@@ -17,13 +17,14 @@ var Tag = db.model('Tag');
 
 module.exports.autoroute = {
 	get: {
-		'/users' : getUser,
+		//'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
-		'/users/checkIdExists': checkIdExists, // not working with Ember.ajax if placed last
-    '/users/:id' : getUserId // must be last in autoroute ?
+		'/users/checkIdExists': checkIdExists,
+    '/users/:id' : getUser
 	},
 	put: {
 		'/users/update': [bodyParser.urlencoded(), bodyParser.json(), updateUser],
+		'/users/:id' : putUser
 	},
   post: {
     '/users': postUser,
@@ -31,26 +32,25 @@ module.exports.autoroute = {
   }
 };
 
-function getUser(req, res) {
-	//console.log("getuser ");
-  var operation = req.query.operation;
-  var user, userId, loggedInUser;
-
-  if (operation === 'login') { handleLoginRequest(req, res); }
-
-	else if (operation === 'checkIdExists') {
-		checkIdExists(req, res);
-	}
-
-  else {
-    User.find({}, function(err, users) {
-      if (err) {
-        return res.status(500).end();
-      }
-      return res.send({'users': users});
-    });
-  }
-}
+// function getUser(req, res) {
+//   var operation = req.query.operation;
+//   var user, userId, loggedInUser;
+//
+//   if (operation === 'login') { handleLoginRequest(req, res); }
+//
+// 	else if (operation === 'checkIdExists') {
+// 		checkIdExists(req, res);
+// 	}
+//
+//   else {
+//     User.find({}, function(err, users) {
+//       if (err) {
+//         return res.status(500).end();
+//       }
+//       return res.send({'users': []}); // telegram sends users ??
+//     });
+//   }
+// }
 
 function checkIdExists(req, res) {
 	//console.log('checkIdExists called', req.query);
@@ -108,7 +108,7 @@ function handleIsAuthenticatedRequest(req, res) {
   }
 }
 
-function getUserId(req, res) {
+function getUser(req, res) {
   var userId = req.params.id;
   var loggedInUser = req.user;
 
@@ -133,10 +133,21 @@ function getUserId(req, res) {
   });
 }
 
-function updateUser(req, res) {
-	//console.log('updateUser',req.query);
-	//console.log(req.body);
+function putUser(req, res) {
+	var query = req.user.id;
 
+	if (req.user.id === req.params.id) {
+		User.findOneAndUpdate({id: query}).exec().then(function(user) {
+			user.autoImport = req.body.autoImport;
+			return user.save();
+		})
+		.then(function(user) {
+			return res.send({'users': [user]});
+		});
+	}
+}
+
+function updateUser(req, res) {
 	var id = req.body.id;
 	var name = req.body.name;
 	var email = req.body.email;
