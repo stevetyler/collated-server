@@ -16,43 +16,43 @@ var userSchema = new Schema({
   twitterAccessToken: String,
   twitterSecretToken: String,
   twitterId: String,
+  twitterAutoImport: String,
   twitterNewestTweetId: String,
   twitterOldestTweetId: String
 });
 
-// methods are called on instances of the User object ie actual objects
-// is param needed?
-userSchema.methods.makeEmberUser = function (requestedUser) {
+userSchema.methods.makeEmberUser = function () {
   var emberUser = {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
-    email: this.email
+    email: this.email,
+    twitterAutoImport: this.twitterAutoImport,
+    twitterNewestTweetId: this.twitterNewestTweetId,
+    twitterOldestTweetId: this.twitterOldestTweetId
   };
   return emberUser;
 };
 
-// statics are generic functions
-// called on the model ie User
-userSchema.statics.createUser = function(user, done) {
-  var User = this.model('User');
-
-  // User.encryptPassword async function, then create user in database
-  User.encryptPassword(user.password, function (err, encryptedPassword) {
-    if (err) {
-      // return?
-      done(err);
-    }
-    user.password = encryptedPassword;
-    //user.imageUrl = User.assignAvatar(user.id);
-
-    // returns mongodb user
-    // Mongoose function === newUser.save() used previously in old
-    User.create(user, function(err, user) {
-      done(err, user);
-    });
-  });
-};
+// userSchema.statics.createUser = function(user, done) {
+//   var User = this.model('User');
+//
+//   // User.encryptPassword async function, then create user in database
+//   User.encryptPassword(user.password, function (err, encryptedPassword) {
+//     if (err) {
+//       // return?
+//       done(err);
+//     }
+//     user.password = encryptedPassword;
+//     //user.imageUrl = User.assignAvatar(user.id);
+//
+//     // returns mongodb user
+//     // Mongoose function === newUser.save() used previously in old
+//     User.create(user, function(err, user) {
+//       done(err, user);
+//     });
+//   });
+// };
 
 
 // bcrypt not installing
