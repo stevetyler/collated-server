@@ -152,7 +152,7 @@ function updateUser(req, res) {
 		return user.save();
 	})
 	.then(function(user){
-		if(subscribe){
+		if(subscribe === 'true'){
 			mailchimp(email, mailchimpListID).then( function() {
 				console.log(`Successfully subscribed ${email} to ${mailchimpListID}`);
 			}, function(err){
