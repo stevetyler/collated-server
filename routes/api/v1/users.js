@@ -138,7 +138,8 @@ function putUser(req, res) {
 
 	if (req.user.id === req.params.id) {
 		User.findOneAndUpdate({id: query}).exec().then(function(user) {
-			user.autoImport = req.body.autoImport;
+			//console.log('autoimport', req.body.user.twitterAutoImport);
+			user.twitterAutoImport = req.body.user.twitterAutoImport;
 			return user.save();
 		})
 		.then(function(user) {
