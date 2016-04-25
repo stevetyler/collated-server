@@ -104,7 +104,8 @@ function returnEmberItems(req, res, query) {
 				createdDate: item.createdDate,
 				author: item.author,
 				tags: item.tags,
-				isPrivate: item.isPrivate
+				isPrivate: item.isPrivate,
+				twitterTweetId: item.twitterTweetId
 			};
 			if (item.isPrivate === 'true') {
 				allEmberItems.push(emberItem);
