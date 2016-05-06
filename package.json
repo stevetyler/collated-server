@@ -27,5 +27,9 @@
     "request": "^2.70.0",
     "stripe": "^4.4.0",
     "twitter": "~1.2.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1"
   }
 }
