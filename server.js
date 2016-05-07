@@ -12,8 +12,7 @@ var app = express();
 // //   true /* Start the job right now */
 // //   //timeZone /* Time zone of this job. */
 // // );
-//
-//
+
 // // load middleware first before router
 require('./express-config')(app);
 
@@ -27,8 +26,10 @@ app.use(function(err, req, res, next) {
 
 // http://blog.mongolab.com/2013/11/deep-dive-into-connection-pooling/
 // waiting for 'open' event from mongoose.connection
-db.once('open', function() {
-	var server = app.listen(3000, function() {
+
+var server = app.listen(3000, function() {
   console.log('Listening on port %d', server.address().port);
-	});
 });
+// db.once('open', function() {});
+
+module.exports = server;

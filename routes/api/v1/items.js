@@ -29,6 +29,8 @@ module.exports.autoroute = {
 };
 
 function getItems(req, res) {
+	console.log('get items called');
+
   if (req.query.operation === 'userItems') {
     getUserItems(req, res);
   }
