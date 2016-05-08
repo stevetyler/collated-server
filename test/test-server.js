@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 var server = require('../server');
 var itemSchema = require('../schemas/item');
 var Item = mongoose.connection.model('Item', itemSchema);
+//var userSchema = require('../schemas/user');
+//var User = mongoose.connection.model('User', userSchema);
 
 var should = chai.should();
 chai.use(chaiHttp);
@@ -49,29 +51,29 @@ describe('Items', function() {
       });
   });
 
-  // it('should list a SINGLE item on /item/<id> GET', function(done) {
-  //   var newItem = new Item({
+  // it('should list a SINGLE user on /user/<id> GET', function(done) {
+  //   var newUser = new Item({
   //     user: 'test_user2',
   //     body: 'test item2',
   //     tags: ['Test2']
   //   });
-  //     newItem.save(function(err, data) {
-  //       chai.request(server)
-  //         .get('/item/'+data.id)
-  //         .end(function(err, res){
-  //           res.should.have.status(200);
-  //           res.should.be.json;
-  //           res.body.should.be.a('object');
-  //           res.body.should.have.property('_id');
-  //           res.body.should.have.property('user');
-  //           res.body.should.have.property('body');
-  //           res.body.should.have.property('tags');
-  //           res.body.user.should.equal('test_user2');
-  //           res.body.body.should.equal('test item2');
-  //           res.body._id.should.equal(data.id);
-  //           done();
-  //         });
-  //     });
+  //   newUser.save(function(err, data) {
+  //     chai.request(server)
+  //       .get('/users/'+data.id)
+  //       .end(function(err, res){
+  //         res.should.have.status(200);
+  //         res.should.be.json;
+  //         res.body.should.be.a('object');
+  //         res.body.should.have.property('id');
+  //         res.body.should.have.property('user');
+  //         res.body.should.have.property('body');
+  //         res.body.should.have.property('tags');
+  //         res.body.user.should.equal('test_user2');
+  //         res.body.body.should.equal('test item2');
+  //         res.body._id.should.equal(data.id);
+  //         done();
+  //       });
+  //   });
   // });
 
   // it('should add a SINGLE item on /items POST', function(done) {
