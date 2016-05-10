@@ -3,6 +3,7 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var mongoose = require('mongoose');
+var db = mongoose.connection;
 
 var server = require('../server');
 var itemSchema = require('../schemas/item');
@@ -14,7 +15,7 @@ var should = chai.should();
 chai.use(chaiHttp);
 
 describe('Items', function() {
-
+  db.collection('sessions').drop();
   Item.collection.drop();
 
   beforeEach(function(done){
@@ -28,6 +29,7 @@ describe('Items', function() {
     });
   });
   afterEach(function(done){
+    db.collection('sessions').drop();
     Item.collection.drop();
     done();
   });
