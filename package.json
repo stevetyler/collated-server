@@ -15,7 +15,7 @@
     "express-autoroute-json": "^3.0.0-alpha2.10",
     "express-session": "~1.12.1",
     "mailchimp-api": "^2.0.7",
-    "mongoose": "~4.0.5",
+    "mongoose": "^4.4.16",
     "mongoose-text-search": "0.0.2",
     "nlogger": "^1.0.0",
     "node-metainspector": "^1.2.0",
