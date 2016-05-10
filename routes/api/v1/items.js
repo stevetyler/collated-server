@@ -1,11 +1,7 @@
-//var logger = require('nlogger').logger(module);
-//var Twitter = require('twitter');
 var MetaInspector = require('node-metainspector');
-//var textSearch = require('mongoose-text-search');
 
 var db = require('../../../database/database');
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-//var configAuth = require('../../../auth');
 var ItemImporter = require('../../../lib/import-items.js');
 
 //var User = db.model('User');
@@ -75,18 +71,26 @@ function getUserItems(req, res) {
 
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
-  var query = {user: req.query.user, tags: {$all:tagIds}};
-
+  var query = {
+		user: req.query.user,
+		tags: {$all:tagIds}
+	};
   returnEmberItems(req, res, query);
 }
 
-// function getSearchItems(req, res) {
-// 	var string = req.query.search;
-//
-// 	//var query = {user: req.query.user, body: {$in:search}};
-//
-//
-// }
+function getSearchItems(req, res) {
+	var string = req.query.search;
+	// check for private
+	var query = {
+		user: req.query.user,
+		$text: {
+			$search: string,
+			$caseSensitive: false
+		}
+	};
+	console.log('search items', string, 'user', req.query.user);
+	returnEmberItems(req, res, query);
+}
 
 function returnEmberItems(req, res, query) {
 	var allEmberItems = [];
@@ -117,6 +121,8 @@ function returnEmberItems(req, res, query) {
 				publicEmberItems.push(emberItem);
 			}
 		});
+		// console.log('items found', allEmberItems, publicEmberItems);
+		// console.log(req.user.id, req.query.user);
 		if (!req.user) {
 			return res.send({'items': publicEmberItems});
 		}
