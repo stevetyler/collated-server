@@ -11,7 +11,7 @@ var Tag = db.model('Tag');
 module.exports.autoroute = {
 	get: {
 		'/items': getItems,
-		'/items/get-title': getTitle,
+		'/items/get-title': getTitle
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem]
@@ -25,28 +25,24 @@ module.exports.autoroute = {
 };
 
 function getItems(req, res) {
-	console.log('get items called');
-
-  if (req.query.operation === 'userItems') {
-    getUserItems(req, res);
-  }
-  else if (req.query.operation === 'filterItems') {
-  	getFilteredItems(req, res);
-  }
-	else if (req.query.operation === 'searchItems') {
-		getSearchItems(req, res);
+	if (req.query.keyword) {
+		return getSearchItems(req, res);
 	}
-  else if (req.query.operation === 'importItems') {
-    getTwitterItems(req, res);
-  }
-  else {
-    return res.status(500).end();
-  }
+	switch(req.query.operation)  {
+		case 'userItems':
+			return getUserItems(req, res);
+		case 'filterItems':
+			return getFilteredItems(req, res);
+		case 'importItems':
+			return getTwitterItems(req, res);
+		default:
+			return res.status(500).end();
+	}
+  return res.status(500).end();
 }
 
 function getTitle(req, res) {
   var client = new MetaInspector(req.query.data, { timeout: 5000 });
-	//var title;
 
 	client.on('fetch', function(){
 		if (client) {
@@ -79,7 +75,7 @@ function getFilteredItems(req, res) {
 }
 
 function getSearchItems(req, res) {
-	var string = req.query.search;
+	var string = req.query.keyword;
 	// check for private
 	var query = {
 		user: req.query.user,
@@ -88,7 +84,7 @@ function getSearchItems(req, res) {
 			$caseSensitive: false
 		}
 	};
-	console.log('search items', string, 'user', req.query.user);
+	//console.log('search items', string, 'user', req.query.user);
 	returnEmberItems(req, res, query);
 }
 
