@@ -117,8 +117,6 @@ function returnEmberItems(req, res, query) {
 				publicEmberItems.push(emberItem);
 			}
 		});
-		// console.log('items found', allEmberItems, publicEmberItems);
-		// console.log(req.user.id, req.query.user);
 		if (!req.user) {
 			return res.send({'items': publicEmberItems});
 		}
