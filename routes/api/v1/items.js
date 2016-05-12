@@ -25,7 +25,8 @@ module.exports.autoroute = {
 };
 
 function getItems(req, res) {
-	if (req.query.keyword) {
+	//console.log('query', req.query.keyword);
+	if (req.query.keyword || req.query.keyword === '') {
 		return getSearchItems(req, res);
 	}
 	switch(req.query.operation)  {
