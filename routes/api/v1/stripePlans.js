@@ -1,5 +1,9 @@
 var configAuth = require('./../../../auth');
-var stripe = require('stripe')(configAuth.stripeAuth.testSecretKey);
+var stripe; 
+
+if (process.env.NODE_ENV !== 'production') {
+	stripe = require('stripe')(configAuth.stripeAuth.testSecretKey);
+}
 
 module.exports.autoroute = {
 	get: {

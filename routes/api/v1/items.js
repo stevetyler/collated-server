@@ -81,8 +81,8 @@ function getSearchItems(req, res) {
 	var query = {
 		user: req.query.user,
 		$text: {
-			$search: string,
-			$caseSensitive: false
+			$search: string
+			//$caseSensitive: false
 		}
 	};
 	//console.log('search items', string, 'user', req.query.user);
