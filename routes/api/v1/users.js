@@ -32,26 +32,6 @@ module.exports.autoroute = {
   }
 };
 
-// function getUser(req, res) {
-//   var operation = req.query.operation;
-//   var user, userId, loggedInUser;
-//
-//   if (operation === 'login') { handleLoginRequest(req, res); }
-//
-// 	else if (operation === 'checkIdExists') {
-// 		checkIdExists(req, res);
-// 	}
-//
-//   else {
-//     User.find({}, function(err, users) {
-//       if (err) {
-//         return res.status(500).end();
-//       }
-//       return res.send({'users': []}); // telegram sends users ??
-//     });
-//   }
-// }
-
 function checkIdExists(req, res) {
 	//console.log('checkIdExists called', req.query);
 	var queryId = req.query.id;
@@ -137,8 +117,7 @@ function putUser(req, res) {
 	var query = req.user.id;
 
 	if (req.user.id === req.params.id) {
-		User.findOneAndUpdate({id: query}).exec().then(function(user) {
-			//console.log('autoimport', req.body.user.twitterAutoImport);
+		User.findOne({id: query}).exec().then(function(user) {
 			user.twitterAutoImport = req.body.user.twitterAutoImport;
 			return user.save();
 		})
