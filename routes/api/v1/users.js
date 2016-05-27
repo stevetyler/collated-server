@@ -1,23 +1,16 @@
-var async = require('async');
 var logger = require('nlogger').logger(module);
 //var passwordGenerator = require('password-generator');
 var bodyParser = require('body-parser');
 
-var passport = require('../../../passport/passport-authenticate');
 var mailchimp = require('../../../lib/mailchimp');
-
 var mailchimpListID = '2867adef0d';
 
 var db = require('../../../database/database');
 //var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
-
 var User = db.model('User');
-var Tag = db.model('Tag');
-//console.log("loading users file");
 
 module.exports.autoroute = {
 	get: {
-		//'/users' : getUser,
 		'/users/authenticated': handleIsAuthenticatedRequest,
 		'/users/checkIdExists': checkIdExists,
     '/users/:id' : getUser
@@ -33,7 +26,6 @@ module.exports.autoroute = {
 };
 
 function checkIdExists(req, res) {
-	//console.log('checkIdExists called', req.query);
 	var queryId = req.query.id;
 
 	return User.find({id: queryId}, function(err, user) {
@@ -52,26 +44,6 @@ function checkIdExists(req, res) {
 	});
 }
 
-function handleLoginRequest(req, res) {
-  // uses 'local' callback function created by new LocalStrategy
-  passport.authenticate('local', function(err, user, info) {
-    logger.info(user);
-    if (err) {
-      return res.status(500).end();
-    }
-    if (!user) {
-      return res.status(404).end();
-    }
-    // req.logIn sets cookie
-    req.logIn(user, function(err) {
-      if (err) {
-        return res.status(500).end();
-      }
-      return res.send({'users': [user]});
-    });
-  })(req, res);
-}
-
 function handleLogoutRequest(req, res) {
   logger.info('Logging Out');
   req.logout();
@@ -79,8 +51,6 @@ function handleLogoutRequest(req, res) {
 }
 
 function handleIsAuthenticatedRequest(req, res) {
-	//console.log("handleIsAuthenticatedRequest");
-	//console.log(req.user);
   if (req.isAuthenticated()) {
     return res.send({ users:[req.user] });
   } else {
@@ -117,9 +87,8 @@ function putUser(req, res) {
 	var query = req.user.id;
 
 	if (req.user.id === req.params.id) {
-		User.findOne({id: query}).exec().then(function(user) {
+		User.findOneAndUpdate({id: query}).exec().then(function(user) {
 			user.twitterAutoImport = req.body.user.twitterAutoImport;
-			return user.save();
 		})
 		.then(function(user) {
 			return res.send({'users': [user]});
@@ -133,14 +102,13 @@ function updateUser(req, res) {
 	var email = req.body.email;
 	var subscribe = req.body.subscribe;
 
-	User.findOne({_id: req.user._id}).exec().then(function(user) {
+	User.findOneAndUpdate({_id: req.user._id}).exec().then(function(user) {
 		if(!user) {
-			throw new Error('User Not Found');
+			return new Error('User Not Found');
 		}
 		user.id = id;
 		user.name = name;
 		user.email = email;
-		return user.save();
 	})
 	.then(function(user){
 		if(subscribe === 'true'){
@@ -185,3 +153,22 @@ function postUser(req, res) {
     });
   }
 }
+
+// function handleLoginRequest(req, res) {
+//   passport.authenticate('local', function(err, user, info) {
+//     logger.info(user);
+//     if (err) {
+//       return res.status(500).end();
+//     }
+//     if (!user) {
+//       return res.status(404).end();
+//     }
+//     // req.logIn sets cookie
+//     req.logIn(user, function(err) {
+//       if (err) {
+//         return res.status(500).end();
+//       }
+//       return res.send({'users': [user]});
+//     });
+//   })(req, res);
+// }
