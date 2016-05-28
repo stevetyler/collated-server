@@ -87,8 +87,9 @@ function putUser(req, res) {
 	var query = req.user.id;
 
 	if (req.user.id === req.params.id) {
-		User.findOneAndUpdate({id: query}).exec().then(function(user) {
+		User.findOne({id: query}).exec().then(function(user) {
 			user.twitterAutoImport = req.body.user.twitterAutoImport;
+			return user.save();
 		})
 		.then(function(user) {
 			return res.send({'users': [user]});
@@ -102,13 +103,14 @@ function updateUser(req, res) {
 	var email = req.body.email;
 	var subscribe = req.body.subscribe;
 
-	User.findOneAndUpdate({_id: req.user._id}).exec().then(function(user) {
+	User.findOne({_id: req.user._id}).exec().then(function(user) {
 		if(!user) {
 			return new Error('User Not Found');
 		}
 		user.id = id;
 		user.name = name;
 		user.email = email;
+		return user.save();
 	})
 	.then(function(user){
 		if(subscribe === 'true'){
