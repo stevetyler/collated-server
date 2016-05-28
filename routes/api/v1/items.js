@@ -25,7 +25,6 @@ module.exports.autoroute = {
 };
 
 function getItems(req, res) {
-	//console.log('query', req.query.keyword);
 	if (req.query.keyword || req.query.keyword === '') {
 		return getSearchItems(req, res);
 	}
@@ -48,10 +47,9 @@ function getTitle(req, res) {
 	client.on('fetch', function(){
 		if (client) {
 			var title = client.title + ' | Link';
-			//console.log('title', title);
+
 			return res.send(title);
 		}
-    //console.log("Links: " + client.links.join(","));
   });
   client.on('error', function(err){
 		console.log(err);
@@ -77,15 +75,13 @@ function getFilteredItems(req, res) {
 
 function getSearchItems(req, res) {
 	var string = req.query.keyword;
-	// check for private
 	var query = {
 		user: req.query.user,
 		$text: {
 			$search: string
-			//$caseSensitive: false
+			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	//console.log('search items', string, 'user', req.query.user);
 	returnEmberItems(req, res, query);
 }
 
@@ -132,10 +128,8 @@ function returnEmberItems(req, res, query) {
 
 function getTwitterItems(req, res) {
   var emberItems = [];
-  //console.log('Get Twitter Items');
-  //console.log(req.user.twitterAccessToken, req.user.twitterSecretToken);
 
-  ItemImporter.importItems(req.user, req.query.options, function(err, items) {
+  ItemImporter.importTwitterItems(req.user, req.query.options, function(err, items) {
     if (err) {
       return res.status(400).end();
     }
@@ -180,7 +174,6 @@ function putItems(req, res) {
 }
 
 function postItem(req, res) {
-	//var isPrivate = false;
 	var itemTags = req.body.item.tags;
 	var item = {
     user: req.body.item.user,
@@ -212,7 +205,6 @@ function postItem(req, res) {
 	        tags: item.tags,
 					isPrivate: item.isPrivate
 	      };
-	      //console.log('Item created with id ' + item._id);
 	      return res.send({'item': emberItem});
 	    });
 	  }
