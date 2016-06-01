@@ -8,6 +8,8 @@ var itemSchema = new Schema({
   author: String,
   createdDate: Date,
   body: String,
+  importedFrom: String,
+  type: String,
   twitterTweetAuthor: String,
   twitterTweetId: String,
   isPrivate: String
