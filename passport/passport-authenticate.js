@@ -4,6 +4,7 @@
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var SlackStrategy = require('passport-slack').Strategy;
 
 var configAuth = require('./../auth');
 var db = require('./../database/database');
@@ -24,9 +25,7 @@ passport.use(new TwitterStrategy({
         // console.log(user.imageUrl);
         return user.save();
       } else {
-        // must return promise
         return User.create({
-          //id: profile._json.screen_name, // give _id temporarily?
           imageUrl: modifyTwitterURL(profile._json.profile_image_url),
           name: profile._json.name,
           twitterAccessToken: token,
@@ -81,6 +80,46 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
+
+passport.use(new SlackStrategy({
+    clientID : configAuth.slackAuth.clientID,
+    clientSecret : configAuth.slackAuth.clientSecret,
+    callbackURL : configAuth.slackAuth.callbackURL,
+    scope: 'outgoing-webhook'
+  },
+  // check what is returned by Slack, refreshToken?
+  function(accessToken, secretToken, profile, done) {
+    User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
+      if (user) {
+        user.apiKeys.slackAccessToken = accessToken;
+        user.apiKeys.slackSecretToken = secretToken;
+        return user.save();
+      } else {
+        return User.create({
+          name: profile.displayName,
+          apiKeys: {
+            slackAccessToken: accessToken,
+            slackSecretToken: secretToken
+          },
+          slackProfile: {
+            id: profile.id
+          }
+        });
+      }
+    })
+    .then(function(user){
+      if (user) {
+        console.log('new fb user created', user);
+      }
+      return done(null, user);
+    })
+    .then(null, function(err){
+      console.log(err);
+      done(err);
+    });
+  }
+));
+
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);
