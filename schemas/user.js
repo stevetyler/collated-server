@@ -10,24 +10,26 @@ var userSchema = new Schema({
   imageUrl: String,
   email: String,
   permissions: String,
-  facebookId: String,
-  facebookAccessToken: String,
-  facebookSecretToken: String,
-  twitterAccessToken: String,
-  twitterSecretToken: String,
-  twitterId: String,
-  twitterAutoImport: String,
-  twitterNewestTweetId: String,
-  twitterOldestTweetId: String,
   apiKeys: {
+    facebookAccessToken: String,
+    facebookSecretToken: String,
     slackAccessToken: String,
-    slackSecretToken: String
+    slackSecretToken: String,
+    twitterAccessToken: String,
+    twitterSecretToken: String,
   },
-  facebookProfile: {},
+  facebookProfile: {
+    id: String
+  },
   slackProfile: {
     id: String
   },
-  twitterProfile: {}
+  twitterProfile: {
+    id: String,
+    autoImport: String,
+    newestTweetId: String,
+    oldestTweetId: String,
+  }
 });
 
 userSchema.methods.makeEmberUser = function () {
