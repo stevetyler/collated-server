@@ -10,16 +10,15 @@ var itemSchema = new Schema({
   body: String,
   importedFrom: String,
   type: String,
-  twitterTweetAuthor: String,
-  twitterTweetId: String,
+  twitterProfile: {
+    id: String,
+    author: String,
+    authorImageUrl: String
+  },
   isPrivate: String
 });
 
-
 itemSchema.methods.makePrivate = function() {
-
-
 };
-
 
 module.exports = itemSchema;
