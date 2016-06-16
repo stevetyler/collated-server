@@ -96,13 +96,4 @@ userSchema.statics.assignAvatar = function (id) {
   return path;
 };
 
-// userSchema.methods.isFollowed = function (loggedInUser) {
-//   if (loggedInUser) {
-//     var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
-//     // logger.info('The loggedin user is following user \'' + user.id + '\': ', userIsFollowing);
-//     return userIsFollowing ? true : false;
-//   }
-//   return false;
-// };
-
 module.exports = userSchema;
