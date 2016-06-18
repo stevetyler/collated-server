@@ -10,11 +10,12 @@ var userSchema = new Schema({
   imageUrl: String,
   email: String,
   permissions: String,
+  schemaVersion: String,
   apiKeys: {
     facebookAccessToken: String,
     facebookSecretToken: String,
     slackAccessToken: String,
-    slackSecretToken: String,
+    slackRefreshToken: String, // oAuth 2.0
     twitterAccessToken: String,
     twitterSecretToken: String,
   },

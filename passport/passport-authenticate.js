@@ -21,12 +21,12 @@ passport.use(new TwitterStrategy({
       if(user) {
         user.twitterAccessToken = token;
         user.twitterSecretToken = tokenSecret;
-        user.imageUrl = modifyTwitterURL(profile._json.profile_image_url);
-        // console.log(user.imageUrl);
+        user.imageURL = modifyTwitterImageURL(profile._json.profile_image_url);
+        // console.log(user.imageURL);
         return user.save();
       } else {
         return User.create({
-          imageUrl: modifyTwitterURL(profile._json.profile_image_url),
+          imageURL: modifyTwitterImageURL(profile._json.profile_image_url),
           name: profile._json.name,
           twitterAccessToken: token,
           twitterSecretToken:tokenSecret,
@@ -56,12 +56,12 @@ passport.use(new FacebookStrategy({
       if (user) {
         user.facebookAccessToken = accessToken;
         user.facebookSecretToken = secretToken;
-        user.imageUrl = profile.photos[0].value;
+        user.imageURL = profile.photos[0].value;
         return user.save();
       } else {
         return User.create({
           name: profile.displayName,
-          imageUrl: profile.photos[0].value,
+          imageURL: profile.photos[0].value,
           facebookAccessToken: accessToken,
           facebookSecretToken: secretToken,
           facebookId: profile.id
@@ -88,18 +88,19 @@ passport.use(new SlackStrategy({
     scope: 'outgoing-webhook'
   },
   // check what is returned by Slack, refreshToken?
-  function(accessToken, secretToken, profile, done) {
+  function(accessToken, refreshToken, profile, done) {
     User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
+      console.log('slack profile', profile);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
-        user.apiKeys.slackSecretToken = secretToken;
+        user.apiKeys.slackRefreshToken = refreshToken;
         return user.save();
       } else {
         return User.create({
           name: profile.displayName,
           apiKeys: {
             slackAccessToken: accessToken,
-            slackSecretToken: secretToken
+            slackRefreshToken: refreshToken
           },
           slackProfile: {
             id: profile.id
@@ -109,7 +110,7 @@ passport.use(new SlackStrategy({
     })
     .then(function(user){
       if (user) {
-        console.log('new fb user created', user);
+        console.log('new slack user created', user);
       }
       return done(null, user);
     })
@@ -119,7 +120,6 @@ passport.use(new SlackStrategy({
     });
   }
 ));
-
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);
@@ -140,21 +140,21 @@ function convertToHttps(url) {
   return url.replace(/^http:\/\//i, 'https://');
 }
 
-function modifyTwitterURL(url) {
-  var newUrl;
+function modifyTwitterImageURL(url) {
+  var newURL;
 
   if (url.indexOf('default_profile') !== -1) {
     return convertToHttps(url);
   }
   else if (url.lastIndexOf('normal.jpg') !== -1) {
     // use regex instead
-    newUrl = url.substring(0, url.lastIndexOf('normal.jpg')) + 'bigger.jpg';
-    return convertToHttps(newUrl);
+    newURL = url.substring(0, url.lastIndexOf('normal.jpg')) + 'bigger.jpg';
+    return convertToHttps(newURL);
   }
   else if (url.lastIndexOf('normal.jpeg') !== -1) {
     // use regex instead
-    newUrl = url.substring(0, url.lastIndexOf('normal.jpeg')) + 'bigger.jpeg';
-    return convertToHttps(newUrl);
+    newURL = url.substring(0, url.lastIndexOf('normal.jpeg')) + 'bigger.jpeg';
+    return convertToHttps(newURL);
   }
   else {
     return convertToHttps(url);
