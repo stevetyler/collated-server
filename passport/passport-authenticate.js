@@ -19,6 +19,7 @@ passport.use(new TwitterStrategy({
   function(token, tokenSecret, profile, done) {
     User.findOne({ twitterId: profile._json.id_str }).exec().then(function(user) {
       if(user) {
+        // check for schema version and update
         user.twitterAccessToken = token;
         user.twitterSecretToken = tokenSecret;
         user.imageURL = modifyTwitterImageURL(profile._json.profile_image_url);
@@ -94,6 +95,7 @@ passport.use(new SlackStrategy({
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
+        user.slackProfile.id = profile.id;
         return user.save();
       } else {
         return User.create({

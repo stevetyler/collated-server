@@ -1,5 +1,5 @@
-var bcrypt = require('bcrypt');
-var logger = require('nlogger').logger(module);
+// var bcrypt = require('bcrypt');
+// var logger = require('nlogger').logger(module);
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
@@ -30,7 +30,16 @@ var userSchema = new Schema({
     autoImport: String,
     newestTweetId: String,
     oldestTweetId: String,
-  }
+  },
+  // old properties to move
+  facebookAccessToken: String,
+  facebookSecretToken: String,
+  twitterAccessToken: String,
+  twitterSecretToken: String,
+  twitterId: String,
+  twitterAutoImport: String,
+  twitterNewestTweetId: String,
+  twitterOldestTweetId: String,
 });
 
 userSchema.methods.makeEmberUser = function () {
@@ -46,6 +55,63 @@ userSchema.methods.makeEmberUser = function () {
   return emberUser;
 };
 
+userSchema.methods.updateUserSchema = function(user) {
+  if (user.schemaVersion !== 1.1) {
+    user.apiKeys.twitterAccessToken = user.twitterAccessToken;
+    user.apiKeys.twitterSecretToken = user.twitterSecretToken;
+    user.apiKeys.facebookAccessToken = user.facebookAccessToken;
+    user.apiKeys.facebookSecretToken = user.facebookSecretToken;
+    delete user.twitterAccessToken;
+    delete user.twitterSecretToken;
+    delete user.facebookAccessToken;
+    delete user.facebookSecretToken;
+
+    user.twitterProfile.id = user.twitterId;
+    user.twitterProfile.autoImport = user.twitterAutoImport;
+    user.twitterProfile.newestTweetId = user.twitterNewestTweetId;
+    user.twitterProfile.oldestTweetId = user.twitterOldestTweetId;
+    delete user.twitterId;
+    delete user.twitterAutoImport;
+    delete user.twitterNewestTweetId;
+    delete user.twitterOldestTweetId;
+
+    user.schemaVersion = '1.1';
+  }
+};
+
+userSchema.statics.assignAvatar = function (id) {
+  var image, path;
+
+  switch (id) {
+    case 'css-tricks' : image = 'css-tricks.jpg';
+    break;
+    case 'ember-london' : image = 'ember-london.jpg';
+    break;
+    default : image = 'guest.jpg';
+  }
+  path = '/assets/img/avatars/' + image;
+  return path;
+};
+
+module.exports = userSchema;
+
+// bcrypt not installing
+// userSchema.statics.encryptPassword = function (savedPassword, cb) {
+// 	bcrypt.genSalt(10, function(err, salt) {
+// 		if (err) {
+// 			logger.error('genSalt: ', err);
+// 		}
+// 		logger.info('bcrypt: ', salt);
+// 		bcrypt.hash(savedPassword, salt, function(err, hash) {
+// 			if (err) {
+// 				logger.error('Hash Problem: ', err);
+// 				return res.status(403).end();
+// 			}
+// 			logger.info('Hashed Password: ', hash);
+//     return cb(err, hash);
+//     });
+//   });
+// };
 // userSchema.statics.createUser = function(user, done) {
 //   var User = this.model('User');
 //
@@ -66,39 +132,6 @@ userSchema.methods.makeEmberUser = function () {
 //   });
 // };
 
-
-// bcrypt not installing
-userSchema.statics.encryptPassword = function (savedPassword, cb) {
-	bcrypt.genSalt(10, function(err, salt) {
-		if (err) {
-			logger.error('genSalt: ', err);
-		}
-		logger.info('bcrypt: ', salt);
-		bcrypt.hash(savedPassword, salt, function(err, hash) {
-			if (err) {
-				logger.error('Hash Problem: ', err);
-				return res.status(403).end();
-			}
-			logger.info('Hashed Password: ', hash);
-    return cb(err, hash);
-    });
-  });
-};
-
-userSchema.statics.assignAvatar = function (id) {
-  var image, path;
-
-  switch (id) {
-    case 'css-tricks' : image = 'css-tricks.jpg';
-    break;
-    case 'ember-london' : image = 'ember-london.jpg';
-    break;
-    default : image = 'guest.jpg';
-  }
-  path = '/assets/img/avatars/' + image;
-  return path;
-};
-
 // userSchema.methods.isFollowed = function (loggedInUser) {
 //   if (loggedInUser) {
 //     var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
@@ -107,5 +140,3 @@ userSchema.statics.assignAvatar = function (id) {
 //   }
 //   return false;
 // };
-
-module.exports = userSchema;
