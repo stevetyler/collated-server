@@ -22,12 +22,12 @@ passport.use(new TwitterStrategy({
         // check for schema version and update
         user.twitterAccessToken = token;
         user.twitterSecretToken = tokenSecret;
-        user.imageURL = modifyTwitterImageURL(profile._json.profile_image_url);
-        // console.log(user.imageURL);
+        user.imageUrl = modifyTwitterImageURL(profile._json.profile_image_url);
+        // console.log(user.imageUrl);
         return user.save();
       } else {
         return User.create({
-          imageURL: modifyTwitterImageURL(profile._json.profile_image_url),
+          imageUrl: modifyTwitterImageURL(profile._json.profile_image_url),
           name: profile._json.name,
           twitterAccessToken: token,
           twitterSecretToken:tokenSecret,
@@ -57,12 +57,12 @@ passport.use(new FacebookStrategy({
       if (user) {
         user.facebookAccessToken = accessToken;
         user.facebookSecretToken = secretToken;
-        user.imageURL = profile.photos[0].value;
+        user.imageUrl = profile.photos[0].value;
         return user.save();
       } else {
         return User.create({
           name: profile.displayName,
-          imageURL: profile.photos[0].value,
+          imageUrl: profile.photos[0].value,
           facebookAccessToken: accessToken,
           facebookSecretToken: secretToken,
           facebookId: profile.id
@@ -86,10 +86,11 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: 'outgoing-webhook'
+    scope: 'users:read outgoing-webhook'
   },
   // check what is returned by Slack, refreshToken?
   function(accessToken, refreshToken, profile, done) {
+    console.log('profile', profile);
     User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
       console.log('slack profile', profile);
       if (user) {
