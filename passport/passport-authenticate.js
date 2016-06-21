@@ -86,11 +86,13 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: 'users:read'
+    scope: 'identity.basic,identity.email,identity.team,identity.avatar'
   },
   function(accessToken, refreshToken, profile, done) {
     console.log('profile', profile);
+
     User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
+      // make call to get email and avatar slack.com/api/users.identity?token=awarded_token
       console.log('slack profile', profile);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
