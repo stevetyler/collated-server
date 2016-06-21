@@ -86,9 +86,8 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: 'users:read outgoing-webhook'
+    scope: 'users:read'
   },
-  // check what is returned by Slack, refreshToken?
   function(accessToken, refreshToken, profile, done) {
     console.log('profile', profile);
     User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
