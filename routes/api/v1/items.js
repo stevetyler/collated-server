@@ -14,7 +14,8 @@ module.exports.autoroute = {
 		'/items/get-title': getTitle
 	},
 	post: {
-		'/items': [ensureAuthenticated, postItem]
+		'/items': [ensureAuthenticated, postItem],
+		'/items/slack': postSlackItem
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -212,6 +213,11 @@ function postItem(req, res) {
 	    return res.status(401).end();
 	  }
 	});
+}
+
+function postSlackItem(req, res) {
+	console.log(req);
+	return res.send({'text': 'message received'});
 }
 
 function deleteItems(req, res) {
