@@ -1,4 +1,4 @@
-var logger = require('nlogger').logger(module);
+//var logger = require('nlogger').logger(module);
 //var passwordGenerator = require('password-generator');
 var bodyParser = require('body-parser');
 
@@ -45,7 +45,7 @@ function checkIdExists(req, res) {
 }
 
 function handleLogoutRequest(req, res) {
-  logger.info('Logging Out');
+  //logger.info('Logging Out');
   req.logout();
   return res.send({ users: [] });
 }

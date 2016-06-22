@@ -1,5 +1,5 @@
-var logger = require('nlogger').logger(module);
-logger.info('load database.js');
+//var logger = require('nlogger').logger(module);
+//logger.info('load database.js');
 
 var mongoose = require('mongoose');
 var userSchema = require('../schemas/user');

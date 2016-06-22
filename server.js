@@ -35,7 +35,9 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
 });
 
-
+app.get('/', function(req, res) {
+  res.send('logging');
+});
 // http://blog.mongolab.com/2013/11/deep-dive-into-connection-pooling/
 // waiting for 'open' event from mongoose.connection
 
