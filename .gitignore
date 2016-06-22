@@ -4,3 +4,4 @@
 dump.rdb
 auth.js
 access.log
+nginx.log
