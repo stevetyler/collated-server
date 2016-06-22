@@ -3,3 +3,4 @@
 /node_modules
 dump.rdb
 auth.js
+access.log
