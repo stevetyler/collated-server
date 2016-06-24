@@ -1,7 +1,4 @@
 var express = require('express');
-var winston = require('winston');
-var fs = require('fs');
-var path = require('path');
 var autoroute = require('express-autoroute');
 
 var app = express();
