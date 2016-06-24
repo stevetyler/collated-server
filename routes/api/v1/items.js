@@ -4,15 +4,13 @@ var db = require('../../../database/database');
 var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 var ItemImporter = require('../../../lib/import-items.js');
 
-//var User = db.model('User');
 var Item = db.model('Item');
 var Tag = db.model('Tag');
 
 module.exports.autoroute = {
 	get: {
 		'/items': getItems,
-		'/items/get-title': getTitle,
-		'/items/slack': postSlackItem
+		'/items/get-title': getTitle
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
@@ -217,8 +215,11 @@ function postItem(req, res) {
 }
 
 function postSlackItem(req, res) {
-	console.log(req.body, 'message received');
-	return res.send({'text': 'message received'});
+
+
+	//var body = req.body;
+	console.log('body', req.body);
+	//return res.send({'text': 'message received'});
 }
 
 function deleteItems(req, res) {
