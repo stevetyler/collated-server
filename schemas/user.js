@@ -24,9 +24,10 @@ var userSchema = new Schema({
   },
   slackProfile: {
     teamId: String,
-    team: String,
+    teamDomain: String,
+    teamToken: String,
     userId: String,
-    user: String,
+    userName: String,
     userTeamId: String
   },
   twitterProfile: {
