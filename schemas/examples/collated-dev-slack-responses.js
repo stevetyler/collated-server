@@ -1,19 +1,4 @@
-
-// Slack post request from general channel on collated-dev.slack.com
-
-{ token: 'uGrAPo07YIkoEd6nIVIPsDdK',
-  team_id: 'T16BS5HAA',
-  team_domain: 'collated-dev',
-  service_id: '52043233060',
-  channel_id: 'C16BS5KT8',
-  channel_name: 'general',
-  timestamp: '1466775503.000002',
-  user_id: 'U16BXKJ4Q',
-  user_name: 'stevetyler',
-  text: 'My new site: <https://www.collated.net/stevetyler_uk>' }
-
-
-// Slack profile
+// Slack User profile
 
 { provider: 'Slack',
   id: 'U16BXKJ4Q',
@@ -48,3 +33,30 @@ new slack user created { apiKeys:
   _id: 57685e7e6f5f8b1406fe4612,
   name: 'stevetyler',
   __v: 0 }
+
+
+
+// Slack post request from general channel on collated-dev.slack.com
+
+{ token: 'uGrAPo07YIkoEd6nIVIPsDdK',
+  team_id: 'T16BS5HAA',
+  team_domain: 'collated-dev',
+  service_id: '52043233060',
+  channel_id: 'C16BS5KT8',
+  channel_name: 'general',
+  timestamp: '1466775503.000002',
+  user_id: 'U16BXKJ4Q',
+  user_name: 'stevetyler',
+  text: 'My new site: <https://www.collated.net/stevetyler_uk>' }
+
+// new collated-dev team record
+
+{
+  id: '',
+  name: '',
+  slackProfile: {
+    teamId: 'T16BS5HAA',
+    teamDomain: 'collated-dev',
+    teamToken: 'uGrAPo07YIkoEd6nIVIPsDdK',
+  }
+}

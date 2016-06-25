@@ -1,6 +1,5 @@
 //var bcrypt = require('bcrypt');
 //var LocalStrategy = require('passport-local').Strategy;
-//var logger = require('nlogger').logger(module);
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -89,11 +88,9 @@ passport.use(new SlackStrategy({
     scope: 'identity.basic,identity.email,identity.team,identity.avatar'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('profile', profile);
 
-    User.findOne( {slackProfile: {id: profile.id}} ).exec().then(function(user) {
+    User.findOne( {slackProfile: {userId: profile.user_id}} ).exec().then(function(user) {
       // make call to get email and avatar slack.com/api/users.identity?token=awarded_token
-      console.log('slack profile', profile);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
