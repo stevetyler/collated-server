@@ -3,13 +3,14 @@ var Schema = mongoose.Schema;
 
 var tagSchema = new Schema({
   id: String,
+  slackChannelId: String,
   alias: String,
   newId: String,
   colour: String,
   user: String,
   itemCount: String,
   isPrivate: String,
-  isReserved: String
+  isReserved: String,
 });
 
 
