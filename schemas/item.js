@@ -8,13 +8,8 @@ var itemSchema = new Schema({
   author: String,
   createdDate: Date,
   body: String,
-  importedFrom: String,
-  type: String,
-  twitterProfile: {
-    id: String,
-    author: String,
-    authorImageUrl: String
-  },
+  type: String, // Slack, Tweet etc
+  twitterTweetId: String,
   isPrivate: String
 });
 
