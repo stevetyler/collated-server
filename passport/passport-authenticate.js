@@ -85,16 +85,17 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: 'identity.basic,identity.email,identity.team,identity.avatar'
+    scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log('profile returned', profile);
 
     User.findOne( {slackProfile: {userId: profile.user_id}} ).exec().then(function(user) {
       // make call to get email and avatar slack.com/api/users.identity?token=awarded_token
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
-        user.slackProfile.id = profile.id;
+        user.slackProfile.userId = profile.id;
         return user.save();
       } else {
         return User.create({
@@ -104,7 +105,11 @@ passport.use(new SlackStrategy({
             slackRefreshToken: refreshToken
           },
           slackProfile: {
-            id: profile.id
+            userId: profile.id,
+            userName: profile._json.user,
+            teamId: profile._json.team_id,
+            teamDomain: profile._json.team,
+            teamUrl: profile._json.url
           }
         });
       }
