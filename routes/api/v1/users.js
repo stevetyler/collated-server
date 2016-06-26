@@ -16,7 +16,7 @@ module.exports.autoroute = {
     '/users/:id' : getUser
 	},
 	put: {
-		'/users/update': [bodyParser.urlencoded(), bodyParser.json(), updateUser],
+		'/users/update': [bodyParser.urlencoded({extended: true}), bodyParser.json(), updateUser],
 		'/users/:id' : putUser
 	},
   post: {
