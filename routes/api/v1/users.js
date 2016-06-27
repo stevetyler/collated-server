@@ -1,12 +1,12 @@
 //var logger = require('nlogger').logger(module);
 //var passwordGenerator = require('password-generator');
+//var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
 var bodyParser = require('body-parser');
 
 var mailchimp = require('../../../lib/mailchimp');
 var mailchimpListID = '2867adef0d';
 
 var db = require('../../../database/database');
-//var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
 var User = db.model('User');
 
 module.exports.autoroute = {
@@ -60,7 +60,8 @@ function handleIsAuthenticatedRequest(req, res) {
 
 function getUser(req, res) {
   var userId = req.params.id;
-  var loggedInUser = req.user;
+  //var loggedInUser = req.user;
+	var emberUser;
 
   User.findOne({id: userId}, function(err, user) {
     if (err) {
@@ -69,15 +70,7 @@ function getUser(req, res) {
     if (!user) {
       return res.status(404).end();
     }
-		// Plans.findOne({_id: user.plan}).exec().then(function(plan){
-		// 	var permissions;
-		// 	if(!plan){
-		// 		permissions = [];
-		// 	} else {
-		// 		permissions = plan.permission;
-		// 	}
-		// })
-    var emberUser = user.makeEmberUser(user, loggedInUser); // pass in permissions when needed
+    emberUser = user.makeEmberUser(); // pass in user?
 
     res.send({'user': emberUser});
   });
@@ -135,7 +128,6 @@ function postUser(req, res) {
   if (req.body.user) {
     User.findOne({id: req.body.user.id}, function (err, user) {
       if (user) {
-        // user already exists
         res.status(400).end();
       }
       else {
@@ -155,6 +147,15 @@ function postUser(req, res) {
     });
   }
 }
+
+// Plans.findOne({_id: user.plan}).exec().then(function(plan){
+// 	var permissions;
+// 	if(!plan){
+// 		permissions = [];
+// 	} else {
+// 		permissions = plan.permission;
+// 	}
+// })
 
 // function handleLoginRequest(req, res) {
 //   passport.authenticate('local', function(err, user, info) {
