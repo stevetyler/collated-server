@@ -1,8 +1,6 @@
-// var bcrypt = require('bcrypt');
-// var logger = require('nlogger').logger(module);
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
+
 var userSchema = new Schema({
   id: String,
   name: String,
@@ -84,21 +82,21 @@ userSchema.methods.updateUserSchema = function(user) {
   }
 };
 
-userSchema.statics.assignAvatar = function (id) {
-  var image, path;
-
-  switch (id) {
-    case 'css-tricks' : image = 'css-tricks.jpg';
-    break;
-    case 'ember-london' : image = 'ember-london.jpg';
-    break;
-    default : image = 'guest.jpg';
-  }
-  path = '/assets/img/avatars/' + image;
-  return path;
-};
-
 module.exports = userSchema;
+
+// userSchema.statics.assignAvatar = function (id) {
+//   var image, path;
+//
+//   switch (id) {
+//     case 'css-tricks' : image = 'css-tricks.jpg';
+//     break;
+//     case 'ember-london' : image = 'ember-london.jpg';
+//     break;
+//     default : image = 'guest.jpg';
+//   }
+//   path = '/assets/img/avatars/' + image;
+//   return path;
+// };
 
 // bcrypt not installing
 // userSchema.statics.encryptPassword = function (savedPassword, cb) {
