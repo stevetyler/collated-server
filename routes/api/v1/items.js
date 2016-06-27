@@ -61,7 +61,7 @@ function getTitle(req, res) {
 function getUserItems(req, res) {
 	var query = {user: req.query.user};
 
-	returnEmberItems(req, res, query);
+	makeEmberItems(req, res, query);
 }
 
 function getFilteredItems(req, res) {
@@ -70,7 +70,7 @@ function getFilteredItems(req, res) {
 		user: req.query.user,
 		tags: {$all:tagIds}
 	};
-  returnEmberItems(req, res, query);
+  makeEmberItems(req, res, query);
 }
 
 function getSearchItems(req, res) {
@@ -82,10 +82,10 @@ function getSearchItems(req, res) {
 			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	returnEmberItems(req, res, query);
+	makeEmberItems(req, res, query);
 }
 
-function returnEmberItems(req, res, query) {
+function makeEmberItems(req, res, query) {
 	var allEmberItems = [];
 	var publicEmberItems = [];
 
@@ -215,11 +215,48 @@ function postItem(req, res) {
 }
 
 function postSlackItem(req, res) {
+	var tags = [req.body.channel_name];
+	var slackItem = {
+    user: req.body.user_name,
+    createdDate: req.body.timestamp,
+    body: req.body.text,
+    // author: req.body.item.author,
+    tags: tags,
+  };
 
+	Tag.find({id: {$in: tags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
+		if (!tags) {
+			var newTag = {
+				id: req.body.channel_name,
+				slackChannelId: req.body.channel_id,
+			};
+			Tag.save(newTag);
+		}
+	}).then(function() {
+		if (req.user.id === req.body.item.user) {
+	    var newItem = new Item(slackItem);
 
-	//var body = req.body;
+	    newItem.save(function(err, slackItem) {
+	      if (err) {
+	        res.status(501).end();
+	      }
+	      var emberItem = {
+	        id: slackItem._id,
+	        user: slackItem.user,
+	        body: slackItem.body,
+	        createdDate: slackItem.createdDate,
+	        author: slackItem.author,
+	        tags: slackItem.tags,
+	      };
+	      return res.send({'item': emberItem});
+	    });
+	  }
+	  else {
+	    return res.status(401).end();
+	  }
+	});
+
 	console.log('body', req.body);
-	//return res.send({'text': 'message received'});
 }
 
 function deleteItems(req, res) {
