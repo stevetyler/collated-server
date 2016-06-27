@@ -13,7 +13,6 @@ var itemSchema = new Schema({
   isPrivate: String
 });
 
-// not in use
 itemSchema.methods.makeEmberItem = function() {
   var emberItem = {
     id: this._id,
@@ -23,7 +22,8 @@ itemSchema.methods.makeEmberItem = function() {
     author: this.author,
     tags: this.tags,
     type: this.type,
-    isPrivate: this.isPrivate
+    isPrivate: this.isPrivate,
+    twitterTweetId: this.twitterTweetId
   };
   return emberItem;
 };

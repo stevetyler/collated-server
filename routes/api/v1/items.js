@@ -94,18 +94,8 @@ function makeEmberItems(req, res, query) {
 			return res.status(404).send();
 		}
 		items.forEach(function(item) {
-			var emberItem;
+			var emberItem = item.makeEmberItem();
 
-			emberItem = {
-				id: item._id,
-				user: item.user,
-				body: item.body,
-				createdDate: item.createdDate,
-				author: item.author,
-				tags: item.tags,
-				isPrivate: item.isPrivate,
-				twitterTweetId: item.twitterTweetId
-			};
 			if (item.isPrivate === 'true') {
 				allEmberItems.push(emberItem);
 			}
@@ -134,14 +124,8 @@ function getTwitterItems(req, res) {
       return res.status(400).end();
     }
     items.forEach(function(item) {
-      var emberItem = {
-        id: item._id,
-        author: item.author,
-        user: item.user,
-        body: item.body,
-        createdDate: item.createdDate,
-        tags: item.tags
-      };
+      var emberItem = item.makeEmberItem();
+
       emberItems.push(emberItem);
     });
     return res.send({'items': emberItems});
@@ -196,15 +180,8 @@ function postItem(req, res) {
 	      if (err) {
 	        res.status(501).end();
 	      }
-	      var emberItem = {
-	        id: item._id,
-	        user: item.user,
-	        body: item.body,
-	        createdDate: item.createdDate,
-	        author: item.author,
-	        tags: item.tags,
-					isPrivate: item.isPrivate
-	      };
+	      var emberItem = item.makeEmberItem();
+
 	      return res.send({'item': emberItem});
 	    });
 	  }
@@ -240,15 +217,9 @@ function postSlackItem(req, res) {
 	      if (err) {
 	        res.status(501).end();
 	      }
-	      var emberItem = {
-	        id: slackItem._id,
-	        user: slackItem.user,
-	        body: slackItem.body,
-	        createdDate: slackItem.createdDate,
-	        author: slackItem.author,
-	        tags: slackItem.tags,
-	      };
-	      return res.send({'item': emberItem});
+	      var emberSlackItem = slackItem.makeEmberItem();
+
+	      return res.send({'item': emberSlackItem});
 	    });
 	  }
 	  else {
