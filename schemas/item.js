@@ -10,6 +10,7 @@ var itemSchema = new Schema({
   body: String,
   type: String, // Slack, Tweet, Bookmark
   twitterTweetId: String,
+  slackTeamId: String,
   isPrivate: String
 });
 

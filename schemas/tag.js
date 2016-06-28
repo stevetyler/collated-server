@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 
 var tagSchema = new Schema({
   id: String,
-  slackChannelId: String,
   alias: String,
   newId: String,
   colour: String,
@@ -11,21 +10,21 @@ var tagSchema = new Schema({
   itemCount: String,
   isPrivate: String,
   isReserved: String,
+  slackChannelId: String,
+  slackTeamId: String,
 });
 
 
-tagSchema.methods.getPrivateTags = function(user, tags, done) {
-
-};
 
 // not in use
-tagSchema.methods.makeEmberTag = function(tag, user, done) {
+tagSchema.methods.makeEmberTag = function() {
 	var emberTag = {
 		id: this.id,
 		colour: this.colour,
 		user: this.user.id,
     itemCount: this.itemCount
 	};
+  return emberTag;
 };
 
 tagSchema.statics.createTag = function(tag, done) {
