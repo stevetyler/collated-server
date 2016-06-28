@@ -193,26 +193,30 @@ function postItem(req, res) {
 
 function postSlackItem(req, res) {
 	var tags = [req.body.channel_name];
+	var timestamp = req.body.timestamp.split('.')[0] * 1000;
 	var slackItem = {
     user: req.body.user_name,
 		tags: tags,
 		author: req.body.user_name,
-    createdDate: req.body.timestamp,
+    createdDate: timestamp,
     body: req.body.text,
-		type: 'slack'
+		type: 'slack',
+		slackTeamId: req.body.team_id
   };
+	console.log('message received', req.body);
 
 	Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
-		if (!tags) {
+		if (!tags.length) {
 			var newTag = {
 				id: req.body.channel_name,
 				slackChannelId: req.body.channel_id,
+				slackTeamId: req.body.team_id
 			};
+			console.log('new tag', newTag);
 			Tag.save(newTag);
 		}
 	}).then(function() {
 		// regex on body
-
 		if (req) {
 	    var newItem = new Item(slackItem);
 
