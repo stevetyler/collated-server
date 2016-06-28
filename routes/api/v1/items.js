@@ -195,13 +195,14 @@ function postSlackItem(req, res) {
 	var tags = [req.body.channel_name];
 	var slackItem = {
     user: req.body.user_name,
+		tags: tags,
+		author: req.body.user_name,
     createdDate: req.body.timestamp,
     body: req.body.text,
-    // author: req.body.item.author,
-    tags: tags,
+		type: 'slack'
   };
 
-	Tag.find({id: {$in: tags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
+	Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
 		if (!tags) {
 			var newTag = {
 				id: req.body.channel_name,
@@ -210,24 +211,22 @@ function postSlackItem(req, res) {
 			Tag.save(newTag);
 		}
 	}).then(function() {
-		if (req.user.id === req.body.item.user) {
+		// regex on body
+
+		if (req) {
 	    var newItem = new Item(slackItem);
 
-	    newItem.save(function(err, slackItem) {
+	    newItem.save(function(err) {
 	      if (err) {
 	        res.status(501).end();
 	      }
-	      var emberSlackItem = slackItem.makeEmberItem();
-
-	      return res.send({'item': emberSlackItem});
+	      return res.send({});
 	    });
 	  }
 	  else {
 	    return res.status(401).end();
 	  }
 	});
-
-	console.log('body', req.body);
 }
 
 function deleteItems(req, res) {
