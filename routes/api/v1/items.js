@@ -206,7 +206,6 @@ function postSlackItem(req, res) {
 	console.log('message received', req.body);
 
 	Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
-		//console.log('tag found', tags);
 		if (!tags.length) {
 			var newTag = {
 				id: req.body.channel_name,
