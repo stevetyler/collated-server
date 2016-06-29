@@ -155,6 +155,9 @@ function putItems(req, res) {
 		  );
 		});
 	}
+	else {
+		return res.status(401).end();
+	}
 }
 
 function postItem(req, res) {
