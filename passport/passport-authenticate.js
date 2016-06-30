@@ -31,6 +31,8 @@ passport.use(new TwitterStrategy({
           twitterAccessToken: token,
           twitterSecretToken:tokenSecret,
           twitterId:  profile._json.id_str
+        }).then(function() {
+          console.log('new Twitter user created');
         });
       }
     })
@@ -57,7 +59,9 @@ passport.use(new FacebookStrategy({
         user.facebookAccessToken = accessToken;
         user.facebookSecretToken = secretToken;
         user.imageUrl = profile.photos[0].value;
-        return user.save();
+        return user.save().then(function(user) {
+          console.log('fb user updated', user);
+        });
       } else {
         return User.create({
           name: profile.displayName,
@@ -65,13 +69,12 @@ passport.use(new FacebookStrategy({
           facebookAccessToken: accessToken,
           facebookSecretToken: secretToken,
           facebookId: profile.id
+        }).then(function() {
+          console.log('new fb user created', user);
         });
       }
     })
     .then(function(user){
-      if (user) {
-        console.log('new fb user created', user);
-      }
       return done(null, user);
     })
     .then(null, function(err){
@@ -90,34 +93,36 @@ passport.use(new SlackStrategy({
   function(accessToken, refreshToken, profile, done) {
     console.log('profile returned', profile);
 
-    User.findOne( {slackProfile: {userId: profile.user_id}} ).exec().then(function(user) {
+    // find slackProfileId instead, lookup syntax
+    User.findOne( {id: profile._json.user} ).exec().then(function(user) {
       // make call to get email and avatar slack.com/api/users.identity?token=awarded_token
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
-        user.slackProfile.userId = profile.id;
+        //user.slackProfile.userId = profile.id;
+        console.log('slack user exists', user);
         return user.save();
       } else {
         return User.create({
+          id: profile._json.user,
           name: profile.displayName,
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
           slackProfile: {
-            userId: profile.id,
+            userId: profile._json.user_id,
             userName: profile._json.user,
             teamId: profile._json.team_id,
             teamDomain: profile._json.team,
             teamUrl: profile._json.url
           }
+        }).then(function(user) {
+          console.log('new slack user created', user);
         });
       }
     })
     .then(function(user){
-      if (user) {
-        console.log('new slack user created', user);
-      }
       return done(null, user);
     })
     .then(null, function(err){
