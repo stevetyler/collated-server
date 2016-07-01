@@ -100,9 +100,15 @@ function updateUser(req, res) {
 		if(!user) {
 			return new Error('User Not Found');
 		}
-		user.id = id;
-		user.name = name;
-		user.email = email;
+		if (!user.id && id) {
+			user.id = id;
+		}
+		if (name) {
+			user.name = name;
+		}
+		if (email) {
+			user.email = email;
+		}
 		return user.save();
 	})
 	.then(function(user){
