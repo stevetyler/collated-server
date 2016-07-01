@@ -14,25 +14,23 @@ var tagSchema = new Schema({
   slackTeamId: String,
 });
 
-
-
-// not in use
-tagSchema.methods.makeEmberTag = function() {
+tagSchema.methods.makeEmberTag = function(count) {
 	var emberTag = {
 		id: this.id,
 		colour: this.colour,
 		user: this.user.id,
-    itemCount: this.itemCount
+    itemCount: count,
+    isPrivate: this.isPrivate
 	};
   return emberTag;
 };
 
-tagSchema.statics.createTag = function(tag, done) {
-	var Tag = this.model('Tag');
-
-	Tag.create(tag, function(err, tag) {
-		done(err, tag);
-	});
-};
-
 module.exports = tagSchema;
+
+// tagSchema.statics.createTag = function(tag, done) {
+// 	var Tag = this.model('Tag');
+//
+// 	Tag.create(tag, function(err, tag) {
+// 		done(err, tag);
+// 	});
+// };
