@@ -31,8 +31,6 @@ passport.use(new TwitterStrategy({
           twitterAccessToken: token,
           twitterSecretToken:tokenSecret,
           twitterId:  profile._json.id_str
-        }).then(function() {
-          console.log('new Twitter user created');
         });
       }
     })
@@ -59,9 +57,7 @@ passport.use(new FacebookStrategy({
         user.facebookAccessToken = accessToken;
         user.facebookSecretToken = secretToken;
         user.imageUrl = profile.photos[0].value;
-        return user.save().then(function(user) {
-          console.log('fb user updated', user);
-        });
+        return user.save();
       } else {
         return User.create({
           name: profile.displayName,
@@ -69,12 +65,11 @@ passport.use(new FacebookStrategy({
           facebookAccessToken: accessToken,
           facebookSecretToken: secretToken,
           facebookId: profile.id
-        }).then(function() {
-          console.log('new fb user created', user);
         });
       }
     })
     .then(function(user){
+      console.log('fb user', user);
       return done(null, user);
     })
     .then(null, function(err){
@@ -117,8 +112,6 @@ passport.use(new SlackStrategy({
             teamDomain: profile._json.team,
             teamUrl: profile._json.url
           }
-        }).then(function(user) {
-          console.log('new slack user created', user);
         });
       }
     })
