@@ -76,6 +76,7 @@ function getTags(req, res){
 	// })
 	.then(function() {
 		Tag.find({user: id}, function(err, tags) {
+			console.log('tags found', tags);
 			if (err) {
 				return res.status(404).end();
 			}
@@ -84,13 +85,15 @@ function getTags(req, res){
 	});
 }
 
-function makeEmberTags(req, res, id, tags, allEmberTags, publicEmberTags) {
+function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
+	console.log('makeEmberTags called');
 	async.each(tags, function(tag, done) {
 		Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
 			if (err) {
 				return res.status(404).end();
 			}
 			var emberTag = tag.makeEmberTag(count);
+			console.log('ember tag created', emberTag);
 
 			if (tag.isPrivate === 'true') {
 				allEmberTags.push(emberTag);
