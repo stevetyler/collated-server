@@ -45,7 +45,7 @@ function getTags(req, res){
 	.then(function() {
 		//console.log('then1', id);
 		//var userId = id;
-		User.findOne({id: id}, function(user) {
+		User.findOne({id: id}, function(err, user) {
 			console.log('user findOne', id, user);
 			if (user) {
 				teamId = user.slackProfile.teamId;
