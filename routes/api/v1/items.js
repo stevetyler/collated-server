@@ -213,7 +213,8 @@ function postSlackItem(req, res) {
 			var newTag = {
 				id: req.body.channel_name,
 				slackChannelId: req.body.channel_id,
-				slackTeamId: req.body.team_id
+				slackTeamId: req.body.team_id,
+				colour: 'cp-colour-1'
 			};
 			//console.log('new tag', newTag);
 			return Tag.create(newTag);
