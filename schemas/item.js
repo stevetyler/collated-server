@@ -17,7 +17,7 @@ var itemSchema = new Schema({
 itemSchema.methods.makeEmberItem = function() {
   var emberItem = {
     id: this._id,
-    user: this.user.id,
+    user: this.user,
     body: this.body,
     createdDate: this.createdDate,
     author: this.author,

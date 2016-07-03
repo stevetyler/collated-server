@@ -18,7 +18,7 @@ tagSchema.methods.makeEmberTag = function(count) {
 	var emberTag = {
 		id: this.id,
 		colour: this.colour,
-		user: this.user.id,
+		user: this.user,
     itemCount: count,
     isPrivate: this.isPrivate
 	};
