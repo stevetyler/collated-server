@@ -28,15 +28,24 @@ function getTags(req, res){
   var allEmberTags = [];
   var publicEmberTags = [];
 
-	return Tag.findOne({id: 'undefined', user: id}).exec().then(function(tag){
-		if (!tag) {
-			Tag.create({
-				id: 'undefined',
-				colour: 'cp-colour-1',
-				user: id,
-				itemCount: 0
-			});
+	if (!id) {
+		return res.status(404).end();
+	}
+	return User.findOne({id: id}, function(err, user) {
+		if (user) {
+			teamId = user.slackProfile.teamId;
 		}
+	}).exec().then(function() {
+		return Tag.findOne({id: 'undefined', user: id}, function(tag){
+			if (!tag) {
+				Tag.create({
+					id: 'undefined',
+					colour: 'cp-colour-1',
+					user: id,
+					itemCount: 0
+				});
+			}
+		});
 	})
 	.then(function() {
 		return User.findOne({id: id}, function(err, user) {
@@ -58,9 +67,7 @@ function getTags(req, res){
 				if (err) {
 					return res.status(404).end();
 				}
-				if (!teamId) {
-					makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
-				}
+				makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
 			});
 		}
 	})
@@ -76,7 +83,6 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
         return res.status(404).end();
       }
       var emberTag = tag.makeEmberTag(count);
-      console.log('ember tag created', emberTag);
 
       if (tag.isPrivate === 'true') {
         allEmberTags.push(emberTag);
