@@ -20,7 +20,9 @@ tagSchema.methods.makeEmberTag = function(count) {
 		colour: this.colour,
 		user: this.user,
     itemCount: count,
-    isPrivate: this.isPrivate
+    isPrivate: this.isPrivate,
+    slackChannelId: this.slackChannelId,
+    slackTeamId: this.slackTeamId
 	};
   return emberTag;
 };
