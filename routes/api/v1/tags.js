@@ -11,7 +11,7 @@ var User = db.model('User');
 module.exports.autoroute = {
 	get: {
 		'/tags' : getTags,
-		'/tags/slack' : getSlackTags // not in use
+		//'/tags/slack' : getSlackTags // not in use
 	},
 	post: {
 		'/tags': [ensureAuthenticated, postTag]
@@ -43,79 +43,28 @@ function getTags(req, res){
       });
     }
   })
-	// .then(function() {
-	// 	console.log('then2', id);
-	// 	//var userId = id;
-	// 	return User.findOne({id: id}, function(err, user) {
-	// 		console.log('then2 user findOne', id, user);
-	// 		if (user) {
-	// 			teamId = user.slackProfile.teamId;
-	// 			console.log('slack team id found', teamId);
-	// 		}
-	// 	});
-	// })
-	// .then(function() {
-	// 	console.log('then3 teamId', teamId);
-	// 	if (teamId) {
-	// 		return Tag.find({slackTeamId: teamId}, function(err, tags) {
-	// 			if (err) {
-	// 				return res.status(404).end();
-	// 			}
-	// 			console.log('then3 slack tags found', tags);
-	// 			//makeEmberTags(req, res, id, tags, allEmberTags, publicEmberTags);
-	// 			return async.each(tags, function(tag, done) {
-	// 				return Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
-	// 					console.log('then3 slack items', count);
-	// 					if (err) {
-	// 						return res.status(404).end();
-	// 					}
-	// 					var emberTag = tag.makeEmberTag(count);
-	//
-	// 					allEmberTags.push(emberTag);
-	// 					console.log('then3 all tags', allEmberTags);
-	// 					done();
-	// 				});
-	// 			}, function(err) {
-	// 				if (err) {
-	// 					console.log(err);
-	// 				}
-	// 			});
-	// 		});
-	// 	}
-	// })
 	.then(function() {
-		console.log('then4', id);
-		return Tag.find({user: id}, function(err, tags) {
-			console.log('then4 tags found', tags);
-			if (err) {
-				return res.status(404).end();
+		console.log('then2', id);
+		//var userId = id;
+		return User.findOne({id: id}, function(err, user) {
+			console.log('then2 user findOne', id, user);
+			if (user) {
+				teamId = user.slackProfile.teamId;
+				console.log('slack team id found', teamId);
 			}
-			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
 		});
-	});
-}
-
-function getSlackTags(req, res){
-	var id = req.query.userId;
-	var teamId;
-	var allEmberTags = [];
-
-	User.findOne({id: id}, function(err, user) {
-		console.log('then1 user findOne', id, user);
-		if (user) {
-			teamId = user.slackProfile.teamId;
-			console.log('slack team id found', teamId);
-		}
-	}).exec().then(function() {
+	})
+	.then(function() {
 		console.log('then3 teamId', teamId);
 		if (teamId) {
-			Tag.find({slackTeamId: teamId}, function(err, tags) {
+			return Tag.find({slackTeamId: teamId}, function(err, tags) {
 				if (err) {
 					return res.status(404).end();
 				}
 				console.log('then3 slack tags found', tags);
-				async.each(tags, function(tag, done) {
-					Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
+				//makeEmberTags(req, res, id, tags, allEmberTags, publicEmberTags);
+				return async.each(tags, function(tag, done) {
+					return Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
 						console.log('then3 slack items', count);
 						if (err) {
 							return res.status(404).end();
@@ -133,8 +82,59 @@ function getSlackTags(req, res){
 				});
 			});
 		}
+	})
+	.then(function() {
+		console.log('then4', id);
+		return Tag.find({user: id}, function(err, tags) {
+			console.log('then4 tags found', tags);
+			if (err) {
+				return res.status(404).end();
+			}
+			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
+		});
 	});
 }
+
+// function getSlackTags(req, res){
+// 	var id = req.query.userId;
+// 	var teamId;
+// 	var allEmberTags = [];
+//
+// 	User.findOne({id: id}, function(err, user) {
+// 		console.log('then1 user findOne', id, user);
+// 		if (user) {
+// 			teamId = user.slackProfile.teamId;
+// 			console.log('slack team id found', teamId);
+// 		}
+// 	}).exec().then(function() {
+// 		console.log('then3 teamId', teamId);
+// 		if (teamId) {
+// 			Tag.find({slackTeamId: teamId}, function(err, tags) {
+// 				if (err) {
+// 					return res.status(404).end();
+// 				}
+// 				console.log('then3 slack tags found', tags);
+// 				async.each(tags, function(tag, done) {
+// 					Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
+// 						console.log('then3 slack items', count);
+// 						if (err) {
+// 							return res.status(404).end();
+// 						}
+// 						var emberTag = tag.makeEmberTag(count);
+//
+// 						allEmberTags.push(emberTag);
+// 						console.log('then3 all tags', allEmberTags);
+// 						done();
+// 					});
+// 				}, function(err) {
+// 					if (err) {
+// 						console.log(err);
+// 					}
+// 				});
+// 			});
+// 		}
+// 	});
+// }
 
 function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
 	async.each(tags, function(tag, done) {
