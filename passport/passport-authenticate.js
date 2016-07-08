@@ -83,7 +83,9 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: ''
+    //scope: 'users:read',
+    scope: 'identity.basic'
+    //skipUserProfile: true
   },
   function(accessToken, refreshToken, profile, done) {
     console.log('profile returned', profile);
