@@ -21,12 +21,13 @@ var userSchema = new Schema({
     id: String
   },
   slackProfile: {
-    userId: String,
-    userName: String, // displayName
+    isTeamAdmin: String,
     teamId: String,
     teamDomain: String, // team name
     teamToken: String,
-    teamUrl: String
+    teamUrl: String,
+    userId: String,
+    userName: String, // displayName
   },
   twitterProfile: {
     id: String,
