@@ -28,19 +28,18 @@ module.exports.autoroute = {
 function checkIdExists(req, res) {
 	var queryId = req.query.id;
 
-	return User.find({id: queryId}, function(err, user) {
-		if (err) {
-			res.status(401).send();
-		}
-		else if (!queryId) {
+	return User.find({id: queryId}).exec().then(function(user) {
+		if (!queryId) {
 			return res.send( {'users': []} );
 		}
-		else if (!user.length) {
+		if (!user.length) {
 			return res.send( {'users': []} );
 		}
-		else if (user.length) {
+		if (user.length) {
 			return res.send( {'users': user} );
 		}
+	}).then(null, function() {
+		res.status(401).send();
 	});
 }
 
@@ -63,17 +62,15 @@ function getUser(req, res) {
   //var loggedInUser = req.user;
 	var emberUser;
 
-  User.findOne({id: userId}, function(err, user) {
-    if (err) {
-      return res.status(500).end();
-    }
-    if (!user) {
+	User.findOne({id: userId}).exec().then(function(user) {
+		if (!user) {
       return res.status(404).end();
     }
-    emberUser = user.makeEmberUser(); // pass in user?
-
+    emberUser = user.makeEmberUser();
     res.send({'user': emberUser});
-  });
+	}).then(null, function(){
+		return res.status(500).end();
+	});
 }
 
 function putUser(req, res) {
@@ -135,9 +132,9 @@ function updateUser(req, res) {
 function postUser(req, res) {
   console.log('post log');
   if (req.body.user) {
-    User.findOne({id: req.body.user.id}, function (err, user) {
+    User.findOne({id: req.body.user.id}).then(function(user) {
       if (user) {
-        res.status(400).end();
+        return res.status(400).end();
       }
       else {
         User.createUser(req.body.user, function(err, user) {
