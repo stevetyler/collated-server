@@ -88,6 +88,9 @@ function putUser(req, res) {
 			return res.send({'users': [user]});
 		});
 	}
+	else {
+		return res.status(401).end();
+	}
 }
 
 function updateUser(req, res) {
@@ -152,6 +155,9 @@ function postUser(req, res) {
       }
     });
   }
+	else {
+		return res.status(401).end();
+	}
 }
 
 // Plans.findOne({_id: user.plan}).exec().then(function(plan){

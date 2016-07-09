@@ -170,6 +170,9 @@ function putTag(req, res) {
       return res.status(401).end();
     });
   }
+	else {
+		return res.status(401).end();
+	}
 }
 
 function deleteTag(req, res){
