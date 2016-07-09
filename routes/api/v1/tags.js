@@ -99,7 +99,7 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
     if (!req.user) {
       return res.send({'tags': publicEmberTags});
     }
-    else if (req.user.id === req.query.user) {
+    else if (req.user.id === req.query.userId) {
       return res.send({'tags': allEmberTags});
     }
     else {
