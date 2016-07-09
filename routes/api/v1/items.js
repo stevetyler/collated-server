@@ -6,6 +6,7 @@ var ItemImporter = require('../../../lib/import-items.js');
 
 var Item = db.model('Item');
 var Tag = db.model('Tag');
+var User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -59,15 +60,26 @@ function getTitle(req, res) {
 }
 
 function getUserItems(req, res) {
-	var query = {user: req.query.user};
+	var query;
 
-	makeEmberItems(req, res, query);
+	User.findOne({id: req.query.userId}).then(function(user) {
+		if (user.slackProfile.teamId) {
+			query = {slackTeamId: user.slackProfile.teamId};
+			makeEmberItems(req, res, query);
+		}
+		else {
+			query = {user: req.query.userId};
+			makeEmberItems(req, res, query);
+		}
+	}).then(null, function() {
+		return res.status(401).end();
+	});
 }
 
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var query = {
-		user: req.query.user,
+		user: req.query.userId,
 		tags: {$all:tagIds}
 	};
   makeEmberItems(req, res, query);
@@ -76,7 +88,7 @@ function getFilteredItems(req, res) {
 function getSearchItems(req, res) {
 	var string = req.query.keyword;
 	var query = {
-		user: req.query.user,
+		user: req.query.userId,
 		$text: {
 			$search: string
 			//$caseSensitive: false // not compatible with Mongo v3
@@ -107,7 +119,7 @@ function makeEmberItems(req, res, query) {
 		if (!req.user) {
 			return res.send({'items': publicEmberItems});
 		}
-		else if (req.user.id === req.query.user) {
+		else if (req.user.id === req.query.userId) {
 			return res.send({'items': allEmberItems});
 		}
 		else {
