@@ -48,13 +48,6 @@ function getTags(req, res){
 		});
 	})
 	.then(function() {
-		return User.findOne({id: id}, function(err, user) {
-			if (user) {
-				teamId = user.slackProfile.teamId;
-			}
-		});
-	})
-	.then(function() {
 		if (teamId) {
 			return Tag.find({slackTeamId: teamId}, function(err, tags) {
 				if (err) {
@@ -62,7 +55,8 @@ function getTags(req, res){
 				}
 				makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
 			});
-		} else {
+		}
+		else {
 			return Tag.find({user: id}, function(err, tags) {
 				if (err) {
 					return res.status(404).end();
