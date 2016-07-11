@@ -31,38 +31,42 @@ function getTags(req, res){
 	if (!id) {
 		return res.status(404).end();
 	}
-	return User.findOne({id: id}, function(err, user) {
+	User.findOne({id: id}).exec().then(function(user) {
 		if (user) {
 			teamId = user.slackProfile.teamId;
 		}
-	}).exec().then(function() {
-		return Tag.findOne({id: 'undefined', user: id}, function(tag){
-			if (!tag) {
-				Tag.create({
-					id: 'undefined',
-					colour: 'cp-colour-1',
-					user: id,
-					itemCount: 0
-				});
-			}
-		});
+	})
+	.then(function() {
+		return Tag.findOne({id: 'undefined', user: id});
+	})
+	.then(function(tag) {
+		if (!tag && !teamId) {
+			Tag.create({
+				id: 'undefined',
+				colour: 'cp-colour-1',
+				user: id,
+				itemCount: 0
+			});
+		}
 	})
 	.then(function() {
 		if (teamId) {
-			return Tag.find({slackTeamId: teamId}, function(err, tags) {
-				if (err) {
-					return res.status(404).end();
-				}
-				makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
-			});
+			return Tag.find({slackTeamId: teamId});
 		}
-		else {
-			return Tag.find({user: id}, function(err, tags) {
-				if (err) {
-					return res.status(404).end();
-				}
-				makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
-			});
+	})
+	.then(function(tags) {
+		if (tags) {
+			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
+		}
+	})
+	.then(function() {
+		if (!teamId) {
+			return Tag.find({user: id});
+		}
+	})
+	.then(function(tags) {
+		if (tags) {
+			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
 		}
 	})
 	.then(null, function() {
@@ -110,7 +114,9 @@ function postTag(req, res){
 			id: req.body.tag.id,
 			colour: req.body.tag.colour,
 			user: req.body.tag.user,
-			isPrivate: req.body.tag.isPrivate
+			isPrivate: req.body.tag.isPrivate,
+			slackChannelId: req.body.tag.slackChannelId,
+			slackTeamId: req.body.tag.slackTeamId
 		};
 		if (req.body.tag.id) {
 			Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, function(err, data) {
@@ -170,11 +176,11 @@ function putTag(req, res) {
 }
 
 function deleteTag(req, res){
-  Tag.remove({ id: req.params.id }, function (err) {
-    if (err) {
-      console.log(err);
-      return res.status(500).end();
-    }
+  Tag.remove({ id: req.params.id }).exec().then(function() {
     return res.send({});
-  });
+  })
+	.then(null, function(err) {
+		console.log(err);
+		return res.status(500).end();
+	});
 }
