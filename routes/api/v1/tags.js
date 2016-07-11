@@ -56,7 +56,8 @@ function getTags(req, res){
 	})
 	.then(function(tags) {
 		if (tags) {
-			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
+			//makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
+			makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags);
 		}
 	})
 	.then(function() {
@@ -72,6 +73,39 @@ function getTags(req, res){
 	.then(null, function() {
 		return res.status(404).end();
 	});
+}
+
+function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags) {
+  async.each(tags, function(tag, done) {
+    Item.count({slackTeamId: teamId, tags: {$in: [tag.id]}}, function(err, count) {
+      if (err) {
+        return res.status(500).end();
+      }
+      var emberTag = tag.makeEmberTag(count);
+
+      if (tag.isPrivate === 'true') {
+        allEmberTags.push(emberTag);
+      }
+			else {
+        allEmberTags.push(emberTag);
+        publicEmberTags.push(emberTag);
+      }
+      done();
+    });
+  }, function(err) {
+    if (err) {
+      console.log(err);
+    }
+    if (!req.user) {
+      return res.send({'tags': publicEmberTags});
+    }
+    else if (req.user.id === req.query.userId) {
+      return res.send({'tags': allEmberTags});
+    }
+    else {
+      return res.send({'tags': publicEmberTags});
+    }
+  });
 }
 
 function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
@@ -109,7 +143,7 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
 
 function postTag(req, res){
 	if (req.user.id === req.body.tag.user) {
-		let tag = {
+		var tag = {
 			id: req.body.tag.id,
 			colour: req.body.tag.colour,
 			user: req.body.tag.user,
@@ -123,7 +157,7 @@ function postTag(req, res){
 					res.status(400).end();
 				}
 				else {
-					let newTag = new Tag(tag);
+					var newTag = new Tag(tag);
 					newTag.save(function(err, tag) {
 						if (err) {
 							res.status(501).end();
@@ -140,8 +174,8 @@ function postTag(req, res){
 }
 
 function putTag(req, res) {
-  let tagId = req.params.id;
-  let isPrivate = req.body.tag.isPrivate;
+  var tagId = req.params.id;
+  var isPrivate = req.body.tag.isPrivate;
 
   if (req.user.id === req.body.tag.user) {
     Tag.update({id: tagId, user: req.user.id},
