@@ -37,9 +37,9 @@ function getItems(req, res) {
 		case 'importItems':
 			return getTwitterItems(req, res);
 		default:
-			return res.status(500).end();
+			return res.status(404).end();
 	}
-  return res.status(500).end();
+  return res.status(404).end();
 }
 
 function getTitle(req, res) {
@@ -72,7 +72,7 @@ function getUserItems(req, res) {
 			makeEmberItems(req, res, query);
 		}
 	}).then(null, function() {
-		return res.status(401).end();
+		return res.status(404).end();
 	});
 }
 
@@ -160,7 +160,7 @@ function putItems(req, res) {
 		    function(err) {
 		      if (err) {
 		        console.log(err);
-		        return res.status(401).end();
+		        return res.status(400).end();
 		      }
 		    return res.send({});
 		    }
@@ -193,7 +193,7 @@ function postItem(req, res) {
 
 	    newItem.save(function(err, item) {
 	      if (err) {
-	        res.status(501).end();
+	        res.status(500).end();
 	      }
 	      var emberItem = item.makeEmberItem();
 
@@ -238,26 +238,25 @@ function postSlackItem(req, res) {
 
 	    newItem.save(function(err) {
 	      if (err) {
-	        res.status(501).end();
+	        res.status(500).end();
 	      }
 	      return res.send({});
 	    });
 	  }
 	  else {
-	    return res.status(401).end();
+	    return res.status(400).end();
 	  }
 	}).then(null, function(err){
 		console.log(err);
-		return res.status(401).end();
+		return res.status(500).end();
 	});
 }
 
 function deleteItems(req, res) {
-	Item.remove({ _id: req.params.id }, function (err) {
-    if (err) {
-      console.log(err);
-      return res.status(401).end();
-    }
+	Item.remove({ _id: req.params.id }).exec().then(function() {
     return res.send({});
-  });
+  }).then(null, function(err) {
+		console.log(err);
+		return res.status(500).end();
+	});
 }

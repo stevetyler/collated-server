@@ -74,7 +74,7 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
   async.each(tags, function(tag, done) {
     Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
       if (err) {
-        return res.status(404).end();
+        return res.status(500).end();
       }
       var emberTag = tag.makeEmberTag(count);
 
@@ -161,7 +161,7 @@ function putTag(req, res) {
     })
     .then(null, function(err) {
       console.log(err);
-      return res.status(401).end();
+      return res.status(400).end();
     });
   }
 	else {
@@ -173,7 +173,7 @@ function deleteTag(req, res){
   Tag.remove({ id: req.params.id }, function (err) {
     if (err) {
       console.log(err);
-      return res.status(404).end();
+      return res.status(500).end();
     }
     return res.send({});
   });
