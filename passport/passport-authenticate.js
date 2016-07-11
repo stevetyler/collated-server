@@ -83,21 +83,21 @@ passport.use(new SlackStrategy({
     clientID : configAuth.slackAuth.clientID,
     clientSecret : configAuth.slackAuth.clientSecret,
     callbackURL : configAuth.slackAuth.callbackURL,
-    scope: 'identity.basic identity.email identity.avatar identity.team'
+    scope: 'identity.basic,identity.email'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('profile returned', profile);
+    console.log('slack profile returned', profile);
 
     // find slackProfileId instead, lookup syntax
     User.findOne( {id: profile._json.user} ).exec().then(function(user) {
-      // make call to get email and avatar slack.com/api/users.identity?token=awarded_token
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
         //user.slackProfile.userId = profile.id;
         console.log('slack user exists', user);
         return user.save();
-      } else {
+      }
+      else {
         return User.create({
           id: profile._json.user,
           name: profile.displayName,
