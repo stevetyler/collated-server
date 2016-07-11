@@ -84,7 +84,8 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
 
       if (tag.isPrivate === 'true') {
         allEmberTags.push(emberTag);
-      } else {
+      }
+			else {
         allEmberTags.push(emberTag);
         publicEmberTags.push(emberTag);
       }
@@ -107,10 +108,8 @@ function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
 }
 
 function postTag(req, res){
-  var newTag;
-
 	if (req.user.id === req.body.tag.user) {
-		var tag = {
+		let tag = {
 			id: req.body.tag.id,
 			colour: req.body.tag.colour,
 			user: req.body.tag.user,
@@ -122,8 +121,9 @@ function postTag(req, res){
 			Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, function(err, data) {
 				if (data) {
 					res.status(400).end();
-				} else {
-					newTag = new Tag(tag);
+				}
+				else {
+					let newTag = new Tag(tag);
 					newTag.save(function(err, tag) {
 						if (err) {
 							res.status(501).end();
@@ -140,8 +140,8 @@ function postTag(req, res){
 }
 
 function putTag(req, res) {
-  var tagId = req.params.id;
-  var isPrivate = req.body.tag.isPrivate;
+  let tagId = req.params.id;
+  let isPrivate = req.body.tag.isPrivate;
 
   if (req.user.id === req.body.tag.user) {
     Tag.update({id: tagId, user: req.user.id},
