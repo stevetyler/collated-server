@@ -22,6 +22,7 @@ var userSchema = new Schema({
   },
   slackProfile: {
     isTeamAdmin: String,
+    isTeamOwner: String,
     teamId: String,
     teamDomain: String, // team name
     teamToken: String,

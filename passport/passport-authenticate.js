@@ -87,26 +87,32 @@ passport.use(new SlackStrategy({
     scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('slack profile returned', profile);
+    //console.log('slack profile returned', profile);
+    //console.log('slack info returned', profile._json.info.user);
 
     // find slackProfileId instead, lookup syntax
     User.findOne( {id: profile._json.user} ).exec().then(function(user) {
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
-        //user.slackProfile.userId = profile.id;
-        console.log('slack user exists', user);
+        user.email = profile._json.info.user.profile.email;
+        user.imageUrl = profile._json.info.user.profile.image_24;
+        user.slackProfile.isTeamAdmin = profile._json.info.user.is_admin;
+        //console.log('slack user exists', user);
         return user.save();
       }
       else {
         return User.create({
           id: profile._json.user,
           name: profile.displayName,
+          imageUrl: profile._json.info.user.profile.image_24,
+          email: profile._json.info.user.profile.email,
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
           slackProfile: {
+            isTeamAdmin: profile._json.info.user.is_admin,
             userId: profile._json.user_id,
             userName: profile._json.user,
             teamId: profile._json.team_id,
@@ -117,6 +123,7 @@ passport.use(new SlackStrategy({
       }
     })
     .then(function(user){
+      console.log('user created or updated', user);
       return done(null, user);
     })
     .then(null, function(err){
