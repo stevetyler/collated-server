@@ -206,50 +206,52 @@ function postItem(req, res) {
 	});
 }
 
+function containsUrl(message) {
+	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
+}
+
 function postSlackItem(req, res) {
 	var tags = [req.body.channel_name];
 	var timestamp = req.body.timestamp.split('.')[0] * 1000;
-	var slackItem = {
-    user: req.body.user_name,
-		tags: tags,
-		author: req.body.user_name,
-    createdDate: timestamp,
-    body: req.body.text,
-		type: 'slack',
-		slackTeamId: req.body.team_id
-  };
-	console.log('message received', req.body);
+  var hasUrl = containsUrl(req.body.text);
+	var slackItem;
 
-	Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
-		if (!tags.length) {
-			var newTag = {
-				id: req.body.channel_name,
-				slackChannelId: req.body.channel_id,
-				slackTeamId: req.body.team_id,
-				colour: 'cp-colour-1'
-			};
-			//console.log('new tag', newTag);
-			return Tag.create(newTag);
-		}
-	}).then(function() {
-		// regex on body
-		if (req) {
-	    var newItem = new Item(slackItem);
+	console.log('message received', req.body.text, hasUrl);
+	if (hasUrl) {
+		slackItem = {
+	    user: req.body.user_name,
+			tags: tags,
+			author: req.body.user_name,
+	    createdDate: timestamp,
+	    body: req.body.text,
+			type: 'slack',
+			slackTeamId: req.body.team_id
+	  };
+		Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
+			if (!tags.length) {
+				var newTag = {
+					id: req.body.channel_name,
+					slackChannelId: req.body.channel_id,
+					slackTeamId: req.body.team_id,
+					colour: 'cp-colour-1'
+				};
+				//console.log('new tag', newTag);
+				return Tag.create(newTag);
+			}
+		}).then(function() {
+			var newItem = new Item(slackItem);
 
-	    newItem.save(function(err) {
-	      if (err) {
-	        res.status(500).end();
-	      }
-	      return res.send({});
-	    });
-	  }
-	  else {
-	    return res.status(400).end();
-	  }
-	}).then(null, function(err){
-		console.log(err);
-		return res.status(500).end();
-	});
+			newItem.save(function(err) {
+				if (err) {
+					res.status(500).end();
+				}
+				return res.send({});
+			});
+		}).then(null, function(err){
+			console.log(err);
+			return res.status(500).end();
+		});
+	}
 }
 
 function deleteItems(req, res) {
