@@ -87,24 +87,23 @@ passport.use(new SlackStrategy({
     scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    //console.log('slack profile returned', profile);
-    //console.log('slack info returned', profile._json.info.user);
-
-    // find slackProfileId instead, lookup syntax
-    User.findOne( {id: profile._json.user} ).exec().then(function(user) {
+    User.findOne( {'slackProfile.userId': profile.id} ).exec().then(function(user) {
+      //console.log('user found', user);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
+        user.name = profile._json.info.user.profile.real_name;
         user.email = profile._json.info.user.profile.email;
         user.imageUrl = profile._json.info.user.profile.image_24;
         user.slackProfile.isTeamAdmin = profile._json.info.user.is_admin;
-        //console.log('slack user exists', user);
+        console.log('slack user exists');
         return user.save();
       }
       else {
+        console.log('new slack user created');
         return User.create({
           id: profile._json.user,
-          name: profile.displayName,
+          name: profile._json.info.user.profile.real_name,
           imageUrl: profile._json.info.user.profile.image_24,
           email: profile._json.info.user.profile.email,
           apiKeys: {
