@@ -31,7 +31,7 @@
   is_bot: false,
   has_2fa: false }
 user created or updated { apiKeys:
-   { slackAccessToken: 'xoxp-40400187350-40405664160-58172458865-d62f46e585',
+   { slackAccessToken: '',
      slackRefreshToken: undefined },
   facebookProfile: {},
   slackProfile:
@@ -47,4 +47,4 @@ user created or updated { apiKeys:
   imageUrl: 'https://secure.gravatar.com/avatar/5af301b87a90d8f28ed14b76facb56d7.jpg?s=24&d=https%3A%2F%2Fh2.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0014-24.png',
   name: 'Steve Tyler',
   id: 'stevetyler',
-  _id: 578cd272205e27c409b42c86 }
+  _id: ''}
