@@ -16,11 +16,11 @@ passport.use(new TwitterStrategy({
     callbackURL: configAuth.twitterAuth.callbackURL
   },
   function(token, tokenSecret, profile, done) {
-    User.findOne({ twitterId: profile._json.id_str }).exec().then(function(user) {
+    User.findOne({ twitterProfile: { id: profile._json.id_str } }).exec().then(function(user) {
       if(user) {
         // check for schema version and update
-        user.twitterAccessToken = token;
-        user.twitterSecretToken = tokenSecret;
+        user.apiKeys.twitterAccessToken = token;
+        user.apiKeys.twitterSecretToken = tokenSecret;
         user.imageUrl = modifyTwitterImageURL(profile._json.profile_image_url);
         // console.log(user.imageUrl);
         return user.save();
@@ -28,9 +28,13 @@ passport.use(new TwitterStrategy({
         return User.create({
           imageUrl: modifyTwitterImageURL(profile._json.profile_image_url),
           name: profile._json.name,
-          twitterAccessToken: token,
-          twitterSecretToken:tokenSecret,
-          twitterId:  profile._json.id_str
+          apiKeys: {
+            twitterAccessToken: token,
+            twitterSecretToken:tokenSecret,
+          },
+          twitterProfile: {
+            id: profile._json.id_str
+          }
         });
       }
     })
@@ -54,17 +58,21 @@ passport.use(new FacebookStrategy({
   function(accessToken, secretToken, profile, done) {
     User.findOne({ facebookId : profile.id}).exec().then(function(user) {
       if (user) {
-        user.facebookAccessToken = accessToken;
-        user.facebookSecretToken = secretToken;
+        user.apiKeys.facebookAccessToken = accessToken;
+        user.apiKeys.facebookSecretToken = secretToken;
         user.imageUrl = profile.photos[0].value;
         return user.save();
       } else {
         return User.create({
           name: profile.displayName,
           imageUrl: profile.photos[0].value,
-          facebookAccessToken: accessToken,
-          facebookSecretToken: secretToken,
-          facebookId: profile.id
+          apiKeys: {
+            facebookAccessToken: accessToken,
+            facebookSecretToken: secretToken
+          },
+          facebookProfile: {
+            id: profile.id
+          }
         });
       }
     })
@@ -80,9 +88,9 @@ passport.use(new FacebookStrategy({
 ));
 
 passport.use(new SlackStrategy({
-    clientID : configAuth.slackAuth.clientID,
-    clientSecret : configAuth.slackAuth.clientSecret,
-    callbackURL : configAuth.slackAuth.callbackURL,
+    clientID: configAuth.slackAuth.clientID,
+    clientSecret: configAuth.slackAuth.clientSecret,
+    callbackURL: configAuth.slackAuth.callbackURL,
     //scope: 'identity.basic,identity.team,identity.email,identity.avatar'
     scope: 'users:read'
   },

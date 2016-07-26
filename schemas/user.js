@@ -37,14 +37,10 @@ var userSchema = new Schema({
     oldestTweetId: String,
   },
   // old properties to move
-  facebookAccessToken: String,
-  facebookSecretToken: String,
-  twitterAccessToken: String,
-  twitterSecretToken: String,
-  twitterId: String,
-  twitterAutoImport: String,
-  twitterNewestTweetId: String,
-  twitterOldestTweetId: String,
+  // facebookAccessToken: String,
+  // facebookSecretToken: String,
+  // twitterAccessToken: String,
+  // twitterSecretToken: String
 });
 
 userSchema.methods.makeEmberUser = function () {
@@ -53,38 +49,42 @@ userSchema.methods.makeEmberUser = function () {
     name: this.name,
     imageUrl: this.imageUrl,
     email: this.email,
-    twitterAutoImport: this.twitterAutoImport,
-    twitterNewestTweetId: this.twitterNewestTweetId,
-    twitterOldestTweetId: this.twitterOldestTweetId
+    twitterProfile : {
+      autoImport: this.twitterProfile.autoImport,
+      newestTweetId: this.twitterProfile.newestTweetId,
+      oldestTweetId: this.twitterProfile.oldestTweetId
+    }
   };
   return emberUser;
 };
 
-userSchema.methods.updateUserSchema = function(user) {
-  if (user.schemaVersion !== 1.1) {
-    user.apiKeys.twitterAccessToken = user.twitterAccessToken;
-    user.apiKeys.twitterSecretToken = user.twitterSecretToken;
-    user.apiKeys.facebookAccessToken = user.facebookAccessToken;
-    user.apiKeys.facebookSecretToken = user.facebookSecretToken;
-    delete user.twitterAccessToken;
-    delete user.twitterSecretToken;
-    delete user.facebookAccessToken;
-    delete user.facebookSecretToken;
 
-    user.twitterProfile.id = user.twitterId;
-    user.twitterProfile.autoImport = user.twitterAutoImport;
-    user.twitterProfile.newestTweetId = user.twitterNewestTweetId;
-    user.twitterProfile.oldestTweetId = user.twitterOldestTweetId;
-    delete user.twitterId;
-    delete user.twitterAutoImport;
-    delete user.twitterNewestTweetId;
-    delete user.twitterOldestTweetId;
-
-    user.schemaVersion = '1.1';
-  }
-};
 
 module.exports = userSchema;
+
+// userSchema.methods.updateUserSchema = function(user) {
+//   if (user.schemaVersion !== 1.1) {
+//     user.apiKeys.twitterAccessToken = user.twitterAccessToken;
+//     user.apiKeys.twitterSecretToken = user.twitterSecretToken;
+//     user.apiKeys.facebookAccessToken = user.facebookAccessToken;
+//     user.apiKeys.facebookSecretToken = user.facebookSecretToken;
+//     delete user.twitterAccessToken;
+//     delete user.twitterSecretToken;
+//     delete user.facebookAccessToken;
+//     delete user.facebookSecretToken;
+//
+//     user.twitterProfile.id = user.twitterProfile.id;
+//     user.twitterProfile.autoImport = user.twitterProfile.autoImport;
+//     user.twitterProfile.newestTweetId = user.twitterProfile.newestTweetId;
+//     user.twitterProfile.oldestTweetId = user.twitterProfile.oldestTweetId;
+//     delete user.twitterProfile.id;
+//     delete user.twitterProfile.autoImport;
+//     delete user.twitterProfile.newestTweetId;
+//     delete user.twitterProfile.oldestTweetId;
+//
+//     user.schemaVersion = '1.1';
+//   }
+// };
 
 // userSchema.statics.assignAvatar = function (id) {
 //   var image, path;
