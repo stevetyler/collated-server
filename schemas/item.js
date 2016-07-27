@@ -10,11 +10,11 @@ var itemSchema = new Schema({
   slackTeamId: String,
   tags: [String],
   twitterTweetId: String,
-  type: String, // Slack, Tweet, Bookmark
+  type: String, // slack, twitter, bookmark
   user: String
 });
 
-itemSchema.methods.makeEmberItem = function() {
+itemSchema.methods.makeEmberItem = function(type) {
   var emberItem = {
     id: this._id,
     author: this.author,
@@ -24,7 +24,7 @@ itemSchema.methods.makeEmberItem = function() {
     slackTeamId: this.slackTeamId,
     tags: this.tags,
     twitterTweetId: this.twitterTweetId,
-    type: this.type,
+    type: this.type || type,
     user: this.user
   };
   return emberItem;
