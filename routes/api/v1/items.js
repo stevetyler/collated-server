@@ -76,6 +76,31 @@ function getUserItems(req, res) {
 	});
 }
 
+// change to query user from Ember, send operation getSlackItems etc
+function getFilteredItemsNew(req, res) {
+	var tagIds = req.query.tags.toString().split('+');
+	var query;
+
+	User.findOne({id: req.query.userId}).then(function(user) {
+		if (user.slackProfile.teamId) {
+			query = {
+				slackTeamId: user.slackProfile.teamId,
+				tags: {$all:tagIds}
+			};
+			makeEmberItems(req, res, query);
+		}
+		else {
+			query = {
+				user: req.query.userId,
+				tags: {$all:tagIds}
+			};
+			makeEmberItems(req, res, query);
+		}
+	}).then(null, function() {
+		return res.status(404).end();
+	});
+}
+
 function getFilteredItems(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var query = {
