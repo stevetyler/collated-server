@@ -14,7 +14,7 @@ var itemSchema = new Schema({
   user: String
 });
 
-itemSchema.methods.makeEmberItem = function(type) {
+itemSchema.methods.makeEmberItem = function() {
   var emberItem = {
     id: this._id,
     author: this.author,
@@ -24,7 +24,7 @@ itemSchema.methods.makeEmberItem = function(type) {
     slackTeamId: this.slackTeamId,
     tags: this.tags,
     twitterTweetId: this.twitterTweetId,
-    type: this.type || type,
+    type: this.type,
     user: this.user
   };
   return emberItem;
