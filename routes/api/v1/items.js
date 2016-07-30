@@ -77,7 +77,7 @@ function getUserItems(req, res) {
 }
 
 // change to query user from Ember, send operation getSlackItems etc
-function getFilteredItemsNew(req, res) {
+function getFilteredItems(req, res) {
 	var tagIds = req.query.tags.toString().split('+');
 	var query;
 
@@ -101,7 +101,7 @@ function getFilteredItemsNew(req, res) {
 	});
 }
 
-function getFilteredItems(req, res) {
+function getFilteredItemsOld(req, res) {
   var tagIds = req.query.tags.toString().split('+');
   var query = {
 		user: req.query.userId,
