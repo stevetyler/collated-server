@@ -32,6 +32,8 @@ function getItems(req, res) {
 	switch(req.query.operation)  {
 		case 'userItems':
 			return getUserItems(req, res);
+		case 'slackTeamItems':
+			return getSlackTeamItems(req, res);
 		case 'filterItems':
 			return getFilteredItems(req, res);
 		case 'importItems':
@@ -60,20 +62,15 @@ function getTitle(req, res) {
 }
 
 function getUserItems(req, res) {
-	var query;
+	var query = {user: req.query.userId};
 
-	User.findOne({id: req.query.userId}).then(function(user) {
-		if (user.slackProfile.teamId) {
-			query = {slackTeamId: user.slackProfile.teamId};
-			makeEmberItems(req, res, query);
-		}
-		else {
-			query = {user: req.query.userId};
-			makeEmberItems(req, res, query);
-		}
-	}).then(null, function() {
-		return res.status(404).end();
-	});
+	makeEmberItems(req, res, query);
+}
+
+function getSlackTeamItems(req, res) {
+	var query = {slackTeamId: req.query.teamId};
+
+	makeEmberItems(req, res, query);
 }
 
 // change to query user from Ember, send operation getSlackItems etc
