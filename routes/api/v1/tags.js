@@ -24,7 +24,7 @@ module.exports.autoroute = {
 
 function getTags(req, res){
   var id = req.query.userId;
-  var teamId;
+  var teamId = req.query.teamId;
   var allEmberTags = [];
   var publicEmberTags = [];
 
