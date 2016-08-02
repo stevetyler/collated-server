@@ -249,10 +249,11 @@ function postSlackItem(req, res) {
 			type: 'slack',
 			slackTeamId: req.body.team_id
 	  };
-		Tag.find({slackChannelId: req.body.channel_id}).exec().then(function(tags) {
+		Tag.find({id:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
 			if (!tags.length) {
 				var newTag = {
 					id: req.body.channel_name,
+					isSlackChannel: true,
 					slackChannelId: req.body.channel_id,
 					slackTeamId: req.body.team_id,
 					colour: 'cp-colour-1'

@@ -10,6 +10,7 @@ var tagSchema = new Schema({
   itemCount: String,
   isPrivate: String,
   isReserved: String,
+  isSlackChannel: String,
   slackChannelId: String,
   slackTeamId: String,
 });
@@ -21,6 +22,7 @@ tagSchema.methods.makeEmberTag = function(count) {
 		user: this.user,
     itemCount: count,
     isPrivate: this.isPrivate,
+    isSlackChannel: this.isSlackChannel,
     slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId
 	};
