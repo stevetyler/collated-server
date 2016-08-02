@@ -16,7 +16,9 @@ passport.use(new TwitterStrategy({
     callbackURL: configAuth.twitterAuth.callbackURL
   },
   function(token, tokenSecret, profile, done) {
+
     User.findOne({ twitterProfile: { id: profile._json.id_str } }).exec().then(function(user) {
+      console.log('user found', user);
       if(user) {
         // check for schema version and update
         user.apiKeys.twitterAccessToken = token;
