@@ -31,7 +31,7 @@ var userSchema = new Schema({
     userName: String, // displayName
   },
   twitterProfile: {
-    id: String,
+    twitterId: String,
     autoImport: String,
     newestTweetId: String,
     oldestTweetId: String,
@@ -73,14 +73,6 @@ module.exports = userSchema;
 //     delete user.facebookAccessToken;
 //     delete user.facebookSecretToken;
 //
-//     user.twitterProfile.id = user.twitterProfile.id;
-//     user.twitterProfile.autoImport = user.twitterProfile.autoImport;
-//     user.twitterProfile.newestTweetId = user.twitterProfile.newestTweetId;
-//     user.twitterProfile.oldestTweetId = user.twitterProfile.oldestTweetId;
-//     delete user.twitterProfile.id;
-//     delete user.twitterProfile.autoImport;
-//     delete user.twitterProfile.newestTweetId;
-//     delete user.twitterProfile.oldestTweetId;
 //
 //     user.schemaVersion = '1.1';
 //   }

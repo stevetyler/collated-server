@@ -17,7 +17,7 @@ passport.use(new TwitterStrategy({
   },
   function(token, tokenSecret, profile, done) {
     // { twitterProfile: { id: profile._json.id_str } }
-    User.findOne({ id: profile._json.screen_name } ).exec().then(function(user) {
+    User.findOne({ twitterProfile: { twitterId: profile._json.id_str } } ).exec().then(function(user) {
       console.log('user found', user);
       if (user) {
         // check for schema version and update
@@ -28,7 +28,6 @@ passport.use(new TwitterStrategy({
         return user.save();
       } else {
         return User.create({
-          id: profile._json.screen_name,
           imageUrl: modifyTwitterImageURL(profile._json.profile_image_url),
           name: profile._json.name,
           apiKeys: {
@@ -36,7 +35,7 @@ passport.use(new TwitterStrategy({
             twitterSecretToken:tokenSecret,
           },
           twitterProfile: {
-            id: profile._json.id_str
+            twitterId: profile._json.id_str
           }
         });
       }
