@@ -9,6 +9,7 @@ var userSchema = new Schema({
   email: String,
   permissions: String,
   schemaVersion: String,
+  twitterId: String,
   apiKeys: {
     facebookAccessToken: String,
     facebookSecretToken: String,
@@ -31,7 +32,6 @@ var userSchema = new Schema({
     userName: String, // displayName
   },
   twitterProfile: {
-    twitterId: String,
     autoImport: String,
     newestTweetId: String,
     oldestTweetId: String,

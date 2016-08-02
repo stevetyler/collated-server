@@ -16,8 +16,8 @@ passport.use(new TwitterStrategy({
     callbackURL: configAuth.twitterAuth.callbackURL
   },
   function(token, tokenSecret, profile, done) {
-    // { twitterProfile: { id: profile._json.id_str } }
-    User.findOne({ twitterProfile: { twitterId: profile._json.id_str } } ).exec().then(function(user) {
+    // { twitterProfile: { id: profile._json.id_str } } not working in Mongo 2.8
+    User.findOne({ twitterId: profile._json.id_str } ).exec().then(function(user) {
       console.log('user found', user);
       if (user) {
         // check for schema version and update
@@ -34,9 +34,7 @@ passport.use(new TwitterStrategy({
             twitterAccessToken: token,
             twitterSecretToken:tokenSecret,
           },
-          twitterProfile: {
-            twitterId: profile._json.id_str
-          }
+          twitterId: profile._json.id_str
         });
       }
     })
