@@ -33,8 +33,10 @@ var userSchema = new Schema({
   },
   twitterProfile: {
     autoImport: String,
-    newestTweetId: String,
-    oldestTweetId: String,
+    latestLikeId: String,
+    oldestLikeId: String,
+    latestTweetId: String,
+    oldestTweetId: String
   },
   // old properties to move
   // facebookAccessToken: String,
