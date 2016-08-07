@@ -202,7 +202,8 @@ function postItem(req, res) {
     body: req.body.item.body,
     author: req.body.item.author,
     tags: req.body.item.tags,
-		isPrivate: false
+		isPrivate: false,
+		type: req.body.item.type
   };
 
 	Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
