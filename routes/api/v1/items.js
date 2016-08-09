@@ -158,7 +158,8 @@ function getTwitterItems(req, res) {
       return res.status(400).end();
     }
     items.forEach(function(item) {
-      var emberItem = item.makeEmberItem();
+			var newItem = new Item(item);
+			var emberItem = newItem.makeEmberItem();
 
       emberItems.push(emberItem);
     });
