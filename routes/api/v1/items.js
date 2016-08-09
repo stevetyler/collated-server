@@ -163,6 +163,7 @@ function getTwitterItems(req, res) {
 
       emberItems.push(emberItem);
     });
+		console.log('getTwitterItems', emberItems);
     return res.send({'items': emberItems});
   });
 }
