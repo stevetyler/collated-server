@@ -23,24 +23,24 @@ module.exports.autoroute = {
 };
 
 function getTags(req, res){
-  var id = req.query.userId;
-  var teamId = req.query.teamId;
-  var allEmberTags = [];
-  var publicEmberTags = [];
+	if (req.query.operation === 'userTags') {
+		getUserTags(req, res);
+	}
+	if (req.query.operation === 'slackTeamTags') {
+		getSlackTeamTags(req, res);
+	}
+}
+
+function getUserTags(req, res) {
+	var id = req.query.userId;
+	var allEmberTags = [];
+	var publicEmberTags = [];
 
 	if (!id) {
 		return res.status(404).end();
 	}
-	User.findOne({id: id}).exec().then(function(user) {
-		if (user) {
-			teamId = user.slackProfile.teamId;
-		}
-	})
-	.then(function() {
-		return Tag.findOne({id: 'undefined', user: id});
-	})
-	.then(function(tag) {
-		if (!tag && !teamId) {
+	Tag.findOne({id: 'undefined', user: id}).exec().then(function(tag) {
+		if (!tag) {
 			Tag.create({
 				id: 'undefined',
 				colour: 'cp-colour-1',
@@ -50,20 +50,7 @@ function getTags(req, res){
 		}
 	})
 	.then(function() {
-		if (teamId) {
-			return Tag.find({slackTeamId: teamId});
-		}
-	})
-	.then(function(tags) {
-		if (tags) {
-			//makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
-			makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags);
-		}
-	})
-	.then(function() {
-		if (!teamId) {
-			return Tag.find({user: id});
-		}
+		return Tag.find({user: id});
 	})
 	.then(function(tags) {
 		if (tags) {
@@ -74,6 +61,26 @@ function getTags(req, res){
 		return res.status(404).end();
 	});
 }
+
+function getSlackTeamTags(req, res) {
+	var id = req.query.userId;
+	var teamId = req.query.teamId;
+	var allEmberTags = [];
+	var publicEmberTags = [];
+
+	if (!id) {
+		return res.status(404).end();
+	}
+	Tag.find({slackTeamId: teamId}).exec().then(function(tags) {
+		if (tags) {
+			makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags);
+		}
+	})
+	.then(null, function() {
+		return res.status(404).end();
+	});
+}
+
 
 function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags) {
   async.each(tags, function(tag, done) {
@@ -108,8 +115,26 @@ function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tag
   });
 }
 
+
+function countItemTags(id, tag, publicEmberTags, allEmberTags) {
+	Item.count({user: id, tags: {$in: [tag.id]}}).then(function(count) {
+		var emberTag = tag.makeEmberTag(count);
+
+		if (tag.isPrivate === 'true') {
+			allEmberTags.push(emberTag);
+		}
+		else {
+			allEmberTags.push(emberTag);
+			publicEmberTags.push(emberTag);
+		}
+	});
+}
+
+
 function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
-  async.each(tags, function(tag, done) {
+	//tags.map(countItemTags);
+
+	async.each(tags, function(tag, done) {
     Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
       if (err) {
         return res.status(500).end();
