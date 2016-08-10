@@ -5,7 +5,6 @@ var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').e
 
 var Item = db.model('Item');
 var Tag = db.model('Tag');
-var User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -63,12 +62,11 @@ function getUserTags(req, res) {
 }
 
 function getSlackTeamTags(req, res) {
-	var id = req.query.userId;
 	var teamId = req.query.teamId;
 	var allEmberTags = [];
 	var publicEmberTags = [];
 
-	if (!id) {
+	if (!teamId) {
 		return res.status(404).end();
 	}
 	Tag.find({slackTeamId: teamId}).exec().then(function(tags) {
@@ -82,9 +80,26 @@ function getSlackTeamTags(req, res) {
 }
 
 
-function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags) {
-  async.each(tags, function(tag, done) {
-    Item.count({slackTeamId: teamId, tags: {$in: [tag.id]}}, function(err, count) {
+function countItemTags(id, tag, publicEmberTags, allEmberTags) {
+	Item.count({user: id, tags: {$in: [tag.id]}}).then(function(count) {
+		var emberTag = tag.makeEmberTag(count);
+
+		if (tag.isPrivate === 'true') {
+			allEmberTags.push(emberTag);
+		}
+		else {
+			allEmberTags.push(emberTag);
+			publicEmberTags.push(emberTag);
+		}
+	});
+}
+
+
+function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
+	//tags.map(countItemTags);
+
+	async.each(tags, function(tag, done) {
+    Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
       if (err) {
         return res.status(500).end();
       }
@@ -115,27 +130,9 @@ function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tag
   });
 }
 
-
-function countItemTags(id, tag, publicEmberTags, allEmberTags) {
-	Item.count({user: id, tags: {$in: [tag.id]}}).then(function(count) {
-		var emberTag = tag.makeEmberTag(count);
-
-		if (tag.isPrivate === 'true') {
-			allEmberTags.push(emberTag);
-		}
-		else {
-			allEmberTags.push(emberTag);
-			publicEmberTags.push(emberTag);
-		}
-	});
-}
-
-
-function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
-	//tags.map(countItemTags);
-
-	async.each(tags, function(tag, done) {
-    Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
+function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags) {
+  async.each(tags, function(tag, done) {
+    Item.count({slackTeamId: teamId, tags: {$in: [tag.id]}}, function(err, count) {
       if (err) {
         return res.status(500).end();
       }
