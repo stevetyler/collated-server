@@ -91,15 +91,15 @@ function makeEmberTags(id, tags) {
 	var tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.id ] }}));
 
 	return Promise.all(tagPromises).then(counts => {
-		return tags.reduce(({ all, public }, tag, i) => {
+		return tags.reduce((obj, tag, i) => {
 			var emberTag = tag.makeEmberTag(counts[i]);
 			return tag.isPrivate === 'true' ?
 				{
-					all: all.concat(emberTag),
-					public: public } :
+					all: obj.all.concat(emberTag),
+					public: obj.public } :
 				{
-					all: all.concat(emberTag),
-					public: [ ...public, emberTag ]
+					all: obj.all.concat(emberTag),
+					public: obj.public.concat(emberTag),
 				};
 		}, { all: [], public: [] });
 	});
