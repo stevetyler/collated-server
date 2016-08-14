@@ -7,33 +7,33 @@ var Item = db.model('Item');
 var Tag = db.model('Tag');
 
 module.exports.autoroute = {
-	get: {
-		'/tags' : getTags
-	},
-	post: {
-		'/tags': [ensureAuthenticated, postTag]
-	},
-	put: {
-		'/tags/:id': [ensureAuthenticated, putTag]
-	},
-	delete: {
-		'/tags/:id': [ensureAuthenticated, deleteTag]
-	}
+	get: {'/tags' : getTags},
+	post: {'/tags': [ensureAuthenticated, postTag]},
+	put: {'/tags/:id': [ensureAuthenticated, putTag]},
+	delete: {'/tags/:id': [ensureAuthenticated, deleteTag]}
 };
 
 function getTags(req, res){
-	if (req.query.operation === 'userTags') {
-		getUserTags(req, res);
-	}
-	if (req.query.operation === 'slackTeamTags') {
-		getSlackTeamTags(req, res);
-	}
-}
+	if (req.query.operation === 'userTags') {getUserTags(req, res);}
+	if (req.query.operation === 'slackTeamTags') {getSlackTeamTags(req, res);}}
+
+// function createDefaultTags(id) {
+// 	return Tag.findOne({id: 'undefined', user: id}).exec().then(function(tag) {
+// 		if (!tag) {
+// 			Tag.create({
+// 				id: 'undefined',
+// 				colour: 'cp-colour-1',
+// 				user: id,
+// 				itemCount: 0
+// 			});
+// 		}
+// 	});
+// }
 
 function getUserTags(req, res) {
 	var id = req.query.userId;
-	var allEmberTags = [];
-	var publicEmberTags = [];
+	// var allEmberTags = [];
+	// var publicEmberTags = [];
 
 	if (!id) {
 		return res.status(404).end();
@@ -53,12 +53,46 @@ function getUserTags(req, res) {
 	})
 	.then(function(tags) {
 		if (tags) {
-			makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags);
+			return makeEmberTags(id, tags);
 		}
 	})
-	.then(null, function() {
+	.then(function(obj) {
+	  if (!req.user) {
+			return obj.public;
+	  }
+	  else if (req.user.id === req.query.userId) {
+			return obj.all;
+	  }
+	  else {
+	    return obj.public;
+	  }
+	})
+	.then(function(tags) {
+		res.send({ tags: tags });
+	}, function() {
 		return res.status(404).end();
 	});
+}
+
+function makeEmberTags(id, tags) {
+	var tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.id ] }}));
+
+	return Promise.all(tagPromises).then(counts => {
+		return tags.reduce((obj, tag, i) => {
+			var emberTag = tag.makeEmberTag(counts[i]);
+			return tag.isPrivate === 'true' ?
+				{
+					all: obj.all.concat(emberTag),
+					public: obj.public } :
+				{
+					all: obj.all.concat(emberTag),
+					public: obj.public.concat(emberTag),
+				};
+		}, { all: [], public: [] });
+	});
+
+	//var a = [ 1, 2, 3 ]
+	//var b = [ 0, ...a, 4, ...[ 5 ] ]
 }
 
 function getSlackTeamTags(req, res) {
@@ -74,60 +108,10 @@ function getSlackTeamTags(req, res) {
 			makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags);
 		}
 	})
-	.then(null, function() {
+	.then(null, function(err) {
+		console.log(err);
 		return res.status(404).end();
 	});
-}
-
-
-function countItemTags(id, tag, publicEmberTags, allEmberTags) {
-	Item.count({user: id, tags: {$in: [tag.id]}}).then(function(count) {
-		var emberTag = tag.makeEmberTag(count);
-
-		if (tag.isPrivate === 'true') {
-			allEmberTags.push(emberTag);
-		}
-		else {
-			allEmberTags.push(emberTag);
-			publicEmberTags.push(emberTag);
-		}
-	});
-}
-
-
-function makeEmberTags(req, res, id, allEmberTags, publicEmberTags, tags) {
-	//tags.map(countItemTags);
-
-	async.each(tags, function(tag, done) {
-    Item.count({user: id, tags: {$in: [tag.id]}}, function(err, count) {
-      if (err) {
-        return res.status(500).end();
-      }
-      var emberTag = tag.makeEmberTag(count);
-
-      if (tag.isPrivate === 'true') {
-        allEmberTags.push(emberTag);
-      }
-			else {
-        allEmberTags.push(emberTag);
-        publicEmberTags.push(emberTag);
-      }
-      done();
-    });
-  }, function(err) {
-    if (err) {
-      console.log(err);
-    }
-    if (!req.user) {
-      return res.send({'tags': publicEmberTags});
-    }
-    else if (req.user.id === req.query.userId) {
-      return res.send({'tags': allEmberTags});
-    }
-    else {
-      return res.send({'tags': publicEmberTags});
-    }
-  });
 }
 
 function makeEmberSlackTags(req, res, teamId, allEmberTags, publicEmberTags, tags) {
