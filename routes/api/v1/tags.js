@@ -1,3 +1,4 @@
+"use strict";
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
