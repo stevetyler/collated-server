@@ -80,20 +80,24 @@ function makeEmberTags(id, tags, type) {
 	else if (type === 'slack') {
 		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.id] }}));
 	}
-
-	return Promise.all(tagPromises).then(counts => {
-		return tags.reduce((obj, tag, i) => {
-			const emberTag = tag.makeEmberTag(counts[i]);
-			return tag.isPrivate === 'true' ?
-				{
-					all: obj.all.concat(emberTag),
-					public: obj.public } :
-				{
-					all: obj.all.concat(emberTag),
-					public: obj.public.concat(emberTag),
-				};
-		}, { all: [], public: [] });
-	});
+	if (tagPromises) {
+		return Promise.all(tagPromises).then(counts => {
+			return tags.reduce((obj, tag, i) => {
+				const emberTag = tag.makeEmberTag(counts[i]);
+				return tag.isPrivate === 'true' ?
+					{
+						all: obj.all.concat(emberTag),
+						public: obj.public } :
+					{
+						all: obj.all.concat(emberTag),
+						public: obj.public.concat(emberTag),
+					};
+			}, { all: [], public: [] });
+		});
+	}
+	else {
+		return { all: [], public: [] };
+	}
 
 	//const a = [ 1, 2, 3 ]
 	//const b = [ 0, ...a, 4, ...[ 5 ] ]
