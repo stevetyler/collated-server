@@ -98,14 +98,14 @@ function getFilteredItems(req, res) {
 	});
 }
 
-function getFilteredItemsOld(req, res) {
-  var tagIds = req.query.tags.toString().split('+');
-  var query = {
-		user: req.query.userId,
-		tags: {$all:tagIds}
-	};
-  makeEmberItems(req, res, query);
-}
+// function getFilteredItemsOld(req, res) {
+//   var tagIds = req.query.tags.toString().split('+');
+//   var query = {
+// 		user: req.query.userId,
+// 		tags: {$all:tagIds}
+// 	};
+//   makeEmberItems(req, res, query);
+// }
 
 function getSearchItems(req, res) {
 	var string = req.query.keyword;
@@ -173,7 +173,7 @@ function putItems(req, res) {
 	var isPrivate = false;
 
 	if (req.user.id === req.body.item.user) {
-		Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
+		Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
 		.exec().then(function(tags) {
 			if (tags.length) {
 				isPrivate = true;
@@ -208,7 +208,7 @@ function postItem(req, res) {
 		type: req.body.item.type
   };
 
-	Tag.find({id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
+	Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
 		if (tags.length) {
 			item.isPrivate = true;
 		}
@@ -252,10 +252,10 @@ function postSlackItem(req, res) {
 			type: 'slack',
 			slackTeamId: req.body.team_id
 	  };
-		Tag.find({id:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
+		Tag.find({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
 			if (!tags.length) {
 				var newTag = {
-					id: req.body.channel_name,
+					name: req.body.channel_name,
 					isSlackChannel: true,
 					slackChannelId: req.body.channel_id,
 					slackTeamId: req.body.team_id,

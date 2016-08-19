@@ -35,10 +35,10 @@ function getUserTags(req, res) {
 	if (!id) {
 		return res.status(404).end();
 	}
-	Tag.findOne({id: 'undefined', user: id}).exec().then((tag) => {
+	Tag.findOne({name: 'undefined', user: id}).exec().then((tag) => {
 		if (!tag) {
 			Tag.create({
-				id: 'undefined',
+				name: 'undefined',
 				colour: 'cp-colour-1',
 				user: id,
 				itemCount: 0
@@ -75,10 +75,10 @@ function makeEmberTags(id, tags, type) {
 	let tagPromises;
 
 	if (type === 'user') {
-		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.id ] }}));
+		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.name ] }}));
 	}
 	else if (type === 'slack') {
-		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.id] }}));
+		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.name] }}));
 	}
 	if (tagPromises) {
 		return Promise.all(tagPromises).then(counts => {
@@ -123,16 +123,16 @@ function getSlackTeamTags(req, res) {
 
 function postTag(req, res){
 	if (req.user.id === req.body.tag.user) {
-		if (req.body.tag.id) {
+		if (req.body.tag.name) {
 			const tag = {
-				id: req.body.tag.id,
+				name: req.body.tag.name,
 				colour: req.body.tag.colour,
 				user: req.body.tag.user,
 				isPrivate: req.body.tag.isPrivate,
 				slackChannelId: req.body.tag.slackChannelId,
 				slackTeamId: req.body.tag.slackTeamId
 			};
-			Tag.findOne({id: req.body.tag.id, user: req.body.tag.user}, (err, data) => {
+			Tag.findOne({_id: req.body.tag.id, user: req.body.tag.user}, (err, data) => {
 				if (data) {
 					res.status(400).end();
 				}
@@ -156,17 +156,19 @@ function postTag(req, res){
 function putTag(req, res) {
   const tagId = req.params.id;
   const isPrivate = req.body.tag.isPrivate;
+	const tagName = req.body.tag.name;
 
+	console.log('putTag', tagId, tagName);
   if (req.user.id === req.body.tag.user) {
-    Tag.update({id: tagId, user: req.user.id},
+    Tag.update({_id: tagId, user: req.user.id},
       {$set: {
-        //id: req.body.tag.newId, // set new id on items as well
+        name: tagName, // set new id on items as well
         colour: req.body.tag.colour,
         isPrivate: req.body.tag.isPrivate
         }
       }
     ).exec().then(() => {
-      Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
+      Item.find({user: req.user.id, tags: {$in: [tagName]}}, (err, items) => {
         if (err) {
           return res.status(404).send();
         }
@@ -190,7 +192,7 @@ function putTag(req, res) {
 }
 
 function deleteTag(req, res){
-  Tag.remove({ id: req.params.id }).exec().then(() => {
+  Tag.remove({ _id: req.params.id }).exec().then(() => {
     return res.send({});
   })
 	.then(null, (err) => {
