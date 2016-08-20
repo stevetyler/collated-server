@@ -53,8 +53,16 @@ userSchema.methods.makeEmberUser = function () {
     email: this.email,
     twitterProfile : {
       autoImport: this.twitterProfile.autoImport,
-      newestTweetId: this.twitterProfile.newestTweetId,
+      latestLikeId: this.twitterProfile.latestLikeId,
+      oldestLiketId: this.twitterProfile.oldestLikeId,
+      latestTweetId: this.twitterProfile.latestTweetId,
       oldestTweetId: this.twitterProfile.oldestTweetId
+    },
+    slackProfile : {
+      isTeamAdmin: this.slackProfile.isTeamAdmin,
+      isTeamOwner: this.slackProfile.isTeamOwner,
+      //teamId: this.slackProfile.teamId,
+      teamDomain: this.slackProfile.teamDomain
     }
   };
   return emberUser;
