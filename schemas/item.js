@@ -8,6 +8,7 @@ var itemSchema = new Schema({
   createdDate: Date,
   isPrivate: String,
   slackTeamId: String,
+  slackChannelId: String,
   tags: [String],
   twitterTweetId: String,
   type: String, // slack, twitter, bookmark
@@ -21,6 +22,7 @@ itemSchema.methods.makeEmberItem = function() {
     body: this.body,
     createdDate: this.createdDate,
     isPrivate: this.isPrivate,
+    slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId,
     tags: this.tags,
     twitterTweetId: this.twitterTweetId,

@@ -250,6 +250,7 @@ function postSlackItem(req, res) {
 	    createdDate: timestamp,
 	    body: req.body.text,
 			type: 'slack',
+			slackChannelId: req.body.channel_id,
 			slackTeamId: req.body.team_id
 	  };
 		Tag.find({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
