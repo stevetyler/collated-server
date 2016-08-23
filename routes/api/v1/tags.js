@@ -78,6 +78,15 @@ function makeEmberTags(id, tags, type) {
 		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.name ] }}));
 	}
 	else if (type === 'slack') {
+		// need to count tags per channelId
+
+		// let slackChannelsArr = tags.reduce((arr, tag) => {
+		// 	if (arr.indexOf(tag.slackChannelId) === -1) {
+		// 		arr.push(tag.slackChannelId);
+		// 	}
+		// }, []);
+		// console.log(slackChannelsArr);
+
 		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.name] }}));
 	}
 	if (tagPromises) {
