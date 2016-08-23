@@ -142,7 +142,9 @@ function postTag(req, res){
 						if (err) {
 							res.status(501).end();
 						}
-						return res.send({'tag': tag});
+						var emberTag = tag.makeEmberTag();
+
+						return res.send({'tag': emberTag});
 					});
 				}
 			});
