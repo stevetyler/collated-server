@@ -135,16 +135,16 @@ function getFilteredItems(req, res, type) {
 	let query;
 
 	if (type === 'user') {
-		query = {user: id, tags: tagIds};
+		query = {user: id, tags: {$all:tagIds}};
 	}
 	else if (type === 'slack') {
-		query = {slackTeamId: teamId, tags: tagIds};
+		query = {slackTeamId: teamId, tags: {$all:tagIds}};
 	}
 	Item.find(query).exec().then((items) => {
 		return makeEmberItems(id, items);
 	})
-	.then((items) => {
-		res.send({items: items});
+	.then((obj) => {
+		res.send({items: obj.all});
 	}, () => {
 		return res.status(404).end();
 	});
@@ -169,7 +169,6 @@ function getSearchItems(req, res) {
 		return res.status(404).end();
 	});
 }
-
 
 function getTwitterItems(req, res) {
   var emberItems = [];
