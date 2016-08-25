@@ -7,7 +7,7 @@ const ItemImporter = require('../../../lib/import-items.js');
 
 const Item = db.model('Item');
 const Tag = db.model('Tag');
-const User = db.model('User');
+//const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -140,7 +140,6 @@ function getFilteredItems(req, res, type) {
 	else if (type === 'slack') {
 		query = {slackTeamId: teamId, tags: tagIds};
 	}
-
 	Item.find(query).exec().then((items) => {
 		return makeEmberItems(id, items);
 	})
@@ -152,6 +151,7 @@ function getFilteredItems(req, res, type) {
 }
 
 function getSearchItems(req, res) {
+	var id = req.query.userId;
 	var string = req.query.keyword;
 	var query = {
 		user: req.query.userId,
@@ -160,7 +160,14 @@ function getSearchItems(req, res) {
 			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	makeEmberItems(req, res, query);
+	Item.find(query).exec().then((items) => {
+		return makeEmberItems(id, items);
+	})
+	.then((items) => {
+		res.send({items: items});
+	}, () => {
+		return res.status(404).end();
+	});
 }
 
 
