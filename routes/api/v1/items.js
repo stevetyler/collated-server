@@ -1,12 +1,13 @@
-var MetaInspector = require('node-metainspector');
+"use strict";
+const MetaInspector = require('node-metainspector');
 
-var db = require('../../../database/database');
-var ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-var ItemImporter = require('../../../lib/import-items.js');
+const db = require('../../../database/database');
+const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
+const ItemImporter = require('../../../lib/import-items.js');
 
-var Item = db.model('Item');
-var Tag = db.model('Tag');
-var User = db.model('User');
+const Item = db.model('Item');
+const Tag = db.model('Tag');
+const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -34,8 +35,10 @@ function getItems(req, res) {
 			return getUserItems(req, res);
 		case 'slackTeamItems':
 			return getSlackTeamItems(req, res);
-		case 'filterItems':
-			return getFilteredItems(req, res);
+		case 'filterUserItems':
+			return getFilteredItems(req, res, 'user');
+		case 'filterSlackItems':
+			return getFilteredItems(req, res, 'slack');
 		case 'importItems':
 			return getTwitterItems(req, res);
 		default:
@@ -45,7 +48,7 @@ function getItems(req, res) {
 }
 
 function getTitle(req, res) {
-  var client = new MetaInspector(req.query.data, { timeout: 5000 });
+  const client = new MetaInspector(req.query.data, { timeout: 5000 });
 
 	client.on('fetch', function(){
 		if (client) {
@@ -62,38 +65,88 @@ function getTitle(req, res) {
 }
 
 function getUserItems(req, res) {
-	var query = {user: req.query.userId};
+	const id = req.query.userId;
 
-	makeEmberItems(req, res, query);
+	Item.find({user: id}).exec().then((items) => {
+		return makeEmberItems(id, items);
+	})
+	.then(function(obj) {
+		if (!req.user) {
+			return obj.public;
+		}
+		else if (req.user.id === req.query.userId) {
+			return obj.all;
+		}
+		else {
+			return obj.public;
+		}
+	})
+	.then((items) => {
+		res.send({items: items});
+	}, () => {
+		return res.status(404).end();
+	});
+}
+
+// function convertItemTagsToIds(item) {
+// 	var itemTags = item.tags;
+// 	var newTagsPromises = itemTags.map((tagName) => {
+//     Tag.find({'name': tagName}).then((tag) => {
+//       return tag.id;
+//     });
+//   });
+// }
+
+function makeEmberItems(id, items) {
+	return items.reduce((obj, item) => {
+		const emberItem = item.makeEmberItem();
+		return item.isPrivate === 'true' ?
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public } :
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public.concat(emberItem),
+			};
+	}, { all: [], public: [] });
 }
 
 function getSlackTeamItems(req, res) {
-	var query = {slackTeamId: req.query.teamId};
+	const teamId = req.query.teamId;
 
-	makeEmberItems(req, res, query);
+	if (!teamId) {
+		return res.status(404).end();
+	}
+	Item.find({slackTeamId: teamId}).exec().then((items) => {
+		return makeEmberItems(teamId, items);
+		}
+	)
+	.then((obj) => {
+		res.send({ items: obj.all });
+	}, () => {
+		return res.status(404).end();
+	});
 }
 
-// change to query user from Ember, send operation getSlackItems etc
-function getFilteredItems(req, res) {
-	var tagIds = req.query.tags.toString().split('+');
-	var query;
+function getFilteredItems(req, res, type) {
+	const id = req.query.userId;
+	const teamId = req.query.teamId;
+	const tagIds = req.query.tags.toString().split('+');
+	let query;
 
-	User.findOne({id: req.query.userId}).then(function(user) {
-		if (user.slackProfile.teamId) {
-			query = {
-				slackTeamId: user.slackProfile.teamId,
-				tags: {$all:tagIds}
-			};
-			makeEmberItems(req, res, query);
-		}
-		else {
-			query = {
-				user: req.query.userId,
-				tags: {$all:tagIds}
-			};
-			makeEmberItems(req, res, query);
-		}
-	}).then(null, function() {
+	if (type === 'user') {
+		query = {user: id, tags: tagIds};
+	}
+	else if (type === 'slack') {
+		query = {slackTeamId: teamId, tags: tagIds};
+	}
+
+	Item.find(query).exec().then((items) => {
+		return makeEmberItems(id, items);
+	})
+	.then((items) => {
+		res.send({items: items});
+	}, () => {
 		return res.status(404).end();
 	});
 }
@@ -108,46 +161,6 @@ function getSearchItems(req, res) {
 		}
 	};
 	makeEmberItems(req, res, query);
-}
-
-function makeEmberItems(req, res, query) {
-	var allEmberItems = [];
-	var publicEmberItems = [];
-
-	Item.find(query, function(err, items) {
-		if (err) {
-			return res.status(404).send();
-		}
-		items.forEach(function(item) {
-			var emberItem = item.makeEmberItem();
-
-			if (item.isPrivate === 'true') {
-				allEmberItems.push(emberItem);
-			}
-			else {
-				allEmberItems.push(emberItem);
-				publicEmberItems.push(emberItem);
-			}
-		});
-		if (!req.user) {
-			return res.send({'items': publicEmberItems});
-		}
-		else if (req.user.id === req.query.userId) {
-			return res.send({'items': allEmberItems});
-		}
-		else {
-			return res.send({'items': publicEmberItems});
-		}
-	});
-}
-
-function convertItemTagsToIds(item) {
-	var itemTags = item.tags;
-	var newTagsPromises = itemTags.map((tagName) => {
-    Tag.find({'name': tagName}).then((tag) => {
-      return tag.id;
-    });
-  });
 }
 
 
