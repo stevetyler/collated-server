@@ -148,9 +148,6 @@ function convertItemTagsToIds(item) {
       return tag.id;
     });
   });
-
-
-
 }
 
 
