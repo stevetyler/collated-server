@@ -1,0 +1,700 @@
+[
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1471883929",
+        "change_type": "updated",
+        "service_id": "71726222612",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C23LXCH4Y"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1471883924",
+        "change_type": "updated",
+        "service_id": "71726222612",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C23LXCH4Y"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1471883911",
+        "change_type": "updated",
+        "service_id": "71726222612",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1471883886",
+        "change_type": "updated",
+        "service_id": "71726222612",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C23LXCH4Y"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1471883840",
+        "change_type": "added",
+        "service_id": "71726222612",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1471446580",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1470173910",
+        "change_type": "updated",
+        "service_id": "65578850179",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C1XJMJWS3"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1470173884",
+        "change_type": "updated",
+        "service_id": "65578850179",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C1XJMJWS3"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1470173821",
+        "change_type": "added",
+        "service_id": "65578850179",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1469898471",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": "U1TH49XCG",
+        "user_name": "pootsbook",
+        "date": "1469197036",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": 0,
+        "user_name": "slack",
+        "date": "1468853665",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468597755",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593953",
+        "change_type": "updated",
+        "service_id": "60117787843",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16C4NJ8Z"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593908",
+        "change_type": "updated",
+        "service_id": "60117787843",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16C4NJ8Z"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593885",
+        "change_type": "added",
+        "service_id": "60117787843",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593805",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593780",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468593710",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468592604",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468531225",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468445518",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468435600",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468337702",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468337597",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468335459",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468335330",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468319474",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468319415",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468267684",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468264828",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468264770",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468264751",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468263140",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468262331",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468262032",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468262002",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468261126",
+        "change_type": "removed",
+        "app_type": "LinkPin",
+        "app_id": "A037SFTTN",
+        "scope": "identify,channels:history,groups:history,channels:read,groups:read,users:read"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468184512",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email"
+    },
+    {
+        "user_id": "U1QC2HJNS",
+        "user_name": "stevetyler2",
+        "date": "1468181833",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468012196",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468007070",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468006361",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468006341",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468006341",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1468005964",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468005717",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468005562",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468005556",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U1NQ2E9HR",
+        "user_name": "collated-test",
+        "date": "1468005217",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466893131",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466892676",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466775429",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466758455",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466718554",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466716260",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466716150",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466711040",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466710729",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466634221",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466549039",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466536505",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466535415",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466535175",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466533197",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C16BS5KT8"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466533157",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,incoming-webhook,users:read,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466524081",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,incoming-webhook,users:read,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466506863",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466457725",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,incoming-webhook,users:read,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466456138",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466272996",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identify,incoming-webhook,users:read,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466196028",
+        "change_type": "updated",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1466191209",
+        "change_type": "added",
+        "service_id": "52043233060",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U16BXKJ4Q",
+        "user_name": "stevetyler",
+        "date": "1464864739",
+        "change_type": "added",
+        "app_type": "LinkPin",
+        "app_id": "A037SFTTN",
+        "scope": "identify,channels:history,groups:history,channels:read,groups:read,users:read"
+    },
+    {
+        "user_id": 0,
+        "user_name": "slack",
+        "date": "1462447681",
+        "change_type": "added",
+        "service_id": "40407892773",
+        "service_type": "Google Drive",
+        "scope": "files:write:user"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U16BXKJ4Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U16BXKJ4Q|stevetyler> has joined the channel",
+        "ts": "1466508604.000002"
+    }
+]

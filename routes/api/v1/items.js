@@ -98,15 +98,6 @@ function getFilteredItems(req, res) {
 	});
 }
 
-// function getFilteredItemsOld(req, res) {
-//   var tagIds = req.query.tags.toString().split('+');
-//   var query = {
-// 		user: req.query.userId,
-// 		tags: {$all:tagIds}
-// 	};
-//   makeEmberItems(req, res, query);
-// }
-
 function getSearchItems(req, res) {
 	var string = req.query.keyword;
 	var query = {
@@ -149,6 +140,19 @@ function makeEmberItems(req, res, query) {
 		}
 	});
 }
+
+function convertItemTagsToIds(item) {
+	var itemTags = item.tags;
+	var newTagsPromises = itemTags.map((tagName) => {
+    Tag.find({'name': tagName}).then((tag) => {
+      return tag.id;
+    });
+  });
+
+
+
+}
+
 
 function getTwitterItems(req, res) {
   var emberItems = [];
@@ -289,3 +293,13 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
+
+
+// function getFilteredItemsOld(req, res) {
+//   var tagIds = req.query.tags.toString().split('+');
+//   var query = {
+// 		user: req.query.userId,
+// 		tags: {$all:tagIds}
+// 	};
+//   makeEmberItems(req, res, query);
+// }

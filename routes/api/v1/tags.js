@@ -35,10 +35,18 @@ function getUserTags(req, res) {
 	if (!id) {
 		return res.status(404).end();
 	}
-	Tag.findOne({name: 'undefined', user: id}).exec().then((tag) => {
-		if (!tag) {
+	Tag.findOne({name: 'unassigned' || 'undefined' || 'Undefined', user: id}).exec().then((tag) => {
+		if (tag) {
+			if (tag.name !== 'unassigned') {
+				return tag.update({ $set: {
+						name: 'unassigned',
+					}
+				});
+			}	
+		}
+		else {
 			Tag.create({
-				name: 'undefined',
+				name: 'unassigned',
 				colour: 'cp-colour-1',
 				user: id,
 				itemCount: 0

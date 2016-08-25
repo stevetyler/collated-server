@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U1NQ2E9HR",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1NQ2E9HR|collated-test> has joined the channel",
+        "ts": "1467715686.000002"
+    }
+]

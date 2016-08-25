@@ -1,0 +1,16 @@
+[
+    {
+        "text": "added an integration to this channel: <https:\/\/collated-dev.slack.com\/services\/B1S3FP5QT|outgoing-webhook>",
+        "bot_id": "B1S3FP5QT",
+        "type": "message",
+        "subtype": "bot_add",
+        "user": "U1QC2HJNS",
+        "ts": "1468593908.000002"
+    },
+    {
+        "type": "message",
+        "user": "U1QC2HJNS",
+        "text": "test from random <http:\/\/bbc.co.uk|bbc.co.uk>",
+        "ts": "1468594150.000003"
+    }
+]
