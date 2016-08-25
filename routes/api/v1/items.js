@@ -67,7 +67,11 @@ function getTitle(req, res) {
 function getUserItems(req, res) {
 	const id = req.query.userId;
 
-	Item.find({user: id}).exec().then((items) => {
+	Item.find({user: id}).exec()
+	// .then((items) => {
+	// 	return updateItemTagsWithIds(id, items);
+	// })
+	.then(items => {
 		return makeEmberItems(id, items);
 	})
 	.then(function(obj) {
@@ -81,21 +85,36 @@ function getUserItems(req, res) {
 			return obj.public;
 		}
 	})
-	.then((items) => {
+	.then(items => {
 		res.send({items: items});
 	}, () => {
 		return res.status(404).end();
 	});
 }
 
-// function convertItemTagsToIds(item) {
-// 	var itemTags = item.tags;
-// 	var newTagsPromises = itemTags.map((tagName) => {
-//     Tag.find({'name': tagName}).then((tag) => {
-//       return tag.id;
-//     });
-//   });
-// }
+function updateItemTagsWithIds(id, items) {
+	// find item tag by name and replace with id and save
+	items.map(function(item) {
+		let tagsArrPromises = item.tags.map(function(tag) {
+			Tag.find({user: id, name: tag.name});
+		})
+		.then((tag) => {
+			return tag._id;
+		});
+
+		Promise.all(tagsArrPromises).then((tagsArr) => {
+			let updateItemTagsPromises = items.map((item, i) => {
+				return item.update({$set: {
+					tags: tagsArr[i]
+					}
+				});
+			});
+			Promise.all(updateItemTagsPromises).then(() => {
+
+			});
+		});
+	});
+}
 
 function makeEmberItems(id, items) {
 	return items.reduce((obj, item) => {
