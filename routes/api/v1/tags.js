@@ -16,19 +16,6 @@ function getTags(req, res){
 	if (req.query.operation === 'userTags') { getUserTags(req, res); }
 	if (req.query.operation === 'slackTeamTags') { getSlackTeamTags(req, res);} }
 
-// function createDefaultTags(id) {
-// 	return Tag.findOne({id: 'undefined', user: id}).exec().then(function(tag) {
-// 		if (!tag) {
-// 			Tag.create({
-// 				id: 'undefined',
-// 				colour: 'cp-colour-1',
-// 				user: id,
-// 				itemCount: 0
-// 			});
-// 		}
-// 	});
-// }
-
 function getUserTags(req, res) {
 	const id = req.query.userId;
 
@@ -42,7 +29,7 @@ function getUserTags(req, res) {
 						name: 'unassigned',
 					}
 				});
-			}	
+			}
 		}
 		else {
 			Tag.create({
@@ -87,13 +74,6 @@ function makeEmberTags(id, tags, type) {
 	}
 	else if (type === 'slack') {
 		// need to count tags per channelId
-
-		// let slackChannelsArr = tags.reduce((arr, tag) => {
-		// 	if (arr.indexOf(tag.slackChannelId) === -1) {
-		// 		arr.push(tag.slackChannelId);
-		// 	}
-		// }, []);
-		// console.log(slackChannelsArr);
 
 		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.name] }}));
 	}
