@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 const MetaInspector = require('node-metainspector');
 
 const db = require('../../../database/database');
@@ -68,9 +68,9 @@ function getUserItems(req, res) {
 	const id = req.query.userId;
 
 	Item.find({user: id}).exec()
-	// .then((items) => {
-	// 	return updateItemTagsWithIds(id, items);
-	// })
+	.then((items) => {
+		return updateItemTagsWithIds(id, items);
+	})
 	.then(items => {
 		return makeEmberItems(id, items);
 	})
@@ -93,27 +93,49 @@ function getUserItems(req, res) {
 }
 
 function updateItemTagsWithIds(id, items) {
-	// find item tag by name and replace with id and save
-	items.map(function(item) {
-		let tagsArrPromises = item.tags.map(function(tag) {
-			Tag.find({user: id, name: tag.name});
-		})
-		.then((tag) => {
-			return tag._id;
+	// map over each item in array
+	// find item tag by name and return array of tag ids by item
+	// update item with new tags array
+	console.log('item id', items[0]._id);
+
+
+
+		let itemTagsPromises = items[0].tags.map((tagname) => {
+			console.log('forEach', tagname);
+			return Tag.findOne({user: id, name: tagname});
 		});
 
-		Promise.all(tagsArrPromises).then((tagsArr) => {
-			let updateItemTagsPromises = items.map((item, i) => {
-				return item.update({$set: {
-					tags: tagsArr[i]
-					}
-				});
+		return Promise.all(itemTagsPromises).then((tagsArr) => {
+			let newTags = tagsArr.map((tag, i) => {
+				return tagsArr[i]._id;
 			});
-			Promise.all(updateItemTagsPromises).then(() => {
+			console.log('new tagsArr', newTags);
 
+			return items[0].update({$set: {
+				tags: newTags
+				}
 			});
 		});
-	});
+
+	//return items;
+	// return Promise.all(tagsArrPromises).then((tagsArr) => {
+	// 	console.log(tagsArr);
+	// 	items.forEach((item, i) => {
+	//
+	// 		return item.update({$set: {
+	// 			tags: tagsArr[i]
+	// 			}
+	// 		});
+	// 	});
+	// });
+
+
+	// let itemsPromises = items.map(function(item) {
+	//
+	// });
+	// return Promise.all(itemsPromises).then(() => {
+	// 	return items;
+	// });
 }
 
 function makeEmberItems(id, items) {
@@ -170,9 +192,9 @@ function getFilteredItems(req, res, type) {
 }
 
 function getSearchItems(req, res) {
-	var id = req.query.userId;
-	var string = req.query.keyword;
-	var query = {
+	const id = req.query.userId;
+	const string = req.query.keyword;
+	const query = {
 		user: req.query.userId,
 		$text: {
 			$search: string
@@ -190,15 +212,15 @@ function getSearchItems(req, res) {
 }
 
 function getTwitterItems(req, res) {
-  var emberItems = [];
+  const emberItems = [];
 
   ItemImporter.importTwitterItems(req.user, req.query.options, function(err, items) {
     if (err) {
       return res.status(400).end();
     }
     items.forEach(function(item) {
-			var newItem = new Item(item);
-			var emberItem = newItem.makeEmberItem();
+			const newItem = new Item(item);
+			const emberItem = newItem.makeEmberItem();
 
       emberItems.push(emberItem);
     });
@@ -208,8 +230,8 @@ function getTwitterItems(req, res) {
 }
 
 function putItems(req, res) {
-	var itemTags = req.body.item.tags;
-	var isPrivate = false;
+	const itemTags = req.body.item.tags;
+	let isPrivate = false;
 
 	if (req.user.id === req.body.item.user) {
 		Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
@@ -236,8 +258,8 @@ function putItems(req, res) {
 }
 
 function postItem(req, res) {
-	var itemTags = req.body.item.tags;
-	var item = {
+	const itemTags = req.body.item.tags;
+	const item = {
     user: req.body.item.user,
     createdDate: req.body.item.createdDate,
     body: req.body.item.body,
@@ -253,13 +275,13 @@ function postItem(req, res) {
 		}
 	}).then(function() {
 		if (req.user.id === req.body.item.user) {
-	    var newItem = new Item(item);
+	    const newItem = new Item(item);
 
 	    newItem.save(function(err, item) {
 	      if (err) {
 	        res.status(500).end();
 	      }
-	      var emberItem = item.makeEmberItem();
+	      const emberItem = item.makeEmberItem();
 
 	      return res.send({'item': emberItem});
 	    });
@@ -275,10 +297,10 @@ function containsUrl(message) {
 }
 
 function postSlackItem(req, res) {
-	var tags = [req.body.channel_name];
-	var timestamp = req.body.timestamp.split('.')[0] * 1000;
-  var hasUrl = containsUrl(req.body.text);
-	var slackItem;
+	const tags = [req.body.channel_name];
+	const timestamp = req.body.timestamp.split('.')[0] * 1000;
+  const hasUrl = containsUrl(req.body.text);
+	let slackItem;
 
 	console.log('message received', req.body.text, hasUrl);
 	if (hasUrl) {
@@ -294,7 +316,7 @@ function postSlackItem(req, res) {
 	  };
 		Tag.find({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
 			if (!tags.length) {
-				var newTag = {
+				let newTag = {
 					name: req.body.channel_name,
 					isSlackChannel: true,
 					slackChannelId: req.body.channel_id,
@@ -305,7 +327,7 @@ function postSlackItem(req, res) {
 				return Tag.create(newTag);
 			}
 		}).then(function() {
-			var newItem = new Item(slackItem);
+			let newItem = new Item(slackItem);
 
 			newItem.save(function(err) {
 				if (err) {
