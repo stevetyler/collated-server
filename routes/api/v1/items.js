@@ -68,9 +68,9 @@ function getUserItems(req, res) {
 	const id = req.query.userId;
 
 	Item.find({user: id}).exec()
-	.then((items) => {
-		return updateItemTagsWithIds(id, items);
-	})
+	// .then((items) => {
+	// 	return updateItemTagsWithIds(id, items);
+	// })
 	.then(items => {
 		return makeEmberItems(id, items);
 	})
@@ -124,9 +124,7 @@ function updateItemTagsWithIds(id, items) {
 				}
 			});
 		});
-		return Promise.all(itemsPromises).then(() => {
-			return items;
-		});
+		return Promise.all(itemsPromises);
 	});
 }
 

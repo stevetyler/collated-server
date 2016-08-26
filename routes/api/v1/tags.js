@@ -70,12 +70,12 @@ function makeEmberTags(id, tags, type) {
 	let tagPromises;
 
 	if (type === 'user') {
-		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag.name ] }}));
+		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag._id ] }}));
 	}
 	else if (type === 'slack') {
 		// need to count tags per channelId
 
-		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag.name] }}));
+		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag._id] }}));
 	}
 	if (tagPromises) {
 		return Promise.all(tagPromises).then(counts => {
