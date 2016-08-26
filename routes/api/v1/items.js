@@ -93,49 +93,41 @@ function getUserItems(req, res) {
 }
 
 function updateItemTagsWithIds(id, items) {
-	// map over each item in array
-	// find item tag by name and return array of tag ids by item
-	// update item with new tags array
-	console.log('item id', items[0]._id);
-
-
-
-		let itemTagsPromises = items[0].tags.map((tagname) => {
-			console.log('forEach', tagname);
+	let allTagsArrArr = items.map((item) => {
+		return item.tags; // returns array of arrays of tags
+	});
+	let tagsPromiseArrArr = allTagsArrArr.map((tagNamesArr) => {
+		return tagNamesArr.map((tagname) => {
 			return Tag.findOne({user: id, name: tagname});
 		});
+	});
 
-		return Promise.all(itemTagsPromises).then((tagsArr) => {
-			let newTags = tagsArr.map((tag, i) => {
-				return tagsArr[i]._id;
+	return Promise.all(
+		tagsPromiseArrArr.map(tagPromisesArr => {
+			return Promise.all(tagPromisesArr);
+		})
+	)
+	.then((tagsArrArr) => {
+		let newTagsArrArr = tagsArrArr.map(tagsArr => {
+			return tagsArr.map(tag => {
+				return tag._id;
 			});
-			console.log('new tagsArr', newTags);
-
-			return items[0].update({$set: {
-				tags: newTags
+		});
+		console.log('newTagsArrArr', newTagsArrArr);
+		return newTagsArrArr;
+	})
+	.then((newTagsArrArr) => {
+		let itemsPromises = items.map((item, i) => {
+			return item.update({
+				$set: {
+					tags: newTagsArrArr[i]
 				}
 			});
 		});
-
-	//return items;
-	// return Promise.all(tagsArrPromises).then((tagsArr) => {
-	// 	console.log(tagsArr);
-	// 	items.forEach((item, i) => {
-	//
-	// 		return item.update({$set: {
-	// 			tags: tagsArr[i]
-	// 			}
-	// 		});
-	// 	});
-	// });
-
-
-	// let itemsPromises = items.map(function(item) {
-	//
-	// });
-	// return Promise.all(itemsPromises).then(() => {
-	// 	return items;
-	// });
+		return Promise.all(itemsPromises).then(() => {
+			return items;
+		});
+	});
 }
 
 function makeEmberItems(id, items) {
