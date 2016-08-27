@@ -66,10 +66,11 @@ function getTitle(req, res) {
 
 function getUserItems(req, res) {
 	const id = req.query.userId;
+	const query = Object.assign({}, {user: id});
 
-	Item.find({user: id}).exec()
+	Item.find(query).exec()
 	// .then((items) => {
-	// 	return updateItemTagsWithIds(id, items);
+	// 	return updateItemTagsWithIds(query, items);
 	// })
 	.then(items => {
 		return makeEmberItems(id, items);
@@ -92,16 +93,39 @@ function getUserItems(req, res) {
 	});
 }
 
-function updateItemTagsWithIds(id, items) {
+function getSlackTeamItems(req, res) {
+	const teamId = req.query.teamId;
+	const query = Object.assign({}, {slackTeamId: teamId});
+
+	if (!teamId) {
+		return res.status(404).end();
+	}
+	Item.find(query).exec()
+	// .then((items) => {
+	// 	return updateItemTagsWithIds(query, items);
+	// })
+	.then((items) => {
+		console.log('slack items found', items);
+		return makeEmberItems(teamId, items);
+		}
+	)
+	.then((obj) => {
+		res.send({ items: obj.all });
+	}, () => {
+		return res.status(404).end();
+	});
+}
+
+function updateItemTagsWithIds(query, items) {
 	let allTagsArrArr = items.map((item) => {
-		return item.tags; // returns array of arrays of tags
+		return item.tags;
 	});
 	let tagsPromiseArrArr = allTagsArrArr.map((tagNamesArr) => {
 		return tagNamesArr.map((tagname) => {
-			return Tag.findOne({user: id, name: tagname});
+			let tagQuery = Object.assign({}, query, {name: tagname});
+			return Tag.findOne(tagQuery);
 		});
 	});
-
 	return Promise.all(
 		tagsPromiseArrArr.map(tagPromisesArr => {
 			return Promise.all(tagPromisesArr);
@@ -110,7 +134,9 @@ function updateItemTagsWithIds(id, items) {
 	.then((tagsArrArr) => {
 		let newTagsArrArr = tagsArrArr.map(tagsArr => {
 			return tagsArr.map(tag => {
-				return tag._id;
+				if (tag !== null) {
+					return tag._id;
+				}
 			});
 		});
 		console.log('newTagsArrArr', newTagsArrArr);
@@ -118,13 +144,21 @@ function updateItemTagsWithIds(id, items) {
 	})
 	.then((newTagsArrArr) => {
 		let itemsPromises = items.map((item, i) => {
-			return item.update({
-				$set: {
-					tags: newTagsArrArr[i]
-				}
-			});
+			if (newTagsArrArr[i][0]) {
+				return item.update({
+					$set: {
+						tags: newTagsArrArr[i]
+					}
+				});
+			}
 		});
 		return Promise.all(itemsPromises);
+	})
+	.then(null, (err) => {
+		console.log(err);
+	})
+	.finally(() => {
+		return items;
 	});
 }
 
@@ -142,42 +176,43 @@ function makeEmberItems(id, items) {
 	}, { all: [], public: [] });
 }
 
-function getSlackTeamItems(req, res) {
-	const teamId = req.query.teamId;
-
-	if (!teamId) {
-		return res.status(404).end();
-	}
-	Item.find({slackTeamId: teamId}).exec().then((items) => {
-		return makeEmberItems(teamId, items);
-		}
-	)
-	.then((obj) => {
-		res.send({ items: obj.all });
-	}, () => {
-		return res.status(404).end();
-	});
-}
-
 function getFilteredItems(req, res, type) {
 	const id = req.query.userId;
 	const teamId = req.query.teamId;
-	const tagIds = req.query.tags.toString().split('+');
+	const tagNames = req.query.tags.toString().split('+');
 	let query;
 
 	if (type === 'user') {
-		query = {user: id, tags: {$all:tagIds}};
+		query = {user: id};
 	}
 	else if (type === 'slack') {
-		query = {slackTeamId: teamId, tags: {$all:tagIds}};
+		query = {slackTeamId: teamId};
 	}
-	Item.find(query).exec().then((items) => {
-		return makeEmberItems(id, items);
+
+	let tagPromisesArr = tagNames.map(tagname => {
+		let tagsQuery = Object.assign({}, query, {name: tagname});
+		return Tag.findOne(tagsQuery);
+	});
+
+	return Promise.all(tagPromisesArr).then((tagsArr) => {
+		return tagsArr.map(tag => {
+			if (tag !== null) {
+				return tag._id;
+			}
+		});
 	})
-	.then((obj) => {
-		res.send({items: obj.all});
-	}, () => {
-		return res.status(404).end();
+	.then((tagsArrIds) => {
+		console.log('then query', query);
+		let newQuery = Object.assign({}, query, {tags: {$all:tagsArrIds}});
+
+		Item.find(newQuery).exec().then((items) => {
+			return makeEmberItems(id, items);
+		})
+		.then((obj) => {
+			res.send({items: obj.all});
+		}, () => {
+			return res.status(404).end();
+		});
 	});
 }
 
