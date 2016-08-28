@@ -36,9 +36,9 @@ function getItems(req, res) {
 		case 'slackTeamItems':
 			return getSlackTeamItems(req, res);
 		case 'filterUserItems':
-			return getFilteredItems(req, res, 'user');
+			return getFilteredUserItems(req, res);
 		case 'filterSlackItems':
-			return getFilteredItems(req, res, 'slack');
+			return getFilteredSlackItems(req, res);
 		case 'importItems':
 			return getTwitterItems(req, res);
 		default:
@@ -176,18 +176,10 @@ function makeEmberItems(id, items) {
 	}, { all: [], public: [] });
 }
 
-function getFilteredItems(req, res, type) {
+function getFilteredUserItems(req, res) {
 	const id = req.query.userId;
-	const teamId = req.query.teamId;
-	const tagNames = req.query.tags.toString().split('+');
-	let query;
-
-	if (type === 'user') {
-		query = {user: id};
-	}
-	else if (type === 'slack') {
-		query = {slackTeamId: teamId};
-	}
+	const tagNames = req.query.tags.split('+');
+	let query = {user: id};
 
 	let tagPromisesArr = tagNames.map(tagname => {
 		let tagsQuery = Object.assign({}, query, {name: tagname});
@@ -207,6 +199,42 @@ function getFilteredItems(req, res, type) {
 
 		Item.find(newQuery).exec().then((items) => {
 			return makeEmberItems(id, items);
+		})
+		.then((obj) => {
+			res.send({items: obj.all});
+		}, () => {
+			return res.status(404).end();
+		});
+	});
+}
+
+function getFilteredSlackItems(req, res) {
+	const teamId = req.query.teamId;
+	const string = req.query.tag;
+	const channelName = string.split('+').slice(0,1);
+	const tagNames = string.split('+').slice(1, string.length);
+	let query = {slackTeamId: teamId};
+
+	let channelPromiseArr = new Array(Tag.findOne({'name' : channelName, 'isSlackChannel': 'true'}));
+
+	let tagPromisesArr = tagNames.map(tagname => {
+		let tagsQuery = Object.assign({}, query, {name: tagname});
+		return Tag.findOne(tagsQuery);
+	});
+
+	return Promise.all(tagPromisesArr).then((tagsArr) => {
+		return tagsArr.map(tag => {
+			if (tag !== null) {
+				return tag._id;
+			}
+		});
+	})
+	.then((tagsArrIds) => {
+		console.log('then query', query);
+		let newQuery = Object.assign({}, query, {tags: {$all:tagsArrIds}});
+
+		Item.find(newQuery).exec().then((items) => {
+			return makeEmberItems(teamId, items);
 		})
 		.then((obj) => {
 			res.send({items: obj.all});
