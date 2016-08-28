@@ -350,16 +350,15 @@ function containsUrl(message) {
 }
 
 function postSlackItem(req, res) {
-	const tags = [req.body.channel_name];
 	const timestamp = req.body.timestamp.split('.')[0] * 1000;
   const hasUrl = containsUrl(req.body.text);
 	let slackItem;
 
 	console.log('message received', req.body.text, hasUrl);
+
 	if (hasUrl) {
 		slackItem = {
 	    user: req.body.user_name,
-			tags: tags,
 			author: req.body.user_name,
 	    createdDate: timestamp,
 	    body: req.body.text,
@@ -367,8 +366,8 @@ function postSlackItem(req, res) {
 			slackChannelId: req.body.channel_id,
 			slackTeamId: req.body.team_id
 	  };
-		Tag.find({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tags) {
-			if (!tags.length) {
+		Tag.findOne({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tag) {
+			if (!tag) {
 				let newTag = {
 					name: req.body.channel_name,
 					isSlackChannel: true,
@@ -376,12 +375,16 @@ function postSlackItem(req, res) {
 					slackTeamId: req.body.team_id,
 					colour: 'cp-colour-1'
 				};
-				//console.log('new tag', newTag);
-				return Tag.create(newTag);
+				return Tag.create(newTag).then((tag) => {
+					Object.assign(slackItem, {tags: [tag._id]});
+				});
+			}
+			else {
+				Object.assign(slackItem, {tags: [tag._id]});
 			}
 		}).then(function() {
 			let newItem = new Item(slackItem);
-
+			console.log('new slack item', newItem);
 			newItem.save(function(err) {
 				if (err) {
 					res.status(500).end();
@@ -403,13 +406,3 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
-
-
-// function getFilteredItemsOld(req, res) {
-//   var tagIds = req.query.tags.toString().split('+');
-//   var query = {
-// 		user: req.query.userId,
-// 		tags: {$all:tagIds}
-// 	};
-//   makeEmberItems(req, res, query);
-// }
