@@ -339,7 +339,7 @@ function postSlackItem(req, res) {
 			slackTeamId: req.body.team_id
 	  };
 		Tag.findOne({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tag) {
-			if (tag) {
+			if (!tag) {
 				let newTag = {
 					name: req.body.channel_name,
 					isSlackChannel: true,
@@ -347,7 +347,6 @@ function postSlackItem(req, res) {
 					slackTeamId: req.body.team_id,
 					colour: 'cp-colour-1'
 				};
-				//console.log('new tag', newTag);
 				return Tag.create(newTag).then((tag) => {
 					Object.assign(slackItem, {tags: [tag._id]});
 				});
