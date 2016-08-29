@@ -210,19 +210,24 @@ function getFilteredUserItems(req, res) {
 
 function getFilteredSlackItems(req, res) {
 	const teamId = req.query.teamId;
-	const string = req.query.tag;
+	const string = req.query.tags;
 	const channelName = string.split('+').slice(0,1);
-	const tagNames = string.split('+').slice(1, string.length);
+	let tagNames;
+
+	if (string.length > 1) {
+		tagNames = string.split('+').slice(1, string.length);
+	}
+
 	let query = {slackTeamId: teamId};
-
 	let channelPromiseArr = new Array(Tag.findOne({'name' : channelName, 'isSlackChannel': 'true'}));
-
 	let tagPromisesArr = tagNames.map(tagname => {
 		let tagsQuery = Object.assign({}, query, {name: tagname});
 		return Tag.findOne(tagsQuery);
 	});
 
-	return Promise.all(tagPromisesArr).then((tagsArr) => {
+	let promisesArr = channelPromiseArr.concat(tagPromisesArr);
+
+	return Promise.all(promisesArr).then((tagsArr) => {
 		return tagsArr.map(tag => {
 			if (tag !== null) {
 				return tag._id;
