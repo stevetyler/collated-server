@@ -210,22 +210,27 @@ function getFilteredUserItems(req, res) {
 
 function getFilteredSlackItems(req, res) {
 	const teamId = req.query.teamId;
-	const string = req.query.tags;
-	const channelName = string.split('+').slice(0,1);
-	let tagNames;
+	console.log('teamId', teamId);
+	const tagNames = req.query.tags.split('+');
+	let teamQuery = {slackTeamId: teamId};
+	let promisesArr = tagNames.map((tagName, i) => {
 
-	if (string.length > 1) {
-		tagNames = string.split('+').slice(1, string.length);
-	}
+	let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
+		return Tag.findOne(channelQuery).then(channel => {
+			return channel;
+		}).then(tag => {
+			if (tag.isSlackChannel && i === 0) {
+				//console.log('then channel', tag);
+				return tag;
+			}
+			else {
+				let tagsQuery = Object.assign({}, teamQuery, {name: tagName, slackChannelId: tag.slackChannelId});
+				console.log('then tag', tag, 'tagsQuery', tagsQuery);
 
-	let query = {slackTeamId: teamId};
-	let channelPromiseArr = new Array(Tag.findOne({'name' : channelName, 'isSlackChannel': 'true'}));
-	let tagPromisesArr = tagNames.map(tagname => {
-		let tagsQuery = Object.assign({}, query, {name: tagname});
-		return Tag.findOne(tagsQuery);
+				return Tag.findOne(tagsQuery);
+			}
+		});
 	});
-
-	let promisesArr = channelPromiseArr.concat(tagPromisesArr);
 
 	return Promise.all(promisesArr).then((tagsArr) => {
 		return tagsArr.map(tag => {
@@ -235,8 +240,8 @@ function getFilteredSlackItems(req, res) {
 		});
 	})
 	.then((tagsArrIds) => {
-		console.log('then query', query);
-		let newQuery = Object.assign({}, query, {tags: {$all:tagsArrIds}});
+		console.log('then query', teamQuery);
+		let newQuery = Object.assign({}, teamQuery, {tags: {$all:tagsArrIds}});
 
 		Item.find(newQuery).exec().then((items) => {
 			return makeEmberItems(teamId, items);
