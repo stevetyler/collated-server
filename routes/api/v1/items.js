@@ -3,7 +3,7 @@ const MetaInspector = require('node-metainspector');
 
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const ItemImporter = require('../../../lib/import-items.js');
+const ItemImporter = require('../../../lib/import-twitter-items.js');
 
 const Item = db.model('Item');
 const Tag = db.model('Tag');
@@ -154,12 +154,13 @@ function updateItemTagsWithIds(query, items) {
 		});
 		return Promise.all(itemsPromises);
 	})
+	.then(() => {
+		return items;
+	})
 	.then(null, (err) => {
 		console.log(err);
-	})
-	.finally(() => {
-		return items;
 	});
+
 }
 
 function makeEmberItems(id, items) {
