@@ -16,7 +16,7 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
-		'/items/slack': postSlackItem
+		'/items/slack': postSlackItems // batch messages, always takes an array of items
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -215,7 +215,6 @@ function getFilteredSlackItems(req, res) {
 	const tagNames = req.query.tags.split('+');
 	let teamQuery = {slackTeamId: teamId};
 	let promisesArr = tagNames.map((tagName, i) => {
-
 	let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
 		return Tag.findOne(channelQuery).then(channel => {
 			return channel;
@@ -360,33 +359,48 @@ function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
 }
 
-function postSlackItem(req, res) {
-	const timestamp = req.body.timestamp.split('.')[0] * 1000;
-  const hasUrl = containsUrl(req.body.text);
+function postSlackItems(req, res) {
+	// check for imported array or single message posted from Slack
+	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
+	let promiseArr = messagesArr.map(saveSlackItem);
+
+	Promise.all(promiseArr)
+	.then(() => {
+		res.status('201').send({});
+	}, (err) => {
+		console.log(err);
+		return res.status(500).end();
+	});
+}
+
+function saveSlackItem(message) {
+	const timestamp = message.timestamp.split('.')[0] * 1000;
+  const hasUrl = containsUrl(message.text);
 	let slackItem;
 
-	console.log('message received', req.body.text, hasUrl);
+	console.log('message received', message.text, hasUrl);
 
 	if (hasUrl) {
 		slackItem = {
-	    user: req.body.user_name,
-			author: req.body.user_name,
+	    user: message.user_name,
+			author: message.user_name,
 	    createdDate: timestamp,
-	    body: req.body.text,
+	    body: message.text,
 			type: 'slack',
-			slackChannelId: req.body.channel_id,
-			slackTeamId: req.body.team_id
+			slackChannelId: message.channel_id,
+			slackTeamId: message.team_id
 	  };
-		Tag.findOne({name:req.body.channel_name, slackChannelId: req.body.channel_id}).exec().then(function(tag) {
+		return Tag.findOne({name:message.channel_name, slackChannelId: message.channel_id}).exec().then(function(tag) {
 			if (!tag) {
 				let newTag = {
-					name: req.body.channel_name,
+					name: message.channel_name,
 					isSlackChannel: true,
-					slackChannelId: req.body.channel_id,
-					slackTeamId: req.body.team_id,
+					slackChannelId: message.channel_id,
+					slackTeamId: message.team_id,
 					colour: 'cp-colour-1'
 				};
-				return Tag.create(newTag).then((tag) => {
+				// not used in a then
+				Tag.create(newTag).then((tag) => {
 					Object.assign(slackItem, {tags: [tag._id]});
 				});
 			}
@@ -396,15 +410,7 @@ function postSlackItem(req, res) {
 		}).then(function() {
 			let newItem = new Item(slackItem);
 			console.log('new slack item', newItem);
-			newItem.save(function(err) {
-				if (err) {
-					res.status(500).end();
-				}
-				return res.send({});
-			});
-		}).then(null, function(err){
-			console.log(err);
-			return res.status(500).end();
+			return newItem.save();
 		});
 	}
 }
