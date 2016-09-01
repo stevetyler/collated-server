@@ -16,7 +16,7 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
-		'/items/slack': postSlackItems // batch messages, always takes an array of items
+		'/items/slack': postSlackItems
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -360,9 +360,9 @@ function containsUrl(message) {
 }
 
 function postSlackItems(req, res) {
-	// check for imported array or single message posted from Slack
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
 	let promiseArr = messagesArr.map(saveSlackItem);
+  console.log('message received', req.body);
 
 	Promise.all(promiseArr)
 	.then(() => {
@@ -399,7 +399,6 @@ function saveSlackItem(message) {
 					slackTeamId: message.team_id,
 					colour: 'cp-colour-1'
 				};
-				// not used in a then
 				Tag.create(newTag).then((tag) => {
 					Object.assign(slackItem, {tags: [tag._id]});
 				});
