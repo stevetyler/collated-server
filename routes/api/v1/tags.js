@@ -73,8 +73,6 @@ function makeEmberTags(id, tags, type) {
 		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag._id ] }}));
 	}
 	else if (type === 'slack') {
-		// need to count tags per channelId
-
 		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag._id] }}));
 	}
 	if (tagPromises) {
@@ -158,16 +156,17 @@ function putTag(req, res) {
 	const tagName = req.body.tag.name;
 
 	console.log('putTag', tagId, tagName);
-  if (req.user.id === req.body.tag.user) {
-    Tag.update({_id: tagId, user: req.user.id},
+  if (req.user.id === req.body.tag.user || req.user.slackProfile.isTeamAdmin) {
+    Tag.update({_id: tagId}, // removed user: req.user.id temporarily
       {$set: {
-        name: tagName, // set new id on items as well
+        name: tagName,
         colour: req.body.tag.colour,
         isPrivate: req.body.tag.isPrivate
         }
       }
-    ).exec().then(() => {
-      Item.find({user: req.user.id, tags: {$in: [tagName]}}, (err, items) => {
+    )
+		.exec().then(() => {
+      Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
         if (err) {
           return res.status(404).send();
         }
@@ -186,6 +185,7 @@ function putTag(req, res) {
     });
   }
 	else {
+		console.log('userId', req.user.id, 'tag user', req.body.tag.user, req.user.slackProfile.isTeamAdmin);
 		return res.status(401).end();
 	}
 }
