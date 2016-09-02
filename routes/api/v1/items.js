@@ -374,17 +374,19 @@ function postSlackItems(req, res) {
 }
 
 function saveSlackItem(message) {
-	const timestamp = message.timestamp.split('.')[0] * 1000;
-  const hasUrl = containsUrl(message.text);
-	let slackItem;
+	console.log(message);
+	const slackTimestamp = message.timestamp || message.ts;
+	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
+	const hasUrl = containsUrl(message.text);
 
 	console.log('message received', message.text, hasUrl);
 
 	if (hasUrl) {
-		slackItem = {
+		console.log('message has url');
+		let slackItem = {
 	    user: message.user_name,
 			author: message.user_name,
-	    createdDate: timestamp,
+	    createdDate: newTimestamp,
 	    body: message.text,
 			type: 'slack',
 			slackChannelId: message.channel_id,
