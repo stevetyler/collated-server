@@ -401,14 +401,18 @@ function saveSlackItem(message) {
 					slackTeamId: message.team_id,
 					colour: 'cp-colour-1'
 				};
-				Tag.create(newTag).then((tag) => {
-					Object.assign(slackItem, {tags: [tag._id]});
-				});
+				return Tag.create(newTag);
 			}
 			else {
 				Object.assign(slackItem, {tags: [tag._id]});
 			}
-		}).then(function() {
+		})
+		.then(tag => {
+			if (tag) {
+				Object.assign(slackItem, {tags: [tag._id]});
+			}
+		})
+		.then(function() {
 			let newItem = new Item(slackItem);
 			console.log('new slack item', newItem);
 			return newItem.save();
