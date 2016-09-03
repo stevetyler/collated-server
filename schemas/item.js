@@ -1,10 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var commentSchema = new Schema({
+  author: String,
+  body: String,
+  createdDate: String,
+  item: String
+});
+
 var itemSchema = new Schema({
   id: String,
   author: String,
   body: String,
+  comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
   slackTeamId: String,
@@ -20,6 +28,7 @@ itemSchema.methods.makeEmberItem = function() {
     id: this._id,
     author: this.author,
     body: this.body,
+    comments: this.comments,
     createdDate: this.createdDate,
     isPrivate: this.isPrivate,
     slackChannelId: this.slackChannelId,
