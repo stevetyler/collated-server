@@ -1,3 +1,4 @@
+'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -24,11 +25,20 @@ var itemSchema = new Schema({
 });
 
 itemSchema.methods.makeEmberItem = function() {
+  var comments = this.comments.map(function(comment) {
+    return {
+      id: comment._id,
+      author: comment.author,
+      body: comment.body,
+      createdDate: comment.createdDate,
+      item: comment.item
+    };
+  });
   var emberItem = {
     id: this._id,
     author: this.author,
     body: this.body,
-    comments: this.comments,
+    comments: comments,
     createdDate: this.createdDate,
     isPrivate: this.isPrivate,
     slackChannelId: this.slackChannelId,

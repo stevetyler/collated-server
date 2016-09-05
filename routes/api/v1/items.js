@@ -324,7 +324,6 @@ function postItem(req, res) {
 	const itemTags = req.body.item.tags;
 	const item = {
     user: req.body.item.user,
-		comments: req.body.item.comments,
     createdDate: req.body.item.createdDate,
     body: req.body.item.body,
     author: req.body.item.author,
