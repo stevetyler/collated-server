@@ -26,10 +26,11 @@ function postItemComment(req, res) {
   Item.findOne({_id: req.body.comment.item})
   .then((item) => {
     item.comments.push(newComment);
-    item.save();
+    return item.save();
   })
-  .then(() => {
-		res.status('201').send({});
+  .then((item) => {
+    let emberItem = item.makeEmberItem();
+		res.status('201').send({items: [emberItem]});
 	}, (err) => {
 		console.log(err);
 		return res.status(500).end();
@@ -40,13 +41,16 @@ function deleteComment(req, res) {
   console.log('delete comment called', req.params.id);
   let commentId = req.params.id;
 
-  return Item.findOne({_id: {$in: {_id: commentId}}})
+  //return Item.findOne({comments: {$in: {_id: commentId}}})
+  return Item.findOne({'comments._id': commentId})
   .then((item) => {
     console.log('item found', item);
     item.update({
       $pull: {
         comments: {_id: commentId}
       }
+    }).then(item => {
+      item.save();
     });
   })
   .then(() => {
