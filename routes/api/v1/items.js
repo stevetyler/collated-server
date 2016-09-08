@@ -69,9 +69,6 @@ function getUserItems(req, res) {
 	const query = Object.assign({}, {user: id});
 
 	Item.find(query).exec()
-	.then((items) => {
-		return updateItemTagsWithIds(query, items);
-	})
 	.then(items => {
 		return makeEmberItems(id, items);
 	})
@@ -102,9 +99,6 @@ function getSlackTeamItems(req, res) {
 	}
 	Item.find(query).exec()
 	.then((items) => {
-		return updateItemTagsWithIds(query, items);
-	})
-	.then((items) => {
 		console.log('slack items found', items);
 		return makeEmberItems(teamId, items);
 		}
@@ -114,53 +108,6 @@ function getSlackTeamItems(req, res) {
 	}, () => {
 		return res.status(404).end();
 	});
-}
-
-function updateItemTagsWithIds(query, items) {
-	let allTagsArrArr = items.map((item) => {
-		return item.tags;
-	});
-	let tagsPromiseArrArr = allTagsArrArr.map((tagNamesArr) => {
-		return tagNamesArr.map((tagname) => {
-			let tagQuery = Object.assign({}, query, {name: tagname});
-			return Tag.findOne(tagQuery);
-		});
-	});
-	return Promise.all(
-		tagsPromiseArrArr.map(tagPromisesArr => {
-			return Promise.all(tagPromisesArr);
-		})
-	)
-	.then((tagsArrArr) => {
-		let newTagsArrArr = tagsArrArr.map(tagsArr => {
-			return tagsArr.map(tag => {
-				if (tag !== null) {
-					return tag._id;
-				}
-			});
-		});
-		console.log('newTagsArrArr', newTagsArrArr);
-		return newTagsArrArr;
-	})
-	.then((newTagsArrArr) => {
-		let itemsPromises = items.map((item, i) => {
-			if (newTagsArrArr[i][0]) {
-				return item.update({
-					$set: {
-						tags: newTagsArrArr[i]
-					}
-				});
-			}
-		});
-		return Promise.all(itemsPromises);
-	})
-	.then(() => {
-		return items;
-	})
-	.then(null, (err) => {
-		console.log(err);
-	});
-
 }
 
 function makeEmberItems(id, items) {
@@ -428,3 +375,54 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
+
+
+// .then((items) => {
+// 	return updateItemTagsWithIds(query, items);
+// })
+
+// function updateItemTagsWithIds(query, items) {
+// 	let allTagsArrArr = items.map((item) => {
+// 		return item.tags;
+// 	});
+// 	let tagsPromiseArrArr = allTagsArrArr.map((tagNamesArr) => {
+// 		return tagNamesArr.map((tagname) => {
+// 			let tagQuery = Object.assign({}, query, {name: tagname});
+// 			return Tag.findOne(tagQuery);
+// 		});
+// 	});
+// 	return Promise.all(
+// 		tagsPromiseArrArr.map(tagPromisesArr => {
+// 			return Promise.all(tagPromisesArr);
+// 		})
+// 	)
+// 	.then((tagsArrArr) => {
+// 		let newTagsArrArr = tagsArrArr.map(tagsArr => {
+// 			return tagsArr.map(tag => {
+// 				if (tag !== null) {
+// 					return tag._id;
+// 				}
+// 			});
+// 		});
+// 		console.log('newTagsArrArr', newTagsArrArr);
+// 		return newTagsArrArr;
+// 	})
+// 	.then((newTagsArrArr) => {
+// 		let itemsPromises = items.map((item, i) => {
+// 			if (newTagsArrArr[i][0]) {
+// 				return item.update({
+// 					$set: {
+// 						tags: newTagsArrArr[i]
+// 					}
+// 				});
+// 			}
+// 		});
+// 		return Promise.all(itemsPromises);
+// 	})
+// 	.then(() => {
+// 		return items;
+// 	})
+// 	.then(null, (err) => {
+// 		console.log(err);
+// 	});
+// }
