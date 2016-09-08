@@ -69,9 +69,9 @@ function getUserItems(req, res) {
 	const query = Object.assign({}, {user: id});
 
 	Item.find(query).exec()
-	// .then((items) => {
-	// 	return updateItemTagsWithIds(query, items);
-	// })
+	.then((items) => {
+		return updateItemTagsWithIds(query, items);
+	})
 	.then(items => {
 		return makeEmberItems(id, items);
 	})
@@ -101,9 +101,9 @@ function getSlackTeamItems(req, res) {
 		return res.status(404).end();
 	}
 	Item.find(query).exec()
-	// .then((items) => {
-	// 	return updateItemTagsWithIds(query, items);
-	// })
+	.then((items) => {
+		return updateItemTagsWithIds(query, items);
+	})
 	.then((items) => {
 		console.log('slack items found', items);
 		return makeEmberItems(teamId, items);
