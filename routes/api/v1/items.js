@@ -99,7 +99,7 @@ function getSlackTeamItems(req, res) {
 	}
 	Item.find(query).exec()
 	.then((items) => {
-		console.log('slack items found', items);
+		//console.log('slack items found', items);
 		return makeEmberItems(teamId, items);
 		}
 	)
@@ -308,9 +308,13 @@ function containsUrl(message) {
 
 function postSlackItems(req, res) {
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
-	let promiseArr = messagesArr.map(saveSlackItem);
+	let promiseArr = messagesArr.reduce((arr, message) => {
+		if (containsUrl(message.text)) {
+			return arr.concat(saveSlackItem(message));
+		}
+	}, []);
   console.log('message received', req.body);
-
+	console.log('promise arr', promiseArr);
 	Promise.all(promiseArr)
 	.then(() => {
 		res.status('201').send({});
@@ -325,46 +329,65 @@ function saveSlackItem(message) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
 	const hasUrl = containsUrl(message.text);
+	let unassignedTagId;
 
 	console.log('message received', message.text, hasUrl);
+	console.log('message has url');
 
-	if (hasUrl) {
-		console.log('message has url');
-		let slackItem = {
-	    user: message.user_name,
-			author: message.user_name,
-	    createdDate: newTimestamp,
-	    body: message.text,
-			type: 'slack',
-			slackChannelId: message.channel_id,
-			slackTeamId: message.team_id
-	  };
-		return Tag.findOne({name:message.channel_name, slackChannelId: message.channel_id}).exec().then(function(tag) {
-			if (!tag) {
-				let newTag = {
-					name: message.channel_name,
-					isSlackChannel: true,
-					slackChannelId: message.channel_id,
-					slackTeamId: message.team_id,
-					colour: 'cp-colour-1'
-				};
-				return Tag.create(newTag);
-			}
-			else {
-				Object.assign(slackItem, {tags: [tag._id]});
-			}
-		})
-		.then(tag => {
-			if (tag) {
-				Object.assign(slackItem, {tags: [tag._id]});
-			}
-		})
-		.then(function() {
-			let newItem = new Item(slackItem);
-			console.log('new slack item', newItem);
-			return newItem.save();
-		});
-	}
+	let slackItem = {
+    user: message.user_name,
+		author: message.user_name,
+    createdDate: newTimestamp,
+    body: message.text,
+		type: 'slack',
+		slackChannelId: message.channel_id,
+		slackTeamId: message.team_id
+  };
+
+	return Tag.findOne({name: 'unassigned', slackChannelId: message.channel_id}).exec().then(tag => {
+		if (tag) {
+			return tag;
+		}
+		else {
+			return Tag.create({
+				name: 'unassigned',
+				colour: 'cp-colour-1',
+				slackChannelId: message.channel_id,
+				slackTeamId: message.team_id
+			});
+		}
+	})
+	.then(tag => {
+		unassignedTagId = tag._id;
+	})
+	.then(() => {
+		return Tag.findOne({name:message.channel_name, slackChannelId: message.channel_id});
+	})
+	.then(function(tag) {
+		if (!tag) {
+			let newTag = {
+				name: message.channel_name,
+				isSlackChannel: true,
+				slackChannelId: message.channel_id,
+				slackTeamId: message.team_id,
+				colour: 'cp-colour-1'
+			};
+			return Tag.create(newTag);
+		}
+		else {
+			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
+		}
+	})
+	.then(tag => {
+		if (tag) {
+			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
+		}
+	})
+	.then(function() {
+		let newItem = new Item(slackItem);
+		console.log('new slack item', newItem);
+		return newItem.save();
+	});
 }
 
 function deleteItems(req, res) {
