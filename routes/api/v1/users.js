@@ -20,7 +20,7 @@ module.exports.autoroute = {
 		'/users/:id' : putUser
 	},
   post: {
-    '/users': postUser,
+    //'/users': postUser,
     '/users/logout': handleLogoutRequest
   }
 };
@@ -61,12 +61,14 @@ function getUser(req, res) {
   var userId = req.params.id;
   //var loggedInUser = req.user;
 	var emberUser;
-
+	console.log('get user called', userId);
 	User.findOne({id: userId}).exec().then(function(user) {
+		console.log('get user found', user);
 		if (!user) {
       return res.status(404).end();
     }
     emberUser = user.makeEmberUser();
+		console.log('emberUser', emberUser);
     res.send({'user': emberUser});
 	}).then(null, function(){
 		return res.status(500).end();
@@ -129,33 +131,34 @@ function updateUser(req, res) {
 	});
 }
 
-function postUser(req, res) {
-  console.log('post log');
-  if (req.body.user) {
-    User.findOne({id: req.body.user.id}).then(function(user) {
-      if (user) {
-        return res.status(400).end();
-      }
-      else {
-        User.createUser(req.body.user, function(err, user) {
-          if (err) {
-            return res.status(500).end();
-          }
-          req.logIn(user, function(err) {
-            if (err) {
-              return res.status(500).end();
-            }
-            var emberUser = user.makeEmberUser(null); // null because no loggedinuser
-            return res.send({'user': emberUser});
-          });
-        });
-      }
-    });
-  }
-	else {
-		return res.status(401).end();
-	}
-}
+
+// function postUser(req, res) {
+//   console.log('post log');
+//   if (req.body.user) {
+//     User.findOne({id: req.body.user.id}).then(function(user) {
+//       if (user) {
+//         return res.status(400).end();
+//       }
+//       else {
+//         User.createUser(req.body.user, function(err, user) {
+//           if (err) {
+//             return res.status(500).end();
+//           }
+//           req.logIn(user, function(err) {
+//             if (err) {
+//               return res.status(500).end();
+//             }
+//             var emberUser = user.makeEmberUser(null); // null because no loggedinuser
+//             return res.send({'user': emberUser});
+//           });
+//         });
+//       }
+//     });
+//   }
+// 	else {
+// 		return res.status(401).end();
+// 	}
+// }
 
 // Plans.findOne({_id: user.plan}).exec().then(function(plan){
 // 	var permissions;
