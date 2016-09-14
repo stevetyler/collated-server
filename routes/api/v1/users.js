@@ -62,12 +62,17 @@ function getUser(req, res) {
   //var loggedInUser = req.user;
 	var emberUser;
 	console.log('get user called', userId);
-	User.findOne({id: userId}).exec().then(function(user) {
+	return User.findOne({id: userId}).exec().then(function(user) {
 		console.log('get user found', user);
 		if (!user) {
       return res.status(404).end();
     }
-    emberUser = user.makeEmberUser();
+		try {
+			emberUser = user.makeEmberUser();
+		}
+    catch (err) {
+			console.log('make emberuser error', err);
+		}
 		console.log('emberUser', emberUser);
     res.send({'user': emberUser});
 	}).then(null, function(){
@@ -84,7 +89,8 @@ function putUser(req, res) {
 			return user.save();
 		})
 		.then(function(user) {
-			return res.send({'users': [user]});
+			var emberUser = user.makeEmberUser();
+			return res.send({'user': emberUser});
 		});
 	}
 	else {

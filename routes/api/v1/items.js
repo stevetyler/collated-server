@@ -249,17 +249,27 @@ function putItems(req, res) {
 			if (tags.length) {
 				isPrivate = true;
 			}
-			Item.update(
+			return Item.findOneAndUpdate(
 		    {_id: req.params.id},
-		    {$set: {tags: req.body.item.tags, isPrivate: isPrivate}},
-		    function(err) {
-		      if (err) {
-		        console.log(err);
-		        return res.status(400).end();
-		      }
-		    return res.send({});
-		    }
+		    {$set: {
+					tags: req.body.item.tags,
+					isPrivate: isPrivate,
+					comments: req.body.item.comments
+					}
+				}, { new: true }
 		  );
+		})
+		.then(item => {
+			console.log('item updated', item);
+			var emberItem = item.makeEmberItem();
+
+			return res.send({'items': emberItem});
+		})
+		.then(null, (err) => {
+			if (err) {
+				console.log(err);
+				return res.status(400).end();
+			}
 		});
 	}
 	else {
@@ -276,7 +286,8 @@ function postItem(req, res) {
     author: req.body.item.author,
     tags: req.body.item.tags,
 		isPrivate: false,
-		type: req.body.item.type
+		type: req.body.item.type,
+		//comments: req.body.item.comments
   };
 
 	Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {

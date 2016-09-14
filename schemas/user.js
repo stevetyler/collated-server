@@ -12,7 +12,7 @@ var slackProfileSchema = new Schema({
   teamDomain: String, // team name
   teamToken: String,
   teamUrl: String,
-  userId: String,
+  slackUserId: String,
   userName: String, // displayName
 });
 
@@ -22,7 +22,8 @@ var twitterProfileSchema = new Schema({
   oldestLikeId: String,
   latestTweetId: String,
   oldestTweetId: String,
-  twitterId: String
+  twitterId: String,
+  user: String
 });
 
 var userSchema = new Schema({
@@ -33,7 +34,7 @@ var userSchema = new Schema({
   email: String,
   permissions: String,
   schemaVersion: String,
-  twitterId: String,
+  //twitterId: String,
   apiKeys: {
     facebookAccessToken: String,
     facebookSecretToken: String,
@@ -52,27 +53,39 @@ userSchema.methods.makeEmberUser = function () {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
-    email: this.email,
-    // facebookProfile: {
-    //   id: this.facebookProfile._id,
-    //   facebookId: this.facebookProfile.facebookId
-    // },
-    twitterProfile: {
-      id: this.twitterProfile._id,
-      autoImport: this.twitterProfile.autoImport,
-      latestLikeId: this.twitterProfile.latestLikeId,
-      oldestLiketId: this.twitterProfile.oldestLikeId,
-      latestTweetId: this.twitterProfile.latestTweetId,
-      oldestTweetId: this.twitterProfile.oldestTweetId
-    },
-    // slackProfile: {
-    //   id: this.slackProfile._id,
-    //   isTeamAdmin: this.slackProfile.isTeamAdmin,
-    //   isTeamOwner: this.slackProfile.isTeamOwner,
-    //   teamDomain: this.slackProfile.teamDomain
-    // }
+    email: this.email
   };
-  console.log('make ember user called', emberUser);
+
+  if (this.facebookProfile) {
+    Object.assign(emberUser, {
+      facebookProfile: {
+        id: this.facebookProfile._id,
+        facebookId: this.facebookProfile.facebookId
+      }
+    });
+  }
+  if (this.slackProfile) {
+    Object.assign(emberUser, {
+      slackProfile: {
+        id: this.slackProfile._id,
+        isTeamAdmin: this.slackProfile.isTeamAdmin,
+        isTeamOwner: this.slackProfile.isTeamOwner,
+        teamDomain: this.slackProfile.teamDomain
+      }
+    });
+  }
+  if (this.twitterProfile) {
+    Object.assign(emberUser, {
+      twitterProfile: {
+        id: this.twitterProfile._id,
+        autoImport: this.twitterProfile.autoImport,
+        latestLikeId: this.twitterProfile.latestLikeId,
+        oldestLiketId: this.twitterProfile.oldestLikeId,
+        latestTweetId: this.twitterProfile.latestTweetId,
+        oldestTweetId: this.twitterProfile.oldestTweetId
+      }
+    });
+  }
   return emberUser;
 };
 

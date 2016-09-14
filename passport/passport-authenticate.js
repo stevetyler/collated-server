@@ -17,10 +17,9 @@ passport.use(new TwitterStrategy({
   },
   function(token, tokenSecret, profile, done) {
     // { twitterProfile: { id: profile._json.id_str } } not working in Mongo 2.8
-    User.findOne({ twitterId: profile._json.id_str } ).exec().then(function(user) {
+    User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).exec().then(function(user) {
       console.log('user found', user);
       if (user) {
-        // check for schema version and update
         user.apiKeys.twitterAccessToken = token;
         user.apiKeys.twitterSecretToken = tokenSecret;
         user.imageUrl = modifyTwitterImageURL(profile._json.profile_image_url);
@@ -34,11 +33,21 @@ passport.use(new TwitterStrategy({
             twitterAccessToken: token,
             twitterSecretToken:tokenSecret,
           },
-          twitterId: profile._json.id_str
+          twitterProfile: {
+            twitterId: profile._json.id_str
+          }
         });
       }
     })
-    // ^^ find or create user
+    // .then(function(user) {
+    //   if (!user.twitterProfile._id) {
+    //     var newProfileObj = Object.assign({}, user.twitterProfile);
+    //     console.log('create new twitter profile', newProfileObj);
+    //
+    //     return user.twitterProfile.create(newProfileObj);
+    //   }
+    //   return user;
+    // })
     .then(function(user){
       return done(null, user);
     })
@@ -56,7 +65,7 @@ passport.use(new FacebookStrategy({
     profileFields : ['id', 'displayName', 'photos', 'profileUrl']
   },
   function(accessToken, secretToken, profile, done) {
-    User.findOne({ facebookId : profile.id}).exec().then(function(user) {
+    User.findOne({ 'facebookProfile.facebookId' : profile.id}).exec().then(function(user) {
       if (user) {
         user.apiKeys.facebookAccessToken = accessToken;
         user.apiKeys.facebookSecretToken = secretToken;
@@ -71,7 +80,7 @@ passport.use(new FacebookStrategy({
             facebookSecretToken: secretToken
           },
           facebookProfile: {
-            id: profile.id
+            facebookId: profile.id
           }
         });
       }
@@ -95,7 +104,7 @@ passport.use(new SlackStrategy({
     scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOne( {'slackProfile.userId': profile.id} ).exec().then(function(user) {
+    User.findOne( {'slackProfile.slackUserId': profile.id} ).exec().then(function(user) {
       //console.log('user found', user);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
@@ -120,7 +129,7 @@ passport.use(new SlackStrategy({
           },
           slackProfile: {
             isTeamAdmin: profile._json.info.user.is_admin,
-            userId: profile._json.user_id,
+            slackUserId: profile._json.user_id,
             userName: profile._json.user,
             teamId: profile._json.team_id,
             teamDomain: profile._json.team,
