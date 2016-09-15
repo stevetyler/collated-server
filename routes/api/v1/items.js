@@ -320,12 +320,10 @@ function containsUrl(message) {
 function postSlackItems(req, res) {
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
 	let promiseArr = messagesArr.reduce((arr, message) => {
-		if (containsUrl(message.text)) {
-			return arr.concat(saveSlackItem(message));
-		}
+		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
 	}, []);
-  console.log('message received', req.body);
-	console.log('promise arr', promiseArr);
+  // console.log('message received', req.body);
+	// console.log('promise arr', promiseArr);
 	Promise.all(promiseArr)
 	.then(() => {
 		res.status('201').send({});
