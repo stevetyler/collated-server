@@ -61,9 +61,10 @@ function getUser(req, res) {
   var userId = req.params.id;
   //var loggedInUser = req.user;
 	var emberUser;
-	console.log('get user called', userId);
-	return User.findOne({id: userId}).exec().then(function(user) {
-		console.log('get user found', user);
+	//console.log('get user called', userId);
+	return User.findOne({id: userId})
+	.exec().then(function(user) {
+		//console.log('get user found', user);
 		if (!user) {
       return res.status(404).end();
     }
@@ -73,9 +74,9 @@ function getUser(req, res) {
     catch (err) {
 			console.log('make emberuser error', err);
 		}
-		console.log('emberUser', emberUser);
     res.send({'user': emberUser});
-	}).then(null, function(){
+	})
+	.then(null, function(){
 		return res.status(500).end();
 	});
 }
@@ -84,8 +85,12 @@ function putUser(req, res) {
 	var query = req.user.id;
 
 	if (req.user.id === req.params.id) {
-		User.findOne({id: query}).exec().then(function(user) {
-			user.twitterProfile.autoImport = req.body.user.twitterProfile.autoImport;
+		User.findOne({id: query})
+		.exec().then(function(user) {
+			var newObj = {
+				autoImport: req.body.user.twitterProfile.autoImport
+			};
+			Object.assign(user.twitterProfile, newObj);
 			return user.save();
 		})
 		.then(function(user) {
