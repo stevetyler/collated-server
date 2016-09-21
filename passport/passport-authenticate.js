@@ -23,6 +23,7 @@ passport.use(new TwitterStrategy({
         user.apiKeys.twitterAccessToken = token;
         user.apiKeys.twitterSecretToken = tokenSecret;
         user.imageUrl = modifyTwitterImageURL(profile._json.profile_image_url);
+        //user.twitterProfile.twitterId = profile._json.id_str;
         // console.log(user.imageUrl);
         return user.save();
       } else {
