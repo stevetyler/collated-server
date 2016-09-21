@@ -60,7 +60,7 @@ userSchema.methods.makeEmberUser = function () {
     Object.assign(emberUser, {
       facebookProfile: {
         id: this.facebookProfile._id,
-        facebookId: this.facebookProfile.facebookId
+        //facebookId: this.facebookProfile.facebookId
       }
     });
   }
@@ -80,9 +80,10 @@ userSchema.methods.makeEmberUser = function () {
         id: this.twitterProfile._id,
         autoImport: this.twitterProfile.autoImport,
         latestLikeId: this.twitterProfile.latestLikeId,
-        oldestLiketId: this.twitterProfile.oldestLikeId,
+        oldestLikeId: this.twitterProfile.oldestLikeId,
         latestTweetId: this.twitterProfile.latestTweetId,
-        oldestTweetId: this.twitterProfile.oldestTweetId
+        oldestTweetId: this.twitterProfile.oldestTweetId,
+        //twitterId: this.twitterProfile.twitterId
       }
     });
   }
