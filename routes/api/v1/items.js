@@ -16,7 +16,8 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
-		'/items/slack': postSlackItems
+		'/items/slack': postSlackItems,
+		'/items/chrome': postChromeItem
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -311,6 +312,11 @@ function postItem(req, res) {
 	    return res.status(401).end();
 	  }
 	});
+}
+
+function postChromeItem(req, res) {
+	//console.log('received', req.body);
+	return res.send({body: req.body});
 }
 
 function containsUrl(message) {
