@@ -315,7 +315,7 @@ function postItem(req, res) {
 }
 
 function postChromeItem(req, res) {
-	//console.log('received', req.body);
+	console.log('url from chrome received', req.body);
 	return res.send({body: req.body});
 }
 
