@@ -216,7 +216,15 @@ function getSearchItems(req, res) {
 		return makeEmberItems(id, items);
 	})
 	.then((items) => {
-		res.send({items: items});
+		if (!req.user) {
+			return res.send({items: items.public});
+		}
+		if (req.user.id === req.query.userId) {
+			return res.send({items: items.all});
+		}
+		else {
+			return res.send({items: items.public});
+		}
 	}, () => {
 		return res.status(404).end();
 	});
@@ -245,7 +253,7 @@ function putItems(req, res) {
 	let isPrivate = false;
 
 	if (req.user.id === req.body.item.user) {
-		Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
+		Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
 		.exec().then(function(tags) {
 			if (tags.length) {
 				isPrivate = true;
@@ -291,7 +299,7 @@ function postItem(req, res) {
 		//comments: req.body.item.comments
   };
 
-	Tag.find({name: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
+	Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
 		if (tags.length) {
 			item.isPrivate = true;
 		}
