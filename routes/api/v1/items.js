@@ -7,7 +7,6 @@ const ItemImporter = require('../../../lib/import-twitter-items.js');
 
 const Item = db.model('Item');
 const Tag = db.model('Tag');
-//const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -17,7 +16,7 @@ module.exports.autoroute = {
 	post: {
 		'/items': [ensureAuthenticated, postItem],
 		'/items/slack': postSlackItems,
-		'/items/chrome': postChromeItem
+		'/items/chrome': saveChromeItem
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -100,7 +99,6 @@ function getSlackTeamItems(req, res) {
 	}
 	Item.find(query).exec()
 	.then((items) => {
-		//console.log('slack items found', items);
 		return makeEmberItems(teamId, items);
 		}
 	)
@@ -168,7 +166,6 @@ function getFilteredSlackItems(req, res) {
 			return channel;
 		}).then(tag => {
 			if (tag.isSlackChannel && i === 0) {
-				//console.log('then channel', tag);
 				return tag;
 			}
 			else {
@@ -322,9 +319,26 @@ function postItem(req, res) {
 	});
 }
 
-function postChromeItem(req, res) {
+function saveChromeItem(req, res) {
 	console.log('url from chrome received', req.body);
-	return res.send({body: req.body});
+	const chromeItem = {
+    user: req.body.username,
+    createdDate: new Date(),
+    body: req.body.url,
+    author: req.body.username,
+    tags: 'unassigned',
+		isPrivate: false,
+		type: 'bookmark',
+  };
+	const newItem = new Item(chromeItem);
+
+	newItem.save().then(() => {
+		console.log('chrome item saved', newItem);
+		return res.send({'item': newItem});
+	})
+	.catch(() => {
+		return res.status(401).end();
+	});
 }
 
 function containsUrl(message) {
@@ -336,8 +350,7 @@ function postSlackItems(req, res) {
 	let promiseArr = messagesArr.reduce((arr, message) => {
 		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
 	}, []);
-  // console.log('message received', req.body);
-	// console.log('promise arr', promiseArr);
+
 	Promise.all(promiseArr)
 	.then(() => {
 		res.status('201').send({});
@@ -348,15 +361,9 @@ function postSlackItems(req, res) {
 }
 
 function saveSlackItem(message) {
-	console.log(message);
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	const hasUrl = containsUrl(message.text);
 	let unassignedTagId;
-
-	console.log('message received', message.text, hasUrl);
-	console.log('message has url');
-
 	let slackItem = {
     user: message.user_name,
 		author: message.user_name,
