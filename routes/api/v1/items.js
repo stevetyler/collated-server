@@ -321,14 +321,34 @@ function postItem(req, res) {
 
 function saveChromeItem(req, res) {
 	console.log('url from chrome received', req.body);
+
+	const urlArr = req.body.url.split(', ');
+	const titleArr = req.body.title.split(', ');
+	const grouptitle = req.body.grouptitle;
+	let body = grouptitle ? grouptitle : '';
+
+	let bodyArr = urlArr.map((url, i) => {
+		return '<a class="chrome-ext" href="' + url + '" target=" ">' + titleArr[i] + '</a>';
+	});
+
+	if (bodyArr.length === 1) {
+		body += bodyArr[0];
+	}
+	else {
+		let bodytext = bodyArr.reduce((str, url) => {
+			return str + '<li>' + url + '</li>';
+		}, '');
+		body += '<ul>' + bodytext + '</ul>';
+	}
+
 	const chromeItem = {
     user: req.body.username,
     createdDate: new Date(),
-    body: req.body.url,
+    body: body,
     author: req.body.username,
-    tags: 'unassigned',
+    tags: ['unassigned'],
 		isPrivate: false,
-		type: 'bookmark',
+		type: 'bookmark'
   };
 	const newItem = new Item(chromeItem);
 
