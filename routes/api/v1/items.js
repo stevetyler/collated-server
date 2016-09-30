@@ -322,10 +322,9 @@ function postItem(req, res) {
 function saveChromeItem(req, res) {
 	console.log('url from chrome received', req.body);
 
-	const urlArr = req.body.url.split(', ');
-	const titleArr = req.body.title.split(', ');
-	const grouptitle = req.body.grouptitle;
-	let body = grouptitle ? grouptitle : '';
+	const urlArr = req.body.urlarr;
+	const titleArr = req.body.titlearr;
+	let body = urlArr.length > 1 ? '<span>' + 'Tab URLs saved: ' + '</span>' : '';
 
 	let bodyArr = urlArr.map((url, i) => {
 		return '<a class="chrome-ext" href="' + url + '" target=" ">' + titleArr[i] + '</a>';
