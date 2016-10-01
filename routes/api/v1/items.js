@@ -344,26 +344,26 @@ function saveChromeItem(req, res) {
 		if (!user) {
 			return res.status('401').send();
 		}
-		return Tag.findOne({user: user.id, name: 'unassigned'});
-	})
-	.then(tag => {
-		if (tag) {
-			const chromeItem = {
-				user: req.body.username,
-				createdDate: new Date(),
-				body: body,
-				author: req.body.username,
-				tags: [tag._id],
-				isPrivate: false,
-				type: 'bookmark'
-			};
-			const newItem = new Item(chromeItem);
+		Tag.findOne({user: user.id, name: 'unassigned'})
+		.then(tag => {
+			if (tag) {
+				const chromeItem = {
+					user: req.body.username,
+					createdDate: new Date(),
+					body: body,
+					author: req.body.username,
+					tags: [tag._id],
+					isPrivate: false,
+					type: 'bookmark'
+				};
+				const newItem = new Item(chromeItem);
 
-			newItem.save().then(() => {
-				console.log('chrome item saved', newItem);
-				return res.send({'item': newItem});
-			});
-		}
+				newItem.save().then(() => {
+					console.log('chrome item saved', newItem);
+					return res.send({'item': newItem});
+				});
+			}
+		});
 	})
 	.catch(() => {
 		return res.status(401).end();
