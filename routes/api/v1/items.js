@@ -7,6 +7,7 @@ const ItemImporter = require('../../../lib/import-twitter-items.js');
 
 const Item = db.model('Item');
 const Tag = db.model('Tag');
+const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -320,8 +321,6 @@ function postItem(req, res) {
 }
 
 function saveChromeItem(req, res) {
-	console.log('url from chrome received', req.body);
-
 	const urlArr = req.body.urlarr;
 	const titleArr = req.body.titlearr;
 	let body = urlArr.length > 1 ? '<span>' + 'Tab URLs saved: ' + '</span>' : '';
@@ -340,20 +339,31 @@ function saveChromeItem(req, res) {
 		body += '<ul>' + bodytext + '</ul>';
 	}
 
-	const chromeItem = {
-    user: req.body.username,
-    createdDate: new Date(),
-    body: body,
-    author: req.body.username,
-    tags: ['unassigned'],
-		isPrivate: false,
-		type: 'bookmark'
-  };
-	const newItem = new Item(chromeItem);
+	User.findOne({id: req.body.username, email: req.body.email})
+	.then(user => {
+		if (!user) {
+			return res.status('401').send();
+		}
+		return Tag.findOne({user: user.id, name: 'unassigned'});
+	})
+	.then(tag => {
+		if (tag) {
+			const chromeItem = {
+				user: req.body.username,
+				createdDate: new Date(),
+				body: body,
+				author: req.body.username,
+				tags: [tag._id],
+				isPrivate: false,
+				type: 'bookmark'
+			};
+			const newItem = new Item(chromeItem);
 
-	newItem.save().then(() => {
-		console.log('chrome item saved', newItem);
-		return res.send({'item': newItem});
+			newItem.save().then(() => {
+				console.log('chrome item saved', newItem);
+				return res.send({'item': newItem});
+			});
+		}
 	})
 	.catch(() => {
 		return res.status(401).end();
