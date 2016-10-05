@@ -41,7 +41,7 @@ function getItems(req, res) {
 		case 'filterSlackItems':
 			return getFilteredSlackItems(req, res);
 		case 'importItems':
-			return getTwitterItems(req, res);
+			return getTwitterItemsHandler(req, res);
 		default:
 			return res.status(404).end();
 	}
@@ -68,8 +68,10 @@ function getTitle(req, res) {
 function getUserItems(req, res) {
 	const id = req.query.userId;
 	const query = Object.assign({}, {user: id});
+	const user = req.user;
 
 	// get twitter items if authenticated
+
 	Item.find(query).exec()
 	.then(items => {
 		return makeEmberItems(id, items);
@@ -88,7 +90,7 @@ function getUserItems(req, res) {
 	.then(items => {
 		res.send({items: items});
 	}, () => {
-		return res.status(404).end();
+		res.status(404).end();
 	});
 }
 
@@ -229,22 +231,28 @@ function getSearchItems(req, res) {
 	});
 }
 
-function getTwitterItems(req, res) {
+function getTwitterItemsHandler(req, res) {
+	getTwitterItems(req.user, req.query.options)
+	.then(
+		items => res.send({'items': items}),
+		e => res.status('400').end()
+	);
+}
+
+function getTwitterItems(user, options) {
   const emberItems = [];
 
-  ItemImporter.importTwitterItems(req.user, req.query.options, function(err, items) {
-    if (err) {
-      return res.status(400).end();
-    }
-    items.forEach(function(item) {
+  return ItemImporter.importTwitterItems(user, options)
+	.then(items => {
+		items.forEach(function(item) {
 			const newItem = new Item(item);
 			const emberItem = newItem.makeEmberItem();
 
       emberItems.push(emberItem);
     });
 		console.log('getTwitterItems', emberItems);
-    return res.send({'items': emberItems});
-  });
+		return emberItems;
+	});
 }
 
 function putItems(req, res) {
