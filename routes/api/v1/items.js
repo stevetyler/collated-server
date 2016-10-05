@@ -33,7 +33,7 @@ function getItems(req, res) {
 	}
 	switch(req.query.operation)  {
 		case 'userItems':
-			return getUserItems(req, res);
+			return getUserItemsHandler(req, res);
 		case 'slackTeamItems':
 			return getSlackTeamItems(req, res);
 		case 'filterUserItems':
@@ -65,32 +65,51 @@ function getTitle(req, res) {
   client.fetch();
 }
 
-function getUserItems(req, res) {
-	const id = req.query.userId;
-	const query = Object.assign({}, {user: id});
-	const user = req.user;
+function getUserItemsHandler(req, res) {
+	const userId = req.query.userId;
+	const query = {user: userId};
+	const authUser = req.user;
+	let getTweets = false;
 
-	// get twitter items if authenticated
+	if (authUser) {
+		if (userId === authUser.id && authUser.twitterProfile) {
+			if (authUser.twitterProfile.autoImport) {
+				getTweets = true;
+			}
+		}
+	}
+	// const userItems = getUserItems(userId, query, authUser);
+	// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
+	//
+	// const itemsArr = getTweets ? [].push(userItems, twitterItems) : [userItems];
+	//console.log('itemsArr', itemsArr);
 
-	Item.find(query).exec()
-	.then(items => {
-		return makeEmberItems(id, items);
-	})
-	.then(function(obj) {
-		if (!req.user) {
-			return obj.public;
-		}
-		else if (req.user.id === req.query.userId) {
-			return obj.all;
-		}
-		else {
-			return obj.public;
-		}
-	})
+	getUserItems(userId, query, authUser)
+	// .then(items => {
+	// 	if (getTweets) {
+	// 		return getTwitterItems(authUser, {getLatest: 'true'});
+	// 	}
+	// })
 	.then(items => {
 		res.send({items: items});
 	}, () => {
 		res.status(404).end();
+	});
+}
+
+function getUserItems(userId, query, authUser) {
+	return Item.find(query)
+	.then(items => {
+		return makeEmberItems(userId, items);
+	})
+	.then(function(obj) {
+		if (!authUser) {
+			return obj.public;
+		} else if (userId === authUser.id) {
+			return obj.all;
+		}	else {
+			return obj.public;
+		}
 	});
 }
 
@@ -171,8 +190,7 @@ function getFilteredSlackItems(req, res) {
 		}).then(tag => {
 			if (tag.isSlackChannel && i === 0) {
 				return tag;
-			}
-			else {
+			} else {
 				let tagsQuery = Object.assign({}, teamQuery, {name: tagName, slackChannelId: tag.slackChannelId});
 				console.log('then tag', tag, 'tagsQuery', tagsQuery);
 
@@ -222,8 +240,7 @@ function getSearchItems(req, res) {
 		}
 		if (req.user.id === req.query.userId) {
 			return res.send({items: items.all});
-		}
-		else {
+		} else {
 			return res.send({items: items.public});
 		}
 	}, () => {
@@ -241,6 +258,7 @@ function getTwitterItemsHandler(req, res) {
 
 function getTwitterItems(user, options) {
   const emberItems = [];
+	console.log('getTwitterItems options', options, 'user', user);
 
   return ItemImporter.importTwitterItems(user, options)
 	.then(items => {
@@ -287,8 +305,7 @@ function putItems(req, res) {
 				return res.status(400).end();
 			}
 		});
-	}
-	else {
+	} else {
 		return res.status(401).end();
 	}
 }
@@ -322,8 +339,7 @@ function postItem(req, res) {
 
 	      return res.send({'item': emberItem});
 	    });
-	  }
-	  else {
+	  } else {
 	    return res.status(401).end();
 	  }
 	});
@@ -415,8 +431,7 @@ function saveSlackItem(message) {
 	return Tag.findOne({name: 'unassigned', slackChannelId: message.channel_id}).exec().then(tag => {
 		if (tag) {
 			return tag;
-		}
-		else {
+		} else {
 			return Tag.create({
 				name: 'unassigned',
 				colour: 'cp-colour-1',
@@ -441,8 +456,7 @@ function saveSlackItem(message) {
 				colour: 'cp-colour-1'
 			};
 			return Tag.create(newTag);
-		}
-		else {
+		} else {
 			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
 		}
 	})
