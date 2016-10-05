@@ -69,6 +69,7 @@ function getUserItems(req, res) {
 	const id = req.query.userId;
 	const query = Object.assign({}, {user: id});
 
+	// get twitter items if authenticated
 	Item.find(query).exec()
 	.then(items => {
 		return makeEmberItems(id, items);
