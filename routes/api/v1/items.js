@@ -1,12 +1,14 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
 const paginate = require('express-paginate');
+const mongoose = require('mongoose');
+const itemSchema = require('../../../schemas/item.js');
 
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const ItemImporter = require('../../../lib/import-twitter-items.js');
 
-const Item = db.model('Item');
+const Item = mongoose.model('Item', itemSchema);
 const Tag = db.model('Tag');
 const User = db.model('User');
 

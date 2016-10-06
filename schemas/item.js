@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
@@ -23,6 +24,8 @@ var itemSchema = new Schema({
   type: String, // slack, twitter, bookmark
   user: String
 });
+
+itemSchema.plugin(mongoosePaginate);
 
 itemSchema.methods.makeEmberItem = function() {
   var comments = this.comments.map(function(comment) {
