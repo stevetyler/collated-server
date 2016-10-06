@@ -95,6 +95,30 @@ function getUserItemsHandler(req, res) {
 	});
 }
 
+// Item.paginate(query, { page: req.query.page, limit: req.query.limit }, function(err, users, pageCount, itemCount) {
+//   if (err) {
+// 		return next(err);
+// 	}
+//   res.format({
+//     html: function() {
+//       res.render('users', {
+//         users: users,
+//         pageCount: pageCount,
+//         itemCount: itemCount,
+//         pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
+//       });
+//     },
+//     json: function() {
+//       // inspired by Stripe's API response for list objects
+//       res.json({
+//         object: 'list',
+//         has_more: paginate.hasNextPages(req)(pageCount),
+//         data: users
+//       });
+//     }
+//   });
+// });
+
 function getUserItems(userId, query, authUser) {
 	return Item.find(query)
 	.then(items => {
