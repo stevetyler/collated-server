@@ -1,5 +1,6 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
+const paginate = require('express-paginate');
 
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
@@ -85,11 +86,6 @@ function getUserItemsHandler(req, res) {
 	//console.log('itemsArr', itemsArr);
 
 	getUserItems(userId, query, authUser)
-	// .then(items => {
-	// 	if (getTweets) {
-	// 		return getTwitterItems(authUser, {getLatest: 'true'});
-	// 	}
-	// })
 	.then(items => {
 		res.send({items: items});
 	}, () => {

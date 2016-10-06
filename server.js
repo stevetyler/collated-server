@@ -1,11 +1,14 @@
 var express = require('express');
 var autoroute = require('express-autoroute');
+var paginate = require('express-paginate');
 
 var app = express();
 
 // // load middleware first before router
 require('./express-config')(app);
 
+// load before routes that will use pagination
+app.use(paginate.middleware(15, 50));
 autoroute(app, {});
 
 //error handling
