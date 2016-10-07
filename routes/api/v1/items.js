@@ -1,9 +1,9 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
-const paginate = require('express-paginate');
 const mongoose = require('mongoose');
-const itemSchema = require('../../../schemas/item.js');
+const paginate = require('express-paginate');
 
+const itemSchema = require('../../../schemas/item.js');
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const ItemImporter = require('../../../lib/import-twitter-items.js');
@@ -68,35 +68,77 @@ function getTitle(req, res) {
   client.fetch();
 }
 
+// get new twitter items
+// let getTweets = false;
+// if (authUser) {
+// 	if (userId === authUser.id && authUser.twitterProfile) {
+// 		if (authUser.twitterProfile.autoImport) {
+// 			getTweets = true;
+// 		}
+// 	}
+// }
+// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
+
 function getUserItemsHandler(req, res) {
-	const userId = req.query.userId;
-	const query = {user: userId};
+	const query = req.query;
 	const authUser = req.user;
-	let getTweets = false;
+	console.log('query', query);
 
-	if (authUser) {
-		if (userId === authUser.id && authUser.twitterProfile) {
-			if (authUser.twitterProfile.autoImport) {
-				getTweets = true;
-			}
-		}
-	}
-	// const userItems = getUserItems(userId, query, authUser);
-	// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
-	//
-	// const itemsArr = getTweets ? [].push(userItems, twitterItems) : [userItems];
-	//console.log('itemsArr', itemsArr);
-
-	getUserItems(userId, query, authUser)
-	.then(items => {
-		res.send({items: items});
+	getUserItems(query, authUser)
+	.then(obj => {
+		res.send({
+			items: obj.items,
+			pageCount: obj.pages,
+		  itemCount: obj.total,
+		  pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
+		});
+		// res.format({
+	  //   html: function() {
+	  //     res.render('items', {
+	  //       items: obj.items,
+	  //       pageCount: obj.pages,
+	  //       itemCount: obj.total,
+	  //       pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
+	  //     });
+	  //   },
+	  //   json: function() {
+	  //     // inspired by Stripe's API response for list objects
+	  //     res.json({
+	  //       object: 'list',
+	  //       has_more: paginate.hasNextPages(req)(obj.pages),
+	  //       data: obj.items
+	  //     });
+	  //   }
+	  // });
+		//res.send({items: obj.items});
 	}, () => {
 		res.status(404).end();
 	});
 }
 
+function getUserItems(query, authUser) {
+	return Item.paginate({user: query.userId}, { page: query.page, limit: query.limit })
+	.then(pagedObj => {
+		console.log('pagedObj', pagedObj);
+		// pagedObj properties docs, total, limit, [page], [pages], [offset]
+		return makeEmberItems(query.userId, pagedObj);
+	})
+	.then(function(newObj) {
+		if (!authUser) {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+		else if (query.userId === authUser.id) {
+			return Object.assign({}, newObj, {items: newObj.all});
+		}
+		else {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+	});
+}
+// callback version
+// returns promise obj with properties docs array, total, limit
 // Item.paginate(query, { page: req.query.page, limit: req.query.limit }, function(err, users, pageCount, itemCount) {
-//   if (err) {
+//  if (err) {
 // 		return next(err);
 // 	}
 //   res.format({
@@ -118,21 +160,20 @@ function getUserItemsHandler(req, res) {
 //     }
 //   });
 // });
+//
 
-function getUserItems(userId, query, authUser) {
-	return Item.find(query)
-	.then(items => {
-		return makeEmberItems(userId, items);
-	})
-	.then(function(obj) {
-		if (!authUser) {
-			return obj.public;
-		} else if (userId === authUser.id) {
-			return obj.all;
-		}	else {
-			return obj.public;
-		}
-	});
+function makeEmberItems(id, pagedObj) {
+	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
+		const emberItem = item.makeEmberItem();
+		return item.isPrivate === 'true' ?
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public } :
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public.concat(emberItem),
+			};
+	}, { all: [], public: [] }));
 }
 
 function getSlackTeamItems(req, res) {
@@ -152,20 +193,6 @@ function getSlackTeamItems(req, res) {
 	}, () => {
 		return res.status(404).end();
 	});
-}
-
-function makeEmberItems(id, items) {
-	return items.reduce((obj, item) => {
-		const emberItem = item.makeEmberItem();
-		return item.isPrivate === 'true' ?
-			{
-				all: obj.all.concat(emberItem),
-				public: obj.public } :
-			{
-				all: obj.all.concat(emberItem),
-				public: obj.public.concat(emberItem),
-			};
-	}, { all: [], public: [] });
 }
 
 function getFilteredUserItems(req, res) {
@@ -280,7 +307,7 @@ function getTwitterItemsHandler(req, res) {
 
 function getTwitterItems(user, options) {
   const emberItems = [];
-	console.log('getTwitterItems options', options, 'user', user);
+	//console.log('getTwitterItems options', options, 'user', user);
 
   return ItemImporter.importTwitterItems(user, options)
 	.then(items => {
@@ -290,7 +317,7 @@ function getTwitterItems(user, options) {
 
       emberItems.push(emberItem);
     });
-		console.log('getTwitterItems', emberItems);
+		//console.log('getTwitterItems', emberItems);
 		return emberItems;
 	});
 }
