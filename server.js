@@ -8,11 +8,11 @@ var app = express();
 require('./express-config')(app);
 
 // load before routes that will use pagination
-app.use(paginate.middleware(15, 50));
+app.use(paginate.middleware(15, 30));
 autoroute(app, {});
 
 //error handling
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   if (err) {
     throw err;
   }
