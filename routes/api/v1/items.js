@@ -70,13 +70,19 @@ function getTitle(req, res) {
 
 // get new twitter items
 // let getTweets = false;
-// if (authUser) {
-// 	if (userId === authUser.id && authUser.twitterProfile) {
-// 		if (authUser.twitterProfile.autoImport) {
-// 			getTweets = true;
+
+// function checkAuth(userId, authUser) {
+// 	let getTweets = false;
+// 	if (authUser) {
+// 		if (userId === authUser.id && authUser.twitterProfile) {
+// 			if (authUser.twitterProfile.autoImport) {
+// 				getTweets = true;
+// 			}
 // 		}
 // 	}
 // }
+
+
 // const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
 
 function getUserItemsHandler(req, res) {
@@ -88,9 +94,11 @@ function getUserItemsHandler(req, res) {
 	.then(obj => {
 		res.send({
 			items: obj.items,
-			pageCount: obj.pages,
-		  itemCount: obj.total,
-		  pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
+			content : {
+				totalPages: obj.pages,
+			  itemCount: obj.total,
+			  pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
+			}
 		});
 		// res.format({
 	  //   html: function() {
@@ -110,7 +118,6 @@ function getUserItemsHandler(req, res) {
 	  //     });
 	  //   }
 	  // });
-		//res.send({items: obj.items});
 	}, () => {
 		res.status(404).end();
 	});
