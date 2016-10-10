@@ -81,8 +81,6 @@ function getTitle(req, res) {
 // 		}
 // 	}
 // }
-
-
 // const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
 
 function getUserItemsHandler(req, res) {
@@ -94,39 +92,22 @@ function getUserItemsHandler(req, res) {
 	.then(obj => {
 		res.send({
 			items: obj.items,
-			content : {
-				totalPages: obj.pages,
-			  itemCount: obj.total,
-			  pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
+			meta: {
+				total_pages: obj.pages,
+				//item_count: obj.total,
+				//pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
 			}
 		});
-		// res.format({
-	  //   html: function() {
-	  //     res.render('items', {
-	  //       items: obj.items,
-	  //       pageCount: obj.pages,
-	  //       itemCount: obj.total,
-	  //       pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
-	  //     });
-	  //   },
-	  //   json: function() {
-	  //     // inspired by Stripe's API response for list objects
-	  //     res.json({
-	  //       object: 'list',
-	  //       has_more: paginate.hasNextPages(req)(obj.pages),
-	  //       data: obj.items
-	  //     });
-	  //   }
-	  // });
 	}, () => {
 		res.status(404).end();
 	});
 }
 
 function getUserItems(query, authUser) {
+	console.log('query params', query);
 	return Item.paginate({user: query.userId}, { page: query.page, limit: query.limit })
 	.then(pagedObj => {
-		console.log('pagedObj', pagedObj);
+		//console.log('pagedObj', pagedObj);
 		// pagedObj properties docs, total, limit, [page], [pages], [offset]
 		return makeEmberItems(query.userId, pagedObj);
 	})
@@ -142,32 +123,6 @@ function getUserItems(query, authUser) {
 		}
 	});
 }
-// callback version
-// returns promise obj with properties docs array, total, limit
-// Item.paginate(query, { page: req.query.page, limit: req.query.limit }, function(err, users, pageCount, itemCount) {
-//  if (err) {
-// 		return next(err);
-// 	}
-//   res.format({
-//     html: function() {
-//       res.render('users', {
-//         users: users,
-//         pageCount: pageCount,
-//         itemCount: itemCount,
-//         pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
-//       });
-//     },
-//     json: function() {
-//       // inspired by Stripe's API response for list objects
-//       res.json({
-//         object: 'list',
-//         has_more: paginate.hasNextPages(req)(pageCount),
-//         data: users
-//       });
-//     }
-//   });
-// });
-//
 
 function makeEmberItems(id, pagedObj) {
 	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
@@ -190,7 +145,7 @@ function getSlackTeamItems(req, res) {
 	if (!teamId) {
 		return res.status(404).end();
 	}
-	Item.find(query).exec()
+	Item.paginate(query, { page: req.query.page, limit: req.query.limit }).exec()
 	.then((items) => {
 		return makeEmberItems(teamId, items);
 		}
@@ -220,14 +175,19 @@ function getFilteredUserItems(req, res) {
 		});
 	})
 	.then((tagsArrIds) => {
-		console.log('then query', query);
+		console.log('then query', req.query);
 		let newQuery = Object.assign({}, query, {tags: {$all:tagsArrIds}});
 
-		Item.find(newQuery).exec().then((items) => {
+		Item.paginate(newQuery, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
 			return makeEmberItems(id, items);
 		})
 		.then((obj) => {
-			res.send({items: obj.all});
+			res.send({
+				items: obj.all,
+				meta: {
+					total_pages: obj.pages,
+				}
+			});
 		}, () => {
 			return res.status(404).end();
 		});
@@ -266,7 +226,7 @@ function getFilteredSlackItems(req, res) {
 		console.log('then query', teamQuery);
 		let newQuery = Object.assign({}, teamQuery, {tags: {$all:tagsArrIds}});
 
-		Item.find(newQuery).exec().then((items) => {
+		Item.paginate(newQuery, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
 			return makeEmberItems(teamId, items);
 		})
 		.then((obj) => {
@@ -287,7 +247,7 @@ function getSearchItems(req, res) {
 			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	Item.find(query).exec().then((items) => {
+	Item.paginate(query, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
 		return makeEmberItems(id, items);
 	})
 	.then((items) => {
