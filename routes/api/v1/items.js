@@ -1,7 +1,6 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
-const paginate = require('express-paginate');
 
 const itemSchema = require('../../../schemas/item.js');
 const db = require('../../../database/database');
@@ -32,17 +31,17 @@ module.exports.autoroute = {
 
 function getItems(req, res) {
 	if (req.query.keyword || req.query.keyword === '') {
-		return getSearchItems(req, res);
+		return getSearchItemsHandler(req, res);
 	}
 	switch(req.query.operation)  {
 		case 'userItems':
 			return getUserItemsHandler(req, res);
-		case 'slackTeamItems':
-			return getSlackTeamItems(req, res);
 		case 'filterUserItems':
-			return getFilteredUserItems(req, res);
+			return getFilteredUserItemsHandler(req, res);
+		case 'slackTeamItems':
+			return getSlackTeamItemsHandler(req, res);
 		case 'filterSlackItems':
-			return getFilteredSlackItems(req, res);
+			return getFilteredSlackItemsHandler(req, res);
 		case 'importItems':
 			return getTwitterItemsHandler(req, res);
 		default:
@@ -68,21 +67,6 @@ function getTitle(req, res) {
   client.fetch();
 }
 
-// get new twitter items
-// let getTweets = false;
-
-// function checkAuth(userId, authUser) {
-// 	let getTweets = false;
-// 	if (authUser) {
-// 		if (userId === authUser.id && authUser.twitterProfile) {
-// 			if (authUser.twitterProfile.autoImport) {
-// 				getTweets = true;
-// 			}
-// 		}
-// 	}
-// }
-// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
-
 function getUserItemsHandler(req, res) {
 	const query = req.query;
 	const authUser = req.user;
@@ -107,67 +91,37 @@ function getUserItems(query, authUser) {
 	console.log('query params', query);
 	return Item.paginate({user: query.userId}, { page: query.page, limit: query.limit })
 	.then(pagedObj => {
-		//console.log('pagedObj', pagedObj);
-		// pagedObj properties docs, total, limit, [page], [pages], [offset]
-		return makeEmberItems(query.userId, pagedObj);
-	})
-	.then(function(newObj) {
-		if (!authUser) {
-			return Object.assign({}, newObj, {items: newObj.public});
-		}
-		else if (query.userId === authUser.id) {
-			return Object.assign({}, newObj, {items: newObj.all});
-		}
-		else {
-			return Object.assign({}, newObj, {items: newObj.public});
-		}
+		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
 }
 
-function makeEmberItems(id, pagedObj) {
-	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
-		const emberItem = item.makeEmberItem();
-		return item.isPrivate === 'true' ?
-			{
-				all: obj.all.concat(emberItem),
-				public: obj.public } :
-			{
-				all: obj.all.concat(emberItem),
-				public: obj.public.concat(emberItem),
-			};
-	}, { all: [], public: [] }));
-}
+function getFilteredUserItemsHandler(req, res) {
+	const query = req.query;
+	const authUser = req.user;
 
-function getSlackTeamItems(req, res) {
-	const teamId = req.query.teamId;
-	const query = Object.assign({}, {slackTeamId: teamId});
-
-	if (!teamId) {
-		return res.status(404).end();
-	}
-	Item.paginate(query, { page: req.query.page, limit: req.query.limit }).exec()
-	.then((items) => {
-		return makeEmberItems(teamId, items);
-		}
-	)
-	.then((obj) => {
-		res.send({ items: obj.all });
+	getFilteredItems(query, authUser)
+	.then(obj => {
+		res.send({
+			items: obj.items,
+			meta: {
+				total_pages: obj.pages
+			}
+		});
 	}, () => {
-		return res.status(404).end();
+		res.status(404).end();
 	});
 }
 
-function getFilteredUserItems(req, res) {
-	const id = req.query.userId;
-	const tagNames = req.query.tags.split('+');
-	let query = {user: id};
+function getFilteredItems(query, authUser) {
+	const tagNames = query.tags.split('+');
 
 	let tagPromisesArr = tagNames.map(tagname => {
-		let tagsQuery = Object.assign({}, query, {name: tagname});
+		let tagsQuery = Object.assign({}, {user: query.userId}, {name: tagname});
 		return Tag.findOne(tagsQuery);
 	});
 
-	return Promise.all(tagPromisesArr).then((tagsArr) => {
+	return Promise.all(tagPromisesArr)
+	.then((tagsArr) => {
 		return tagsArr.map(tag => {
 			if (tag !== null) {
 				return tag._id;
@@ -175,32 +129,67 @@ function getFilteredUserItems(req, res) {
 		});
 	})
 	.then((tagsArrIds) => {
-		console.log('then query', req.query);
-		let newQuery = Object.assign({}, query, {tags: {$all:tagsArrIds}});
+		//console.log('then 2 query', req.query);
+		let newQuery = Object.assign({}, {user: query.userId}, {tags: {$all:tagsArrIds}});
 
-		Item.paginate(newQuery, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
-			return makeEmberItems(id, items);
-		})
-		.then((obj) => {
-			res.send({
-				items: obj.all,
-				meta: {
-					total_pages: obj.pages,
-				}
-			});
-		}, () => {
-			return res.status(404).end();
-		});
+		return Item.paginate(newQuery, { page: query.page, limit: query.limit });
+	})
+	.then((pagedObj) => {
+		//console.log('then 3 pagedObj', pagedObj);
+		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
 }
 
-function getFilteredSlackItems(req, res) {
-	const teamId = req.query.teamId;
-	console.log('teamId', teamId);
-	const tagNames = req.query.tags.split('+');
-	let teamQuery = {slackTeamId: teamId};
+function getSlackTeamItemsHandler(req, res) {
+	const query = req.query;
+	//console.log('query', query);
+
+	getSlackTeamItems(query)
+	.then(obj => {
+		res.send({
+			items: obj.all,
+			meta: {
+				total_pages: obj.pages
+			}
+		});
+	}, () => {
+		res.status(404).end();
+	});
+}
+
+function getSlackTeamItems(query) {
+	const teamQuery = {slackTeamId: query.teamId};
+
+	return Item.paginate(teamQuery, { page: query.page, limit: query.limit })
+	.then((pagedObj) => {
+		return makeEmberItems(query.teamId, pagedObj);
+		}
+	);
+}
+
+function getFilteredSlackItemsHandler(req, res) {
+	const query = req.query;
+
+	getFilteredSlackItems(query)
+	.then(obj => {
+		res.send({
+			items: obj.all,
+			meta: {
+				total_pages: obj.pages
+			}
+		});
+	}, () => {
+		res.status(404).end();
+	});
+}
+
+function getFilteredSlackItems(query) {
+	const tagNames = query.tags.split('+');
+	const teamQuery = {slackTeamId: query.teamId};
+
 	let promisesArr = tagNames.map((tagName, i) => {
-	let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
+		let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
+
 		return Tag.findOne(channelQuery).then(channel => {
 			return channel;
 		}).then(tag => {
@@ -223,45 +212,74 @@ function getFilteredSlackItems(req, res) {
 		});
 	})
 	.then((tagsArrIds) => {
-		console.log('then query', teamQuery);
-		let newQuery = Object.assign({}, teamQuery, {tags: {$all:tagsArrIds}});
+		//console.log('then query', teamQuery);
+		let newQuery = Object.assign({}, teamQuery, {tags: {$all: tagsArrIds}});
 
-		Item.paginate(newQuery, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
-			return makeEmberItems(teamId, items);
-		})
-		.then((obj) => {
-			res.send({items: obj.all});
-		}, () => {
-			return res.status(404).end();
-		});
+		return Item.paginate(newQuery, { page: query.page, limit: query.limit });
+	})
+	.then((pagedObj) => {
+		return makeEmberItems(query.teamId, pagedObj);
 	});
 }
 
-function getSearchItems(req, res) {
-	const id = req.query.userId;
-	const string = req.query.keyword;
-	const query = {
-		user: req.query.userId,
+function getSearchItemsHandler(req, res) {
+	const query = req.query;
+	const authUser = req.user;
+	console.log('query', query);
+
+	getSearchItems(query, authUser)
+	.then(obj => {
+		res.send({
+			items: obj.items,
+			meta: {
+				total_pages: obj.pages,
+			}
+		});
+	}, () => {
+		res.status(404).end();
+	});
+}
+
+function getSearchItems(query, authUser) {
+	const searchQuery = {
+		user: query.userId,
 		$text: {
-			$search: string
+			$search: query.keyword
 			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	Item.paginate(query, { page: req.query.page, limit: req.query.limit }).exec().then((items) => {
-		return makeEmberItems(id, items);
-	})
-	.then((items) => {
-		if (!req.user) {
-			return res.send({items: items.public});
-		}
-		if (req.user.id === req.query.userId) {
-			return res.send({items: items.all});
-		} else {
-			return res.send({items: items.public});
-		}
-	}, () => {
-		return res.status(404).end();
+	return Item.paginate(searchQuery, { page: query.page, limit: query.limit })
+	.then((pagedObj) => {
+		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
+}
+
+function makePublicOrPrivateItems(query, authUser, obj) {
+	const newObj = makeEmberItems(query.userId, obj);
+
+	if (!authUser) {
+		return Object.assign({}, newObj, {items: newObj.public});
+	}
+	else if (query.userId === authUser.id) {
+		return Object.assign({}, newObj, {items: newObj.all});
+	}
+	else {
+		return Object.assign({}, newObj, {items: newObj.public});
+	}
+}
+
+function makeEmberItems(id, pagedObj) {
+	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
+		const emberItem = item.makeEmberItem();
+		return item.isPrivate === 'true' ?
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public } :
+			{
+				all: obj.all.concat(emberItem),
+				public: obj.public.concat(emberItem),
+			};
+	}, { all: [], public: [] }));
 }
 
 function getTwitterItemsHandler(req, res) {
@@ -335,8 +353,7 @@ function postItem(req, res) {
     author: req.body.item.author,
     tags: req.body.item.tags,
 		isPrivate: false,
-		type: req.body.item.type,
-		//comments: req.body.item.comments
+		type: req.body.item.type
   };
 
 	Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
@@ -496,6 +513,21 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
+
+
+// get new twitter items
+// let getTweets = false;
+// function checkAuth(userId, authUser) {
+// 	let getTweets = false;
+// 	if (authUser) {
+// 		if (userId === authUser.id && authUser.twitterProfile) {
+// 			if (authUser.twitterProfile.autoImport) {
+// 				getTweets = true;
+// 			}
+// 		}
+// 	}
+// }
+// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
 
 
 // .then((items) => {
