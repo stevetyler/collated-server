@@ -386,7 +386,7 @@ function saveChromeItem(req, res) {
 	let body = urlArr.length > 1 ? '<span>' + 'Tab URLs saved: ' + '</span>' : '';
 
 	let bodyArr = urlArr.map((url, i) => {
-		return '<a class="chrome-ext" href="' + url + '" target=" ">' + titleArr[i] + '</a>';
+		return '<a class="chrome-ext" href="' + url + '" >' + titleArr[i] + '</a>';
 	});
 
 	if (bodyArr.length === 1) {
