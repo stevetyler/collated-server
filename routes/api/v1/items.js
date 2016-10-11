@@ -91,7 +91,7 @@ function getUserItemsHandler(req, res) {
 
 function getUserItems(query, authUser) {
 	console.log('query params', query);
-	return Item.paginate({user: query.userId}, { page: query.page, limit: query.limit })
+	return Item.paginate({ user: query.userId }, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
@@ -134,7 +134,7 @@ function getFilteredItems(query, authUser) {
 		//console.log('then 2 query', req.query);
 		let newQuery = Object.assign({}, {user: query.userId}, {tags: {$all:tagsArrIds}});
 
-		return Item.paginate(newQuery, { page: query.page, limit: query.limit });
+		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
 	})
 	.then((pagedObj) => {
 		//console.log('then 3 pagedObj', pagedObj);
@@ -162,7 +162,7 @@ function getSlackTeamItemsHandler(req, res) {
 function getSlackTeamItems(query) {
 	const teamQuery = {slackTeamId: query.teamId};
 
-	return Item.paginate(teamQuery, { page: query.page, limit: query.limit })
+	return Item.paginate(teamQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
 		return makeEmberItems(query.teamId, pagedObj);
 		}
@@ -217,7 +217,7 @@ function getFilteredSlackItems(query) {
 		//console.log('then query', teamQuery);
 		let newQuery = Object.assign({}, teamQuery, {tags: {$all: tagsArrIds}});
 
-		return Item.paginate(newQuery, { page: query.page, limit: query.limit });
+		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
 	})
 	.then((pagedObj) => {
 		return makeEmberItems(query.teamId, pagedObj);
@@ -250,7 +250,7 @@ function getSearchItems(query, authUser) {
 			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
-	return Item.paginate(searchQuery, { page: query.page, limit: query.limit })
+	return Item.paginate(searchQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
