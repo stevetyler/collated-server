@@ -3,13 +3,15 @@ const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
 
 const itemSchema = require('../../../schemas/item.js');
-const db = require('../../../database/database');
+const tagSchema = require('../../../schemas/tag.js');
+const userSchema = require('../../../schemas/user.js');
+
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const ItemImporter = require('../../../lib/import-twitter-items.js');
 
 const Item = mongoose.model('Item', itemSchema);
-const Tag = db.model('Tag');
-const User = db.model('User');
+const Tag = mongoose.model('Tag', tagSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports.autoroute = {
 	get: {
