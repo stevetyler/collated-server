@@ -2,6 +2,7 @@
 // http://expressjs.com/guide/using-middleware.html#middleware.application
 //var cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const session = require('express-session');
 
 const auth = require('./auth');
@@ -22,8 +23,10 @@ module.exports = function (app) {
 			console.log('db connection open');
 		})
 	}));
+
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true})); // parse application/x-www-form-urlencoded
+	app.use(fileUpload());
 	app.use(passport.initialize());
 	app.use(passport.session());
 };
