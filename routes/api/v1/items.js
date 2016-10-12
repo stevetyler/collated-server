@@ -20,6 +20,7 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
+		'/items/bookmarks': postBookmarkItems,
 		'/items/slack': postSlackItems,
 		'/items/chrome': saveChromeItem
 	},
@@ -72,7 +73,7 @@ function getTitle(req, res) {
 function getUserItemsHandler(req, res) {
 	const query = req.query;
 	const authUser = req.user;
-	console.log('query', query);
+	//console.log('query', query);
 
 	getUserItems(query, authUser)
 	.then(obj => {
@@ -90,7 +91,7 @@ function getUserItemsHandler(req, res) {
 }
 
 function getUserItems(query, authUser) {
-	console.log('query params', query);
+	//console.log('query params', query);
 	return Item.paginate({ user: query.userId }, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
@@ -432,6 +433,10 @@ function saveChromeItem(req, res) {
 
 function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
+}
+
+function postBookmarkItems(req, res) {
+	console.log('postBookmarkItems called');
 }
 
 function postSlackItems(req, res) {
