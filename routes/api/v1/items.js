@@ -1,6 +1,7 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
+const fs = require('fs');
 
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
@@ -20,8 +21,8 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
-		'/items/bookmarks': postBookmarkItems,
-		'/items/slack': postSlackItems,
+		'/items/bookmarks': postBookmarkItemsHandler,
+		'/items/slack': postSlackItemsHandler,
 		'/items/chrome': saveChromeItem
 	},
 	put: {
@@ -91,7 +92,6 @@ function getUserItemsHandler(req, res) {
 }
 
 function getUserItems(query, authUser) {
-	//console.log('query params', query);
 	return Item.paginate({ user: query.userId }, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
@@ -132,20 +132,17 @@ function getFilteredItems(query, authUser) {
 		});
 	})
 	.then((tagsArrIds) => {
-		//console.log('then 2 query', req.query);
 		let newQuery = Object.assign({}, {user: query.userId}, {tags: {$all:tagsArrIds}});
 
 		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
 	})
 	.then((pagedObj) => {
-		//console.log('then 3 pagedObj', pagedObj);
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
 }
 
 function getSlackTeamItemsHandler(req, res) {
 	const query = req.query;
-	//console.log('query', query);
 
 	getSlackTeamItems(query)
 	.then(obj => {
@@ -435,11 +432,33 @@ function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
 }
 
-function postBookmarkItems(req, res) {
-	console.log('postBookmarkItems called');
+function postBookmarkItemsHandler(req, res) {
+	const importFile = req.files.file;
+	const filename = req.files.file.name;
+	console.log('importFile received', req.files);
+
+	if (!req.files) {
+    res.send('No files were uploaded.');
+    return;
+  }
+  importFile.mv('./lib/data-import/bookmarks/' + filename, function(err) {
+    if (err) {
+			console.log('import file error', err);
+      res.status(500).send(err);
+    }
+    else {
+			console.log('import file uploaded');
+      res.send('File uploaded!');
+    }
+  });
 }
 
-function postSlackItems(req, res) {
+function saveBookmarkItem(bookmark) {
+
+
+}
+
+function postSlackItemsHandler(req, res) {
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
 	let promiseArr = messagesArr.reduce((arr, message) => {
 		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
