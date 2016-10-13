@@ -1,14 +1,15 @@
 'use strict';
 const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
-const fs = require('fs');
+const parseHtml = require('../../../lib/bookmark-parser.js');
+const BPromise = require('bluebird');
 
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const ItemImporter = require('../../../lib/import-twitter-items.js');
+const TwitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const Item = mongoose.model('Item', itemSchema);
 const Tag = mongoose.model('Tag', tagSchema);
@@ -21,7 +22,7 @@ module.exports.autoroute = {
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItem],
-		'/items/bookmarks': postBookmarkItemsHandler,
+		'/items/bookmarks': [ensureAuthenticated, postBookmarkItemsHandler],
 		'/items/slack': postSlackItemsHandler,
 		'/items/chrome': saveChromeItem
 	},
@@ -292,9 +293,8 @@ function getTwitterItemsHandler(req, res) {
 
 function getTwitterItems(user, options) {
   const emberItems = [];
-	//console.log('getTwitterItems options', options, 'user', user);
 
-  return ItemImporter.importTwitterItems(user, options)
+  return TwitterItemImporter(user, options)
 	.then(items => {
 		items.forEach(function(item) {
 			const newItem = new Item(item);
@@ -302,7 +302,6 @@ function getTwitterItems(user, options) {
 
       emberItems.push(emberItem);
     });
-		//console.log('getTwitterItems', emberItems);
 		return emberItems;
 	});
 }
@@ -433,29 +432,50 @@ function containsUrl(message) {
 }
 
 function postBookmarkItemsHandler(req, res) {
-	const importFile = req.files.file;
+	const moveFile = BPromise.promisify(req.files.file.mv);
 	const filename = req.files.file.name;
-	console.log('importFile received', req.files);
+	const userId = req.user.id;
 
 	if (!req.files) {
     res.send('No files were uploaded.');
     return;
   }
-  importFile.mv('./lib/data-import/bookmarks/' + filename, function(err) {
-    if (err) {
-			console.log('import file error', err);
-      res.status(500).send(err);
-    }
-    else {
-			console.log('import file uploaded');
-      res.send('File uploaded!');
-    }
-  });
+  moveFile('./lib/data-import/bookmarks/' + filename)
+	.then(() => {
+		console.log('import file uploaded');
+		let bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
+		let promiseArr = bookmarksArr.map(bookmark => {
+			saveBookmarkItem(bookmark, userId);
+		});
+		Promise.all(promiseArr);
+  })
+	.then(() => {
+		res.send('File uploaded!');
+	})
+	.catch(err => {
+		console.log('import file error', err);
+		res.status(500).send(err);
+	});
 }
 
-function saveBookmarkItem(bookmark) {
+function saveBookmarkItem(bookmark, userId) {
+  let body = '<a href="' + bookmark.url + '" ">' + bookmark.name + '</a>';
+  let tags = bookmark.tags.map((tag, i) => {
+    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags
+  });
 
-
+	let bookmarkItem = {
+    user: userId,
+		image: bookmark.image,
+    createdDate: bookmark.date,
+    body: body,
+    author: userId,
+    tags: tags,
+    isPrivate: false,
+    type: 'bookmark'
+  };
+	console.log('bookmark to save', bookmarkItem);
+	//return bookmarkItem.save();
 }
 
 function postSlackItemsHandler(req, res) {
