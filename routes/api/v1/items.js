@@ -76,15 +76,11 @@ function getUserItemsHandler(req, res) {
 	const query = req.query;
 	const authUser = req.user;
 	//console.log('query', query);
-
-	getUserItems(query, authUser)
-	.then(obj => {
+	getUserItems(query, authUser).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
 				total_pages: obj.pages,
-				//item_count: obj.total,
-				//pages: paginate.getArrayPages(req)(3, obj.pages, req.query.page)
 			}
 		});
 	}, () => {
@@ -103,8 +99,7 @@ function getFilteredUserItemsHandler(req, res) {
 	const query = req.query;
 	const authUser = req.user;
 
-	getFilteredItems(query, authUser)
-	.then(obj => {
+	getFilteredItems(query, authUser).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
@@ -124,20 +119,17 @@ function getFilteredItems(query, authUser) {
 		return Tag.findOne(tagsQuery);
 	});
 
-	return Promise.all(tagPromisesArr)
-	.then((tagsArr) => {
+	return Promise.all(tagPromisesArr).then((tagsArr) => {
 		return tagsArr.map(tag => {
 			if (tag !== null) {
 				return tag._id;
 			}
 		});
-	})
-	.then((tagsArrIds) => {
+	}).then((tagsArrIds) => {
 		let newQuery = Object.assign({}, {user: query.userId}, {tags: {$all:tagsArrIds}});
 
 		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
-	})
-	.then((pagedObj) => {
+	}).then((pagedObj) => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
 	});
 }
@@ -145,8 +137,7 @@ function getFilteredItems(query, authUser) {
 function getSlackTeamItemsHandler(req, res) {
 	const query = req.query;
 
-	getSlackTeamItems(query)
-	.then(obj => {
+	getSlackTeamItems(query).then(obj => {
 		res.send({
 			items: obj.all,
 			meta: {
@@ -171,8 +162,7 @@ function getSlackTeamItems(query) {
 function getFilteredSlackItemsHandler(req, res) {
 	const query = req.query;
 
-	getFilteredSlackItems(query)
-	.then(obj => {
+	getFilteredSlackItems(query).then(obj => {
 		res.send({
 			items: obj.all,
 			meta: {
@@ -211,14 +201,11 @@ function getFilteredSlackItems(query) {
 				return tag._id;
 			}
 		});
-	})
-	.then((tagsArrIds) => {
-		//console.log('then query', teamQuery);
+	}).then((tagsArrIds) => {
 		let newQuery = Object.assign({}, teamQuery, {tags: {$all: tagsArrIds}});
 
 		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
-	})
-	.then((pagedObj) => {
+	}).then((pagedObj) => {
 		return makeEmberItems(query.teamId, pagedObj);
 	});
 }
@@ -228,8 +215,7 @@ function getSearchItemsHandler(req, res) {
 	const authUser = req.user;
 	console.log('query', query);
 
-	getSearchItems(query, authUser)
-	.then(obj => {
+	getSearchItems(query, authUser).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
@@ -246,7 +232,6 @@ function getSearchItems(query, authUser) {
 		user: query.userId,
 		$text: {
 			$search: query.keyword
-			//$caseSensitive: false // not compatible with Mongo v3
 		}
 	};
 	return Item.paginate(searchQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
@@ -284,8 +269,7 @@ function makeEmberItems(id, pagedObj) {
 }
 
 function getTwitterItemsHandler(req, res) {
-	getTwitterItems(req.user, req.query.options)
-	.then(
+	getTwitterItems(req.user, req.query.options).then(
 		items => res.send({'items': items}),
 		e => res.status('400').end()
 	);
@@ -294,8 +278,7 @@ function getTwitterItemsHandler(req, res) {
 function getTwitterItems(user, options) {
   const emberItems = [];
 
-  return TwitterItemImporter(user, options)
-	.then(items => {
+  return TwitterItemImporter(user, options).then(items => {
 		items.forEach(function(item) {
 			const newItem = new Item(item);
 			const emberItem = newItem.makeEmberItem();
@@ -311,8 +294,7 @@ function putItems(req, res) {
 	let isPrivate = false;
 
 	if (req.user.id === req.body.item.user) {
-		Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'})
-		.exec().then(function(tags) {
+		Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).then(function(tags) {
 			if (tags.length) {
 				isPrivate = true;
 			}
@@ -325,14 +307,12 @@ function putItems(req, res) {
 					}
 				}, { new: true }
 		  );
-		})
-		.then(item => {
+		}).then(item => {
 			console.log('item updated', item);
 			var emberItem = item.makeEmberItem();
 
 			return res.send({'items': emberItem});
-		})
-		.then(null, (err) => {
+		}).then(null, (err) => {
 			if (err) {
 				console.log(err);
 				return res.status(400).end();
@@ -396,13 +376,12 @@ function saveChromeItem(req, res) {
 		body += '<ul>' + bodytext + '</ul>';
 	}
 
-	User.findOne({id: req.body.username, email: req.body.email})
-	.then(user => {
+	User.findOne({id: req.body.username, email: req.body.email}).then(user => {
 		if (!user) {
-			return res.status('401').send();
+			res.status('401').send();
+			return;
 		}
-		Tag.findOne({user: user.id, name: 'unassigned'})
-		.then(tag => {
+		Tag.findOne({user: user.id, name: 'unassigned'}).then(tag => {
 			if (tag) {
 				const chromeItem = {
 					user: req.body.username,
@@ -417,13 +396,14 @@ function saveChromeItem(req, res) {
 
 				newItem.save().then(() => {
 					console.log('chrome item saved', newItem);
-					return res.send({'item': newItem});
+					res.send({'item': newItem});
+					return;
 				});
 			}
 		});
-	})
-	.catch(() => {
-		return res.status(401).end();
+	}).catch(() => {
+		res.status(401).end();
+		return;
 	});
 }
 
@@ -440,42 +420,66 @@ function postBookmarkItemsHandler(req, res) {
     res.send('No files were uploaded.');
     return;
   }
-  moveFile('./lib/data-import/bookmarks/' + filename)
-	.then(() => {
+  moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
 		console.log('import file uploaded');
 		let bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
+
 		let promiseArr = bookmarksArr.map(bookmark => {
-			saveBookmarkItem(bookmark, userId);
+			return saveBookmarkItem(bookmark, userId);
 		});
-		Promise.all(promiseArr);
-  })
-	.then(() => {
+		Promise.all(promiseArr); // duplicate tags created, need to run in series
+  }).then(() => {
 		res.send('File uploaded!');
-	})
-	.catch(err => {
+	}).catch(err => {
 		console.log('import file error', err);
 		res.status(500).send(err);
 	});
 }
 
 function saveBookmarkItem(bookmark, userId) {
-  let body = '<a href="' + bookmark.url + '" ">' + bookmark.name + '</a>';
-  let tags = bookmark.tags.map((tag, i) => {
-    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags
-  });
+  const body = '<a href="' + bookmark.url + '" ">' + bookmark.name + '</a>';
+  let tagnames;
 
-	let bookmarkItem = {
-    user: userId,
-		image: bookmark.image,
-    createdDate: bookmark.date,
-    body: body,
-    author: userId,
-    tags: tags,
-    isPrivate: false,
-    type: 'bookmark'
-  };
-	console.log('bookmark to save', bookmarkItem);
-	//return bookmarkItem.save();
+	if (bookmark.tags.length) {
+		tagnames = bookmark.tags.map((tag, i) => {
+	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags
+	  });
+	} else {
+		tagnames = ['unassigned'];
+	}
+	console.log('tagnames', tagnames);
+	const tagPromises = tagnames.map(tagname => {
+		return Tag.findOne({user: userId, name: tagname}).then(tag => {
+			if (!tag) {
+				console.log('tag created');
+				return Tag.create({
+					name: tagname,
+					colour: 'cp-colour-1',
+					user: userId,
+					itemCount: 0
+				});
+			} else {
+				return tag;
+			}
+		}).then((tag) => {
+			return tag._id;
+		}).catch(err => {
+			console.log(err);
+		});
+	});
+
+	return Promise.all(tagPromises).then(ids => {
+		console.log('ids found', ids);
+		return Item.create({
+			user: userId,
+	    createdDate: bookmark.date,
+	    body: body,
+	    author: userId,
+	    tags: ids,
+	    isPrivate: false,
+	    type: 'bookmark'
+		});
+	});
 }
 
 function postSlackItemsHandler(req, res) {
@@ -484,8 +488,7 @@ function postSlackItemsHandler(req, res) {
 		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
 	}, []);
 
-	Promise.all(promiseArr)
-	.then(() => {
+	Promise.all(promiseArr).then(() => {
 		res.status('201').send({});
 	}, (err) => {
 		console.log(err);
@@ -518,14 +521,11 @@ function saveSlackItem(message) {
 				slackTeamId: message.team_id
 			});
 		}
-	})
-	.then(tag => {
+	}).then(tag => {
 		unassignedTagId = tag._id;
-	})
-	.then(() => {
+	}).then(() => {
 		return Tag.findOne({name:message.channel_name, slackChannelId: message.channel_id});
-	})
-	.then(function(tag) {
+	}).then(function(tag) {
 		if (!tag) {
 			let newTag = {
 				name: message.channel_name,
@@ -538,13 +538,11 @@ function saveSlackItem(message) {
 		} else {
 			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
 		}
-	})
-	.then(tag => {
+	}).then(tag => {
 		if (tag) {
 			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
 		}
-	})
-	.then(function() {
+	}).then(function() {
 		let newItem = new Item(slackItem);
 		console.log('new slack item', newItem);
 		return newItem.save();
