@@ -30,8 +30,7 @@ function getUserTags(req, res) {
 					}
 				});
 			}
-		}
-		else {
+		}	else {
 			Tag.create({
 				name: 'unassigned',
 				colour: 'cp-colour-1',
@@ -39,27 +38,21 @@ function getUserTags(req, res) {
 				itemCount: 0
 			});
 		}
-	})
-	.then(() => {
+	}).then(() => {
 		return Tag.find({user: id});
-	})
-	.then((tags) => {
+	}).then((tags) => {
 		if (tags) {
 			return makeEmberTags(id, tags, 'user');
 		}
-	})
-	.then((obj) => {
+	}).then((obj) => {
 	  if (!req.user) {
 			return obj.public;
-	  }
-	  else if (req.user.id === req.query.userId) {
+	  } else if (req.user.id === req.query.userId) {
 			return obj.all;
-	  }
-	  else {
+	  } else {
 	    return obj.public;
 	  }
-	})
-	.then((tags) => {
+	}).then((tags) => {
 		res.send({ tags: tags });
 	}, () => {
 		return res.status(404).end();
@@ -71,8 +64,7 @@ function makeEmberTags(id, tags, type) {
 
 	if (type === 'user') {
 		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag._id ] }}));
-	}
-	else if (type === 'slack') {
+	}	else if (type === 'slack') {
 		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag._id] }}));
 	}
 	if (tagPromises) {
@@ -89,13 +81,9 @@ function makeEmberTags(id, tags, type) {
 					};
 			}, { all: [], public: [] });
 		});
-	}
-	else {
+	}	else {
 		return { all: [], public: [] };
 	}
-
-	//const a = [ 1, 2, 3 ]
-	//const b = [ 0, ...a, 4, ...[ 5 ] ]
 }
 
 function getSlackTeamTags(req, res) {
@@ -108,8 +96,7 @@ function getSlackTeamTags(req, res) {
 		if (tags) {
 			return makeEmberTags(teamId, tags, 'slack');
 		}
-	})
-	.then((obj) => {
+	}).then((obj) => {
 		res.send({ tags: obj.all });
 	}, () => {
 		return res.status(404).end();
@@ -130,8 +117,7 @@ function postTag(req, res){
 			Tag.findOne({_id: req.body.tag.id, user: req.body.tag.user}, (err, data) => {
 				if (data) {
 					res.status(400).end();
-				}
-				else {
+				}	else {
 					const newTag = new Tag(tag);
 					newTag.save((err, tag) => {
 						if (err) {
@@ -144,8 +130,7 @@ function postTag(req, res){
 				}
 			});
 		}
-	}
-	else {
+	}	else {
 		return res.status(401).end();
 	}
 }
@@ -164,8 +149,7 @@ function putTag(req, res) {
         isPrivate: req.body.tag.isPrivate
         }
       }
-    )
-		.exec().then(() => {
+    ).then(() => {
       Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
         if (err) {
           return res.status(404).send();
@@ -175,16 +159,13 @@ function putTag(req, res) {
           return item.save();
         });
       });
-    })
-    .then(() => {
+    }).then(() => {
       return res.send({});
-    })
-    .then(null, (err) => {
+    }).then(null, (err) => {
       console.log(err);
       return res.status(400).end();
     });
-  }
-	else {
+  }	else {
 		console.log('userId', req.user.id, 'tag user', req.body.tag.user, req.user.slackProfile.isTeamAdmin);
 		return res.status(401).end();
 	}
@@ -193,8 +174,7 @@ function putTag(req, res) {
 function deleteTag(req, res){
   Tag.remove({ _id: req.params.id }).exec().then(() => {
     return res.send({});
-  })
-	.then(null, (err) => {
+  }).then(null, (err) => {
 		console.log(err);
 		return res.status(500).end();
 	});
