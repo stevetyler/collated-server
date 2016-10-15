@@ -415,20 +415,42 @@ function postBookmarkItemsHandler(req, res) {
 	const moveFile = BPromise.promisify(req.files.file.mv);
 	const filename = req.files.file.name;
 	const userId = req.user.id;
+	let bookmarksArr;
 
 	if (!req.files) {
     res.send('No files were uploaded.');
     return;
   }
   moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
-		console.log('import file uploaded');
-		let bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
+		console.log('1 import file uploaded');
+		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
 
-		let promiseArr = bookmarksArr.map(bookmark => {
+		let tagsArrArr = bookmarksArr.map(obj => obj.tags);
+		let tagsArr = [].concat.apply([], tagsArrArr); // flatten array
+		let uniqTagnameArray = tagsArr.filter(function(tagname, i, self) {
+			return self.indexOf(tagname) === i;
+		});
+		console.log('2 unique array', uniqTagnameArray);
+		let tagPromisesArr = uniqTagnameArray.map(tagname => {
+			return Tag.findOne({user: userId, name: tagname}).then(tag => {
+				if (!tag) {
+					console.log('3 tag created', tagname);
+					Tag.create({
+						name: tagname,
+						colour: 'cp-colour-1',
+						user: userId,
+						itemCount: 0
+					});
+				}
+			});
+		});
+		return Promise.all(tagPromisesArr); // errors if you don't return?
+  }).then(() => {
+		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
 			return saveBookmarkItem(bookmark, userId);
 		});
-		Promise.all(promiseArr); // duplicate tags created, need to run in series
-  }).then(() => {
+		return Promise.all(bookmarkPromisesArr);
+	}).then(() => {
 		res.send('File uploaded!');
 	}).catch(err => {
 		console.log('import file error', err);
@@ -447,21 +469,10 @@ function saveBookmarkItem(bookmark, userId) {
 	} else {
 		tagnames = ['unassigned'];
 	}
-	console.log('tagnames', tagnames);
+	console.log('4 tagnames', tagnames);
 	const tagPromises = tagnames.map(tagname => {
+		// when creating tag here, duplicates occur?
 		return Tag.findOne({user: userId, name: tagname}).then(tag => {
-			if (!tag) {
-				console.log('tag created');
-				return Tag.create({
-					name: tagname,
-					colour: 'cp-colour-1',
-					user: userId,
-					itemCount: 0
-				});
-			} else {
-				return tag;
-			}
-		}).then((tag) => {
 			return tag._id;
 		}).catch(err => {
 			console.log(err);
@@ -469,7 +480,7 @@ function saveBookmarkItem(bookmark, userId) {
 	});
 
 	return Promise.all(tagPromises).then(ids => {
-		console.log('ids found', ids);
+		console.log('item created with ids', ids);
 		return Item.create({
 			user: userId,
 	    createdDate: bookmark.date,
