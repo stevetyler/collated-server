@@ -351,6 +351,30 @@ function putItems(req, res) {
 	}
 }
 
+function assignTags(item, id, type) {
+  var body = item.body.toLowerCase();
+	var tagQuery = (type === 'slack' ? {slackTeamId: id} : {user: id});
+
+	return Tag.find(tagQuery).then(tags => {
+		return tags.reduce((arr, tag) => {
+	    if (body.indexOf(tag.name.toLowerCase()) !== -1) {
+	      console.log('tag found');
+	      arr.push(tag._id);
+	    }
+			return arr;
+	  }, []);
+	}).then(tags => {
+		if (!tags.length) {
+			tags.reduce((arr, tag) => {
+				if (tag.name === 'unassigned') {
+					arr.push(tag._id);
+				}
+				return arr;
+			}, []);
+		}
+	});
+}
+
 function postItem(req, res) {
 	const itemTags = req.body.item.tags;
 	const item = {
