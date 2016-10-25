@@ -9,7 +9,8 @@ const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const TwitterItemImporter = require('../../../lib/import-twitter-items.js');
+const twitterItemImporter = require('../../../lib/import-twitter-items.js');
+const assignItemTags = require('../../../lib/assign-item-tags.js');
 
 const Item = mongoose.model('Item', itemSchema);
 const Tag = mongoose.model('Tag', tagSchema);
@@ -22,10 +23,10 @@ module.exports.autoroute = {
 		'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
-		'/items': [ensureAuthenticated, postItem],
+		'/items': [ensureAuthenticated, postItemHandler],
 		'/items/bookmarks': [ensureAuthenticated, postBookmarkItemsHandler],
 		'/items/slack': postSlackItemsHandler,
-		'/items/chrome': saveChromeItem
+		'/items/chrome': postChromeItemHandler
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -299,14 +300,17 @@ function makeEmberItems(id, pagedObj) {
 function getTwitterItemsHandler(req, res) {
 	getTwitterItems(req.user, req.query.options).then(
 		items => res.send({'items': items}),
-		e => res.status('400').end()
+		e => {
+			console.log(e);
+			res.status('400').end();
+		}
 	);
 }
 
 function getTwitterItems(user, options) {
   const emberItems = [];
 
-  return TwitterItemImporter(user, options).then(items => {
+  return twitterItemImporter(user, options).then(items => {
 		items.forEach(function(item) {
 			const newItem = new Item(item);
 			const emberItem = newItem.makeEmberItem();
@@ -351,113 +355,131 @@ function putItems(req, res) {
 	}
 }
 
-function assignTags(item, id, type) {
-  var body = item.body.toLowerCase();
-	var tagQuery = (type === 'slack' ? {slackTeamId: id} : {user: id});
+// create item from Collated
+function postItemHandler(req, res) {
+	const body = req.body;
+	const user = req.user;
 
-	return Tag.find(tagQuery).then(tags => {
-		return tags.reduce((arr, tag) => {
-	    if (body.indexOf(tag.name.toLowerCase()) !== -1) {
-	      console.log('tag found');
-	      arr.push(tag._id);
-	    }
-			return arr;
-	  }, []);
-	}).then(tags => {
-		if (!tags.length) {
-			tags.reduce((arr, tag) => {
-				if (tag.name === 'unassigned') {
-					arr.push(tag._id);
-				}
-				return arr;
-			}, []);
-		}
-	});
-}
-
-function postItem(req, res) {
-	const itemTags = req.body.item.tags;
-	const item = {
-    user: req.body.item.user,
-    createdDate: req.body.item.createdDate,
-    body: req.body.item.body,
-    author: req.body.item.author,
-    tags: req.body.item.tags,
-		isPrivate: false,
-		type: req.body.item.type
-  };
-
-	Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).exec().then(function(tags) {
-		if (tags.length) {
-			item.isPrivate = true;
-		}
-	}).then(function() {
-		if (req.user.id === req.body.item.user) {
-	    const newItem = new Item(item);
-
-	    newItem.save(function(err, item) {
-	      if (err) {
-	        res.status(500).end();
-	      }
-	      const emberItem = item.makeEmberItem();
-
-	      return res.send({'item': emberItem});
-	    });
-	  } else {
-	    return res.status(401).end();
-	  }
-	});
-}
-
-function saveChromeItem(req, res) {
-	const urlArr = req.body.urlarr;
-	const titleArr = req.body.titlearr;
-	let body = urlArr.length > 1 ? '<span>' + 'Tab URLs saved: ' + '</span>' : '';
-
-	let bodyArr = urlArr.map((url, i) => {
-		return '<a class="chrome-ext" href="' + url + '" >' + titleArr[i] + '</a>';
-	});
-
-	if (bodyArr.length === 1) {
-		body += bodyArr[0];
-	}
-	else {
-		let bodytext = bodyArr.reduce((str, url) => {
-			return str + '<li>' + url + '</li>';
-		}, '');
-		body += '<ul>' + bodytext + '</ul>';
-	}
-
-	User.findOne({id: req.body.username, email: req.body.email}).then(user => {
-		if (!user) {
-			res.status('401').send();
-			return;
-		}
-		Tag.findOne({user: user.id, name: 'unassigned'}).then(tag => {
-			if (tag) {
-				const chromeItem = {
-					user: req.body.username,
-					createdDate: new Date(),
-					body: body,
-					author: req.body.username,
-					tags: [tag._id],
-					isPrivate: false,
-					type: 'bookmark'
-				};
-				const newItem = new Item(chromeItem);
-
-				newItem.save().then(() => {
-					console.log('chrome item saved', newItem);
-					res.send({'item': newItem});
-					return;
-				});
-			}
-		});
-	}).catch(() => {
+	saveItem(body, user).then((emberItem) => {
+		console.log('saveItem', emberItem);
+		res.send({'item': emberItem});
+		return;
+	}).catch(err => {
+		console.log(err);
 		res.status(401).end();
 		return;
 	});
 }
+
+function saveItem(body, user) {
+	const itemTags = body.item.tags;
+	const item = {
+    user: body.item.user,
+    createdDate: body.item.createdDate,
+    body: body.item.body,
+		title: body.item.title,
+    author: body.item.author,
+    tags: body.item.tags,
+		isPrivate: false,
+		type: body.item.type
+  };
+
+	return Tag.find({_id: {$in: itemTags}, user: user.id, isPrivate: 'true'}).then(function(tags) {
+		if (tags.length) {
+			item.isPrivate = true;
+		}
+	}).then(() => {
+		if (user.id === body.item.user) {
+	    const newItem = new Item(item);
+
+	    return newItem.save();
+	  }
+	}).then((item) => {
+		return item.makeEmberItem();
+	});
+}
+
+function makeUrlList(urlArr, titleArr) {
+	let bodyArr = urlArr.map((url, i) => {
+		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
+	});
+	let bodytext = bodyArr.reduce((str, url) => {
+		return str + '<li>' + url + '</li>';
+	}, '');
+	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
+}
+
+function postChromeItemHandler(req, res) {
+	const reqBody = req.body;
+	//const reqUser = req.user;
+
+	saveChromeItem(reqBody).then((newItem) => {
+		console.log('chrome item saved', newItem);
+		res.send({'item': newItem});
+		return;
+	}).catch((err) => {
+		console.log('error', err);
+		res.status(401).end();
+		return;
+	});
+}
+
+function saveChromeItem(reqBody) {
+	console.log('saveChrome Item body', reqBody);
+	const urlArr = reqBody.urlarr;
+	const titleArr = reqBody.titlearr;
+	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
+
+	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
+		console.log('user found', user);
+		return assignItemTags(titleArr[0], user.id, 'chrome');
+		//return Tag.findOne({user: reqBody.username, name: 'unassigned'});
+	}).then(tags => {
+		console.log('tags to be assigned', tags);
+		if (tags) {
+			const chromeItem = {
+				user: reqBody.username,
+				createdDate: new Date(),
+				body: text,
+				title: reqBody.titlearr,
+				author: reqBody.username,
+				tags: tags,
+				isPrivate: false,
+				type: 'bookmark'
+			};
+			const newItem = new Item(chromeItem);
+			console.log('new item created');
+			return newItem.save();
+		}
+	});
+}
+
+// function assignTagsToItem(titleText, id, type) {
+//   var text = titleText.toLowerCase();
+// 	console.log('text', text);
+// 	var tagQuery = (type === 'slack' ? {slackTeamId: id} : {user: id});
+//
+// 	return Tag.find(tagQuery).then(tags => {
+// 		return tags.reduce((obj, tag) => {
+// 			let tagname = tag.name.toLowerCase();
+//
+// 	    if (text.indexOf(tagname) !== -1) {
+// 	      console.log('tag found', tag);
+// 	      obj.tagIds.push(tag._id);
+// 	    }
+// 			if (tagname === 'unassigned') {
+// 				obj.unassignedId.push(tag._id);
+// 			}
+// 			return obj;
+// 	  }, {tagIds: [], unassignedId: []});
+// 	}).then(tagsObj => {
+// 		console.log('tags returned', tagsObj);
+// 		if (tagsObj.tagIds.length > 0) {
+// 			return tagsObj.tagIds;
+// 		}
+// 		return tagsObj.unassignedId;
+// 	});
+// }
 
 function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
@@ -496,7 +518,7 @@ function postBookmarkItemsHandler(req, res) {
 				}
 			});
 		});
-		return Promise.all(tagPromisesArr); // errors if you don't return?
+		return Promise.all(tagPromisesArr);
   }).then(() => {
 		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
 			return saveBookmarkItem(bookmark, userId);
@@ -511,7 +533,8 @@ function postBookmarkItemsHandler(req, res) {
 }
 
 function saveBookmarkItem(bookmark, userId) {
-  const body = '<a href="' + bookmark.url + '" ">' + bookmark.name + '</a>';
+  const body = bookmark.url;
+	const title = bookmark.title;
   let tagnames;
 
 	if (bookmark.tags.length) {
@@ -537,6 +560,7 @@ function saveBookmarkItem(bookmark, userId) {
 			user: userId,
 	    createdDate: bookmark.date,
 	    body: body,
+			title: title,
 	    author: userId,
 	    tags: ids,
 	    isPrivate: false,
@@ -620,69 +644,3 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
-
-
-// get new twitter items
-// let getTweets = false;
-// function checkAuth(userId, authUser) {
-// 	let getTweets = false;
-// 	if (authUser) {
-// 		if (userId === authUser.id && authUser.twitterProfile) {
-// 			if (authUser.twitterProfile.autoImport) {
-// 				getTweets = true;
-// 			}
-// 		}
-// 	}
-// }
-// const twitterItems = getTwitterItems(authUser, {getLatest: 'true'});
-
-
-// .then((items) => {
-// 	return updateItemTagsWithIds(query, items);
-// })
-
-// function updateItemTagsWithIds(query, items) {
-// 	let allTagsArrArr = items.map((item) => {
-// 		return item.tags;
-// 	});
-// 	let tagsPromiseArrArr = allTagsArrArr.map((tagNamesArr) => {
-// 		return tagNamesArr.map((tagname) => {
-// 			let tagQuery = Object.assign({}, query, {name: tagname});
-// 			return Tag.findOne(tagQuery);
-// 		});
-// 	});
-// 	return Promise.all(
-// 		tagsPromiseArrArr.map(tagPromisesArr => {
-// 			return Promise.all(tagPromisesArr);
-// 		})
-// 	)
-// 	.then((tagsArrArr) => {
-// 		let newTagsArrArr = tagsArrArr.map(tagsArr => {
-// 			return tagsArr.map(tag => {
-// 				if (tag !== null) {
-// 					return tag._id;
-// 				}
-// 			});
-// 		});
-// 		console.log('newTagsArrArr', newTagsArrArr);
-// 		return newTagsArrArr;
-// 	})
-// 	.then((newTagsArrArr) => {
-// 		let itemsPromises = items.map((item, i) => {
-// 			if (newTagsArrArr[i][0]) {
-// 				return item.update({
-// 					$set: {
-// 						tags: newTagsArrArr[i]
-// 					}
-// 				});
-// 			}
-// 		});
-// 		return Promise.all(itemsPromises);
-// 	})
-// 	.then(() => {
-// 		return items;
-// 	})
-// 	.then(null, (err) => {
-// 		console.log(err);
-// 	});
-// }
