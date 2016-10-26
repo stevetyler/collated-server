@@ -432,7 +432,7 @@ function saveChromeItem(reqBody) {
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
 		console.log('user found', user);
-		return assignItemTags(titleArr[0], user.id, 'chrome');
+		return assignItemTags(titleArr[0], null, user.id);
 		//return Tag.findOne({user: reqBody.username, name: 'unassigned'});
 	}).then(tags => {
 		console.log('tags to be assigned', tags);
@@ -512,7 +512,7 @@ function saveBookmarkItem(bookmark, userId) {
 
 	if (bookmark.tags.length) {
 		tagnames = bookmark.tags.map((tag, i) => {
-	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags
+	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags order
 	  });
 	} else {
 		tagnames = ['unassigned'];
@@ -570,39 +570,10 @@ function saveSlackItem(message) {
 		slackTeamId: message.team_id
   };
 
-	return Tag.findOne({name: 'unassigned', slackChannelId: message.channel_id}).exec().then(tag => {
-		if (tag) {
-			return tag;
-		} else {
-			return Tag.create({
-				name: 'unassigned',
-				colour: 'cp-colour-1',
-				slackChannelId: message.channel_id,
-				slackTeamId: message.team_id
-			});
-		}
-	}).then(tag => {
-		unassignedTagId = tag._id;
-	}).then(() => {
-		return Tag.findOne({name:message.channel_name, slackChannelId: message.channel_id});
-	}).then(function(tag) {
-		if (!tag) {
-			let newTag = {
-				name: message.channel_name,
-				isSlackChannel: true,
-				slackChannelId: message.channel_id,
-				slackTeamId: message.team_id,
-				colour: 'cp-colour-1'
-			};
-			return Tag.create(newTag);
-		} else {
-			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
-		}
-	}).then(tag => {
-		if (tag) {
-			Object.assign(slackItem, {tags: [tag._id, unassignedTagId]});
-		}
-	}).then(function() {
+	return assignItemTags(message.text, message.team_id, null).then(tags => {
+    console.log('tags found for slack item', tags);
+    return Object.assign({}, twitterItem, {tags: tags});
+  }).then(function(item) {
 		let newItem = new Item(slackItem);
 		console.log('new slack item', newItem);
 		return newItem.save();
