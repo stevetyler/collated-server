@@ -409,7 +409,11 @@ function postItem(req, res) {
 	});
 }
 
-function saveChromeItem(req, res) {
+function saveChromeItemHandler() {
+
+}
+
+function saveChromeItem (req, res) {
 	const urlArr = req.body.urlarr;
 	const titleArr = req.body.titlearr;
 	let body = urlArr.length > 1 ? '<span>' + 'Tab URLs saved: ' + '</span>' : '';
@@ -446,14 +450,15 @@ function saveChromeItem(req, res) {
 				};
 				const newItem = new Item(chromeItem);
 
-				newItem.save().then(() => {
-					console.log('chrome item saved', newItem);
-					res.send({'item': newItem});
-					return;
-				});
+				return newItem.save();
 			}
 		});
-	}).catch(() => {
+	}).then((newItem) => {
+		console.log('chrome item saved', newItem);
+		res.send({'item': newItem});
+		return;
+	})
+	.catch(() => {
 		res.status(401).end();
 		return;
 	});
