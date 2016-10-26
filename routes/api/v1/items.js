@@ -256,7 +256,12 @@ function getSearchItemsHandler(req, res) {
 }
 
 function getSearchItems(query, authUser) {
-	const searchQuery = {
+	const searchQuery = query.teamId ? {
+		slackTeamId = query.teamId,
+		$text: {
+			$search: query.keyword
+		}
+	} : {
 		user: query.userId,
 		$text: {
 			$search: query.keyword
