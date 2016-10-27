@@ -391,7 +391,7 @@ function saveItem(body, user) {
 
 	return Tag.find({_id: {$in: itemTags}, user: user.id, isPrivate: 'true'}).then(function(tags) {
 		if (tags.length) {
-			item.isPrivate = true;
+			Object.assign(item, {isPrivate: true});
 		}
 	}).then(() => {
 		if (user.id === body.item.user) {
@@ -435,9 +435,7 @@ function saveChromeItem(reqBody) {
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		console.log('user found', user);
 		return assignItemTags(titleArr[0], null, user.id);
-		//return Tag.findOne({user: reqBody.username, name: 'unassigned'});
 	}).then(tags => {
 		console.log('tags to be assigned', tags);
 		if (tags) {
