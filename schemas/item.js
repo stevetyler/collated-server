@@ -13,6 +13,7 @@ var commentSchema = new Schema({
 var itemSchema = new Schema({
   id: String,
   author: String,
+  title: String,
   body: String,
   title: String,
   comments: [commentSchema],

@@ -257,7 +257,12 @@ function getSearchItemsHandler(req, res) {
 }
 
 function getSearchItems(query, authUser) {
-	const searchQuery = {
+	const searchQuery = query.teamId ? {
+		slackTeamId : query.teamId,
+		$text: {
+			$search: query.keyword
+		}
+	} : {
 		user: query.userId,
 		$text: {
 			$search: query.keyword
@@ -411,7 +416,6 @@ function makeUrlList(urlArr, titleArr) {
 
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
-	//const reqUser = req.user;
 
 	saveChromeItem(reqBody).then((newItem) => {
 		console.log('chrome item saved', newItem);
