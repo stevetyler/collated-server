@@ -574,7 +574,7 @@ function saveSlackItem(message) {
 
 	return assignItemTags(message.text, message.team_id, null).then(tags => {
     console.log('tags found for slack item', tags);
-    return Object.assign({}, twitterItem, {tags: tags});
+    return Object.assign({}, slackItem, {tags: tags});
   }).then(function(item) {
 		let newItem = new Item(slackItem);
 		console.log('new slack item', newItem);
