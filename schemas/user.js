@@ -1,3 +1,4 @@
+'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -45,7 +46,8 @@ var userSchema = new Schema({
   },
   facebookProfile: facebookProfileSchema,
   slackProfile: slackProfileSchema,
-  twitterProfile: twitterProfileSchema
+  twitterProfile: twitterProfileSchema,
+  userGroup: String
 });
 
 userSchema.methods.makeEmberUser = function () {

@@ -1,14 +1,26 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+'use strict';
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var userGroupSchema = new Schema({
-  categoriesEnabled: String
+const userGroupSchema = new Schema({
+  categoriesEnabled: String,
   id: String,
   isPrivate: String,
-  permissions: String,
+  adminPermissions: String,
   slackTeamId: String,
   slackTeamDomain: String,
-  user: String
+  //user: String
 });
+
+userGroupSchema.methods.makeEmberUserGroup = function() {
+  const emberUserGroup = {
+    id: this.id,
+    isPrivate: this.isPrivate,
+    adminPermissions: this.adminPermissions,
+    slackTeamId: this.slackTeamId,
+    slackTeamDomain: this.slackTeamDomain
+  };
+  return emberUserGroup;
+};
 
 module.exports = userGroupSchema;
