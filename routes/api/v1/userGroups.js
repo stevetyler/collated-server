@@ -47,7 +47,7 @@ function getOrCreateUserGroup(queryId, authUser) {
 				console.log('group created', group);
 			});
     }
-		return userGroup;
+		//return userGroup;
   });
 }
 
