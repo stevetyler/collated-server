@@ -14,22 +14,20 @@ function getUserGroupHandler(req, res) {
 	const authUser = req.user;
 	const resObj = {};
 
-	console.log('userGroupHandler called', queryId, authUser);
 	getOrCreateUserGroup(queryId, authUser).then(userGroup => {
 		const emberUserGroup = userGroup.makeEmberUserGroup();
-
 		Object.assign(resObj, {'userGroup': emberUserGroup});
-		return User.findOne({id: authUser});
+		return User.findOne({id: authUser.id});
 	}).then(user => {
 		const emberUser = user ? user.makeEmberUser() : [];
-
+		//console.log('resObj', resObj);
 		Object.assign(resObj, {'user': emberUser});
 	}).then(() => {
 		console.log('resObj', resObj);
 		res.send(resObj);
 	}).catch(err => {
 		console.log(err);
-		res.status(401).end();
+		res.status(404).end();
 	});
 }
 
@@ -47,7 +45,8 @@ function getOrCreateUserGroup(queryId, authUser) {
 				console.log('group created', group);
 			});
     }
-		//return userGroup;
+		console.log('group exists', userGroup);
+		return userGroup;
   });
 }
 
