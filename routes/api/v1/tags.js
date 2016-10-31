@@ -92,7 +92,7 @@ function getSlackTeamTags(req, res) {
 	if (!teamId) {
 		return res.status(404).end();
 	}
-	Tag.find({slackTeamId: teamId}).exec().then((tags) => {
+	Tag.find({user: teamId}).exec().then((tags) => {
 		if (tags) {
 			return makeEmberTags(teamId, tags, 'slack');
 		}
