@@ -17,7 +17,7 @@ function getUserGroupHandler(req, res) {
 	getOrCreateUserGroup(queryId, authUser).then(userGroup => {
 		const emberUserGroup = userGroup.makeEmberUserGroup();
 		Object.assign(resObj, {'userGroup': emberUserGroup});
-		return User.findOne({id: authUser.id});
+		return typeof authUser === 'object' ? User.findOne({id: authUser.id}) : null;
 	}).then(user => {
 		const emberUser = user ? user.makeEmberUser() : [];
 		//console.log('resObj', resObj);
