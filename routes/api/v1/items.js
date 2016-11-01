@@ -561,7 +561,6 @@ function postSlackItemsHandler(req, res) {
 function saveSlackItem(message) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	let unassignedTagId;
 	let slackItem = {
     user: message.user_name,
 		author: message.user_name,
@@ -575,9 +574,9 @@ function saveSlackItem(message) {
 	return assignItemTags(message.text, message.team_id, null).then(tags => {
     console.log('tags found for slack item', tags);
     return Object.assign({}, slackItem, {tags: tags});
-  }).then(function(item) {
+  }).then(function(slackItem) {
 		let newItem = new Item(slackItem);
-		console.log('new slack item', newItem);
+		console.log('new slack item', slackItem);
 		return newItem.save();
 	});
 }
