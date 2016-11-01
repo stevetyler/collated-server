@@ -15,7 +15,6 @@ var itemSchema = new Schema({
   author: String,
   title: String,
   body: String,
-  title: String,
   comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
@@ -24,7 +23,8 @@ var itemSchema = new Schema({
   tags: [String],
   twitterTweetId: String,
   type: String, // slack, twitter, bookmark
-  user: String
+  user: String,
+  userGroup: String
 });
 
 itemSchema.plugin(mongoosePaginate);
