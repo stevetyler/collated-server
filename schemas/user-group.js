@@ -7,7 +7,7 @@ const userGroupSchema = new Schema({
   id: String,
   image: String,
   isPrivate: String,
-  adminPermissions: String,
+  adminPermissions: [String],
   slackTeamId: String,
   slackTeamDomain: String,
   //user: String
