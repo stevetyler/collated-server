@@ -7,13 +7,14 @@ var tagSchema = new Schema({
   alias: String,
   newId: String,
   colour: String,
-  user: String,
   itemCount: String,
   isPrivate: String,
   isReserved: String,
   isSlackChannel: String,
   slackChannelId: String,
   slackTeamId: String,
+  user: String,
+  userGroup: String
 });
 
 tagSchema.methods.makeEmberTag = function(count) {

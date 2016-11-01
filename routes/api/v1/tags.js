@@ -65,7 +65,7 @@ function makeEmberTags(id, tags, type) {
 	if (type === 'user') {
 		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag._id ] }}));
 	}	else if (type === 'slack') {
-		tagPromises = tags.map(tag => Item.count({ slackTeamId: id, tags: {$in: [tag._id] }}));
+		tagPromises = tags.map(tag => Item.count({ userGroup: id, tags: {$in: [tag._id] }}));
 	}
 	if (tagPromises) {
 		return Promise.all(tagPromises).then(counts => {

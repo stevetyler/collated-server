@@ -52,7 +52,8 @@ itemSchema.methods.makeEmberItem = function() {
     tags: this.tags,
     twitterTweetId: this.twitterTweetId,
     type: this.type,
-    user: this.user
+    user: this.user,
+    userGroup: this.userGroup
   };
   return emberItem;
 };
