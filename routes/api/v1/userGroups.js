@@ -1,5 +1,6 @@
 'use strict';
 const db = require('../../../database/database');
+const formatGroupId = require('../../../lib/format-group-id');
 const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
@@ -50,15 +51,15 @@ function getOrCreateUserGroup(queryId, authUser) {
   });
 }
 
-function formatGroupId(name) {
-	// group ids must be capitalized
-  let isCapitalized = name.charAt(0) === name.charAt(0).toUpperCase();
-
-	if (!isCapitalized) {
-		let nameArr = name.split(' ').map(str => {
-      return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-		});
-    return nameArr.join('-');
-	}
-	return name.split(' ').join('-');
-}
+// function formatGroupId(name) {
+// 	// group ids must be capitalized
+//   let isCapitalized = name.charAt(0) === name.charAt(0).toUpperCase();
+//
+// 	if (!isCapitalized) {
+// 		let nameArr = name.split(' ').map(str => {
+//       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+// 		});
+//     return nameArr.join('-');
+// 	}
+// 	return name.split(' ').join('-');
+// }

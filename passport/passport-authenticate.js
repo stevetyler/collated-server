@@ -1,14 +1,16 @@
+'use strict';
 //var bcrypt = require('bcrypt');
 //var LocalStrategy = require('passport-local').Strategy;
-var passport = require('passport');
-var TwitterStrategy = require('passport-twitter').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var SlackStrategy = require('passport-slack').Strategy;
+const passport = require('passport');
+const TwitterStrategy = require('passport-twitter').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const SlackStrategy = require('passport-slack').Strategy;
 
-var configAuth = require('./../auth');
-var db = require('./../database/database');
+const configAuth = require('./../auth');
+const db = require('./../database/database');
+const formatGroupId = require('./../lib/format-group-id');
 
-var User = db.model('User');
+const User = db.model('User');
 
 passport.use(new TwitterStrategy({
     consumerKey: configAuth.twitterAuth.consumerKey,
@@ -135,7 +137,8 @@ passport.use(new SlackStrategy({
             teamId: profile._json.team_id,
             teamDomain: profile._json.team,
             teamUrl: profile._json.url
-          }
+          },
+          userGroup: formatGroupId(profile._json.team)
         });
       }
     })
