@@ -3,7 +3,7 @@
 //logger.info('load database.js');
 var mongoose = require('mongoose');
 var userSchema = require('../schemas/user');
-var userGroupSchema = require('../schemas/user-group');
+var userGroupSchema = require('../schemas/userGroup');
 var itemSchema = require('../schemas/item');
 var tagSchema = require('../schemas/tag');
 var planSchema = require('../schemas/plan');

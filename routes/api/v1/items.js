@@ -7,6 +7,7 @@ const BPromise = require('bluebird');
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
+const userGroupSchema = require('../../../schemas/userGroup.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
@@ -15,6 +16,7 @@ const assignItemTags = require('../../../lib/assign-item-tags.js');
 const Item = mongoose.model('Item', itemSchema);
 const Tag = mongoose.model('Tag', tagSchema);
 const User = mongoose.model('User', userSchema);
+const UserGroup = mongoose.model('UserGroup', userGroupSchema);
 
 module.exports.autoroute = {
 	get: {
@@ -571,11 +573,17 @@ function saveSlackItem(message) {
 		slackTeamId: message.team_id
   };
 
-	return assignItemTags(message.text, message.team_id, null).then(tags => {
+	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
+		if (typeof userGroup === 'object') {
+			Object.assign(slackItem, {userGroup: userGroup.id});
+		}
+		return assignItemTags(message.text, message.team_id, null);
+	}).then(tags => {
     console.log('tags found for slack item', tags);
     return Object.assign({}, slackItem, {tags: tags});
   }).then(function(slackItem) {
 		let newItem = new Item(slackItem);
+
 		console.log('new slack item', slackItem);
 		return newItem.save();
 	});
