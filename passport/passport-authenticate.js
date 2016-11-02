@@ -138,7 +138,7 @@ passport.use(new SlackStrategy({
             teamDomain: profile._json.team,
             teamUrl: profile._json.url
           },
-          userGroup: formatGroupId(profile._json.team)
+          userGroup: [formatGroupId(profile._json.team)]
         });
       }
     })

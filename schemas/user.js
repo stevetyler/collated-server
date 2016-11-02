@@ -47,7 +47,7 @@ var userSchema = new Schema({
   facebookProfile: facebookProfileSchema,
   slackProfile: slackProfileSchema,
   twitterProfile: twitterProfileSchema,
-  userGroup: String
+  userGroup: [String]
 });
 
 userSchema.methods.makeEmberUser = function () {
