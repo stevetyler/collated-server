@@ -1,9 +1,10 @@
-"use strict";
+'use strict';
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
 const Item = db.model('Item');
 const Tag = db.model('Tag');
+const UserGroup = db.model('UserGroup');
 
 module.exports.autoroute = {
 	get: {'/tags' : getTags},
@@ -14,7 +15,8 @@ module.exports.autoroute = {
 
 function getTags(req, res){
 	if (req.query.operation === 'userTags') { getUserTags(req, res); }
-	if (req.query.operation === 'slackTeamTags') { getSlackTeamTags(req, res);} }
+	if (req.query.operation === 'slackTeamTags') { getSlackTeamTags(req, res); }
+}
 
 function getUserTags(req, res) {
 	const id = req.query.userId;
@@ -104,35 +106,86 @@ function getSlackTeamTags(req, res) {
 }
 
 function postTag(req, res){
-	if (req.user.id === req.body.tag.user) {
-		if (req.body.tag.name) {
-			const tag = {
-				name: req.body.tag.name,
-				colour: req.body.tag.colour,
-				user: req.body.tag.user,
-				isPrivate: req.body.tag.isPrivate,
-				slackChannelId: req.body.tag.slackChannelId,
-				slackTeamId: req.body.tag.slackTeamId
-			};
-			Tag.findOne({_id: req.body.tag.id, user: req.body.tag.user}, (err, data) => {
-				if (data) {
-					res.status(400).end();
-				}	else {
-					const newTag = new Tag(tag);
-					newTag.save((err, tag) => {
-						if (err) {
-							res.status(501).end();
-						}
-						var emberTag = tag.makeEmberTag();
-
-						return res.send({'tag': emberTag});
-					});
-				}
-			});
-		}
-	}	else {
+	console.log('tag posted', req.body.tag);
+	if (req.body.tag.userGroup) {
+		postGroupTag(req, res);
+	}
+	if (req.body.tag.user) {
+		postUserTag(req, res);
+	}
+	else {
 		return res.status(401).end();
 	}
+}
+
+function postUserTag(req, res) {
+	console.log('postUserTag called');
+	if (req.user.id === req.body.tag.user) {
+		const newTag = {
+			name: req.body.tag.name,
+			colour: req.body.tag.colour,
+			isPrivate: req.body.tag.isPrivate,
+			slackChannelId: req.body.tag.slackChannelId,
+			slackTeamId: req.body.tag.slackTeamId,
+			user: req.body.tag.user,
+			userGroup: req.body.tag.userGroup
+		};
+		newTag.save().then(tag => {
+			var emberTag = tag.makeEmberTag();
+
+			return res.send({'tag': emberTag});
+		}).catch(err => {
+			console.log(err);
+			return res.status(401).end();
+		});
+	}
+}
+
+function postGroupTag(req, res) {
+	console.log('postUserGroupTag called');
+	UserGroup.findOne({id: req.body.tag.userGroup}).then(group => {
+		try {
+			let userId = req.body.tag.user;
+			console.log(group.adminPermissions.indexOf(userId));
+
+			if (group.adminPermissions.indexOf(userId) !== -1) {
+				const newTag = {
+					name: req.body.tag.name,
+					colour: req.body.tag.colour,
+					isPrivate: req.body.tag.isPrivate,
+					slackChannelId: req.body.tag.slackChannelId,
+					slackTeamId: req.body.tag.slackTeamId,
+					user: req.body.tag.user,
+					userGroup: req.body.tag.userGroup,
+				};
+				newTag.save().then(tag => {
+					var emberTag = tag.makeEmberTag();
+
+					return res.send({'tag': emberTag});
+				}).catch(err => {
+					console.log(err);
+					return res.status(401).end();
+				});
+			}
+		} catch(err) {
+			return res.status(401).end();
+		}
+	});
+}
+
+function saveTag(tag) {
+	const newTag = {
+		name: tag.name,
+		colour: tag.colour,
+		isPrivate: tag.isPrivate,
+		slackChannelId: tag.slackChannelId,
+		slackTeamId: tag.slackTeamId,
+		user: tag.user,
+		userGroup: tag.userGroup,
+	};
+	newTag.save().then(tag => {
+		return tag.makeEmberTag();
+	});
 }
 
 function putTag(req, res) {
