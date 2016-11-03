@@ -181,11 +181,12 @@ function getSlackTeamItemsHandler(req, res) {
 }
 
 function getSlackTeamItems(query) {
-	const teamQuery = {slackTeamId: query.teamId};
-
+	const teamQuery = {userGroup: query.groupId};
+	console.log('slack team query', teamQuery);
 	return Item.paginate(teamQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		return makeEmberItems(query.teamId, pagedObj);
+		console.log('slack items found', pagedObj);
+		return makeEmberItems(query.groupId, pagedObj);
 		}
 	);
 }
@@ -207,7 +208,7 @@ function getFilteredSlackItemsHandler(req, res) {
 
 function getFilteredSlackItems(query) {
 	const tagNames = query.tags.split('+');
-	const teamQuery = {slackTeamId: query.teamId};
+	const teamQuery = {userGroup: query.groupId};
 
 	let promisesArr = tagNames.map((tagName, i) => {
 		let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
@@ -237,7 +238,7 @@ function getFilteredSlackItems(query) {
 
 		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
-		return makeEmberItems(query.teamId, pagedObj);
+		return makeEmberItems(query.groupId, pagedObj);
 	});
 }
 
@@ -259,8 +260,8 @@ function getSearchItemsHandler(req, res) {
 }
 
 function getSearchItems(query, authUser) {
-	const searchQuery = query.teamId ? {
-		slackTeamId : query.teamId,
+	const searchQuery = query.groupId ? {
+		userGroup : query.groupId,
 		$text: {
 			$search: query.keyword
 		}

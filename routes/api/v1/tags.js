@@ -82,14 +82,15 @@ function makeEmberTags(id, tags, type) {
 }
 
 function getSlackTeamTags(req, res) {
-	const teamId = req.query.teamId;
+	const groupId = req.query.groupId;
+	console.log('slack tags', groupId);
 
-	if (!teamId) {
+	if (!groupId) {
 		return res.status(404).end();
 	}
-	Tag.find({user: teamId}).exec().then((tags) => {
+	Tag.find({userGroup: groupId}).exec().then((tags) => {
 		if (tags) {
-			return makeEmberTags(teamId, tags, 'slack');
+			return makeEmberTags(groupId, tags, 'slack');
 		}
 	}).then((obj) => {
 		res.send({ tags: obj.all });

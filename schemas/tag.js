@@ -22,12 +22,13 @@ tagSchema.methods.makeEmberTag = function(count) {
 		id: this._id,
     name: this.name,
 		colour: this.colour,
-		user: this.user,
     itemCount: count,
     isPrivate: this.isPrivate,
     isSlackChannel: this.isSlackChannel,
     slackChannelId: this.slackChannelId,
-    slackTeamId: this.slackTeamId
+    slackTeamId: this.slackTeamId,
+    user: this.user,
+    userGroup: this.userGroup,
 	};
   return emberTag;
 };
