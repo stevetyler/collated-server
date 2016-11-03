@@ -89,14 +89,14 @@ function makeEmberTags(id, tags, type) {
 }
 
 function getSlackTeamTags(req, res) {
-	const teamId = req.query.teamId;
+	const groupId = req.query.groupId;
 
-	if (!teamId) {
+	if (!groupId) {
 		return res.status(404).end();
 	}
-	Tag.find({user: teamId}).exec().then((tags) => {
+	Tag.find({userGroup: groupId}).exec().then((tags) => {
 		if (tags) {
-			return makeEmberTags(teamId, tags, 'slack');
+			return makeEmberTags(groupId, tags, 'slack');
 		}
 	}).then((obj) => {
 		res.send({ tags: obj.all });
@@ -108,73 +108,58 @@ function getSlackTeamTags(req, res) {
 function postTag(req, res){
 	console.log('tag posted', req.body.tag);
 	if (req.body.tag.userGroup) {
-		postGroupTag(req, res);
+		postGroupTagHandler(req, res);
+		return;
 	}
-	if (req.body.tag.user) {
-		postUserTag(req, res);
+	if (req.user.id === req.body.tag.user) {
+		postUserTagHandler(req, res);
+		return;
 	}
 	else {
-		return res.status(401).end();
+		res.status(401).end();
+		return;
 	}
 }
 
-function postUserTag(req, res) {
-	console.log('postUserTag called');
-	if (req.user.id === req.body.tag.user) {
-		const newTag = {
-			name: req.body.tag.name,
-			colour: req.body.tag.colour,
-			isPrivate: req.body.tag.isPrivate,
-			slackChannelId: req.body.tag.slackChannelId,
-			slackTeamId: req.body.tag.slackTeamId,
-			user: req.body.tag.user,
-			userGroup: req.body.tag.userGroup
-		};
-		newTag.save().then(tag => {
-			var emberTag = tag.makeEmberTag();
-
-			return res.send({'tag': emberTag});
-		}).catch(err => {
-			console.log(err);
-			return res.status(401).end();
-		});
-	}
-}
-
-function postGroupTag(req, res) {
-	console.log('postUserGroupTag called');
-	UserGroup.findOne({id: req.body.tag.userGroup}).then(group => {
-		try {
-			let userId = req.body.tag.user;
-			console.log(group.adminPermissions.indexOf(userId));
-
-			if (group.adminPermissions.indexOf(userId) !== -1) {
-				const newTag = {
-					name: req.body.tag.name,
-					colour: req.body.tag.colour,
-					isPrivate: req.body.tag.isPrivate,
-					slackChannelId: req.body.tag.slackChannelId,
-					slackTeamId: req.body.tag.slackTeamId,
-					user: req.body.tag.user,
-					userGroup: req.body.tag.userGroup,
-				};
-				newTag.save().then(tag => {
-					var emberTag = tag.makeEmberTag();
-
-					return res.send({'tag': emberTag});
-				}).catch(err => {
-					console.log(err);
-					return res.status(401).end();
-				});
-			}
-		} catch(err) {
-			return res.status(401).end();
+function postGroupTagHandler(req, res) {
+	const tag = req.body.tag;
+	console.log('postGroupTag called', req.body.tag);
+	// need to check adminPermissions with user id
+	UserGroup.findOne({id: tag.userGroup}).then(group => {
+		if (typeof group === 'object') {
+			// console.log('group found', group);
+			return saveTag(req.body.tag);
 		}
+		console.log('group not found');
+		res.status(401).end();
+		return;
+	}).then(tag => {
+		let emberTag = tag.makeEmberTag();
+
+		res.send({'tag': emberTag});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(401).end();
+		return;
+	});
+}
+
+function postUserTagHandler(req, res) {
+	saveTag(req.body.tag).then(tag => {
+		let emberTag = tag.makeEmberTag();
+
+		res.send({'tag': emberTag});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(401).end();
+		return;
 	});
 }
 
 function saveTag(tag) {
-	const newTag = {
+	const newTag = new Tag({
 		name: tag.name,
 		colour: tag.colour,
 		isPrivate: tag.isPrivate,
@@ -182,10 +167,8 @@ function saveTag(tag) {
 		slackTeamId: tag.slackTeamId,
 		user: tag.user,
 		userGroup: tag.userGroup,
-	};
-	newTag.save().then(tag => {
-		return tag.makeEmberTag();
 	});
+	return newTag.save();
 }
 
 function putTag(req, res) {
