@@ -157,7 +157,7 @@ function postUserTagHandler(req, res) {
 }
 
 function saveTag(tag) {
-	const newTag = new Tag({
+	return Tag.create({
 		name: tag.name,
 		colour: tag.colour,
 		isPrivate: tag.isPrivate,
@@ -166,8 +166,6 @@ function saveTag(tag) {
 		user: tag.user,
 		userGroup: tag.userGroup,
 	});
-
-	return newTag.save();
 }
 
 function putTag(req, res) {
