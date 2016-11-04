@@ -1,13 +1,16 @@
 'use strict';
-//var logger = require('nlogger').logger(module);
+//const logger = require('nlogger').logger(module);
 //logger.info('load database.js');
-var mongoose = require('mongoose');
-var userSchema = require('../schemas/user');
-var userGroupSchema = require('../schemas/userGroup');
-var itemSchema = require('../schemas/item');
-var tagSchema = require('../schemas/tag');
-var planSchema = require('../schemas/plan');
-var auth = require('../auth');
+const auth = require('../auth');
+const mongoose = require('mongoose');
+
+const categorySchema = require('../schemas/category');
+const itemSchema = require('../schemas/item');
+const userSchema = require('../schemas/user');
+const userGroupSchema = require('../schemas/userGroup');
+const tagSchema = require('../schemas/tag');
+const planSchema = require('../schemas/plan');
+
 
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
@@ -20,6 +23,7 @@ else {
   mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
 }
 
+mongoose.connection.model('Category', categorySchema);
 mongoose.connection.model('UserGroup', userGroupSchema);
 mongoose.connection.model('User', userSchema);
 mongoose.connection.model('Item', itemSchema);

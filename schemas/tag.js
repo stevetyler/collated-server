@@ -3,16 +3,16 @@ var Schema = mongoose.Schema;
 
 var tagSchema = new Schema({
   id: String,
-  name: String,
   alias: String,
-  newId: String,
+  category: String,
   colour: String,
   itemCount: String,
   isPrivate: String,
   isReserved: String,
-  isSlackChannel: String,
-  slackChannelId: String,
-  slackTeamId: String,
+  isSlackChannel: String, // moved to category
+  name: String,
+  slackChannelId: String, // moved to category
+  slackTeamId: String, // moved to userGroup
   user: String,
   userGroup: String
 });
