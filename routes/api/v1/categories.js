@@ -4,7 +4,8 @@ const ensureAuthenticated = require('../../../middlewares/ensure-authenticated')
 
 //const Item = db.model('Item');
 const Category = db.model('Category');
-//const UserGroup = db.model('UserGroup');
+//const User = db.model('User');
+const UserGroup = db.model('UserGroup');
 
 module.exports.autoroute = {
 	get: {'/categories' : getCategories},
@@ -20,7 +21,7 @@ function getCategories(req, res){
 
 function getGroupCategories(req, res) {
 	const groupId = req.query.groupId;
-	console.log('slack tags', groupId);
+	console.log('slack categories', groupId);
 
 	if (!groupId) {
 		return res.status(404).end();
@@ -30,30 +31,91 @@ function getGroupCategories(req, res) {
 			return makeEmberCategory(groupId, categories, 'slack');
 		}
 	}).then((obj) => {
-		res.send({ tags: obj.all });
+		res.send({ categories: obj.all });
 	}, () => {
 		return res.status(404).end();
 	});
 }
 
-function postCategory() {
-
+function postCategory(req, res){
+	console.log('post category called');
+	if (req.body.category.userGroup) {
+		postGroupCategoryHandler(req, res);
+		return;
+	}
+	if (req.user.id === req.body.category.user) {
+		postUserCategoryHandler(req, res);
+		return;
+	}
+	else {
+		res.status(401).end();
+		return;
+	}
 }
+
+function postGroupCategoryHandler(req, res) {
+	const category = req.body.category;
+	console.log('post group category called');
+	// need to check adminPermissions with user id
+	UserGroup.findOne({id: category.userGroup}).then(group => {
+		if (typeof group === 'object') {
+			// console.log('group found', group);
+			return saveCategory(req.body.category);
+		}
+		res.status(401).end();
+		return;
+	}).then(category => {
+		let emberCategory = category.makeEmberCategory();
+
+		res.send({'category': emberCategory});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(401).end();
+		return;
+	});
+}
+
+function postUserCategoryHandler(req, res) {
+	saveCategory(req.body.category).then(category => {
+		let emberCategory = category.makeEmberCategory();
+
+		res.send({'category': emberCategory});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(401).end();
+		return;
+	});
+}
+
+function saveCategory(category) {
+	return Category.create({
+		name: category.name,
+		colour: category.colour,
+		isPrivate: category.isPrivate,
+		slackChannelId: category.slackChannelId,
+		slackTeamId: category.slackTeamId,
+		user: category.user,
+		userGroup: category.userGroup,
+	});
+}
+
+
 
 function makeEmberCategory() {
-	
+
 }
 
-
-// function getUserTags(req, res) {
+// function getUserCategories(req, res) {
 // 	const id = req.query.userId;
 //
 // 	if (!id) {
 // 		return res.status(404).end();
 // 	}
-// 	Tag.findOne({name: 'unassigned', user: id}).exec().then((tag) => {
-// 		if (typeof tag !== 'object') {
-// 			Tag.create({
+// 	Category.findOne({name: 'unassigned', user: id}).exec().then((category) => {
+// 		if (typeof category !== 'object') {
+// 			Category.create({
 // 				name: 'unassigned',
 // 				colour: 'cp-colour-1',
 // 				user: id,
@@ -61,10 +123,10 @@ function makeEmberCategory() {
 // 			});
 // 		}
 // 	}).then(() => {
-// 		return Tag.find({user: id});
-// 	}).then((tags) => {
-// 		if (tags) {
-// 			return makeEmberTags(id, tags, 'user');
+// 		return Category.find({user: id});
+// 	}).then((categories) => {
+// 		if (categories) {
+// 			return makeEmberCategories(id, categories, 'user');
 // 		}
 // 	}).then((obj) => {
 // 	  if (!req.user) {
@@ -74,32 +136,32 @@ function makeEmberCategory() {
 // 	  } else {
 // 	    return obj.public;
 // 	  }
-// 	}).then((tags) => {
-// 		res.send({ tags: tags });
+// 	}).then((categories) => {
+// 		res.send({ categories: categories });
 // 	}, () => {
 // 		return res.status(404).end();
 // 	});
 // }
 //
-// function makeEmberTags(id, tags, type) {
-// 	let tagPromises;
+// function makeEmberCategories(id, categories, type) {
+// 	let categoryPromises;
 //
 // 	if (type === 'user') {
-// 		tagPromises = tags.map(tag => Item.count({ user: id, tags: { $in: [ tag._id ] }}));
+// 		categoryPromises = categories.map(category => Item.count({ user: id, categories: { $in: [ category._id ] }}));
 // 	}	else if (type === 'slack') {
-// 		tagPromises = tags.map(tag => Item.count({ userGroup: id, tags: {$in: [tag._id] }}));
+// 		categoryPromises = categories.map(category => Item.count({ userGroup: id, categories: {$in: [category._id] }}));
 // 	}
-// 	if (tagPromises) {
-// 		return Promise.all(tagPromises).then(counts => {
-// 			return tags.reduce((obj, tag, i) => {
-// 				const emberTag = tag.makeEmberTag(counts[i]);
-// 				return tag.isPrivate === 'true' ?
+// 	if (categoryPromises) {
+// 		return Promise.all(categoryPromises).then(counts => {
+// 			return categories.reduce((obj, category, i) => {
+// 				const emberCategory = category.makeEmberCategory(counts[i]);
+// 				return category.isPrivate === 'true' ?
 // 					{
-// 						all: obj.all.concat(emberTag),
+// 						all: obj.all.concat(emberCategory),
 // 						public: obj.public } :
 // 					{
-// 						all: obj.all.concat(emberTag),
-// 						public: obj.public.concat(emberTag),
+// 						all: obj.all.concat(emberCategory),
+// 						public: obj.public.concat(emberCategory),
 // 					};
 // 			}, { all: [], public: [] });
 // 		});
@@ -110,85 +172,22 @@ function makeEmberCategory() {
 //
 
 //
-// function postTag(req, res){
-// 	if (req.body.tag.userGroup) {
-// 		postGroupTagHandler(req, res);
-// 		return;
-// 	}
-// 	if (req.user.id === req.body.tag.user) {
-// 		postUserTagHandler(req, res);
-// 		return;
-// 	}
-// 	else {
-// 		res.status(401).end();
-// 		return;
-// 	}
-// }
+// function putCategory(req, res) {
+//   const categoryId = req.params.id;
+//   const isPrivate = req.body.category.isPrivate;
+// 	const categoryName = req.body.category.name;
 //
-// function postGroupTagHandler(req, res) {
-// 	const tag = req.body.tag;
-//
-// 	// need to check adminPermissions with user id
-// 	UserGroup.findOne({id: tag.userGroup}).then(group => {
-// 		if (typeof group === 'object') {
-// 			// console.log('group found', group);
-// 			return saveTag(req.body.tag);
-// 		}
-// 		res.status(401).end();
-// 		return;
-// 	}).then(tag => {
-// 		let emberTag = tag.makeEmberTag();
-//
-// 		res.send({'tag': emberTag});
-// 		return;
-// 	}).catch(err => {
-// 		console.log(err);
-// 		res.status(401).end();
-// 		return;
-// 	});
-// }
-//
-// function postUserTagHandler(req, res) {
-// 	saveTag(req.body.tag).then(tag => {
-// 		let emberTag = tag.makeEmberTag();
-//
-// 		res.send({'tag': emberTag});
-// 		return;
-// 	}).catch(err => {
-// 		console.log(err);
-// 		res.status(401).end();
-// 		return;
-// 	});
-// }
-//
-// function saveTag(tag) {
-// 	return Tag.create({
-// 		name: tag.name,
-// 		colour: tag.colour,
-// 		isPrivate: tag.isPrivate,
-// 		slackChannelId: tag.slackChannelId,
-// 		slackTeamId: tag.slackTeamId,
-// 		user: tag.user,
-// 		userGroup: tag.userGroup,
-// 	});
-// }
-//
-// function putTag(req, res) {
-//   const tagId = req.params.id;
-//   const isPrivate = req.body.tag.isPrivate;
-// 	const tagName = req.body.tag.name;
-//
-// 	console.log('putTag', tagId, tagName);
-//   if (req.user.id === req.body.tag.user || req.user.slackProfile.isTeamAdmin) {
-//     Tag.update({_id: tagId}, // removed user: req.user.id temporarily
+// 	console.log('putCategory', categoryId, categoryName);
+//   if (req.user.id === req.body.category.user || req.user.slackProfile.isTeamAdmin) {
+//     Category.update({_id: categoryId}, // removed user: req.user.id temporarily
 //       {$set: {
-//         name: tagName,
-//         colour: req.body.tag.colour,
-//         isPrivate: req.body.tag.isPrivate
+//         name: categoryName,
+//         colour: req.body.category.colour,
+//         isPrivate: req.body.category.isPrivate
 //         }
 //       }
 //     ).then(() => {
-//       Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
+//       Item.find({user: req.user.id, categories: {$in: [categoryId]}}, (err, items) => {
 //         if (err) {
 //           return res.status(404).send();
 //         }
@@ -204,13 +203,13 @@ function makeEmberCategory() {
 //       return res.status(400).end();
 //     });
 //   }	else {
-// 		console.log('userId', req.user.id, 'tag user', req.body.tag.user, req.user.slackProfile.isTeamAdmin);
+// 		console.log('userId', req.user.id, 'category user', req.body.category.user, req.user.slackProfile.isTeamAdmin);
 // 		return res.status(401).end();
 // 	}
 // }
 //
-// function deleteTag(req, res){
-//   Tag.remove({ _id: req.params.id }).exec().then(() => {
+// function deleteCategory(req, res){
+//   Category.remove({ _id: req.params.id }).exec().then(() => {
 //     return res.send({});
 //   }).then(null, (err) => {
 // 		console.log(err);
