@@ -3,7 +3,7 @@ const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
 //const Item = db.model('Item');
-//const Category = db.model('Category');
+const Category = db.model('Category');
 //const UserGroup = db.model('UserGroup');
 
 module.exports.autoroute = {
@@ -14,7 +14,7 @@ module.exports.autoroute = {
 };
 
 function getCategories(req, res){
-	if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
+	//if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
 }
 
@@ -27,7 +27,7 @@ function getGroupCategories(req, res) {
 	}
 	Category.find({userGroup: groupId}).exec().then((categories) => {
 		if (categories) {
-			return makeEmberCategories(groupId, categories, 'slack');
+			return makeEmberCategory(groupId, categories, 'slack');
 		}
 	}).then((obj) => {
 		res.send({ tags: obj.all });
@@ -36,7 +36,13 @@ function getGroupCategories(req, res) {
 	});
 }
 
+function postCategory() {
 
+}
+
+function makeEmberCategory() {
+	
+}
 
 
 // function getUserTags(req, res) {
