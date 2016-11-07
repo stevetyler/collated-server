@@ -2,7 +2,7 @@
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
-//const Item = db.model('Item');
+const Item = db.model('Item');
 const Category = db.model('Category');
 //const User = db.model('User');
 const UserGroup = db.model('UserGroup');
@@ -21,14 +21,14 @@ function getCategories(req, res){
 
 function getGroupCategories(req, res) {
 	const groupId = req.query.groupId;
-	console.log('slack categories', groupId);
+	console.log('group categories', groupId);
 
 	if (!groupId) {
 		return res.status(404).end();
 	}
 	Category.find({userGroup: groupId}).exec().then((categories) => {
 		if (categories) {
-			return makeEmberCategory(groupId, categories, 'slack');
+			return makeEmberCategories(groupId, categories, 'group');
 		}
 	}).then((obj) => {
 		res.send({ categories: obj.all });
@@ -43,10 +43,10 @@ function postCategory(req, res){
 		postGroupCategoryHandler(req, res);
 		return;
 	}
-	if (req.user.id === req.body.category.user) {
-		postUserCategoryHandler(req, res);
-		return;
-	}
+	// if (req.user.id === req.body.category.user) {
+	// 	postUserCategoryHandler(req, res);
+	// 	return;
+	// }
 	else {
 		res.status(401).end();
 		return;
@@ -76,19 +76,6 @@ function postGroupCategoryHandler(req, res) {
 	});
 }
 
-function postUserCategoryHandler(req, res) {
-	saveCategory(req.body.category).then(category => {
-		let emberCategory = category.makeEmberCategory();
-
-		res.send({'category': emberCategory});
-		return;
-	}).catch(err => {
-		console.log(err);
-		res.status(401).end();
-		return;
-	});
-}
-
 function saveCategory(category) {
 	return Category.create({
 		name: category.name,
@@ -101,10 +88,31 @@ function saveCategory(category) {
 	});
 }
 
+function makeEmberCategories(id, categories, type) {
+	let categoryPromises;
 
-
-function makeEmberCategory() {
-
+	if (type === 'user') {
+		categoryPromises = categories.map(category => Item.count({ user: id, categories: { $in: [ category._id ] }}));
+	}	else if (type === 'group') {
+		categoryPromises = categories.map(category => Item.count({ userGroup: id, categories: {$in: [category._id] }}));
+	}
+	if (categoryPromises) {
+		return Promise.all(categoryPromises).then(counts => {
+			return categories.reduce((obj, category, i) => {
+				const emberCategory = category.makeEmberCategory(counts[i]);
+				return category.isPrivate === 'true' ?
+					{
+						all: obj.all.concat(emberCategory),
+						public: obj.public } :
+					{
+						all: obj.all.concat(emberCategory),
+						public: obj.public.concat(emberCategory),
+					};
+			}, { all: [], public: [] });
+		});
+	}	else {
+		return { all: [], public: [] };
+	}
 }
 
 // function getUserCategories(req, res) {
@@ -143,33 +151,19 @@ function makeEmberCategory() {
 // 	});
 // }
 //
-// function makeEmberCategories(id, categories, type) {
-// 	let categoryPromises;
+
+// function postUserCategoryHandler(req, res) {
+// 	saveCategory(req.body.category).then(category => {
+// 		let emberCategory = category.makeEmberCategory();
 //
-// 	if (type === 'user') {
-// 		categoryPromises = categories.map(category => Item.count({ user: id, categories: { $in: [ category._id ] }}));
-// 	}	else if (type === 'slack') {
-// 		categoryPromises = categories.map(category => Item.count({ userGroup: id, categories: {$in: [category._id] }}));
-// 	}
-// 	if (categoryPromises) {
-// 		return Promise.all(categoryPromises).then(counts => {
-// 			return categories.reduce((obj, category, i) => {
-// 				const emberCategory = category.makeEmberCategory(counts[i]);
-// 				return category.isPrivate === 'true' ?
-// 					{
-// 						all: obj.all.concat(emberCategory),
-// 						public: obj.public } :
-// 					{
-// 						all: obj.all.concat(emberCategory),
-// 						public: obj.public.concat(emberCategory),
-// 					};
-// 			}, { all: [], public: [] });
-// 		});
-// 	}	else {
-// 		return { all: [], public: [] };
-// 	}
+// 		res.send({'category': emberCategory});
+// 		return;
+// 	}).catch(err => {
+// 		console.log(err);
+// 		res.status(401).end();
+// 		return;
+// 	});
 // }
-//
 
 //
 // function putCategory(req, res) {
