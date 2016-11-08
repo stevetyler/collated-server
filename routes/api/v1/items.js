@@ -394,27 +394,19 @@ function saveItem(body, user) {
 
 	return Tag.find({_id: {$in: itemTags}, user: user.id, isPrivate: 'true'}).then(function(tags) {
 		if (tags.length) {
-			Object.assign(item, {isPrivate: true});
+			return Object.assign(item, {isPrivate: true});
+		} else {
+			return item;
 		}
-	}).then(() => {
+	}).then(itemObj => {
 		if (user.id === body.item.user) {
-	    const newItem = new Item(item);
+	    const newItem = new Item(itemObj);
 
 	    return newItem.save();
 	  }
-	}).then((item) => {
-		return item.makeEmberItem();
+	}).then((newItem) => {
+		return newItem.makeEmberItem();
 	});
-}
-
-function makeUrlList(urlArr, titleArr) {
-	let bodyArr = urlArr.map((url, i) => {
-		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
-	});
-	let bodytext = bodyArr.reduce((str, url) => {
-		return str + '<li>' + url + '</li>';
-	}, '');
-	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
 function postChromeItemHandler(req, res) {
@@ -457,10 +449,6 @@ function saveChromeItem(reqBody) {
 			return newItem.save();
 		}
 	});
-}
-
-function containsUrl(message) {
-	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
 }
 
 function postBookmarkItemsHandler(req, res) {
@@ -597,4 +585,19 @@ function deleteItems(req, res) {
 		console.log(err);
 		return res.status(500).end();
 	});
+}
+
+
+function containsUrl(message) {
+	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
+}
+
+function makeUrlList(urlArr, titleArr) {
+	let bodyArr = urlArr.map((url, i) => {
+		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
+	});
+	let bodytext = bodyArr.reduce((str, url) => {
+		return str + '<li>' + url + '</li>';
+	}, '');
+	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
