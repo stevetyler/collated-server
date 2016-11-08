@@ -15,8 +15,12 @@ module.exports.autoroute = {
 };
 
 function getCategories(req, res){
+	console.log('get categories called');
 	//if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
+	else {
+		res.status(404).end();
+	}
 }
 
 function getGroupCategories(req, res) {
@@ -24,7 +28,8 @@ function getGroupCategories(req, res) {
 	console.log('group categories', groupId);
 
 	if (!groupId) {
-		return res.status(404).end();
+		res.status(404).end();
+		return;
 	}
 	Category.find({userGroup: groupId}).exec().then((categories) => {
 		if (categories) {
@@ -33,7 +38,8 @@ function getGroupCategories(req, res) {
 	}).then((obj) => {
 		res.send({ categories: obj.all });
 	}, () => {
-		return res.status(404).end();
+		res.status(404).end();
+		return;
 	});
 }
 
