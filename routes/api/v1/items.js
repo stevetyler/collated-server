@@ -431,23 +431,19 @@ function saveChromeItem(reqBody) {
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
 		return assignItemTags(titleArr[0], null, user.id);
-	}).then(tags => {
-		console.log('tags to be assigned', tags);
-		if (tags) {
-			const chromeItem = {
-				user: reqBody.username,
-				createdDate: new Date(),
-				body: text,
-				title: reqBody.titlearr,
-				author: reqBody.username,
-				tags: tags,
-				isPrivate: false,
-				type: 'bookmark'
-			};
-			const newItem = new Item(chromeItem);
-			console.log('new item created');
-			return newItem.save();
-		}
+	}).then(tagsObj => {
+		console.log('tags to be assigned', tagsObj);
+		return tagsObj === 'object' ? Item.create({
+			author: reqBody.username,
+			body: text,
+			category: tagsObj.categoryId,
+			createdDate: new Date(),
+			isPrivate: false,
+			tags: tagsObj.tagIds,
+			title: reqBody.titlearr,
+			type: 'bookmark',
+			user: reqBody.username,
+		}) : null;
 	});
 }
 
@@ -567,9 +563,9 @@ function saveSlackItem(message) {
 			Object.assign(slackItem, {userGroup: userGroup.id});
 		}
 		return assignItemTags(message.text, message.team_id, null);
-	}).then(tags => {
-    console.log('tags found for slack item', tags);
-    return Object.assign({}, slackItem, {tags: tags});
+	}).then(tagsObj => {
+    console.log('tags found for slack item', tagsObj);
+    return Object.assign({}, slackItem, {category: tagsObj.categoryId, tags: tagsObj.tagIds});
   }).then(function(slackItem) {
 		let newItem = new Item(slackItem);
 
