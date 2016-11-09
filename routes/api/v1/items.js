@@ -553,7 +553,7 @@ function saveSlackItem(message) {
 		if (typeof newCategory === 'object') {
 			Object.assign(slackItem, {category: newCategory});
 		}
-		return assignItemTags(message.text, slackItem.userGroup, null);
+		return assignItemTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
     console.log('tags found for slack item', tagsObj);
     return Object.assign({}, slackItem, {category: tagsObj.categoryId, tags: tagsObj.tagIds});
