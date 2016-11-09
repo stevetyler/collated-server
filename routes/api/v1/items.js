@@ -1,18 +1,20 @@
 'use strict';
+const BPromise = require('bluebird');
 const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
-const BPromise = require('bluebird');
 
+const assignItemTags = require('../../../lib/assign-item-tags.js');
+const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
+const twitterItemImporter = require('../../../lib/import-twitter-items.js');
+
+const categorySchema = require('../../../schemas/category.js');
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
 const userGroupSchema = require('../../../schemas/userGroup.js');
 
-const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const twitterItemImporter = require('../../../lib/import-twitter-items.js');
-const assignItemTags = require('../../../lib/assign-item-tags.js');
-
+const Category = mongoose.model('Category', categorySchema);
 const Item = mongoose.model('Item', itemSchema);
 const Tag = mongoose.model('Tag', tagSchema);
 const User = mongoose.model('User', userSchema);
@@ -22,7 +24,7 @@ module.exports.autoroute = {
 	get: {
 		'/items': getItems,
 		'/items/get-title': getTitle,
-		'/items/copyEmberItems': copyEmberItems
+		//'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -89,33 +91,6 @@ function getUserItemsHandler(req, res) {
 		});
 	}, () => {
 		res.status(404).end();
-	});
-}
-
-function copyEmberItems(req, res) {
-	// copy ember items to slack team
-	return Item.find({user: 'stevetyler_uk', tags: {$in: ['5718a22b5dff4d1d3c81ae56']}}).then(items => {
-	  console.log('ember items found');
-	  let itemPromiseArr = items.map(item => {
-	    let newSlackItem = {
-	      user: 'stevetyler',
-	      createdDate: item.createdDate,
-	      body: item.body,
-	      author: item.author,
-	  		isPrivate: false,
-	  		type: item.type,
-	      slackTeamId: 'T03SSL0FF' // Ember-London team id
-	    };
-	    console.log('save new ember item', newSlackItem);
-	    Item.create(newSlackItem);
-	  });
-	  return Promise.all(itemPromiseArr);
-	}).then(() => {
-		res.send({
-			items: ['success']
-		});
-	}).catch(err => {
-	  console.log(err);
 	});
 }
 
@@ -548,7 +523,7 @@ function postSlackItemsHandler(req, res) {
 function saveSlackItem(message) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	let slackItem = {
+	const slackItem = {
     user: message.user_name,
 		author: message.user_name,
     createdDate: newTimestamp,
@@ -562,15 +537,29 @@ function saveSlackItem(message) {
 		if (typeof userGroup === 'object') {
 			Object.assign(slackItem, {userGroup: userGroup.id});
 		}
-		return assignItemTags(message.text, message.team_id, null);
+		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
+	}).then(slackCategory => {
+		if (typeof slackCategory === 'object') {
+			Object.assign(slackItem, {category: slackCategory});
+		} else {
+			console.log('create new slack category');
+			return Category.create({
+				name: message.channel_name,
+			  slackChannelId: message.channel_id,
+			  userGroup: slackItem.userGroup
+			});
+		}
+	}).then(newCategory => {
+		if (typeof newCategory === 'object') {
+			Object.assign(slackItem, {category: newCategory});
+		}
+		return assignItemTags(message.text, slackItem.userGroup, null);
 	}).then(tagsObj => {
     console.log('tags found for slack item', tagsObj);
     return Object.assign({}, slackItem, {category: tagsObj.categoryId, tags: tagsObj.tagIds});
   }).then(function(slackItem) {
-		let newItem = new Item(slackItem);
-
 		console.log('new slack item', slackItem);
-		return newItem.save();
+		return Item.create(slackItem);
 	});
 }
 
@@ -597,3 +586,30 @@ function makeUrlList(urlArr, titleArr) {
 	}, '');
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
+
+// function copyEmberItems(req, res) {
+// 	// copy ember items to slack team
+// 	return Item.find({user: 'stevetyler_uk', tags: {$in: ['5718a22b5dff4d1d3c81ae56']}}).then(items => {
+// 	  console.log('ember items found');
+// 	  let itemPromiseArr = items.map(item => {
+// 	    let newSlackItem = {
+// 	      user: 'stevetyler',
+// 	      createdDate: item.createdDate,
+// 	      body: item.body,
+// 	      author: item.author,
+// 	  		isPrivate: false,
+// 	  		type: item.type,
+// 	      slackTeamId: 'T03SSL0FF' // Ember-London team id
+// 	    };
+// 	    console.log('save new ember item', newSlackItem);
+// 	    Item.create(newSlackItem);
+// 	  });
+// 	  return Promise.all(itemPromiseArr);
+// 	}).then(() => {
+// 		res.send({
+// 			items: ['success']
+// 		});
+// 	}).catch(err => {
+// 	  console.log(err);
+// 	});
+// }
