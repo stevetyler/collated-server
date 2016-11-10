@@ -534,12 +534,13 @@ function saveSlackItem(message) {
   };
 
 	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
-		if (typeof userGroup === 'object') {
+		if (userGroup !== null && typeof userGroup === 'object') {
 			Object.assign(slackItem, {userGroup: userGroup.id});
 		}
 		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
 	}).then(slackCategory => {
-		if (typeof slackCategory === 'object') {
+		if (slackCategory !== null && typeof slackCategory === 'object') {
+			console.log('slack category found', slackCategory);
 			Object.assign(slackItem, {category: slackCategory});
 		} else {
 			console.log('create new slack category');
@@ -550,17 +551,15 @@ function saveSlackItem(message) {
 			});
 		}
 	}).then(newCategory => {
-		if (typeof newCategory === 'object') {
+		if (newCategory !== null && typeof newCategory === 'object') {
 			Object.assign(slackItem, {category: newCategory});
 		}
 		return assignItemTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
-    console.log('tags found for slack item', tagsObj);
-    return Object.assign({}, slackItem, {category: tagsObj.categoryId, tags: tagsObj.tagIds});
-  }).then(function(slackItem) {
-		console.log('new slack item', slackItem);
-		return Item.create(slackItem);
-	});
+		Object.assign({}, slackItem, {tags: tagsObj.tagIds});
+		console.log('slack item to create', slackItem);
+    return Item.create(slackItem);
+  });
 }
 
 function deleteItems(req, res) {
