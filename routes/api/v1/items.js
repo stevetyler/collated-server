@@ -4,7 +4,6 @@ const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
-const assignItemTags = require('../../../lib/assign-item-tags.js');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
@@ -160,7 +159,7 @@ function getSlackTeamItems(query) {
 	console.log('slack team query', teamQuery);
 	return Item.paginate(teamQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		console.log('slack items found', pagedObj);
+		//console.log('slack items found', pagedObj);
 		return makeEmberItems(query.groupId, pagedObj);
 		}
 	);
@@ -405,7 +404,7 @@ function saveChromeItem(reqBody) {
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		return assignItemTags(titleArr[0], null, user.id);
+		return Item.assignCategoryAndTags(titleArr[0], null, user.id);
 	}).then(tagsObj => {
 		console.log('tags to be assigned', tagsObj);
 		return tagsObj === 'object' ? Item.create({
@@ -541,21 +540,19 @@ function saveSlackItem(message) {
 		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
 	}).then(slackCategory => {
 		if (slackCategory !== null && typeof slackCategory === 'object') {
-			console.log('slack category found', slackCategory);
-			Object.assign(slackItem, {category: slackCategory});
+			//console.log('slack category found', slackCategory);
+			Object.assign(slackItem, {category: slackCategory._id});
 		} else {
 			console.log('create new slack category');
 			return createCategoryAndTag(message, slackItem.userGroup);
 		}
 	}).then(idObj => {
-		console.log('idObj returned', idObj);
 		if (idObj !== null && typeof idObj === 'object') {
 			Object.assign(slackItem, {category: idObj.categoryId});
 		}
-		return assignItemTags(message.text, slackItem.userGroup);
+		return Item.assignCategoryAndTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
-		Object.assign({}, slackItem, {tags: tagsObj.tagIds});
-		console.log('slack item to create', slackItem);
+		Object.assign(slackItem, {tags: tagsObj.tagIds});
     return Item.create(slackItem);
   });
 }
