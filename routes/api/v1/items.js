@@ -507,6 +507,7 @@ function saveBookmarkItem(bookmark, userId) {
 }
 
 function postSlackItemsHandler(req, res) {
+	console.log('post slack item called');
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
 	let promiseArr = messagesArr.reduce((arr, message) => {
 		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
@@ -544,15 +545,12 @@ function saveSlackItem(message) {
 			Object.assign(slackItem, {category: slackCategory});
 		} else {
 			console.log('create new slack category');
-			return Category.create({
-				name: message.channel_name,
-			  slackChannelId: message.channel_id,
-			  userGroup: slackItem.userGroup
-			});
+			return createCategoryAndTag(message, slackItem.userGroup);
 		}
-	}).then(newCategory => {
-		if (newCategory !== null && typeof newCategory === 'object') {
-			Object.assign(slackItem, {category: newCategory});
+	}).then(idObj => {
+		console.log('idObj returned', idObj);
+		if (idObj !== null && typeof idObj === 'object') {
+			Object.assign(slackItem, {category: idObj.categoryId});
 		}
 		return assignItemTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
@@ -560,6 +558,27 @@ function saveSlackItem(message) {
 		console.log('slack item to create', slackItem);
     return Item.create(slackItem);
   });
+}
+
+function createCategoryAndTag(message, userGroupId) {
+	const idObj = {};
+	console.log('createCategory', message, userGroupId);
+	return Category.create({
+		name: message.channel_name,
+		slackChannelId: message.channel_id,
+		userGroup: userGroupId
+	}).then(category => {
+		Object.assign(idObj, {categoryId: category._id});
+		return Tag.create({
+			name: 'unassigned',
+			category: category._id,
+			userGroup: category.userGroup
+		});
+	}).then(tag => {
+		Object.assign(idObj, {unassignedTagId: tag._id});
+		console.log('idObj to be returned', idObj);
+		return idObj;
+	});
 }
 
 function deleteItems(req, res) {
