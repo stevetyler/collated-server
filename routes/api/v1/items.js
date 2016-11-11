@@ -24,6 +24,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		//'/items/copyEmberItems': copyEmberItems
+		'items/createCategories': createItemCategories
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -600,6 +601,39 @@ function makeUrlList(urlArr, titleArr) {
 		return str + '<li>' + url + '</li>';
 	}, '');
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
+}
+
+function createItemCategories(req, res) {
+	// get all tags for stevetyler_uk
+	// if colour is not cp-colour-1 create category and return new id
+	// find all items
+	// map over tagIds to find arr of tag objects
+	// for first tagId create new category
+	// update item with category id
+	// for other tags update tag with category id
+
+	Item.find({user: 'stevetyler_uk'}).then(items => {
+		const itemTagsPromiseArr = items.map(item => {
+			item.tags.map((tagId) => {
+				return Tag.find({_id: tagId});
+			});
+		});
+
+		Promise.all(itemTagsPromiseArr).then(tagsObjArr => {
+			//tagsObjArr[0];
+
+			tagsObjArr.map((tag, i) => {
+				if (i === 0) {
+					Category.create({
+						colour: tag.colour,
+						isPrivate: tag.isPrivate,
+						name: tag.name,
+						user: tag.user
+					});
+				}
+			});
+		});
+	});
 }
 
 // function copyEmberItems(req, res) {
