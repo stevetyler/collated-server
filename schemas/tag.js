@@ -9,10 +9,7 @@ var tagSchema = new Schema({
   itemCount: String,
   isPrivate: String,
   isReserved: String,
-  isSlackChannel: String, // moved to category
   name: String,
-  slackChannelId: String, // moved to category
-  slackTeamId: String, // moved to userGroup
   user: String,
   userGroup: String
 });
@@ -20,13 +17,11 @@ var tagSchema = new Schema({
 tagSchema.methods.makeEmberTag = function(count) {
 	var emberTag = {
 		id: this._id,
-    name: this.name,
+    category: this.category,
 		colour: this.colour,
     itemCount: count,
     isPrivate: this.isPrivate,
-    isSlackChannel: this.isSlackChannel,
-    slackChannelId: this.slackChannelId,
-    slackTeamId: this.slackTeamId,
+    name: this.name,
     user: this.user,
     userGroup: this.userGroup,
 	};

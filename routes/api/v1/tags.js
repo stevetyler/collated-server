@@ -152,9 +152,10 @@ function postUserTagHandler(req, res) {
 
 function saveTag(tag) {
 	return Tag.create({
-		name: tag.name,
+		category: tag.category,
 		colour: tag.colour,
 		isPrivate: tag.isPrivate,
+		name: tag.name,
 		slackChannelId: tag.slackChannelId,
 		slackTeamId: tag.slackTeamId,
 		user: tag.user,
