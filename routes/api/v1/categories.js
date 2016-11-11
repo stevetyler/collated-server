@@ -64,7 +64,7 @@ function postGroupCategoryHandler(req, res) {
 	console.log('post group category called');
 	// need to check adminPermissions with user id
 	UserGroup.findOne({id: category.userGroup}).then(group => {
-		if (typeof group === 'object') {
+		if (group !== null && typeof group === 'object') {
 			// console.log('group found', group);
 			return saveCategory(req.body.category);
 		}

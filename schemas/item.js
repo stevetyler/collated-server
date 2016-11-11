@@ -1,16 +1,21 @@
 'use strict';
-var mongoose = require('mongoose');
-var mongoosePaginate = require('mongoose-paginate');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
+const Schema = mongoose.Schema;
 
-var commentSchema = new Schema({
+const categorySchema = require('../schemas/category.js');
+const Category = mongoose.model('Category', categorySchema);
+const tagSchema = require('../schemas/tag.js');
+const Tag = mongoose.model('Tag', tagSchema);
+
+const commentSchema = new Schema({
   author: String,
   body: String,
   createdDate: String,
   item: String
 });
 
-var itemSchema = new Schema({
+const itemSchema = new Schema({
   id: String,
   author: String,
   body: String,
@@ -31,7 +36,7 @@ var itemSchema = new Schema({
 itemSchema.plugin(mongoosePaginate);
 
 itemSchema.methods.makeEmberItem = function() {
-  var comments = this.comments.map(function(comment) {
+  const comments = this.comments.map(function(comment) {
     return {
       id: comment._id,
       author: comment.author,
@@ -40,7 +45,7 @@ itemSchema.methods.makeEmberItem = function() {
       item: comment.item
     };
   });
-  var emberItem = {
+  const emberItem = {
     id: this._id,
     author: this.author,
     body: this.body,
@@ -58,6 +63,50 @@ itemSchema.methods.makeEmberItem = function() {
     userGroup: this.userGroup
   };
   return emberItem;
+};
+
+itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) {
+  const text = titleText.toLowerCase();
+  const query = groupId ? {userGroup: groupId} : {user: userId};
+  let categoryId;
+
+  return Category.find(query).then(categories => {
+    if (!groupId && Array.isArray(categories)) {
+      return categories.forEach(category => {
+        let categoryname = category.name.toLowerCase();
+
+        if (text.indexOf(categoryname) !== -1) {
+          categoryId = category._id;
+        }
+      });
+    }
+  }).then(() => {
+    return Tag.find(query);
+  }).then(tags => {
+    if (Array.isArray(tags)) {
+      return tags.reduce((obj, tag) => {
+  			let tagname = tag.name.toLowerCase();
+
+  	    if (text.indexOf(tagname) !== -1) {
+  	      console.log('tag found', tag);
+  	      obj.tagIds.push(tag._id);
+  	    }
+  			if (tagname === 'unassigned') {
+  				obj.unassignedId = tag._id;
+  			}
+  			return obj;
+  	  }, {tagIds: [], unassignedId: null});
+    }
+	}).then(obj => {
+		console.log('1 tags returned', obj);
+		return obj.tagIds.length > 0 ? {
+      categoryId: categoryId,
+      tagIds: obj.tagIds,
+		} : {
+      categoryId: categoryId,
+      tagIds: obj.unassignedId
+    };
+	});
 };
 
 module.exports = itemSchema;

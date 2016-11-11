@@ -4,7 +4,6 @@ const MetaInspector = require('node-metainspector');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
-const assignItemTags = require('../../../lib/assign-item-tags.js');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
@@ -160,7 +159,7 @@ function getSlackTeamItems(query) {
 	console.log('slack team query', teamQuery);
 	return Item.paginate(teamQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		console.log('slack items found', pagedObj);
+		//console.log('slack items found', pagedObj);
 		return makeEmberItems(query.groupId, pagedObj);
 		}
 	);
@@ -405,7 +404,7 @@ function saveChromeItem(reqBody) {
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		return assignItemTags(titleArr[0], null, user.id);
+		return Item.assignCategoryAndTags(titleArr[0], null, user.id);
 	}).then(tagsObj => {
 		console.log('tags to be assigned', tagsObj);
 		return tagsObj === 'object' ? Item.create({
@@ -507,6 +506,7 @@ function saveBookmarkItem(bookmark, userId) {
 }
 
 function postSlackItemsHandler(req, res) {
+	console.log('post slack item called');
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
 	let promiseArr = messagesArr.reduce((arr, message) => {
 		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
@@ -534,32 +534,47 @@ function saveSlackItem(message) {
   };
 
 	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
-		if (typeof userGroup === 'object') {
+		if (userGroup !== null && typeof userGroup === 'object') {
 			Object.assign(slackItem, {userGroup: userGroup.id});
 		}
 		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
 	}).then(slackCategory => {
-		if (typeof slackCategory === 'object') {
-			Object.assign(slackItem, {category: slackCategory});
+		if (slackCategory !== null && typeof slackCategory === 'object') {
+			//console.log('slack category found', slackCategory);
+			Object.assign(slackItem, {category: slackCategory._id});
 		} else {
 			console.log('create new slack category');
-			return Category.create({
-				name: message.channel_name,
-			  slackChannelId: message.channel_id,
-			  userGroup: slackItem.userGroup
-			});
+			return createCategoryAndTag(message, slackItem.userGroup);
 		}
-	}).then(newCategory => {
-		if (typeof newCategory === 'object') {
-			Object.assign(slackItem, {category: newCategory});
+	}).then(idObj => {
+		if (idObj !== null && typeof idObj === 'object') {
+			Object.assign(slackItem, {category: idObj.categoryId});
 		}
-		return assignItemTags(message.text, slackItem.userGroup);
+		return Item.assignCategoryAndTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
-    console.log('tags found for slack item', tagsObj);
-    return Object.assign({}, slackItem, {category: tagsObj.categoryId, tags: tagsObj.tagIds});
-  }).then(function(slackItem) {
-		console.log('new slack item', slackItem);
-		return Item.create(slackItem);
+		Object.assign(slackItem, {tags: tagsObj.tagIds});
+    return Item.create(slackItem);
+  });
+}
+
+function createCategoryAndTag(message, userGroupId) {
+	const idObj = {};
+	console.log('createCategory', message, userGroupId);
+	return Category.create({
+		name: message.channel_name,
+		slackChannelId: message.channel_id,
+		userGroup: userGroupId
+	}).then(category => {
+		Object.assign(idObj, {categoryId: category._id});
+		return Tag.create({
+			name: 'unassigned',
+			category: category._id,
+			userGroup: category.userGroup
+		});
+	}).then(tag => {
+		Object.assign(idObj, {unassignedTagId: tag._id});
+		console.log('idObj to be returned', idObj);
+		return idObj;
 	});
 }
 

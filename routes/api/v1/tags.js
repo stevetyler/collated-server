@@ -25,7 +25,7 @@ function getUserTags(req, res) {
 		return res.status(404).end();
 	}
 	Tag.findOne({name: 'unassigned', user: id}).exec().then((tag) => {
-		if (typeof tag !== 'object') {
+		if (tag === null || typeof tag !== 'object') {
 			Tag.create({
 				name: 'unassigned',
 				colour: 'cp-colour-1',
