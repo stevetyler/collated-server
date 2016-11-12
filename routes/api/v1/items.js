@@ -604,37 +604,53 @@ function makeUrlList(urlArr, titleArr) {
 }
 
 function createItemCategories(req, res) {
-	// get all tags for stevetyler_uk
-	// if colour is not cp-colour-1 create category and return new id
-	// find all items
-	// map over tagIds to find arr of tag objects
-	// for first tagId create new category
-	// update item with category id
-	// for other tags update tag with category id
+	const itemsPromiseArr = Item.find({user: 'stevetyler_uk'}).then(items => {
+		return items;
+	});
 
-	Item.find({user: 'stevetyler_uk'}).then(items => {
-		const itemTagsPromiseArr = items.map(item => {
-			item.tags.map((tagId) => {
-				return Tag.find({_id: tagId});
-			});
+	Promise.all(itemsPromiseArr).then(items => {
+		items.map(item => {
+			return Promise.all(findItemTags(item));
 		});
-
-		Promise.all(itemTagsPromiseArr).then(tagsObjArr => {
-			//tagsObjArr[0];
-
-			tagsObjArr.map((tag, i) => {
-				if (i === 0) {
-					Category.create({
-						colour: tag.colour,
-						isPrivate: tag.isPrivate,
-						name: tag.name,
-						user: tag.user
-					});
-				}
-			});
+	}).then(objOfArrs => {
+		objOfArrs.tags.map(itemTags => {
+			createCategoryAndUpdateTags(itemTags);
 		});
 	});
 }
+
+function findItemTags(item) {
+	return item.tags.map((tagId) => {
+		return Tag.find({_id: tagId});
+	});
+}
+
+function createCategoryAndUpdateTags(tagsArr) {
+	let primaryTag = tagsArr[0];
+
+	return Category.create({
+		colour: primaryTag.colour,
+		isPrivate: primaryTag.isPrivate,
+		name: primaryTag.name,
+		user: primaryTag.user,
+		userGroup: primaryTag.usergroup
+	}).then(category => {
+		return Promise.all(updateTagsWithCategory(tagsArr, category));
+	}).then(() => {
+			// update item with category id
+	});
+}
+
+function updateTagsWithCategory(tagsArr, category) {
+	tagsArr.map((tag, i) => {
+		if (tag && i !== 0) {
+			tag.update({
+				category: category._id
+			});
+		}
+	});
+}
+
 
 // function copyEmberItems(req, res) {
 // 	// copy ember items to slack team
