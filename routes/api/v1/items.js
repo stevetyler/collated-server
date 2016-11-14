@@ -603,6 +603,13 @@ function makeUrlList(urlArr, titleArr) {
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
+
+// get all user tags
+// if tag does not have colour cp-1, create new category and push new object to categories array
+// get unassigned tag id and then get all items if tags array doesn't contain unassigned
+// forEach over items, get first tag id, forEach over tags array and get name
+
+
 function createItemCategories(req, res) {
 	const itemsPromiseArr = Item.find({user: 'stevetyler_uk'}).then(items => {
 		return items;
@@ -620,9 +627,7 @@ function createItemCategories(req, res) {
 }
 
 function findItemTags(item) {
-	return item.tags.map((tagId) => {
-		return Tag.find({_id: tagId});
-	});
+	return item.tags.map(tagId => Tag.find({_id: tagId}));
 }
 
 function createCategoryAndUpdateTags(tagsArr) {
