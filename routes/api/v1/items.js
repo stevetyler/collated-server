@@ -24,7 +24,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		//'/items/copyEmberItems': copyEmberItems
-		'items/createCategories': createItemCategories
+		'items/updateItems': updateItemsAndTags
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -603,51 +603,81 @@ function makeUrlList(urlArr, titleArr) {
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
-function createItemCategories(req, res) {
-	const itemsPromiseArr = Item.find({user: 'stevetyler_uk'}).then(items => {
-		return items;
-	});
 
-	Promise.all(itemsPromiseArr).then(items => {
-		items.map(item => {
-			return Promise.all(findItemTags(item));
+
+
+function updateItemsAndTags(req, res) {
+	const dataObj = {};
+
+	Tag.find({user: 'stevetyler_uk'}).then(tags => {
+		Object.assign(dataObj, {tags: tags});
+		const unassignedTagArr = tags.filter(tag => {
+			return tag.name === 'unassigned';
 		});
-	}).then(objOfArrs => {
-		objOfArrs.tags.map(itemTags => {
-			createCategoryAndUpdateTags(itemTags);
+		Object.assign(dataObj, {unassignedId: unassignedTagArr[0].id});
+
+		const categoryTagsArr = tags.filter(tag => {
+			return tag.colour !== 'cp-colour-1';
 		});
-	});
-}
+		const categoryPromiseArr = categoryTagsArr.map(tag => {
+			return createCategoryFromTag(tag);
+		});
 
-function findItemTags(item) {
-	return item.tags.map((tagId) => {
-		return Tag.find({_id: tagId});
-	});
-}
-
-function createCategoryAndUpdateTags(tagsArr) {
-	let primaryTag = tagsArr[0];
-
-	return Category.create({
-		colour: primaryTag.colour,
-		isPrivate: primaryTag.isPrivate,
-		name: primaryTag.name,
-		user: primaryTag.user,
-		userGroup: primaryTag.usergroup
-	}).then(category => {
-		return Promise.all(updateTagsWithCategory(tagsArr, category));
+		return Promise.all(categoryPromiseArr);
+	}).then(categories => {
+		Object.assign(dataObj, categories);
+		return Item.find({user: 'stevetyler_uk'});
+	}).then(items => {
+		updateItemAndTags(dataObj, items);
 	}).then(() => {
-			// update item with category id
+		res.send({items: []});
+	})
+	.catch(err => {
+		console.log(err);
+		res.status(401).end();
 	});
 }
 
-function updateTagsWithCategory(tagsArr, category) {
-	tagsArr.map((tag, i) => {
-		if (tag && i !== 0) {
-			tag.update({
-				category: category._id
+function updateItemAndTags(dataObj, items) {
+	const filteredItems = items.filter(item => {
+		return item.tags.indexOf(dataObj.unassignedId) === -1;
+	});
+
+	const itemsPromiseArr = filteredItems.forEach(item => {
+		const primaryTagId = item.tags[0];
+		const category = dataObj.categories.filter(category => {
+			return category._id === primaryTagId;
+		});
+		const categoryId = category[0].id;
+		const newTags = item.tags;
+		newTags.shift();
+
+		return item.update({
+			category: categoryId,
+			tags: newTags
+		}).then(item => {
+			return item.save();
+		}).then(item => {
+			const tagsPromiseArr = item.tags.map(tag => {
+				tag.update({
+					category: categoryId
+				}).then(tag => {
+					tag.save();
+				});
 			});
-		}
+			return Promise.all(tagsPromiseArr);
+		});
+	});
+	return Promise.all(itemsPromiseArr);
+}
+
+function createCategoryFromTag(tagObj) {
+	return Category.create({
+		colour: tagObj.colour,
+		isPrivate: tagObj.isPrivate,
+		name: tagObj.name,
+		user: tagObj.user,
+		//userGroup: tagObj.usergroup
 	});
 }
 
