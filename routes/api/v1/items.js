@@ -604,8 +604,6 @@ function makeUrlList(urlArr, titleArr) {
 }
 
 
-
-
 function updateItemsAndTags(req, res) {
 	const dataObj = {};
 
@@ -625,6 +623,7 @@ function updateItemsAndTags(req, res) {
 
 		return Promise.all(categoryPromiseArr);
 	}).then(categories => {
+		console.log('categories created', categories);
 		Object.assign(dataObj, categories);
 		return Item.find({user: 'stevetyler_uk'});
 	}).then(items => {
@@ -639,6 +638,7 @@ function updateItemsAndTags(req, res) {
 }
 
 function updateItemAndTags(dataObj, items) {
+	console.log('update item and tags', dataObj);
 	const filteredItems = items.filter(item => {
 		return item.tags.indexOf(dataObj.unassignedId) === -1;
 	});
