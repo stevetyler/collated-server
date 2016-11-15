@@ -23,7 +23,7 @@ module.exports.autoroute = {
 	get: {
 		'/items': getItems,
 		'/items/get-title': getTitle,
-		'items/updateMyItems': updateMyItemsAndTagsHandler
+		'/items/updateMyItems': updateMyItemsAndTagsHandler
 		//'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
@@ -605,6 +605,7 @@ function makeUrlList(urlArr, titleArr) {
 
 // update my items with new categories and update tags with new category
 function updateMyItemsAndTagsHandler(req, res) {
+	console.log('update my items called');
 	updateMyItemsAndTags().then(() => {
 		res.send({items: []});
 	})
@@ -623,15 +624,19 @@ function updateMyItemsAndTags() {
 			return tag.name === 'unassigned';
 		});
 		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
-
-		return makeCategoriesFromTags(tags);
+		console.log('1 unassigned tag id', dataObj.unassignedId);
+		makeCategoriesFromTags(tags);
+	}).then(() => {
+		return Category.find({user: 'stevetyler_uk'});
 	}).then(categories => {
-		console.log('categories created', categories);
+		console.log('2 categories created', categories);
 		Object.assign(dataObj, categories);
 		return Item.find({user: 'stevetyler_uk'});
 	}).then(items => {
-		updateItemsWithCategories(dataObj, items);
+		console.log('3 update items with categories', items.length);
+		return updateItemsWithCategories(dataObj, items);
 	}).then(updatedItems => {
+		console.log('4 update item tags');
 		const itemsTagsPromiseArr = updatedItems.map(item => {
 			updateItemTagsWithCategory(item);
 		});
@@ -640,6 +645,7 @@ function updateMyItemsAndTags() {
 }
 
 function makeCategoriesFromTags(tags) {
+	console.log('makeCategories called');
 	const categoryTagsArr = tags.filter(tag => {
 		return tag.colour !== 'cp-colour-1';
 	});
@@ -656,7 +662,7 @@ function makeCategoriesFromTags(tags) {
 }
 
 function updateItemsWithCategories(dataObj, items) {
-	console.log('update item with categories', dataObj);
+	console.log('update item with categories', dataObj.categories, items.length);
 	const filteredItems = items.filter(item => {
 		return item.tags.indexOf(dataObj.unassignedId) === -1;
 	});
@@ -670,23 +676,26 @@ function updateItemsWithCategories(dataObj, items) {
 		const newTags = item.tags;
 		newTags.shift();
 
-		return item.update({
-			category: categoryId,
-			tags: newTags
-		}).then(item => {
-			return item.save();
-		});
+		return Item.update({_id: item._id},
+			{$set: {
+				category: categoryId,
+				tags: newTags
+				}
+			}
+		);
 	});
 	return Promise.all(itemsPromiseArr);
 }
 
 function updateItemTagsWithCategory(item) {
 	const tagsPromiseArr = item.tags.map(tag => {
-		tag.update({
-			category: item.category
-		}).then(tag => {
-			tag.save();
-		});
+
+		return Tag.update({_id: tag._id},
+			{$set: {
+				category: item.category
+				}
+			}
+		);
 	});
 	return Promise.all(tagsPromiseArr);
 }
