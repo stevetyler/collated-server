@@ -679,17 +679,20 @@ function updateItemsWithCategories(dataObj, items) {
 			return category.name === primaryTag[0].name;
 		});
 		console.log('category found', categoryArr);
-		const categoryId = categoryArr[0]._id;
-		const newTags = item.tags;
-		newTags.shift();
-		console.log('new tags to apply');
-		return Item.update({_id: item._id},
-			{$set: {
-				category: categoryId,
-				tags: newTags
+
+		if (categoryArr.length) {
+			const categoryId = categoryArr[0]._id;
+			const newTags = item.tags;
+			newTags.shift();
+			console.log('new tags to apply to item', item);
+			return Item.update({_id: item._id},
+				{$set: {
+					category: categoryId,
+					tags: newTags
+					}
 				}
-			}
-		);
+			);
+		}
 	});
 	return Promise.all(itemsPromiseArr);
 }
