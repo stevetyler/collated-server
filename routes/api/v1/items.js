@@ -669,13 +669,20 @@ function updateItemsWithCategories(dataObj, items) {
 
 	const itemsPromiseArr = filteredItems.map(item => {
 		const primaryTagId = item.tags[0];
-		const category = dataObj.categories.filter(category => {
-			return category._id === primaryTagId;
+		console.log('primaryTagId', primaryTagId, 'dataObj.tags', dataObj.tags.length);
+		const primaryTag = dataObj.tags.filter(tag => {
+			return tag._id == primaryTagId;
 		});
-		const categoryId = category[0]._id;
+		console.log('primaryTag found', primaryTag, 'categories', dataObj.categories.length);
+		const categoryArr = dataObj.categories.filter(category => {
+			console.log('category name to filter', category.name, primaryTag[0].name);
+			return category.name === primaryTag[0].name;
+		});
+		console.log('category found', categoryArr);
+		const categoryId = categoryArr[0]._id;
 		const newTags = item.tags;
 		newTags.shift();
-
+		console.log('new tags to apply');
 		return Item.update({_id: item._id},
 			{$set: {
 				category: categoryId,
