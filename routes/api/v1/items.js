@@ -24,7 +24,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		//'/items/copyEmberItems': copyEmberItems
-		'items/updateItems': updateItemsAndTags
+		'items/updateMyItems': updateMyItemsAndTags
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -604,7 +604,7 @@ function makeUrlList(urlArr, titleArr) {
 }
 
 
-function updateItemsAndTags(req, res) {
+function updateMyItemsAndTags(req, res) {
 	const dataObj = {};
 
 	Tag.find({user: 'stevetyler_uk'}).then(tags => {
@@ -612,13 +612,18 @@ function updateItemsAndTags(req, res) {
 		const unassignedTagArr = tags.filter(tag => {
 			return tag.name === 'unassigned';
 		});
-		Object.assign(dataObj, {unassignedId: unassignedTagArr[0].id});
+		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
 
 		const categoryTagsArr = tags.filter(tag => {
 			return tag.colour !== 'cp-colour-1';
 		});
 		const categoryPromiseArr = categoryTagsArr.map(tag => {
-			return createCategoryFromTag(tag);
+			return Category.create({
+				colour: tag.colour,
+				isPrivate: tag.isPrivate,
+				name: tag.name,
+				user: tag.user
+			});
 		});
 
 		return Promise.all(categoryPromiseArr);
@@ -627,7 +632,7 @@ function updateItemsAndTags(req, res) {
 		Object.assign(dataObj, categories);
 		return Item.find({user: 'stevetyler_uk'});
 	}).then(items => {
-		updateItemAndTags(dataObj, items);
+		updateItemsWithCategories(dataObj, items);
 	}).then(() => {
 		res.send({items: []});
 	})
@@ -637,8 +642,8 @@ function updateItemsAndTags(req, res) {
 	});
 }
 
-function updateItemAndTags(dataObj, items) {
-	console.log('update item and tags', dataObj);
+function updateItemsWithCategories(dataObj, items) {
+	console.log('update item with categories', dataObj);
 	const filteredItems = items.filter(item => {
 		return item.tags.indexOf(dataObj.unassignedId) === -1;
 	});
@@ -648,7 +653,7 @@ function updateItemAndTags(dataObj, items) {
 		const category = dataObj.categories.filter(category => {
 			return category._id === primaryTagId;
 		});
-		const categoryId = category[0].id;
+		const categoryId = category[0]._id;
 		const newTags = item.tags;
 		newTags.shift();
 
@@ -669,16 +674,6 @@ function updateItemAndTags(dataObj, items) {
 		});
 	});
 	return Promise.all(itemsPromiseArr);
-}
-
-function createCategoryFromTag(tagObj) {
-	return Category.create({
-		colour: tagObj.colour,
-		isPrivate: tagObj.isPrivate,
-		name: tagObj.name,
-		user: tagObj.user,
-		//userGroup: tagObj.usergroup
-	});
 }
 
 
