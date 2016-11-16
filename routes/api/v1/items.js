@@ -624,23 +624,26 @@ function updateMyItemsAndTags() {
 			return tag.name === 'unassigned';
 		});
 		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
-		console.log('1 unassigned tag id', dataObj.unassignedId);
 		makeCategoriesFromTags(tags);
 	}).then(() => {
 		return Category.find({user: 'stevetyler_uk'});
 	}).then(categories => {
-		console.log('2 categories created', categories);
 		Object.assign(dataObj, {categories: categories});
 		return Item.find({user: 'stevetyler_uk'});
 	}).then(items => {
-		console.log('3 update items with categories', items.length);
 		return updateItemsWithCategories(dataObj, items);
+	}).then(() => {
+		return Item.find({user: 'stevetyler_uk'});
 	}).then(updatedItems => {
-		console.log('4 update item tags');
-		const itemsTagsPromiseArr = updatedItems.map(item => {
-			updateItemTagsWithCategory(item);
-		});
-		Promise.all(itemsTagsPromiseArr);
+		console.log('4 update item tags', updatedItems.length);
+		if (Array.isArray(updatedItems) && updatedItems.length > 0) {
+			const itemsTagsPromiseArr = updatedItems.forEach(item => {
+				if (item.category) {
+					return updateItemTagsWithCategory(item);
+				}
+			});
+			Promise.all(itemsTagsPromiseArr);
+		}
 	});
 }
 
@@ -668,19 +671,23 @@ function updateItemsWithCategories(dataObj, items) {
 	});
 
 	const itemsPromiseArr = filteredItems.map(item => {
+		let categoryArr = [];
 		const primaryTagId = item.tags[0];
 		console.log('primaryTagId', primaryTagId, 'dataObj.tags', dataObj.tags.length);
-		const primaryTag = dataObj.tags.filter(tag => {
+		const primaryTagArr = dataObj.tags.filter(tag => {
 			return tag._id == primaryTagId;
 		});
-		console.log('primaryTag found', primaryTag, 'categories', dataObj.categories.length);
-		const categoryArr = dataObj.categories.filter(category => {
-			console.log('category name to filter', category.name, primaryTag[0].name);
-			return category.name === primaryTag[0].name;
-		});
-		console.log('category found', categoryArr);
 
-		if (categoryArr.length) {
+		if (primaryTagArr.length) {
+			console.log('primaryTag found', primaryTagArr, 'categories', dataObj.categories.length);
+			categoryArr = dataObj.categories.filter(category => {
+				console.log('category name to filter', category.name, primaryTagArr[0].name);
+				return category.name === primaryTagArr[0].name;
+			});
+			console.log('category found', categoryArr);
+		}
+
+		if (categoryArr.length && categoryArr[0]) {
 			const categoryId = categoryArr[0]._id;
 			const newTags = item.tags;
 			newTags.shift();
@@ -698,16 +705,19 @@ function updateItemsWithCategories(dataObj, items) {
 }
 
 function updateItemTagsWithCategory(item) {
-	const tagsPromiseArr = item.tags.map(tag => {
+	if (item && typeof item === 'object') {
+		console.log('item tags to be updated', item);
+		const tagsPromiseArr = item.tags.map(tagId => {
 
-		return Tag.update({_id: tag._id},
-			{$set: {
-				category: item.category
+			return Tag.update({_id: tagId},
+				{$set: {
+					category: item.category
+					}
 				}
-			}
-		);
-	});
-	return Promise.all(tagsPromiseArr);
+			);
+		});
+		return Promise.all(tagsPromiseArr);
+	}
 }
 
 
