@@ -120,9 +120,13 @@ function getFilteredUserItemsHandler(req, res) {
 function getFilteredItems(query, authUser) {
 	const tagNames = query.tags.split('+');
 
-	let tagPromisesArr = tagNames.map(tagname => {
+	let tagPromisesArr = tagNames.map((tagname, i) => {
 		let tagsQuery = Object.assign({}, {user: query.userId}, {name: tagname});
-		return Tag.findOne(tagsQuery);
+		if (i === 0) {
+			return Category.findOne(tagsQuery);
+		} else {
+			return Tag.findOne(tagsQuery);
+		}
 	});
 
 	return Promise.all(tagPromisesArr).then((tagsArr) => {
@@ -132,8 +136,15 @@ function getFilteredItems(query, authUser) {
 			}
 		});
 	}).then((tagsArrIds) => {
-		let newQuery = Object.assign({}, {user: query.userId}, {tags: {$all:tagsArrIds}});
-
+		let categoryId = tagsArrIds.slice(0,1);
+		let tagIds = tagsArrIds.slice(1, tagsArrIds.length);
+		let newQuery;
+		
+		if (tagsArrIds.length === 1) {
+			newQuery = Object.assign({}, {user: query.userId}, {category: categoryId});
+		} else {
+			newQuery = Object.assign({}, {user: query.userId}, {category: categoryId, tags: {$all:tagIds}});
+		}
 		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
 		return makePublicOrPrivateItems(query, authUser, pagedObj);
