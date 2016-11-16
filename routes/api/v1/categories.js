@@ -16,8 +16,8 @@ module.exports.autoroute = {
 
 function getCategories(req, res){
 	console.log('get categories called');
-	//if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
-	if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
+	if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
+	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
 	else {
 		res.status(404).end();
 	}
@@ -39,6 +39,28 @@ function getGroupCategories(req, res) {
 		res.send({ categories: obj.all });
 	}, () => {
 		res.status(404).end();
+		return;
+	});
+}
+
+function getUserCategories(req, res) {
+	const userId = req.query.userId;
+	console.log('user categories', userId);
+
+	if (!userId) {
+		res.status(404).end();
+		return;
+	}
+	return Category.find({user: userId}).exec().then((categories) => {
+		console.log('categories found', categories.length);
+		if (categories.length) {
+			return makeEmberCategories(userId, categories, 'user');
+		}
+	}).then((obj) => {
+		console.log('obj returned', obj.all);
+		res.send({ categories: obj.all });
+	}, () => {
+		res.status(401).end();
 		return;
 	});
 }
@@ -95,9 +117,11 @@ function saveCategory(category) {
 }
 
 function makeEmberCategories(id, categories, type) {
+	console.log('make ember categories called');
 	let categoryPromises;
 
 	if (type === 'user') {
+		console.log('make ember user categories called');
 		categoryPromises = categories.map(category => Item.count({ user: id, categories: { $in: [ category._id ] }}));
 	}	else if (type === 'group') {
 		categoryPromises = categories.map(category => Item.count({ userGroup: id, categories: {$in: [category._id] }}));
