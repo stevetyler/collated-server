@@ -620,6 +620,7 @@ function copyEmberItems(req, res) {
 	      body: item.body,
 	      author: item.author,
 	  		isPrivate: false,
+				twitterTweetId: item.twitterTweetId,
 	  		type: item.type
 	    };
 	    console.log('save new ember item', newSlackItem);
