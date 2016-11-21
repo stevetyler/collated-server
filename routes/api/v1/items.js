@@ -23,7 +23,7 @@ module.exports.autoroute = {
 	get: {
 		'/items': getItems,
 		'/items/get-title': getTitle,
-		'/items/updateMyItems': updateMyItemsAndTagsHandler
+		//'/items/updateMyItems': updateMyItemsAndTagsHandler
 		//'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
@@ -47,12 +47,12 @@ function getItems(req, res) {
 	switch(req.query.operation)  {
 		case 'userItems':
 			return getUserItemsHandler(req, res);
+		case 'groupItems':
+			return getGroupItemsHandler(req, res);
 		case 'filterUserItems':
 			return getFilteredUserItemsHandler(req, res);
-		case 'slackTeamItems':
-			return getSlackTeamItemsHandler(req, res);
-		case 'filterSlackItems':
-			return getFilteredSlackItemsHandler(req, res);
+		case 'filterGroupItems':
+			return getFilteredGroupItemsHandler(req, res);
 		case 'importItems':
 			return getTwitterItemsHandler(req, res);
 		default:
@@ -61,28 +61,16 @@ function getItems(req, res) {
   return res.status(404).end();
 }
 
-function getTitle(req, res) {
-  const client = new MetaInspector(req.query.data, { timeout: 5000 });
-
-	client.on('fetch', function(){
-		if (client) {
-			var title = client.title + ' | Link';
-
-			return res.send(title);
-		}
-  });
-  client.on('error', function(err){
-		console.log(err);
-		return res.status('404').end();
-  });
-  client.fetch();
-}
-
 function getUserItemsHandler(req, res) {
-	const query = req.query;
-	const authUser = req.user;
+	const reqObj = {
+		authUser: req.user,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		userOrGroupId: req.query.userId,
+		userOrGroupQuery: {user: req.query.userId},
+	};
 	//console.log('query', query);
-	getUserItems(query, authUser).then(obj => {
+	getUserItems(reqObj).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
@@ -94,18 +82,24 @@ function getUserItemsHandler(req, res) {
 	});
 }
 
-function getUserItems(query, authUser) {
-	return Item.paginate({ user: query.userId }, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
+function getUserItems(reqObj) {
+	return Item.paginate(reqObj.userOrGroupQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
-		return makePublicOrPrivateItems(query, authUser, pagedObj);
+		return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
 
 function getFilteredUserItemsHandler(req, res) {
-	const query = req.query;
-	const authUser = req.user;
+	const reqObj = {
+		authUser: req.user,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		tagNames: req.query.tags.split('+'),
+		userOrGroupId: req.query.userId,
+		userOrGroupQuery: {user: req.query.userId},
+	};
 
-	getFilteredItems(query, authUser).then(obj => {
+	getFilteredItems(reqObj).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
@@ -117,11 +111,9 @@ function getFilteredUserItemsHandler(req, res) {
 	});
 }
 
-function getFilteredItems(query, authUser) {
-	const tagNames = query.tags.split('+');
-
-	let tagPromisesArr = tagNames.map((tagname, i) => {
-		let tagsQuery = Object.assign({}, {user: query.userId}, {name: tagname});
+function getFilteredItems(reqObj) {
+	let tagPromisesArr = reqObj.tagNames.map((tagname, i) => {
+		let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: tagname});
 		if (i === 0) {
 			return Category.findOne(tagsQuery);
 		} else {
@@ -135,26 +127,34 @@ function getFilteredItems(query, authUser) {
 				return tag._id;
 			}
 		});
-	}).then((tagsArrIds) => {
+	}).then(tagsArrIds => {
 		let categoryId = tagsArrIds.slice(0,1);
 		let tagIds = tagsArrIds.slice(1, tagsArrIds.length);
 		let newQuery;
-		
+
 		if (tagsArrIds.length === 1) {
-			newQuery = Object.assign({}, {user: query.userId}, {category: categoryId});
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId});
 		} else {
-			newQuery = Object.assign({}, {user: query.userId}, {category: categoryId, tags: {$all:tagIds}});
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId, tags: {$all:tagIds}});
 		}
-		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
+		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
-		return makePublicOrPrivateItems(query, authUser, pagedObj);
+		console.log('pagedObj before making public or private', pagedObj);
+		return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
 
-function getSlackTeamItemsHandler(req, res) {
-	const query = req.query;
+function getGroupItemsHandler(req, res) {
+	const reqObj = {
+		authUser: req.user,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		userOrGroupId: req.query.groupId,
+		userOrGroupQuery: {userGroup: req.query.groupId},
+	};
 
-	getSlackTeamItems(query).then(obj => {
+	getGroupItems(reqObj).then(obj => {
+		console.log('get group items obj returned before sending');
 		res.send({
 			items: obj.all,
 			meta: {
@@ -166,21 +166,27 @@ function getSlackTeamItemsHandler(req, res) {
 	});
 }
 
-function getSlackTeamItems(query) {
-	const teamQuery = {userGroup: query.groupId};
-	console.log('slack team query', teamQuery);
-	return Item.paginate(teamQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
+function getGroupItems(reqObj) {
+	return Item.paginate(reqObj.userOrGroupQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		//console.log('slack items found', pagedObj);
-		return makeEmberItems(query.groupId, pagedObj);
+		console.log('slack items found', pagedObj);
+		return makeEmberItems(pagedObj);
 		}
 	);
 }
 
-function getFilteredSlackItemsHandler(req, res) {
-	const query = req.query;
+function getFilteredGroupItemsHandler(req, res) {
+	const reqObj = {
+		authUser: req.user,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		tagNames: req.query.tags.split('+'),
+		userOrGroupId: req.query.groupId,
+		userOrGroupQuery: {userGroup: req.query.groupId},
+	};
+	console.log('reqObj', reqObj);
 
-	getFilteredSlackItems(query).then(obj => {
+	getFilteredItems(reqObj).then(obj => {
 		res.send({
 			items: obj.all,
 			meta: {
@@ -192,48 +198,17 @@ function getFilteredSlackItemsHandler(req, res) {
 	});
 }
 
-function getFilteredSlackItems(query) {
-	const tagNames = query.tags.split('+');
-	const teamQuery = {userGroup: query.groupId};
-
-	let promisesArr = tagNames.map((tagName, i) => {
-		let channelQuery = Object.assign({}, teamQuery, {'name' : tagNames[0]});
-
-		return Tag.findOne(channelQuery).then(channel => {
-			return channel;
-		}).then(tag => {
-			if (tag.isSlackChannel && i === 0) {
-				return tag;
-			} else {
-				let tagsQuery = Object.assign({}, teamQuery, {name: tagName, slackChannelId: tag.slackChannelId});
-				console.log('then tag', tag, 'tagsQuery', tagsQuery);
-
-				return Tag.findOne(tagsQuery);
-			}
-		});
-	});
-
-	return Promise.all(promisesArr).then((tagsArr) => {
-		return tagsArr.map(tag => {
-			if (tag !== null) {
-				return tag._id;
-			}
-		});
-	}).then((tagsArrIds) => {
-		let newQuery = Object.assign({}, teamQuery, {tags: {$all: tagsArrIds}});
-
-		return Item.paginate(newQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } });
-	}).then((pagedObj) => {
-		return makeEmberItems(query.groupId, pagedObj);
-	});
-}
-
 function getSearchItemsHandler(req, res) {
-	const query = req.query;
-	const authUser = req.user;
-	console.log('query', query);
+	const reqObj = {
+		authUser: req.user,
+		keyword: req.query.keyword,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		userId: req.query.userId,
+		groupId: req.query.groupId,
+	};
 
-	getSearchItems(query, authUser).then(obj => {
+	getSearchItems(reqObj).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
@@ -245,31 +220,32 @@ function getSearchItemsHandler(req, res) {
 	});
 }
 
-function getSearchItems(query, authUser) {
-	const searchQuery = query.groupId ? {
-		userGroup : query.groupId,
+function getSearchItems(reqObj) {
+	const searchQuery = reqObj.groupId ? {
+		userGroup : reqObj.groupId,
 		$text: {
-			$search: query.keyword
+			$search: reqObj.keyword
 		}
 	} : {
-		user: query.userId,
+		user: reqObj.userId,
 		$text: {
-			$search: query.keyword
+			$search: reqObj.keyword
 		}
 	};
-	return Item.paginate(searchQuery, { page: query.page, limit: query.limit, sort: { createdDate: -1 } })
+
+	return Item.paginate(searchQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		return makePublicOrPrivateItems(query, authUser, pagedObj);
+		return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
 
-function makePublicOrPrivateItems(query, authUser, obj) {
-	const newObj = makeEmberItems(query.userId, obj);
+function makePublicOrPrivateItems(reqObj, pagedObj) {
+	const newObj = makeEmberItems(pagedObj);
 
-	if (!authUser) {
+	if (!reqObj.authUser) {
 		return Object.assign({}, newObj, {items: newObj.public});
 	}
-	else if (query.userId === authUser.id) {
+	else if (reqObj.userOrGroupId === reqObj.authUser.id) {
 		return Object.assign({}, newObj, {items: newObj.all});
 	}
 	else {
@@ -277,7 +253,7 @@ function makePublicOrPrivateItems(query, authUser, obj) {
 	}
 }
 
-function makeEmberItems(id, pagedObj) {
+function makeEmberItems(pagedObj) {
 	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
 		const emberItem = item.makeEmberItem();
 		return item.isPrivate === 'true' ?
@@ -614,121 +590,21 @@ function makeUrlList(urlArr, titleArr) {
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
-// update my items with new categories and update tags with new category
-function updateMyItemsAndTagsHandler(req, res) {
-	console.log('update my items called');
-	updateMyItemsAndTags().then(() => {
-		res.send({items: []});
-	})
-	.catch(err => {
+function getTitle(req, res) {
+  const client = new MetaInspector(req.query.data, { timeout: 5000 });
+
+	client.on('fetch', function(){
+		if (client) {
+			var title = client.title + ' | Link';
+
+			return res.send(title);
+		}
+  });
+  client.on('error', function(err){
 		console.log(err);
-		res.status(401).end();
-	});
-}
-
-function updateMyItemsAndTags() {
-	const dataObj = {};
-
-	return Tag.find({user: 'stevetyler_uk'}).then(tags => {
-		Object.assign(dataObj, {tags: tags});
-		const unassignedTagArr = tags.filter(tag => {
-			return tag.name === 'unassigned';
-		});
-		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
-		makeCategoriesFromTags(tags);
-	}).then(() => {
-		return Category.find({user: 'stevetyler_uk'});
-	}).then(categories => {
-		Object.assign(dataObj, {categories: categories});
-		return Item.find({user: 'stevetyler_uk'});
-	}).then(items => {
-		return updateItemsWithCategories(dataObj, items);
-	}).then(() => {
-		return Item.find({user: 'stevetyler_uk'});
-	}).then(updatedItems => {
-		console.log('4 update item tags', updatedItems.length);
-		if (Array.isArray(updatedItems) && updatedItems.length > 0) {
-			const itemsTagsPromiseArr = updatedItems.forEach(item => {
-				if (item.category) {
-					return updateItemTagsWithCategory(item);
-				}
-			});
-			Promise.all(itemsTagsPromiseArr);
-		}
-	});
-}
-
-function makeCategoriesFromTags(tags) {
-	console.log('makeCategories called');
-	const categoryTagsArr = tags.filter(tag => {
-		return tag.colour !== 'cp-colour-1';
-	});
-	const categoryPromiseArr = categoryTagsArr.map(tag => {
-		return Category.create({
-			colour: tag.colour,
-			isPrivate: tag.isPrivate,
-			name: tag.name,
-			user: tag.user
-		});
-	});
-
-	return Promise.all(categoryPromiseArr);
-}
-
-function updateItemsWithCategories(dataObj, items) {
-	console.log('update item with categories', dataObj.categories, items.length);
-	const filteredItems = items.filter(item => {
-		return item.tags.indexOf(dataObj.unassignedId) === -1;
-	});
-
-	const itemsPromiseArr = filteredItems.map(item => {
-		let categoryArr = [];
-		const primaryTagId = item.tags[0];
-		console.log('primaryTagId', primaryTagId, 'dataObj.tags', dataObj.tags.length);
-		const primaryTagArr = dataObj.tags.filter(tag => {
-			return tag._id == primaryTagId;
-		});
-
-		if (primaryTagArr.length) {
-			console.log('primaryTag found', primaryTagArr, 'categories', dataObj.categories.length);
-			categoryArr = dataObj.categories.filter(category => {
-				console.log('category name to filter', category.name, primaryTagArr[0].name);
-				return category.name === primaryTagArr[0].name;
-			});
-			console.log('category found', categoryArr);
-		}
-
-		if (categoryArr.length && categoryArr[0]) {
-			const categoryId = categoryArr[0]._id;
-			const newTags = item.tags;
-			newTags.shift();
-			console.log('new tags to apply to item', item);
-			return Item.update({_id: item._id},
-				{$set: {
-					category: categoryId,
-					tags: newTags
-					}
-				}
-			);
-		}
-	});
-	return Promise.all(itemsPromiseArr);
-}
-
-function updateItemTagsWithCategory(item) {
-	if (item && typeof item === 'object') {
-		console.log('item tags to be updated', item);
-		const tagsPromiseArr = item.tags.map(tagId => {
-
-			return Tag.update({_id: tagId},
-				{$set: {
-					category: item.category
-					}
-				}
-			);
-		});
-		return Promise.all(tagsPromiseArr);
-	}
+		return res.status('404').end();
+  });
+  client.fetch();
 }
 
 
@@ -757,4 +633,121 @@ function updateItemTagsWithCategory(item) {
 // 	}).catch(err => {
 // 	  console.log(err);
 // 	});
+// }
+
+// update my items with new categories and update tags with new category
+// function updateMyItemsAndTagsHandler(req, res) {
+// 	console.log('update my items called');
+// 	updateMyItemsAndTags().then(() => {
+// 		res.send({items: []});
+// 	})
+// 	.catch(err => {
+// 		console.log(err);
+// 		res.status(401).end();
+// 	});
+// }
+//
+// function updateMyItemsAndTags() {
+// 	const dataObj = {};
+//
+// 	return Tag.find({user: 'stevetyler_uk'}).then(tags => {
+// 		Object.assign(dataObj, {tags: tags});
+// 		const unassignedTagArr = tags.filter(tag => {
+// 			return tag.name === 'unassigned';
+// 		});
+// 		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
+// 		makeCategoriesFromTags(tags);
+// 	}).then(() => {
+// 		return Category.find({user: 'stevetyler_uk'});
+// 	}).then(categories => {
+// 		Object.assign(dataObj, {categories: categories});
+// 		return Item.find({user: 'stevetyler_uk'});
+// 	}).then(items => {
+// 		return updateItemsWithCategories(dataObj, items);
+// 	}).then(() => {
+// 		return Item.find({user: 'stevetyler_uk'});
+// 	}).then(updatedItems => {
+// 		console.log('4 update item tags', updatedItems.length);
+// 		if (Array.isArray(updatedItems) && updatedItems.length > 0) {
+// 			const itemsTagsPromiseArr = updatedItems.forEach(item => {
+// 				if (item.category) {
+// 					return updateItemTagsWithCategory(item);
+// 				}
+// 			});
+// 			Promise.all(itemsTagsPromiseArr);
+// 		}
+// 	});
+// }
+//
+// function makeCategoriesFromTags(tags) {
+// 	console.log('makeCategories called');
+// 	const categoryTagsArr = tags.filter(tag => {
+// 		return tag.colour !== 'cp-colour-1';
+// 	});
+// 	const categoryPromiseArr = categoryTagsArr.map(tag => {
+// 		return Category.create({
+// 			colour: tag.colour,
+// 			isPrivate: tag.isPrivate,
+// 			name: tag.name,
+// 			user: tag.user
+// 		});
+// 	});
+//
+// 	return Promise.all(categoryPromiseArr);
+// }
+//
+// function updateItemsWithCategories(dataObj, items) {
+// 	console.log('update item with categories', dataObj.categories, items.length);
+// 	const filteredItems = items.filter(item => {
+// 		return item.tags.indexOf(dataObj.unassignedId) === -1;
+// 	});
+//
+// 	const itemsPromiseArr = filteredItems.map(item => {
+// 		let categoryArr = [];
+// 		const primaryTagId = item.tags[0];
+// 		console.log('primaryTagId', primaryTagId, 'dataObj.tags', dataObj.tags.length);
+// 		const primaryTagArr = dataObj.tags.filter(tag => {
+// 			return tag._id == primaryTagId;
+// 		});
+//
+// 		if (primaryTagArr.length) {
+// 			console.log('primaryTag found', primaryTagArr, 'categories', dataObj.categories.length);
+// 			categoryArr = dataObj.categories.filter(category => {
+// 				console.log('category name to filter', category.name, primaryTagArr[0].name);
+// 				return category.name === primaryTagArr[0].name;
+// 			});
+// 			console.log('category found', categoryArr);
+// 		}
+//
+// 		if (categoryArr.length && categoryArr[0]) {
+// 			const categoryId = categoryArr[0]._id;
+// 			const newTags = item.tags;
+// 			newTags.shift();
+// 			console.log('new tags to apply to item', item);
+// 			return Item.update({_id: item._id},
+// 				{$set: {
+// 					category: categoryId,
+// 					tags: newTags
+// 					}
+// 				}
+// 			);
+// 		}
+// 	});
+// 	return Promise.all(itemsPromiseArr);
+// }
+//
+// function updateItemTagsWithCategory(item) {
+// 	if (item && typeof item === 'object') {
+// 		console.log('item tags to be updated', item);
+// 		const tagsPromiseArr = item.tags.map(tagId => {
+//
+// 			return Tag.update({_id: tagId},
+// 				{$set: {
+// 					category: item.category
+// 					}
+// 				}
+// 			);
+// 		});
+// 		return Promise.all(tagsPromiseArr);
+// 	}
 // }
