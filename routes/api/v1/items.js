@@ -24,7 +24,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		//'/items/updateMyItems': updateMyItemsAndTagsHandler
-		//'/items/copyEmberItems': copyEmberItems
+		'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -608,32 +608,31 @@ function getTitle(req, res) {
 }
 
 
-// function copyEmberItems(req, res) {
-// 	// copy ember items to slack team
-// 	return Item.find({user: 'stevetyler_uk', tags: {$in: ['5718a22b5dff4d1d3c81ae56']}}).then(items => {
-// 	  console.log('ember items found');
-// 	  let itemPromiseArr = items.map(item => {
-// 	    let newSlackItem = {
-// 	      user: 'stevetyler',
-// 	      createdDate: item.createdDate,
-// 	      body: item.body,
-// 	      author: item.author,
-// 	  		isPrivate: false,
-// 	  		type: item.type,
-// 	      slackTeamId: 'T03SSL0FF' // Ember-London team id
-// 	    };
-// 	    console.log('save new ember item', newSlackItem);
-// 	    Item.create(newSlackItem);
-// 	  });
-// 	  return Promise.all(itemPromiseArr);
-// 	}).then(() => {
-// 		res.send({
-// 			items: ['success']
-// 		});
-// 	}).catch(err => {
-// 	  console.log(err);
-// 	});
-// }
+function copyEmberItems(req, res) {
+	// copy ember items to slack team
+	return Item.find({user: 'stevetyler_uk', category: '5831be9314bdc60363409b95'}).then(items => {
+	  console.log('ember items found');
+	  let itemPromiseArr = items.map(item => {
+	    let newSlackItem = {
+	      userGroup: 'Ember-London',
+	      createdDate: item.createdDate,
+	      body: item.body,
+	      author: item.author,
+	  		isPrivate: false,
+	  		type: item.type
+	    };
+	    console.log('save new ember item', newSlackItem);
+	    Item.create(newSlackItem);
+	  });
+	  return Promise.all(itemPromiseArr);
+	}).then(() => {
+		res.send({
+			items: ['success']
+		});
+	}).catch(err => {
+	  console.log(err);
+	});
+}
 
 // update my items with new categories and update tags with new category
 // function updateMyItemsAndTagsHandler(req, res) {
