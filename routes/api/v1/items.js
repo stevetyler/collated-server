@@ -111,39 +111,6 @@ function getFilteredUserItemsHandler(req, res) {
 	});
 }
 
-function getFilteredItems(reqObj) {
-	let tagPromisesArr = reqObj.tagNames.map((tagname, i) => {
-		let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: tagname});
-		if (i === 0) {
-			return Category.findOne(tagsQuery);
-		} else {
-			return Tag.findOne(tagsQuery);
-		}
-	});
-
-	return Promise.all(tagPromisesArr).then((tagsArr) => {
-		return tagsArr.map(tag => {
-			if (tag !== null) {
-				return tag._id;
-			}
-		});
-	}).then(tagsArrIds => {
-		let categoryId = tagsArrIds.slice(0,1);
-		let tagIds = tagsArrIds.slice(1, tagsArrIds.length);
-		let newQuery;
-
-		if (tagsArrIds.length === 1) {
-			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId});
-		} else {
-			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId, tags: {$all:tagIds}});
-		}
-		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
-	}).then((pagedObj) => {
-		console.log('pagedObj before making public or private', pagedObj);
-		return makePublicOrPrivateItems(reqObj, pagedObj);
-	});
-}
-
 function getGroupItemsHandler(req, res) {
 	const reqObj = {
 		authUser: req.user,
@@ -195,6 +162,39 @@ function getFilteredGroupItemsHandler(req, res) {
 		});
 	}, () => {
 		res.status(404).end();
+	});
+}
+
+function getFilteredItems(reqObj) {
+	let tagPromisesArr = reqObj.tagNames.map((tagname, i) => {
+		let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: tagname});
+		if (i === 0) {
+			return Category.findOne(tagsQuery);
+		} else {
+			return Tag.findOne(tagsQuery);
+		}
+	});
+
+	return Promise.all(tagPromisesArr).then((tagsArr) => {
+		return tagsArr.map(tag => {
+			if (tag !== null) {
+				return tag._id;
+			}
+		});
+	}).then(tagsArrIds => {
+		let categoryId = tagsArrIds.slice(0,1);
+		let tagIds = tagsArrIds.slice(1, tagsArrIds.length);
+		let newQuery;
+
+		if (tagsArrIds.length === 1) {
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId});
+		} else {
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId, tags: {$all:tagIds}});
+		}
+		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
+	}).then((pagedObj) => {
+		console.log('pagedObj before making public or private', pagedObj);
+		return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
 
@@ -303,6 +303,7 @@ function putItems(req, res) {
 			return Item.findOneAndUpdate(
 		    {_id: req.params.id},
 		    {$set: {
+					category: req.body.item.category,
 					tags: req.body.item.tags,
 					isPrivate: isPrivate,
 					comments: req.body.item.comments
