@@ -95,15 +95,15 @@ Strategy.prototype.userProfile = function(accessToken, done) {
     } else {
       try {
         var json = JSON.parse(body);
-
+        console.log('userProfile json received', json);
         if (!json.ok) {
           done(json);
         } else {
           var profile = {
             provider: 'Slack'
           };
-          profile.id = json.user_id;
-          profile.displayName = json.user;
+          profile.id = json.user.id;
+          profile.displayName = json.user.name;
 
           profile._raw = body;
           profile._json = json;
