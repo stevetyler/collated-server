@@ -114,33 +114,33 @@ passport.use(new SlackStrategy({
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
         user.apiKeys.slackRefreshToken = refreshToken;
-        user.name = profile._json.info.user.profile.real_name;
-        user.email = profile._json.info.user.profile.email;
-        user.imageUrl = profile._json.info.user.profile.image_24;
-        user.slackProfile.isTeamAdmin = profile._json.info.user.is_admin;
+        user.name = profile._json.info.user.name;
+        user.email = profile._json.info.user.email;
+        user.imageUrl = profile._json.info.user.image_24;
+        //user.slackProfile.isTeamAdmin = profile._json.info.user.is_admin;
         console.log('slack user exists');
         return user.save();
       }
       else {
         console.log('new slack user created');
         return User.create({
-          id: profile._json.user,
-          name: profile._json.info.user.profile.real_name,
-          imageUrl: profile._json.info.user.profile.image_24,
-          email: profile._json.info.user.profile.email,
+          id: profile._json.user.id,
+          name: profile._json.info.user.name,
+          imageUrl: profile._json.info.user.image_24,
+          email: profile._json.info.user.email,
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
           slackProfile: {
-            isTeamAdmin: profile._json.info.user.is_admin,
-            slackUserId: profile._json.user_id,
-            userName: profile._json.user,
-            teamId: profile._json.team_id,
-            teamDomain: profile._json.team,
-            teamUrl: profile._json.url
+            //isTeamAdmin: profile._json.info.user.is_admin,
+            slackUserId: profile._json.user.id,
+            //userName: profile._json.user,
+            teamId: profile._json.team.id,
+            teamDomain: profile._json.team.domain,
+            //teamUrl: profile._json.url
           },
-          userGroup: [formatGroupId(profile._json.team)]
+          userGroup: [formatGroupId(profile._json.team.domain)]
         });
       }
     })
@@ -196,3 +196,32 @@ function modifyTwitterImageURL(url) {
 }
 
 module.exports = passport;
+
+
+// identity scope profile returned
+// const slackProfileJSON = {
+// "ok":true,
+// "user": {
+  // "name":"Steve Tyler",
+  // "id":"U16BXKJ4Q",
+  // "email":"mail@steve-tyler.co.uk",
+  // "image_24":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_24.jpg",
+  // "image_32":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_32.jpg",
+  // "image_48":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_48.jpg",
+  // "image_72":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_72.jpg",
+  // "image_192":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_192.jpg",
+  // "image_512":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_192.jpg",
+  // "image_1024":"https:\/\/avatars.slack-edge.com\/2016-07-22\/62213153635_ef10a0839fa9ee4b403d_192.jpg"
+  //},
+  // "team": {
+  // "id":"T16BS5HAA","name":"collated dev",
+  // "domain":"collated-dev",
+  // "image_34":"https:\/\/a.slack-edge.com\/66f9\/img\/avatars-teams\/ava_0024-34.png",
+  // "image_44":"https:\/\/a.slack-edge.com\/66f9\/img\/avatars-teams\/ava_0024-44.png",
+  // "image_68":"https:\/\/a.slack-edge.com\/66f9\/img\/avatars-teams\/ava_0024-68.png",
+  // "image_88":"https:\/\/a.slack-edge.com\/b3b7\/img\/avatars-teams\/ava_0024-88.png",
+  // "image_102":"https:\/\/a.slack-edge.com\/b3b7\/img\/avatars-teams\/ava_0024-102.png",
+  // "image_132":"https:\/\/a.slack-edge.com\/66f9\/img\/avatars-teams\/ava_0024-132.png",
+  // "image_230":"https:\/\/a.slack-edge.com\/9e9be\/img\/avatars-teams\/ava_0024-230.png",
+  // "image_default":true}
+// }
