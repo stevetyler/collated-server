@@ -51,8 +51,8 @@ function Strategy(options, verify) {
   options.tokenURL = options.tokenURL || 'https://slack.com/api/oauth.access';
   options.scopeSeparator = options.scopeSeparator || ' ';
   this.profileUrl = options.profileUrl || "https://slack.com/api/auth.test?token=";
-  this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.info?user="; // requires 'users:read' scope
-  //this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.identity?user="; // requires 'identity.basic' scope
+  //this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.info?user="; // requires 'users:read' scope
+  this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.identity?user="; // requires 'identity.basic' scope
   this.extendedUserProfile = (options.extendedUserProfile == null) ? true : options.extendedUserProfile;
   this._team = options.team;
 
@@ -61,9 +61,9 @@ function Strategy(options, verify) {
   this.name = options.name || 'slack';
 
   // warn is not enough scope
-  if(!this._skipUserProfile && this.extendedUserProfile && this._scope.indexOf('users:read') === -1){
-    console.warn("Scope 'users:read' is required to retrieve Slack user profile");
-  }
+  // if(!this._skipUserProfile && this.extendedUserProfile && this._scope.indexOf('users:read') === -1){
+  //   console.warn("Scope 'users:read' is required to retrieve Slack user profile");
+  // }
 }
 
 /**
@@ -86,10 +86,11 @@ util.inherits(Strategy, OAuth2Strategy);
  */
 Strategy.prototype.userProfile = function(accessToken, done) {
   //this._oauth2.useAuthorizationHeaderforGET(true);
+  console.log('userProfile defined, strategy obj defined:', JSON.stringify(this));
   var self = this;
   this.get(this.profileUrl, accessToken, function (err, body, res) {
     if (err) {
-      console.log('strategy error', err);
+      console.log('strategy error', JSON.stringify(err));
       return done(err);
     } else {
       try {
@@ -111,9 +112,12 @@ Strategy.prototype.userProfile = function(accessToken, done) {
           if(!self.extendedUserProfile) {
             return done(null, profile);
           }
+          console.log('self', JSON.stringify(self));
           // otherwise call for more detailed profile (requires users:read scope)
           self.get(self.userInfoUrl + profile.id + "&token=", accessToken, function (err, body, res) {
+            console.log('user profile body received', body);
             if (err) {
+              console.log('get error', err);
               return done(err);
             }
             var infoJson = JSON.parse(body);
@@ -126,6 +130,7 @@ Strategy.prototype.userProfile = function(accessToken, done) {
           });
         }
       } catch(e) {
+        console.log('caught error', JSON.stringify(e));
         done(e);
       }
     }
@@ -136,6 +141,7 @@ Strategy.prototype.userProfile = function(accessToken, done) {
   * which is a violation of the RFC so lets override and not add the header and supply only the token for qs.
   */
 Strategy.prototype.get = function(url, access_token, callback) {
+  console.log('proto get', url, access_token);
   this._oauth2._request("GET", url + access_token, {}, "", "", callback );
 };
 
@@ -154,6 +160,8 @@ Strategy.prototype.authorizationParams = function (options) {
    if(team){
      params.team = team;
    }
+
+  console.log('params returned', params);
   return params;
 };
 

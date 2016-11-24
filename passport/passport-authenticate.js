@@ -104,11 +104,11 @@ passport.use(new SlackStrategy({
     clientID: configAuth.slackAuth.clientID,
     clientSecret: configAuth.slackAuth.clientSecret,
     callbackURL: configAuth.slackAuth.callbackURL,
-    //scope: 'identity.basic,identity.team,identity.email,identity.avatar'
-    scope: 'users:read'
+    scope: 'identity.basic,identity.team,identity.email,identity.avatar'
+    //scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('tokens received', accessToken, refreshToken);
+    console.log('slack profile received', profile);
     User.findOne( {'slackProfile.slackUserId': profile.id} ).exec().then(function(user) {
       //console.log('user found', user);
       if (user) {
