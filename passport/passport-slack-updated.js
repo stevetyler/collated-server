@@ -51,8 +51,8 @@ function Strategy(options, verify) {
   options.tokenURL = options.tokenURL || 'https://slack.com/api/oauth.access';
   options.scopeSeparator = options.scopeSeparator || ' ';
   this.profileUrl = options.profileUrl || "https://slack.com/api/auth.test?token=";
-  //this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.info?user="; // requires 'users:read' scope
-  this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.identity?user="; // requires 'identity.basic' scope
+  this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.info?user="; // requires 'users:read' scope
+  //this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.identity?user="; // requires 'identity.basic' scope
   this.extendedUserProfile = (options.extendedUserProfile == null) ? true : options.extendedUserProfile;
   this._team = options.team;
 
