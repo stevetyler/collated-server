@@ -4,7 +4,8 @@
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-const SlackStrategy = require('passport-slack').Strategy;
+const SlackStrategy = require('./passport-slack-updated');
+//const SlackStrategy = require('passport-slack').Strategy;
 
 const configAuth = require('./../auth');
 const db = require('./../database/database');
@@ -103,10 +104,11 @@ passport.use(new SlackStrategy({
     clientID: configAuth.slackAuth.clientID,
     clientSecret: configAuth.slackAuth.clientSecret,
     callbackURL: configAuth.slackAuth.callbackURL,
-    scope: 'identity.basic,identity.team,identity.email,identity.avatar'
-    //scope: 'users:read'
+    //scope: 'identity.basic,identity.team,identity.email,identity.avatar'
+    scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log('tokens received', accessToken, refreshToken);
     User.findOne( {'slackProfile.slackUserId': profile.id} ).exec().then(function(user) {
       //console.log('user found', user);
       if (user) {
@@ -146,8 +148,8 @@ passport.use(new SlackStrategy({
       console.log('user created or updated', user);
       return done(null, user);
     })
-    .then(null, function(err){
-      console.log(err);
+    .catch(function(err){
+      console.log('slack error', JSON.stringify(err));
       done(err);
     });
   }
