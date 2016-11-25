@@ -10,7 +10,7 @@ const UserGroup = db.model('UserGroup');
 module.exports.autoroute = {
 	get: {'/categories' : getCategories},
 	post: {'/categories': [ensureAuthenticated, postCategory]},
-	// put: {'/categories/:id': [ensureAuthenticated, putCategory]},
+	put: {'/categories/:id': [ensureAuthenticated, putCategory]},
 	// delete: {'/categories/:id': [ensureAuthenticated, deleteCategory]}
 };
 
@@ -144,6 +144,48 @@ function makeEmberCategories(id, categories, type) {
 		return { all: [], public: [] };
 	}
 }
+
+function putCategory(req, res) {
+  const categoryId = req.params.id;
+  const isPrivate = req.body.category.isPrivate;
+	const categoryName = req.body.category.name;
+
+	console.log('putCategory', categoryId, categoryName);
+  if (req.user.id === req.body.category.user || req.user.slackProfile.isTeamAdmin) {
+    Category.update({_id: categoryId}, // removed user: req.user.id temporarily
+      {$set: {
+        name: categoryName,
+        colour: req.body.category.colour,
+        isPrivate: req.body.category.isPrivate
+        }
+      }
+    ).then(() => {
+      Item.find({user: req.user.id, categories: {$in: [categoryId]}}, (err, items) => {
+        if (err) {
+          return res.status(404).send();
+        }
+        items.forEach((item) => {
+          item.isPrivate = isPrivate;
+          return item.save();
+        });
+      });
+    }).then(() => {
+      return res.send({});
+    }).then(null, (err) => {
+      console.log(err);
+      return res.status(400).end();
+    });
+  }	else {
+		console.log('userId', req.user.id, 'category user', req.body.category.user, req.user.slackProfile.isTeamAdmin);
+		return res.status(401).end();
+	}
+}
+
+
+
+
+
+
 
 // function getUserCategories(req, res) {
 // 	const id = req.query.userId;
