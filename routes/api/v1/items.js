@@ -295,35 +295,31 @@ function putItems(req, res) {
 	const itemTags = req.body.item.tags;
 	let isPrivate = false;
 
-	if (req.user.id === req.body.item.user) {
-		Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).then(function(tags) {
-			if (tags.length) {
-				isPrivate = true;
-			}
-			return Item.findOneAndUpdate(
-		    {_id: req.params.id},
-		    {$set: {
-					category: req.body.item.category,
-					tags: req.body.item.tags,
-					isPrivate: isPrivate,
-					comments: req.body.item.comments
-					}
-				}, { new: true }
-		  );
-		}).then(item => {
-			console.log('item updated', item);
-			var emberItem = item.makeEmberItem();
+	Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).then(function(tags) {
+		if (tags.length) {
+			isPrivate = true;
+		}
+		return Item.findOneAndUpdate(
+	    {_id: req.params.id},
+	    {$set: {
+				category: req.body.item.category,
+				tags: req.body.item.tags,
+				isPrivate: isPrivate,
+				comments: req.body.item.comments
+				}
+			}, { new: true }
+	  );
+	}).then(item => {
+		console.log('item updated', item);
+		var emberItem = item.makeEmberItem();
 
-			return res.send({'items': emberItem});
-		}).then(null, (err) => {
-			if (err) {
-				console.log(err);
-				return res.status(400).end();
-			}
-		});
-	} else {
-		return res.status(401).end();
-	}
+		return res.send({'items': emberItem});
+	}).then(null, (err) => {
+		if (err) {
+			console.log(err);
+			return res.status(400).end();
+		}
+	});
 }
 
 // create item from Collated
