@@ -611,7 +611,7 @@ function copyEmberItems(req, res) {
 	  console.log('ember items found');
 	  let itemPromiseArr = items.map(item => {
 	    let newSlackItem = {
-				category: '583354890885dcbe282927ed',
+				//category: '583354890885dcbe282927ed',
 	      userGroup: 'Ember-London',
 	      createdDate: item.createdDate,
 	      body: item.body,
