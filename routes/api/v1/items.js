@@ -24,7 +24,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		//'/items/updateMyItems': updateMyItemsAndTagsHandler
-		'/items/copyEmberItems': copyEmberItems
+		//'/items/copyEmberItems': copyEmberItems
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],

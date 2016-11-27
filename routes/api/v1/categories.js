@@ -4,7 +4,7 @@ const ensureAuthenticated = require('../../../middlewares/ensure-authenticated')
 
 const Item = db.model('Item');
 const Category = db.model('Category');
-//const User = db.model('User');
+const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
 module.exports.autoroute = {
@@ -66,31 +66,27 @@ function getUserCategories(req, res) {
 }
 
 function postCategory(req, res){
-	console.log('post category called');
 	if (req.body.category.userGroup) {
 		postGroupCategoryHandler(req, res);
 		return;
 	}
-	// if (req.user.id === req.body.category.user) {
-	// 	postUserCategoryHandler(req, res);
-	// 	return;
-	// }
+	else if (req.user.id === req.body.category.user) {
+		postUserCategoryHandler(req, res);
+		return;
+	}
 	else {
 		res.status(401).end();
 		return;
 	}
 }
 
-function postGroupCategoryHandler(req, res) {
-	const category = req.body.category;
-	console.log('post group category called');
-	// need to check adminPermissions with user id
-	UserGroup.findOne({id: category.userGroup}).then(group => {
-		if (group !== null && typeof group === 'object') {
-			// console.log('group found', group);
+function postUserCategoryHandler(req, res) {
+	User.findOne({id: req.user.id}).then(user => {
+		if (user !== null && typeof user === 'object') {
+			console.log('user category to save');
 			return saveCategory(req.body.category);
 		}
-		res.status(401).end();
+		res.status(404).end();
 		return;
 	}).then(category => {
 		let emberCategory = category.makeEmberCategory();
@@ -99,7 +95,28 @@ function postGroupCategoryHandler(req, res) {
 		return;
 	}).catch(err => {
 		console.log(err);
-		res.status(401).end();
+		res.status(404).end();
+		return;
+	});
+}
+
+function postGroupCategoryHandler(req, res) {
+	const category = req.body.category;
+	// need to check adminPermissions with user id
+	UserGroup.findOne({id: category.userGroup}).then(group => {
+		if (group !== null && typeof group === 'object') {
+			return saveCategory(req.body.category);
+		}
+		res.status(404).end();
+		return;
+	}).then(category => {
+		let emberCategory = category.makeEmberCategory();
+
+		res.send({'category': emberCategory});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(404).end();
 		return;
 	});
 }
