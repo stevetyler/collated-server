@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const db = require('../../../database/database');
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 
@@ -6,7 +6,7 @@ const Item = db.model('Item');
 
 module.exports.autoroute = {
   post: {
-    '/comments': postItemComment
+    '/comments': [ensureAuthenticated, postItemComment]
   },
   delete : {
     '/comments/:id': [ensureAuthenticated, deleteComment]
@@ -16,10 +16,10 @@ module.exports.autoroute = {
 function postItemComment(req, res) {
   //console.log('post comment called');
   const newComment = {
-    author: req.body.comment.author,
     createdDate: req.body.comment.createdDate,
     body: req.body.comment.body,
-    item: req.body.comment.item
+    item: req.body.comment.item,
+    user: req.body.comment.user
   };
   console.log('post comment called', newComment);
 

@@ -9,10 +9,10 @@ const tagSchema = require('../schemas/tag.js');
 const Tag = mongoose.model('Tag', tagSchema);
 
 const commentSchema = new Schema({
-  author: String,
   body: String,
   createdDate: String,
-  item: String
+  item: String,
+  user: String
 });
 
 const itemSchema = new Schema({
@@ -39,10 +39,10 @@ itemSchema.methods.makeEmberItem = function() {
   const comments = this.comments.map(function(comment) {
     return {
       id: comment._id,
-      author: comment.author,
       body: comment.body,
       createdDate: comment.createdDate,
-      item: comment.item
+      item: comment.item,
+      user: comment.user
     };
   });
   const emberItem = {
