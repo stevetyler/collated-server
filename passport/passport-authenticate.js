@@ -108,8 +108,8 @@ passport.use(new SlackStrategy({
     //scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('slack profile received', profile);
-    User.findOne( {'slackProfile.slackUserId': profile.id} ).exec().then(function(user) {
+    console.log('slack profile received', JSON.stringify(profile._json));
+    User.findOne( {'slackProfile.slackUserId': profile._json.info.user.id} ).exec().then(function(user) {
       //console.log('user found', user);
       if (user) {
         user.apiKeys.slackAccessToken = accessToken;
@@ -124,7 +124,7 @@ passport.use(new SlackStrategy({
       else {
         console.log('new slack user created');
         return User.create({
-          id: profile._json.user.id,
+          id: profile._json.user,
           name: profile._json.info.user.name,
           imageUrl: profile._json.info.user.image_24,
           email: profile._json.info.user.email,
@@ -134,13 +134,13 @@ passport.use(new SlackStrategy({
           },
           slackProfile: {
             //isTeamAdmin: profile._json.info.user.is_admin,
-            slackUserId: profile._json.user.id,
+            slackUserId: profile._json.info.user.id,
             //userName: profile._json.user,
-            teamId: profile._json.team.id,
-            teamDomain: profile._json.team.domain,
+            teamId: profile._json.info.team.id,
+            teamDomain: profile._json.info.team.domain,
             //teamUrl: profile._json.url
           },
-          userGroup: [formatGroupId(profile._json.team.domain)]
+          userGroup: [formatGroupId(profile._json.info.team.domain)]
         });
       }
     })
