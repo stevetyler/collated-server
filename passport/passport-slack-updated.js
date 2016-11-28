@@ -117,7 +117,7 @@ Strategy.prototype.userProfile = function(accessToken, done) {
           self.get(self.userInfoUrl + profile.id + "&token=", accessToken, function (err, body, res) {
             console.log('user profile body received', body);
             if (err) {
-              console.log('get error', err);
+              console.log('get error', JSON.stringify(err));
               return done(err);
             }
             var infoJson = JSON.parse(body);
