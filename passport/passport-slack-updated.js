@@ -50,20 +50,22 @@ function Strategy(options, verify) {
   options.authorizationURL = options.authorizationURL || 'https://slack.com/oauth/authorize';
   options.tokenURL = options.tokenURL || 'https://slack.com/api/oauth.access';
   options.scopeSeparator = options.scopeSeparator || ' ';
-  this.profileUrl = options.profileUrl || "https://slack.com/api/auth.test?token=";
-  this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.info?user="; // requires 'users:read' scope
-  //this.userInfoUrl = options.userInfoUrl || "https://slack.com/api/users.identity?user="; // requires 'identity.basic' scope
+
+  if (options.scope.indexOf('identity') !== -1) {
+    this.profileUrl = options.profileUrl || 'https://slack.com/api/users.identity?token=';
+    this.userInfoUrl = options.userInfoUrl || 'https://slack.com/api/users.identity?user='; // requires 'identity.basic' scope;
+  }
+  else if (options.scope.indexOf('users:read') !== -1) {
+    this.profileUrl = options.profileUrl || 'https://slack.com/api/auth.test?token=';
+    this.userInfoUrl = options.userInfoUrl || 'https://slack.com/api/users.info?user='; // requires 'users:read' scope
+  }
+
   this.extendedUserProfile = (options.extendedUserProfile == null) ? true : options.extendedUserProfile;
   this._team = options.team;
 
   console.log('strategy options', this, options);
   OAuth2Strategy.call(this, options, verify);
   this.name = options.name || 'slack';
-
-  // warn is not enough scope
-  // if(!this._skipUserProfile && this.extendedUserProfile && this._scope.indexOf('users:read') === -1){
-  //   console.warn("Scope 'users:read' is required to retrieve Slack user profile");
-  // }
 }
 
 /**
@@ -95,15 +97,15 @@ Strategy.prototype.userProfile = function(accessToken, done) {
     } else {
       try {
         var json = JSON.parse(body);
-
+        console.log('userProfile json received', json);
         if (!json.ok) {
           done(json);
         } else {
           var profile = {
             provider: 'Slack'
           };
-          profile.id = json.user_id;
-          profile.displayName = json.user;
+          profile.id = json.user.id;
+          profile.displayName = json.user.name;
 
           profile._raw = body;
           profile._json = json;
@@ -115,9 +117,9 @@ Strategy.prototype.userProfile = function(accessToken, done) {
           console.log('self', JSON.stringify(self));
           // otherwise call for more detailed profile (requires users:read scope)
           self.get(self.userInfoUrl + profile.id + "&token=", accessToken, function (err, body, res) {
-            console.log('user profile body received', body);
+            console.log('user profile body received', JSON.stringify(body));
             if (err) {
-              console.log('get error', err);
+              console.log('get error', JSON.stringify(err));
               return done(err);
             }
             var infoJson = JSON.parse(body);

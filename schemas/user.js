@@ -13,7 +13,7 @@ var slackProfileSchema = new Schema({
   teamDomain: String, // team name
   teamToken: String,
   teamUrl: String,
-  slackUserId: String,
+  userId: String,
   userName: String, // displayName
 });
 
