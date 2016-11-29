@@ -12,6 +12,7 @@ const db = require('./../database/database');
 const formatGroupId = require('./../lib/format-group-id');
 
 const User = db.model('User');
+const UserGroup = db.model('UserGroup');
 
 passport.use(new TwitterStrategy({
     consumerKey: configAuth.twitterAuth.consumerKey,
@@ -19,7 +20,6 @@ passport.use(new TwitterStrategy({
     callbackURL: configAuth.twitterAuth.callbackURL
   },
   function(token, tokenSecret, profile, done) {
-    // { twitterProfile: { id: profile._json.id_str } } not working in Mongo 2.8
     User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).exec().then(function(user) {
       console.log('user found', user);
       if (user) {
@@ -43,15 +43,6 @@ passport.use(new TwitterStrategy({
         });
       }
     })
-    // .then(function(user) {
-    //   if (!user.twitterProfile._id) {
-    //     var newProfileObj = Object.assign({}, user.twitterProfile);
-    //     console.log('create new twitter profile', newProfileObj);
-    //
-    //     return user.twitterProfile.create(newProfileObj);
-    //   }
-    //   return user;
-    // })
     .then(function(user){
       return done(null, user);
     })
@@ -109,38 +100,65 @@ passport.use(new SlackStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     console.log('slack profile received', JSON.stringify(profile._json));
-    User.findOne( {'slackProfile.slackUserId': profile._json.info.user.id} ).exec().then(function(user) {
-      //console.log('user found', user);
+    const profileObj = {
+      teamDomain: profile._json.info.team.domain,
+      teamId: profile._json.info.team.id,
+      teamImageUrl: profile._json.info.team.image_34,
+      userEmail: profile._json.info.user.email,
+      userId: profile._json.info.user.id,
+      userImageUrl: profile._json.info.user.image_24,
+      userName: profile._json.info.user.name,
+    };
+
+    UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
+      if (!group) {
+  			let newId = formatGroupId(profileObj.teamDomain);
+        console.log('new group id created', newId);
+  			let newUserGroup = new UserGroup({
+  				id: newId,
+  				image: '/img/slack/default.png',
+          slackTeamId: profileObj.teamId,
+          slackTeamDomain: profileObj.teamDomain
+        });
+
+  			return newUserGroup.save();
+      }
+      return group;
+    }).then(group => {
+      Object.assign(profileObj, {userGroup: group.id});
+      return User.findOne( {'slackProfile.slackUserId': profileObj.userId} );
+    })
+    .then(function(user) {
       if (user) {
-        user.apiKeys.slackAccessToken = accessToken;
-        user.apiKeys.slackRefreshToken = refreshToken;
-        user.name = profile._json.info.user.name;
-        user.email = profile._json.info.user.email;
-        user.imageUrl = profile._json.info.user.image_24;
-        //user.slackProfile.isTeamAdmin = profile._json.info.user.is_admin;
         console.log('slack user exists');
+        Object.assign(user, {
+          apiKeys: {
+            slackAccessToken: accessToken,
+            slackRefreshToken: refreshToken,
+          },
+          name: profileObj.userName,
+          email: profileObj.userEmail,
+          imageUrl: profileObj.userImageUrl
+        });
         return user.save();
       }
       else {
         console.log('new slack user created');
         return User.create({
-          id: profile._json.user,
-          name: profile._json.info.user.name,
-          imageUrl: profile._json.info.user.image_24,
-          email: profile._json.info.user.email,
+          //id: profileObj.userIdName,
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
+          email: profileObj.userEmail,
+          imageUrl: profileObj.userImageUrl,
+          name: profileObj.userName,
           slackProfile: {
-            //isTeamAdmin: profile._json.info.user.is_admin,
-            slackUserId: profile._json.info.user.id,
-            //userName: profile._json.user,
-            teamId: profile._json.info.team.id,
-            teamDomain: profile._json.info.team.domain,
-            //teamUrl: profile._json.url
+            userId: profileObj.userId,
+            teamId: profileObj.teamId,
+            teamDomain: profileObj.teamDomain,
           },
-          userGroup: [formatGroupId(profile._json.info.team.domain)]
+          userGroup: profileObj.userGroup
         });
       }
     })
