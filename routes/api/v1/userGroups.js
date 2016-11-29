@@ -15,7 +15,7 @@ function getUserGroupHandler(req, res) {
 	const authUser = req.user;
 	const resObj = {};
 
-	getOrCreateUserGroup(queryId, authUser).then(userGroup => {
+	UserGroup.findOne({id: queryId}).then(userGroup => {
 		const emberUserGroup = userGroup.makeEmberUserGroup();
 
 		Object.assign(resObj, {'userGroup': emberUserGroup});
@@ -32,22 +32,22 @@ function getUserGroupHandler(req, res) {
 	});
 }
 
-function getOrCreateUserGroup(queryId, authUser) {
-  return UserGroup.findOne({id: queryId}).then(userGroup => {
-    if (!userGroup) {
-			let newId = formatGroupId(authUser.slackProfile.teamDomain);
-			let newUserGroup = new UserGroup({
-				id: newId,
-				image: '/img/slack/default.png',
-				categoriesEnabled: false,
-        slackTeamId: authUser.slackProfile.teamId,
-        slackTeamDomain: authUser.slackProfile.teamDomain
-      });
-
-			return newUserGroup.save().then(group => {
-				console.log('group created', group);
-			});
-    }
-		return userGroup;
-  });
-}
+// function getOrCreateUserGroup(queryId, authUser) {
+//   return UserGroup.findOne({id: queryId}).then(userGroup => {
+//     if (!userGroup) {
+// 			let newId = formatGroupId(authUser.slackProfile.teamDomain);
+// 			let newUserGroup = new UserGroup({
+// 				id: newId,
+// 				image: '/img/slack/default.png',
+// 				categoriesEnabled: false,
+//         slackTeamId: authUser.slackProfile.teamId,
+//         slackTeamDomain: authUser.slackProfile.teamDomain
+//       });
+//
+// 			return newUserGroup.save().then(group => {
+// 				console.log('group created', group);
+// 			});
+//     }
+// 		return userGroup;
+//   });
+// }
