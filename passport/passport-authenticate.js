@@ -109,6 +109,7 @@ passport.use(new SlackStrategy({
       userImageUrl: profile._json.info.user.image_24,
       userName: profile._json.info.user.name,
     };
+    console.log('profileObj', profileObj);
 
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
@@ -126,7 +127,7 @@ passport.use(new SlackStrategy({
       return group;
     }).then(group => {
       Object.assign(profileObj, {userGroup: group.id});
-      return User.findOne( {'slackProfile.slackUserId': profileObj.userId} );
+      return User.findOne( {'slackProfile.userId': profileObj.userId} );
     })
     .then(function(user) {
       if (user) {
