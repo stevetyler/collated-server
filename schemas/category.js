@@ -10,6 +10,7 @@ const categorySchema = new Schema({
   isReserved: String,
   itemCount: String,
   name: String,
+  showSlackIcon: String,
   slackChannelId: String,
   user: String,
   userGroup: String
