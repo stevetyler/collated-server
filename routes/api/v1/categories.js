@@ -51,12 +51,15 @@ function getUserCategories(req, res) {
 		res.status(404).end();
 		return;
 	}
-	return Category.find({user: userId}).exec().then((categories) => {
+	return Category.find({user: userId}).then(categories => {
 		console.log('categories found', categories.length);
 		if (categories.length) {
 			return makeEmberCategories(userId, categories, 'user');
 		}
-	}).then((obj) => {
+		return {
+			all: []
+		};
+	}).then(obj => {
 		console.log('obj returned', obj.all);
 		res.send({ categories: obj.all });
 	}, () => {
