@@ -24,18 +24,7 @@ function getUserTags(req, res) {
 	if (!id) {
 		return res.status(404).end();
 	}
-	Tag.findOne({name: 'unassigned', user: id}).exec().then((tag) => {
-		if (tag === null || typeof tag !== 'object') {
-			Tag.create({
-				name: 'unassigned',
-				colour: 'cp-colour-1',
-				user: id,
-				itemCount: 0
-			});
-		}
-	}).then(() => {
-		return Tag.find({user: id});
-	}).then((tags) => {
+	Tag.find({user: id}).then((tags) => {
 		if (tags) {
 			return makeEmberTags(id, tags, 'user');
 		}

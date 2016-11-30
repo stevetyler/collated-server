@@ -463,7 +463,7 @@ function saveBookmarkItem(bookmark, userId) {
 	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags order
 	  });
 	} else {
-		tagnames = ['unassigned'];
+		tagnames = [];
 	}
 	console.log('4 tagnames', tagnames);
 	const tagPromises = tagnames.map(tagname => {
@@ -529,38 +529,21 @@ function saveSlackItem(message) {
 			Object.assign(slackItem, {category: slackCategory._id});
 		} else {
 			console.log('create new slack category');
-			return createCategoryAndTag(message, slackItem.userGroup);
+			return Category.create({
+				name: message.channel_name,
+				slackChannelId: message.channel_id,
+				userGroup: slackItem.userGroup
+			});
 		}
-	}).then(idObj => {
-		if (idObj !== null && typeof idObj === 'object') {
-			Object.assign(slackItem, {category: idObj.categoryId});
+	}).then(category => {
+		if (category) {
+			Object.assign(slackItem, {category: category._id});
 		}
 		return Item.assignCategoryAndTags(message.text, slackItem.userGroup);
 	}).then(tagsObj => {
 		Object.assign(slackItem, {tags: tagsObj.tagIds});
     return Item.create(slackItem);
   });
-}
-
-function createCategoryAndTag(message, userGroupId) {
-	const idObj = {};
-	console.log('createCategory', message, userGroupId);
-	return Category.create({
-		name: message.channel_name,
-		slackChannelId: message.channel_id,
-		userGroup: userGroupId
-	}).then(category => {
-		Object.assign(idObj, {categoryId: category._id});
-		return Tag.create({
-			name: 'unassigned',
-			category: category._id,
-			userGroup: category.userGroup
-		});
-	}).then(tag => {
-		Object.assign(idObj, {unassignedTagId: tag._id});
-		console.log('idObj to be returned', idObj);
-		return idObj;
-	});
 }
 
 function deleteItems(req, res) {
@@ -605,33 +588,33 @@ function getTitle(req, res) {
 }
 
 
-function copyEmberItems(req, res) {
-	// copy ember items to slack team
-	return Item.find({user: 'stevetyler_uk', category: '5831be9314bdc60363409b95'}).then(items => {
-	  console.log('ember items found');
-	  let itemPromiseArr = items.map(item => {
-	    let newSlackItem = {
-				//category: '583354890885dcbe282927ed',
-	      userGroup: 'Ember-London',
-	      createdDate: item.createdDate,
-	      body: item.body,
-	      author: item.author,
-	  		isPrivate: false,
-				twitterTweetId: item.twitterTweetId,
-	  		type: item.type
-	    };
-	    console.log('save new ember item', newSlackItem);
-	    Item.create(newSlackItem);
-	  });
-	  return Promise.all(itemPromiseArr);
-	}).then(() => {
-		res.send({
-			items: ['success']
-		});
-	}).catch(err => {
-	  console.log(err);
-	});
-}
+// function copyEmberItems(req, res) {
+// 	// copy ember items to slack team
+// 	return Item.find({user: 'stevetyler_uk', category: '5831be9314bdc60363409b95'}).then(items => {
+// 	  console.log('ember items found');
+// 	  let itemPromiseArr = items.map(item => {
+// 	    let newSlackItem = {
+// 				//category: '583354890885dcbe282927ed',
+// 	      userGroup: 'Ember-London',
+// 	      createdDate: item.createdDate,
+// 	      body: item.body,
+// 	      author: item.author,
+// 	  		isPrivate: false,
+// 				twitterTweetId: item.twitterTweetId,
+// 	  		type: item.type
+// 	    };
+// 	    console.log('save new ember item', newSlackItem);
+// 	    Item.create(newSlackItem);
+// 	  });
+// 	  return Promise.all(itemPromiseArr);
+// 	}).then(() => {
+// 		res.send({
+// 			items: ['success']
+// 		});
+// 	}).catch(err => {
+// 	  console.log(err);
+// 	});
+// }
 
 // update my items with new categories and update tags with new category
 // function updateMyItemsAndTagsHandler(req, res) {

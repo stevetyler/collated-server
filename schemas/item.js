@@ -84,28 +84,22 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
     return Tag.find(query);
   }).then(tags => {
     if (Array.isArray(tags)) {
-      return tags.reduce((obj, tag) => {
+      return tags.reduce((arr, tag) => {
   			let tagname = tag.name.toLowerCase();
 
   	    if (text.indexOf(tagname) !== -1) {
   	      console.log('tag found', tag);
-  	      obj.tagIds.push(tag._id);
+  	      arr.push(tag._id);
   	    }
-  			if (tagname === 'unassigned') {
-  				obj.unassignedId = tag._id;
-  			}
-  			return obj;
-  	  }, {tagIds: [], unassignedId: null});
+  			return arr;
+  	  }, []);
     }
-	}).then(obj => {
-		console.log('1 tags returned', obj);
-		return obj.tagIds.length > 0 ? {
+	}).then(arr => {
+		console.log('tags returned', arr);
+		return {
       categoryId: categoryId,
-      tagIds: obj.tagIds,
-		} : {
-      categoryId: categoryId,
-      tagIds: obj.unassignedId
-    };
+      tagIds: arr,
+		};
 	});
 };
 
