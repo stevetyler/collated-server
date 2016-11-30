@@ -96,10 +96,9 @@ passport.use(new SlackStrategy({
     clientSecret: configAuth.slackAuth.clientSecret,
     callbackURL: configAuth.slackAuth.callbackURL,
     scope: 'identity.basic,identity.team,identity.email,identity.avatar'
-    //scope: 'users:read'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log('slack profile received', JSON.stringify(profile._json));
+    //console.log('slack profile received', JSON.stringify(profile._json));
     const profileObj = {
       teamDomain: profile._json.info.team.domain,
       teamId: profile._json.info.team.id,
@@ -109,12 +108,11 @@ passport.use(new SlackStrategy({
       userImageUrl: profile._json.info.user.image_24,
       userName: profile._json.info.user.name,
     };
-    console.log('profileObj', profileObj);
-
+    //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
   			let newId = formatGroupId(profileObj.teamDomain);
-        console.log('new group id created', newId);
+        //console.log('new group id created', newId);
   			let newUserGroup = new UserGroup({
   				id: newId,
   				image: '/img/slack/default.png',
@@ -179,8 +177,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  // Async function, done was being called every time
-  //console.log("user deserialize", id);
   User.findOne({_id: id}, function(err, user) {
     if (err) {
       return done(err);
