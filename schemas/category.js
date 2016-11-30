@@ -5,9 +5,10 @@ const Schema = mongoose.Schema;
 const categorySchema = new Schema({
   id: String,
   colour: String,
-  itemCount: String,
+  isDefault: String,
   isPrivate: String,
   isReserved: String,
+  itemCount: String,
   name: String,
   slackChannelId: String,
   user: String,
