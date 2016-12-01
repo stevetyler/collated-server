@@ -514,6 +514,7 @@ function saveSlackItem(message) {
     createdDate: newTimestamp,
 		slackChannelId: message.channel_id,
 		slackTeamId: message.team_id,
+		slackUserId: message.user_id,
 		type: 'slack'
   };
 
