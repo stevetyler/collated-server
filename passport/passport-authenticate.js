@@ -98,7 +98,7 @@ passport.use(new SlackStrategy({
     scope: 'identity.basic,identity.team,identity.email,identity.avatar'
   },
   function(accessToken, refreshToken, profile, done) {
-    //console.log('slack profile received', JSON.stringify(profile._json));
+    console.log('slack profile received', JSON.stringify(profile._json));
     const profileObj = {
       teamDomain: profile._json.info.team.domain,
       teamId: profile._json.info.team.id,
@@ -107,6 +107,7 @@ passport.use(new SlackStrategy({
       userId: profile._json.info.user.id,
       userImageUrl: profile._json.info.user.image_24,
       userName: profile._json.info.user.name,
+      // userIdName: profile._json.user - not provided by Slack with identity scope
     };
     //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
