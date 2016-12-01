@@ -22,9 +22,7 @@ const UserGroup = mongoose.model('UserGroup', userGroupSchema);
 module.exports.autoroute = {
 	get: {
 		'/items': getItems,
-		'/items/get-title': getTitle,
-		//'/items/updateMyItems': updateMyItemsAndTagsHandler
-		//'/items/copyEmberItems': copyEmberItems
+		'/items/get-title': getTitle
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -490,7 +488,6 @@ function saveItem(body, user) {
 	});
 }
 
-
 function postSlackItemsHandler(req, res) {
 	console.log('post slack item called');
 	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
@@ -521,20 +518,26 @@ function saveSlackItem(message) {
 
 	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
 		if (userGroup !== null && typeof userGroup === 'object') {
-			Object.assign(slackItem, {userGroup: userGroup.id});
+			Object.assign(slackItem, {
+				categoryPerChannel: userGroup.categoryPerSlackChannel,
+				userGroup: userGroup.id
+			});
 		}
 		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
 	}).then(slackCategory => {
 		if (slackCategory !== null && typeof slackCategory === 'object') {
 			//console.log('slack category found', slackCategory);
 			Object.assign(slackItem, {category: slackCategory._id});
-		} else {
+		}
+		else {
 			console.log('create new slack category');
-			return Category.create({
+			const slackCategory = {
+				isDefault: message.channel_name.toLowerCase() === 'general' ? true : false,
 				name: message.channel_name,
 				slackChannelId: message.channel_id,
 				userGroup: slackItem.userGroup
-			});
+			};
+			return Category.create(slackCategory);
 		}
 	}).then(category => {
 		if (category) {
