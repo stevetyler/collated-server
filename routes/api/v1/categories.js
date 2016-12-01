@@ -53,12 +53,26 @@ function getUserCategories(req, res) {
 	}
 	return Category.find({user: userId}).then(categories => {
 		console.log('categories found', categories.length);
-		if (categories.length) {
-			return makeEmberCategories(userId, categories, 'user');
+		if (!categories.length) {
+			const newCategory = {
+				colour: 'cp-colour-1',
+				isDefault: true,
+				name: 'General',
+				user: userId,
+			};
+			return Category.create(newCategory);
+		} else {
+			return categories;
 		}
-		return {
-			all: []
-		};
+	}).then(categoryData => {
+		if (Array.isArray(categoryData)) {
+			return makeEmberCategories(userId, categoryData, 'user');
+		}
+		else {
+			return {
+				all: [categoryData]
+			};
+		}
 	}).then(obj => {
 		console.log('obj returned', obj.all);
 		res.send({ categories: obj.all });
