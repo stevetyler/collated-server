@@ -72,7 +72,7 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
 
   return Category.find(query).then(categories => {
     if (!groupId && Array.isArray(categories)) {
-      return categories.forEach(category => {
+      categories.forEach(category => {
         let categoryname = category.name.toLowerCase();
 
         if (text.indexOf(categoryname) !== -1) {
@@ -81,7 +81,10 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
       });
     }
   }).then(() => {
-    return Tag.find(query);
+    if (categoryId) {
+      Object.assign(query, {category: categoryId});
+      return Tag.find(query);
+    }
   }).then(tags => {
     if (Array.isArray(tags)) {
       return tags.reduce((arr, tag) => {
