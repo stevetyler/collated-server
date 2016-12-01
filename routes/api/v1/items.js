@@ -509,13 +509,12 @@ function saveSlackItem(message) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
 	const slackItem = {
-    user: message.user_name,
 		author: message.user_name,
+		body: message.text,
     createdDate: newTimestamp,
-    body: message.text,
-		type: 'slack',
 		slackChannelId: message.channel_id,
-		slackTeamId: message.team_id
+		slackTeamId: message.team_id,
+		type: 'slack'
   };
 
 	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
