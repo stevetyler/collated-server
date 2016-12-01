@@ -116,7 +116,7 @@ passport.use(new SlackStrategy({
         //console.log('new group id created', newId);
   			let newUserGroup = new UserGroup({
   				id: newId,
-  				image: '/img/slack/default.png',
+  				image: profileObj.teamImageUrl,
           slackTeamId: profileObj.teamId,
           slackTeamDomain: profileObj.teamDomain
         });
