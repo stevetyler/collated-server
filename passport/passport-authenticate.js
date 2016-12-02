@@ -138,7 +138,8 @@ passport.use(new SlackStrategy({
           },
           name: profileObj.userName,
           email: profileObj.userEmail,
-          imageUrl: profileObj.userImageUrl
+          imageUrl: profileObj.userImageUrl,
+          //userGroups: user.userGroups.push(profileObj.userGroup)
         });
         return user.save();
       }
@@ -158,7 +159,7 @@ passport.use(new SlackStrategy({
             teamId: profileObj.teamId,
             teamDomain: profileObj.teamDomain,
           },
-          userGroup: profileObj.userGroup
+          userGroups: [profileObj.userGroup]
         });
       }
     })
