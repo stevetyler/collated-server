@@ -7,13 +7,14 @@ var facebookProfileSchema = new Schema({
 });
 
 var slackProfileSchema = new Schema({
-  isTeamAdmin: String,
-  isTeamOwner: String,
+  //isTeamAdmin: String,
+  //isTeamOwner: String,
   teamId: String,
   teamDomain: String, // team name
   teamToken: String,
   teamUrl: String,
   userId: String,
+  userIds: [String],
   userName: String, // displayName
 });
 
@@ -47,7 +48,7 @@ var userSchema = new Schema({
   facebookProfile: facebookProfileSchema,
   slackProfile: slackProfileSchema,
   twitterProfile: twitterProfileSchema,
-  userGroup: [String]
+  userGroups: [String]
 });
 
 userSchema.methods.makeEmberUser = function () {
@@ -55,7 +56,8 @@ userSchema.methods.makeEmberUser = function () {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
-    email: this.email
+    email: this.email,
+    userGroups: this.userGroups
   };
 
   if (this.facebookProfile) {
