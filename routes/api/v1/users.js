@@ -25,38 +25,6 @@ module.exports.autoroute = {
   }
 };
 
-function checkIdExists(req, res) {
-	var queryId = req.query.id;
-
-	return User.find({id: queryId}).exec().then(function(user) {
-		if (!queryId) {
-			return res.send( {'users': []} );
-		}
-		if (!user.length) {
-			return res.send( {'users': []} );
-		}
-		if (user.length) {
-			return res.send( {'users': user} );
-		}
-	}).then(null, function() {
-		res.status(401).send();
-	});
-}
-
-function handleLogoutRequest(req, res) {
-  //logger.info('Logging Out');
-  req.logout();
-  return res.send({ users: [] });
-}
-
-function handleIsAuthenticatedRequest(req, res) {
-  if (req.isAuthenticated()) {
-    return res.send({ users:[req.user] });
-  } else {
-    return res.send({ users: [] } );
-  }
-}
-
 function getUser(req, res) {
   var userId = req.params.id;
   //var loggedInUser = req.user;
@@ -142,6 +110,37 @@ function updateUser(req, res) {
 	});
 }
 
+function checkIdExists(req, res) {
+	var queryId = req.query.id;
+
+	return User.find({id: queryId}).exec().then(function(user) {
+		if (!queryId) {
+			return res.send( {'users': []} );
+		}
+		if (!user.length) {
+			return res.send( {'users': []} );
+		}
+		if (user.length) {
+			return res.send( {'users': user} );
+		}
+	}).then(null, function() {
+		res.status(401).send();
+	});
+}
+
+function handleLogoutRequest(req, res) {
+  //logger.info('Logging Out');
+  req.logout();
+  return res.send({ users: [] });
+}
+
+function handleIsAuthenticatedRequest(req, res) {
+  if (req.isAuthenticated()) {
+    return res.send({ users:[req.user] });
+  } else {
+    return res.send({ users: [] } );
+  }
+}
 
 // function postUser(req, res) {
 //   console.log('post log');
