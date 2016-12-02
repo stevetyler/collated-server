@@ -1,7 +1,7 @@
 'use strict';
 const db = require('../../../database/database');
 const formatGroupId = require('../../../lib/format-group-id');
-const User = db.model('User');
+//const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
 module.exports.autoroute = {
@@ -12,25 +12,42 @@ module.exports.autoroute = {
 
 function getUserGroupHandler(req, res) {
   const queryId = formatGroupId(req.params.id);
-	const authUser = req.user;
-	const resObj = {};
 
 	UserGroup.findOne({id: queryId}).then(userGroup => {
 		const emberUserGroup = userGroup.makeEmberUserGroup();
 
-		Object.assign(resObj, {'userGroup': emberUserGroup});
-		return typeof authUser === 'object' ? User.findOne({id: authUser.id}) : null;
-	}).then(user => {
-		const emberUser = user ? user.makeEmberUser() : [];
-
-		Object.assign(resObj, {'users': emberUser});
-	}).then(() => {
-		res.send(resObj);
+		res.send({'userGroup': emberUserGroup});
+		return;
 	}).catch(err => {
 		console.log(err);
 		res.status(404).end();
+		return;
 	});
 }
+
+
+// function getUserGroupHandler(req, res) {
+//   const queryId = formatGroupId(req.params.id);
+// 	const authUser = req.user;
+// 	const resObj = {};
+//
+// 	UserGroup.findOne({id: queryId}).then(userGroup => {
+// 		const emberUserGroup = userGroup.makeEmberUserGroup();
+//
+// 		Object.assign(resObj, {'userGroup': emberUserGroup});
+// 		return typeof authUser === 'object' ? User.findOne({id: authUser.id}) : null;
+// 	}).then(user => {
+// 		const emberUser = user ? user.makeEmberUser() : [];
+//
+// 		Object.assign(resObj, {'users': emberUser});
+// 	}).then(() => {
+// 		res.send(resObj);
+// 	}).catch(err => {
+// 		console.log(err);
+// 		res.status(404).end();
+// 	});
+// }
+
 
 // function getOrCreateUserGroup(queryId, authUser) {
 //   return UserGroup.findOne({id: queryId}).then(userGroup => {
