@@ -55,7 +55,7 @@ function getUserCategories(req, res) {
 		console.log('categories found', categories.length);
 		if (!categories.length) {
 			const newCategory = {
-				colour: 'cp-colour-1',
+				colour: 'cp-colour-17',
 				isDefault: true,
 				name: 'General',
 				user: userId,
