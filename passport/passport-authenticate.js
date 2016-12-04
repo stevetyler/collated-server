@@ -97,6 +97,7 @@ passport.use(new SlackStrategy({
     callbackURL: configAuth.slackAuth.callbackURL,
     scope: 'identity.basic,identity.team,identity.email,identity.avatar'
   },
+
   function(accessToken, refreshToken, profile, done) {
     console.log('slack profile received', JSON.stringify(profile._json));
     const profileObj = {
@@ -109,6 +110,7 @@ passport.use(new SlackStrategy({
       userName: profile._json.info.user.name,
       // userIdName: profile._json.user - not provided by Slack with identity scope
     };
+
     //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
@@ -125,8 +127,11 @@ passport.use(new SlackStrategy({
       }
       return group;
     }).then(group => {
+      // for new users, check for existing profile that matches email and userName, add userGroup id to userGroups array
+
+
       Object.assign(profileObj, {userGroup: group.id});
-      return User.findOne( {'slackProfile.userId': profileObj.userId} );
+      return User.findOne( {'slackProfile.userIds': {$in: [profileObj.userId]}} );
     })
     .then(function(user) {
       if (user) {
