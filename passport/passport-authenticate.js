@@ -110,7 +110,6 @@ passport.use(new SlackStrategy({
       userName: profile._json.info.user.name,
       // userIdName: profile._json.user - not provided by Slack with identity scope
     };
-
     //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
@@ -127,31 +126,44 @@ passport.use(new SlackStrategy({
       }
       return group;
     }).then(group => {
-      // for new users, check for existing profile that matches email and userName, add userGroup id to userGroups array
-
-
       Object.assign(profileObj, {userGroup: group.id});
-      return User.findOne( {'slackProfile.userIds': {$in: [profileObj.userId]}} );
+      
+      return User.findOne({ $or: [{ 'slackProfile.userIds': { $in: [profileObj.userId] } }, { email: profileObj.userEmail }] });
     })
     .then(function(user) {
-      if (user) {
-        console.log('slack user exists');
-        Object.assign(user, {
+      if (user !== null && typeof user === 'object') {
+        const updatedUser = Object.assign(user, {
           apiKeys: {
             slackAccessToken: accessToken,
-            slackRefreshToken: refreshToken,
+            slackRefreshToken: refreshToken
           },
-          name: profileObj.userName,
           email: profileObj.userEmail,
           imageUrl: profileObj.userImageUrl,
-          //userGroups: user.userGroups.push(profileObj.userGroup)
+          name: profileObj.userName,
         });
-        return user.save();
+
+        if (user.slackProfile.userIds.indexOf(profileObj.userId) !== -1) {
+          Object.assign(updatedUser, {
+            slackProfile: {
+              userIds: user.slackProfile.userIds.push(profileObj.userId),
+            },
+            userGroups: user.userGroups.push(profileObj.userGroup)
+          });
+          return user.save();
+        }
+        else {
+          Object.assign(updatedUser, {
+            slackProfile: {
+              userIds: [profileObj.userId],
+            },
+              userGroups: [profileObj.userGroup]
+          });
+          return updatedUser.save();
+        }
       }
-      else {
+      else if (!user) {
         console.log('new slack user created');
         return User.create({
-          //id: profileObj.userIdName,
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
@@ -160,9 +172,7 @@ passport.use(new SlackStrategy({
           imageUrl: profileObj.userImageUrl,
           name: profileObj.userName,
           slackProfile: {
-            userId: profileObj.userId,
-            teamId: profileObj.teamId,
-            teamDomain: profileObj.teamDomain,
+            userIds: [profileObj.userId],
           },
           userGroups: [profileObj.userGroup]
         });
