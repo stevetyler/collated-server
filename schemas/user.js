@@ -71,9 +71,8 @@ userSchema.methods.makeEmberUser = function () {
     Object.assign(emberUser, {
       slackProfile: {
         id: this.slackProfile._id,
-        isTeamAdmin: this.slackProfile.isTeamAdmin,
-        isTeamOwner: this.slackProfile.isTeamOwner,
-        teamDomain: this.slackProfile.teamDomain
+        teamDomain: this.slackProfile.teamDomain,
+        userIds: this.slackProfile.userIds
       }
     });
   }
