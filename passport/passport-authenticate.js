@@ -99,7 +99,7 @@ passport.use(new SlackStrategy({
   },
 
   function(accessToken, refreshToken, profile, done) {
-    console.log('slack profile received', JSON.stringify(profile._json));
+    //console.log('slack profile received', JSON.stringify(profile._json));
     const profileObj = {
       teamDomain: profile._json.info.team.domain,
       teamId: profile._json.info.team.id,
@@ -127,12 +127,11 @@ passport.use(new SlackStrategy({
       return group;
     }).then(group => {
       Object.assign(profileObj, {userGroup: group.id});
-      
       return User.findOne({ $or: [{ 'slackProfile.userIds': { $in: [profileObj.userId] } }, { email: profileObj.userEmail }] });
     })
     .then(function(user) {
       if (user !== null && typeof user === 'object') {
-        const updatedUser = Object.assign(user, {
+        const updatedUser = Object.assign({}, user, {
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
@@ -149,7 +148,8 @@ passport.use(new SlackStrategy({
             },
             userGroups: user.userGroups.push(profileObj.userGroup)
           });
-          return user.save();
+          console.log('slack user updated', updatedUser);
+          return updatedUser.save();
         }
         else {
           Object.assign(updatedUser, {
@@ -158,6 +158,7 @@ passport.use(new SlackStrategy({
             },
               userGroups: [profileObj.userGroup]
           });
+          console.log('slack user updated', updatedUser);
           return updatedUser.save();
         }
       }
