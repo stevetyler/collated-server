@@ -88,7 +88,7 @@ util.inherits(Strategy, OAuth2Strategy);
  */
 Strategy.prototype.userProfile = function(accessToken, done) {
   //this._oauth2.useAuthorizationHeaderforGET(true);
-  console.log('userProfile defined, strategy obj defined:', JSON.stringify(this));
+  //console.log('userProfile defined, strategy obj defined:', JSON.stringify(this));
   var self = this;
   this.get(this.profileUrl, accessToken, function (err, body, res) {
     if (err) {
@@ -114,10 +114,10 @@ Strategy.prototype.userProfile = function(accessToken, done) {
           if(!self.extendedUserProfile) {
             return done(null, profile);
           }
-          console.log('self', JSON.stringify(self));
+          //console.log('self', JSON.stringify(self));
           // otherwise call for more detailed profile (requires users:read scope)
           self.get(self.userInfoUrl + profile.id + "&token=", accessToken, function (err, body, res) {
-            console.log('user profile body received', JSON.stringify(body));
+            //console.log('user profile body received', JSON.stringify(body));
             if (err) {
               console.log('get error', JSON.stringify(err));
               return done(err);
