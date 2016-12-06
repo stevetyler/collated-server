@@ -9,7 +9,6 @@ const SlackStrategy = require('./passport-slack-updated');
 
 const configAuth = require('./../auth');
 const db = require('./../database/database');
-const formatGroupId = require('./../lib/format-group-id');
 
 const User = db.model('User');
 const UserGroup = db.model('UserGroup');
@@ -114,9 +113,8 @@ passport.use(new SlackStrategy({
     //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
-        console.log('team name to format', profileObj.teamName);
-  			let newId = UserGroup.createGroupId(profileObj.teamName);
-        console.log('new group id created', newId);
+  			let newId = UserGroup.makeGroupId(profileObj.teamName);
+        //console.log('new group id created', newId);
 
         let newUserGroup = new UserGroup({
   				id: newId,

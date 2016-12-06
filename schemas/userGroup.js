@@ -27,7 +27,7 @@ userGroupSchema.methods.makeEmberUserGroup = function() {
   return emberUserGroup;
 };
 
-userGroupSchema.statics.createGroupId = function(name) {
+userGroupSchema.statics.makeGroupId = function(name) {
   // group ids must be capitalized
   let isCapitalized = name.charAt(0) === name.charAt(0).toUpperCase();
 

@@ -1,6 +1,5 @@
 'use strict';
 const db = require('../../../database/database');
-const formatGroupId = require('../../../lib/format-group-id');
 //const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
@@ -11,7 +10,7 @@ module.exports.autoroute = {
 };
 
 function getUserGroupHandler(req, res) {
-  const queryId = formatGroupId(req.params.id);
+  const queryId = UserGroup.makeGroupId(req.params.id);
 
 	UserGroup.findOne({id: queryId}).then(userGroup => {
 		const emberUserGroup = userGroup.makeEmberUserGroup();
