@@ -46,6 +46,7 @@ var userSchema = new Schema({
   },
   facebookProfile: facebookProfileSchema,
   slackProfile: slackProfileSchema,
+  slackUserIds: [String],
   twitterProfile: twitterProfileSchema,
   userGroups: [String]
 });
@@ -56,6 +57,7 @@ userSchema.methods.makeEmberUser = function () {
     name: this.name,
     imageUrl: this.imageUrl,
     email: this.email,
+    slackUserIds: this.slackUserIds,
     userGroups: this.userGroups
   };
 
@@ -71,8 +73,7 @@ userSchema.methods.makeEmberUser = function () {
     Object.assign(emberUser, {
       slackProfile: {
         id: this.slackProfile._id,
-        teamDomain: this.slackProfile.teamDomain,
-        userIds: this.slackProfile.userIds
+        teamDomain: this.slackProfile.teamDomain
       }
     });
   }
