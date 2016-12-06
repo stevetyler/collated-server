@@ -104,6 +104,7 @@ passport.use(new SlackStrategy({
       teamDomain: profile._json.info.team.domain,
       teamId: profile._json.info.team.id,
       teamImageUrl: profile._json.info.team.image_34,
+      teamName: profile._json.info.team.name,
       userEmail: profile._json.info.user.email,
       userId: profile._json.info.user.id,
       userImageUrl: profile._json.info.user.image_24,
@@ -113,13 +114,16 @@ passport.use(new SlackStrategy({
     //console.log('profileObj', profileObj);
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
-  			let newId = formatGroupId(profileObj.teamDomain);
-        //console.log('new group id created', newId);
-  			let newUserGroup = new UserGroup({
+        console.log('team name to format', profileObj.teamName);
+  			let newId = UserGroup.createGroupId(profileObj.teamName);
+        console.log('new group id created', newId);
+
+        let newUserGroup = new UserGroup({
   				id: newId,
   				image: profileObj.teamImageUrl,
           slackTeamId: profileObj.teamId,
-          slackTeamDomain: profileObj.teamDomain
+          slackTeamDomain: profileObj.teamDomain,
+          slackTeamName: profileObj.teamName
         });
 
   			return newUserGroup.save();
