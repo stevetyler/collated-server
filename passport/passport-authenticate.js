@@ -127,11 +127,12 @@ passport.use(new SlackStrategy({
       return group;
     }).then(group => {
       Object.assign(profileObj, {userGroup: group.id});
-      return User.findOne({ $or: [{ 'slackProfile.userIds': { $in: [profileObj.userId] } }, { email: profileObj.userEmail }] });
+      return User.findOne({ name: profileObj.userName, email: profileObj.userEmail });
     })
     .then(function(user) {
       if (user !== null && typeof user === 'object') {
-        const updatedUser = Object.assign({}, user, {
+        console.log('user found', user);
+        const updatedUser = Object.assign(user, {
           apiKeys: {
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
@@ -141,24 +142,20 @@ passport.use(new SlackStrategy({
           name: profileObj.userName,
         });
 
-        if (user.slackProfile.userIds.indexOf(profileObj.userId) !== -1) {
-          Object.assign(updatedUser, {
-            slackProfile: {
-              userIds: user.slackProfile.userIds.push(profileObj.userId),
-            },
-            userGroups: user.userGroups.push(profileObj.userGroup)
-          });
-          console.log('slack user updated', updatedUser);
+        if (user.slackUserIds.length) {
+          if (user.slackUserIds.indexOf(profileObj.userId) === -1) {
+            Object.assign(updatedUser, {
+              slackUserIds: user.slackUserIds.concat(profileObj.userId),
+              userGroups: user.userGroups.concat(profileObj.userGroup)
+            });
+          }
           return updatedUser.save();
-        }
-        else {
+        } else {
           Object.assign(updatedUser, {
-            slackProfile: {
-              userIds: [profileObj.userId],
-            },
-              userGroups: [profileObj.userGroup]
+            slackUserIds: [profileObj.userId],
+            userGroups: [profileObj.userGroup]
           });
-          console.log('slack user updated', updatedUser);
+          //console.log('user updated with new slack ids', updatedUser);
           return updatedUser.save();
         }
       }
@@ -172,18 +169,16 @@ passport.use(new SlackStrategy({
           email: profileObj.userEmail,
           imageUrl: profileObj.userImageUrl,
           name: profileObj.userName,
-          slackProfile: {
-            userIds: [profileObj.userId],
-          },
+          slackUserIds: [profileObj.userId],
           userGroups: [profileObj.userGroup]
         });
       }
     })
-    .then(function(user){
+    .then(function(user) {
       console.log('user created or updated', user);
       return done(null, user);
     })
-    .catch(function(err){
+    .catch(function(err) {
       console.log('slack error', JSON.stringify(err));
       done(err);
     });
