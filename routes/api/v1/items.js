@@ -407,7 +407,7 @@ function saveBookmarkItem(bookmark, userId) {
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
 
-	saveChromeItem(reqBody).then((newItem) => {
+	saveChromeItem(reqBody).then(newItem => {
 		console.log('chrome item saved', newItem);
 		res.send({'item': newItem});
 		return;
@@ -419,7 +419,7 @@ function postChromeItemHandler(req, res) {
 }
 
 function saveChromeItem(reqBody) {
-	console.log('saveChrome Item body', reqBody);
+	console.log('saveChrome Item body received', reqBody);
 	const urlArr = reqBody.urlarr;
 	const titleArr = reqBody.titlearr;
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
@@ -428,7 +428,7 @@ function saveChromeItem(reqBody) {
 		return Item.assignCategoryAndTags(titleArr[0], null, user.id);
 	}).then(tagsObj => {
 		console.log('tags to be assigned', tagsObj);
-		return tagsObj === 'object' ? Item.create({
+		return (typeof tagsObj === 'object') ? Item.create({
 			author: reqBody.username,
 			body: text,
 			category: tagsObj.categoryId,
