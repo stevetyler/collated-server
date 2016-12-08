@@ -69,6 +69,7 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
   const text = titleText.toLowerCase();
   const query = groupId ? {userGroup: groupId} : {user: userId};
   let categoryId;
+  let defaultCategoryId;
 
   return Category.find(query).then(categories => {
     if (!groupId && Array.isArray(categories)) {
@@ -76,15 +77,23 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
         let categoryname = category.name.toLowerCase();
 
         if (text.indexOf(categoryname) !== -1) {
+          console.log('category id found', category._id);
           categoryId = category._id;
+        }
+        if (category.isDefault) {
+          console.log('default category id found', category._id);
+          defaultCategoryId = category._id;
         }
       });
     }
   }).then(() => {
     if (categoryId) {
       Object.assign(query, {category: categoryId});
-      return Tag.find(query);
     }
+    else {
+      Object.assign(query, {category: defaultCategoryId});
+    }
+    return Tag.find(query);
   }).then(tags => {
     if (Array.isArray(tags)) {
       return tags.reduce((arr, tag) => {
@@ -100,7 +109,7 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
 	}).then(arr => {
 		console.log('tags returned', arr);
 		return {
-      categoryId: categoryId,
+      categoryId: categoryId ? categoryId : defaultCategoryId,
       tagIds: arr,
 		};
 	});
