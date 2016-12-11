@@ -156,9 +156,9 @@ function makeEmberCategories(id, categories, type) {
 
 	if (type === 'user') {
 		console.log('make ember user categories called');
-		categoryPromises = categories.map(category => Item.count({ user: id, categories: { $in: [ category._id ] }}));
+		categoryPromises = categories.map(category => Item.count({ user: id, category: category._id }));
 	}	else if (type === 'group') {
-		categoryPromises = categories.map(category => Item.count({ userGroup: id, categories: {$in: [category._id] }}));
+		categoryPromises = categories.map(category => Item.count({ userGroup: id, category: category._id }));
 	}
 	if (categoryPromises) {
 		return Promise.all(categoryPromises).then(counts => {
