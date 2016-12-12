@@ -11,7 +11,7 @@ module.exports.autoroute = {
 	get: {'/categories' : getCategories},
 	post: {'/categories': [ensureAuthenticated, postCategory]},
 	put: {'/categories/:id': [ensureAuthenticated, putCategory]},
-	// delete: {'/categories/:id': [ensureAuthenticated, deleteCategory]}
+	delete: {'/categories/:id': [ensureAuthenticated, deleteCategory]}
 };
 
 function getCategories(req, res){
@@ -210,7 +210,14 @@ function putCategory(req, res) {
   });
 }
 
-
+function deleteCategory(req, res){
+  Category.remove({ _id: req.params.id }).exec().then(() => {
+    return res.send({});
+  }).then(null, (err) => {
+		console.log(err);
+		return res.status(500).end();
+	});
+}
 
 
 
