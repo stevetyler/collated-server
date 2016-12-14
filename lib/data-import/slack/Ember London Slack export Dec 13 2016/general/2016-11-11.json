@@ -1,0 +1,96 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "pictures from last nights meetup are here: <https:\/\/www.flickr.com\/photos\/14261777@N00\/albums\/72157646573543881>",
+        "ts": "1478854612.001876"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "thanks to everyone who made it, and special thanks to the speakers",
+        "ts": "1478854639.001877"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hello all",
+        "ts": "1478855612.001878"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "any good primers out there on how to interpret heap allocation reports from chrome?",
+        "ts": "1478855627.001879"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and my second topic to discuss today would be",
+        "ts": "1478856100.001880"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "returning promises from CPs yay or nay?",
+        "ts": "1478856106.001881"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I do it",
+        "ts": "1478860509.001882"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not very often, but sometimes",
+        "ts": "1478860515.001883"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "goddamnit, doing Vim commands in slack again",
+        "ts": "1478871674.001886"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":%s\/Ember\/Elm\/g",
+        "ts": "1478874859.001887"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Whoops!",
+        "ts": "1478874863.001888"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Welcome to Elm London!",
+        "ts": "1478874885.001889"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I was just trying to switch to buffer 20",
+        "ts": "1478877927.001890"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "and there's only actually 17 channels here so ...",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1478877940.000000"
+        },
+        "ts": "1478877936.001891"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U047GTU64>: returning promises is fine UNLESS you have another CP observing it. Then the second cp only invalidates when the promise is swapped for another but not when the promise resolves. I'm actually writing an addon to handle this right now ",
+        "ts": "1478914224.001893"
+    }
+]

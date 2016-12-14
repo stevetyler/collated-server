@@ -1,0 +1,193 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0ASPMFPS>: let\u2019s see some pics!",
+        "ts": "1470211940.000515"
+    },
+    {
+        "user": "U1XQ25E4R",
+        "text": "<@U1XQ25E4R|olenderhub> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1470224018.000516"
+    },
+    {
+        "type": "message",
+        "user": "U1XQ25E4R",
+        "text": "Hello everyone :slightly_smiling_face:",
+        "ts": "1470224136.000517"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Hello :coffee: :sunny: :emberlondon:",
+        "ts": "1470224200.000518"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hola",
+        "ts": "1470225772.000519"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hiya <@U1XQ25E4R>",
+        "ts": "1470232558.000520"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "is there a way to prevent a component from rendering?",
+        "ts": "1470234860.000521"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/emberjs\/ember.js\/blob\/v2.7.0\/packages\/ember-views\/lib\/mixins\/view_support.js#L453-L459> ?",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "emberjs\/ember.js",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/blob\/v2.7.0\/packages\/ember-views\/lib\/mixins\/view_support.js#L453-L459",
+                "text": "ember.js - Ember.js - A JavaScript framework for creating ambitious web applications",
+                "fallback": "GitHub: emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/1253363?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/blob\/v2.7.0\/packages\/ember-views\/lib\/mixins\/view_support.js#L453-L459",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1470235032.000522"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U047GTU64>: wrap in {{if}}?",
+        "ts": "1470237727.000524"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah I decided to go for that",
+        "ts": "1470237739.000525"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but I wanted tha tlogic inside the component",
+        "ts": "1470237744.000526"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "that way the person using it doesn\u2019t need to worry about it",
+        "ts": "1470237750.000527"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but then again I could just wrap the whole template inside an if",
+        "ts": "1470237763.000528"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but that would still instantiate the component :eyes:",
+        "ts": "1470237774.000529"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "there\u2019s a private `this.destroyElement()`",
+        "ts": "1470237786.000530"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: Wait, so you wanted someone to use a component that _sometimes_ doesn't render?",
+        "ts": "1470237830.000531"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Need a steer on ED. have a model with an async belongsto relationship that's lazy loaded using links. Need to refresh the link periodically. Model.reload() doesn't touch the lazy relationship. How do you make ED reload a link?",
+        "ts": "1470237841.000532"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V2PZUB>: yeah?",
+        "ts": "1470237851.000533"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: and hiding via css won't suffice?",
+        "ts": "1470237913.000534"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019m trying to prevent having some JS running that shouldnt :smile:",
+        "ts": "1470237930.000535"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "im not bothered by just having the if out",
+        "ts": "1470237935.000536"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: I guess my thinking is that if you use a component you would assume it would render. Perhaps create an \"internal\" component which is wrapped inside another \"user facing\" one?",
+        "ts": "1470238016.000537"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: Just thinking out loud... you would have to document the rendering logic somewhere so you may as well just create a component which does that instead.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1470238111.000000"
+        },
+        "ts": "1470238066.000538"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U047GTU64>: I\u2019ve used tagless components for this in the past. `tagName: \u2018\u2019` in the component.js and then an `{{#if \u2026}}` around everything in the template. Then nothing is rendered in the DOM if it\u2019s not shown",
+        "ts": "1470238322.000540",
+        "reactions": [
+            {
+                "name": "ok_hand",
+                "users": [
+                    "U03V2PZUB"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "if the JS is kicked off with computed properties, then when the content isn\u2019t rendered the JS won\u2019t run.",
+        "ts": "1470238360.000541"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U044QMK6K>: had that in mind too :smile:",
+        "ts": "1470261230.000542"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "more and more of my components are tagless these days, looking forward to angle-bracket components etc where that will be much nicer",
+        "ts": "1470261650.000543"
+    }
+]

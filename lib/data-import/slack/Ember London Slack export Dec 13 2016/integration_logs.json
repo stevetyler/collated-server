@@ -1,0 +1,320 @@
+[
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480506670",
+        "change_type": "expanded",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480417117",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480416975",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480366754",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480024974",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480024950",
+        "change_type": "removed",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480024915",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read,users:read.email"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480024328",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480019959",
+        "change_type": "expanded",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read,users:read.email"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480017846",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team,identify,users:read,users:read.email"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480017778",
+        "change_type": "removed",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1480017760",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1479994954",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": 0,
+        "user_name": "slack",
+        "date": "1479988864",
+        "change_type": "removed",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1479660647",
+        "change_type": "added",
+        "app_type": "Collated Dev",
+        "app_id": "A1DP9JM5J",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1479660071",
+        "change_type": "expanded",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1479340421",
+        "change_type": "expanded",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1476813178",
+        "change_type": "updated",
+        "service_id": "92961713749",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history",
+        "channel": "C2QUE274Y"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1476811995",
+        "change_type": "added",
+        "service_id": "92961713749",
+        "service_type": "Outgoing WebHooks",
+        "scope": "channels:history"
+    },
+    {
+        "user_id": "U09CS0TJ9",
+        "user_name": "stevetyler",
+        "date": "1476642178",
+        "change_type": "added",
+        "app_type": "Collated",
+        "app_id": "A1RS3KMS7",
+        "scope": "identify,users:read,users:read.email,identity.basic,identity.email,identity.avatar,identity.team"
+    },
+    {
+        "user_id": "U072K0544",
+        "user_name": "ruslanzavacky",
+        "date": "1472235337",
+        "change_type": "added",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1471866682",
+        "change_type": "added",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1470813369",
+        "change_type": "removed",
+        "service_id": "67961868982",
+        "service_type": "GitHub",
+        "scope": "incoming-webhook",
+        "channel": "private"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1470813340",
+        "change_type": "removed",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1470813285",
+        "change_type": "removed",
+        "app_type": "Welcome to Blab",
+        "app_id": "A04FVMTEB",
+        "scope": "identify,read,post"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1470813232",
+        "change_type": "added",
+        "service_id": "67961868982",
+        "service_type": "GitHub",
+        "scope": "incoming-webhook",
+        "channel": "private"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1469031059",
+        "change_type": "removed",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1469031059",
+        "change_type": "reissued",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1469022067",
+        "change_type": "added",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1469022033",
+        "change_type": "removed",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1469022033",
+        "change_type": "removed",
+        "app_type": "Slack API Tester",
+        "app_id": "A02",
+        "scope": "MAX"
+    },
+    {
+        "user_id": "U1NNSV1FE",
+        "user_name": "roncooper",
+        "date": "1468179291",
+        "change_type": "added",
+        "app_type": "reader",
+        "app_id": "A1Q9LGLEB",
+        "scope": "read,identify,post"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1455878885",
+        "change_type": "updated",
+        "service_id": "22170568071",
+        "service_type": "Bots",
+        "scope": "bot"
+    },
+    {
+        "user_id": "U03V8V08M",
+        "user_name": "jgwhite",
+        "date": "1455878832",
+        "change_type": "added",
+        "service_id": "22170568071",
+        "service_type": "Bots",
+        "scope": "bot"
+    },
+    {
+        "user_id": "U043951H9",
+        "user_name": "willrax",
+        "date": "1455218255",
+        "change_type": "added",
+        "service_id": "21018465894",
+        "service_type": "Bots",
+        "scope": "bot"
+    }
+]

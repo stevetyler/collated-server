@@ -1,0 +1,291 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I use ember-simple-auth *and* torii",
+        "ts": "1480687376.002386"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes i think that is the most common situation",
+        "ts": "1480687392.002387"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they play nice toguether",
+        "ts": "1480687394.002388"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and you can use a 2-legged transaction",
+        "ts": "1480687404.002389"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you just want username\/password",
+        "ts": "1480687412.002390"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or JWT",
+        "ts": "1480687418.002391"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the thing about logging in is that if you log in though an API call, you need to setup the cookie yourself",
+        "ts": "1480687485.002392"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and very often you need to have a `session` service to ask",
+        "ts": "1480687500.002393"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "\"am I logged in\"?",
+        "ts": "1480687507.002394"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and prevent the user from entering certain routes",
+        "ts": "1480687530.002395"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i think torii provides the \"am I logged in\" though, right?",
+        "ts": "1480687535.002396"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I think so",
+        "ts": "1480687543.002397"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i use torii for logging in with third party providers like FB",
+        "ts": "1480687570.002398"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but then I rely in the session service by ESA",
+        "ts": "1480687589.002399"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "btw, i noticed this today: <https:\/\/medium.com\/@EmberMeetup\/introducing-the-implementing-authentication-in-ember-workshop-14a9f36d168a#.xwogz4z3i>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "Introducing the Implementing Authentication in Ember Workshop",
+                "title_link": "https:\/\/medium.com\/@EmberMeetup\/introducing-the-implementing-authentication-in-ember-workshop-14a9f36d168a#.xwogz4z3i",
+                "text": "Implementing authentication in an Ember app is a common requirement, but involves considering quite a few details first. Implementing\u2026",
+                "fallback": "Medium: Introducing the Implementing Authentication in Ember Workshop",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "3 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1480564810,
+                "from_url": "https:\/\/medium.com\/@EmberMeetup\/introducing-the-implementing-authentication-in-ember-workshop-14a9f36d168a#.xwogz4z3i",
+                "service_icon": "https:\/\/d262ilb51hltx0.cloudfront.net\/fit\/c\/152\/152\/1*W0nmth_X8nFKjn6BZ388UQ.png",
+                "id": 1
+            }
+        ],
+        "ts": "1480687600.002400"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which also exposes a nice hooks to tell \"where should this user be redirected to after login?\"",
+        "ts": "1480687609.002402"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "haven't read it yet",
+        "ts": "1480687610.002403"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "\"where should this user be redirected if he\/she attempts to enter a route that requires to be logged in?\"",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1480687645.000000"
+        },
+        "ts": "1480687636.002404"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes I do remember that was handled nicely but it's been over a year since I used ESA so the memory is fading",
+        "ts": "1480687670.002406"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i am using Torii with Firebase",
+        "ts": "1480687688.002407"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and I have wrapped my own \"deep link\" feature around Torii's service",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1480687723.000000"
+        },
+        "ts": "1480687705.002408"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "right, I'm going to be a bit more specific about what I want out of my auth",
+        "ts": "1480692560.002410"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I managed to make it work, but it's rather unconventional, so I'd love to hear opinions",
+        "ts": "1480692612.002411"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I have a plain simple no-JS, Rails app, with its own authentication (nothing strange here)",
+        "ts": "1480692655.002412"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "this app can also be accessed through an Ember client",
+        "ts": "1480692695.002413"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "think of the Rails app as both an API for the Ember client and an admin interface that is plain HTML+CSS+jQuery",
+        "ts": "1480692721.002414"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I want users of this admin (Rails) to share auth between the admin and the Ember app",
+        "ts": "1480692778.002415"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "when they login to the admin, it's the usual thing where all there is is a cookie, because it's a plain, non-SPA web app",
+        "ts": "1480692818.002416"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "so the question was: can I make the Ember client use this same cookie, and forget about OAuth or authentication tokens, or anything like that. Just use what I already have. Use the same cookie that auths against the Rails app",
+        "ts": "1480692868.002417"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "the answer is (as of earlier today): yes, I can. It requires looking at the internals of ember-simple-auth though, and using something that they don't quite document",
+        "ts": "1480692908.002418"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "anyone with a keen eye see what I\u2019ve done wrong?:\n<https:\/\/github.com\/quantumjs\/quantumjs.github.io>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "quantumjs\/quantumjs.github.io",
+                "title_link": "https:\/\/github.com\/quantumjs\/quantumjs.github.io",
+                "text": "<http:\/\/quantumjs.github.io|quantumjs.github.io> - public facing site",
+                "fallback": "GitHub: quantumjs\/quantumjs.github.io",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/23633788?v=3&s=400",
+                "from_url": "https:\/\/github.com\/quantumjs\/quantumjs.github.io",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1480698613.002419"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<http:\/\/quantumjs.github.io\/>",
+        "ts": "1480698614.002421"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "getting nothing",
+        "ts": "1480698618.002422"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "There isn't a GitHub Pages site here.",
+        "ts": "1480698681.002423"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/www.youtube.com\/watch?v=bIeZNJqsKsk>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Tougher Invaders &amp; presenting the game in London -JavaScript Game programming Space Invaders -Part 5",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=bIeZNJqsKsk",
+                "author_name": "Quantum Information",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UC0XiDgtbFR8ohoGlstuFgGQ",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/bIeZNJqsKsk\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Tougher Invaders & presenting the game in London -JavaScript Game programming Space Invaders -Part 5",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/bIeZNJqsKsk?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=bIeZNJqsKsk",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1480702328.002424",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U04BD6KB1",
+                    "U04BE0ELZ"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "heres the best of it!",
+        "ts": "1480702335.002426"
+    }
+]

@@ -1,0 +1,1314 @@
+[
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Ember data json API question... Bad example but bringing it into standard parlance I have a model Post with a hasmany Comments. I want user to create a post and two comments and then save them all together. ",
+        "ts": "1465553306.000504"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Ids are assigned server side",
+        "ts": "1465553317.000505"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "What's best practice for sorting out which comments are linked to the post in the jsonapi POST and how to map server ids into the models when the data comes back?",
+        "ts": "1465553381.000506"
+    },
+    {
+        "type": "message",
+        "user": "U14KVFYS3",
+        "text": "I\u2019d call `post.save()` first, and then on the returned promise attach each comment and save them. The post ID is known at that point, and Ember Data resolves the rest.",
+        "ts": "1465554171.000507"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\npost.save.then((persistedPost) =&gt; {\n   return Ember.RSVP.all(comments.map((comment) =&gt; {\n      comment.set(\u2018post\u2019, persistedPost);\n      return comment.save();\n     }));\n});\n```",
+        "ts": "1465554313.000508"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "ish",
+        "ts": "1465554324.000509"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U14KVFYS3> In reality we have a deep stack of objects so this would require a lot of round trips. Also we have a half complete post at the server ",
+        "ts": "1465554336.000510"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04TVTLQ8>: you can tweak the serializer to embed records at write",
+        "ts": "1465554355.000511"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U047GTU64>: the issue is ids - as new objects they don't have ids so how would you map that to included in the jsonapi?",
+        "ts": "1465554419.000512"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "I'm thinking about a special id form that signifies a local id then replace this server side with a server id",
+        "ts": "1465554453.000513"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the post JSON object would embed the comments",
+        "ts": "1465554461.000514"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "you infer the association from that?",
+        "ts": "1465554465.000515"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "just make sure you return the ids correctly mapped",
+        "ts": "1465554473.000516"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "remember that the server can return multiple records and ED will handle it",
+        "ts": "1465554490.000517"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so for example a POST to \/posts",
+        "ts": "1465554512.000518"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "How does ed map? How does it know which is which?",
+        "ts": "1465554514.000519"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Relationship ordering?",
+        "ts": "1465554521.000520"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "you mean here? `comment.set('post', persistedPost);`",
+        "ts": "1465554529.000521"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "You post a tree of models",
+        "ts": "1465554642.000522"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Server responds with different ids",
+        "ts": "1465554645.000523"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "ED has to map those ids onto the client side models",
+        "ts": "1465554647.000524"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "it knows how to map from the ids if thats the question",
+        "ts": "1465554668.000525"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "If you push jsonapi, the nested objects have to be referenced by id in the post",
+        "ts": "1465554684.000526"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so consider you sent a POST to create a post with multiple comments right?",
+        "ts": "1465554686.000527"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "in order for ED to map them back your payload will have to look something along the lines of",
+        "ts": "1465554699.000528"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\npost: { id: 1, comment_ids: [1,2,3,4] }.,\ncomments: [\n  { id: 1, post_id: 1 },\n  { id: 2, post_id: 1 },\n  \/\/ etc\n]\n```",
+        "ts": "1465554743.000529"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Ok so {data: {type:'post', relationships...???...}, included...",
+        "ts": "1465554748.000530"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yep",
+        "ts": "1465554752.000531"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "In your example how do you do this for new objects",
+        "ts": "1465554770.000532"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "They don't have ids until after the POST",
+        "ts": "1465554782.000533"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "well and you dont need them",
+        "ts": "1465554802.000534"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "1 - Send a post with comments and post payloads\n2 - server replies with all resources and relationships specified\n3 - ED maps it automatically",
+        "ts": "1465554824.000535"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "You do need them - you're using them in the json body",
+        "ts": "1465554827.000536"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Step 1 requires ids",
+        "ts": "1465554836.000537"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so you want to create a post first",
+        "ts": "1465554850.000538"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and then all the associated comments in a different one",
+        "ts": "1465554859.000539"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "is that it?",
+        "ts": "1465554861.000540"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "No I want to send it all in one blob",
+        "ts": "1465554863.000541"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Figure this must be a solved problem",
+        "ts": "1465554874.000542"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "then you DONT need to send IDs because its embedded in the record",
+        "ts": "1465554897.000543"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "see <http:\/\/emberjs.com\/api\/data\/classes\/DS.EmbeddedRecordsMixin.html>",
+        "attachments": [
+            {
+                "title": "Ember.js: DS.EmbeddedRecordsMixin",
+                "title_link": "http:\/\/emberjs.com\/api\/data\/classes\/DS.EmbeddedRecordsMixin.html",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: DS.EmbeddedRecordsMixin",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/api\/data\/classes\/DS.EmbeddedRecordsMixin.html",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "ts": "1465554898.000544"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Json API for create objects where you don't have ids until after the POST",
+        "ts": "1465554899.000546"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "thats how the relationship is expressed",
+        "ts": "1465554914.000547"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Embedded records mixin hasn't worked since the move to json API",
+        "ts": "1465554928.000548"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019d look for a work-around or have a service that makes an AJAX call and then pushes data to the store",
+        "ts": "1465554952.000549"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Your syntax id ED 1.0 not 2.0",
+        "ts": "1465554957.000550"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Ok I'll research and possibly make an ED PR",
+        "ts": "1465555010.000551"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "yeah, I don\u2019t think it\u2019s supported at the moment",
+        "ts": "1465555035.000552"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh",
+        "ts": "1465555056.000553"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also the embedded records mixin approach wouldn\u2019t work because it will make ED believe that the other objects will always be embedded",
+        "ts": "1465555066.000554"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "which isn\u2019t true I suppose :slightly_smiling_face:",
+        "ts": "1465555076.000555"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "^^ depends on the implementation?",
+        "ts": "1465555087.000556"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "in the cases I\u2019ve used it it has",
+        "ts": "1465555092.000557"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also it can throw off many different errors when the post can\u2019t be saved or one of the comments can\u2019t be saved",
+        "ts": "1465555101.000558"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "so I guess that\u2019s why ED doesn\u2019t support that behaviour out of the box",
+        "ts": "1465555113.000559"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "oh yeah, the mixin works, at least I\u2019ve used it successfully with ED2 on the graphql adapter",
+        "ts": "1465555283.000560"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "was just talking about bryan use case :slightly_smiling_face:",
+        "ts": "1465555291.000561"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "---",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1465563385.000000"
+        },
+        "ts": "1465563377.000562"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "EmbeddedRecordsMixin doesn\u2019t work in json-api?",
+        "ts": "1465563421.000565"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I use it, but I don\u2019t use the json-api adapter",
+        "ts": "1465563441.000566"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Ember-data 2.6 even includes a feature I developed explicitly in EmbeddedRecordsMixin to send the id and te type of the records when relationships are polymorphic",
+        "ts": "1465563494.000567"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U047GTU64>: yes, finally ^",
+        "ts": "1465563503.000568"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U040MK408>: woah",
+        "ts": "1465563524.000569"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it just took half a year",
+        "ts": "1465563525.000570"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "8 months ish actually",
+        "ts": "1465563532.000571"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I wonder if I should update that in smhw, but I don\u2019t ever remember where I did the workaround",
+        "ts": "1465563579.000572"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I do",
+        "ts": "1465563831.000573"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "wait",
+        "ts": "1465563838.000574"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I dont",
+        "ts": "1465563841.000575"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04TVTLQ8>: just looking at today\u2019s thread \u2026 couldn\u2019t you batch save all your `comments` which would return ID\u2019s for each. Then you save your `Post` with comment ID\u2019s included.",
+        "ts": "1465564272.000576"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you\u2019re working on a no-sql backend or an app-server light backend where you want to have the `comment` documents _also_ reference back to the `post` then you can include this in your serializer and ED will do it automatically for you",
+        "ts": "1465564342.000577"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but that is not transactional",
+        "ts": "1465564349.000578"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you make 2 requests",
+        "ts": "1465564354.000579"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "no nothing is transactional in ED",
+        "ts": "1465564364.000580"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you have to build that yourself",
+        "ts": "1465564368.000581"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I mean, in the backend",
+        "ts": "1465564375.000582"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and sometimes, comments cannot exist without the thing being commented",
+        "ts": "1465564387.000583"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well if you need that then you\u2019ll have to put a `tranID` into your records",
+        "ts": "1465564416.000584"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what I do is send the comments embedded",
+        "ts": "1465564420.000585"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and your middleware will need to do it",
+        "ts": "1465564422.000586"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the backend does the right thing",
+        "ts": "1465564431.000587"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or yes i guess you could do that but the embedded records approach almost sounds one step from deprecated in its description",
+        "ts": "1465564463.000588"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it won\u2019t be deprecated until there is a JSON:API standard for batch operations",
+        "ts": "1465564493.000589"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which afaik, it\u2019s still being designed",
+        "ts": "1465564501.000590"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and then you need some good support on the middleware side; it is years out",
+        "ts": "1465564521.000591"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the embedded approach is quite simple",
+        "ts": "1465564538.000592"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if I save a update a User that hasMany pets, and I create new pets, edit some pets and remove some",
+        "ts": "1465564591.000593"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "transactions though are never completely easy :slightly_smiling_face:",
+        "ts": "1465564591.000594"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I take the information I send as an snapshot of how I want things to look like at the end",
+        "ts": "1465564611.000595"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the backend updates records with ID",
+        "ts": "1465564620.000596"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "removes records that used to be there but now there aren't",
+        "ts": "1465564631.000597"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in the no-sql world I think people often just trade off larger grain documents to avoid transactions cross-document (definitely not a solution to some problems)",
+        "ts": "1465564637.000598"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and creates records with the data that has no id",
+        "ts": "1465564642.000599"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "then, the backend returns everything",
+        "ts": "1465564661.000600"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the client just has to unload from the store the records without id",
+        "ts": "1465564678.000601"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you could even allow for client uuid scheme too to that client sets the id",
+        "ts": "1465564702.000602"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, if you have client-side uuids",
+        "ts": "1465564713.000603"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you don\u2019t need that last step",
+        "ts": "1465564717.000604"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "your approach makes sense but it immediately rules out options life Firebase and Horizon (which has been taking up my recent focus)",
+        "ts": "1465564727.000605"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is mostly needed in databases with data integrity",
+        "ts": "1465564769.000606"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "sql databases",
+        "ts": "1465564773.000607"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well but even in the no-sql world transactional integrity is critical in certain areas",
+        "ts": "1465564798.000608"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but the cheapest way is to store larger grain docs",
+        "ts": "1465564808.000609"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but that has it\u2019s limits",
+        "ts": "1465564815.000610"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I am a no-sql hater personally",
+        "ts": "1465564825.000611"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "no, not a hater, not you? Why?",
+        "ts": "1465564840.000612"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "well, more accurately I am a mongo hater",
+        "ts": "1465564868.000613"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "heh. ok, i\u2019ve only used Mongo to some degree but what I saw i liked outside the ugly query syntax",
+        "ts": "1465564897.000614"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I used Couchbase much more, their query syntax is apparently pretty good but I mainly used map-reduce there",
+        "ts": "1465564929.000615"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I quite like ReThink\u2019s ReQl syntax, have you looked at it?",
+        "ts": "1465564951.000616"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "What I hate is AWS\u2019s Dynamo \u2026 I know it\u2019s supposed to be super fast but it is *not* developer friendly",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1465565038.000000"
+        },
+        "ts": "1465565026.000617"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I hate Dynamo",
+        "ts": "1465565084.000619"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "too",
+        "ts": "1465565086.000620"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I think that the biggest technology decission I took in my profesional life was using dynamo",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1465565130.000000"
+        },
+        "ts": "1465565112.000621"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "once",
+        "ts": "1465565114.000622"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but generally speaking, I don\u2019t like the idea if having my data stored as documents",
+        "ts": "1465565160.000624"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "90% of my data has relation with other entities",
+        "ts": "1465565174.000625"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and postgresql is sooooo good",
+        "ts": "1465565215.000626"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that I can do 90% of the things in sql and the other 10% in \u2026 bson columns in postgresql too",
+        "ts": "1465565250.000627"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "&gt; and postgresql is sooooo good",
+        "ts": "1465565446.000628"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yes, yes",
+        "ts": "1465565448.000629"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i know postgresql has the glow these days, i\u2019ve never used it myself",
+        "ts": "1465566080.000630"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I remember writing a whitepaper on \u201cobject-oriented databases\u201d (as no-sql was called back then) about 15 years ago but at the time I believe Postgres (as it was called then) was just a SQL database :slightly_smiling_face:",
+        "ts": "1465566209.000631"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and didn\u2019t have the \u201cglow\u201d either",
+        "ts": "1465566241.000632"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i guess it\u2019s a bit ironic that they added \u201cSQL\u201d to their name and added \u201cno-sql\u201d functionality :smile:",
+        "ts": "1465566354.000633"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1>: beacause NoSQL stands for not only SQL",
+        "ts": "1465566486.000634",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "rather than no-sql, as in this doesnt have SQL on it :smile:",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1465566502.000000"
+        },
+        "ts": "1465566489.000635"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "We've used Dynamo as a graph db. We store a relationship edge as a row. For graph navigation it's great. For global search it wouldn't be. Much much better now that global secondary  indexes are possible",
+        "ts": "1465567052.000637"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Question: Do users care about the URL params looking \"messy\"?",
+        "ts": "1465567104.000638"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V2PZUB>: I do",
+        "ts": "1465567122.000639"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "a lot",
+        "ts": "1465567124.000640"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V2PZUB|karlfreeman> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F1FPUEHLK\/screen_shot_2016-06-10_at_14.55.39.png|e.g>",
+        "file": {
+            "id": "F1FPUEHLK",
+            "created": 1465567133,
+            "timestamp": 1465567133,
+            "name": "Screen Shot 2016-06-10 at 14.55.39.png",
+            "title": "e.g",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03V2PZUB",
+            "editable": false,
+            "size": 131882,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1FPUEHLK\/screen_shot_2016-06-10_at_14.55.39.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1FPUEHLK\/download\/screen_shot_2016-06-10_at_14.55.39.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 197,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 263,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 395,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 527,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1FPUEHLK-0544b65497\/screen_shot_2016-06-10_at_14.55.39_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 562,
+            "image_exif_rotation": 1,
+            "original_w": 1920,
+            "original_h": 1053,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F1FPUEHLK\/screen_shot_2016-06-10_at_14.55.39.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F1FPUEHLK-5e1bd37a02",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03V2PZUB",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V2PZUB|karlfreeman>",
+        "bot_id": null,
+        "ts": "1465567143.000641"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "As a developer I'm really against clogging up the URL with params but I know I've got a bias.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1465567262.000000"
+        },
+        "ts": "1465567150.000642"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019d humanize does dates",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1465567168.000000"
+        },
+        "ts": "1465567161.000643"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "but I wonder if anyone has heard from users about this?",
+        "ts": "1465567166.000644"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "_wip, obviously :)_",
+        "ts": "1465567173.000646"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: humanize the query param persisted dates?",
+        "ts": "1465567293.000648"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeap",
+        "ts": "1465567299.000649"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: interesting. Perhaps humanizing the date filters would side step the \"messy\"-ness of the url.",
+        "ts": "1465567342.000650"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "definetly",
+        "ts": "1465567359.000651"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "no one cares about UUIDs, unix timestamps, etc",
+        "ts": "1465567367.000652"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: Good idea. Feels like the right compromise.",
+        "ts": "1465567382.000653"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":sun_with_face: you are welcome",
+        "ts": "1465567391.000654"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "`dashboard?date=last_week&amp;query=youtube`",
+        "ts": "1465567415.000655"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64>: :point_left::skin-tone-2: :beer:",
+        "ts": "1465567443.000656"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "are you referring to Ember.humanize()?",
+        "ts": "1465567449.000657"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1>: nope",
+        "ts": "1465567455.000658"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "just use whatever you want to make it human readable friendly",
+        "ts": "1465567463.000659"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1>: No I think its more like ditch the EPOCH timestamp and allow people to use the URL like they use the interface.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1465567507.000000"
+        },
+        "ts": "1465567481.000660"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, so you just need to serialize \/ deserialize in a lossless way",
+        "ts": "1465567508.000663"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1>: Yeah, its mainly keeping the \"ember way\" of ensuring the URL means something rather than ditching all persistence of state just to make the URL \"clean\".",
+        "ts": "1465567546.000664"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i\u2019m a big fan of named days",
+        "ts": "1465567560.000665"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so \u201ctoday\u201d, \u201cyesterday\u201d, etc.",
+        "ts": "1465567568.000666"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i was just hoping there was a library that would make my life easier :slightly_smiling_face:",
+        "ts": "1465567584.000667"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "not that its very hard",
+        "ts": "1465567596.000668"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1>: this is where I'm headed on a passion project with that in mind (<https:\/\/cl.ly\/gPJu>)",
+        "ts": "1465567602.000669"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "cool, looks nice",
+        "ts": "1465567668.000670"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1>: :+1::skin-tone-2:",
+        "ts": "1465567678.000671"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I do care about the url",
+        "ts": "1465572010.000672"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but I am aware that is a profesional bias",
+        "ts": "1465572079.000673"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "most people don't",
+        "ts": "1465572093.000674"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and my most I mean 99%",
+        "ts": "1465572101.000675"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "millenials do",
+        "ts": "1465572597.000676"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "lol",
+        "ts": "1465572663.000677"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "my Nan rage quits any website with messed up URLs",
+        "ts": "1465572676.000678"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "for filters query params are fine",
+        "ts": "1465572868.000679"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: amen",
+        "ts": "1465573081.000680"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "that and camelised urls",
+        "ts": "1465573087.000681"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "ughhhh",
+        "ts": "1465573088.000682"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "why",
+        "ts": "1465573089.000683"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U03V2PZUB>: I think `dashboard?date=16-12-2015&amp;query=youtube` is fine too",
+        "ts": "1465573943.000684"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "just do a URI encode an its normally good enough",
+        "ts": "1465573971.000685"
+    },
+    {
+        "user": "U1FSAAJ04",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1FSAAJ04|adrianalexa> has joined the channel",
+        "ts": "1465574305.000686"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Thanks everyone. Just keeping my bias in check :+1:",
+        "ts": "1465575436.000687"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U040MK408>: what am I doing wrong if `ember-power-select` won\u2019t position the dropdown properly?",
+        "ts": "1465582891.000688"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "it\u2019s not adding the attributes to the wormholed thing",
+        "ts": "1465582905.000689"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<http:\/\/i.nikwakelin.com\/xg6phd7xyv-m10.png>",
+        "attachments": [
+            {
+                "fallback": "783x345px image",
+                "image_url": "http:\/\/i.nikwakelin.com\/xg6phd7xyv-m10.png",
+                "image_width": 783,
+                "image_height": 345,
+                "image_bytes": 27068,
+                "from_url": "http:\/\/i.nikwakelin.com\/xg6phd7xyv-m10.png",
+                "id": 1
+            }
+        ],
+        "ts": "1465582926.000690"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "version?",
+        "ts": "1465582933.000692"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`1.0.0-alpha.1`",
+        "edited": {
+            "user": "U03V5B7KY",
+            "ts": "1465582957.000000"
+        },
+        "ts": "1465582953.000693"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yeah, I imagined it so",
+        "ts": "1465582965.000695"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "try something else?",
+        "ts": "1465582970.000696"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there was a problem with the latest ember",
+        "ts": "1465582985.000697"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "several regressions",
+        "ts": "1465582989.000698"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "ok",
+        "ts": "1465582997.000699"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and I\u2019m fixing stuff",
+        "ts": "1465582998.000700"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I\u2019ll go back a version",
+        "ts": "1465583003.000701"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "go back to the latest stable for now",
+        "ts": "1465583015.000702"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you are not doing anything specially custom, the only change you need to be aware",
+        "ts": "1465583046.000703"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`v0.10.10`",
+        "ts": "1465583047.000704"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "?",
+        "ts": "1465583050.000705"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes",
+        "ts": "1465583067.000706"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the only change you should be aware",
+        "ts": "1465583077.000707"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "to avoid relying on it",
+        "ts": "1465583082.000708"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is that the new version doesn\u2019t have a wrapper div with class `.ember-power-select` around the trigger",
+        "ts": "1465583111.000709"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so don\u2019t target your styles on that",
+        "ts": "1465583152.000710"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "everything else should be ok",
+        "ts": "1465583171.000711"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yay it works",
+        "ts": "1465583247.000712"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "thanks",
+        "ts": "1465583248.000713"
+    }
+]

@@ -1,0 +1,465 @@
+[
+    {
+        "type": "message",
+        "user": "U1DP99WFM",
+        "text": "hey <@U03V8V08M> :raised_hands:",
+        "ts": "1464940239.002334"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hola",
+        "ts": "1464941825.002335"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Machty\u2019s stacked routing looks interesting - <https:\/\/www.youtube.com\/watch?v=E-prZmB754A&amp;feature=youtu.be>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Ember stacked routing demo",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=E-prZmB754A&amp;feature=youtu.be",
+                "author_name": "Alex Matchneer",
+                "author_link": "https:\/\/www.youtube.com\/user\/machty",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/E-prZmB754A\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Ember stacked routing demo",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/E-prZmB754A?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=E-prZmB754A&amp;feature=youtu.be",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1464942281.002336"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U044QMK6K>: amazing",
+        "ts": "1464942972.002338"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "cool that he veers off into routable components half-way through",
+        "ts": "1464942986.002339"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Some really interesting discussion in #dev-router over in the ember slack",
+        "ts": "1464942999.002340"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t follow that one",
+        "ts": "1464943007.002341"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "bit too much to keep up with",
+        "ts": "1464943011.002342"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "yeah, lots of concepts in there",
+        "ts": "1464943078.002343"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I like his example of how the route can specify what data it\u2019s waiting for vs current waterfall approach",
+        "ts": "1464943141.002344"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "lots of interesting ways of using ember-concurrency if it\u2019s in core ember",
+        "ts": "1464943163.002345"
+    },
+    {
+        "user": "U1DSW7PAS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DSW7PAS|jonnyw> has joined the channel",
+        "ts": "1464943741.002346"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: going back to voice-UI conversation from a while back: <https:\/\/en.wikipedia.org\/wiki\/Speech_Synthesis_Markup_Language>",
+        "ts": "1464946850.002347"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "now supported in Edge",
+        "ts": "1464946862.002348"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Cool :)",
+        "ts": "1464947070.002349"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "imagine driving a pure-voice app with Ember",
+        "ts": "1464948507.002350",
+        "reactions": [
+            {
+                "name": "tada",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "htmlbars templates to render SSML",
+        "ts": "1464948522.002351"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "has anyone noticed very slow SassCompiler times? I have an addon which has almost no styling at all and Sass compilation is taking 16 seconds!",
+        "ts": "1464959341.002352"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "The deeper I get into React, the more complicated it seem to get when starting a new project",
+        "ts": "1464960721.002353"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "why can\u2019t they just build a react-cli",
+        "ts": "1464960731.002354"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "time spent setting up React == time spent getting project done in Ember",
+        "ts": "1464960776.002355"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "dats my opinion atm",
+        "ts": "1464960785.002356"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "a shame Ryan Florence couldn\u2019t continue development of <https:\/\/github.com\/ryanflorence\/react-project#needs-new-owner>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "ryanflorence\/react-project",
+                "title_link": "https:\/\/github.com\/ryanflorence\/react-project#needs-new-owner",
+                "text": "react-project - State of the art web development with React.js.",
+                "fallback": "GitHub: ryanflorence\/react-project",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/100200?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ryanflorence\/react-project#needs-new-owner",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1464960863.002357"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "looked very promising",
+        "ts": "1464960872.002359"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah that would have been much helpful",
+        "ts": "1464960926.002360"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "there is also <https:\/\/github.com\/mxstbr\/react-boilerplate>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "mxstbr\/react-boilerplate",
+                "title_link": "https:\/\/github.com\/mxstbr\/react-boilerplate",
+                "text": "react-boilerplate - :fire: A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.",
+                "fallback": "GitHub: mxstbr\/react-boilerplate",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/7525670?v=3&s=400",
+                "from_url": "https:\/\/github.com\/mxstbr\/react-boilerplate",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1464960989.002361"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "only problem is it is giving me tools I wish not to use",
+        "ts": "1464961110.002363"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: the problem without a community backed project generator",
+        "ts": "1464961200.002364"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "1) the fragmentation is too high\n2) some people wont trust it or will think spinning something from scratch is almost the same so why bother",
+        "ts": "1464961232.002365"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yup",
+        "ts": "1464961287.002366"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "It does seem like they are trying to fix it, but just too many ppl proposing different solutions for the same problem",
+        "ts": "1464961356.002367"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I guess to some in the React community the idea of a React-centric boilerplate is philosophically wrong",
+        "ts": "1464961414.002368"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "because React is \"just a library\"",
+        "ts": "1464961429.002369"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "like, it would be more the role of a higher-level \"framework\" that happens to use React",
+        "ts": "1464961499.002370"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah its a weird one, because most of the React community use it like a framework",
+        "ts": "1464961564.002371"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah",
+        "ts": "1464961573.002372"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "which is totally understandable",
+        "ts": "1464961577.002373"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I constellation of like-minded tools",
+        "ts": "1464961584.002374"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "an accidental framework",
+        "ts": "1464961597.002375"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I wonder how Facebook uses it",
+        "ts": "1464961632.002376"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, would love to get a peek into that",
+        "ts": "1464961687.002377"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "would be interesting to see the way they use it compared to how most of the community uses it",
+        "ts": "1464961691.002378"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "do they use it?",
+        "ts": "1464962430.002379"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "where?",
+        "ts": "1464962432.002380"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "its actually being used on Facebook itself",
+        "edited": {
+            "user": "U0ASPMFPS",
+            "ts": "1464962457.000000"
+        },
+        "ts": "1464962450.002381"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "my favourite feature of facebook is the timeline",
+        "ts": "1464962464.002383"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "is really smart",
+        "ts": "1464962466.002384"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019ve tried inspecting around _that_ feature - found nothing thats React",
+        "ts": "1464962482.002385"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "other features are just CRUD-esque things with really small domains",
+        "ts": "1464962503.002386"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<https:\/\/twitter.com\/basarat\/status\/737865563096125445>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/basarat|@basarat>: <http:\/\/facebook.com> runs the latest version of #ReactJS \n#Impressive :rose:\n\n#JavaScript <https:\/\/pbs.twimg.com\/media\/Cj1s0alWsAA-TFE.jpg>",
+                "ts": 1464755833,
+                "author_name": "basarat",
+                "author_link": "https:\/\/twitter.com\/basarat\/status\/737865563096125445",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/648650923040899072\/V3zNlswL_normal.jpg",
+                "author_subname": "@basarat",
+                "text": "<http:\/\/facebook.com> runs the latest version of #ReactJS \n#Impressive :rose:\n\n#JavaScript <https:\/\/pbs.twimg.com\/media\/Cj1s0alWsAA-TFE.jpg>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/basarat\/status\/737865563096125445",
+                "image_url": "https:\/\/pbs.twimg.com\/media\/Cj1s0alWsAA-TFE.jpg",
+                "image_width": 600,
+                "image_height": 351,
+                "image_bytes": 35562,
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1464962516.002387"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh nice",
+        "ts": "1464962538.002389"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "its atleast loaded in the page",
+        "ts": "1464962545.002390"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "didn\u2019t thought about using `require`",
+        "ts": "1464962546.002391"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not working for me :angel:",
+        "ts": "1464962578.002392"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also instagram is all react",
+        "ts": "1464962602.002393"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U07E9GKUZ>: I have noticed that",
+        "ts": "1464962613.002394"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "my fav web app is whatsapp",
+        "ts": "1464962622.002395"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "nice and simple",
+        "ts": "1464962624.002396"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "anyone knows why npm modules have to use `npm:module` when importing into an ember app?",
+        "ts": "1464971738.002397"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "and why they require `ember-browserify`?",
+        "ts": "1464971756.002398"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Nope but it looks like jpms syntax",
+        "ts": "1464972976.002399"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I'm sure it's not but maybe browsify has same syntax structure?",
+        "ts": "1464973022.002400"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "\u02d9(and yeah I know I misspelled browserify \u2026 fucking auto-correct)",
+        "ts": "1464973058.002401"
+    }
+]

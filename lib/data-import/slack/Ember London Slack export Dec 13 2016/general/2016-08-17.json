@@ -1,0 +1,602 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "good morning everyone",
+        "ts": "1471417463.000843"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U0A48LWTG>: :coffee: Morning! :wave:",
+        "ts": "1471423092.000844"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U03V5B7KY>: I also found that more often than not, if a route has a `RSVP.hash`",
+        "ts": "1471426153.000845"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is a better way to do it",
+        "ts": "1471426159.000846"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not always, tho. I\u2019d say that ~75% of the time",
+        "ts": "1471426189.000847"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "it\u2019s interesting",
+        "ts": "1471431033.000848"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "because in our settings screens especially",
+        "ts": "1471431040.000849"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "we have lists of two different types of things",
+        "ts": "1471431044.000850"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "like lists of fruits, then lists of vegetables",
+        "ts": "1471431051.000851"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "and I use `RSVP.hash` for that extenstively",
+        "ts": "1471431062.000852"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it sort of depends what you consider the \"model\" for a given route to be",
+        "ts": "1471432613.000853"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "if it\u2019s a composite of various types thing",
+        "ts": "1471432623.000854"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "than RSVP.hash makes a lot of sense",
+        "ts": "1471432633.000855"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "for me the cringey part is the one about not having time for meetups, etc",
+        "ts": "1471432748.000856"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yes!",
+        "ts": "1471432754.000857"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "100%",
+        "ts": "1471432757.000858"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "let\u2019s ask him again in 10 years time",
+        "ts": "1471432761.000859"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "(I\u2019m assuming he\u2019s quite young. I may be profiling him wrong)",
+        "ts": "1471432827.000860"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "20s",
+        "ts": "1471432885.000861"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "there",
+        "ts": "1471432978.000862"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "mind, I\u2019ve been there myself :sweat:",
+        "ts": "1471433001.000863"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V8V08M|jgwhite> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/jgwhite\/F224Z1R8V\/screen_shot_2016-08-17_at_12.32.50.png|thoughts> and commented: <@U05485UQL>: I\u2019m going to post this. Would like your thoughts.",
+        "file": {
+            "id": "F224Z1R8V",
+            "created": 1471433594,
+            "timestamp": 1471433594,
+            "name": "Screen Shot 2016-08-17 at 12.32.50.png",
+            "title": "thoughts",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03V8V08M",
+            "editable": false,
+            "size": 88254,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F224Z1R8V\/screen_shot_2016-08-17_at_12.32.50.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F224Z1R8V\/download\/screen_shot_2016-08-17_at_12.32.50.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F224Z1R8V-eb8417aed1\/screen_shot_2016-08-17_at_12.32.50_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F224Z1R8V-eb8417aed1\/screen_shot_2016-08-17_at_12.32.50_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F224Z1R8V-eb8417aed1\/screen_shot_2016-08-17_at_12.32.50_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 329,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F224Z1R8V-eb8417aed1\/screen_shot_2016-08-17_at_12.32.50_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 438,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F224Z1R8V-eb8417aed1\/screen_shot_2016-08-17_at_12.32.50_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 652,
+            "original_h": 595,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/jgwhite\/F224Z1R8V\/screen_shot_2016-08-17_at_12.32.50.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F224Z1R8V-60d1eec8fd",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc224P9MM2",
+                "created": 1471433594,
+                "timestamp": 1471433594,
+                "user": "U03V8V08M",
+                "is_intro": true,
+                "comment": "<@U05485UQL>: I\u2019m going to post this. Would like your thoughts.",
+                "channel": ""
+            }
+        },
+        "user": "U03V8V08M",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V8V08M|jgwhite>",
+        "bot_id": null,
+        "ts": "1471433596.000864"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U03V8V08M>: :+1:",
+        "ts": "1471433676.000865"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "It\u2019s pretty like\u2026. THOU SHALT",
+        "ts": "1471433684.000866"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "THOU SHALT NOT",
+        "ts": "1471433687.000867"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "EXACTLY!",
+        "ts": "1471433698.000868"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "that\u2019s a good point. I think he makes a mistake conflating \u201cbad\u201d with \u201cless experienced\u201d, which is intimidating as you say",
+        "ts": "1471433704.000869"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "High on advice, low on reasoning",
+        "ts": "1471433715.000870"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "leads to cargo culting",
+        "ts": "1471433728.000871"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "he could write the same thing with different phrasing and be more positive",
+        "ts": "1471433767.000872"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "oh, and by the way, that specific excerpt is hardly an Ember-only thing",
+        "ts": "1471433813.000873"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "100%",
+        "ts": "1471433848.000874"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "bad Slack users say \u201c100%\u201d. Good Slack users go :100:!",
+        "ts": "1471433906.000875",
+        "reactions": [
+            {
+                "name": "wink",
+                "users": [
+                    "U03V5B7KY"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": ":troll:",
+        "ts": "1471433917.000876"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "(sorry)",
+        "ts": "1471433957.000877"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "&gt; Bad and good are really loaded terms. They imply things morality and ability. I\u2019m sure you\u2019re not saying that people who don\u2019t follow the guidance here are immoral or unskilled, but it could certainly be read that way.",
+        "ts": "1471433972.000878",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U05485UQL"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ extra snippet about the wording",
+        "ts": "1471433979.000879"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "s\/bad\/new\/ and s\/good\/experienced\/ would go a long way to making that post more palatable",
+        "ts": "1471434339.000880"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U05485UQL>: I nicked your point about attending meetups :troll:",
+        "ts": "1471434435.000881"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/medium.com\/@jgwhite\/while-i-think-this-post-makes-some-good-points-i-think-the-good-vs-bad-framing-is-dangerous-303d671da851#.4awlgjg3a>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "While I think this post makes some good points, I think the \u201cgood vs. bad\u201d framing is dangerous.",
+                "title_link": "https:\/\/medium.com\/@jgwhite\/while-i-think-this-post-makes-some-good-points-i-think-the-good-vs-bad-framing-is-dangerous-303d671da851#.4awlgjg3a",
+                "text": "Bad and good are really loaded terms. They imply things morality and ability. I\u2019m sure you\u2019re not saying that people who don\u2019t follow the\u2026",
+                "fallback": "Medium: While I think this post makes some good points, I think the \u201cgood vs. bad\u201d framing is dangerous.",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "1 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1471434413,
+                "from_url": "https:\/\/medium.com\/@jgwhite\/while-i-think-this-post-makes-some-good-points-i-think-the-good-vs-bad-framing-is-dangerous-303d671da851#.4awlgjg3a",
+                "service_icon": "https:\/\/cdn-static-1.medium.com\/_\/fp\/img\/apple-touch-icon-ipad-retina.Akq8aSfZqfW1fceMxKqBZA.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471434436.000882"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "haha, you saved me the effort of writing it myself then! :wink:",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1471434628.000000"
+        },
+        "ts": "1471434455.000884"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "That post has its problems, but his previous on on Ember TDD is pretty good - <https:\/\/blog.embermap.com\/my-ember-js-tdd-workflow-47847c6dbdfa#.tkq141o7p>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "My Ember.js TDD workflow \u2014 EmberMap",
+                "title_link": "https:\/\/blog.embermap.com\/my-ember-js-tdd-workflow-47847c6dbdfa#.tkq141o7p",
+                "text": "One of the hardest things about developing new features for single page applications is dealing with transient state. Transient state is\u2026",
+                "fallback": "Medium: My Ember.js TDD workflow \u2014 EmberMap",
+                "image_url": "https:\/\/cdn-images-1.medium.com\/max\/1200\/1*7mfDXFXVhC0dv85FxmZGfg.png",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "5 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1469449862,
+                "from_url": "https:\/\/blog.embermap.com\/my-ember-js-tdd-workflow-47847c6dbdfa#.tkq141o7p",
+                "image_width": 1034,
+                "image_height": 250,
+                "image_bytes": 99754,
+                "service_icon": "https:\/\/cdn-static-1.medium.com\/_\/fp\/icons\/favicon-medium.TAS6uQ-Y7kcKgi0xjcYHXw.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1471435028.000886"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "good\/bad is so cringy",
+        "ts": "1471435137.000888"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "especially when assigned to living beings",
+        "ts": "1471435175.000889"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: reading that quote from that guy makes me want to send him a text or two :godmode:",
+        "ts": "1471435708.000890"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: which quote?",
+        "ts": "1471435957.000891"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the one referring to",
+        "ts": "1471436017.000892"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\nBad Ember developers feel entitled to the framework, and complain about changes they disagree with but did nothing to influence.\n``` \n\nif thats the correct bit",
+        "ts": "1471436033.000893"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "wait not that one",
+        "ts": "1471436052.000894"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\nThey are community members who attend meet-ups, go to conferences, chat in slack, contribute to addons, read blogs, give feedback in RFCs and PRs, listen to podcasts, or engage on Twitter. Bad Ember developers don\u2019t have time for any of that.\n```",
+        "ts": "1471436054.000895"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so I agree with your rant",
+        "ts": "1471436162.000896"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "i wish my test runs were that quick!",
+        "ts": "1471436233.000897"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U03V5B7KY>: me too!",
+        "ts": "1471438715.000898"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "do you guys use some custom formatter for the tests results? I run them from the command line with `ember test` and find it difficult to see which tests fail because they are not reported in a kind of summary",
+        "ts": "1471439471.000899"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0A48LWTG>: we wrote a custom reporter: <https:\/\/gist.github.com\/jgwhite\/71a706b64616985d484f4bea5018477a>",
+        "ts": "1471439609.000900"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "more focused on seeing timings for individual tests tho",
+        "ts": "1471439641.000901"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ah good! thank you <@U03V8V08M>",
+        "ts": "1471439673.000902"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M>: do you have any doc on how to use a custom reporter in ember qunit?",
+        "ts": "1471440331.000903"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "well, that\u2019s a testem reporter",
+        "ts": "1471440356.000904"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t know anything about QUnit reporter\/formatters",
+        "ts": "1471440366.000905"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "soz",
+        "ts": "1471440370.000906"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but I can tell you this is the data that\u2019s passed to the testem reporter for each test:\n<https:\/\/gist.github.com\/jgwhite\/71a706b64616985d484f4bea5018477a#file-reporter-js-L102-L141>",
+        "ts": "1471440408.000907",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "this may be a dumb question but is there a helper-equivalent to `component` component?",
+        "ts": "1471445664.000908"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "please only responses from \u201cgood developers\u201d \u2026 :zipper_mouth_face: just kidding",
+        "ts": "1471445731.000909"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ember-composable-helpers has `compute` --&gt; <https:\/\/github.com\/DockYard\/ember-composable-helpers#compute>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "DockYard\/ember-composable-helpers",
+                "title_link": "https:\/\/github.com\/DockYard\/ember-composable-helpers#compute",
+                "text": "ember-composable-helpers - Composable helpers for declarative templating in Ember",
+                "fallback": "GitHub: DockYard\/ember-composable-helpers",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/873981?v=3&s=400",
+                "from_url": "https:\/\/github.com\/DockYard\/ember-composable-helpers#compute",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471446001.000910"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok cool i\u2019ll have a look; been meaning to check out this for some time",
+        "ts": "1471446039.000912"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think `helper` wouldn\u2019t be too hard to write",
+        "ts": "1471446066.000913"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i have a tabular component which you can pass in a pure function as a \u201chandler\u201d but I\u2019m wanting to open it up to helpers which are installed on the app too",
+        "ts": "1471446121.000914"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M>: `ember-cli-blanket` worked like a charm :slightly_smiling_face:",
+        "ts": "1471448505.000915"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "awesome :smile:",
+        "ts": "1471448512.000916"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "will have to give it a try",
+        "ts": "1471448519.000917"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019ve modified the test URL in testem like `\"test_page\": \"tests\/index.html?hidepassed&amp;coverage=true\u201d,`",
+        "ts": "1471448578.000918"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "and you can see a nice coverage report after tests results, while if you run it using `ember test` you\u2019ll find a `coverage.json` file in your project with the details",
+        "ts": "1471448638.000919"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so how\u2019s your coverage score? :wink:",
+        "ts": "1471448664.000920",
+        "reactions": [
+            {
+                "name": "jamie",
+                "users": [
+                    "U047GTU64",
+                    "U07E9GKUZ"
+                ],
+                "count": 2
+            }
+        ]
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "Just a reminder, the Ember Project Night is tonight at Trouva\u2019s offices opposite moorgate station. \n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614864\/>\n\nIt would be awesome to see as many of you that can make it as possible :slightly_smiling_face:",
+        "attachments": [
+            {
+                "service_name": "Meetup",
+                "title": "Ember London",
+                "title_link": "https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614864\/",
+                "text": "BYOP (Bring Your Own Project) Project Nights are all about jumping in, getting help and giving back. Be that working on an upstream change to Ember itself or a side project using Ember. The sessions",
+                "fallback": "Meetup: Ember London",
+                "thumb_url": "https:\/\/a248.e.akamai.net\/secure.meetupstatic.com\/photos\/event\/1\/f\/2\/e\/highres_452047982.jpeg",
+                "from_url": "https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614864\/",
+                "thumb_width": 1200,
+                "thumb_height": 800,
+                "service_icon": "https:\/\/a248.e.akamai.net\/secure.meetupstatic.com\/s\/img\/44824024200340517185\/m\/ios\/Icon-60pt@2x.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473947699.000450"
+    },
+    {
+        "user": "U2C6ZDQDQ",
+        "text": "<@U2C6ZDQDQ|jason.sackey> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1473966287.000452"
+    }
+]

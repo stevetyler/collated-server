@@ -1,0 +1,220 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019ve heard horrible stories from sanfran and housing in general",
+        "ts": "1467712506.000877"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the only place where you can get something cheap is the tenderloin",
+        "ts": "1467712512.000878"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "which has a really bad rep",
+        "ts": "1467712516.000879"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well it is the most expensive market in the US (New York\u2019s Manhattan is more expensive but all boroughs of NYC are lower)",
+        "ts": "1467713425.000880"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that\u2019s why people are paid more and you can commute in on BART from East Bay",
+        "ts": "1467713439.000881"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(esp. if you\u2019re working in the city, not the peninsula)",
+        "ts": "1467713481.000882"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I remember being shocked when I got there but I don\u2019t think it\u2019s any worse than London (actually I\u2019d think it was considerably better)",
+        "ts": "1467713525.000883"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Whole lota Ember next week.",
+        "ts": "1467716209.000884"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "react with a :+1: if youre going to embercamp",
+        "ts": "1467716260.000885",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U047GTU64",
+                    "U03V2PZUB",
+                    "U04BD6KB1",
+                    "U05485UQL",
+                    "U07E9GKUZ",
+                    "U0B47NPJ9",
+                    "U06BGNMBL",
+                    "U03V8V08M",
+                    "U040MK408",
+                    "U043AB2QT",
+                    "U03V3P960",
+                    "U043951H9"
+                ],
+                "count": 12
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "hahahaha React :joy:",
+        "ts": "1467716322.000886",
+        "reactions": [
+            {
+                "name": "trollface",
+                "users": [
+                    "U06BGNMBL",
+                    "U03V2PZUB",
+                    "U047GTU64"
+                ],
+                "count": 3
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Can't freaking wait",
+        "attachments": [
+            {
+                "fallback": "[July 5th, 2016 11:57 AM] mariogintili: react with a :+1: if youre going to embercamp",
+                "author_subname": "mariogintili",
+                "ts": "1467716260.000885",
+                "channel_id": "C03SSL0GP",
+                "channel_name": "general",
+                "is_msg_unfurl": true,
+                "text": "react with a :+1: if youre going to embercamp",
+                "author_name": "Mario Gintili",
+                "author_link": "https:\/\/emberlondon.slack.com\/team\/mariogintili",
+                "author_icon": "https:\/\/avatars.slack-edge.com\/2016-04-08\/33090114679_ea5ff166195e69635263_48.jpg",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": "D0D0D0",
+                "from_url": "https:\/\/emberlondon.slack.com\/archives\/general\/p1467716260000885",
+                "is_share": true,
+                "footer": "Posted in #general"
+            }
+        ],
+        "ts": "1467728443.000887"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "is there going to be swag? I could do with some Ember swag",
+        "ts": "1467728741.000888"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "There is indeed.",
+        "ts": "1467728753.000889"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "got a couple of new computers unmolested by stickers",
+        "ts": "1467728758.000890"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "ace",
+        "ts": "1467728763.000891"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yup, swag aplenty",
+        "ts": "1467729442.000892"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "awww yeaaah",
+        "ts": "1467731832.000893"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<http:\/\/i.imgur.com\/UtfZX8e.png>",
+        "attachments": [
+            {
+                "fallback": "600x411px image",
+                "image_url": "http:\/\/i.imgur.com\/UtfZX8e.png",
+                "image_width": 600,
+                "image_height": 411,
+                "image_bytes": 111268,
+                "from_url": "http:\/\/i.imgur.com\/UtfZX8e.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467731916.000894",
+        "reactions": [
+            {
+                "name": "joy",
+                "users": [
+                    "U06BGNMBL",
+                    "U040MK408",
+                    "U047GTU64"
+                ],
+                "count": 3
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "spot on nik :smile:",
+        "ts": "1467731944.000896"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "probably should have checked the SFW box...",
+        "ts": "1467731999.000897"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "Somehow I missed that meme completely until now",
+        "ts": "1467733109.000898"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "same here. Never saw it before",
+        "ts": "1467733330.000899"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I like it, my life was missing a foul-mouthed Antipodean duck",
+        "ts": "1467733859.000900"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1467733983.000901"
+    }
+]

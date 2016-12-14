@@ -1,0 +1,649 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Hey guys! Good morning!",
+        "ts": "1467963208.001027"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Is anyone here using the standard Facebook login button inside an Ember App?",
+        "ts": "1467963230.001028"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Yesterday I had I issue with that\u2026 sometimes the button gets loaded sometimes no",
+        "ts": "1467963254.001029"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "this is pretty strange, and make me think about \u201ctiming issue\u201d: something like the FB SDK try to find the button div in the dom while it is not loaded in the page already.",
+        "ts": "1467963299.001030"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Any idea?",
+        "ts": "1467963302.001031"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "that sounds like something worth looking into - could you move the FB SDK call into `didInsertElement`?",
+        "ts": "1467965515.001032"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "have you tried running it inside an Ember run?",
+        "ts": "1467965659.001033"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "how does the FB SDK loaded callback work? does it call a global function on the page or something?",
+        "ts": "1467965738.001034"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "`window.fbAsync = function() { ... }`",
+        "ts": "1467965758.001035"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U043951H9>: yes added it to Ember.run(\u2018afterRender\u2019) but nothing changed",
+        "ts": "1467966058.001036"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M>: I\u2019m initialing it this way <https:\/\/github.com\/pitchtarget\/ember-cli-facebook-js-sdk\/blob\/master\/addon\/services\/fb.js#L23>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "pitchtarget\/ember-cli-facebook-js-sdk",
+                "title_link": "https:\/\/github.com\/pitchtarget\/ember-cli-facebook-js-sdk\/blob\/master\/addon\/services\/fb.js#L23",
+                "text": "ember-cli-facebook-js-sdk - Simple Facebook SDK for Javascript addon for your Ember CLI app.",
+                "fallback": "GitHub: pitchtarget\/ember-cli-facebook-js-sdk",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/6730947?v=3&s=400",
+                "from_url": "https:\/\/github.com\/pitchtarget\/ember-cli-facebook-js-sdk\/blob\/master\/addon\/services\/fb.js#L23",
+                "thumb_width": 52,
+                "thumb_height": 52,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467966107.001037"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "hm",
+        "ts": "1467966135.001039"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0A48LWTG>: can you post some more of your code?",
+        "ts": "1467966148.001040"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yes\u2026 just a sec :slightly_smiling_face: I\u2019m on another project today",
+        "ts": "1467966167.001041"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "cool, thanks",
+        "ts": "1467966172.001042"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "anyway it was all the way similar to this example code here",
+        "ts": "1467966179.001043"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<https:\/\/github.com\/bugant\/i-have-been-to>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "bugant\/i-have-been-to",
+                "title_link": "https:\/\/github.com\/bugant\/i-have-been-to",
+                "text": "i-have-been-to - 'I have been to' will help you navigate all places you have been tagged on Facebook. Enjoy!",
+                "fallback": "GitHub: bugant\/i-have-been-to",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/307121?v=3&s=400",
+                "from_url": "https:\/\/github.com\/bugant\/i-have-been-to",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467966192.001044"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M>: the problem is on this template <https:\/\/github.com\/bugant\/i-have-been-to\/blob\/master\/app\/templates\/fb-login.hbs>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "bugant\/i-have-been-to",
+                "title_link": "https:\/\/github.com\/bugant\/i-have-been-to\/blob\/master\/app\/templates\/fb-login.hbs",
+                "text": "i-have-been-to - 'I have been to' will help you navigate all places you have been tagged on Facebook. Enjoy!",
+                "fallback": "GitHub: bugant\/i-have-been-to",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/307121?v=3&s=400",
+                "from_url": "https:\/\/github.com\/bugant\/i-have-been-to\/blob\/master\/app\/templates\/fb-login.hbs",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467966470.001046"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "right",
+        "ts": "1467966517.001048"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so I\u2019d imagine when Facebook\u2019s client library finishes loading it searches the DOM for stuff it can \"bring to life\"",
+        "ts": "1467966544.001049"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but\u00a0\u2014\u00a0if that stuff weren\u2019t in the DOM yet\u2026",
+        "ts": "1467966560.001050"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so you navigate to the route _after_ FB has already loaded",
+        "ts": "1467966570.001051"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "then it won\u2019t do the searching",
+        "ts": "1467966575.001052"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but maybe that addon is designed to take care of that\u2026 I\u2019m not sure",
+        "ts": "1467966590.001053"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I remember being in situations like this before and needing to call `FB.XFBML.parse();` to get it to do a fresh search of the DOM",
+        "ts": "1467966671.001054"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "Anyone know of a project which will allow me to quickly create a CRUD app to collect data? I need to grab some multi dimensional data from news articles and don\u2019t quite know the schema yet so it needs to be pretty easy to add new tables etc",
+        "ts": "1467973975.001055"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "Thinking about using ember-admin with some sort of easy backend firebase style",
+        "ts": "1467974270.001056"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah I\u2019d be tempted for that and ember model fragments",
+        "ts": "1467974409.001057"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "Any recommendation on the backend. Tempted to go with parse-server as that seems best maintained",
+        "ts": "1467974758.001058"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "ive been meaning to play more with <https:\/\/rethinkdb.com\/blog\/horizon-release\/>",
+        "ts": "1467974821.001059"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<http:\/\/horizon.io\/>",
+        "ts": "1467974826.001060"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U043951H9>: great. Join the party. Oh and try out ember-horizon :)",
+        "ts": "1467977009.001061"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I'm working on dockerizing a full arch around this ",
+        "ts": "1467977054.001062"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "o nice",
+        "ts": "1467977058.001063"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U072M1BRV>: was on my phone earlier and now see that you were initially asking the question which lead to `<http:\/\/horizon.io|horizon.io>`. From the little you\u2019ve stated it seems it might be a good fit. Ping me if you want to talk through it.",
+        "ts": "1467979479.001064"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "<@U04BD6KB1>: Looks ideal but ideally want somethign self hosted",
+        "ts": "1467979776.001065"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i can understand that; what about firebase then?",
+        "ts": "1467979796.001066"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "<@U04BD6KB1>: Tempted by pouch\/couch db",
+        "ts": "1467979800.001067"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "can you self host firebase",
+        "ts": "1467979809.001068"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you sure can",
+        "ts": "1467979815.001069"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "ah nice",
+        "ts": "1467979818.001070"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "couldn\u2019t last time I checked",
+        "ts": "1467979821.001071"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and it integrates with Ember very nicely",
+        "ts": "1467979823.001072"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh sorry \u2026 self-host \u2026 i had what you were saying backwards",
+        "ts": "1467979843.001073"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Horizon is self-host",
+        "ts": "1467979849.001074"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "pouch\/couch is nice for the offline capabilities",
+        "ts": "1467979868.001075"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but Horizon is promising to add this in due course",
+        "ts": "1467979879.001076"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you want to get off to a quick start I\u2019d say Horizon is a very good self-host solution",
+        "ts": "1467979922.001077"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "right ok. The offline capabilities aren\u2019t important",
+        "ts": "1467979939.001078"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and the fact that it can be made into an npm dependency means you can extend to do whatever you like",
+        "ts": "1467979943.001079"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "its just for an internal project to capture some data. Flat file documents just aren\u2019t working so a little app is probably most appropriate",
+        "ts": "1467979978.001080"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Well give it a quick spike; I think it could be a good fit for you",
+        "ts": "1467980009.001081"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "happy to help if I can",
+        "ts": "1467980020.001082"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "cheers. What made you choose Horizon at lifegadget?",
+        "ts": "1467980101.001083"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well i was steering toward Mongo (away from Couchbase) but saw some favourable comparisons wrt to performance and operational overhead with RethinkDB so I gave Horizon a look.",
+        "ts": "1467980185.001084"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Horizon is still a bit green but it\u2019s moving fast",
+        "ts": "1467980197.001085"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and the kind of project you\u2019re talking about sounds like a good fit",
+        "ts": "1467980210.001086"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "my final decision came from the ability bypass Horizon with Express if I need to",
+        "ts": "1467980248.001087"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "though my initial requirements are low they\u2019ll get more significant over time",
+        "ts": "1467980264.001088"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "good activity on their slack channel too",
+        "ts": "1467980300.001089"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you do choose horizon, i may ask for 15 minutes of your time in a few weeks to run past my Docker stuff past you",
+        "ts": "1467980351.001090"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "sure ok",
+        "ts": "1467980374.001091"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "looks like an interesting project. Even if I don\u2019t use it for this I have something else in mind I can use it on too",
+        "ts": "1467980399.001092"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I think the benefit of starting with a very low-friction backend (almost like mirage but actually being a server-hosted database) feels very attractive to me. Then, as the solution starts to take greater form and sophistication, having a path that allows movement on the server side \u2026 I\u2019m sure that\u2019s a bit too rosy a picture but it feels like a good ideal to aim for.",
+        "ts": "1467980663.001093"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I\u2019m really impressed with Firebase too but proprietary lock-in and limited flexibility on the server-side make me isolate to far fewer use cases.",
+        "ts": "1467980717.001094"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ironically the \u201creal-time\u201d nature of both really isn\u2019t a requirement for me but is none-the-less kinda cool",
+        "ts": "1467980750.001095"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "What made you choose it over couch?",
+        "ts": "1467981597.001096"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "just to be clear it was \u201ccouchbase\u201d not \u201ccouchdb\u201d \u2026 that aside, good question \u2026 I\u2019d characterise as follows:\n\n- I was making some other arch changes so the cost of change was lower than had been\n- I had been annoyed at the overly corporate focus of couchbase (versus startup and OSS)\n- As you may know \u2014 despite the name \u2014 couchbase originates from memcached and maybe as a side effect the stack pushes you toward are very hardware and memory heavy footprint\n- I had originally been interested in embracing JSON-API standard so I saw Mongo in conjunction with **Fortune.js** as a nice pairing\n- While coachbase documentation is good enough \u2014 largely because of its lack of OSS acceptance \u2014 there is very little 3rd party documentation and I wanted to read more on architectural decisions (found some great material for Mongo if you\u2019re interested)",
+        "ts": "1467982084.001097"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U040MK408>: trying out EPS 1.0.0.alpha-13 :smile:",
+        "ts": "1467991294.001098"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "everything breaks?",
+        "ts": "1467991312.001099"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "xD",
+        "ts": "1467991313.001100"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "it works perfectly! :smile:",
+        "ts": "1467991351.001101"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "well, let me run tests now",
+        "ts": "1467991358.001102"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "markup changed a little bit",
+        "ts": "1467991377.001103"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "(I removed a wrapper)",
+        "ts": "1467991384.001104"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "gotcha",
+        "ts": "1467991388.001105"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but hopefully it\u2019s fine",
+        "ts": "1467991390.001106"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "decided to spend today trying to upgrade the app from ember 2.4.3 to 2.7.0-beta",
+        "ts": "1467991432.001107"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": ":smile:",
+        "ts": "1467991433.001108"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "really liked your commit messages counting down failing tests though",
+        "ts": "1467991526.001109"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "did you read the commit history? :astonished:",
+        "ts": "1467991601.001110"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is truely thoroughly reviewing an addon upgrade",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1467991633.000000"
+        },
+        "ts": "1467991624.001111"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "ahaha #open-source",
+        "ts": "1467991661.001113"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "remember <@U07E9GKUZ> is a man with two mechanical keyboards and an artisan fan",
+        "ts": "1467991667.001114"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "Ju gets paid no matter what he does",
+        "ts": "1467991675.001115"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hahahahaha",
+        "ts": "1467991682.001116"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so long as it makes Will\u2019s life more difficult, the bags of cash keeping coming",
+        "ts": "1467991701.001117"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "haha",
+        "ts": "1467991704.001118"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "very untrue and hurtful",
+        "ts": "1467991735.001119"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "thank you very much will",
+        "ts": "1467991739.001120"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "anyone up for an EmberCamp lightning talk?",
+        "ts": "1467991773.001121"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "we\u2019ll put a whiteboard up on the day, but if anyone wants to bag a spot ahead of time",
+        "ts": "1467991790.001122"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "I\u2019ll come up with something this weekend",
+        "ts": "1467991842.001123"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "5 minutes right?",
+        "ts": "1467991848.001124"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yup",
+        "ts": "1467991851.001125"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":sunglasses: :ok_hand:",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1467991857.000000"
+        },
+        "ts": "1467991853.001126"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "hey <@U040MK408> I\u2019m seeing a lot of \"Assertion Failed: Attempted to register a view with an id already in use: null\u201d and I suppose they are caused by the migration to tagless components, did you by chance run into them as well?",
+        "ts": "1467993697.001128"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i did see it",
+        "ts": "1467993945.001129"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but not sure under what circunstances it fires",
+        "ts": "1467993966.001130"
+    }
+]

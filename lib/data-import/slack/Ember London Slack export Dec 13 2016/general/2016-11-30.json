@@ -1,0 +1,57 @@
+[
+    {
+        "user": "U39BMLLMU",
+        "text": "<@U39BMLLMU|kwang-su> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1480502077.002361"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/twitter.com\/trentmwillis\/status\/803796457568419840>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/trentmwillis|@trentmwillis>: Excited to announce that <http:\/\/ember-engines.com\/> is live! Check it out for the latest guides on working with Ember Engines!",
+                "ts": 1480474983,
+                "author_name": "Trent Willis",
+                "author_link": "https:\/\/twitter.com\/trentmwillis\/status\/803796457568419840",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/378800000171757122\/96cbeca774bc4ee9f7301a8528759b26_normal.jpeg",
+                "author_subname": "@trentmwillis",
+                "text": "Excited to announce that <http:\/\/ember-engines.com\/> is live! Check it out for the latest guides on working with Ember Engines!",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/trentmwillis\/status\/803796457568419840",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1480503219.002362",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            },
+            {
+                "name": "heart",
+                "users": [
+                    "U37TYCZSQ",
+                    "U040MK408",
+                    "U0L9R72E6",
+                    "U072K0544"
+                ],
+                "count": 4
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "nice",
+        "ts": "1480505873.002364"
+    }
+]

@@ -1,0 +1,103 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Morning everyone :coffee:",
+        "ts": "1470128873.000498"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Morn'n",
+        "edited": {
+            "user": "U043AB2QT",
+            "ts": "1470128884.000000"
+        },
+        "ts": "1470128882.000499"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "mornin\u2019 :sleeping:",
+        "ts": "1470129424.000501"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "mornin",
+        "ts": "1470129435.000502"
+    },
+    {
+        "type": "message",
+        "user": "U14KVFYS3",
+        "text": "Morning :rain_cloud:",
+        "ts": "1470129470.000503"
+    },
+    {
+        "user": "U1XB7HR3J",
+        "text": "<@U1XB7HR3J|calumfodder> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1470134593.000504"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Does anyone have any tips on how to debug a recurring fulfilled promise (location unknown...)",
+        "ts": "1470144562.000505"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Have you looked at the Promises tab of the ember inspector?",
+        "ts": "1470144586.000506"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U043AB2QT>: Yeah, thats actually where I spotted this promise.",
+        "ts": "1470144619.000507"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U043AB2QT>: Its related to simple-auth and its fulfilment value is an `authenticated` object.",
+        "ts": "1470144648.000508"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Hmm, seems to be simple-auth 1.1.0 related. Nevermind.",
+        "ts": "1470145530.000509"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good day",
+        "ts": "1470146444.000510"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hey <@U0ASPMFPS> how\u2019s Ghana treating you?",
+        "ts": "1470146479.000511"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Weather is great, Internet is working (albeit having to use two different service providers) and everyone is happy",
+        "ts": "1470146534.000512"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Weather here is poor, Internet is great and people are non committal",
+        "ts": "1470146579.000513"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": ":slightly_smiling_face:",
+        "ts": "1470146625.000514"
+    }
+]

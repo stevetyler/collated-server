@@ -1,0 +1,26 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "The Intel family was never directly mentioned although I think Tim did say \"sixth generation\" which i believe is reference to the Skylake not Kabylake family.",
+        "ts": "1477733411.001769"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Highest end CPU is 2.9ghz quad core i7 (from memory)",
+        "ts": "1477733464.001770"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "They do overclock into the 3.x megahertz though",
+        "ts": "1477733488.001771"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "Guys, do we have Ember devs who are actually Windows users? What kind of machine you use and how satisfactory you are with dev environment?",
+        "ts": "1477793104.001772"
+    }
+]

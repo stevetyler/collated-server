@@ -1,0 +1,35 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/twitter.com\/EmberLondon\/status\/794166820412526592>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: We have a double-whammy of Ember Engines goodness at this month\u2019s events.\n\n1\/4",
+                "ts": 1478179099,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/794166820412526592",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "text": "We have a double-whammy of Ember Engines goodness at this month\u2019s events.\n\n1\/4",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/794166820412526592",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1478180083.001824",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG",
+                    "U047GTU64"
+                ],
+                "count": 2
+            }
+        ]
+    }
+]

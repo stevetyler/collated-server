@@ -1,0 +1,331 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "anyone used cssnext?",
+        "ts": "1479461540.002196"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "was thinking of switching from less",
+        "ts": "1479461546.002197"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "looked at it but decided to stick with SASS",
+        "ts": "1479461603.002198"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "what's the state of polymorphic associations in ED?",
+        "ts": "1479463765.002199"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they work for me",
+        "ts": "1479466859.002200"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'm contemplating building a AWS-centric open-source logging framework that would support very low cost, high scalability using basic AWS primitives. Would support Ember as an addon and would also be usable in NodeJS in backend (eventually).",
+        "ts": "1479479322.002201"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Visually I'm thinking something like this as an end-state:",
+        "ts": "1479479340.002202"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F34C2U8DR\/pasted_image_at_2016_11_18_02_29_pm.png|Pasted image at 2016-11-18, 2:29 PM>",
+        "file": {
+            "id": "F34C2U8DR",
+            "created": 1479479343,
+            "timestamp": 1479479343,
+            "name": "Pasted image at 2016_11_18 02_29 PM.png",
+            "title": "Pasted image at 2016-11-18, 2:29 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 412898,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F34C2U8DR\/pasted_image_at_2016_11_18_02_29_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F34C2U8DR\/download\/pasted_image_at_2016_11_18_02_29_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 168,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 224,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 336,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 449,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34C2U8DR-94553ac9ff\/pasted_image_at_2016_11_18_02_29_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 478,
+            "image_exif_rotation": 1,
+            "original_w": 1860,
+            "original_h": 869,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F34C2U8DR\/pasted_image_at_2016_11_18_02_29_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F34C2U8DR-1fb97376bc",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1479479350.002203"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "anyway, if anyone wants to work with me on this i'm open to it",
+        "ts": "1479479464.002204"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "looking for people right now to get on a Skype to talk about design considerations",
+        "ts": "1479479488.002205"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "later I'd be looking at folks who want to contibute code",
+        "ts": "1479479508.002206"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F34E8GEGJ\/pasted_image_at_2016_11_18_02_39_pm.png|slightly updated picture>",
+        "file": {
+            "id": "F34E8GEGJ",
+            "created": 1479479985,
+            "timestamp": 1479479985,
+            "name": "Pasted image at 2016_11_18 02_39 PM.png",
+            "title": "slightly updated picture",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 426138,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F34E8GEGJ\/pasted_image_at_2016_11_18_02_39_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F34E8GEGJ\/download\/pasted_image_at_2016_11_18_02_39_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 184,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 246,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 368,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 491,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F34E8GEGJ-1bd1bc15b4\/pasted_image_at_2016_11_18_02_39_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 524,
+            "image_exif_rotation": 1,
+            "original_w": 1855,
+            "original_h": 949,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F34E8GEGJ\/pasted_image_at_2016_11_18_02_39_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F34E8GEGJ-9f156c1a30",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1479479989.002207"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "I have no idea what I'm looking at so I might just wait to be able to use the awesomeness that you people, smarter than I, come up with :slightly_smiling_face:",
+        "ts": "1479484612.002208"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "thanks <@U043AB2QT> your false praise means everything to me :smirk:",
+        "ts": "1479484648.002209"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in all seriousness though I'll probably post a 60 second video once there's something to see",
+        "ts": "1479484700.002210"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Any time :slightly_smiling_face:",
+        "ts": "1479484846.002211"
+    },
+    {
+        "user": "U34J77EEQ",
+        "text": "<@U34J77EEQ|dennisschwartz> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1479486400.002212"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/mobile.twitter.com\/triskweline\/status\/799259854321942529>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/triskweline|@triskweline>: Hackathon standards for success over the years:\n\n2009: Built a prototype\n2012: Rendered Hello world\n2016: Configured build pipeline",
+                "ts": 1479393373,
+                "author_name": "Henning Koch",
+                "author_link": "https:\/\/twitter.com\/triskweline\/status\/799259854321942529",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/554713988500426753\/iMUIppTN_normal.jpeg",
+                "author_subname": "@triskweline",
+                "text": "Hackathon standards for success over the years:\n\n2009: Built a prototype\n2012: Rendered Hello world\n2016: Configured build pipeline",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/mobile.twitter.com\/triskweline\/status\/799259854321942529",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1479496228.002213"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/mobile.twitter.com\/lioninawhat\/status\/799441426778095616>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/lioninawhat|@lioninawhat>: <https:\/\/twitter.com\/triskweline|@triskweline> Bro do you even <https:\/\/twitter.com\/emberjs|@emberjs>.",
+                "ts": 1479436663,
+                "author_name": "Neil Thawani",
+                "author_link": "https:\/\/twitter.com\/lioninawhat\/status\/799441426778095616",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/465692163599110145\/DuFrmQx__normal.png",
+                "author_subname": "@lioninawhat",
+                "text": "<https:\/\/twitter.com\/triskweline|@triskweline> Bro do you even <https:\/\/twitter.com\/emberjs|@emberjs>.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/mobile.twitter.com\/lioninawhat\/status\/799441426778095616",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1479496245.002215"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/mobile.twitter.com\/wycats\/status\/799487090585202688>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/wycats|@wycats>: <https:\/\/twitter.com\/lioninawhat|@lioninawhat> <https:\/\/twitter.com\/triskweline|@triskweline> <https:\/\/twitter.com\/emberjs|@emberjs> can confirm.",
+                "ts": 1479447550,
+                "author_name": "Yehuda Katz",
+                "author_link": "https:\/\/twitter.com\/wycats\/status\/799487090585202688",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/3250074047\/46d910af94e25187832cb4a3bc84b2b5_normal.jpeg",
+                "author_subname": "@wycats",
+                "text": "<https:\/\/twitter.com\/lioninawhat|@lioninawhat> <https:\/\/twitter.com\/triskweline|@triskweline> <https:\/\/twitter.com\/emberjs|@emberjs> can confirm.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/mobile.twitter.com\/wycats\/status\/799487090585202688",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1479496402.002217"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/twitter.com\/rwjblue\/status\/799722020745441281>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/rwjblue|@rwjblue>: Starting my #LinkedInLife next week. Hoping to help continue their efforts to work with the community pushing forward #EmberJS and ecosystem",
+                "ts": 1479503562,
+                "author_name": "Robert Jackson",
+                "author_link": "https:\/\/twitter.com\/rwjblue\/status\/799722020745441281",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490119099419471872\/uOjEVckR_normal.jpeg",
+                "author_subname": "@rwjblue",
+                "text": "Starting my #LinkedInLife next week. Hoping to help continue their efforts to work with the community pushing forward #EmberJS and ecosystem",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/rwjblue\/status\/799722020745441281",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1479505139.002219"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that sounds like good news",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1479505166.000000"
+        },
+        "ts": "1479505163.002221"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U04BD6KB1> consider writing to Dynamo as your primary store and then feed a kinesis stream into lambda",
+        "ts": "1479515241.002223"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "You can feed iot messages over a websocket into Dynamo and the db write is FOC",
+        "ts": "1479515284.002224"
+    }
+]

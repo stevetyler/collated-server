@@ -1,0 +1,1024 @@
+[
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Any tips for speeding up builds?",
+        "ts": "1471960134.001310"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```Build successful - 19764ms.\n\nSlowest Trees                                 | Total\n----------------------------------------------+---------------------\nAssetRewrite                                  | 8586ms\nLessCompiler                                  | 2392ms\nCoreObject                                    | 2057ms\n\nSlowest Trees (cumulative)                    | Total (avg)\n----------------------------------------------+---------------------\nAssetRewrite (1)                              | 8586ms\nLessCompiler (1)                              | 2392ms\nBabel (57)                                    | 2257ms (39 ms)\nCoreObject (1)                                | 2057ms```",
+        "ts": "1471960136.001311"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "20s lol",
+        "ts": "1471960141.001312"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`ember-engines` time?",
+        "ts": "1471960166.001313"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "that\u2019s a dev rebuild or a production build?",
+        "ts": "1471960174.001314"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "dev rebuild",
+        "ts": "1471960179.001315"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":flushed:",
+        "ts": "1471960183.001316"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yeah",
+        "ts": "1471960186.001317"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hmm",
+        "ts": "1471960189.001318"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "maybe some of your addons aren\u2019t leveraging caching as well as they could be",
+        "ts": "1471960211.001319"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "how is assert-rewrite taking so long?",
+        "ts": "1471960231.001320"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "looks like the assets are taking ages too",
+        "ts": "1471960235.001321"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "what is it doing?",
+        "ts": "1471960243.001322"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I have 112 images",
+        "ts": "1471960260.001323"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "actually any tips on speed rebuild time is always welcome\/welcame\/welcomed?",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471961637.000000"
+        },
+        "ts": "1471961613.001324"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1471961636.001326"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V5B7KY> what\u2019s it doing to the images?",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1471961664.000000"
+        },
+        "ts": "1471961662.001328"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "no clue",
+        "ts": "1471961670.001330"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hahaha",
+        "ts": "1471961673.001331"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ok, I'm mad with english now",
+        "ts": "1471961674.001332"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "shouldn\u2019t be doing anything",
+        "ts": "1471961674.001333"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1471961675.001334"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U040MK408> are always welcomed",
+        "ts": "1471961685.001335"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "why in the world the past participe of welcome is welcomed?",
+        "ts": "1471961689.001336"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "multiple tips :smile:",
+        "ts": "1471961690.001337"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and not `welcome`",
+        "ts": "1471961699.001338"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "welcome\/welcome\/welcame",
+        "ts": "1471961705.001339"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "\u201cI welcome all tips\u2026\"",
+        "ts": "1471961711.001340"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "haha",
+        "ts": "1471961712.001341"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "come\/came\/come",
+        "ts": "1471961718.001342"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "welcome\/welcame\/welcome",
+        "ts": "1471961724.001343"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "suppose that\u2019s present though",
+        "ts": "1471961727.001344"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "makes total sense",
+        "ts": "1471961728.001345"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V5B7KY> is it possible you have some rewriting enabled in dev that\u2019s only really meant for production",
+        "ts": "1471961740.001346"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "also\u2026 why\u2019s it doing it on rebuild?",
+        "ts": "1471961748.001347"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "sounds iffy",
+        "ts": "1471961752.001348"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V8V08M|jgwhite> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/jgwhite\/F242W3DS9\/3bucaqh.jpg|3bucAqH.jpg>",
+        "file": {
+            "id": "F242W3DS9",
+            "created": 1471961774,
+            "timestamp": 1471961774,
+            "name": "3bucAqH.jpg",
+            "title": "3bucAqH.jpg",
+            "mimetype": "image\/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U03V8V08M",
+            "editable": false,
+            "size": 34066,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F242W3DS9\/3bucaqh.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F242W3DS9\/download\/3bucaqh.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F242W3DS9-a235ec2943\/3bucaqh_64.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F242W3DS9-a235ec2943\/3bucaqh_80.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F242W3DS9-a235ec2943\/3bucaqh_360.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 270,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F242W3DS9-a235ec2943\/3bucaqh_480.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 360,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F242W3DS9-a235ec2943\/3bucaqh_160.jpg?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 500,
+            "original_h": 375,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/jgwhite\/F242W3DS9\/3bucaqh.jpg",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F242W3DS9-773131d14b",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03V8V08M",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V8V08M|jgwhite>",
+        "bot_id": null,
+        "ts": "1471961777.001349"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "haha",
+        "ts": "1471961780.001350"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I think that\u2019s only the FIRST build actually",
+        "ts": "1471961786.001351"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ah\u2026 that makes more sense",
+        "ts": "1471961793.001352"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "but subsequent builds still take about 8s of asset rewriting",
+        "ts": "1471961796.001353"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I have some gifs in there",
+        "ts": "1471961800.001354"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "still iffy",
+        "ts": "1471961802.001355"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s not doing a sprite-sheet or something like that?",
+        "ts": "1471961812.001356"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the size of the assets should not affect the time",
+        "ts": "1471961816.001357"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "nope",
+        "ts": "1471961820.001358"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "unless the MD5 process is very slow",
+        "ts": "1471961826.001359"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "do you know what addon is using asset-rewrite?",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1471961833.000000"
+        },
+        "ts": "1471961828.001360"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "\"ember-inline-svg\u201d maybe?",
+        "ts": "1471961843.001362"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "no idea though",
+        "ts": "1471961847.001363"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "uh oh <@U044QMK6K>",
+        "ts": "1471961849.001364"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that sounds reasonable",
+        "ts": "1471961851.001365"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1471961855.001366"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "are you on the latest?",
+        "ts": "1471961858.001367"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "creating sprites can be costly",
+        "ts": "1471961867.001368"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I understand that inlines SVG's should be faster that dealing with jpgs",
+        "ts": "1471961880.001369"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but still",
+        "ts": "1471961882.001370"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": ":smile: yeah there\u2019s an open question on how to speed up ember-inline-svg",
+        "ts": "1471961888.001371"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`SVGOptmizer`",
+        "ts": "1471961892.001372"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "could be that",
+        "ts": "1471961893.001373"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ yup",
+        "ts": "1471961901.001374"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/github.com\/minutebase\/ember-inline-svg#atrociously-slow-build-times->",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "minutebase\/ember-inline-svg",
+                "title_link": "https:\/\/github.com\/minutebase\/ember-inline-svg#atrociously-slow-build-times-",
+                "text": "ember-inline-svg - Ember CLI addon to render SVG images inline",
+                "fallback": "GitHub: minutebase\/ember-inline-svg",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/319214?v=3&s=400",
+                "from_url": "https:\/\/github.com\/minutebase\/ember-inline-svg#atrociously-slow-build-times-",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471961910.001375"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "ahhhhh",
+        "ts": "1471961950.001377"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "the readme anchor is broken btw, will fix hang on",
+        "edited": {
+            "user": "U03V5B7KY",
+            "ts": "1471961964.000000"
+        },
+        "ts": "1471961960.001378"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "there you go",
+        "ts": "1471962046.001380"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "useful PR",
+        "ts": "1471962047.001381"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": ":slightly_smiling_face: ta",
+        "ts": "1471962076.001382"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Ah so I turned that",
+        "ts": "1471962103.001383"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "off",
+        "ts": "1471962104.001384"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```    svg: {\n      optimize: isProductionLikeBuild\n    },```",
+        "ts": "1471962111.001385"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I\u2019ve not had chance to look at updating to use the latest hotness in broccoli caching stuff, that might speed things up too (especially rebuilds?)",
+        "ts": "1471962174.001386"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "broccoli-bittorrent-cache",
+        "ts": "1471962195.001387"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "torrents caches from everyone else using ember-cli",
+        "ts": "1471962206.001388"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```15:23:24 ember.1        | Build successful - 21678ms.\n15:23:24 ember.1        |\n15:23:24 ember.1        | Slowest Trees                                 | Total\n15:23:24 ember.1        | ----------------------------------------------+---------------------\n15:23:24 ember.1        | AssetRewrite                                  | 7749ms\n15:23:24 ember.1        | LessCompiler                                  | 2923ms\n15:23:24 ember.1        | CoreObject                                    | 2275ms\n15:23:24 ember.1        |\n15:23:24 ember.1        | Slowest Trees (cumulative)                    | Total (avg)\n15:23:24 ember.1        | ----------------------------------------------+---------------------\n15:23:24 ember.1        | AssetRewrite (1)                              | 7749ms\n15:23:24 ember.1        | Babel (57)                                    | 3659ms (64 ms)\n15:23:24 ember.1        | LessCompiler (1)                              | 2923ms\n15:23:24 ember.1        | CoreObject (1)                                | 2275ms```",
+        "ts": "1471962227.001389"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "broccoli-blockchain",
+        "ts": "1471962228.001390"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "first build similar",
+        "ts": "1471962229.001391"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "broccoli-snapchat",
+        "ts": "1471962244.001392"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yeah rebuild still takes 8s on assets",
+        "ts": "1471962263.001393"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "even with SVG turned off",
+        "ts": "1471962269.001394"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so I guess it\u2019s not that",
+        "ts": "1471962274.001395"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "oh helps if I put it in `ember-cli-build.js` not `environment.js`",
+        "ts": "1471962339.001396"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`[BABEL] Note: The code generator has deoptimised the styling of \"gelato\/svgs.js\" as it exceeds the max of \u201c100KB\"`",
+        "ts": "1471962364.001397"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "weird",
+        "ts": "1471962366.001398"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I need to think of a nicer way of doing this, currently it smooshes (technical term) all the SVGs into one JSON file so that it can find them &amp; stick them in the page. It could transpile 1-2-1 with each SVG being its own file with export default \u201c\u2026 the svg \u2026\u201d and have the helper require that in. That would have more overhead per-svg as each would turn into a module, but it would probably speed things up",
+        "ts": "1471962528.001399"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "even if I remove ember-inline-svg it\u2019s still taking 8s to load the assets",
+        "ts": "1471962542.001400"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so",
+        "ts": "1471962544.001401"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "something is going on unrelated to this",
+        "ts": "1471962548.001402"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "yay, not my fault :smile:",
+        "ts": "1471962562.001403"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "someone had an addon to show build times for each step in the pipeline didn\u2019t they? displayed it as a dotfile\/graphviz format or something",
+        "ts": "1471962595.001404"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I\u2019m going to use the tried + true approach of deleting all my assets",
+        "ts": "1471962685.001405"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/github.com\/stefanpenner\/broccoli-viz>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "stefanpenner\/broccoli-viz",
+                "title_link": "https:\/\/github.com\/stefanpenner\/broccoli-viz",
+                "text": "broccoli-viz - library to read\/parse and produce various visualizations of broccoli.",
+                "fallback": "GitHub: stefanpenner\/broccoli-viz",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/1377?v=3&s=400",
+                "from_url": "https:\/\/github.com\/stefanpenner\/broccoli-viz",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471962685.001406"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "then adding them slowly back",
+        "ts": "1471962687.001408"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```Build successful - 2732ms.\n\nSlowest Trees                                 | Total\n----------------------------------------------+---------------------\nAssetRewrite                                  | 1668ms\n\nSlowest Trees (cumulative)                    | Total (avg)\n----------------------------------------------+---------------------\nAssetRewrite (1)                              | 1668ms\nBabel (57)                                    | 208ms (3 ms)```",
+        "ts": "1471962724.001409"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "with nothing at all it\u2019s 2.7s",
+        "ts": "1471962728.001410"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U044QMK6K> haha, I removed a font we had in there for icons\u2026 which had svgs in it",
+        "ts": "1471963150.001411"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "that we weren\u2019t even includng, it was just in the folder",
+        "ts": "1471963157.001412"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "down to 3s with all the images",
+        "ts": "1471963163.001413"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this exact same thing happened on the previous ember app I worked on",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1471963182.000000"
+        },
+        "ts": "1471963179.001414"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "doh",
+        "ts": "1471963185.001416"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ember-inline-svg was cheerifully processing svg fonts",
+        "ts": "1471963194.001417"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "just lots of files, so slow even without ember-inline-svg?",
+        "ts": "1471963196.001418"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I\u2019ve honestly been suffering these build times for months",
+        "ts": "1471963197.001419"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U044QMK6K> nah, only slow with it I think",
+        "ts": "1471963210.001420"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "damn, back to it being my fault :stuck_out_tongue:",
+        "ts": "1471963222.001421"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1471963225.001422"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "soz",
+        "ts": "1471963225.001423"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "you cost me so much time wiating for builds!",
+        "ts": "1471963366.001424"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "but then you saved me a bunch of time with the addon",
+        "ts": "1471963372.001425"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so we\u2019ll call it even :wink:",
+        "ts": "1471963375.001426"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "for the low low price of a day\u2019s consulting rate I can come into your office and you can throw things at me :smile:",
+        "ts": "1471963406.001427"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "hahah",
+        "ts": "1471963418.001428"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "as fun as that sounds\u2026..",
+        "ts": "1471963432.001429"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "hey weird the new version of testem doesn\u2019t do `zoom` on the container anymore",
+        "ts": "1471963454.001430"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s not actually testem that does that",
+        "ts": "1471963488.001431"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t believe",
+        "ts": "1471963492.001432"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or qunit",
+        "ts": "1471963502.001433"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think it\u2019s an addon",
+        "ts": "1471963508.001434"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "one sec",
+        "ts": "1471963509.001435"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I have noticed that on our tests recently actually, used to be in that small container and now they\u2019re blown out into the main screen full-size",
+        "edited": {
+            "user": "U044QMK6K",
+            "ts": "1471963546.000000"
+        },
+        "ts": "1471963544.001436"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think ember-cli-qunit is in charge of that stuff",
+        "ts": "1471963576.001438"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "```\n#ember-testing {\n  width: 200%;\n  height: 200%;\n  transform: scale(0.5);\n  transform-origin: top left;\n}\n\n.full-screen #ember-testing {\n  position: absolute;\n  width: 100%;\n  transform: scale(1);\n}\n```",
+        "ts": "1471963615.001439"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/github.com\/ember-cli\/ember-cli-qunit\/blob\/master\/vendor\/ember-cli-qunit\/test-container-styles.css>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "ember-cli\/ember-cli-qunit",
+                "title_link": "https:\/\/github.com\/ember-cli\/ember-cli-qunit\/blob\/master\/vendor\/ember-cli-qunit\/test-container-styles.css",
+                "text": "ember-cli-qunit - QUnit testing package for ember-cli applications",
+                "fallback": "GitHub: ember-cli\/ember-cli-qunit",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/10262982?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli\/ember-cli-qunit\/blob\/master\/vendor\/ember-cli-qunit\/test-container-styles.css",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471963641.001440"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "huh, cool",
+        "ts": "1471963653.001442"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/github.com\/ember-cli\/ember-cli-qunit\/issues\/48>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "The testing css breaks getClientBoundingRect with non standards compliant css \u00b7 Issue #48 \u00b7 ember-cli\/ember-cli-qunit \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/ember-cli\/ember-cli-qunit\/issues\/48",
+                "text": "The css zoom: 50% is non standards compliant and breaks code that uses getClientBoundingRect. If we want to scale the testing container, we should use css transforms transform: scale(0.5 0.5) whic...",
+                "fallback": "GitHub: The testing css breaks getClientBoundingRect with non standards compliant css \u00b7 Issue #48 \u00b7 ember-cli\/ember-cli-qunit",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/61024?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli\/ember-cli-qunit\/issues\/48",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471963697.001443"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "never understood why that is being done tbh",
+        "ts": "1471965201.001445"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hey folks, is there a way to use fixtures in Mirage which are cross-field aware? For instance if type is \u201ccredit\u201d then make amount positive, otherwise make amount negative?",
+        "ts": "1471971461.001446"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh i mean \u201cfactories\u201d not \u201cfixtures\u201d :stuck_out_tongue:",
+        "ts": "1471971607.001447"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what might actually fit my use-case best is to have multiple factories that build a particular model type but not sure that\u2019s possible with Mirage.",
+        "ts": "1471971739.001448"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U04BD6KB1> yup",
+        "ts": "1471972301.001449"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "```\nimport { Factory } from 'ember-cli-mirage';\n\nexport default Factory.extend({\n\n  age: 18,\n\n  isAdmin(i) {\n    return this.age &gt; 30;\n  }\n\n});\n```",
+        "ts": "1471972306.001450"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also works when `this.age` is dynamic",
+        "ts": "1471972343.001451"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U07E9GKUZ>. ok yeah i\u2019m playing with that now.",
+        "ts": "1471972351.001452"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "how to you then control which properties are set in which order?",
+        "ts": "1471972381.001453"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "iirc there is an after create hook",
+        "ts": "1471972407.001454"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "so you can set the properties in the order you prefer",
+        "ts": "1471972421.001455"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah but no examples of how to set the current records state",
+        "ts": "1471972427.001456"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "maybe i need to look at that again",
+        "ts": "1471972449.001457"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "```\nimport { Factory, faker } from 'ember-cli-mirage';\n\nexport default Factory.extend({\n\n  isAdmin: faker.random.boolean,\n\n  afterCreate(contact, server) {\n    \/\/ Only allow a max of 5 admins to be created\n    if (server.contacts.where({ isAdmin: true }).length &gt;= 5) {\n      contact.isAdmin = false;\n    }\n  }\n\n});\n```",
+        "edited": {
+            "user": "U07E9GKUZ",
+            "ts": "1471972497.000000"
+        },
+        "ts": "1471972478.001458"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "gotta run, good luck",
+        "ts": "1471972487.001459"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "`afterCreate` seems like the obvious answer but it the dependant property is a relationship key then it doesn\u2019t seem to work; I got what I needed by values trigger off of various index thresholds:",
+        "ts": "1471973241.001461"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F24596C80\/-.txt|Untitled>",
+        "file": {
+            "id": "F24596C80",
+            "created": 1471973268,
+            "timestamp": 1471973268,
+            "name": "-.txt",
+            "title": "Untitled",
+            "mimetype": "text\/plain",
+            "filetype": "text",
+            "pretty_type": "Plain Text",
+            "user": "U04BD6KB1",
+            "editable": true,
+            "size": 367,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F24596C80\/-.txt?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F24596C80\/download\/-.txt?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F24596C80\/-.txt",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F24596C80-92d72b100e",
+            "edit_link": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F24596C80\/-.txt\/edit",
+            "preview": "customers: 50,\r\n\r\namount(i) {\r\n    if(i <= this.customers) {\r\n      return faker.finance.amount(10, 25000);\r",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\" oncopy=\"if(event.clipboardData){event.clipboardData.setData('text\/plain',window.getSelection().toString().replace(\/\\u200b\/g,''));event.preventDefault();event.stopPropagation();}\">\n<div class=\"CodeMirror-code\">\n<div><pre>customers: 50,<\/pre><\/div>\n<div><pre><\/pre><\/div>\n<div><pre>amount(i) {<\/pre><\/div>\n<div><pre>    if(i &lt;= this.customers) {<\/pre><\/div>\n<div><pre>      return faker.finance.amount(10, 25000);<\/pre><\/div>\n<div><pre><\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 17,
+            "lines_more": 12,
+            "preview_is_truncated": false,
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1471973268.001462"
+    }
+]

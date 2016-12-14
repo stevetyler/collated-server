@@ -1,0 +1,616 @@
+[
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "<@U040MK408> what are you going to talk about? )",
+        "ts": "1481018493.000050"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "and congratulations! :slightly_smiling_face:",
+        "ts": "1481018510.000051"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "\"Higher Order Components\" is the title of the talk",
+        "ts": "1481018510.000052"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "mm, sound Reacty )",
+        "ts": "1481018517.000053"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "components that return other components so you can do all sort of crazy stuff with them",
+        "ts": "1481018561.000054"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "sound interesting, seems like I'll be there, to listen for your talk :wink:",
+        "ts": "1481018664.000055"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "<@U040MK408> - thank you for mentioning `Ember.getOwner` yesterday. From what I see online, that\u2019s probably what I want, or in the vicinity. However it returns undefined to me :disappointed:",
+        "ts": "1481019705.000056"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U05485UQL> what are you passing to it?",
+        "ts": "1481020334.000057"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "`let widget = Ember.getOwner(this).lookup(\u2018service:mockParent\u2019);`",
+        "ts": "1481020363.000058"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "`TypeError: Cannot read property 'lookup' of undefined`",
+        "ts": "1481020380.000059"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "acceptance?",
+        "ts": "1481020384.000060"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "yes",
+        "ts": "1481020387.000061"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ah, yes",
+        "ts": "1481020392.000062"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "```\nclockService = this.application.__deprecatedInstance__.lookup('service:clock');\n```",
+        "ts": "1481020395.000063"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "boooo!",
+        "ts": "1481020402.000064"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I know it's very scary",
+        "ts": "1481020406.000065"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but it's the only way I think",
+        "ts": "1481020414.000066"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the getOwner thing I mentioned works in integration only",
+        "ts": "1481020426.000067"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "oh well\u2026 much :heart: to you for this. Thank you",
+        "ts": "1481020487.000068"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "wow that is scary :scream:",
+        "ts": "1481020504.000069"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "should I be doing this in the first place? Is there a replacement in the works?",
+        "ts": "1481020507.000070"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "unsure",
+        "ts": "1481020589.000071"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "rwjblue told me this trick",
+        "ts": "1481020599.000072"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "this one weird trick",
+        "ts": "1481020632.000073"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Congrats!!!! you will do us proud <@U040MK408>",
+        "ts": "1481027263.000079"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'll try",
+        "ts": "1481027632.000080",
+        "reactions": [
+            {
+                "name": "white_check_mark",
+                "users": [
+                    "U04BE0ELZ"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U03V8V08M> are you going?",
+        "ts": "1481027653.000081"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I started my book! I\u2019m so excited.",
+        "ts": "1481029075.000082"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Its a tech book, in form of a Novel!",
+        "ts": "1481029107.000083"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "lol",
+        "ts": "1481029111.000084"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you need a killer twist at the end",
+        "ts": "1481029287.000085"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "he's dead, he's his father, it's a sled, etc",
+        "ts": "1481029302.000086"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "lots of twists coming! Think it of startship troopers cross TypeScript",
+        "ts": "1481029351.000087"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/github.com\/quantumjs\/intergalactic-typescript\/blob\/master\/book\/01-welcome-space-cadet.md>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "quantumjs\/intergalactic-typescript",
+                "title_link": "https:\/\/github.com\/quantumjs\/intergalactic-typescript\/blob\/master\/book\/01-welcome-space-cadet.md",
+                "text": "intergalactic-typescript - Unleashing the power of TypeScript over the universe.",
+                "fallback": "GitHub: quantumjs\/intergalactic-typescript",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/23633788?v=3&s=400",
+                "from_url": "https:\/\/github.com\/quantumjs\/intergalactic-typescript\/blob\/master\/book\/01-welcome-space-cadet.md",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1481029375.000088"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408> getting really weird problem with basic-dropdown in 2.8.0",
+        "ts": "1481032314.000090"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "it's not rendering anything",
+        "ts": "1481032320.000091"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "before dropdown\n{{#basic-dropdown opened=true as |dropdown|}}\ntest before\n\t{{#dropdown.trigger}}Click me{{\/dropdown.trigger}}\n\t{{#dropdown.content}}Content{{\/dropdown.content}}\ntest after\n{{\/basic-dropdown}}\nafter dropdown\n\ntest before and test after are not being shown but the basic-dropdown div is showing",
+        "ts": "1481032370.000092"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "are you sure the version number is right? <https:\/\/github.com\/cibernox\/ember-basic-dropdown\/releases>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-basic-dropdown",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-basic-dropdown\/releases",
+                "text": "ember-basic-dropdown - Functionality-agnostic dropdown component for Ember",
+                "fallback": "GitHub: cibernox\/ember-basic-dropdown",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-basic-dropdown\/releases",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1481032371.000093"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ahh, the version of ember",
+        "ts": "1481032399.000095"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "nvm",
+        "ts": "1481032402.000096"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what is that `opened=true` doing?",
+        "ts": "1481032442.000097"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "trying to cause the dropdown to be open",
+        "ts": "1481032454.000098"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "it's a test style-guide page",
+        "ts": "1481032463.000099"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`initiallyOpened=true`",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1481032485.000000"
+        },
+        "ts": "1481032480.000100"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "when I add that, I get an error \"dropdown.trigger not found\"",
+        "ts": "1481032484.000101"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I think that it was renamed a ver versions ago",
+        "ts": "1481032508.000103"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "powerselect uses \"opened=opened\"",
+        "ts": "1481032516.000104"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "ah so I might have an old dropdown version",
+        "ts": "1481032527.000105"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "nope: <https:\/\/github.com\/cibernox\/ember-power-select\/blob\/2f7962259901f19c8fc5c7b49cb54f1163f56f68\/addon\/templates\/components\/power-select.hbs#L3>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-power-select",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/2f7962259901f19c8fc5c7b49cb54f1163f56f68\/addon\/templates\/components\/power-select.hbs#L3",
+                "text": "ember-power-select - The extensible select component built for ember.",
+                "fallback": "GitHub: cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/2f7962259901f19c8fc5c7b49cb54f1163f56f68\/addon\/templates\/components\/power-select.hbs#L3",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1481032548.000106"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it was renamed a while ago",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1481032571.000000"
+        },
+        "ts": "1481032565.000108"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "that's it then - old versions",
+        "ts": "1481032568.000109"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "ta",
+        "ts": "1481032570.000110"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that said, EPS is stable now",
+        "ts": "1481032583.000112"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no more API changes",
+        "ts": "1481032587.000113"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so is EBD",
+        "ts": "1481032591.000114"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i renamed it because it gave the impression that this flag could be used to control the component from the outside (and it was true for a brief period of time) but then I decided to go all into DDAU",
+        "ts": "1481032748.000115"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and I created the `publicAPI` object that is used to control the component",
+        "ts": "1481032777.000116"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so this option was only used for the initial render, therefore I renamed it to `initiallyOpened` so it's very clear that it won't update, ever",
+        "ts": "1481032827.000117"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408> updated to 0.17 but same problem",
+        "ts": "1481033275.000118"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "readme says option is isOpen btw",
+        "ts": "1481033290.000119"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "No, that a different thing",
+        "ts": "1481033361.000120"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "That is the value in the piblicAPI yielded to action ",
+        "ts": "1481033408.000121"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "ah ok",
+        "ts": "1481033439.000122"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "so \n`{{#basic-dropdown as |dropdown|}}\n\t{{#dropdown.trigger}}Click me{{\/dropdown.trigger}}\n\t{{#dropdown.content}}Content{{\/dropdown.content}}\n{{\/basic-dropdown}}\n`",
+        "ts": "1481033460.000123"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "gives me",
+        "ts": "1481033466.000124"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "&lt;div id=\"ember515\" class=\"ember-view ember-basic-dropdown\"&gt;&lt;div aria-haspopup=\"true\" class=\"ember-basic-dropdown-trigger \" aria-controls=\"ember-basic-dropdown-content-ember515\" aria-disabled=\"false\" aria-expanded=\"false\" aria-pressed=\"false\" role=\"button\" tabindex=\"0\"&gt;\n  &lt;!----&gt;\n&lt;\/div&gt;\n&lt;!----&gt;&lt;\/div&gt;",
+        "ts": "1481033492.000125"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "I was expecting to see `Click Me` in the DOM",
+        "ts": "1481033517.000126"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408> am I doing something really dumb?",
+        "ts": "1481033561.000127"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "argh Ember versions all screwed up - ember-cli global 2.10, but in project 2.4.6",
+        "ts": "1481034170.000128"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "can't wait for yarn to work...",
+        "ts": "1481035323.000129"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U04TVTLQ8> I don't see anything wrong but I know for sure that it works in all versions of embe",
+        "ts": "1481037578.000130"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because it's tested and the very demo page is in 2.10",
+        "ts": "1481037602.000131"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "mm, I've just realised the the demo page is not public",
+        "ts": "1481037643.000132"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<https:\/\/ember-basic-dropdown.pagefrontapp.com\/>",
+        "ts": "1481038231.000133"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I published it",
+        "ts": "1481038235.000134"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408> - sorry, npm was messing up - had to clear caches and reinstall ember - told me it was using 2.8.0 but was using 2.4.6",
+        "ts": "1481038241.000135"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "2.4 should be supported tho",
+        "ts": "1481038268.000136"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the addon is 2.3.1+",
+        "ts": "1481038276.000137"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "it's working fine now I've upgraded everything",
+        "ts": "1481038289.000138"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408> - contextual component challenge. I have a style-guide page for testing styling and I want to repeatedly toggle the dropdown open state",
+        "ts": "1481038299.000139"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "so I feel like I should be calling the public api on the component",
+        "ts": "1481038312.000140"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, you probably should",
+        "ts": "1481038320.000141"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "but how do I do that from the parent component? (easy from a child)",
+        "ts": "1481038324.000142"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "parent component can't see the |dropdown|",
+        "ts": "1481038346.000143"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "```\n{{#power-select registerAPI=(action (mut selectRemoteController)) ... as |opt|}}{{opt}}{{\/power-select}}\n&lt;button onclick={{selectRemoteController.actions.toggle}}&gt;Toggle select&lt;\/button&gt;\n```",
+        "ts": "1481038393.000144"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "Hey guys, have you ever come across the following scenario. Customer\u2019s corporate firewall somehow treats our API which is hosted on a different domain from the Ember app as an \"Intrusion Attempt\u201d. Any tips on getting around this?",
+        "ts": "1481048899.000145"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ok, I really didn't see this issue comming: <https:\/\/github.com\/cibernox\/ember-power-select\/issues\/751>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Unable to use extension with Chrome extension Virtual Keyboard (xontab.com) \u00b7 Issue #751 \u00b7 cibernox\/ember-power-select \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/issues\/751",
+                "text": "I am using the extension called Virtual Keyboard on Linux-based system to create a keyboard for touch-screen systems on Linux-based appliance product. Normally, on-screen keyboards are the operatin...",
+                "fallback": "GitHub: Unable to use extension with Chrome extension Virtual Keyboard (xontab.com) \u00b7 Issue #751 \u00b7 cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/350715?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/issues\/751",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1481062503.000146",
+        "reactions": [
+            {
+                "name": "cry",
+                "users": [
+                    "U06BGNMBL"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no matter how hard you try, there is no way you can anticipate the people's use cases",
+        "ts": "1481062537.000148"
+    }
+]

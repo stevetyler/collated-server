@@ -1,0 +1,341 @@
+[
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Hmm didn\u2019t `{{#component}}` used to call the block or the `else` if the component couldn\u2019t be found? Seems to always blow up for me now regardless",
+        "ts": "1472113044.001496"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "good morning everyone :slightly_smiling_face:",
+        "ts": "1472114759.001497"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "are you guys using `ember-cp-validations`?",
+        "ts": "1472114773.001498"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019ve just tried adding it to a component but this breaks my previously passing tests with an error like ```The `target` for &lt;dummy@component:pt-target-template::ember1724&gt; ([object Object]) does not have a `send` method```",
+        "ts": "1472114818.001499"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "bugant, I got a hack for that :smile:",
+        "ts": "1472115271.001500"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ciao <@U07E9GKUZ> :slightly_smiling_face: is it a known issue? I\u2019m not finding any related one at the moment",
+        "ts": "1472115302.001501"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "```\nconst { get, set, getOwner, setOwner } = Ember;\n\n  init() {\n    let model = get(this, 'model');\n    let owner = getOwner(model);\n    setOwner(this, owner);\n\n    this._super(...arguments);\n  },\n```",
+        "ts": "1472115337.001502"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "well basically it assumes you are going to use it on models",
+        "ts": "1472115388.001503"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hmm <@U07E9GKUZ> OK, so what if I don\u2019t have a model property?",
+        "ts": "1472115638.001504"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "what\u2019s that supposed to be?",
+        "ts": "1472115647.001505"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "aha, nvm all I said",
+        "ts": "1472115699.001506"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "you are talking about ember-cp-validations",
+        "ts": "1472115708.001507"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "I am using another addon",
+        "ts": "1472115713.001508"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "LOL",
+        "ts": "1472115715.001509"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "oh OK :slightly_smiling_face:",
+        "ts": "1472115788.001510"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "OK I\u2019m trying `ember-changest` now, seems cool",
+        "ts": "1472131243.001511"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "and working at the moment",
+        "ts": "1472131255.001512"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408> i\u2019m having a bad time with layout surrounding ember-power-select; wondering if anything obvious jumps out",
+        "ts": "1472141486.001513"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2503PE76\/2016-08-25_17-07-13.png|2016-08-25_17-07-13.png>",
+        "file": {
+            "id": "F2503PE76",
+            "created": 1472141492,
+            "timestamp": 1472141492,
+            "name": "2016-08-25_17-07-13.png",
+            "title": "2016-08-25_17-07-13.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 162681,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2503PE76\/2016-08-25_17-07-13.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2503PE76\/download\/2016-08-25_17-07-13.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 234,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 312,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 468,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2503PE76-44375c4ca0\/2016-08-25_17-07-13_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 623,
+            "image_exif_rotation": 1,
+            "original_w": 1004,
+            "original_h": 652,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2503PE76\/2016-08-25_17-07-13.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2503PE76-b2baa5c127",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1472141494.001514"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the actual select bar is taking up the right horizontal space but no idea where the spacing to right is coming",
+        "ts": "1472141532.001515"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> My first instinct would be to look at the style precedence. I think power-select uses some which are high.",
+        "ts": "1472141594.001516"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> `.ember-power-select-trigger` is most likely less important than some of the internal attribute selectors",
+        "ts": "1472141738.001517"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hmmm. i bet your right but I can\u2019t find any other selectors that appear to misbehave and I would have thought the width would only be controlled by components which are \u201cinline\u201d rather than transported via a wormhole",
+        "ts": "1472141792.001518"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2508DYT0\/2016-08-25_17-15-08.gif|2016-08-25_17-15-08.gif>",
+        "file": {
+            "id": "F2508DYT0",
+            "created": 1472141800,
+            "timestamp": 1472141800,
+            "name": "2016-08-25_17-15-08.gif",
+            "title": "2016-08-25_17-15-08.gif",
+            "mimetype": "image\/gif",
+            "filetype": "gif",
+            "pretty_type": "GIF",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 276609,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2508DYT0\/2016-08-25_17-15-08.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2508DYT0\/download\/2016-08-25_17-15-08.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 198,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_360.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 452,
+            "original_h": 248,
+            "deanimate_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2508DYT0-a41f4e0b53\/2016-08-25_17-15-08_deanimate_gif.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2508DYT0\/2016-08-25_17-15-08.gif",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2508DYT0-702b2104a7",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1472141804.001519"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "notice that even changing an option seems to effect the width in some magical way",
+        "ts": "1472141837.001520"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":sleuth_or_spy:",
+        "ts": "1472141908.001521"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I would play around with ember-power-select styles. Overwrite a few just to get a feel for whats what.",
+        "ts": "1472141974.001522"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i have been. thought I\u2019d tried them all but I bet I haven\u2019t.",
+        "ts": "1472141996.001523"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/app\/styles\/ember-power-select\/variables.scss>",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1472142113.000000"
+        },
+        "ts": "1472142004.001524"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well the variables are global in scope so it will have to be done with CSS",
+        "ts": "1472142040.001526"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i\u2019m not pretty sure that there\u2019s something more macro going on WRT to flexbox :confused:",
+        "ts": "1472142782.001528"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if my DIV is less than 2000px it \u201cwraps it\u201d because clearly that\u2019s not enough space :stuck_out_tongue:",
+        "ts": "1472142831.001529"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "sorry, I've been unreachable today",
+        "ts": "1472158092.001530"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I try to make selectos as plain as possible",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1472158106.000000"
+        },
+        "ts": "1472158101.001531"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you check the styles I barely have nesting in the sass file",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1472158169.000000"
+        },
+        "ts": "1472158162.001533"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "nothin immediate comes to mind",
+        "ts": "1472158546.001535"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you mean the space between the right boundary of the trigger",
+        "ts": "1472158603.001536"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the triangle?",
+        "ts": "1472158606.001537"
+    }
+]

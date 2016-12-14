@@ -1,0 +1,165 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hi guys",
+        "ts": "1469455657.000151"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "quick question :slightly_smiling_face: is it possible to halt a promises chain? I mean inside a catch I would like to say skip all the rest (then or catch) of the chain",
+        "ts": "1469455717.000152"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "famously, not really :wink:",
+        "ts": "1469455858.000153"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "there is no standard for cancelling promises",
+        "ts": "1469455875.000154"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "ember-concurrency get's pretty close though right? ie, cancelling a task",
+        "ts": "1469455942.000155"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you could have a look at ember-concurrency (<http:\/\/ember-concurrency.com\/#\/docs>)",
+        "ts": "1469455944.000156"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": ":wink:",
+        "ts": "1469455948.000157"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "yeah",
+        "ts": "1469455953.000158"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "but they're not promises",
+        "ts": "1469455957.000159"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Nope",
+        "ts": "1469455960.000160"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "for exactly that reason",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1469455967.000000"
+        },
+        "ts": "1469455961.000161"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I believe RX observables don't have this problem either",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1469455980.000000"
+        },
+        "ts": "1469455976.000163"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "although I'm not familiar enough with them to be sure",
+        "ts": "1469455993.000165"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "OK thank you :slightly_smiling_face:",
+        "ts": "1469456039.000166"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Anyone using ember-sanitize should update to v2.0.0 as it fixes a bug where sanitizing could execute the code it was sanitizing!",
+        "ts": "1469460098.000167",
+        "reactions": [
+            {
+                "name": "cookie",
+                "users": [
+                    "U040MK408",
+                    "U06BGNMBL"
+                ],
+                "count": 2
+            },
+            {
+                "name": "laughing",
+                "users": [
+                    "U06BGNMBL"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/www.youtube.com\/watch?v=vL8sCi1Bv6E>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Glimmer 2 Deep Dive with Yehuda Katz",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=vL8sCi1Bv6E",
+                "author_name": "Intercom",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UCJG0MvLP03kyzzAkD-w98aQ",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/vL8sCi1Bv6E\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Glimmer 2 Deep Dive with Yehuda Katz",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/vL8sCi1Bv6E?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=vL8sCi1Bv6E",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1469471778.000168"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019m watching it right now",
+        "ts": "1469471858.000170"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and preparing me to work on that publicAPI update I mentioned before",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1469471887.000000"
+        },
+        "ts": "1469471884.000171"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Going to settle down and watch it once everyone else has gone to bed",
+        "ts": "1469471902.000173"
+    }
+]

@@ -1,0 +1,356 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hello all",
+        "ts": "1477311427.001625"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "does anyone know any good podcasts",
+        "ts": "1477311431.001626"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "covering the ember router? how it works?",
+        "ts": "1477311436.001627"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "how can I build one for myself?",
+        "ts": "1477311440.001628"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "Have you seen the Nathan Hammond talk about route recogniser?",
+        "ts": "1477313805.001629"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "probably he didn't, otherwise he wouldn't be saying things like \"I want to build my one router\"",
+        "ts": "1477315108.001630"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": ":laughing:",
+        "ts": "1477315121.001631"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": ":troll:",
+        "ts": "1477315125.001632"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "in all seriousness, it's the closest thing I can think of",
+        "ts": "1477315153.001633"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "me too",
+        "ts": "1477315162.001634"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "although obviously it's focused on the low-level primitives",
+        "ts": "1477315171.001635"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is a lot of work happening in the router as we speak",
+        "ts": "1477315176.001636"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they are implementing a lot of the things in that paper",
+        "ts": "1477315197.001637"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I also have inside intel that they were even considering to further compress the runtime-generated router into a binary structure and send it over the wire",
+        "ts": "1477315251.001638"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "as an improvement over json",
+        "ts": "1477315257.001639"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "some kind of UInt8Array",
+        "ts": "1477315266.001640"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "taking 1\/3 of the space",
+        "ts": "1477315274.001641"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "hmmm... how does it scale without that kind of optimisation?",
+        "ts": "1477315350.001642"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "eg, is it like some of the less efficient Glimmer 1 stuff where just adding an if statement would put a whole pile of cruft in?",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1477315385.000000"
+        },
+        "ts": "1477315374.001643"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the approach of generating the route mapper in build time has up and downsides",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1477315643.000000"
+        },
+        "ts": "1477315406.001646"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "one one hand, expanding the routes into a state machine takes more space than sending the definitions over the wire",
+        "ts": "1477315436.001647"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "on the other hand, you save the code that knows how to expand the definitions to the state-machine",
+        "ts": "1477315464.001648"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they say that it's more or less the same",
+        "ts": "1477315494.001649"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "much like glimmer2 and apps, but the other way around",
+        "ts": "1477315517.001650"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in glimmer2, the vendor.js is a bit bigger",
+        "ts": "1477315529.001651"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but the compiled templates are smaller",
+        "ts": "1477315538.001652"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in a small app, the result will be bigger in size than before",
+        "ts": "1477315553.001653"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but as soon as your app gets a couple docen templates",
+        "ts": "1477315565.001654"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the saves overweight the glimmer2 engine",
+        "ts": "1477315573.001655"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "router is the other way around",
+        "ts": "1477315581.001656"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in a small app with a docen routes, the object that bakes the state machine is smaller than the code to generate",
+        "ts": "1477315604.001657"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in applications with 400 routes the state machine is bigger than the code",
+        "ts": "1477315621.001658"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "would you want an app with 400 routes?",
+        "ts": "1477315642.001659"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they already have one",
+        "ts": "1477315652.001661"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": ":troll:",
+        "ts": "1477315655.001662"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and so do I btw",
+        "ts": "1477315660.001663"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": ":astonished:",
+        "ts": "1477315672.001664"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I suppose it sort of creeps up on you",
+        "ts": "1477315694.001665"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "my `app\/router.js` has 499 lines",
+        "ts": "1477315728.001666"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no comments",
+        "ts": "1477315736.001667"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I have around ~400 routes",
+        "ts": "1477315758.001668"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which means ~800 with the loading substates",
+        "ts": "1477315768.001669"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "to be fair it's a 140K LOC app",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1477315839.000000"
+        },
+        "ts": "1477315816.001670"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "born ~2 years ago",
+        "ts": "1477315823.001671"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's on the top 10% bigger ember apps for sure",
+        "ts": "1477315848.001673"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I'd want to engine-ify that one myself",
+        "ts": "1477315869.001674"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I also want",
+        "ts": "1477315879.001675"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "besides, there is very clear boundaries between some parts of the app",
+        "ts": "1477315890.001676"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it would be very natural",
+        "ts": "1477315897.001677"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you'd bloody hope so with 400 routes",
+        "ts": "1477315908.001678"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in the approach they wanted",
+        "ts": "1477316015.001679"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "once compiled, the object that backs the state machine could be a typed array",
+        "ts": "1477316033.001680"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the algorithm would be index-based",
+        "ts": "1477316043.001681"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not sure how how efficient that would be but seems that is saves a good deal of space",
+        "ts": "1477316096.001682"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "over human-readable output like json",
+        "ts": "1477316108.001683"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "fair enough, JS is a compiled language for all intents and purposes nowadays anyway",
+        "ts": "1477316337.001684"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "as long as I get a human readable stack trace, I'm happy",
+        "ts": "1477316348.001685"
+    }
+]

@@ -1,0 +1,21 @@
+[
+    {
+        "user": "U1E99UG49",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1E99UG49|seva> has joined the channel",
+        "ts": "1465145945.000002"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "<@U04BD6KB1>: <@U0ASPMFPS> browserify does not use that syntax, I am guessing ( but do not know) that ember-browserify is using the `npm:foo` syntax to avoid ambiguities with the ember resolver",
+        "ts": "1465164314.000003"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I believe the cli devs want npm modules to Just Work at some point though",
+        "ts": "1465164372.000004"
+    }
+]

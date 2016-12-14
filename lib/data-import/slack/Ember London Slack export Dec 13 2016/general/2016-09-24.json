@@ -1,0 +1,33 @@
+[
+    {
+        "user": "U2FG9BB47",
+        "text": "<@U2FG9BB47|martinrogers> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1474706659.000800"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04TVTLQ8> that's what I'd do (put it in the addon's `vendor` directory)",
+        "ts": "1474740881.000801"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "btw, does anyone know if there's anyway for a helper to access the context of it's container?",
+        "ts": "1474740916.000802"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "also does anyone know where the source is for the `action` helper?",
+        "ts": "1474740957.000803"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(partially because it clearly has access to the context of it's container) :slightly_smiling_face:",
+        "ts": "1474740980.000804"
+    }
+]

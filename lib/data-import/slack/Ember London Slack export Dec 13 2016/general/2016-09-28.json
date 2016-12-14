@@ -1,0 +1,626 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I like the approach",
+        "ts": "1475062411.000879"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "neat",
+        "ts": "1475062413.000880"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U072K0544> is the asset-manifest injected into the code or do you need an extra request?",
+        "ts": "1475062442.000881"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "extra request",
+        "ts": "1475062453.000882"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "because it will be cached then",
+        "ts": "1475062461.000883"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "by the cdn you mean",
+        "ts": "1475062473.000884"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "cdn + user browser",
+        "ts": "1475062480.000885"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yeah, makes sense",
+        "ts": "1475062486.000886"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "anyway, this approach might be improved, I have some ideas on my mind",
+        "ts": "1475062501.000887"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "eg. size of the asset-map can be much-much lower",
+        "ts": "1475062527.000888"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "if we add a bit of logic into what we place into asset map, and what we don't",
+        "ts": "1475062540.000889"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "one advanced idea would be to automatically add a `&lt;link src=\"\/asset-manifest.json\" preload&gt;`",
+        "ts": "1475062556.000890"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so you make a request as soon as you get the `index.html`",
+        "ts": "1475062570.000891"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "true, will add it as a task )",
+        "ts": "1475062583.000892"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because atm you block the startup of the app with `app.deferReadiness`",
+        "ts": "1475062601.000893"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "yea, this is one of the concerns and things that I don\u2019t like",
+        "ts": "1475062633.000894"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you will still block but hopefully the resource will be there already by the time you want to get it",
+        "ts": "1475062633.000895"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "2nd thing, I don\u2019t like how I inject name of the asset file into the index.html :slightly_smiling_face:",
+        "ts": "1475062645.000896"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "why not?",
+        "ts": "1475062661.000897"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "Ideally would be, somehow to inject the name of the asset map file into config",
+        "ts": "1475062662.000898"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "idk, it looks to me like adding the `vendor.js` or the `app.js`",
+        "ts": "1475062698.000899"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's just another asset you need to run you app",
+        "ts": "1475062714.000900"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i don't see anything wrong with having it in the index.html",
+        "ts": "1475062738.000901"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "good then :slightly_smiling_face:",
+        "ts": "1475062748.000902"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "its just straight-forward approach of placing a placeholder before the build, and then replacing in in the index.html that bothers me",
+        "ts": "1475062774.000903"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "as long as the asset-manifest is itself fingerprinted",
+        "ts": "1475062774.000904"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's ok",
+        "ts": "1475062776.000905"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you could use the `{{content-for 'header'}}` hook in the addon",
+        "ts": "1475062811.000906"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but generally speaking this is a problem a lot of apps have I believe",
+        "ts": "1475062860.000907"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and this looks like a perfect solution",
+        "ts": "1475062866.000908"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the addon provides both a handlebars helper and a function in case you want to do it in the code",
+        "ts": "1475062898.000909"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": ":+1:",
+        "ts": "1475062908.000910"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "yea, definitely. Spoke to Nathan yesterday, this approach might be not the best for super high load apps, as asset map and fingerprinting adds additional payload. But as 95% of apps are not super high load, I think its fine. But anyway, I really would like to explore a solution, how it is possible to make it more wise, so we don\u2019t actually need to fingerprint )",
+        "ts": "1475063061.000911"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "avoid fingerprinting?",
+        "ts": "1475063297.000912"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "yea",
+        "ts": "1475063303.000913"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "for assets, not js files",
+        "ts": "1475063311.000914"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "eg. you don\u2019t need to fingerprint images, if you are not going to change them",
+        "ts": "1475063327.000915"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "who says that?",
+        "ts": "1475063336.000916"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you can change images",
+        "ts": "1475063339.000917"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "main problem is, fingerprinting adds a hash",
+        "ts": "1475063356.000918"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "which increases the size of an asset",
+        "ts": "1475063363.000919"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "this hash is not gzipped well",
+        "ts": "1475063373.000920"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it increases its name",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1475063404.000000"
+        },
+        "ts": "1475063387.000921"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but not its content",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1475063409.000000"
+        },
+        "ts": "1475063391.000922"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "\"Handling it at runtime means 32bytes + 10byte overhead + file name length (call it 22 bytes). 64 bytes per asset being fingerprinted.\u201d (c) Nathan",
+        "ts": "1475063408.000924"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "like, if you have a lot of assets and you are super concerned about the payload, its a problem",
+        "ts": "1475063446.000926"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "+ another problem, asset-map.json, if its huge, you have to load it in memory",
+        "ts": "1475063459.000927"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but that is something you can do now I guess. If you don't fingerprint images",
+        "ts": "1475063471.000928"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "but again, its a super specific problem and possibly, its not even needed to be solved )",
+        "ts": "1475063471.000929"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "yea, you can easly skip fingerprinting and control it manually",
+        "ts": "1475063486.000930"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "exactly",
+        "ts": "1475063492.000931"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "some teams might edit images",
+        "ts": "1475063497.000932"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "so possibly, its not even a problem needs to be solved)",
+        "ts": "1475063498.000933"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so, if you know that images are not edited, you don't fingerprint and you don't need this addon at all",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1475063630.000000"
+        },
+        "ts": "1475063528.000934"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "or maybe you do, but other kind of assets",
+        "ts": "1475063555.000935"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in which case there is an overhead, but it's because you need that overhead",
+        "ts": "1475063569.000936"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "true)",
+        "ts": "1475063622.000937"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "by example, if you somehow generate an image with all the icons inside",
+        "ts": "1475063653.000939"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is likely to change ocasionally",
+        "ts": "1475063664.000940"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "although that is not probably the kind of image you want to use dynamically",
+        "ts": "1475063688.000941"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "yea, there are a lot of constraints, it might be interesting to hear more use-cases :slightly_smiling_face: because it seems people keep on solving this issue over and over",
+        "ts": "1475063772.000942"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "didn\u2019t get around to reading the article yet, but it\u2019s interesting topic!",
+        "ts": "1475068140.000943"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "How do peeps usually do \u201crails-style\u201d routes",
+        "ts": "1475076209.000944"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "e.g",
+        "ts": "1475076210.000945"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "with a new\/edit",
+        "ts": "1475076212.000946"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```  this.route('custom-sections', function() {\n    this.route('new');\n\n    this.route('custom-section', { path: '\/:id', resetNamespace: true }, function() {\n      this.route('edit');\n    });\n  });```",
+        "ts": "1475076214.000947"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I end up with something like this",
+        "ts": "1475076218.000948"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`custom-sections.new` `custom-section.edit`",
+        "ts": "1475076226.000949"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "that kinda thing",
+        "ts": "1475076228.000950"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "interested in a better approach if someone has one though",
+        "edited": {
+            "user": "U03V5B7KY",
+            "ts": "1475076288.000000"
+        },
+        "ts": "1475076246.000951"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "<@U03V5B7KY>: do you actually want that singular in \"edit\", or is that an accident?",
+        "ts": "1475076862.000953"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I mean, \"custom-section\" as opposed to \"custom-sectionS\"",
+        "ts": "1475076881.000954"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I go like this:",
+        "ts": "1475076905.000955"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Yeah I do",
+        "ts": "1475076911.000956"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Only editing one section right?",
+        "ts": "1475076925.000957"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "right. Then it's not really \"Rails\" style :wink:",
+        "ts": "1475076927.000958"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I've seen the singular\/plural mix in other places, but I'm not used to it",
+        "ts": "1475076957.000959"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Well it is isn't it? custom_section_url vs custom_sectionS_url?",
+        "ts": "1475077100.000960"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Although I suppose new is singular in rails too",
+        "ts": "1475077112.000961"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "hmm... you have a point. I was thinking of the URLs only. Those would always be in plural",
+        "ts": "1475077133.000962"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "but url\/path helpers would be in singular and plural as you mention",
+        "ts": "1475077151.000963"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "although a reason of that is that otherwise you have a clash between `custom_section_url()` and `custom_section_url(section)`",
+        "ts": "1475077191.000964"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yeah",
+        "ts": "1475077243.000965"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "that would not be a problem in Ember because you refer them by route name: `transitionTo('custom-sections.new')`, `transitionTo('custom-sections.edit', section.id)`",
+        "ts": "1475077248.000966"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I guess you\u2019re only likely to have a single `.edit`",
+        "ts": "1475077264.000967"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "what if you have a `show` too thought?",
+        "ts": "1475077287.000968"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```this.route('custom-sections', function() {\n    this.route('new');\n    this.route('edit', { path: '\/:id\/edit'} );\n    this.route('show', { path: '\/:id'} );\n  });```",
+        "ts": "1475077310.000969"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "do you do it like that?",
+        "ts": "1475077313.000970"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "seems non-DRY to have the `\/:id` in both",
+        "ts": "1475077333.000971"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I do exactly that, yes. I was going to paste this:",
+        "ts": "1475077337.000972"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "```\nRouter.map(function() {\n  this.route('custom-sections', function() {\n    this.route('new');\n    this.route('show', {path: ':id'});\n    this.route('edit', {path: ':id\/edit'});\n    this.route('destroy', {path: ':id\/destroy'});\n  });\n});\n```",
+        "ts": "1475077345.000973"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "right",
+        "ts": "1475077349.000974"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "hmmm",
+        "ts": "1475077351.000975"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "as for non-DRYness, I think it's fine here. It's more trouble to avoid it than to have that tiny duplication",
+        "ts": "1475077445.000976"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yeah",
+        "ts": "1475077465.000977"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I think you\u2019re right",
+        "ts": "1475077469.000978"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "now, if Ember (or a third party package) provided a `this.resources('custom-sections')` like Rails does, that would solve it",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1475077528.000000"
+        },
+        "ts": "1475077501.000979"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "but not for now",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1475077512.000000"
+        },
+        "ts": "1475077508.000980"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "that would be cool :smile:",
+        "ts": "1475077520.000982"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "any primers on testing with ember-concurrency?",
+        "ts": "1475085627.000984"
+    }
+]

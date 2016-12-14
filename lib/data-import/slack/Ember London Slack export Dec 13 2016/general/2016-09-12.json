@@ -1,0 +1,532 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Back in town",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1473670956.000000"
+        },
+        "ts": "1473670951.000183",
+        "reactions": [
+            {
+                "name": "tada",
+                "users": [
+                    "U06BGNMBL"
+                ],
+                "count": 1
+            },
+            {
+                "name": "beers",
+                "users": [
+                    "U03V5B7KY",
+                    "U03V2PZUB",
+                    "U0A48LWTG",
+                    "U044QMK6K",
+                    "U047GTU64"
+                ],
+                "count": 5
+            },
+            {
+                "name": "rocket",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "What are the current known incompatibilities with 2.9? I hear liquid fire needs work. Anything else?",
+        "ts": "1473675851.000185"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U04TVTLQ8> the master issue tracks most things - <https:\/\/github.com\/emberjs\/ember.js\/issues\/13949>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "[Glimmer 2] Master Issue \u00b7 Issue #13949 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/issues\/13949",
+                "text": "Hello! Welcome to Glimmer 2 alpha testing! Having worked on this for almost a year now, we are very excited to have you on board to help us smooth out the rough edges! This issue will be updated ...",
+                "fallback": "GitHub: [Glimmer 2] Master Issue \u00b7 Issue #13949 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/55829?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/issues\/13949",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473676482.000186"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "ember-page-title had some issues, but they may have been resolved",
+        "ts": "1473676497.000188"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "ember-wormhole is currently (still?) broken I think, which kills ember-power-select",
+        "ts": "1473676519.000189"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "you can add ember-a11y to the list too (thanks <@U03V8V08M>)",
+        "ts": "1473676553.000190",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U03V8V08M"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "You can add ember-wormhole too",
+        "ts": "1473680584.000191"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the master branch is fixed but its not released yet",
+        "ts": "1473680605.000192"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and even with that, there is a problem with wormholes containing conditionals inside with no div around it",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1473680638.000000"
+        },
+        "ts": "1473680626.000193"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "is anyone running Sierra?",
+        "ts": "1473681770.000195"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> Not yet, was tempting but then I figured I would just wait for Apple to finally realise that their laptop range is 5 years old and start fresh with a new.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473681889.000000"
+        },
+        "ts": "1473681879.000196"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i can't wait to see what the new MacBook Pro's look like :smile:",
+        "ts": "1473681916.000198"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i know it's a long shot but I'd really like to see a touch screen",
+        "ts": "1473681927.000199"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U04BD6KB1> you might get a small touch-ish screen",
+        "ts": "1473681946.000200"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah but i want the whole thing",
+        "ts": "1473681956.000201"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i put my iPad Pro next to my laptop these days",
+        "ts": "1473681964.000202"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and accidentally keep finger swiping my macbook :stuck_out_tongue:",
+        "ts": "1473681975.000203"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1> I got tired of waiting on Apple",
+        "ts": "1473683151.000204"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I just built a Hackintosh",
+        "ts": "1473683158.000205"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh really? running OSX you mean?",
+        "ts": "1473683354.000206"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what's the hardware?",
+        "ts": "1473683360.000207"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "32GB DDR3 Memory, 2 x 250GB SSD, 500GB SSD, 2 x 1 TB Hard Drive, Intel i7 4GHZ Quad Core, Nvidia Geforce 2GB Graphic Card, Water Cooling System, Motherboard and a PSU",
+        "edited": {
+            "user": "U0ASPMFPS",
+            "ts": "1473683816.000000"
+        },
+        "ts": "1473683559.000208"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah running OSX El Capitan",
+        "ts": "1473683748.000209"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Dual Boot, Windows 10 on one of the 250 GB SSD and OSX on the other 250 GB SSD.",
+        "ts": "1473683866.000211"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "which side do you boot to? :slightly_smiling_face:",
+        "ts": "1473683956.000212"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "haha",
+        "ts": "1473684051.000213"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "the Dark side at times",
+        "ts": "1473684057.000214"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it's ok the \"start button\" is looking better than it has in years ... still prefer rounded corners of OSX though (not to mention the Unix kernel)",
+        "ts": "1473684116.000215"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yep, hence why I didn't go full Dark side",
+        "ts": "1473684172.000216"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I still require a proper Terminal for most of my work",
+        "ts": "1473684195.000217",
+        "reactions": [
+            {
+                "name": "wink",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I need a new laptop because I have to return this one I'm using today to kayako",
+        "ts": "1473686674.000218"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I should clean it tomorrow",
+        "ts": "1473686684.000219"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but I don't want to buy new one",
+        "ts": "1473686707.000220"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because I know that it's comming",
+        "ts": "1473686714.000221"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U040MK408> time to buy a cheap Lenovo laptop and put Ubuntu on there until the next MacBook Pro is out",
+        "ts": "1473686990.000222"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is a bold movement that I can do still",
+        "ts": "1473687017.000223"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "apple allows you to return a purchase un to 30 days later",
+        "ts": "1473687039.000224"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no questions asked",
+        "ts": "1473687042.000225"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":slightly_smiling_face:",
+        "ts": "1473687050.000226"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U040MK408> I'm in a very similar situation :disappointed:",
+        "ts": "1473687052.000227"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if I buy a new one say, this weekend",
+        "ts": "1473687064.000228"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and apple releases the new laptops before the 16 of October",
+        "ts": "1473687103.000229"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I can change",
+        "ts": "1473687114.000230"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don't feel that confident",
+        "ts": "1473687147.000231"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I can use my wife's for a little time",
+        "ts": "1473687158.000232"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but not forever",
+        "ts": "1473687162.000233"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "there's an event in October; is the 16th? not sure the date",
+        "ts": "1473687190.000234"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "link?",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1473687219.000000"
+        },
+        "ts": "1473687216.000235"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "not sure but they almost always have two events ... one in Sept and one in Oct; rumor sites are suggesting October one is a likely forum for MacBook announcement",
+        "ts": "1473687253.000237"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<http:\/\/www.macworld.co.uk\/news\/mac\/new-retina-macbook-pro-2016-release-date-specs-rumours-uk-8-3593988\/>",
+        "attachments": [
+            {
+                "service_name": "Macworld UK",
+                "title": "New MacBook Pro expected in October after no-show at Apple event",
+                "title_link": "http:\/\/www.macworld.co.uk\/news\/mac\/new-retina-macbook-pro-2016-release-date-specs-rumours-uk-8-3593988\/",
+                "text": "We investigate the rumours surrounding the long-awaited launch of the new MacBook Pro for 2016 - including news of Intel's newly launched Kaby Lake processors. When will we get a new MacBook Pro?",
+                "fallback": "Macworld UK: New MacBook Pro expected in October after no-show at Apple event",
+                "image_url": "http:\/\/cdn1.macworld.co.uk\/cmsdata\/features\/3593988\/new-macbook-pro-release-date-martin-hajeck_thumb800.jpg",
+                "from_url": "http:\/\/www.macworld.co.uk\/news\/mac\/new-retina-macbook-pro-2016-release-date-specs-rumours-uk-8-3593988\/",
+                "image_width": 444,
+                "image_height": 250,
+                "image_bytes": 43469,
+                "service_icon": "http:\/\/cdn1.macworld.co.uk\/graphics\/appleicon57.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473687588.000238"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "dates seem too unclear to say; i had read earlier reports that made October sound very likely but it's not even really called out in this article",
+        "ts": "1473687621.000240"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V2PZUB|karlfreeman> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2ALPBHB4\/screen_shot_2016-09-12_at_14.42.50.png|Classic>",
+        "file": {
+            "id": "F2ALPBHB4",
+            "created": 1473687784,
+            "timestamp": 1473687784,
+            "name": "Screen Shot 2016-09-12 at 14.42.50.png",
+            "title": "Classic",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03V2PZUB",
+            "editable": false,
+            "size": 59477,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2ALPBHB4\/screen_shot_2016-09-12_at_14.42.50.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2ALPBHB4\/download\/screen_shot_2016-09-12_at_14.42.50.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 56,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 74,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 112,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2ALPBHB4-50afe93a1a\/screen_shot_2016-09-12_at_14.42.50_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 149,
+            "image_exif_rotation": 1,
+            "original_w": 1007,
+            "original_h": 156,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2ALPBHB4\/screen_shot_2016-09-12_at_14.42.50.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2ALPBHB4-d02a31bc0a",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03V2PZUB",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V2PZUB|karlfreeman>",
+        "bot_id": null,
+        "ts": "1473687787.000241"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Macbook Pro:\n&gt; Days since last release: Jun 2012",
+        "ts": "1473687836.000242"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "_ouch_",
+        "ts": "1473687840.000243"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "My prediction ... an all Mac event near the end of October \/ beginning of November (in time to get the xmas money out of folks)",
+        "ts": "1473687875.000244",
+        "reactions": [
+            {
+                "name": "point_left",
+                "users": [
+                    "U03V2PZUB"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "new everything",
+        "ts": "1473687879.000245"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and fully redesigned MBP and Pro",
+        "ts": "1473687890.000246"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U03V2PZUB> the retina one has had more recent updates, the non-retina won\u2019t get any more updates I don\u2019t think",
+        "ts": "1473687902.000247"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U044QMK6K> Sorry, you are correct!",
+        "ts": "1473687938.000248"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I cannot pay Apple Tax anymore, just not worth it for me",
+        "ts": "1473688360.000249"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "my 2013 MacBook Pro still works ok-ish",
+        "ts": "1473688382.000250"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I bought a OnePlus Three phone just so I had a US-phone and Android for testing ... I must say that price point is compelling! Very nice phone and competing for attention with my iPhone 6s+",
+        "ts": "1473688474.000251"
+    }
+]

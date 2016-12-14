@@ -1,0 +1,159 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hey i know someone just asked this recently ... but what is the best \"Ember way\" to make a plain ajax call? `Ember.$.ajax` or would people say it's better to install `ember-ajax`",
+        "ts": "1473321378.000057"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or maybe this is the same thing (consider `ember-ajax` is part of base install now)? And does this make it fastboot friendly?",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1473321455.000000"
+        },
+        "ts": "1473321425.000058"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in the absence of the group's wisdom i'm just using `ember-ajax` and the exposed *request* function",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1473321964.000000"
+        },
+        "ts": "1473321950.000060"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> <https:\/\/github.com\/tomdale\/ember-network>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "tomdale\/ember-network",
+                "title_link": "https:\/\/github.com\/tomdale\/ember-network",
+                "text": "ember-network - Universal fetch() polyfill (FastBoot and browser) for Ember apps",
+                "fallback": "GitHub: tomdale\/ember-network",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/90888?v=3&s=400",
+                "from_url": "https:\/\/github.com\/tomdale\/ember-network",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473324144.000062"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "_I think_ \u00af\\_(\u30c4)_\/\u00af",
+        "ts": "1473324191.000066"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is there any relationship between `ember-network` and `ember-ajax`; hope these come together",
+        "ts": "1473324197.000067"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i half remember that `ember-ajax` may use `ember-network` under the covers?",
+        "ts": "1473324217.000068"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "actually doesn't appear to be the case",
+        "ts": "1473324293.000069"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it would be nice if `ember-ajax` could use the jquery like syntax but use \"fetch\" under the hood",
+        "ts": "1473324348.000070"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I use `ember-network` for simple, one off, plain ajax calls. Whereas, `ember-ajax` comes in when I start to wrap calls up into a service and require some headers, etc. I guess use `ember-ajax`...",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473324742.000000"
+        },
+        "ts": "1473324423.000071"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "And then there is `ember-fetch` to throw in to the mix :wink:",
+        "ts": "1473324879.000073"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that does it ... i'm going to create my own and call it `ember-get-it` :laughing:",
+        "ts": "1473324927.000074"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "`ember-may-i`",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473325368.000000"
+        },
+        "ts": "1473325319.000075",
+        "reactions": [
+            {
+                "name": "laughing",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes but if `ember-want` then `ember-get`?",
+        "ts": "1473325347.000076"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "A shim library for `ember-ajax`, `ember-fetch` and `ember-network`",
+        "ts": "1473325350.000077"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "has anyone used <https:\/\/github.com\/emberjs\/ember-states> ?",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "emberjs\/ember-states",
+                "title_link": "https:\/\/github.com\/emberjs\/ember-states",
+                "text": "Contribute to ember-states development by creating an account on GitHub.",
+                "fallback": "GitHub: emberjs\/ember-states",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/1253363?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember-states",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473337365.000080"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64> Might be wrong but I think this used to be part of the \"old\" router? _maybe_....",
+        "ts": "1473340043.000082"
+    }
+]

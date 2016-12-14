@@ -1,0 +1,126 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/twitter.com\/EmberLondon\/status\/793005712284712960>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Animation, Space Invaders, TypeScript\u00a0\u2014\u00a0it\u2019s our November meetup featuring <https:\/\/twitter.com\/jjordan_dev|@jjordan_dev> and Nikos Katsikanis.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614832\/>",
+                "ts": 1477902269,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/793005712284712960",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "text": "Animation, Space Invaders, TypeScript\u00a0\u2014\u00a0it\u2019s our November meetup featuring <https:\/\/twitter.com\/jjordan_dev|@jjordan_dev> and Nikos Katsikanis.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614832\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/793005712284712960",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1477902437.001783"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Anyone getting a problem with ember deploy on windows failing with enotempty on tmp folder? Any workarounds?",
+        "ts": "1477924730.001785"
+    },
+    {
+        "user": "U2WALE388",
+        "text": "<@U2WALE388|joseph.roffey> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1477926271.001786"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "RE: Bryan's comment above, deleting bower_components and bower install temporary fixes the issue, but I get another error:\nTypeError: path must be a string\nseems to be called because of a line fs.statSync(path)\n\nwhere the path is of the form:\n\npath:\n   { plugin:\n      Class {\n        context: [Object],\n        ui: [Object],\n        project: [Object],\n        pluginConfig: [Object] } }",
+        "ts": "1477926396.001787"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "I'm getting the same TypeError on my Mac, so don't think that part's a Windows issue...",
+        "ts": "1477926491.001788"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "this was an issue with ember-cli-deploy-revision-data and a new version of simple-git... Issue resolved and pull request submitted, sorry to bother you all :wink:",
+        "ts": "1477933139.001789"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Hi <@U2WALE388> - Can I ask which revision data generator you are using in the revision-data plugin?",
+        "ts": "1477933188.001790"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "the problem occurred creating the scm-generator, but i think would've occurred anywhere as they all set path to an object rather than a string",
+        "ts": "1477933237.001791"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "no,  you're right only the scm-data-generator uses simple-git...",
+        "ts": "1477933357.001792"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Yeh, I guess my reason for the question is that the revision-data plugins and it's generator pattern has kind of gone in a direction that was not intended and we're looking at changing the way it works and making it more declarative. I've created the first plugin that we will start using to replace this pattern -&gt; <https:\/\/github.com\/achambers\/ember-cli-deploy-git-revision-data>\n\nThe idea is that , if you have this installed, it will suck up a bunch of git data and add it to `context.revisionData.git` and you can pull whatever it is you need out.\n\nIf you're interested, you could look at using this instead of the revision-data plugin (caveat, you would still need to use the revision-data plugin if you want to use the file hash for now).\n\nThe repo above uses git-repo-info which does not rely on any git binaries.",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "achambers\/ember-cli-deploy-git-revision-data",
+                "title_link": "https:\/\/github.com\/achambers\/ember-cli-deploy-git-revision-data",
+                "text": "ember-cli-deploy-git-revision-data - An EmberCLI Deploy Plugin to populate the context with git metadata about the current revision",
+                "fallback": "GitHub: achambers\/ember-cli-deploy-git-revision-data",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/416724?v=3&s=400",
+                "from_url": "https:\/\/github.com\/achambers\/ember-cli-deploy-git-revision-data",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1477933410.001793"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Just an FYI - the revision-data plugin is still the currently supported approach but we are moving towards this approach where we split things out and you decide which revision-data plugins you want to compose.",
+        "ts": "1477933465.001795"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "thanks so much aaron, i'm not really the architectural expert, so don't know if this would be useful for us as of yet, <@U04TVTLQ8>  will probably have some thoughts however :wink:",
+        "ts": "1477933528.001796"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Put it this way, if you're using the git info for things like revision keys and saving metadata to redis etc, this plugin would remove stuff you don't care about and give you access to stuff you do, and let you choose which info you want to pick and choose from. It was just a heads up. Let me know if you want\/need any more info.",
+        "ts": "1477933622.001797"
+    },
+    {
+        "type": "message",
+        "user": "U2WALE388",
+        "text": "will do, thanks :slightly_smiling_face:",
+        "ts": "1477933779.001798"
+    },
+    {
+        "user": "U2WGJLENM",
+        "text": "<@U2WGJLENM|rossant> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1477946172.001799"
+    }
+]

@@ -1,0 +1,580 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hola guys",
+        "ts": "1476348750.001337"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hola",
+        "ts": "1476348756.001338"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "anyone here using JSON-API as their serializer",
+        "ts": "1476348761.001339"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and doing async has many relationships?",
+        "ts": "1476348767.001340"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "for some reason ED is not loading all of them :disappointed:",
+        "ts": "1476348776.001341"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I'm going to ellaborate further",
+        "ts": "1476348785.001342"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "my setup is",
+        "ts": "1476348786.001343"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\n\/\/ group.js\n  members: DS.hasMany('user', { async: true, inverse: 'groups' }),\n  admins: DS.hasMany('user', { async: true, inverse: 'adminGroups' }),\n```\n\nand\n\n```\n  groups: DS.hasMany('group', { async: true, inverse: 'members' }),\n  adminGroups: DS.hasMany('group', { async: true, inverse: 'admins' })\n```\n\nMaking a get to \/groups\/id returns the following payload\n\n```\n{\n\t\"data\": {\n\t\t\"type\": \"groups\",\n\t\t\"id\": \"private-group\",\n\t\t\"attributes\": {\n\t\t\t\"id\": \"private-group\",\n\t\t\t\"name\": \"Sunlight\",\n\t\t\t\"address\": \"Google Campus - Old Street, London, United Kingdom\",\n\t\t\t\"bio\": \"We are the company behind this website\",\n\t\t\t\"avatar-url\": \"<http:\/\/www.clipartkid.com\/images\/7\/here-s-the-sun-clipart-we-used-for-the-frozen-font-above-just-click-0jkujY-clipart.gif>\",\n\t\t\t\"cover-url\": \"<http:\/\/o7mbzmrh9l-flywheel.netdna-ssl.com\/wp-content\/uploads\/2015\/08\/Fall_of_Icarus_Blondel_decoration_Louvre_INV2624-e1439382472410.jpg>\",\n\t\t\t\"about-url\": \"<https:\/\/sunlight.is>\",\n\t\t\t\"privacy-setting\": \"admin-invite\",\n\t\t\t\"created-at\": \"2016-09-13T08:54:23.058Z\"\n\t\t},\n\t\t\"relationships\": {\n\t\t\t\"admins\": [\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"users\",\n\t\t\t\t\t\"id\": \"users-uid\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"members\": [\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"users\",\n\t\t\t\t\t\"id\": \"foo-barr\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"users\",\n\t\t\t\t\t\"id\": \"yolo-swag\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}\n```",
+        "ts": "1476348915.001344"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "however calling `group.get('members')` doesnt make any calls to say `\/users?filter[ids]=users-uid,foo-barr`\n\ncan anyone explain to me why?",
+        "ts": "1476348955.001345"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "is it because I'm missing a `links` ?",
+        "ts": "1476348962.001346"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64> Yes, I would suspect the lack of `links` prevents a consumer from knowing how to query for members.",
+        "ts": "1476349971.001347"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V2PZUB> thanks",
+        "ts": "1476350386.001348"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "confirming with everyone, I was missing a links attribute",
+        "ts": "1476350392.001349"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U047GTU64> Although, silently failing isn't any good \u00af\\_(\u30c4)_\/\u00af",
+        "ts": "1476350460.001351"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V2PZUB> yeah! but I'm not riding the latest ED",
+        "ts": "1476350488.001353"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I think that aswer is not that",
+        "ts": "1476350543.001354"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that payload is wrong",
+        "ts": "1476350549.001355"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U040MK408> whats wrong with it",
+        "ts": "1476350559.001356"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh",
+        "ts": "1476350567.001357"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh",
+        "ts": "1476350567.001358"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah",
+        "ts": "1476350571.001359"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "relationships must have data",
+        "ts": "1476350574.001360"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I see it",
+        "ts": "1476350574.001361"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "inside",
+        "ts": "1476350579.001362"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`admins: { data: { \"type\": \"users\", id: '123' } }`",
+        "ts": "1476350601.001363"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so `memberships.data === arrayOfdata`",
+        "ts": "1476350603.001364"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah",
+        "ts": "1476350605.001365"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "or an array",
+        "ts": "1476350612.001366"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you don't need links",
+        "ts": "1476350618.001367"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":sleuth_or_spy:",
+        "ts": "1476350692.001368"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "does anyone still have a link to that list of podcasts that someone ( <@U04BD6KB1>   ?) put together?",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1476360710.000000"
+        },
+        "ts": "1476360676.001369"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I will send in a few min when back in front of computer",
+        "ts": "1476361487.001371"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "ace",
+        "ts": "1476361544.001372"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U06BGNMBL> <https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd>",
+        "attachments": [
+            {
+                "service_name": "Canvas",
+                "title": "Podcasts of Interest",
+                "title_link": "https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd",
+                "text": "In an effort to identify the best ways to market Ember to the larger JS and Tech community, we're trying to collaborate with Embere\u00f1os in identifying a set of podcasts that they find valuable. Your contribution is very welcome. Thanks in advance. Ember.",
+                "fallback": "Canvas: Podcasts of Interest",
+                "from_url": "https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd",
+                "id": 1
+            }
+        ],
+        "ts": "1476361757.001373"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "have a pair of these <http:\/\/www.psbspeakers.com\/products\/headphones\/M4U-2-Headphones> that I need to get rid of if someone wants good headphones for \u00a350 :smile:",
+        "attachments": [
+            {
+                "title": "M4U 2 Headphones - PSB Speakers",
+                "title_link": "http:\/\/www.psbspeakers.com\/products\/headphones\/M4U-2-Headphones",
+                "text": "M4U 2 Headphones product page - Active Noise Cancelling Headphones - Room Feel\u2122",
+                "fallback": "M4U 2 Headphones - PSB Speakers",
+                "image_url": "http:\/\/www.psbspeakers.com\/img\/img.php?130128102018-PSB_M4U2_Headphones_BLK_Top_3-4.jpg\/320",
+                "from_url": "http:\/\/www.psbspeakers.com\/products\/headphones\/M4U-2-Headphones",
+                "image_width": 250,
+                "image_height": 250,
+                "image_bytes": 9521,
+                "service_icon": "http:\/\/www.psbspeakers.com\/img\/favicon.ico",
+                "service_name": "psbspeakers.com",
+                "id": 1
+            }
+        ],
+        "ts": "1476361783.001375"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "PM ME",
+        "ts": "1476361784.001377"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "#adsingeneral",
+        "ts": "1476361788.001378"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V5B7KY> I\u2019m tempted",
+        "ts": "1476361884.001379"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "even though I already have some decent cans",
+        "ts": "1476361890.001380"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "could have a pair that stay at work all the time",
+        "ts": "1476361898.001381"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":thinking_face:",
+        "ts": "1476361918.001382"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "cheers <@U03V8V08M> (and all curators\/contributors and that)",
+        "ts": "1476361991.001383"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "&gt;a pair that stay at work all the time",
+        "ts": "1476362142.001384"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Can recommend.",
+        "ts": "1476362167.001385",
+        "reactions": [
+            {
+                "name": "smile",
+                "users": [
+                    "U14KVFYS3"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":thinking_face: :thinking_face: :thinking_face:",
+        "ts": "1476362263.001386"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V5B7KY> why are you getting rid of them?",
+        "ts": "1476362287.001387"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I bought QC35s",
+        "ts": "1476362383.001388"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "and got the hard word that I wasn\u2019t allowed two pairs of \u00a3150+ headphones...",
+        "ts": "1476362397.001389"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1476362397.001390"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "nikz I really want them",
+        "ts": "1476362409.001391"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "the QC35s, I have QC25s but cables are so 2015 :wink:",
+        "edited": {
+            "user": "U045SGGD8",
+            "ts": "1476362429.000000"
+        },
+        "ts": "1476362427.001392"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "quite like the QC35s, not as good sound wise as those ones",
+        "ts": "1476362457.001394"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "but no changing batteries which is a :-1:",
+        "ts": "1476362466.001395"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "batteries? I\u2019m going decline this very splendid deal",
+        "ts": "1476363986.001396"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1476364558.001397"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "they are noise cancelling",
+        "ts": "1476364562.001398"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "they have to have batteries",
+        "ts": "1476364565.001399"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "AAA",
+        "ts": "1476364566.001400"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I happen to need a pair of headsets right now",
+        "ts": "1476373724.001401"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but I was also looking for something without cables",
+        "ts": "1476373734.001402"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you know, Jack is ripped",
+        "ts": "1476373751.001403"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":muscle: :laughing:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1476373778.000000"
+        },
+        "ts": "1476373763.001404"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i should have spelled it",
+        "ts": "1476373929.001406"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "RIPed",
+        "ts": "1476373932.001407"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "dammmm",
+        "ts": "1476376935.001408"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":joy:",
+        "ts": "1476376936.001409"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I am considering the bose QC35",
+        "ts": "1476379824.001410"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but they are SO expensive...",
+        "ts": "1476379830.001411"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the sennheiser momentum wireless are even more expensive",
+        "ts": "1476380323.001412"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I guess I need to try them out in a shop to see if the quality convinces me",
+        "ts": "1476380384.001413"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "my impression -- although I'm speaking a bit out of school -- is that the Momentum is more focused on pure audio quality whereas the QC35 is emphasising high quality along with noise cancellation",
+        "ts": "1476380497.001414"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is my idea too",
+        "ts": "1476380526.001415"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "they both have both characteristics but if I had to choose one I'd probably go with audio quality",
+        "ts": "1476380528.001416"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what I want to see if I am audiophile enough to appreciate the difference",
+        "ts": "1476380554.001417"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "also as strong a brand as BOSE is they are notorious for their margins in the business",
+        "ts": "1476380565.001418"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes testing first when the price tag is that high is a good idea",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1476380598.000000"
+        },
+        "ts": "1476380583.001419"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "any idea what shop might both in exposition?",
+        "ts": "1476380603.001422"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'll probably end up purchasing them in amazon because I have a \u00a375 in credit",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1476380646.000000"
+        },
+        "ts": "1476380629.001423"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'm not sure about both in the UK. my sense is BOSE tend to have very specialized retailer arrangements but not sure about that.",
+        "ts": "1476380668.001425"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "<@U040MK408> I bought the QC25 and will probably upgrade to QC35 eventually - sound and noise cancelling pretty similar main difference is bluetooth AIUI. They are better than anything else I've owned for audio quality but I bought them for the noise cancelling. The noise cancelling is really amazing",
+        "ts": "1476380693.001426"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is a Bose shop in Regent Street",
+        "ts": "1476380714.001427"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I find it great for coding, just being able to shut everything else out and concentrate",
+        "ts": "1476380716.001428"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "but, for sure they are not the best audio quality at that price. If you want audio quality over noise cancelling, definitely choose something else",
+        "ts": "1476380746.001429"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it's interesting ... its been a long time since I gave active noice cancelling a go; any sense how it compares to inner-ear headphones passive sound cancelling?",
+        "ts": "1476380823.001430"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408> yeah i know the shop you mean ... there must be another retailer in that area which you can find the Momentum though nothing beats the side-to-side comparison",
+        "ts": "1476380891.001431"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "<@U04BD6KB1> I can't use inner ear phones unfortunately :disappointed:",
+        "ts": "1476381058.001432"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "so no idea",
+        "ts": "1476381062.001433"
+    }
+]

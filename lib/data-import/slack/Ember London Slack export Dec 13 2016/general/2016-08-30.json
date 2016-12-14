@@ -1,0 +1,153 @@
+[
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1472553610.000005"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "morning",
+        "ts": "1472561011.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":coffee:",
+        "ts": "1472561375.000007"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U1NNSV1FE|roncooper> shared a file: <https:\/\/emberlondon.slack.com\/files\/roncooper\/F26BV8HU4\/Streaming_Live_____Development_update__Viability_of_Javascript_CMS_port_from__PHP_Watch_Now_|Streaming Live &gt;&gt;&gt; Development update; Viability of Javascript CMS port from #PHP Watch Now!>",
+        "file": {
+            "id": "F26BV8HU4",
+            "created": 1472563396,
+            "timestamp": 1472563559,
+            "name": "Streaming_Live_____Development_update__Viability_of_Javascript_CMS_port_from__PHP_Watch_Now_",
+            "title": "Streaming Live &gt;&gt;&gt; Development update; Viability of Javascript CMS port from #PHP Watch Now!",
+            "mimetype": "text\/plain",
+            "filetype": "space",
+            "pretty_type": "Post",
+            "user": "U1NNSV1FE",
+            "editable": true,
+            "size": 251,
+            "mode": "space",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F26BV8HU4\/Streaming_Live_____Development_update__Viability_of_Javascript_CMS_port_from__PHP_Watch_Now_?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F26BV8HU4\/download\/Streaming_Live_____Development_update__Viability_of_Javascript_CMS_port_from__PHP_Watch_Now_?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/roncooper\/F26BV8HU4\/Streaming_Live_____Development_update__Viability_of_Javascript_CMS_port_from__PHP_Watch_Now_",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F26BV8HU4-028ad58a24",
+            "preview": "<document><p><a href=\"https:\/\/www.livecoding.tv\/nodex-ltd\/\">https:\/\/www.livecoding.tv\/nodex-ltd\/<\/a><\/p><div class=\"unfurl-container unfurl-render-pending\"><a class=\"unfurl-placeholder\" href=\"https:\/\/www.livecoding.tv\/nodex-ltd\/\">https:\/\/www.livecoding.tv\/nodex-ltd\/<\/a><\/div><p><\/p><\/document>",
+            "updated": 1472563524,
+            "editor": "U1NNSV1FE",
+            "last_editor": "U1NNSV1FE",
+            "state": "locked",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U1NNSV1FE",
+        "upload": false,
+        "display_as_bot": false,
+        "username": "<@U1NNSV1FE|roncooper>",
+        "bot_id": null,
+        "ts": "1472563488.000008"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Testing complex components...",
+        "ts": "1472569063.000010"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "How do you test a yielded public API?",
+        "ts": "1472569076.000011"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "In our component template it has a #each which maps a component on objects in a private array in the component. To test, we need to mock an action fired by those child components. How?",
+        "ts": "1472569148.000012"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408>: how did you test yielded Apis?",
+        "ts": "1472583722.000013"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'm glad you ask me that question",
+        "ts": "1472583742.000014"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "xD",
+        "ts": "1472583743.000015"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "one sec",
+        "ts": "1472583745.000016"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is a good example: <https:\/\/github.com\/cibernox\/ember-basic-dropdown\/blob\/master\/tests\/integration\/components\/basic-dropdown-test.js#L66-L73>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-basic-dropdown",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-basic-dropdown\/blob\/master\/tests\/integration\/components\/basic-dropdown-test.js#L66-L73",
+                "text": "ember-basic-dropdown - Functionality-agnostic dropdown component for Ember",
+                "fallback": "GitHub: cibernox\/ember-basic-dropdown",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-basic-dropdown\/blob\/master\/tests\/integration\/components\/basic-dropdown-test.js#L66-L73",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1472583795.000017"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I use the yielded API",
+        "ts": "1472583810.000019"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and assert that it behaves as expected",
+        "ts": "1472583816.000020"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "as in isolation as possible",
+        "ts": "1472583829.000021"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408>: oh sneaky. Was trying to work out how to give API to test. Didn't think to attach a button to it!",
+        "ts": "1472587997.000022"
+    }
+]

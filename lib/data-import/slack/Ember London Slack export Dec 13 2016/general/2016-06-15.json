@@ -1,0 +1,772 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "&gt; if I wanted to transition to a new route (aka, `\/users\/new`) and then wanted to set the state of this new model\n<@U04BD6KB1>: what about `afterModel`?",
+        "ts": "1465979740.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019m assuming by \u201cset the state of this new model\u201d you mean \u201cassign some properties on the route\u2019s model\u201d?",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1465979776.000000"
+        },
+        "ts": "1465979772.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or have I misunderstood?",
+        "ts": "1465979780.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "what do y\u2019all think of this? <http:\/\/www.emberjsthemes.com>",
+        "attachments": [
+            {
+                "title": "EmberJSThemes.com",
+                "title_link": "http:\/\/www.emberjsthemes.com",
+                "text": "EmberJSThemes website.",
+                "fallback": "EmberJSThemes.com",
+                "from_url": "http:\/\/www.emberjsthemes.com",
+                "service_icon": "http:\/\/www.emberjsthemes.com\/images\/icons\/apple-icon-57x57.png",
+                "service_name": "emberjsthemes.com",
+                "id": 1
+            }
+        ],
+        "ts": "1465980074.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "First thing that come to mind is why",
+        "ts": "1465980143.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "as in why would I buy a EmberJS theme",
+        "ts": "1465980163.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ditto",
+        "ts": "1465980283.000019"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: I delivered a training for a company that was taking over a project that built pretty much templates like that iirc",
+        "ts": "1465980339.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: how did the project seem? In good condition?",
+        "ts": "1465980379.000021"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm couldn\u2019t see too much of it tbh",
+        "ts": "1465980397.000022"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "it was admin-ish",
+        "ts": "1465980400.000023"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "backend built in java",
+        "ts": "1465980406.000024"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "bespoke software solution for a large enterprise that used to provide wordpress sites",
+        "ts": "1465980421.000025"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "right",
+        "ts": "1465980442.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: you going to project night? might be a good place to work on that horizon imp in person, If you are going I will come down",
+        "ts": "1465980546.000027"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: damn that would be a great idea but I have a conflict I can't get out of :(",
+        "ts": "1465981087.000028"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i have been focused on something else the past few days but will be putting this back to the top of the queue today; maybe I can finish off today we'll see. Seems reasonable.",
+        "ts": "1465981131.000029"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "---\n<@U03V8V08M> WRT to themes, even though Ember is opinionated it is still infinitely more flexible in \"what\" it's trying to do and \"how\" it gets done compared to the successful Theme models which have flourished around Wordpress and other blog solutions.",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1465981385.000000"
+        },
+        "ts": "1465981248.000030"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I think this means the Theme model for an Ember is not a great fit. Happy to be wrong but I'd be surprised",
+        "ts": "1465981289.000031"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Also when I looked at the site a day or two ago I remember thinking it was pretty opaque to any of the details of what you're getting.",
+        "ts": "1465981343.000032"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "---",
+        "ts": "1465981404.000034"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03V8V08M> I did look at `afterModel` as a solution but from what I saw in the API documentation it doesn't provide a way to get to the \"options\" hash of `transitionToRoute( route, options )`",
+        "ts": "1465981475.000035"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in my case that options hash is where I'd like to store the \"default values\" for a form. I can use `queryParams` as a property of the options hash (which seems to be the only thing the docs call out doing with it). It then works as you'd expect but because it's \"sticky\" in my use case I then need to jump through extra hoops to make it \"unsticky\"",
+        "ts": "1465981601.000036"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "---\nOn a side note ... has anyone tried using jquery 3 with Ember?",
+        "ts": "1465982087.000037"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: oooooh I see",
+        "ts": "1465982150.000038"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "sorry I missed quite an important part of the question",
+        "ts": "1465982161.000039"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":facepalm:",
+        "ts": "1465982173.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "will jQuery ever be removed from Ember?",
+        "edited": {
+            "user": "U0ASPMFPS",
+            "ts": "1465982189.000000"
+        },
+        "ts": "1465982185.000041"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U0ASPMFPS>: it was removed from rails 5",
+        "ts": "1465982209.000043"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "which is epic",
+        "ts": "1465982211.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "hopefully Ember will follow one day",
+        "ts": "1465982235.000045"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "I think it\u2019s 'cute'",
+        "ts": "1465982249.000046",
+        "reactions": [
+            {
+                "name": "laughing",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "but honestly I need jQuery",
+        "ts": "1465982258.000047"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I actual don\u2019t need it at all",
+        "ts": "1465982267.000048"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, I get the feeling the core team will make a judgment call each time it comes to making a major release",
+        "ts": "1465982277.000049"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t think they\u2019d ever remove it for the sake of purity",
+        "ts": "1465982302.000050"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "well, it would be a huge backwards-incompatible change :disappointed:",
+        "ts": "1465982334.000051"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "everyone uses `Ember.$`",
+        "ts": "1465982347.000052"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not happening any time soon",
+        "ts": "1465982350.000053"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "`this.$()` is probably the trickier thing",
+        "ts": "1465982364.000054"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "there\u2019s a tracking issue somewhere about removing jQuery",
+        "ts": "1465982364.000055"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "seems people have got this itch these days of removing it but I'm not convinced it needs to be anytime soon",
+        "ts": "1465982408.000056"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what motivates the itch though? is it JS file size?",
+        "ts": "1465982424.000057"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/github.com\/emberjs\/rfcs\/pull\/73>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Make jQuery Optional by sandstrom \u00b7 Pull Request #73 \u00b7 emberjs\/rfcs \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/rfcs\/pull\/73",
+                "text": "Link to rendered RFC",
+                "fallback": "GitHub: Make jQuery Optional by sandstrom \u00b7 Pull Request #73 \u00b7 emberjs\/rfcs",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/122287?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/rfcs\/pull\/73",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1465982432.000058"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or is it the non-native events?",
+        "ts": "1465982453.000060"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Its file size and that most things are now available in modern browsers and I guess the idea that its optional in other frameworks",
+        "ts": "1465982496.000061"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I'm just not sure I understand the rationale; it's so prevalent that \"jquery is bad\" that I'm worried that the belief could get out in front of the justification",
+        "ts": "1465982499.000062"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I don\u2019t think jQuery is bad",
+        "ts": "1465982515.000063"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I just don\u2019t think I need it in my codebase for every single project",
+        "ts": "1465982526.000064"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "it being optional would be good",
+        "ts": "1465982535.000065"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I think some of it is a case of \u201cif we were building Ember from scratch right now, would you build it on top of jQuery\"",
+        "ts": "1465982549.000066"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "if not, then why should it be a hard dependency",
+        "ts": "1465982561.000067"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "mm but ember isn\u2019t all about not having to build stuff from scratch ever?",
+        "ts": "1465982616.000068"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I\u2019m not bothered about the filesize arguments etc\u2026 as 99% of the time you\u2019re going to be using some addon\/plugin\/whatever which uses jQuery so as soon as you\u2019ve removed it you\u2019re probably going to add it right back!",
+        "ts": "1465982637.000069"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also qunit requires jquery :smile:",
+        "ts": "1465982649.000070"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "it would be nice if you could import the bits of jquery we use and let tree shaking remove everything else. 3.0 has custom builds which gets close",
+        "ts": "1465982717.000071"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i suspect there is a feeling that jquery is \"baggage\" and I can even buy the argument about choice but choice comes at a cost and opposes \"opinion\". I wonder if a 20k payload, which will soon be cached in a service worker, will matter much (at all?)",
+        "ts": "1465982734.000072"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well i guess it doesn't have to oppose opinion; so long as sensible default are in place",
+        "ts": "1465982783.000073"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Sorry, reading things out of sequence, but yeah I'm excited to see Tree Shaking be the norm and what kinds of benefits will come from it",
+        "ts": "1465982850.000074"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: side note, are you using jspm\/systemjs in any Ember projects?",
+        "ts": "1465982900.000075"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: nope, don\u2019t think its compatible",
+        "ts": "1465982918.000076"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i saw a video from a German meetup where they used it",
+        "ts": "1465982941.000077"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "link plz",
+        "ts": "1465982956.000078"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but it seemed pretty \"alpha\"",
+        "ts": "1465982957.000079"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but the guy was super sharp and has been talking with core team",
+        "ts": "1465982985.000080"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: here\u2019s the link  <https:\/\/www.youtube.com\/watch?v=lc9nQJR6RX4&amp;list=LLO48IxJpwV2m_CJR9bmi76g&amp;index=1>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "SystemJS, jspm &amp; Ember",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=lc9nQJR6RX4&amp;list=LLO48IxJpwV2m_CJR9bmi76g&amp;index=1",
+                "author_name": "MajorBreakfast",
+                "author_link": "https:\/\/www.youtube.com\/user\/MajorBreakfast",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/lc9nQJR6RX4\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: SystemJS, jspm & Ember",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/lc9nQJR6RX4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=lc9nQJR6RX4&amp;list=LLO48IxJpwV2m_CJR9bmi76g&amp;index=1",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1465983388.000081"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: thanks",
+        "ts": "1465983403.000083"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "are others getting this new deprecation:\n\n&gt; DEPRECATION: Overriding init without calling this._super is deprecated\n\nit appears to be coming from ember-cli:",
+        "ts": "1465987532.000084"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "- node_modules\/ember-cli\/lib\/models\/project.js",
+        "ts": "1465987536.000085"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "- node_modules\/ember-cli\/lib\/models\/addon.js",
+        "ts": "1465987550.000086"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I even upgraded to `ember-cli@2.7.0-beta.2` to get in front of this; no love",
+        "ts": "1465987608.000087"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: core-object got upgraded in ember-cli@2.6.0",
+        "ts": "1465988260.000088"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "the stacktrace could be better, but it means some of your addons aren\u2019t quite core-object 2 compatible",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1465988314.000000"
+        },
+        "ts": "1465988293.000089"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but it\u2019s fine, just a warning",
+        "ts": "1465988300.000090"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is there any way to dig into it?",
+        "ts": "1465988325.000092"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "they improved one of the warnings in 2.6.1",
+        "ts": "1465988343.000093"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so it points to exactly the addon",
+        "ts": "1465988349.000094"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but apparently not for the `init` warning",
+        "ts": "1465988360.000095"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t know, in short",
+        "ts": "1465988378.000096"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, i\u2019ll wait for an improvement there :slightly_smiling_face:",
+        "ts": "1465988382.000097"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Nathan Hammond led the charge with core object 2",
+        "ts": "1465988394.000098"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and search my init\u2019s for now",
+        "ts": "1465988398.000099"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "worth putting it to him once the west coast wake up",
+        "ts": "1465988401.000100"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok",
+        "ts": "1465988407.000101"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "if his new Microsoft overlords will give him time to work on it :troll:",
+        "ts": "1465988422.000102"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i wonder if Microsoft\u2019s acquisition of LinkedIn might lead to more use of Ember. What do you think?",
+        "ts": "1465988526.000103"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what is Nathan\u2019s role at Microsquish?",
+        "ts": "1465988534.000104"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if nothing else I think pitching Microsoft for some sponsorship would be a good idea",
+        "ts": "1465988591.000105"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Microsoft has been an ally so far, so I reckon so",
+        "ts": "1465988594.000106"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it would be great if they\u2019d pay for a single core member to be full time",
+        "ts": "1465988615.000107"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I forget exactly what Nathan\u2019s role at LinkedIn is, but it\u2019s strongly tied to accessibility and their ember platform",
+        "ts": "1465988623.000108"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: :100:",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1465988655.000000"
+        },
+        "ts": "1465988633.000109"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "whoops!",
+        "ts": "1465988637.000110"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "do you think the core team is actively pitching sponsorship to Microsoft and others?",
+        "ts": "1465988700.000113"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i could imagine they are, but I could imagine they\u2019re too busy to prioritise it",
+        "ts": "1465988723.000114"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t know",
+        "ts": "1465988731.000115"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Matt Beale has worked with Microsoft Research on Ember stuff a bunch of times",
+        "ts": "1465988744.000116"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "he could probably tell you a bit about the nature of that relationship",
+        "ts": "1465988754.000117"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, i think I\u2019ll just pose the question to a few people; I think we\u2019re at a stage where the value of this has increased but the prioritisation of busy people hasn\u2019t moved to this new focus",
+        "ts": "1465988795.000118"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "if Microsoft is looking to back a framework (not a given) Ember seems like the obvious choice for them",
+        "ts": "1465988808.000119"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i agree",
+        "ts": "1465988815.000120"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "given that Knockout has somewhat dwindled in popularity",
+        "ts": "1465988819.000121"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i\u2019d like to see an sub-team (unofficial subteam) go _after_ sponsorship rather than fielding any corporate interest that comes in the opposite direction",
+        "ts": "1465988875.000122"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03V8V08M>: want to be in the conversation I setup?",
+        "ts": "1465988904.000123"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: would love to but not until way later in the year",
+        "ts": "1465988961.000124"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":slightly_smiling_face:",
+        "ts": "1465988963.000125"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "November earliest",
+        "ts": "1465988972.000126"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "heh; well to start we just need to have a brief slack discussion. Very small effort. Then I think the next step is gather a consensus on:\n\n1. Is this a good idea\n2. What\u2019s the priority\n3. Who can shave off time to push it forward\n\nWhen we get to #3 that\u2019s when it will become heavy lifting",
+        "ts": "1465989064.000127"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I\u2019m guessing #3 will have to depend a lot on our colleagues in North America but I\u2019ll look through my rolodex to see if I have any contacts in the big M",
+        "ts": "1465989115.000128"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03V8V08M>: none-the-less; i\u2019ll leave you off to focus. i should be doing the same.",
+        "ts": "1465989160.000129"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "aws summit looks cool. <https:\/\/awssummit.london>",
+        "ts": "1465994936.000130"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Is there any way to add an npm module just for the dummy app for your addon?",
+        "ts": "1466001634.000131"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "#newb",
+        "edited": {
+            "user": "U03V5B7KY",
+            "ts": "1466001640.000000"
+        },
+        "ts": "1466001638.000132"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U03V5B7KY>: if you add it to `devDependencies` and not `dependencies` then it\u2019ll be available to the dummy app but not for consumers of the addon",
+        "ts": "1466002008.000134"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "ah awesome thanks!",
+        "ts": "1466002017.000135"
+    }
+]

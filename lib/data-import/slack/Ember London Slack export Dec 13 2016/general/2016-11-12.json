@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "If you return `PromiseObject`s then you're fine",
+        "ts": "1478983279.001894"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Kinda feel like any CP that returns a promise would be easier to work with as an ember-concurrency task",
+        "ts": "1478983810.001895"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Though I'm sure there are cases where that's less true",
+        "ts": "1478983832.001896"
+    }
+]

@@ -1,0 +1,274 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Have folks seen this talk: <https:\/\/www.youtube.com\/watch?v=Pd0gilezBDw>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Future State of Ember by Yehuda Katz @ EmberPDX",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=Pd0gilezBDw",
+                "author_name": "Ember Videos",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UCMmzJ82sCmooDdtzVY8FxEA",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/Pd0gilezBDw\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Future State of Ember by Yehuda Katz @ EmberPDX",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/Pd0gilezBDw?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=Pd0gilezBDw",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1475571272.001087"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Yehuda starts by saying he didn't have time to create a keynote but actually i think that lack of preparation led to a very useful format and helps to give a very good overview of the RFC's that will shape Ember's future.",
+        "ts": "1475571353.001089"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "why do I have to `filter` out `isDeleted` models",
+        "ts": "1475592833.001090"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "seems weird :disappointed:",
+        "ts": "1475592835.001091"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I agree that the default shouldn\u2019t retrieve deleted models, but there should be a proper way to retrieve the deleted models if it ends up changing",
+        "ts": "1475597754.001092"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is there a way at build time to detect whether an addon exists and then supply that information to the runtime environement?",
+        "ts": "1475598183.001093"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "use case is ... i have a `ui-button` addon and if the user has `ui-animate` or `ui-tooltip` installed as well i want to allow them easy access to this via the button API but otherwise send a `debug()` message to console indicating that API surface was used without the proper dependency",
+        "ts": "1475598317.001094"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so `{{ui-button 'press me'}}` just works; no need for any other addon but if you state `{{ui-button 'press me' tooltip='do it'}}` it will use `{{ui-tooltip}}` if available, warn if not",
+        "ts": "1475598392.001095"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U04BD6KB1> try going through the container to check if the component is registered.\n\nI think something like `!this.container.resolve(\u201dcomponent:ui-button\u201d)` should work to check if it doesn\u2019t exist",
+        "ts": "1475600948.001096"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "and then maybe do a computed variable out of it if you wanna use it on the template.",
+        "edited": {
+            "user": "U0C5RUAQ4",
+            "ts": "1475600969.000000"
+        },
+        "ts": "1475600957.001097"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok thanks <@U0C5RUAQ4> I can work with that",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1475602717.000000"
+        },
+        "ts": "1475602703.001099"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "no worries, let me know how it pans out :smile:",
+        "ts": "1475602724.001101"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "will do",
+        "ts": "1475602729.001102"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408> I'm trying to \"learn from\" \/ \"copy\" your `compile-css` approach but I'm running into a snafu ... the root *scss* file imports a number of bootstrap scss files which in the Broccoli tree are in a different file path",
+        "ts": "1475603222.001103"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2K8919QA\/-.js|Untitled>",
+        "file": {
+            "id": "F2K8919QA",
+            "created": 1475603229,
+            "timestamp": 1475603229,
+            "name": "-.js",
+            "title": "Untitled",
+            "mimetype": "text\/plain",
+            "filetype": "javascript",
+            "pretty_type": "JavaScript\/JSON",
+            "user": "U04BD6KB1",
+            "editable": true,
+            "size": 119,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2K8919QA\/-.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2K8919QA\/download\/-.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2K8919QA\/-.js",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2K8919QA-5dc16068c7",
+            "edit_link": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2K8919QA\/-.js\/edit",
+            "preview": "    const bootstrap = new Funnel(bootstrapPath, {\r\n      srcDir: '\/',\r\n      destDir: '\/ui-button\/bootstrap'\r\n    });\r\n",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\" oncopy=\"if(event.clipboardData){event.clipboardData.setData('text\/plain',window.getSelection().toString().replace(\/\\u200b\/g,''));event.preventDefault();event.stopPropagation();}\">\n<div class=\"CodeMirror-code\">\n<div><pre>    <span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">bootstrap<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-keyword\">new<\/span> <span class=\"cm-variable\">Funnel<\/span>(<span class=\"cm-variable\">bootstrapPath<\/span>, {<\/pre><\/div>\n<div><pre>      <span class=\"cm-property\">srcDir<\/span>: <span class=\"cm-string\">'\/'<\/span>,<\/pre><\/div>\n<div><pre>      <span class=\"cm-property\">destDir<\/span>: <span class=\"cm-string\">'\/ui-button\/bootstrap'<\/span><\/pre><\/div>\n<div><pre>    });<\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 5,
+            "lines_more": 0,
+            "preview_is_truncated": false,
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1475603229.001104"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so there is no filesystem path which maps to the `@import` directive; only a broccoli tree",
+        "ts": "1475603276.001105"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "have you had this constraint before?",
+        "ts": "1475603293.001106"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "nevermind, it's achievable through node-sass's `importer()` mapping function",
+        "ts": "1475606124.001107"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'm back",
+        "ts": "1475613010.001108"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don't remember much of that script",
+        "ts": "1475613040.001109"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I hacked it once and forgot about it existence",
+        "ts": "1475613057.001110"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "(which is the objective of a script that is supposed to run automatically)",
+        "ts": "1475613089.001111"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2KAC9K54\/-.js|Untitled>",
+        "file": {
+            "id": "F2KAC9K54",
+            "created": 1475613094,
+            "timestamp": 1475613094,
+            "name": "-.js",
+            "title": "Untitled",
+            "mimetype": "text\/plain",
+            "filetype": "javascript",
+            "pretty_type": "JavaScript\/JSON",
+            "user": "U04BD6KB1",
+            "editable": true,
+            "size": 1091,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2KAC9K54\/-.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2KAC9K54\/download\/-.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2KAC9K54\/-.js",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2KAC9K54-2c926cb846",
+            "edit_link": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2KAC9K54\/-.js\/edit",
+            "preview": "\/* global require, module *\/\r\nconst sass = require('node-sass');\r\nconst fs = require('fs');\r\nconst path = require('path');\r\nconst chalk = require('chalk');\r",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\" oncopy=\"if(event.clipboardData){event.clipboardData.setData('text\/plain',window.getSelection().toString().replace(\/\\u200b\/g,''));event.preventDefault();event.stopPropagation();}\">\n<div class=\"CodeMirror-code\">\n<div><pre><span class=\"cm-comment\">\/* global require, module *\/<\/span><\/pre><\/div>\n<div><pre><span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">sass<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-variable\">require<\/span>(<span class=\"cm-string\">'node-sass'<\/span>);<\/pre><\/div>\n<div><pre><span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">fs<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-variable\">require<\/span>(<span class=\"cm-string\">'fs'<\/span>);<\/pre><\/div>\n<div><pre><span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">path<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-variable\">require<\/span>(<span class=\"cm-string\">'path'<\/span>);<\/pre><\/div>\n<div><pre><span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">chalk<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-variable\">require<\/span>(<span class=\"cm-string\">'chalk'<\/span>);<\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 30,
+            "lines_more": 25,
+            "preview_is_truncated": true,
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1475613094.001112"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i generalized it a bit but took out one function you had in there which I'll add back in later",
+        "ts": "1475613119.001113"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i have a number addons where this could be useful",
+        "ts": "1475613139.001114"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i remembered you mentioning it on Slack a month ago or so and it was pretty much exactly what I was looking for",
+        "ts": "1475613197.001115"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i just needed the `importer()` function to get it to work for me",
+        "ts": "1475613224.001116"
+    }
+]

@@ -1,0 +1,199 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Does anyone have any good articles \/ resources for writing accessible ember?",
+        "ts": "1465202390.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V2PZUB>: just in case anyone\u2019s not seen it: <http:\/\/emberjs.com\/blog\/2016\/05\/17\/global-accessibility-awareness-day.html>",
+        "attachments": [
+            {
+                "title": "Ember.js: Global Accessibility Awareness Day",
+                "title_link": "http:\/\/emberjs.com\/blog\/2016\/05\/17\/global-accessibility-awareness-day.html",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Global Accessibility Awareness Day",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/blog\/2016\/05\/17\/global-accessibility-awareness-day.html",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "ts": "1465203126.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "also install <https:\/\/github.com\/rwjblue\/ember-cli-template-lint>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "rwjblue\/ember-cli-template-lint",
+                "title_link": "https:\/\/github.com\/rwjblue\/ember-cli-template-lint",
+                "text": "Contribute to ember-cli-template-lint development by creating an account on GitHub.",
+                "fallback": "GitHub: rwjblue\/ember-cli-template-lint",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/12637?v=3&s=400",
+                "from_url": "https:\/\/github.com\/rwjblue\/ember-cli-template-lint",
+                "thumb_width": 150,
+                "thumb_height": 150,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1465203152.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and <https:\/\/www.npmjs.com\/package\/ember-a11y>",
+        "attachments": [
+            {
+                "service_name": "npm",
+                "title": "ember-a11y",
+                "title_link": "https:\/\/www.npmjs.com\/package\/ember-a11y",
+                "text": "A collection of tools to build accessible Ember applications.",
+                "fallback": "npm: ember-a11y",
+                "thumb_url": "https:\/\/www.npmjs.com\/static\/images\/touch-icons\/open-graph.png",
+                "from_url": "https:\/\/www.npmjs.com\/package\/ember-a11y",
+                "thumb_width": 1200,
+                "thumb_height": 630,
+                "service_icon": "https:\/\/www.npmjs.com\/static\/images\/touch-icons\/apple-touch-icon-57x57.png",
+                "id": 1
+            }
+        ],
+        "ts": "1465203185.000010"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: :+1:",
+        "ts": "1465203215.000012"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "great work",
+        "ts": "1465203217.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V2PZUB>: best bet is to join #topic-a11y in the ember community slack",
+        "ts": "1465203238.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "smart folks like Nathan Hammond and Mel Sumner who work on making Ember accessible full time",
+        "ts": "1465203286.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: :+1: :100:",
+        "ts": "1465204199.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: ember-cli-template-lint is awesome!",
+        "ts": "1465204624.000017"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yup, robert jackson yet again making everything better for everybody",
+        "ts": "1465204648.000018"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "does anyone know, can I `this.set(\u2018foobar\u2019, observable)` where \u201cobserverable\u201d is an RxJS observable object and then have the foobar property behave like an Ember computed property?",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1465219240.000000"
+        },
+        "ts": "1465219205.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: do you mean that `foobar` would invalidate any downstream CPs (or mustaches) when the observable emits new values?",
+        "ts": "1465219287.000021"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes",
+        "ts": "1465219298.000022"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I would be very surprised if Ember can do that out of the box, and I don\u2019t know of any addons that will automatically subscribe\/unsubscribe to the observable",
+        "ts": "1465219338.000023"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but, it seems in the ember-concurrency ballback",
+        "ts": "1465219346.000024"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "maybe machty has some thoughts",
+        "ts": "1465219354.000025"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "maybe worth an ask in #e-concurrency in the community slack?",
+        "ts": "1465219386.000026"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, i\u2019ll give that a go",
+        "ts": "1465219395.000027"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":ok_hand:",
+        "ts": "1465219399.000028"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Getting the old addon error when you\u2019re using blueprint:",
+        "ts": "1465248937.000029"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "&gt; The `ember generate &lt;entity-name&gt;` command requires an entity name to be specified. For more details, use `ember help`.",
+        "ts": "1465248940.000030"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I have:  \n\n    normalizeEntityName: function() {\n        \/\/ this prevents an error when the entityName is not specified\n    },",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1465249049.000000"
+        },
+        "ts": "1465249014.000031"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "any idea what else could be creating this?",
+        "ts": "1465249063.000034"
+    }
+]
