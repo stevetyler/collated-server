@@ -490,12 +490,21 @@ function saveItem(body, user) {
 
 function postSlackItemsHandler(req, res) {
 	console.log('post slack item called');
-	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
-	let promiseArr = messagesArr.reduce((arr, message) => {
-		return containsUrl(message.text) ? arr.concat(saveSlackItem(message)) : arr;
-	}, []);
+	const messagesArr = Array.isArray(req.body) ? req.body : [req.body];
+	const slackTeamId = messagesArr[0].team_id;
 
-	Promise.all(promiseArr).then(() => {
+	UserGroup.findOne({slackTeamId: slackTeamId})
+	.then(userGroup => {
+		const options = {
+			userGroupId: userGroup.id,
+			categoryPerChannel: userGroup.categoryPerSlackChannel
+		};
+		const promiseArr = messagesArr.reduce((arr, message) => {
+			return containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
+		}, []);
+
+		return Promise.all(promiseArr);
+	}).then(() => {
 		res.status('201').send({});
 	}, (err) => {
 		console.log(err);
@@ -503,7 +512,7 @@ function postSlackItemsHandler(req, res) {
 	});
 }
 
-function saveSlackItem(message) {
+function saveSlackItem(message, options) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
 	const slackItem = {
@@ -513,31 +522,29 @@ function saveSlackItem(message) {
 		slackChannelId: message.channel_id,
 		slackTeamId: message.team_id,
 		slackUserId: message.user_id,
-		type: 'slack'
+		type: 'slack',
+		userGroup: options.userGroupId
   };
 
-	return UserGroup.findOne({slackTeamId: message.team_id}).then(userGroup => {
-		if (userGroup !== null && typeof userGroup === 'object') {
-			Object.assign(slackItem, {
-				categoryPerChannel: userGroup.categoryPerSlackChannel,
-				userGroup: userGroup.id
-			});
-		}
-		return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id});
-	}).then(slackCategory => {
+	// if categoryPerSlackChannel
+	return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id})
+	.then(slackCategory => {
+			// if group categoryPerSlackChannel
+			console.log('slackItem and category found', slackCategory, slackItem);
+
 		if (slackCategory !== null && typeof slackCategory === 'object') {
 			//console.log('slack category found', slackCategory);
 			Object.assign(slackItem, {category: slackCategory._id});
 		}
 		else {
-			console.log('create new slack category');
-			const slackCategory = {
-				isDefault: message.channel_name.toLowerCase() === 'general' ? true : false,
-				name: message.channel_name,
-				slackChannelId: message.channel_id,
-				userGroup: slackItem.userGroup
-			};
-			return Category.create(slackCategory);
+			// console.log('create new slack category');
+			// const slackCategory = {
+			// 	isDefault: message.channel_name.toLowerCase() === 'general' ? true : false,
+			// 	name: message.channel_name,
+			// 	slackChannelId: message.channel_id,
+			// 	userGroup: slackItem.userGroup
+			// };
+			// return Category.create(slackCategory);
 		}
 	}).then(category => {
 		if (category) {
