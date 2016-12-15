@@ -1,0 +1,44 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03V8V08M>: are you using the 1.x series of ngrok or 2.x (non-OSS but faster and more capable)",
+        "ts": "1465463249.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I have no idea",
+        "ts": "1465463263.000017"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "don\u2019t use it regularly",
+        "ts": "1465463273.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":slightly_smiling_face:",
+        "ts": "1465463291.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(I\u2019m not at my regular machine so I can\u2019t check)",
+        "ts": "1465463309.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(sorry for the flippant response)",
+        "ts": "1465463315.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":grimacing:",
+        "ts": "1465463319.000022"
+    }
+]

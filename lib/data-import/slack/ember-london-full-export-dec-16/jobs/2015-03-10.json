@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U03V4FJTA",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V4FJTA|rivolaks> has joined the channel",
+        "ts": "1425977586.000002"
+    }
+]

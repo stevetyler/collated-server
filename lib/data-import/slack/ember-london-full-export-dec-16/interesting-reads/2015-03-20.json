@@ -1,0 +1,289 @@
+[
+    {
+        "user": "U043LP6SF",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043LP6SF|suprmax> has joined the channel",
+        "ts": "1426871294.000002"
+    },
+    {
+        "user": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U03V2PZUB|karlfreeman> has left the channel",
+        "ts": "1426873443.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<https:\/\/lists.w3.org\/Archives\/Public\/public-whatwg-archive\/2015Mar\/0071.html>",
+        "ts": "1426874166.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/letsgetrandy.github.io\/DICSS\/>",
+        "ts": "1426874176.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "discuss.",
+        "ts": "1426874359.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "I think sounds great in theory would never work in practice (cause you would be laughing every 10 seconds and thus couldnt write any code due to hiccups and lack of air)",
+        "edited": {
+            "user": "U03SSL0FM",
+            "ts": "1426876425.000000"
+        },
+        "ts": "1426874368.000007"
+    },
+    {
+        "type": "message",
+        "user": "U043LP6SF",
+        "text": "great name",
+        "ts": "1426874532.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "His top repo is <https:\/\/github.com\/letsgetrandy\/brototype>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "letsgetrandy\/brototype",
+                "title_link": "https:\/\/github.com\/letsgetrandy\/brototype",
+                "text": "brototype - Bro, do you even?",
+                "fallback": "GitHub: letsgetrandy\/brototype",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/1911273?v=3&s=400",
+                "from_url": "https:\/\/github.com\/letsgetrandy\/brototype",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1426876437.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Offers syntax such as\n```var myURL;\nif (Bro(app).doYouEven('config.environment.buildURL')) {\n    myURL = app.config.environment.buildURL('dev');\n}\n```",
+        "ts": "1426876452.000012"
+    },
+    {
+        "type": "message",
+        "user": "U043LP6SF",
+        "text": "i find it intriguing. but i'd prefer dogescript though <https:\/\/dogescript.com>",
+        "attachments": [
+            {
+                "text": "JavaScript for the moon.",
+                "fallback": "JavaScript for the moon.",
+                "from_url": "https:\/\/dogescript.com",
+                "id": 1
+            }
+        ],
+        "ts": "1426878087.000013"
+    },
+    {
+        "type": "message",
+        "user": "U043LP6SF",
+        "text": "i wonder if one could write ember apps with dogescript",
+        "ts": "1426878145.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Folks, on the subject of letsgetrandy I'm with Jenn Schiffer: <https:\/\/twitter.com\/jennschiffer\/status\/578979744923942912>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/jennschiffer|@jennschiffer>: here is a cool example of how some web developers are terrible and unfunny <http:\/\/letsgetrandy.github.io\/DICSS\/> leave the code humor to me, little boys!",
+                "ts": 1426874502,
+                "author_name": "jenn.money",
+                "author_link": "https:\/\/twitter.com\/jennschiffer\/status\/578979744923942912",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/578285352919543808\/3EmrGXUi_normal.jpeg",
+                "author_subname": "@jennschiffer",
+                "text": "here is a cool example of how some web developers are terrible and unfunny <http:\/\/letsgetrandy.github.io\/DICSS\/> leave the code humor to me, little boys!",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/jennschiffer\/status\/578979744923942912",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1426891041.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "As in, this sort of humour is deeply off-putting to people in the community",
+        "ts": "1426891112.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Sexual humour is going to make people uncomfortable",
+        "ts": "1426891164.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "We all work hard to create an inclusive community and this kind of thing is not inclusive",
+        "ts": "1426891231.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Sorry for the rant, but this is important",
+        "ts": "1426891270.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "noone here created this library <@U03V8V08M>",
+        "ts": "1426891290.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "that's true, but imagine yourself as a newcomer to this community reading through our posts and finding this",
+        "ts": "1426891348.000009"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "And imagine that you found it offensive, rather than funny",
+        "ts": "1426891364.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Would you stick around?",
+        "ts": "1426891372.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "k, new policy, no more silly jokes on this",
+        "ts": "1426891388.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "need to put that in Ts and Cs",
+        "ts": "1426891394.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Yes, good idea",
+        "ts": "1426891402.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "somewhere on landing page",
+        "ts": "1426891403.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "but i need more than 1 policy",
+        "ts": "1426891410.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "to bother",
+        "ts": "1426891412.000017"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "so we need to come up with a list",
+        "ts": "1426891423.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "or I do",
+        "ts": "1426891424.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Shall we draft it on Sunday?",
+        "ts": "1426891438.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "sounds good",
+        "ts": "1426891442.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Thanks for understanding",
+        "ts": "1426891452.000022"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F043TG07Q\/pasted_image_at_2015_03_20_11_10_pm.png|Pasted image at 2015-03-20, 11:10 PM>",
+        "file": {
+            "id": "F043TG07Q",
+            "created": 1426893054,
+            "timestamp": 1426893054,
+            "name": "Pasted image at 2015_03_20 11_10 PM.png",
+            "title": "Pasted image at 2015-03-20, 11:10 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 1810400,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F043TG07Q\/pasted_image_at_2015_03_20_11_10_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F043TG07Q\/download\/pasted_image_at_2015_03_20_11_10_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 267,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 533,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F043TG07Q-73802ba980\/pasted_image_at_2015_03_20_11_10_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 758,
+            "image_exif_rotation": 1,
+            "original_w": 1618,
+            "original_h": 1198,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F043TG07Q\/pasted_image_at_2015_03_20_11_10_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F043TG07Q-eaa25fc271",
+            "channels": [
+                "C03V5K0FL"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1426893062.000023"
+    }
+]

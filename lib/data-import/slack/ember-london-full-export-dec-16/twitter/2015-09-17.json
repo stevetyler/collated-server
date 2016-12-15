@@ -1,0 +1,38 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: We are once again extremely grateful to have <https:\/\/twitter.com\/newbamboo|@newbamboo> sponsoring the Ember London project night. &lt;3",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/644574982362787840",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/644574982362787840>",
+                "text": "We are once again extremely grateful to have <https:\/\/twitter.com\/newbamboo|@newbamboo> sponsoring the Ember London project night. &lt;3",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1442513626.000019"
+    },
+    {
+        "user": "U0ASPMFPS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ASPMFPS|silentworks> has joined the channel",
+        "ts": "1442514575.000020"
+    },
+    {
+        "user": "U0ASNE2QN",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ASNE2QN|andrewmcardle> has joined the channel",
+        "ts": "1442514971.000021"
+    }
+]

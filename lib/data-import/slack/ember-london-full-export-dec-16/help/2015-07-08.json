@@ -1,0 +1,21 @@
+[
+    {
+        "type": "message",
+        "user": "U04073Q56",
+        "text": "Emberenos, I\u2019ve posted my question here: <http:\/\/stackoverflow.com\/questions\/31294392\/unit-test-computed-property-on-an-ember-controller>\n\nplease help :disappointed:",
+        "attachments": [
+            {
+                "title": "Unit test computed property on an Ember controller",
+                "title_link": "http:\/\/stackoverflow.com\/questions\/31294392\/unit-test-computed-property-on-an-ember-controller",
+                "text": "The code from my controllers\/cart.js: export default Ember.Controller.extend({ cartTotal: Ember.computed('model.@each.subTotal', function() { return this.model.reduce(function(subTotal, pro...",
+                "fallback": "Unit test computed property on an Ember controller",
+                "thumb_url": "http:\/\/cdn.sstatic.net\/stackoverflow\/img\/apple-touch-icon@2.png?v=ea71a5211a91&a",
+                "from_url": "http:\/\/stackoverflow.com\/questions\/31294392\/unit-test-computed-property-on-an-ember-controller",
+                "thumb_width": 316,
+                "thumb_height": 316,
+                "id": 1
+            }
+        ],
+        "ts": "1436362704.000002"
+    }
+]

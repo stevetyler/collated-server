@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0LE0FHK9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0LE0FHK9|cmumeche> has joined the channel",
+        "ts": "1454705975.000005"
+    }
+]

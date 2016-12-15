@@ -1,0 +1,50 @@
+[
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "on a JS-only (no template) component, is it possible to assign a click action?",
+        "ts": "1450446447.000010"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "i think you can use click() {}",
+        "ts": "1450446492.000011"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "is that what you mean?",
+        "ts": "1450446497.000012"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "lemme try that...",
+        "ts": "1450446556.000013"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "that would appear to work. Thanks :simple_smile:",
+        "ts": "1450446591.000014"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "no worries",
+        "ts": "1450446601.000015"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "On a component template, I have an `{{#each objects in |obj|}}`\nWhen a single `object` is modified, how do I get that change to manifest in the specific item inside the `{{#each}}`?",
+        "ts": "1450455413.000016"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "problem solved. I had a misspelled name somewhere\u2026 :disappointed:",
+        "ts": "1450457803.000017"
+    }
+]

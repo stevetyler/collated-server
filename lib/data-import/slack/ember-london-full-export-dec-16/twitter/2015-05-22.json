@@ -1,0 +1,89 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Just when you thought Ember\u2019s release process couldn\u2019t get any better, <https:\/\/twitter.com\/wycats|@wycats> drops this RFC:\n\n<https:\/\/github.com\/emberjs\/rfcs\/pull\/56>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/601670487186513920",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/601670487186513920>",
+                "text": "Just when you thought Ember\u2019s release process couldn\u2019t get any better, <https:\/\/twitter.com\/wycats|@wycats> drops this RFC:\n\n<https:\/\/github.com\/emberjs\/rfcs\/pull\/56>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1432284397.000028"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: This has to be the most thorough bug report ever filed: <https:\/\/github.com\/emberjs\/ember.js\/issues\/10910>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/601672024575123456",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/601672024575123456>",
+                "text": "This has to be the most thorough bug report ever filed: <https:\/\/github.com\/emberjs\/ember.js\/issues\/10910>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1432284763.000029"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/instagram.com\/p\/2-wOHLBC8K\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/601693426472583169",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/601693426472583169>",
+                "text": "<https:\/\/instagram.com\/p\/2-wOHLBC8K\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1432289866.000030"
+    },
+    {
+        "user": "U050WKBTH",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050WKBTH|tompallister> has joined the channel",
+        "ts": "1432299992.000031"
+    },
+    {
+        "user": "U050979TG",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050979TG|nlh> has joined the channel",
+        "ts": "1432301009.000032"
+    },
+    {
+        "user": "U050WT24D",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050WT24D|brian> has joined the channel",
+        "ts": "1432301047.000033"
+    }
+]

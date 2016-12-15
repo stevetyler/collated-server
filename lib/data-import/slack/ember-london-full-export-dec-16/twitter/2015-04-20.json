@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U04FBC86N",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04FBC86N|edgifyjp> has joined the channel",
+        "ts": "1429563446.000013"
+    }
+]

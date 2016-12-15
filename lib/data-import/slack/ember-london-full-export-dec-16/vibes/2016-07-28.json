@@ -1,0 +1,67 @@
+[
+    {
+        "type": "message",
+        "user": "U1U4TGPEX",
+        "text": "<https:\/\/soundcloud.com\/hucci\/xtra>",
+        "attachments": [
+            {
+                "service_name": "SoundCloud",
+                "service_url": "http:\/\/soundcloud.com",
+                "title": "Xtra by HU\u20b5\u20b5I",
+                "title_link": "https:\/\/soundcloud.com\/hucci\/xtra",
+                "author_name": "HU\u20b5\u20b5I",
+                "author_link": "https:\/\/soundcloud.com\/hucci",
+                "thumb_url": "http:\/\/i1.sndcdn.com\/artworks-000173528507-sgtcal-t500x500.jpg",
+                "text": "404 [2015]\n\n<https:\/\/hucci.bandcamp.com\/album\/404>",
+                "fallback": "SoundCloud Audio: Link: Xtra by HU\u20b5\u20b5I",
+                "audio_html": "<iframe width=\"100%\" height=\"150\" scrolling=\"no\" frameborder=\"no\" src=\"https:\/\/w.soundcloud.com\/player\/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F275570368&show_artwork=true&maxheight=150\"><\/iframe>",
+                "audio_html_width": 100,
+                "audio_html_height": 150,
+                "from_url": "https:\/\/soundcloud.com\/hucci\/xtra",
+                "thumb_width": 500,
+                "thumb_height": 500,
+                "service_icon": "https:\/\/soundcloud.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1469718038.000002"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":pick:",
+        "ts": "1469718160.000004"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":mario:",
+        "ts": "1469718195.000005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/www.youtube.com\/watch?v=qHRur3DkX-c>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Jan Blomqvist &amp; Band BOILER ROOM Berlin",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=qHRur3DkX-c",
+                "author_name": "Boiler Room",
+                "author_link": "https:\/\/www.youtube.com\/user\/brtvofficial",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/qHRur3DkX-c\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Jan Blomqvist & Band BOILER ROOM Berlin",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/qHRur3DkX-c?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=qHRur3DkX-c",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1469719802.000006"
+    }
+]

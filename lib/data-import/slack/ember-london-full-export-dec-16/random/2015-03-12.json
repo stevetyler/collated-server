@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U040LNZ6Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040LNZ6Y|kelvin> has joined the channel",
+        "ts": "1426151034.000002"
+    },
+    {
+        "user": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U03V2PZUB|karlfreeman> has left the channel",
+        "ts": "1426153505.000003"
+    },
+    {
+        "user": "U040MK408",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040MK408|cibernox> has joined the channel",
+        "ts": "1426156412.000004"
+    }
+]

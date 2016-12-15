@@ -1,0 +1,28 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "#VIBES\n\n<https:\/\/www.youtube.com\/watch?v=gxq21pJMjrM>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "TOKiMONSTA | Midnight Menu [Full Album]",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=gxq21pJMjrM",
+                "author_name": "STEEZYASFUCK",
+                "author_link": "https:\/\/www.youtube.com\/user\/562Steezy",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/gxq21pJMjrM\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: TOKiMONSTA | Midnight Menu [Full Album]",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/gxq21pJMjrM?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=gxq21pJMjrM",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1466688265.000070"
+    }
+]

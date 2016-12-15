@@ -1,0 +1,140 @@
+[
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "Hi everyone, my name is Lionel. I was a trader in another life and I started learning website development around three Years ago, first with Rails and now Rails + Ember. I'm building <http:\/\/AssessUp.com|AssessUp.com>, a platform for crowdsourcing performance reviews, and an unbiased framework to detect and promote the best performing professionals (targeted users are employees of big companies). I would be very interested in the next London EmberCamp, anyone knows where to find information on it?",
+        "ts": "1449913390.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "Also, I am building the team for <http:\/\/AssessUp.com|AssessUp.com> now, and would love to get in touch with a senior developer who could provide some needed advice on the current design \/ UX of the website (most of the features are there, but there is still big work to do on the UX part). This is a fairly complex project where we use encryption of identifying information to ensure privacy, a framework with points, levels, reputation scores etc. An example of what we do can be seen on this page: <https:\/\/www.assessup.com\/public\/profiles\/lionel-viet>. One of our strengths is that we are able to provide customized performance review questionnaires for any profile.",
+        "attachments": [
+            {
+                "service_name": "AssessUp",
+                "title": "Lionel Viet",
+                "title_link": "https:\/\/www.assessup.com\/public\/profiles\/lionel-viet",
+                "text": "Lionel Viet is rated in the top 10% of the professionals in his industry.",
+                "fallback": "AssessUp: Lionel Viet",
+                "image_url": "https:\/\/assessup-production.s3-eu-west-1.amazonaws.com\/uploads\/upload\/image\/189\/13_Share.jpg?X-Amz-Expires=604800&X-Amz-Date=20151212T094550Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIGUBHFICZUUDCRIA\/20151212\/eu-west-1\/s3\/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=83ecae394e2236c64d9fa254feb8a42569c3c5a5d800fcc0be076feb4f99c804",
+                "image_width": 280,
+                "image_height": 231,
+                "from_url": "https:\/\/www.assessup.com\/public\/profiles\/lionel-viet",
+                "image_bytes": 17683,
+                "id": 1
+            }
+        ],
+        "ts": "1449913530.000024"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0FTFSCJX|lionelviet> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0GFHHF37\/logo.gif|logo.gif> and commented: (That's our logo, I think it's cool so I'm showing it off)",
+        "file": {
+            "id": "F0GFHHF37",
+            "created": 1449913603,
+            "timestamp": 1449913603,
+            "name": "logo.gif",
+            "title": "logo.gif",
+            "mimetype": "image\/gif",
+            "filetype": "gif",
+            "pretty_type": "GIF",
+            "user": "U0FTFSCJX",
+            "editable": false,
+            "size": 521220,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0GFHHF37\/logo.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0GFHHF37\/download\/logo.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 203,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 270,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_360.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0GFHHF37-15ca0eddb7\/logo_480.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 640,
+            "original_h": 360,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0GFHHF37\/logo.gif",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F0GFHHF37-5f0e8e0418",
+            "channels": [
+                "C03V5SNP6"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc0GFHHF8D",
+                "created": 1449913603,
+                "timestamp": 1449913603,
+                "user": "U0FTFSCJX",
+                "is_intro": true,
+                "comment": "(That's our logo, I think it's cool so I'm showing it off)",
+                "channel": ""
+            }
+        },
+        "user": "U0FTFSCJX",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0FTFSCJX|lionelviet>",
+        "bot_id": null,
+        "ts": "1449913611.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "If you are interested in the concept, I can provide you with more details of where we are going. There is a job description corresponding to the ideal profile we are looking for below too. Thank you!",
+        "ts": "1449913647.000027"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0FTFSCJX|lionelviet> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0GFMUR5L\/assessup_developer.pdf|AssessUp_Developer.pdf>",
+        "file": {
+            "id": "F0GFMUR5L",
+            "created": 1449913692,
+            "timestamp": 1449913692,
+            "name": "AssessUp_Developer.pdf",
+            "title": "AssessUp_Developer.pdf",
+            "mimetype": "application\/pdf",
+            "filetype": "pdf",
+            "pretty_type": "PDF",
+            "user": "U0FTFSCJX",
+            "editable": false,
+            "size": 545671,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0GFMUR5L\/assessup_developer.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0GFMUR5L\/download\/assessup_developer.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0GFMUR5L\/assessup_developer.pdf",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F0GFMUR5L-6555e2b41d",
+            "channels": [
+                "C03V5SNP6"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U0FTFSCJX",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0FTFSCJX|lionelviet>",
+        "bot_id": null,
+        "ts": "1449913692.000028"
+    }
+]

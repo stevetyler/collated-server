@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0LH92QVA",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0LH92QVA|dalpo> has joined the channel",
+        "ts": "1454921725.000008"
+    },
+    {
+        "user": "U0LHVUVDZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0LHVUVDZ|chrisns> has joined the channel",
+        "ts": "1454936706.000009"
+    }
+]

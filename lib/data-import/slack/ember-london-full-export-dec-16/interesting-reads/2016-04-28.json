@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U14KVFYS3",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U14KVFYS3|huntie> has joined the channel",
+        "ts": "1461867044.000005"
+    },
+    {
+        "user": "U14KXUFJT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U14KXUFJT|jade> has joined the channel",
+        "ts": "1461867438.000006"
+    },
+    {
+        "user": "U14L0QAF2",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U14L0QAF2|michael> has joined the channel",
+        "ts": "1461868192.000007"
+    }
+]

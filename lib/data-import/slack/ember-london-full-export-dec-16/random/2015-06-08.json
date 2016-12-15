@@ -1,0 +1,29 @@
+[
+    {
+        "user": "U062LD65Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U062LD65Q|akatov> has joined the channel",
+        "ts": "1433760999.000039"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "impress your friends <http:\/\/hackertyper.com\/>",
+        "ts": "1433768912.000040"
+    },
+    {
+        "user": "U062TJYHW",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U062TJYHW|tomasbasham> has joined the channel",
+        "ts": "1433772216.000041"
+    },
+    {
+        "user": "U062TJYHW",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U062TJYHW|tomasbasham> has left the channel",
+        "ts": "1433772934.000042"
+    }
+]

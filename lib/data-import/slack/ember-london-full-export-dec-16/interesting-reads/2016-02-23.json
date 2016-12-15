@@ -1,0 +1,82 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Some heavy conceptual reading: <https:\/\/github.com\/domenic\/cancelable-promise\/blob\/master\/Third%20State.md>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "domenic\/cancelable-promise",
+                "title_link": "https:\/\/github.com\/domenic\/cancelable-promise\/blob\/master\/Third%20State.md",
+                "text": "cancelable-promise - Prototyping cancelable promises",
+                "fallback": "GitHub: domenic\/cancelable-promise",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/617481?v=3&s=400",
+                "from_url": "https:\/\/github.com\/domenic\/cancelable-promise\/blob\/master\/Third%20State.md",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1456225933.000003"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "about cancelable promises",
+        "ts": "1456225943.000005"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "nice, I keep running into situations where cancelable promises would be great",
+        "ts": "1456227091.000006"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Most recent being typeahead find stuff. We\u2019re debouncing requests but there\u2019s still plenty of times that you send out a new one when an existing one is pending. Currently just recording a request ID and only accepting the latest one, but being able to cancel and forget about previous ones would be fantastic",
+        "ts": "1456227155.000007"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Need to have a look at matchty\u2019s concurrency stuff there too",
+        "ts": "1456227169.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U044QMK6K>: definitely",
+        "ts": "1456231021.000009"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think he has an example that covers exactly that case",
+        "ts": "1456231032.000010"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "problem is, network operation with fetch are not cancellable for now, neither are `store.whatever` operations",
+        "ts": "1456231436.000011"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so that basically forces you to use a plain XHR request",
+        "ts": "1456231455.000012"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "terrible",
+        "ts": "1456231460.000013"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "yep, I just let the request go through and ignore the results which is hardly ideal but feels nicer than reaching through and use plain XHR",
+        "ts": "1456232120.000014"
+    }
+]

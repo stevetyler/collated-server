@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U03SSL0FM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03SSL0FM|codepreneur> has joined the channel",
+        "ts": "1446026139.000002"
+    },
+    {
+        "user": "U0BP18QJZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0BP18QJZ|guyfedwards> has joined the channel",
+        "ts": "1446054553.000003"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U09ABGTUJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09ABGTUJ|matteodepalo> has joined the channel",
+        "ts": "1439994333.000020"
+    }
+]

@@ -1,0 +1,216 @@
+[
+    {
+        "user": "U0D95V1QB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D95V1QB|microfed> has joined the channel",
+        "ts": "1445957406.000055"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "Hello, everyone! I'm Teodor from Moscow. I've been using ember in production since 1.0.0-rc4 in <http:\/\/rukuku.com|rukuku.com>, and recently started using it in <http:\/\/penxy.com|penxy.com>. For now I'm hosting an ember conf in Moscow. Today is our first meeting - <http:\/\/www.meetup.com\/Moscow-EmberJS-Meetup\/events\/225061356\/> ! We're looking forward to participate in global EmberJS movement! :simple_smile:",
+        "attachments": [
+            {
+                "service_name": "Meetup",
+                "title": "Moscow EmberJS Meetup",
+                "title_link": "http:\/\/www.meetup.com\/Moscow-EmberJS-Meetup\/events\/225061356\/",
+                "text": "\u041f\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e \u0432\u0430\u0441, \u0434\u0440\u0443\u0437\u044c\u044f! \u0412 \u043a\u043e\u043d\u0446\u0435 \u043e\u043a\u0442\u044f\u0431\u0440\u044f \u0432 \u043f\u0440\u0438\u044f\u0442\u043d\u043e\u043c \u0438 \u043d\u0435 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0433\u0440\u043e\u043c\u043a\u043e\u043c \u043c\u0435\u0441\u0442\u0435 \u043c\u044b \u0441 \u0432\u0430\u043c\u0438 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u043c\u0441\u044f, \u0447\u0435\u043c \u043d\u0430\u0448\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043c\u043e\u0447\u044c \u0440\u0443\u0441\u043a\u043e\u044f\u0437\u044b\u0447\u043d\u044b\u043c (\u0434\u043b\u044f \u043d\u0430\u0447\u0430\u043b\u0430) \u0435\u043c\u0431\u0435\u0440\u043e\u0432\u043e\u0434\u0430\u043c. \u041a\u0440\u043e\u043c\u0435 \u0442\u043e\u0433\u043e, \u043e\u0431\u0441\u0443\u0434\u0438\u043c \u0433\u043e",
+                "fallback": "Meetup: Moscow EmberJS Meetup",
+                "thumb_url": "http:\/\/img1.meetupstatic.com\/img\/004881038276245959070\/new_logo_big.png",
+                "from_url": "http:\/\/www.meetup.com\/Moscow-EmberJS-Meetup\/events\/225061356\/",
+                "thumb_width": 567,
+                "thumb_height": 392,
+                "id": 1
+            }
+        ],
+        "ts": "1445957990.000056"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0D95V1QB>: Hello Teodor!",
+        "ts": "1445958148.000058"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "welcome",
+        "ts": "1445958150.000059"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0D95V1QB>: is there a tweet we can retweet about your meetup",
+        "ts": "1445958179.000060"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or any other way we can help promote",
+        "ts": "1445958184.000061"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "yep, <https:\/\/twitter.com\/Microfed\/status\/659022991007830016> :simple_smile: Thanks! Actually, we're thinking about inviting western developers to give a remote talk. :simple_smile:",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/Microfed|@Microfed>: Today is the first meeting for our EmberJS Moscow Meetup! Come with us! :) <http:\/\/www.meetup.com\/Moscow-EmberJS-Meetup\/events\/225061356\/>",
+                "ts": 1445958299,
+                "author_name": "Teodor Kotov",
+                "author_link": "https:\/\/twitter.com\/Microfed\/status\/659022991007830016",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/762260385\/inside2_normal.JPG",
+                "author_subname": "@Microfed",
+                "text": "Today is the first meeting for our EmberJS Moscow Meetup! Come with us! :) <http:\/\/www.meetup.com\/Moscow-EmberJS-Meetup\/events\/225061356\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/Microfed\/status\/659022991007830016",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1445958389.000062"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "Not today, but in the future, of course",
+        "ts": "1445958425.000064"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "we had our first remote talk this month",
+        "ts": "1445958627.000065"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s something we\u2019re looking to  do more of",
+        "ts": "1445958633.000066"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so maybe we can do  an exchange in the new year",
+        "ts": "1445958645.000067"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "It would be great! Can I contact you in the future to discuss on that matter?",
+        "ts": "1445960600.000068"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yes absolutely",
+        "ts": "1445960679.000069"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "email us at <mailto:info@emberlondon.com|info@emberlondon.com>",
+        "ts": "1445960685.000070"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or me directly on <mailto:jamie@jgwhite.co.uk|jamie@jgwhite.co.uk>",
+        "ts": "1445960693.000071"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "got it, thanks. :simple_smile:",
+        "ts": "1445960716.000072"
+    },
+    {
+        "type": "message",
+        "user": "U0CPGNPRN",
+        "text": "<@U0D95V1QB> congrats for starting a new emberjs community in your City! ",
+        "ts": "1445961638.000073"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "<@U0CPGNPRN>: thank you! I hope we could add something useful to the ember community)",
+        "ts": "1445961695.000074"
+    },
+    {
+        "type": "message",
+        "user": "U0CPGNPRN",
+        "text": "I'm sure you will :-) ",
+        "ts": "1445961723.000075"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0D95V1QB>: are you in the ember-meetups slack already?",
+        "ts": "1445961781.000076"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "<@U03V8V08M>:  not yet(",
+        "ts": "1445962061.000077"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "just invited you",
+        "ts": "1445962071.000078"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "once you\u2019re established, you\u2019ll have to get a Moscow tomster :wink:",
+        "ts": "1445962084.000079"
+    },
+    {
+        "type": "message",
+        "user": "U0D95V1QB",
+        "text": "Wow!)",
+        "ts": "1445962095.000080"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Lindsey (the illustrator) will be psyched about that",
+        "ts": "1445962101.000081"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<http:\/\/emberjs.com\/tomster\/>",
+        "attachments": [
+            {
+                "title": "Ember.js: Tomster",
+                "title_link": "http:\/\/emberjs.com\/tomster\/",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Tomster",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/tomster\/",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "id": 1
+            }
+        ],
+        "ts": "1445962138.000082"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "canary release is definetly my fav",
+        "ts": "1445962339.000084"
+    },
+    {
+        "user": "U0D9L7VSL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D9L7VSL|dominikstodolny> has joined the channel",
+        "ts": "1445964218.000085"
+    }
+]

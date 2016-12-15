@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U04073Q56",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04073Q56|zshnr> has joined the channel",
+        "ts": "1435736119.000002"
+    },
+    {
+        "user": "U072K0544",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U072K0544|ruslanzavacky> has joined the channel",
+        "ts": "1435740804.000003"
+    },
+    {
+        "user": "U072M1BRV",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U072M1BRV|jrhe> has joined the channel",
+        "ts": "1435744367.000004"
+    }
+]

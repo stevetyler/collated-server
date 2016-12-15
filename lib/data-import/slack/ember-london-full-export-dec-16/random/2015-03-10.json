@@ -1,0 +1,72 @@
+[
+    {
+        "user": "U03V3P960",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V3P960|deepan_aiyasamy> has joined the channel",
+        "ts": "1425971513.000000"
+    },
+    {
+        "user": "U03V4FJTA",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V4FJTA|rivolaks> has joined the channel",
+        "ts": "1425977406.000002"
+    },
+    {
+        "user": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V2PZUB|karlfreeman> has joined the channel",
+        "ts": "1425982398.000003"
+    },
+    {
+        "user": "U03V5B7KY",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V5B7KY|nikz> has joined the channel",
+        "ts": "1425982951.000004"
+    },
+    {
+        "user": "U03V5PXL0",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V5PXL0|rik> has joined the channel",
+        "ts": "1425985757.000005"
+    },
+    {
+        "user": "U03V87JDW",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V87JDW|sanjay> has joined the channel",
+        "ts": "1425998897.000006"
+    },
+    {
+        "user": "U03V89R7Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V89R7Q|saraoc> has joined the channel",
+        "ts": "1425999200.000007"
+    },
+    {
+        "user": "U03V8C0DJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8C0DJ|lukenukem> has joined the channel",
+        "ts": "1425999516.000008"
+    },
+    {
+        "user": "U03V8JE3Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8JE3Y|samm> has joined the channel",
+        "ts": "1426000407.000009"
+    },
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1426012544.000010"
+    }
+]

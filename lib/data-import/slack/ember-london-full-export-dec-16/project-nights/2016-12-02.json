@@ -1,0 +1,50 @@
+[
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Hi all, after the great turnout and live coding session, now we have documented the steps to replicate the tutorial we have done on the Project Night. Feel free to try it yourself and share it. \n\n- <https:\/\/github.com\/mysencare\/smhw-ember-engines-demo\/tree\/finished-engines>\n- <https:\/\/www.youtube.com\/watch?v=JsbtTk-rMRU&amp;t=13m20s>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "mysencare\/smhw-ember-engines-demo",
+                "title_link": "https:\/\/github.com\/mysencare\/smhw-ember-engines-demo\/tree\/finished-engines",
+                "text": "smhw-ember-engines-demo - Quick demo how to integrate Ember-engines into your project",
+                "fallback": "GitHub: mysencare\/smhw-ember-engines-demo",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/38246?v=3&s=400",
+                "from_url": "https:\/\/github.com\/mysencare\/smhw-ember-engines-demo\/tree\/finished-engines",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            },
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Ember London Project Night November - Ember Engines Live Coding",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=JsbtTk-rMRU&amp;t=13m20s",
+                "author_name": "Miguel Camba",
+                "author_link": "https:\/\/www.youtube.com\/user\/infmcg03",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/JsbtTk-rMRU\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Ember London Project Night November - Ember Engines Live Coding",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/JsbtTk-rMRU?feature=oembed&start=800&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=JsbtTk-rMRU&amp;t=13m20s",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 2
+            }
+        ],
+        "ts": "1480685000.000032",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

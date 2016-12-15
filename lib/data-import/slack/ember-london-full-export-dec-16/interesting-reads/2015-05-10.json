@@ -1,0 +1,24 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/techcrunch.com\/2015\/05\/07\/google-food\/>",
+        "attachments": [
+            {
+                "service_name": "TechCrunch",
+                "service_url": "http:\/\/techcrunch.com",
+                "title": "Google Integrates Food Ordering Into Search Results For\u00a0Restaurants",
+                "title_link": "http:\/\/techcrunch.com\/2015\/05\/07\/google-food\/",
+                "author_name": "Catherine Shu",
+                "thumb_url": "https:\/\/i0.wp.com\/tctechcrunch2011.files.wordpress.com\/2015\/02\/food1.jpg?fit=200%2C150",
+                "thumb_width": 200,
+                "thumb_height": 132,
+                "text": "Google now lets users in the U.S. order food from six companies\u2014Seamless, Grubhub, Eat24, <http:\/\/Delivery.com|Delivery.com>, BeyondMenu, and <http:\/\/MyPizza.com|MyPizza.com>\u2014directly from search results.",
+                "fallback": "TechCrunch Link: Google Integrates Food Ordering Into Search Results For&nbsp;Restaurants",
+                "from_url": "http:\/\/techcrunch.com\/2015\/05\/07\/google-food\/",
+                "id": 1
+            }
+        ],
+        "ts": "1431262818.000003"
+    }
+]

@@ -1,0 +1,8 @@
+[
+    {
+        "type": "message",
+        "user": "U0958RLPM",
+        "text": "with ember-cli 1.13.15 and with a pod structure, what and where should my `loading` file be for an async loading `\/products` route?",
+        "ts": "1454900225.000002"
+    }
+]

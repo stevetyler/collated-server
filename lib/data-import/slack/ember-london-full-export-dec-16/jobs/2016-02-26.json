@@ -1,0 +1,234 @@
+[
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "Morning peoples, I'm hitting the job market. I've just done 18 months of a big node project (rewriting the Times website, making an API for it and the apps, bolting a graph query layer on top of Elasticsearch, which was ... interesting), and backend-wise I've also done Django and Rails stuff. Ideally I'd like a job where I wasn't *only* writing Javascript. I'm currently obsessed with FP, especially Elixir and Clojure. I also know a bit of devops-y stuff (mostly just orchestrating EC2 boxes with cloudformation). I would gratefully receive any leads in a DM or at <mailto:jamesturley1905@googlemail.com|jamesturley1905@googlemail.com>. Thanks!",
+        "ts": "1456484429.000009"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U06BGNMBL>: are you looking for short contracts, long contracts, full time, all of the above?",
+        "ts": "1456485777.000010"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "Full time and possibly long contracts, although I don't currently have a company set up or anything like that",
+        "ts": "1456485940.000011"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U06BGNMBL>: setting up an ltd is really quick nowadays",
+        "ts": "1456486132.000012"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "although I\u2019ve never contracted before\u2026I think you need a hand from an accountant",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1456486148.000000"
+        },
+        "ts": "1456486146.000013"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you do, let me refer you to crunch",
+        "ts": "1456486149.000015"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "#spam",
+        "ts": "1456486156.000016"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "In the short term I could become an employee of my brother who has an IT project management thing going",
+        "ts": "1456486661.000017"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I did that before with some really shady SEO freelancing work which is not on my CV :simple_smile:",
+        "ts": "1456486679.000018"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "but yeah, I hear it's not much of a faff nowadays",
+        "ts": "1456486696.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I registered as a sole trader to do freelance work",
+        "ts": "1456486884.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and never got an accountant",
+        "ts": "1456486891.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and live in blissful ignorance of how much money I could\/should have on income tax",
+        "ts": "1456486906.000022"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "though I do use <http:\/\/freeagent.com|freeagent.com>",
+        "ts": "1456486913.000023"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: there\u2019s a repo on github on how to go contracting",
+        "ts": "1456486990.000024"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think you could apply those legal mechanisms to ad-hoc freelance work",
+        "ts": "1456487002.000025"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/tadast\/switching-to-contracting-uk\/blob\/master\/README.md>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "tadast\/switching-to-contracting-uk",
+                "title_link": "https:\/\/github.com\/tadast\/switching-to-contracting-uk\/blob\/master\/README.md",
+                "text": "switching-to-contracting-uk - A step by step guide of how to start contracting in United Kingdom",
+                "fallback": "GitHub: tadast\/switching-to-contracting-uk",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/218239?v=3&s=400",
+                "from_url": "https:\/\/github.com\/tadast\/switching-to-contracting-uk\/blob\/master\/README.md",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1456487018.000026"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "that\u2019s a very good guide :simple_smile:",
+        "ts": "1456487033.000028"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "I use crunch too, pretty easy",
+        "ts": "1456487077.000029"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "and I used formations factory to set up my company",
+        "ts": "1456487084.000030"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: that\u2019s an excellent guide",
+        "ts": "1456487197.000031"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "in my 1.5 years of contracting I did precisely none of those things :simple_smile:",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1456487306.000000"
+        },
+        "ts": "1456487300.000032"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "#hashtag pro",
+        "ts": "1456487311.000034"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "<@U047GTU64>: thanks for reminding me of that, I can never find it when I need to daydream about writing \"\u00a3600\/day\" on a piece of paper and expecting somebody else to actually sign it",
+        "ts": "1456487599.000035"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "\u00a3700\/day w\/lunch included",
+        "ts": "1456487620.000036"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "requires loft in canary wharf",
+        "ts": "1456487625.000037"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":joy:",
+        "ts": "1456487627.000038"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": ":money_with_wings: ",
+        "ts": "1456487883.000039"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "600\u00a3\/day is something I\u2019d like to see",
+        "ts": "1456493583.000040"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but I haven't",
+        "ts": "1456493585.000041"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "really? I think I\u2019ve seen it about 2 times",
+        "ts": "1456493872.000042"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "JS contracts for banks",
+        "ts": "1456493875.000043"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ah, yes, I saw it",
+        "ts": "1456495003.000044"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but not entering my bank",
+        "ts": "1456495010.000045"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which defeats the point for me",
+        "ts": "1456495026.000046"
+    }
+]

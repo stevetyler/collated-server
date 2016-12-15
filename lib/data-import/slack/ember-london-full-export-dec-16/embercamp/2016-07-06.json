@@ -1,0 +1,110 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F1P57GBCN\/pasted_image_at_2016_07_06_08_47_am.png|Pasted image at 2016-07-06, 8:47 AM>",
+        "file": {
+            "id": "F1P57GBCN",
+            "created": 1467791289,
+            "timestamp": 1467791289,
+            "name": "Pasted image at 2016_07_06 08_47 AM.png",
+            "title": "Pasted image at 2016-07-06, 8:47 AM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 1743329,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1P57GBCN\/pasted_image_at_2016_07_06_08_47_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1P57GBCN\/download\/pasted_image_at_2016_07_06_08_47_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 239,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 319,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 478,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 638,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F1P57GBCN-2644e911b1\/pasted_image_at_2016_07_06_08_47_am_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 680,
+            "image_exif_rotation": 1,
+            "original_w": 2200,
+            "original_h": 1462,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F1P57GBCN\/pasted_image_at_2016_07_06_08_47_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F1P57GBCN-7f6d5e5d51",
+            "channels": [
+                "C09AADXPD"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1467791295.000002"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U03SSL0FM> lives!",
+        "ts": "1467791336.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<@U043AB2QT>: ressurection!",
+        "ts": "1467791370.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03SSL0FM>: :raised_hands:",
+        "ts": "1467796967.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "how did you get that delightful glitch to happen?",
+        "ts": "1467796997.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "happens everytime for me",
+        "ts": "1467830046.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "when I scroll down very fast",
+        "ts": "1467830049.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03SSL0FM>: chrome stable or canary?",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1467870380.000000"
+        },
+        "ts": "1467870378.000002"
+    }
+]

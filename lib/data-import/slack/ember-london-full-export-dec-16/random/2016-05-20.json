@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U1AEWLSFJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1AEWLSFJ|robertfranks> has joined the channel",
+        "ts": "1463736972.000057"
+    },
+    {
+        "user": "U1AGPQ6BS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1AGPQ6BS|ksiracusa> has joined the channel",
+        "ts": "1463753380.000058"
+    }
+]

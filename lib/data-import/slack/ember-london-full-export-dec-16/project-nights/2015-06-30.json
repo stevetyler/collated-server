@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U04AWR0TU",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U04AWR0TU|harveykandola> has left the channel",
+        "ts": "1435687290.000016"
+    }
+]

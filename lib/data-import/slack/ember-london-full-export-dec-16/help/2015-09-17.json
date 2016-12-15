@@ -1,0 +1,26 @@
+[
+    {
+        "type": "message",
+        "user": "U0APW2QAC",
+        "text": "Anyone have an ideas why IE11 doesn't reload data when you change between routes? For example, if you go to route1-&gt;route2-&gt;route1 then Chrome will load the route 1 data twice (one each route change) where as IE will only load it the first time.",
+        "ts": "1442488704.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "I don't remember chrome doing this. As long as you aren't forcing it to. I was under the impression that it will always check store for data before making call to the API. Unless you are unloading records after visiting route 1, it shouldnt need to re-load that data when you transition away and then back.",
+        "ts": "1442501292.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "Not sure if i'm misunderstanding the question",
+        "ts": "1442501301.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0APW2QAC",
+        "text": "What if the data has changed? Do I need to force it to update the store on each page reload?",
+        "ts": "1442502573.000007"
+    }
+]

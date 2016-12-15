@@ -1,0 +1,44 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<https:\/\/modelviewculture.com\/pieces\/adderall-has-a-tech-industry-problem>",
+        "attachments": [
+            {
+                "service_name": "Model View Culture",
+                "title": "Adderall Has a Tech Industry Problem",
+                "title_link": "https:\/\/modelviewculture.com\/pieces\/adderall-has-a-tech-industry-problem",
+                "text": "No amount of life hacks can train you out of having ADHD.",
+                "fallback": "Model View Culture: Adderall Has a Tech Industry Problem",
+                "image_url": "https:\/\/images.modelviewculture.com\/wp-content\/uploads\/2014\/09\/johnson_pill.png",
+                "from_url": "https:\/\/modelviewculture.com\/pieces\/adderall-has-a-tech-industry-problem",
+                "image_width": 333,
+                "image_height": 250,
+                "image_bytes": 593731,
+                "id": 1
+            }
+        ],
+        "ts": "1429965756.000039"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Wrote a blog post about our experiences trying to incrementally port a Rails app to ember-cli, one piece at a time\u2026. Hope it\u2019s of interest to someone.\n\n<https:\/\/medium.com\/@madebystrange\/how-me-migrated-from-rails-to-ember-cli-incrementally-part-1-dce6a0794c8>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "How me migrated from Rails to ember-cli\u2026incrementally (part 1)",
+                "title_link": "https:\/\/medium.com\/@madebystrange\/how-me-migrated-from-rails-to-ember-cli-incrementally-part-1-dce6a0794c8",
+                "text": "And the key is incrementally.",
+                "fallback": "Medium: How me migrated from Rails to ember-cli\u2026incrementally (part 1)",
+                "ts": 1430000215,
+                "from_url": "https:\/\/medium.com\/@madebystrange\/how-me-migrated-from-rails-to-ember-cli-incrementally-part-1-dce6a0794c8",
+                "thumb_url": "https:\/\/dnqgz544uhbo8.cloudfront.net\/_\/fp\/img\/default-preview-image.IsBK38jFAJBlWifMLO4z9g.png",
+                "thumb_width": 144,
+                "thumb_height": 144,
+                "id": 1
+            }
+        ],
+        "ts": "1430000406.000041"
+    }
+]

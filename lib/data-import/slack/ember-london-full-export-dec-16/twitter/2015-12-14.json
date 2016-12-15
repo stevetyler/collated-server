@@ -1,0 +1,68 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Our amazing December Social is tomorrow! If you're an Ember person in London you should definitely be signed up! <http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227035674\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/676382519193935872",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/676382519193935872>",
+                "text": "Our amazing December Social is tomorrow! If you're an Ember person in London you should definitely be signed up! <http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227035674\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1450097133.000013"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Big thanks to our amazing sponsors: <https:\/\/twitter.com\/Zapnito|@Zapnito>, <https:\/\/twitter.com\/thoughtbot|@thoughtbot>, <https:\/\/twitter.com\/JoinAlphaSights|@JoinAlphaSights>, <https:\/\/twitter.com\/chatter_mill|@chatter_mill>, and <https:\/\/twitter.com\/Kayako|@Kayako>! :raised_hands::skin-tone-3::hugging_face:",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/676382886900178944",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/676382886900178944>",
+                "text": "Big thanks to our amazing sponsors: <https:\/\/twitter.com\/Zapnito|@Zapnito>, <https:\/\/twitter.com\/thoughtbot|@thoughtbot>, <https:\/\/twitter.com\/JoinAlphaSights|@JoinAlphaSights>, <https:\/\/twitter.com\/chatter_mill|@chatter_mill>, and <https:\/\/twitter.com\/Kayako|@Kayako>! :raised_hands::skin-tone-3::hugging_face:",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1450097222.000014"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/EmberChennai|@EmberChennai> howdy :)",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/676401252713021440",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/676401252713021440>",
+                "text": "<https:\/\/twitter.com\/EmberChennai|@EmberChennai> howdy :)",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1450101600.000015"
+    }
+]

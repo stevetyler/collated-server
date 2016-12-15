@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U04134XGE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04134XGE|dremora> has joined the channel",
+        "ts": "1428404154.000002"
+    },
+    {
+        "user": "U049Y3RBJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U049Y3RBJ|jalagrange> has joined the channel",
+        "ts": "1428439620.000003"
+    }
+]

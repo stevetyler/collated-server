@@ -1,0 +1,54 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Object.Observe is pretty cool in chrome now, native, although apparently its not a good patern to use observers in ember)",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1431172170.000000"
+        },
+        "ts": "1431172159.000021"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I'm using Object.observe for a shopping cart, but will have to pick a polyfill for the rest",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1431172215.000000"
+        },
+        "ts": "1431172197.000023"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "here it is, I also use system.import for es6 modules",
+        "ts": "1431173565.000025"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/github.com\/QuantumInformation\/vanilla-es6-shoppingcart\/commits?author=QuantumInformation>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "QuantumInformation\/vanilla-es6-shoppingcart",
+                "title_link": "https:\/\/github.com\/QuantumInformation\/vanilla-es6-shoppingcart\/commits?author=QuantumInformation",
+                "text": "vanilla-es6-shoppingcart - es6 boilerplate project using webpack. Allows quick setup of web project using es6 and using npm to build. No dependancy on grunt, gulp etc etc.",
+                "fallback": "GitHub: QuantumInformation\/vanilla-es6-shoppingcart",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/216566?v=3&s=400",
+                "from_url": "https:\/\/github.com\/QuantumInformation\/vanilla-es6-shoppingcart\/commits?author=QuantumInformation",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1431173567.000026"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "no jquery too!",
+        "ts": "1431173610.000028"
+    }
+]

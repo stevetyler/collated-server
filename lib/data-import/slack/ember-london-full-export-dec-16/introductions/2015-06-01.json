@@ -1,0 +1,64 @@
+[
+    {
+        "user": "U05485UQL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1433151440.000004"
+    },
+    {
+        "user": "U0548MFSE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0548MFSE|owain> has joined the channel",
+        "ts": "1433154072.000005"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Hi all. Name\u2019s Pablo, and I work for New Bamboo",
+        "ts": "1433161006.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Hi pablobm :smile:",
+        "ts": "1433161030.000007"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "G\u2019day <@U05485UQL> .  Welcome mate.",
+        "ts": "1433161054.000008"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "not doing Ember profesionally yet. At the moment I\u2019m learning Ember, building a pet app with the TFL API",
+        "ts": "1433161054.000009"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "hi peeps :simple_smile:",
+        "ts": "1433161062.000010"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hello!",
+        "ts": "1433165115.000011"
+    },
+    {
+        "type": "message",
+        "user": "U043ZC515",
+        "text": "howdy!",
+        "ts": "1433168056.000012"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "G\u2019day <@U043ZC515>",
+        "ts": "1433168355.000013"
+    }
+]

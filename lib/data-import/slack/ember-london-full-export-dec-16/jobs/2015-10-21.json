@@ -1,0 +1,34 @@
+[
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0CTS7988>: Might be worth posting something in here I'd say. I won't be able to help on those days unfortunately....But I'm sure someone else will be happy to.",
+        "ts": "1445441502.000002"
+    },
+    {
+        "user": "U0CTS7988",
+        "inviter": "U043AB2QT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTS7988|gilles> has joined the channel",
+        "ts": "1445441508.000003"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "Hello <@U0CTS7988> I\u2019ve pinged you privately :simple_smile:",
+        "ts": "1445441520.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0CTS7988",
+        "text": "Hi all",
+        "ts": "1445441523.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0CTS7988",
+        "text": "Hello, I'm looking for a one2one emberjs training in london in the following days the 9,10, 11 november. Please contact me.",
+        "ts": "1445493450.000006"
+    }
+]

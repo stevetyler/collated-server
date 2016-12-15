@@ -1,0 +1,94 @@
+[
+    {
+        "user": "U03V3P960",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V3P960|deepan_aiyasamy> has joined the channel",
+        "ts": "1432130651.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "Looking for js\/ember devs to work on some exciting single page apps at British Gas. DM if interested",
+        "ts": "1432130727.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V3P960>: would you like us to tweet\/retweet?",
+        "ts": "1432132420.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "<@U03V8V08M>: Yes",
+        "ts": "1432134225.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V3P960>: got a tweet we can RT? If not, give us the text you\u2019d like tweeted",
+        "ts": "1432134253.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "<@U03V8V08M>: \"British Gas are looking for js\/ember devs to work on some exciting single page apps. DM @deepanice\"",
+        "ts": "1432134486.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":+1:",
+        "ts": "1432134530.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "won\u2019t you have to follow everyone who wants to DM you though?",
+        "ts": "1432134546.000009"
+    },
+    {
+        "text": "doesn\u2019t know how Twitter works",
+        "type": "message",
+        "subtype": "me_message",
+        "user": "U03V8V08M",
+        "ts": "1432134553.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "that was `\/me doesn\u2019t know how Twitter works`",
+        "ts": "1432134569.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "as in \u201cJamie doesn\u2019t know how Twitter works\u201d",
+        "ts": "1432134577.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "just realise that might have come off wrong :grimacing:",
+        "ts": "1432134605.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V3P960>: will they be able to DM you? (just checking)",
+        "ts": "1432134621.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "<@U03V8V08M>: Thanks for the tweet. Yeah they would be able to DM me",
+        "ts": "1432156562.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "cool. I honestly have no idea how twitter works",
+        "ts": "1432190864.000016"
+    }
+]

@@ -1,0 +1,113 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U1U4TGPEX>",
+        "ts": "1469525285.000002"
+    },
+    {
+        "user": "U1U4TGPEX",
+        "inviter": "U047GTU64",
+        "text": "<@U1U4TGPEX|jholt> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1469525288.000003"
+    },
+    {
+        "type": "message",
+        "user": "U1U4TGPEX",
+        "text": "<https:\/\/soundcloud.com\/djmoonbeatmusic\/touchremix>",
+        "attachments": [
+            {
+                "service_name": "SoundCloud",
+                "service_url": "http:\/\/soundcloud.com",
+                "title": "KSHMR &amp; Felix Snow ft. Madi - Touch (MoonBeat Remix) by MOONBEAT",
+                "title_link": "https:\/\/soundcloud.com\/djmoonbeatmusic\/touchremix",
+                "author_name": "MOONBEAT",
+                "author_link": "https:\/\/soundcloud.com\/djmoonbeatmusic",
+                "thumb_url": "http:\/\/i1.sndcdn.com\/artworks-000169169576-wg9rcj-t500x500.jpg",
+                "text": "free dl: <http:\/\/click.dj\/moonbeat\/touchremix>\n\nEnjoy!",
+                "fallback": "SoundCloud Audio: Link: KSHMR & Felix Snow ft. Madi - Touch (MoonBeat Remix) by MOONBEAT",
+                "audio_html": "<iframe width=\"100%\" height=\"150\" scrolling=\"no\" frameborder=\"no\" src=\"https:\/\/w.soundcloud.com\/player\/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F271088146&show_artwork=true&maxheight=150\"><\/iframe>",
+                "audio_html_width": 100,
+                "audio_html_height": 150,
+                "from_url": "https:\/\/soundcloud.com\/djmoonbeatmusic\/touchremix",
+                "thumb_width": 500,
+                "thumb_height": 500,
+                "service_icon": "https:\/\/soundcloud.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1469525603.000004"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "we still alive :alien:",
+        "ts": "1469525615.000006"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "\/giphy alien",
+        "attachments": [
+            {
+                "fallback": "giphy: <http:\/\/giphy.com\/gifs\/foxhomeent-3o6ZsYjo870Lo5A58c>",
+                "image_url": "http:\/\/media0.giphy.com\/media\/3o6ZsYjo870Lo5A58c\/giphy.gif",
+                "image_width": 500,
+                "image_height": 212,
+                "image_bytes": 283825,
+                "is_animated": true,
+                "title": "alien",
+                "id": 1,
+                "title_link": "http:\/\/giphy.com\/gifs\/foxhomeent-3o6ZsYjo870Lo5A58c"
+            }
+        ],
+        "ts": "1469525619.000007"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "\/giphy allien",
+        "attachments": [
+            {
+                "fallback": "giphy: <http:\/\/giphy.com\/gifs\/scary-star-wars-bUCWdKtQjHDIA>",
+                "image_url": "http:\/\/media3.giphy.com\/media\/bUCWdKtQjHDIA\/giphy.gif",
+                "image_width": 245,
+                "image_height": 198,
+                "image_bytes": 1042781,
+                "is_animated": true,
+                "title": "allien",
+                "id": 1,
+                "title_link": "http:\/\/giphy.com\/gifs\/scary-star-wars-bUCWdKtQjHDIA"
+            }
+        ],
+        "ts": "1469525624.000008"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/www.youtube.com\/watch?v=3bTZe0f85-I>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Terekke - ( \u0361\u00b0 \u035c\u0296 \u0361\u00b0) FULL EP",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=3bTZe0f85-I",
+                "author_name": "Du matin au soir",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UCvB1Lm9ujxXtq4usSNDwHYA",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/3bTZe0f85-I\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Terekke - ( \u0361\u00b0 \u035c\u0296 \u0361\u00b0) FULL EP",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/3bTZe0f85-I?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=3bTZe0f85-I",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1469542513.000009"
+    }
+]

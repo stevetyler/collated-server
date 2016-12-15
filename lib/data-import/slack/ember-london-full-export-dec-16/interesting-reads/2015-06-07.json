@@ -1,0 +1,94 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/mic.com\/articles\/119366\/one-million-people-around-you-are-playing-an-alternate-reality-game-you-can-t-see>",
+        "attachments": [
+            {
+                "service_name": "Mic",
+                "title": "Millions of People Around You Are Playing an Alternate Reality Game You Can't See",
+                "title_link": "http:\/\/mic.com\/articles\/119366\/one-million-people-around-you-are-playing-an-alternate-reality-game-you-can-t-see",
+                "text": "Welcome to Ingress.",
+                "fallback": "Mic: Millions of People Around You Are Playing an Alternate Reality Game You Can't See",
+                "thumb_url": "http:\/\/media3.mic.com\/ZWVlYmFjOGYzYSMvdWdmRDRkc2FJRjhteUgzZk9KNWNpNW1XWm44PS8yeDEwMjoxOTEzeDEwMzcvMTIwMHg2MzAvZmlsdGVyczpxdWFsaXR5KDcwKS9odHRwOi8vczMuYW1hem9uYXdzLmNvbS9wb2xpY3ltaWMtaW1hZ2VzL3dyMjhiYWl3Y2xveW5kc3huOHlsM3V6YXh2cXFqcXU5b3QxcG1uYmhqdmc0c2p5cXhlbmNvZDF2OWQ0enl3NnQuanBn.jpg",
+                "from_url": "http:\/\/mic.com\/articles\/119366\/one-million-people-around-you-are-playing-an-alternate-reality-game-you-can-t-see",
+                "thumb_width": 1200,
+                "thumb_height": 630,
+                "id": 1
+            }
+        ],
+        "ts": "1433676755.000022"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Ingress is pretty fun",
+        "ts": "1433714794.000024"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<@U043AB2QT>: I suggest we jump in my car (or yours or both) and try to dominate London",
+        "ts": "1433714825.000025"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "I joined green team",
+        "ts": "1433714827.000026"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "so pick the right one",
+        "ts": "1433714831.000027"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Mate, I\u2019ve been playing it for ages\u2026I\u2019m blue\u2026Level 9",
+        "ts": "1433714997.000028"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "daaaaaamn",
+        "ts": "1433715007.000029"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "!!!",
+        "ts": "1433715009.000030"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Who would go The Enlightenment when you could be The Resistance? ",
+        "ts": "1433717881.000031"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "green is my favourite color",
+        "ts": "1433717898.000032"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "I had no choice",
+        "ts": "1433717900.000033"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "although the argument against that is if ur blue ur seeing tons of green on the screen that u need to capture",
+        "ts": "1433717935.000034"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "can you switch ?",
+        "ts": "1433717952.000035"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U095LRN06",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U095LRN06|ernesto_jimenez> has joined the channel",
+        "ts": "1439732715.000017"
+    },
+    {
+        "user": "U095PTE8H",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U095PTE8H|fayimora> has joined the channel",
+        "ts": "1439744627.000018"
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "having trouble building the docs for ember-cli-build. A fresh clone off Github, and it refuses to build:",
+        "ts": "1450878217.000018"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "```\n$ bundle exec jekyll build\nConfiguration file: \/Users\/pablobm\/Documents\/contrib\/ember-cli-deploy\/_config.yml\n            Source: \/Users\/pablobm\/Documents\/contrib\/ember-cli-deploy\n       Destination: jekyll-tmp\/\n      Generating...\n  Conversion error: Jekyll::Converters::Markdown encountered an error converting 'docs\/v0.5.x\/aliasing-plugins.md'.\n  Conversion error: Failed to get header.\njekyll 2.4.0 | Error:  Failed to get header.\n```",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1450878279.000000"
+        },
+        "ts": "1450878235.000019"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "any ideas of what could be wrong?",
+        "ts": "1450878292.000022"
+    }
+]

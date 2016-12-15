@@ -1,0 +1,8 @@
+[
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I trying to figure out the _Ember way_ to do this and could do with some help: I\u2019m getting the User\u2019s location using `ember-cli-geo` which is fine but I need to use the `lat` and `long` to hit an API and store all the information on some type of object. Doesn\u2019t go to a DB so don\u2019t need Ember Data. What\u2019s the right way to do this? Should I use a generic Ember object and passing the response from the API into the object during `init` and using that in the template?",
+        "ts": "1463430012.000073"
+    }
+]

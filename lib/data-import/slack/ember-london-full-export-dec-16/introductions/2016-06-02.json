@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U1DG7MDDZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DG7MDDZ|staffan> has joined the channel",
+        "ts": "1464859727.000014"
+    },
+    {
+        "user": "U1DP99WFM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DP99WFM|henrique> has joined the channel",
+        "ts": "1464911385.000015"
+    }
+]

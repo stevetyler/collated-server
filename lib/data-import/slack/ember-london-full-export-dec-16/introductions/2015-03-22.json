@@ -1,0 +1,72 @@
+[
+    {
+        "user": "U043YTCDZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043YTCDZ|james> has joined the channel",
+        "ts": "1427012993.000002"
+    },
+    {
+        "user": "U043AB2QT",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U043AB2QT|aaron> has left the channel",
+        "ts": "1427020235.000002"
+    },
+    {
+        "user": "U043ZC515",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043ZC515|petemmccarthy> has joined the channel",
+        "ts": "1427023298.000002"
+    },
+    {
+        "user": "U0441PH0Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0441PH0Q|tomclose> has joined the channel",
+        "ts": "1427023451.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0441PH0Q",
+        "text": "I'm Tom. I'm in Oxford. I work in SF, so am used to attempting to maintain a presence through slack ...",
+        "ts": "1427023458.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0441PH0Q",
+        "text": "I could actually just be a slackbot and very few people would know.",
+        "ts": "1427023477.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": ":simple_smile:",
+        "ts": "1427023485.000006"
+    },
+    {
+        "user": "U04438UDC",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04438UDC|davidrhyswhite> has joined the channel",
+        "ts": "1427041734.000007"
+    },
+    {
+        "user": "U0440LRJX",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0440LRJX|makevoid> has joined the channel",
+        "ts": "1427041802.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0440LRJX",
+        "text": "Hi all! I'm mostly a backend developer (Ruby) but I do also frontend, I came to London ~6 months ago and right now I'm working for Quill Content - <http:\/\/quillcontent.com> - <https:\/\/github.com\/quillcontent> ( my github is <http:\/\/github.com\/makevoid|github.com\/makevoid> )",
+        "edited": {
+            "user": "U0440LRJX",
+            "ts": "1427046392.000000"
+        },
+        "ts": "1427042032.000009"
+    }
+]

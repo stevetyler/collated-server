@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0ZALKPD5",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ZALKPD5|jimeluca> has joined the channel",
+        "ts": "1460190937.000040"
+    }
+]

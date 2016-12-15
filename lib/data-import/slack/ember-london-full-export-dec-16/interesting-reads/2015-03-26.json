@@ -1,0 +1,198 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.economist.com\/news\/science-and-technology\/21646962-5g-mobile-wireless-will-be-faster-fibre-your-phone-steroids>",
+        "attachments": [
+            {
+                "service_name": "The Economist",
+                "title": "Your phone on steroids",
+                "title_link": "http:\/\/www.economist.com\/news\/science-and-technology\/21646962-5g-mobile-wireless-will-be-faster-fibre-your-phone-steroids",
+                "text": "NEW MOBILE networks come along once every decade or so. Starting around 1980, the first generation of cellular phones relied on analogue technology. When the...",
+                "fallback": "The Economist: Your phone on steroids",
+                "thumb_url": "http:\/\/cdn.static-economist.com\/sites\/default\/files\/images\/2015\/03\/articles\/main\/20150321_stp505.jpg",
+                "from_url": "http:\/\/www.economist.com\/news\/science-and-technology\/21646962-5g-mobile-wireless-will-be-faster-fibre-your-phone-steroids",
+                "thumb_width": 595,
+                "thumb_height": 335,
+                "id": 1
+            }
+        ],
+        "ts": "1427361029.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "bye bye mobile optimizations, hello crazy webs stuffs that draw 3d stuff in three.js\/d3.js",
+        "edited": {
+            "user": "U03SSL0FM",
+            "ts": "1427361072.000000"
+        },
+        "ts": "1427361052.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": ":smile:",
+        "ts": "1427361053.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/status.jsbin.com\/>",
+        "attachments": [
+            {
+                "text": "Welcome to JS Bin's home for real-time and historical data on system performance.",
+                "fallback": "Welcome to JS Bin's home for real-time and historical data on system performance.",
+                "from_url": "http:\/\/status.jsbin.com\/",
+                "id": 1
+            }
+        ],
+        "ts": "1427361879.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/jaxenter.com\/html6-proposal-for-single-page-apps-without-javascript-causes-scandal-115919.html>",
+        "attachments": [
+            {
+                "service_name": "JAXenter",
+                "title": "HTML6 proposal for \"single-page apps without JavaScript\" causes uproar - JAXenter",
+                "title_link": "http:\/\/jaxenter.com\/html6-proposal-for-single-page-apps-without-javascript-causes-scandal-115919.html",
+                "text": "A proposal for HTML6 has the front-end community in uproar over suggestions for single-page applications without (yes, without!) JavaScript. Take a few deep breaths, then read on.",
+                "fallback": "JAXenter: HTML6 proposal for \"single-page apps without JavaScript\" causes uproar - JAXenter",
+                "image_url": "http:\/\/jaxenter.com\/wp-content\/uploads\/2015\/03\/shutterstock_95278714.jpg",
+                "ts": 1427306849,
+                "from_url": "http:\/\/jaxenter.com\/html6-proposal-for-single-page-apps-without-javascript-causes-scandal-115919.html",
+                "image_width": 375,
+                "image_height": 250,
+                "image_bytes": 176301,
+                "id": 1
+            }
+        ],
+        "ts": "1427409215.000002"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F045J917G\/pasted_image_at_2015_03_27_12_00_am.png|Pasted image at 2015-03-27, 12:00 AM>",
+        "file": {
+            "id": "F045J917G",
+            "created": 1427414409,
+            "timestamp": 1427414409,
+            "name": "Pasted image at 2015_03_27 12_00 AM.png",
+            "title": "Pasted image at 2015-03-27, 12:00 AM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 757305,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F045J917G\/pasted_image_at_2015_03_27_12_00_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F045J917G\/download\/pasted_image_at_2015_03_27_12_00_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 229,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 458,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J917G-1c36127fb4\/pasted_image_at_2015_03_27_12_00_am_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 652,
+            "image_exif_rotation": 1,
+            "original_w": 1502,
+            "original_h": 956,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F045J917G\/pasted_image_at_2015_03_27_12_00_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F045J917G-bd3f51fc5b",
+            "channels": [
+                "C03V5K0FL"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1427414414.000004"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F045J9LPS\/pasted_image_at_2015_03_27_12_01_am.png|Pasted image at 2015-03-27, 12:01 AM>",
+        "file": {
+            "id": "F045J9LPS",
+            "created": 1427414490,
+            "timestamp": 1427414490,
+            "name": "Pasted image at 2015_03_27 12_01 AM.png",
+            "title": "Pasted image at 2015-03-27, 12:01 AM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 1102471,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F045J9LPS\/pasted_image_at_2015_03_27_12_01_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F045J9LPS\/download\/pasted_image_at_2015_03_27_12_01_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 205,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 409,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F045J9LPS-400bbd8e5d\/pasted_image_at_2015_03_27_12_01_am_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 582,
+            "image_exif_rotation": 1,
+            "original_w": 2192,
+            "original_h": 1246,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F045J9LPS\/pasted_image_at_2015_03_27_12_01_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F045J9LPS-2d4f07c545",
+            "channels": [
+                "C03V5K0FL"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1427414496.000005"
+    },
+    {
+        "type": "message",
+        "user": "U044T9VMW",
+        "text": "Purchased <@U03V8V08M>'s PeertoPeer session. Looking forward to watching it.",
+        "ts": "1427425215.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U044T9VMW>: thanks!",
+        "ts": "1427434230.000007"
+    }
+]

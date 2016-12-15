@@ -1,0 +1,155 @@
+[
+    {
+        "user": "U03SSL0FM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03SSL0FM|codepreneur> has joined the channel",
+        "ts": "1425984676.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "This is a must read list for anyone entering ember world:\n1. <https:\/\/github.com\/tildeio\/htmlbars\/pull\/282>\n2. <https:\/\/github.com\/emberjs\/ember.js\/pull\/10501>\n3. <https:\/\/github.com\/tildeio\/htmlbars\/blob\/idempotent-rerender\/LIFECYCLE.md>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "[WIP] Reactive rerendering by wycats \u00b7 Pull Request #282 \u00b7 tildeio\/htmlbars \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/tildeio\/htmlbars\/pull\/282",
+                "text": "This is a WIP PR to implement React-inspired fast rerendering of HTMLBars templates. One important improvement we can make over the React model is eliminating any work for static portions of the template. Because HTMLBars templates are ...",
+                "fallback": "GitHub: [WIP] Reactive rerendering by wycats \u00b7 Pull Request #282 \u00b7 tildeio\/htmlbars",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/4?v=3&s=400",
+                "from_url": "https:\/\/github.com\/tildeio\/htmlbars\/pull\/282",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            },
+            {
+                "service_name": "GitHub",
+                "title": "[WIP] Implement Glimmer Engine by wycats \u00b7 Pull Request #10501 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/pull\/10501",
+                "text": "Glimmer is the next-generation rendering engine for Ember.js. Built on top of HTMLBars, streams, and an entirely rewritten view layer, Glimmer offers the best performance of any of the major JavaScript frameworks while remaining backward...",
+                "fallback": "GitHub: [WIP] Implement Glimmer Engine by wycats \u00b7 Pull Request #10501 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/4?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/pull\/10501",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 2
+            },
+            {
+                "service_name": "GitHub",
+                "title": "tildeio\/htmlbars",
+                "title_link": "https:\/\/github.com\/tildeio\/htmlbars\/blob\/idempotent-rerender\/LIFECYCLE.md",
+                "text": "htmlbars - A variant of Handlebars that emits DOM and allows you to write helpers that manipulate live DOM nodes",
+                "fallback": "GitHub: tildeio\/htmlbars",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/1355851?v=3&s=400",
+                "from_url": "https:\/\/github.com\/tildeio\/htmlbars\/blob\/idempotent-rerender\/LIFECYCLE.md",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 3
+            }
+        ],
+        "ts": "1425984740.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "if anyone wants to see how fast ember is sorting MASSIVE lists, watch this: <https:\/\/www.youtube.com\/watch?v=dlOQUqjQAic>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "http:\/\/www.youtube.com\/",
+                "title": "fast sorting",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=dlOQUqjQAic",
+                "author_name": "Erik Bryn",
+                "author_link": "http:\/\/www.youtube.com\/user\/bearik9",
+                "thumb_url": "http:\/\/i.ytimg.com\/vi\/dlOQUqjQAic\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: fast sorting",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"http:\/\/www.youtube.com\/embed\/dlOQUqjQAic?feature=oembed\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=dlOQUqjQAic",
+                "id": 1
+            }
+        ],
+        "ts": "1425984756.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Guys check this out: <https:\/\/github.com\/blangslet\/treasure-hunt>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "blangslet\/treasure-hunt",
+                "title_link": "https:\/\/github.com\/blangslet\/treasure-hunt",
+                "text": "treasure-hunt - Ember.js + Polymer + Cordova iOS app that demos state-bridging animations to provide context and clarity of purpose as a user moves through an application experience. Video: <https:\/\/www.youtube.com\/watch?v=lXWVmbs5O8A>",
+                "fallback": "GitHub: blangslet\/treasure-hunt",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/1318543?v=3&s=400",
+                "from_url": "https:\/\/github.com\/blangslet\/treasure-hunt",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1425984783.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Also this: <https:\/\/github.com\/ebryn\/ember-component-css>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "ebryn\/ember-component-css",
+                "title_link": "https:\/\/github.com\/ebryn\/ember-component-css",
+                "text": "ember-component-css - An Ember CLI addon which allows you to specify CSS inside of component pod directories",
+                "fallback": "GitHub: ebryn\/ember-component-css",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/3018?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ebryn\/ember-component-css",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1425984804.000009"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Ember people are pretty much living in the future, early adopters: <https:\/\/www.evernote.com\/shard\/s2\/sh\/46c9d382-0e00-4a5f-b502-5e128d70af56\/ed8c999a1df6b0152a36e7a96ea47be2\/deep\/0\/2015-Ember.js-Community-Survey.png>",
+        "attachments": [
+            {
+                "from_url": "https:\/\/www.evernote.com\/shard\/s2\/sh\/46c9d382-0e00-4a5f-b502-5e128d70af56\/ed8c999a1df6b0152a36e7a96ea47be2\/deep\/0\/2015-Ember.js-Community-Survey.png",
+                "fallback": "730x584px image",
+                "image_url": "https:\/\/www.evernote.com\/shard\/s2\/sh\/46c9d382-0e00-4a5f-b502-5e128d70af56\/ed8c999a1df6b0152a36e7a96ea47be2\/deep\/0\/2015-Ember.js-Community-Survey.png",
+                "image_width": 730,
+                "image_height": 584,
+                "image_bytes": 205527,
+                "id": 1
+            }
+        ],
+        "ts": "1425984817.000011"
+    },
+    {
+        "user": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V2PZUB|karlfreeman> has joined the channel",
+        "ts": "1425984837.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "It also shows Ember is getting massive traction",
+        "ts": "1425984877.000014"
+    },
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1426012634.000002"
+    }
+]

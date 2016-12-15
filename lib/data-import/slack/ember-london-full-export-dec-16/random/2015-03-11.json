@@ -1,0 +1,43 @@
+[
+    {
+        "user": "U04073Q56",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04073Q56|zshnr> has joined the channel",
+        "ts": "1426074798.000002"
+    },
+    {
+        "user": "U04093H8A",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04093H8A|prcweb> has joined the channel",
+        "ts": "1426084891.000003"
+    },
+    {
+        "user": "U040DRY7U",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040DRY7U|kyle> has joined the channel",
+        "ts": "1426105031.000000"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.theonion.com\/video\/apple-introduces-revolutionary-new-laptop-with-no,14299\/>",
+        "attachments": [
+            {
+                "title": "Apple Introduces Revolutionary New Laptop With No Keyboard",
+                "title_link": "http:\/\/www.theonion.com\/video\/apple-introduces-revolutionary-new-laptop-with-no,14299\/",
+                "text": "The MacBook Wheel lets consumers accomplish everyday tasks like typing with just a few dozen spins and clicks of a wheel.",
+                "fallback": "Apple Introduces Revolutionary New Laptop With No Keyboard",
+                "thumb_url": "http:\/\/o.onionstatic.com\/images\/10\/10211\/1x1-small\/200.jpg?5982",
+                "ts": 1231200000,
+                "from_url": "http:\/\/www.theonion.com\/video\/apple-introduces-revolutionary-new-laptop-with-no,14299\/",
+                "thumb_width": 200,
+                "thumb_height": 200,
+                "id": 1
+            }
+        ],
+        "ts": "1426109683.000002"
+    }
+]

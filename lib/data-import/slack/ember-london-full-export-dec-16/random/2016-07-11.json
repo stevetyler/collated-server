@@ -1,0 +1,32 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<http:\/\/scott.fortmann-roe.com\/docs\/BiasVariance.html>",
+        "attachments": [
+            {
+                "title": "Understanding the Bias-Variance Tradeoff",
+                "title_link": "http:\/\/scott.fortmann-roe.com\/docs\/BiasVariance.html",
+                "text": "When we discuss prediction models, prediction errors can be decomposed into two main subcomponents we care about: error due to bias and error due to variance. There is a tradeoff between a model's ability to minimize bias and variance. Understanding these two types of error can help us diagnose model results and avoid the mistake of over- or under-fitting.",
+                "fallback": "Understanding the Bias-Variance Tradeoff",
+                "from_url": "http:\/\/scott.fortmann-roe.com\/docs\/BiasVariance.html",
+                "service_icon": "http:\/\/scott.fortmann-roe.com\/favicon.ico",
+                "service_name": "scott.fortmann-roe.com",
+                "id": 1
+            }
+        ],
+        "ts": "1468225895.000172"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "love articles that are like this",
+        "ts": "1468225905.000174"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "in terms of structure, writting and execution",
+        "ts": "1468225913.000175"
+    }
+]

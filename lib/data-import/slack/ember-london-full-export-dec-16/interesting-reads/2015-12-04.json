@@ -1,0 +1,64 @@
+[
+    {
+        "type": "message",
+        "user": "U046D0DSD",
+        "text": "This is worth a watch...",
+        "ts": "1449218081.000019"
+    },
+    {
+        "type": "message",
+        "user": "U046D0DSD",
+        "text": "<https:\/\/t.co\/HfoYlmipY0>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Stefan Penner, Godfrey Chan, and Yehuda Katz on BroccoliJS, HTMLBars, and Glimmer 2 at Modern Web UI",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=h-dy5tHm2TA&feature=youtu.be",
+                "author_name": "Modern Web UI Team",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UCYiM-C6AQib2RrUL0SetYXw",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/h-dy5tHm2TA\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Stefan Penner, Godfrey Chan, and Yehuda Katz on BroccoliJS, HTMLBars, and Glimmer 2 at Modern Web UI",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/h-dy5tHm2TA?feature=oembed&autoplay=1\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=h-dy5tHm2TA&feature=youtu.be",
+                "id": 1
+            }
+        ],
+        "ts": "1449218083.000020"
+    },
+    {
+        "type": "message",
+        "user": "U046D0DSD",
+        "text": "details on what stef penner is doing with broccoli and what glimmer 2 will do",
+        "ts": "1449218165.000022"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "oh nice",
+        "ts": "1449219802.000023"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "will watch this today",
+        "ts": "1449219804.000024"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "thanks",
+        "ts": "1449219807.000025"
+    },
+    {
+        "user": "U0FTFSCJX",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0FTFSCJX|lionelviet> has joined the channel",
+        "ts": "1449230212.000026"
+    }
+]

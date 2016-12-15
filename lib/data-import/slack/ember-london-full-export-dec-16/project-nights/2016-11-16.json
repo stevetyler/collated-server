@@ -1,0 +1,28 @@
+[
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "The preparations for tomorrows Project Night are going great. It will be a great tutorial to see how to implement Ember Engines Live! It will be streamed and recorded as well. So if you can\u2019t make it, be sure to stream or watch it later again.",
+        "ts": "1479315887.000028",
+        "reactions": [
+            {
+                "name": "smile",
+                "users": [
+                    "U14KVFYS3",
+                    "U047GTU64"
+                ],
+                "count": 2
+            },
+            {
+                "name": "tada",
+                "users": [
+                    "U04BD6KB1",
+                    "U044QMK6K",
+                    "U06BGNMBL",
+                    "U05485UQL"
+                ],
+                "count": 4
+            }
+        ]
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0APW2QAC",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0APW2QAC|jonathnbristow> has joined the channel",
+        "ts": "1442409964.000018"
+    }
+]

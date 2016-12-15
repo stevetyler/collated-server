@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U0CNE6C00",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CNE6C00|ricardo-localistico> has joined the channel",
+        "ts": "1445251401.000009"
+    },
+    {
+        "user": "U0CNG49R9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CNG49R9|xcambar> has joined the channel",
+        "ts": "1445258139.000010"
+    },
+    {
+        "user": "U0CPGNPRN",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CPGNPRN|jessica> has joined the channel",
+        "ts": "1445281773.000011"
+    }
+]

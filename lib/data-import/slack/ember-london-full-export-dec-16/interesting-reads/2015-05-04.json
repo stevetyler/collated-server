@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U04M4CG7Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04M4CG7Y|arnaud> has joined the channel",
+        "ts": "1430743875.000050"
+    },
+    {
+        "user": "U04N07VEM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04N07VEM|slackchats> has joined the channel",
+        "ts": "1430775433.000051"
+    }
+]

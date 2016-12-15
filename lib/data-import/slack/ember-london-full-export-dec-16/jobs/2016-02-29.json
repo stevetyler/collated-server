@@ -1,0 +1,21 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not unreasonable, but anything over 550 is unusual",
+        "ts": "1456760308.000051"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the highest offer I\u2019ve received was \u201cUp to 640\"",
+        "ts": "1456760335.000052"
+    },
+    {
+        "user": "U0PJ32U01",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0PJ32U01|kellyselden> has joined the channel",
+        "ts": "1456779680.000053"
+    }
+]

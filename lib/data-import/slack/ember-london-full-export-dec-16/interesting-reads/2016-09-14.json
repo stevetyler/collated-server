@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U043951H9",
+        "text": "<@U043951H9|willrax> has left the channel",
+        "type": "message",
+        "subtype": "channel_leave",
+        "ts": "1473838869.000004"
+    }
+]

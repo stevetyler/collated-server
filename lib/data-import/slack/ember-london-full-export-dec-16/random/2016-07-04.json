@@ -1,0 +1,27 @@
+[
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "warning",
+        "ts": "1467647171.000147"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "not that it isn't good, it obviously is",
+        "ts": "1467647187.000148"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "but I have had the dubious pleasure of running it as a primary production data store, when reliability is not exactly its strong suit",
+        "ts": "1467647222.000149"
+    },
+    {
+        "user": "U1NNSV1FE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1NNSV1FE|roncooper> has joined the channel",
+        "ts": "1467687678.000150"
+    }
+]

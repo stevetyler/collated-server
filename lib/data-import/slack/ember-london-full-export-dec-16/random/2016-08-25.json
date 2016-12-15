@@ -1,0 +1,30 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "how good is this: <http:\/\/meetfranz.com\/>",
+        "attachments": [
+            {
+                "service_name": "Franz",
+                "title": "Franz \u2013 a free messaging app for Slack, Facebook Messenger, Whatsapp, Telegram and more",
+                "title_link": "http:\/\/meetfranz.com\/",
+                "text": "Franz is a free messaging app\/former emperor of Austria, that combines chat &amp; messaging services into one application.",
+                "fallback": "Franz: Franz \u2013 a free messaging app for Slack, Facebook Messenger, Whatsapp, Telegram and more",
+                "image_url": "http:\/\/meetfranz.com\/images\/shareimage-9fd811b6d4.png",
+                "from_url": "http:\/\/meetfranz.com\/",
+                "image_width": 476,
+                "image_height": 250,
+                "image_bytes": 84187,
+                "service_icon": "http:\/\/meetfranz.com\/images\/favicon-8d94f384b0.png",
+                "id": 1
+            }
+        ],
+        "ts": "1472162295.000111"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'm messaging this from w\/in Franz atm",
+        "ts": "1472162313.000113"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0BV2PSRF",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0BV2PSRF|alokmatta> has joined the channel",
+        "ts": "1444146259.000006"
+    }
+]

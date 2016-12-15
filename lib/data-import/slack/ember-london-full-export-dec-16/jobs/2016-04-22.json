@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U12T7S4CF",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U12T7S4CF|jakkor> has joined the channel",
+        "ts": "1461337362.000002"
+    }
+]

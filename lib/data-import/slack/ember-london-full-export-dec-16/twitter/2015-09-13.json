@@ -1,0 +1,68 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: ember-cli-deploy - One Command to Deploy Them All, a talk by <https:\/\/twitter.com\/grandazz|@grandazz> from our September 2015 meetup\n\n<https:\/\/vimeo.com\/139125310>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/643101046181634048",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/643101046181634048>",
+                "text": "ember-cli-deploy - One Command to Deploy Them All, a talk by <https:\/\/twitter.com\/grandazz|@grandazz> from our September 2015 meetup\n\n<https:\/\/vimeo.com\/139125310>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1442162212.000014"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: The story of Ember Twiddle, a talk by <https:\/\/twitter.com\/alexspeller|@alexspeller> from our September 2015 meetup.\n\n<https:\/\/vimeo.com\/139125309>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/643101241275510785",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/643101241275510785>",
+                "text": "The story of Ember Twiddle, a talk by <https:\/\/twitter.com\/alexspeller|@alexspeller> from our September 2015 meetup.\n\n<https:\/\/vimeo.com\/139125309>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1442162259.000015"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: ember-grid, a talk by <https:\/\/twitter.com\/BryanCrotaz|@BryanCrotaz> from our September 2015 meetup.\n\n<https:\/\/vimeo.com\/139126170>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/643101501351661568",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/643101501351661568>",
+                "text": "ember-grid, a talk by <https:\/\/twitter.com\/BryanCrotaz|@BryanCrotaz> from our September 2015 meetup.\n\n<https:\/\/vimeo.com\/139126170>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1442162321.000016"
+    }
+]

@@ -1,0 +1,55 @@
+[
+    {
+        "user": "U17GE3K0D",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U17GE3K0D|p5> has joined the channel",
+        "ts": "1462868128.000023"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: On Thursday we\u2019re talking Ember, Redux, and bulletproof CRUDs with <https:\/\/twitter.com\/Showmyhomework|@Showmyhomework>, <https:\/\/twitter.com\/danieljohngrant|@danieljohngrant> &amp; <https:\/\/twitter.com\/pablobm|@pablobm>.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227825639\/>",
+                "ts": 1462884003,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/730014538180005889",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/730014538180005889>",
+                "text": "On Thursday we\u2019re talking Ember, Redux, and bulletproof CRUDs with <https:\/\/twitter.com\/Showmyhomework|@Showmyhomework>, <https:\/\/twitter.com\/danieljohngrant|@danieljohngrant> &amp; <https:\/\/twitter.com\/pablobm|@pablobm>.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227825639\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1462884003.000024"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/danieljohngrant|@danieljohngrant> aw shucks :relaxed:",
+                "ts": 1462902457,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/730091938003746817",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/730091938003746817>",
+                "text": "<https:\/\/twitter.com\/danieljohngrant|@danieljohngrant> aw shucks :relaxed:",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1462902457.000025"
+    }
+]

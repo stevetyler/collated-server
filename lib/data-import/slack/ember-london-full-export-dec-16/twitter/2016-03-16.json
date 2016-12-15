@@ -1,0 +1,24 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Looking forward to trading <https:\/\/twitter.com\/EmberConf|@EmberConf> predictions at tomorrow\u2019s meetup! :D\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227825632\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/710002046599086081",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/710002046599086081>",
+                "text": "Looking forward to trading <https:\/\/twitter.com\/EmberConf|@EmberConf> predictions at tomorrow\u2019s meetup! :D\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/227825632\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1458112654.000014"
+    }
+]

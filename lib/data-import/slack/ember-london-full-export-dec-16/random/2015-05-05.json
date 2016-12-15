@@ -1,0 +1,58 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Some wind today !",
+        "ts": "1430834593.000111"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "yeah, at least its not a cold cold wind",
+        "ts": "1430834736.000112"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "not fun for sunbathing",
+        "ts": "1430838416.000113"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "if anyone is interested: <http:\/\/www.meetup.com\/London-RubyMotion-Meetup\/events\/222232695\/>",
+        "attachments": [
+            {
+                "service_name": "Meetup",
+                "title": "London RubyMotion",
+                "title_link": "http:\/\/www.meetup.com\/London-RubyMotion-Meetup\/events\/222232695\/",
+                "text": "It's been a long time in the making, but it's finally time for the inaugural RubyMotion London meetup! And what better way to kick things off than with RubyMotion's creator and ex-Apple developer Lau",
+                "fallback": "Meetup: London RubyMotion",
+                "thumb_url": "http:\/\/photos1.meetupstatic.com\/photos\/event\/3\/9\/d\/9\/highres_436934809.jpeg",
+                "from_url": "http:\/\/www.meetup.com\/London-RubyMotion-Meetup\/events\/222232695\/",
+                "thumb_width": 726,
+                "thumb_height": 702,
+                "id": 1
+            }
+        ],
+        "ts": "1430839405.000114"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "saw the RubyMotion guy talk at Brighton Ruby last year",
+        "ts": "1430839492.000116"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "very impressive tech",
+        "ts": "1430839497.000117"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "yeah, laurent will be talking at this one as well",
+        "ts": "1430839575.000118"
+    }
+]

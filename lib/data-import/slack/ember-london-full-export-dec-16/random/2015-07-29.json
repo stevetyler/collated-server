@@ -1,0 +1,59 @@
+[
+    {
+        "user": "U08ABC8EN",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U08ABC8EN|duboff> has joined the channel",
+        "ts": "1438160524.000010"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BE0ELZ|nikoskatsikanis> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F08AMG2SW\/pasted_image_at_2015_07_29_02_29_pm.png|Pasted image at 2015-07-29, 2:29 PM>",
+        "file": {
+            "id": "F08AMG2SW",
+            "created": 1438176581,
+            "timestamp": 1438176581,
+            "name": "Pasted image at 2015_07_29 02_29 PM.png",
+            "title": "Pasted image at 2015-07-29, 2:29 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BE0ELZ",
+            "editable": false,
+            "size": 46610,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F08AMG2SW\/pasted_image_at_2015_07_29_02_29_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F08AMG2SW\/download\/pasted_image_at_2015_07_29_02_29_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F08AMG2SW-f1fa192c40\/pasted_image_at_2015_07_29_02_29_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F08AMG2SW-f1fa192c40\/pasted_image_at_2015_07_29_02_29_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F08AMG2SW-f1fa192c40\/pasted_image_at_2015_07_29_02_29_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 297,
+            "thumb_360_h": 335,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F08AMG2SW-f1fa192c40\/pasted_image_at_2015_07_29_02_29_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 297,
+            "original_h": 335,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F08AMG2SW\/pasted_image_at_2015_07_29_02_29_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F08AMG2SW-6ae204f0fd",
+            "channels": [
+                "C03SSL0H5"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BE0ELZ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BE0ELZ|nikoskatsikanis>",
+        "bot_id": null,
+        "ts": "1438176582.000011"
+    }
+]

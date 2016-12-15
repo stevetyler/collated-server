@@ -1,0 +1,454 @@
+[
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1461776537.000002"
+    },
+    {
+        "user": "U03V8V08M",
+        "purpose": "Put forward a solid Ember talk at Polyconf Satellite (https:\/\/eventil.com\/polyconf\/polyconf-16-satellite-london)",
+        "type": "message",
+        "subtype": "channel_purpose",
+        "text": "<@U03V8V08M|jgwhite> set the channel purpose: Put forward a solid Ember talk at Polyconf Satellite (https:\/\/eventil.com\/polyconf\/polyconf-16-satellite-london)",
+        "ts": "1461776537.000003"
+    },
+    {
+        "user": "U03V5B7KY",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V5B7KY|nikz> has joined the channel",
+        "ts": "1461776537.000004"
+    },
+    {
+        "user": "U04BD6KB1",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04BD6KB1|ksnyde> has joined the channel",
+        "ts": "1461776537.000005"
+    },
+    {
+        "user": "U043951H9",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043951H9|willrax> has joined the channel",
+        "ts": "1461776538.000006"
+    },
+    {
+        "user": "U040MK408",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040MK408|cibernox> has joined the channel",
+        "ts": "1461776538.000007"
+    },
+    {
+        "user": "U07E9GKUZ",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U07E9GKUZ|arkham> has joined the channel",
+        "ts": "1461776538.000008"
+    },
+    {
+        "user": "U0C5RUAQ4",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0C5RUAQ4|mschinis> has joined the channel",
+        "ts": "1461776538.000009"
+    },
+    {
+        "user": "U043AB2QT",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043AB2QT|aaron> has joined the channel",
+        "ts": "1461776538.000010"
+    },
+    {
+        "user": "U04TVTLQ8",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TVTLQ8|bryancrotaz> has joined the channel",
+        "ts": "1461776538.000011"
+    },
+    {
+        "user": "U045SGGD8",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U045SGGD8|alexspeller> has joined the channel",
+        "ts": "1461776538.000012"
+    },
+    {
+        "user": "U046D0DSD",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U046D0DSD|chrisgame> has joined the channel",
+        "ts": "1461776538.000013"
+    },
+    {
+        "user": "U044QMK6K",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U044QMK6K|rlivsey> has joined the channel",
+        "ts": "1461776538.000014"
+    },
+    {
+        "user": "U09ABGTUJ",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09ABGTUJ|matteodepalo> has joined the channel",
+        "ts": "1461776539.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<!here|@here> there\u2019s this event on May 9 \u2014&gt; <https:\/\/eventil.com\/polyconf\/polyconf-16-satellite-london>",
+        "attachments": [
+            {
+                "title": "PolyConf 16 Satellite London - React vs Angular vs Ember via Eventil",
+                "title_link": "https:\/\/eventil.com\/polyconf\/polyconf-16-satellite-london",
+                "text": "PolyConf x London satellite meeting is about bringing together people interested in polyglot approach to programming in London. We will compare and contrast three major JavaScript frameworks (or libraries) i.e. Angular 2, EmberJS and React. There will be three presentations (one for each framework) followed by a panel discussion. Feel free to submit your talk!",
+                "fallback": "PolyConf 16 Satellite London - React vs Angular vs Ember via Eventil",
+                "image_url": "https:\/\/eventil.s3.amazonaws.com\/uploads\/event\/header_image\/8\/card_Eventil_London.jpg",
+                "from_url": "https:\/\/eventil.com\/polyconf\/polyconf-16-satellite-london",
+                "image_width": 476,
+                "image_height": 250,
+                "image_bytes": 514285,
+                "id": 1
+            }
+        ],
+        "ts": "1461776563.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "is anyone planning on speaking?",
+        "ts": "1461776571.000018"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "huh is there still time to submit a talk?",
+        "ts": "1461776572.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yes",
+        "ts": "1461776574.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "12 days left",
+        "ts": "1461776580.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U045SGGD8>: are you up for it?",
+        "ts": "1461776603.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I'll be away most of the week before that :confused:",
+        "ts": "1461776616.000023"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I'd kinda like to do a talk but I don't have time to submit a proposal this week, I guess I can try next week",
+        "ts": "1461776632.000024"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "It's all pretty short notice though",
+        "ts": "1461776638.000025"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it really is",
+        "ts": "1461776648.000026"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "But I don't think I'm best for this",
+        "ts": "1461776648.000027"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I haven't used react or angular seriously",
+        "ts": "1461776659.000028"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "they first got in touch 5 days ago",
+        "ts": "1461776667.000029"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s an incredibly tight turnaround",
+        "ts": "1461776674.000030"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, I haven\u2019t used the other frameworks seriously either",
+        "ts": "1461776684.000031"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I don't know if \"Ember is pretty ok really but maybe angular and react are better, I don't really know\" is a good title",
+        "ts": "1461776685.000032"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hahahaha",
+        "ts": "1461776691.000033"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "\u201chere are the ideas we stole from React and Angular\u201d",
+        "ts": "1461776704.000034"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "\"I mean they all require you to use npm so they all kinda suck\"",
+        "ts": "1461776712.000035"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I guess talking about the ideas ember incorporated could be good",
+        "edited": {
+            "user": "U045SGGD8",
+            "ts": "1461776753.000000"
+        },
+        "ts": "1461776742.000036"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "And also, I know enough about them to say where ember differs, the whole \"battery included, framework not library\" thing",
+        "ts": "1461776783.000038"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "hey, I've had an idea you might like",
+        "ts": "1461776789.000039"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "summary: \"They're all javascript frameworks, model view blah blah blah. But what ember has that's amazing is a community. Here's a collaboratively created talk made by the community\" then either do slides \/ script made by the community or video stuff - get ember global meetup involved maybe?",
+        "edited": {
+            "user": "U045SGGD8",
+            "ts": "1461776919.000000"
+        },
+        "ts": "1461776889.000040"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I think that could be a good idea that probably won't work due to timescale :disappointed:",
+        "ts": "1461776909.000041"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, the timescale makes it impossible however you cut it",
+        "ts": "1461776922.000043"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it would need to be a pre-written talk",
+        "ts": "1461776929.000044"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or someone with a lot of time on their hands",
+        "ts": "1461776942.000045"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "still, I think if Ember goes totally unrepresented it\u2019ll be a shame",
+        "ts": "1461776956.000046"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "Yeah for sure",
+        "ts": "1461777081.000047"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I will probably submit something this weekend that says \"I can talk about ember and some good stuff about it. If you get a submission that can compare it in detail to react and angular go with that, but if you don't get anything else proposed, I can represent Ember relatively well\"",
+        "ts": "1461777177.000048"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "Then I'll like rip off Yehuda &amp; Tom's fluent conf talk :wink:",
+        "ts": "1461777213.000049"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "haha",
+        "ts": "1461777417.000050"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "just borrow their slides",
+        "ts": "1461777424.000051"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019m sure they wouldn\u2019t mind",
+        "ts": "1461777428.000052"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t think they want the _talks_ to be balanced, because the panel discussion should take care of that",
+        "ts": "1461777448.000053"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "they don\u2019t mention anywhere how long the talk is supposed to be so I have enquired",
+        "ts": "1461777990.000054"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if the conference is not ember-specific",
+        "ts": "1461781602.000055"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the talk should be a \u201cHey, this is ember, and this is why it\u2019s cool\"",
+        "ts": "1461781625.000056"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I go 4 days on holidays this bank holiday",
+        "ts": "1461781697.000057"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don\u2019t think I am the right one for a talk the whole point is to be a bright and inspirational speaker, but I\u2019d be glad to brainstorm ideas",
+        "ts": "1461781775.000058"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hmm",
+        "ts": "1461784856.000059"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I am free that evening",
+        "ts": "1461784862.000060"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I could give the talk",
+        "ts": "1461784865.000061"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but I really don\u2019t want to prepare a talk in the next two weeks!",
+        "ts": "1461784874.000062"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "not even two weeks",
+        "ts": "1461784888.000063"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "although\u00a0\u2014\u00a0hmm",
+        "ts": "1461784898.000064"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I do have a talk I\u2019m preparing for another event so",
+        "ts": "1461784908.000065"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I have an idea of doing a demo app using The Guardian content API",
+        "ts": "1461784976.000066"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "okay, to hell with it",
+        "ts": "1461785440.000067"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve submitted a proposal",
+        "ts": "1461786346.000068"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "jgwhite: do it, you are the de-facto face of ember in London :wink:",
+        "ts": "1461786355.000069"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "awesome",
+        "ts": "1461786357.000070"
+    },
+    {
+        "user": "U095LRN06",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U095LRN06|ernesto_jimenez> has joined the channel",
+        "ts": "1461809317.000071"
+    }
+]

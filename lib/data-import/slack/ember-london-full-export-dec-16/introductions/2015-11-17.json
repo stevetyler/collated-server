@@ -1,0 +1,128 @@
+[
+    {
+        "user": "U0EMDSHJP",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0EMDSHJP|dansingerman> has joined the channel",
+        "ts": "1447757742.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "Hi I'm Dan I made a thing in Ember: <https:\/\/appapp.io> Would appreciate any feedback or comments (or indeed traffic! :grinning: )",
+        "attachments": [
+            {
+                "title": "AppApp.io",
+                "title_link": "https:\/\/appapp.io",
+                "text": "A better search for the iTunes App Store",
+                "fallback": "AppApp.io",
+                "image_url": "https:\/\/appapp.io\/large_twitter_card.png",
+                "from_url": "https:\/\/appapp.io",
+                "image_width": 345,
+                "image_height": 250,
+                "image_bytes": 102109,
+                "id": 1
+            }
+        ],
+        "ts": "1447757982.000003"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":smile:",
+        "ts": "1447758077.000005"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "very cool <@U0EMDSHJP>. So fast. What do you use for search if you don\u2019t mind asking?",
+        "ts": "1447758822.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "The back end is all Algolia",
+        "ts": "1447758840.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "Which I highly recommend",
+        "ts": "1447758849.000008"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "ah nice, I use it too",
+        "ts": "1447758887.000009"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "had a suspicion",
+        "ts": "1447758892.000010"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "<http:\/\/cl.ly\/image\/2e3Y3T1F0i35>, might want to host images on https",
+        "attachments": [
+            {
+                "service_name": "CloudApp",
+                "title": "Screenshot 2015-11-17 11.14.37.png",
+                "title_link": "http:\/\/cl.ly\/image\/2e3Y3T1F0i35",
+                "fallback": "CloudApp: Screenshot 2015-11-17 11.14.37.png",
+                "image_url": "http:\/\/f.cl.ly\/items\/3T40153k3I1l081f3Q2l\/Screenshot%202015-11-17%2011.14.37.png",
+                "from_url": "http:\/\/cl.ly\/image\/2e3Y3T1F0i35",
+                "image_width": 1672,
+                "image_height": 179,
+                "image_bytes": 152887,
+                "id": 1
+            }
+        ],
+        "ts": "1447758912.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "Yeah - they come from Apple's CDN",
+        "ts": "1447758929.000013"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "ah",
+        "ts": "1447758972.000014"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "someone should create an ember addon for algolia",
+        "ts": "1447758994.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "which supports SSL but does not have a valid cert :neutral_face:",
+        "ts": "1447759006.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0EMDSHJP",
+        "text": "I have thought about a generic addon. Been too busy to start one yet",
+        "ts": "1447759813.000017"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "same here",
+        "ts": "1447759882.000018"
+    },
+    {
+        "user": "U0ENJ4F34",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ENJ4F34|montoias> has joined the channel",
+        "ts": "1447785186.000019"
+    }
+]

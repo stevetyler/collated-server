@@ -1,0 +1,27 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: This Thursday we\u2019re talking ambitious apps, obscure javascript and machine learning. Come along!\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "ts": 1470646398,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/762572382787760128",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/762572382787760128>",
+                "text": "This Thursday we\u2019re talking ambitious apps, obscure javascript and machine learning. Come along!\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/762572382787760128",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1470646399.000019"
+    }
+]

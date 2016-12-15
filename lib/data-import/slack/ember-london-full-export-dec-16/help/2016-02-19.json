@@ -1,0 +1,45 @@
+[
+    {
+        "user": "U0N55UP19",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0N55UP19|silvercurve> has joined the channel",
+        "ts": "1455883191.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0N55UP19",
+        "text": "Hey guys, just created a new app using Ember Cli v1.13.15 - but now get this error.. any ideas? \n\nline 1, col 1, 'import' is only available in ES6 (use 'esversion: 6').\nline 3, col 1, 'export' is only available in ES6 (use 'esversion: 6')",
+        "ts": "1455883245.000007"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "right. I can\u2019t even get that version installed. A `npm install -g ember-cli` gets me 1.13.12 :confused:",
+        "ts": "1455885081.000008"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "<@U0N55UP19>: is that right after doing `ember new`, or have you added anything else to it?",
+        "ts": "1455885262.000009"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Also, what version of node are you running?",
+        "ts": "1455885274.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0N55UP19",
+        "text": "Hmm, just did a fresh ember new deployment and error disappeared. Might just be a blip.",
+        "ts": "1455885465.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0N55UP19",
+        "text": "Thanks. :simple_smile:",
+        "ts": "1455885467.000012"
+    }
+]

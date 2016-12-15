@@ -1,0 +1,238 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/webcache.googleusercontent.com\/search?q=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&amp;oq=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&amp;aqs=chrome..69i57j69i58.983j0j4&amp;sourceid=chrome&amp;es_sm=91&amp;ie=UTF-8>",
+        "attachments": [
+            {
+                "service_name": "Pusher Blog",
+                "title": "Porting the Pusher integration tests to Haskell",
+                "title_link": "http:\/\/webcache.googleusercontent.com\/search?q=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&oq=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&aqs=chrome..69i57j69i58.983j0j4&sourceid=chrome&es_sm=91&ie=UTF-8",
+                "text": "What we learned migrating our integration tests from Ruby to Haskell",
+                "fallback": "Pusher Blog: Porting the Pusher integration tests to Haskell",
+                "image_url": "http:\/\/blog.pusher.com\/wp-content\/uploads\/2015\/04\/haskell.png",
+                "ts": 1428500068,
+                "from_url": "http:\/\/webcache.googleusercontent.com\/search?q=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&oq=cache%3Ahttps%3A%2F%2Fblog.pusher.com%2Fporting-the-pusher-integration-tests-to-haskell%2F&aqs=chrome..69i57j69i58.983j0j4&sourceid=chrome&es_sm=91&ie=UTF-8",
+                "image_width": 814,
+                "image_height": 250,
+                "image_bytes": 42052,
+                "id": 1
+            }
+        ],
+        "ts": "1429095708.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<https:\/\/blog.pusher.com\/porting-the-pusher-integration-tests-to-haskell\/>",
+        "ts": "1429095712.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "FRP &gt; OOP",
+        "ts": "1429096594.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hahahahahahahahahahahahahahahahahahahahaha",
+        "ts": "1429096667.000009"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F04DX3LBM\/why-most-unit-testing-is-waste.pdf|why-most-unit-testing-is-waste.pdf>",
+        "file": {
+            "id": "F04DX3LBM",
+            "created": 1429111801,
+            "timestamp": 1429111801,
+            "name": "why-most-unit-testing-is-waste.pdf",
+            "title": "why-most-unit-testing-is-waste.pdf",
+            "mimetype": "application\/pdf",
+            "filetype": "pdf",
+            "pretty_type": "PDF",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 158005,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F04DX3LBM\/why-most-unit-testing-is-waste.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F04DX3LBM\/download\/why-most-unit-testing-is-waste.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F04DX3LBM\/why-most-unit-testing-is-waste.pdf",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F04DX3LBM-ce73fde7e5",
+            "channels": [
+                "C03V5K0FL"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1429111802.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<@U03V8V08M>: discuss",
+        "ts": "1429111806.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "^",
+        "ts": "1429111844.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "jesus, it\u2019ll take me days to read that",
+        "ts": "1429111887.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "personally I am a big fan of using FRP instead of OOP to avoid entire categories of bugs and then write some integration tests",
+        "ts": "1429111888.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": ":smile:",
+        "ts": "1429111905.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "if you want my opinion: I try to test-drive everything I write, within reason",
+        "ts": "1429111961.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "starting with a high level acceptance test",
+        "ts": "1429111971.000017"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and using unit tests to design lower-level APIs as they\u2019re required",
+        "ts": "1429111992.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "none of that is particularly new or unique",
+        "ts": "1429112005.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but I guess my point would be that, if much of what I\u2019m using to implement the feature are primitives provided by the framework or something like Rx.js, then I trust that the libraries in question have thoroughly tested those primitives",
+        "ts": "1429112087.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and often find the acceptance test gives me sufficient confidence",
+        "ts": "1429112111.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "if everything below is largely declarative",
+        "ts": "1429112122.000022"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": ":+1:",
+        "ts": "1429112255.000023"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "kinda the same thing you said, but much longer",
+        "ts": "1429112411.000024"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.paulgraham.com\/power.html>",
+        "ts": "1429113159.000025"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "is ember upgrade stable yet?",
+        "ts": "1429117590.000026"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "last time I used it, it left placeholders in files",
+        "ts": "1429117613.000027"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.infoq.com\/news\/2015\/04\/angular-react-collaborate>",
+        "attachments": [
+            {
+                "service_name": "InfoQ",
+                "title": "Angular and React Teams Collaborate",
+                "title_link": "http:\/\/www.infoq.com\/news\/2015\/04\/angular-react-collaborate",
+                "text": "Members of the AngularJS and React.js teams got together last week to discuss what they've been working on and areas where they can collaborate. While there are a lot of similarities between the projects, there is virtually no chance they will ever merge.",
+                "fallback": "InfoQ: Angular and React Teams Collaborate",
+                "from_url": "http:\/\/www.infoq.com\/news\/2015\/04\/angular-react-collaborate",
+                "id": 1
+            }
+        ],
+        "ts": "1429120398.000028"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Ember React and Angular collaborate",
+        "ts": "1429120403.000030"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "+1",
+        "ts": "1429120624.000031"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "hopefully that will reduce the learning surface area for us all",
+        "ts": "1429120682.000032"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "less [insert some word]script and more ES6\/web workers\/web components. please.",
+        "ts": "1429120724.000033"
+    },
+    {
+        "type": "message",
+        "user": "U04134XGE",
+        "text": "don't forget that ES6 is where it is now at least partially thanks to coffeescript",
+        "ts": "1429124909.000034"
+    },
+    {
+        "type": "message",
+        "user": "U04134XGE",
+        "text": "and typescript is only driving it forwards",
+        "ts": "1429124918.000035"
+    }
+]

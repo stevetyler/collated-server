@@ -1,0 +1,41 @@
+[
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "fascinating",
+        "ts": "1461579086.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0411TR6W",
+        "text": "Do you not see images when you dream?",
+        "ts": "1461598932.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0411TR6W",
+        "text": "locations, faces etc ?",
+        "ts": "1461598956.000020"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "robertknight: I don\u2019t remember my dreams (I assume I have them) so don\u2019t remember there being any imagery associated",
+        "ts": "1461623827.000021"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I vaguely remember a dream I had when I was younger (school age) but I remember the story itself and not any visual component",
+        "ts": "1461623873.000022",
+        "reactions": [
+            {
+                "name": "flushed",
+                "users": [
+                    "U0411TR6W"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

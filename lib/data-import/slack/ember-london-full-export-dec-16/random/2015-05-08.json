@@ -1,0 +1,29 @@
+[
+    {
+        "user": "U04PVM8BR",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04PVM8BR|alexgraul> has joined the channel",
+        "ts": "1431082039.000018"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "whats the best polyfill for Object.observe, I'm thinking of using  <https:\/\/github.com\/Polymer\/observe-js>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Polymer\/observe-js",
+                "title_link": "https:\/\/github.com\/Polymer\/observe-js",
+                "text": "observe-js - A library for observing Arrays, Objects and PathValues",
+                "fallback": "GitHub: Polymer\/observe-js",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/2159051?v=3&s=400",
+                "from_url": "https:\/\/github.com\/Polymer\/observe-js",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1431118075.000019"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "type": "message",
+        "user": "U14KVFYS3",
+        "text": "Anyone got a good setup for using <http:\/\/Socket.io|Socket.io> with Ember? Trying to set up a socket once a user is authenticated using JWT, and be able to then reference it as a service",
+        "ts": "1464814898.000180"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U14KVFYS3> you might look at EmberFire which connects Ember Data to Firebase via <http:\/\/Socket.io|Socket.io>",
+        "ts": "1464816366.000181"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U04134XGE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04134XGE|dremora> has joined the channel",
+        "ts": "1428499896.000002"
+    }
+]

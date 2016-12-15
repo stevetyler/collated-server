@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0YNZERRB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0YNZERRB|adam_p> has joined the channel",
+        "ts": "1460029519.000009"
+    },
+    {
+        "user": "U0YQ5FL2X",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0YQ5FL2X|mmelo> has joined the channel",
+        "ts": "1460046245.000010"
+    }
+]

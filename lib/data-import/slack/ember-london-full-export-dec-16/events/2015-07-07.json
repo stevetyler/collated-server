@@ -1,0 +1,51 @@
+[
+    {
+        "user": "U03V8C0DJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8C0DJ|lukenukem> has joined the channel",
+        "ts": "1436287544.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "Do you guys live stream your meetups?",
+        "ts": "1436287556.000003"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "That\u2019s something we\u2019ve talked about but as yet, no one has put anything in place. Wanna give it a crack <@U03V8C0DJ> ?",
+        "ts": "1436289221.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "I\u2019m not able to ever make it in person as I live in Bristol now, but am interested in watching the talks on Thursday :disappointed:  I can always watch them in hindsight I guess!",
+        "ts": "1436289931.000005"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Ahh\u2026That could pose a problem :wink:  Yeh, I\u2019m keen to get things streaming so might try and put some time aside to get it sorted out.  Won\u2019t be this month though unfortunately.",
+        "ts": "1436289982.000006"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "In fact, I think I\u2019ll be lucky to make it due to potential tube strikes.",
+        "ts": "1436289999.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "oh no! Well, let me know if you do set it up at some point as I\u2019ll definitely jump on board, might be able to ask remote questions then too :simple_smile:",
+        "ts": "1436290304.000008"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "For sure.",
+        "ts": "1436290359.000009"
+    }
+]

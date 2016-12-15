@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0GTF1CFK",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0GTF1CFK|solex16> has joined the channel",
+        "ts": "1450373568.000030"
+    }
+]

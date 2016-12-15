@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0C3W1DRV",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0C3W1DRV|stucampbell> has joined the channel",
+        "ts": "1444310090.000004"
+    }
+]

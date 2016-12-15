@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U1DSW7PAS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DSW7PAS|jonnyw> has joined the channel",
+        "ts": "1464943741.000028"
+    }
+]

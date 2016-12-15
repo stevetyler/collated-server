@@ -1,0 +1,225 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: June\u2019s meetup is tomorrow evening and features the wonderful <https:\/\/twitter.com\/mseckington|@mseckington>, <https:\/\/twitter.com\/RuslanZavacky|@RuslanZavacky>, and <https:\/\/twitter.com\/mrmrs_|@mrmrs_>. Come say hi!\n<http:\/\/meetu.ps\/2X0BRf>",
+                "ts": 1465374855,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740461928468873216",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740461928468873216>",
+                "text": "June\u2019s meetup is tomorrow evening and features the wonderful <https:\/\/twitter.com\/mseckington|@mseckington>, <https:\/\/twitter.com\/RuslanZavacky|@RuslanZavacky>, and <https:\/\/twitter.com\/mrmrs_|@mrmrs_>. Come say hi!\n<http:\/\/meetu.ps\/2X0BRf>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740461928468873216",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465374855.000003"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: If you\u2019d like to see what <https:\/\/twitter.com\/mrmrs_|@mrmrs_> has been cooking up, RSVP right here:\n\n<http:\/\/meetu.ps\/e\/BBwds\/722q2\/a>",
+                "ts": 1465376585,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740469184832868352",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740469184832868352>",
+                "text": "If you\u2019d like to see what <https:\/\/twitter.com\/mrmrs_|@mrmrs_> has been cooking up, RSVP right here:\n\n<http:\/\/meetu.ps\/e\/BBwds\/722q2\/a>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740469184832868352",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465376585.000004"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/kaufmanhenry|@kaufmanhenry> <https:\/\/twitter.com\/lachlanjc|@lachlanjc> <https:\/\/twitter.com\/mrmrs_|@mrmrs_> streaming is tricky cos of how we record slides and audio but we would LOVE if someone periscoped it",
+                "ts": 1465399830,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740566680242380800",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740566680242380800>",
+                "text": "<https:\/\/twitter.com\/kaufmanhenry|@kaufmanhenry> <https:\/\/twitter.com\/lachlanjc|@lachlanjc> <https:\/\/twitter.com\/mrmrs_|@mrmrs_> streaming is tricky cos of how we record slides and audio but we would LOVE if someone periscoped it",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740566680242380800",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465399830.000005"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: \u2026honestly though, we should really be streaming the meetups via <https:\/\/twitter.com\/Twitch|@Twitch>",
+                "ts": 1465399882,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740566899017326593",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740566899017326593>",
+                "text": "\u2026honestly though, we should really be streaming the meetups via <https:\/\/twitter.com\/Twitch|@Twitch>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740566899017326593",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465399882.000006"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: \u2026the capure box we use even has first class <https:\/\/twitter.com\/Twitch|@Twitch> support",
+                "ts": 1465399921,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740567062347714560",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740567062347714560>",
+                "text": "\u2026the capure box we use even has first class <https:\/\/twitter.com\/Twitch|@Twitch> support",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740567062347714560",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465399921.000007"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/meggesje|@meggesje> :relaxed:",
+                "ts": 1465411320,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740614873298636800",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740614873298636800>",
+                "text": "<https:\/\/twitter.com\/meggesje|@meggesje> :relaxed:",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740614873298636800",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465411320.000008"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/meggesje|@meggesje> are you coming to <https:\/\/twitter.com\/embercamp|@embercamp>?",
+                "ts": 1465411462,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740615469925814272",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740615469925814272>",
+                "text": "<https:\/\/twitter.com\/meggesje|@meggesje> are you coming to <https:\/\/twitter.com\/embercamp|@embercamp>?",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740615469925814272",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465411462.000009"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/meggesje|@meggesje> you\u2019ll be missed this year. Hope you can make it next time :)",
+                "ts": 1465413329,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740623300326494210",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740623300326494210>",
+                "text": "<https:\/\/twitter.com\/meggesje|@meggesje> you\u2019ll be missed this year. Hope you can make it next time :)",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740623300326494210",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465413329.000010"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/mentalconflux|@mentalconflux> please do! :D",
+                "ts": 1465416473,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/740636487688032256",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/740636487688032256>",
+                "text": "<https:\/\/twitter.com\/mentalconflux|@mentalconflux> please do! :D",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/740636487688032256",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1465416473.000011"
+    },
+    {
+        "user": "U1F9NVA83",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1F9NVA83|djordje> has joined the channel",
+        "ts": "1465447699.000012"
+    }
+]

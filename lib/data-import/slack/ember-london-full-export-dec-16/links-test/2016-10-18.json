@@ -1,0 +1,30 @@
+[
+    {
+        "user": "U09CS0TJ9",
+        "text": "<@U09CS0TJ9|stevetyler> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1476813097.000002"
+    },
+    {
+        "text": "added an integration to this channel: <https:\/\/emberlondon.slack.com\/services\/B2QU9LZN1|outgoing-webhook>",
+        "bot_id": "B2QU9LZN1",
+        "type": "message",
+        "subtype": "bot_add",
+        "user": "U09CS0TJ9",
+        "ts": "1476813178.000003"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "test <http:\/\/emberlondon.com>",
+        "ts": "1476813269.000004"
+    },
+    {
+        "user": "U095LRN06",
+        "text": "<@U095LRN06|ernesto_jimenez> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1476842863.000002"
+    }
+]

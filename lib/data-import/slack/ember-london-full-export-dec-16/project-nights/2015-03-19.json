@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U043951H9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043951H9|willrax> has joined the channel",
+        "ts": "1426796925.000002"
+    },
+    {
+        "user": "U0439TLAM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0439TLAM|keithbro> has joined the channel",
+        "ts": "1426800622.000003"
+    },
+    {
+        "user": "U043AB2QT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043AB2QT|aaron> has joined the channel",
+        "ts": "1426802898.000004"
+    }
+]

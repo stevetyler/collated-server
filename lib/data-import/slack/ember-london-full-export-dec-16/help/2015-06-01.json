@@ -1,0 +1,34 @@
+[
+    {
+        "user": "U05485UQL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1433161126.000016"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Hi all. Does anybody know if a \u201cloading\u201d route can have a state? My use case is showing some kind of progress on the loading process",
+        "ts": "1433161338.000017"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Also in the form of a Stack Overflow question, if anyone wants the karma: <http:\/\/stackoverflow.com\/questions\/30550380\/extra-information-in-loading-substate>",
+        "attachments": [
+            {
+                "title": "Extra information in `loading` substate",
+                "title_link": "http:\/\/stackoverflow.com\/questions\/30550380\/extra-information-in-loading-substate",
+                "text": "I have an Ember app. In a given route, I have a handcrafted model that is not loaded immediately. Thus, I hand it over as a promise: export default Ember.Route.extend({ model() { return",
+                "fallback": "Extra information in `loading` substate",
+                "thumb_url": "http:\/\/cdn.sstatic.net\/stackoverflow\/img\/apple-touch-icon@2.png?v=ea71a5211a91&a",
+                "from_url": "http:\/\/stackoverflow.com\/questions\/30550380\/extra-information-in-loading-substate",
+                "thumb_width": 316,
+                "thumb_height": 316,
+                "id": 1
+            }
+        ],
+        "ts": "1433161366.000018"
+    }
+]

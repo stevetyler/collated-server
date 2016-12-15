@@ -1,0 +1,28 @@
+[
+    {
+        "user": "U03SSL0FM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03SSL0FM|codepreneur> has joined the channel",
+        "ts": "1425986369.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "This is the channel for people to introduce themselves",
+        "ts": "1425986378.000003"
+    },
+    {
+        "user": "U03V8JE3Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8JE3Y|samm> has joined the channel",
+        "ts": "1426000630.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03V8JE3Y",
+        "text": "Hi, I'm Sam. I'm a coach at Makers Academy.",
+        "ts": "1426000645.000003"
+    }
+]

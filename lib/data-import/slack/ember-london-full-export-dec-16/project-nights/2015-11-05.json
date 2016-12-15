@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0DTFBKU3",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0DTFBKU3|dandehavilland> has joined the channel",
+        "ts": "1446717050.000002"
+    },
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1446730784.000003"
+    }
+]

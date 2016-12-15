@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U04A6P1QU>: Is the test you're running for a component that invokes the x-select component?",
+        "ts": "1437762583.000004"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "If so, you'll need to add the x-select to the needs property",
+        "ts": "1437762696.000005"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "In your test. ",
+        "ts": "1437762701.000006"
+    }
+]

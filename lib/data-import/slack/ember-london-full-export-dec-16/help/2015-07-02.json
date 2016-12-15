@@ -1,0 +1,46 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "<http:\/\/stackoverflow.com\/questions\/31183302\/ember-view-select-only-renders-dropdown-on-full-page-refresh>",
+        "attachments": [
+            {
+                "title": "Ember View Select, only renders dropdown on full page refresh",
+                "title_link": "http:\/\/stackoverflow.com\/questions\/31183302\/ember-view-select-only-renders-dropdown-on-full-page-refresh",
+                "text": "I am having some trouble with Ember Select. My dropdown is on an account edit page, the box works fine on full page refresh, but as soon as you navigate to anywhere else and then back to an edit p...",
+                "fallback": "Ember View Select, only renders dropdown on full page refresh",
+                "thumb_url": "http:\/\/cdn.sstatic.net\/stackoverflow\/img\/apple-touch-icon@2.png?v=ea71a5211a91&a",
+                "from_url": "http:\/\/stackoverflow.com\/questions\/31183302\/ember-view-select-only-renders-dropdown-on-full-page-refresh",
+                "thumb_width": 316,
+                "thumb_height": 316,
+                "id": 1
+            }
+        ],
+        "ts": "1435838046.000002"
+    },
+    {
+        "type": "message",
+        "user": "U04UGLGMJ",
+        "text": "or something else?",
+        "ts": "1435839495.000005"
+    },
+    {
+        "user": "U048TCADN",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U048TCADN|anthillape> has joined the channel",
+        "ts": "1435879715.000007"
+    },
+    {
+        "type": "message",
+        "user": "U048TCADN",
+        "text": "anyone know if there is a standard way to use ember-cli with the stable branch?",
+        "ts": "1435879778.000008"
+    },
+    {
+        "type": "message",
+        "user": "U048TCADN",
+        "text": "I can see in <http:\/\/www.ember-cli.com\/user-guide\/#commonissues> you can use `\"ember\": \"components\/ember#canary\u201d` in bower but `\"ember\": \"components\/ember#stable\u201d` doesn\u2019t seem to work",
+        "ts": "1435879824.000009"
+    }
+]

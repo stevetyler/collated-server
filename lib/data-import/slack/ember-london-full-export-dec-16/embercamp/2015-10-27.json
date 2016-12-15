@@ -1,0 +1,36 @@
+[
+    {
+        "user": "U0D9L7VSL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D9L7VSL|dominikstodolny> has joined the channel",
+        "ts": "1445964636.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0D9L7VSL",
+        "text": "Can\u2019t wait! :simple_smile:",
+        "ts": "1445964660.000003",
+        "reactions": [
+            {
+                "name": "sunglasses",
+                "users": [
+                    "U03V8V08M"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "on the day, we\u2019ll be advising everyone to use <https:\/\/embercommunity.slack.com\/messages\/embercamp-conf\/>",
+        "ts": "1445964762.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "just FYI",
+        "ts": "1445964764.000005"
+    }
+]

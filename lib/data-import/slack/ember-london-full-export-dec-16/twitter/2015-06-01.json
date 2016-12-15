@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U05485UQL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1433151440.000009"
+    },
+    {
+        "user": "U0548MFSE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0548MFSE|owain> has joined the channel",
+        "ts": "1433154072.000010"
+    }
+]

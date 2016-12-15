@@ -1,0 +1,128 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U043AB2QT>: I read it this weekend. Nice ideas",
+        "ts": "1430214838.000023"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U040MK408>: Thanks mate.",
+        "ts": "1430214853.000024"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I did something quite similar at the time but the rails app and the ember app were the same",
+        "ts": "1430214892.000025"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "one question, what happens when the user transitions from a non-ember section to an ember-section?",
+        "ts": "1430214934.000026"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it performs a full reload?",
+        "ts": "1430214944.000027"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and ember loads from scratch?",
+        "ts": "1430214961.000028"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Well, the request would be made to the Rails server for the page, as it would have anyway\u2026.And if the requesting route is an emberified route, then the ember layout will be returned\u2026.So yeh, ember app would then load\u2026\u2026We need to be smart in the way we decide which features to port and in which order\u2026..And it\u2019s early days so the real answer to your question is, we\u2019ll see I guess.",
+        "ts": "1430215201.000029"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "But I envisage that we will be porting features on a page by page basis, as opposed to features within a page\u2026..Will see how it pans out I guess\u2026.",
+        "ts": "1430215260.000030"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I did something that you might find helpful to avoid the reloading",
+        "ts": "1430216959.000031"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that it's the best\/only good uses case of turbolinks I am aware of",
+        "ts": "1430216981.000032"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "when you load the javascript, you create your ember app in a node and then your keep a reference to that node",
+        "ts": "1430217029.000033"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "when you are in ember everything works ok",
+        "ts": "1430217056.000034"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "when you click in a link to a non-ember route, you detach that node from the DOM but you keep the application alive",
+        "ts": "1430217105.000035"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and when you go back to an ember section",
+        "ts": "1430217113.000036"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you add the node to the dom again",
+        "ts": "1430217123.000037"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and your app has the same state",
+        "ts": "1430217134.000038"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the perceived speed is great because you don't need to boot the ember app each time",
+        "ts": "1430217198.000039"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U040MK408>:  That\u2019s interesting dude\u2026.I\u2019ll pick your brains about this when the time arises\u2026Thanks for the ideas.",
+        "ts": "1430217632.000040"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "also check ember-turbolinks",
+        "ts": "1430217676.000041"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Interesting\u2026.Will do",
+        "ts": "1430217709.000042"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you might want to do the opposite and make your frontend pure ember and just load static content from rails",
+        "ts": "1430217717.000043"
+    }
+]

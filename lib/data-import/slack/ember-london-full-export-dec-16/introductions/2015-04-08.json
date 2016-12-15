@@ -1,0 +1,80 @@
+[
+    {
+        "user": "U04AW6E1X",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04AW6E1X|tomspeak> has joined the channel",
+        "ts": "1428486745.000003"
+    },
+    {
+        "user": "U04A6P1QU",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04A6P1QU|jonbeer> has joined the channel",
+        "ts": "1428486884.000004"
+    },
+    {
+        "user": "U04AW7GPM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04AW7GPM|mikebulpitt> has joined the channel",
+        "ts": "1428486943.000005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "Hello! My name is <@U047GTU64> I'm currently migrating a rails app to Ember :simple_smile:",
+        "ts": "1428499787.000006"
+    },
+    {
+        "user": "U043AB2QT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043AB2QT|aaron> has joined the channel",
+        "ts": "1428499822.000007"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "G'day <@U047GTU64>. Welcome....",
+        "ts": "1428499868.000008"
+    },
+    {
+        "user": "U04134XGE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04134XGE|dremora> has joined the channel",
+        "ts": "1428499874.000009"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Great to have you on board.",
+        "ts": "1428499877.000010"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "thanks!",
+        "ts": "1428499883.000011"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "If you need any help with your migration, just shout in the <#C03SSL0GP> channel and someone will be sure you help you out :wink:",
+        "ts": "1428499910.000012"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "haha I just did!",
+        "ts": "1428500015.000013"
+    },
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1428505800.000014"
+    }
+]

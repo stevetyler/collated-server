@@ -1,0 +1,50 @@
+[
+    {
+        "user": "U054SBPRC",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U054SBPRC|jonbstrong> has joined the channel",
+        "ts": "1433233957.000014"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I probably should\u2019ve introduced myself here - I\u2019m Tommy. Mostly new to Ember and trying to muddle my way through building my first App. I\u2019m a developer at GDS, but we don\u2019t use Ember.",
+        "ts": "1433236358.000015"
+    },
+    {
+        "type": "message",
+        "user": "U04PVM8BR",
+        "text": "weclome :simple_smile:",
+        "ts": "1433236703.000016"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "G\u2019day <@U051MHBQU> .  Make yourself at home. I\u2019ll grab you a beer.",
+        "ts": "1433236788.000017"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": ":beers:",
+        "ts": "1433236798.000018"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "<@U051MHBQU>: I\u2019m on a similar boat :simple_smile:",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1433237130.000000"
+        },
+        "ts": "1433237107.000019"
+    },
+    {
+        "user": "U054XNZ16",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U054XNZ16|armstrjare> has joined the channel",
+        "ts": "1433257363.000022"
+    }
+]

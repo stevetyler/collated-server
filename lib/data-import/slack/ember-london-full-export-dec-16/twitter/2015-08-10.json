@@ -1,0 +1,90 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Don\u2019t miss our August meetup, this Thursday:\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/221724941\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/630695988987084800",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/630695988987084800>",
+                "text": "Don\u2019t miss our August meetup, this Thursday:\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/221724941\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1439204616.000016"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/KingstonTime|@KingstonTime> <https:\/\/twitter.com\/mikemaccana|@mikemaccana> <https:\/\/twitter.com\/riklomas|@riklomas> we\u2019d love to have you! Video will be available as usual if you can\u2019t.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/630798611589263360",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/630798611589263360>",
+                "text": "<https:\/\/twitter.com\/KingstonTime|@KingstonTime> <https:\/\/twitter.com\/mikemaccana|@mikemaccana> <https:\/\/twitter.com\/riklomas|@riklomas> we\u2019d love to have you! Video will be available as usual if you can\u2019t.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1439229083.000017"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/KingstonTime|@KingstonTime> also, we gotta get you down to give a talk at some point soon :D",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/630798806238543872",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/630798806238543872>",
+                "text": "<https:\/\/twitter.com\/KingstonTime|@KingstonTime> also, we gotta get you down to give a talk at some point soon :D",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1439229130.000018"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/KingstonTime|@KingstonTime> <https:\/\/twitter.com\/sheffield_js|@sheffield_js> sounds good.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/630836471470116864",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/630836471470116864>",
+                "text": "<https:\/\/twitter.com\/KingstonTime|@KingstonTime> <https:\/\/twitter.com\/sheffield_js|@sheffield_js> sounds good.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1439238110.000019"
+    }
+]

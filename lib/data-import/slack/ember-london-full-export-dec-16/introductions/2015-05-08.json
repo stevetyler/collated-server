@@ -1,0 +1,33 @@
+[
+    {
+        "user": "U04PVM8BR",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04PVM8BR|alexgraul> has joined the channel",
+        "ts": "1431082039.000002"
+    },
+    {
+        "type": "message",
+        "user": "U04PVM8BR",
+        "text": "Not quite sure why it\u2019s taken me so long to join given I'm sitting upstairs from <@U03V8V08M> but hey, I\u2019m Alex, dev @ <http:\/\/crowdstrike.com|crowdstrike.com>",
+        "ts": "1431082652.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "howdy <@U04PVM8BR>",
+        "ts": "1431082751.000004"
+    },
+    {
+        "type": "message",
+        "user": "U04PVM8BR",
+        "text": "better late than never :wink:",
+        "ts": "1431082761.000005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hello :smile:",
+        "ts": "1431082885.000006"
+    }
+]

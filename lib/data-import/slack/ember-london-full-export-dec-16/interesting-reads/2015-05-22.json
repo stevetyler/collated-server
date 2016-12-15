@@ -1,0 +1,29 @@
+[
+    {
+        "user": "U050WKBTH",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050WKBTH|tompallister> has joined the channel",
+        "ts": "1432299992.000105"
+    },
+    {
+        "user": "U050979TG",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050979TG|nlh> has joined the channel",
+        "ts": "1432301009.000106"
+    },
+    {
+        "user": "U050WT24D",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U050WT24D|brian> has joined the channel",
+        "ts": "1432301046.000107"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Awesome, I\u2019ve had laser surgery done for 20\/20, but would so be up for 60\/20 implants!",
+        "ts": "1432316442.000108"
+    }
+]

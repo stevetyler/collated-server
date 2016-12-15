@@ -1,0 +1,55 @@
+[
+    {
+        "user": "U043YTCDZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043YTCDZ|james> has joined the channel",
+        "ts": "1427012993.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/well.blogs.nytimes.com\/2015\/03\/04\/one-twin-exercises-the-other-doesnt\/?_r=0>",
+        "ts": "1427016029.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Exercising actually makes you smarter ! :simple_smile:",
+        "ts": "1427016041.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "Developers who exercise &gt; developers who dont :stuck_out_tongue:",
+        "ts": "1427016050.000004"
+    },
+    {
+        "user": "U043ZC515",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043ZC515|petemmccarthy> has joined the channel",
+        "ts": "1427023298.000002"
+    },
+    {
+        "user": "U0441PH0Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0441PH0Q|tomclose> has joined the channel",
+        "ts": "1427024314.000003"
+    },
+    {
+        "user": "U04438UDC",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04438UDC|davidrhyswhite> has joined the channel",
+        "ts": "1427041734.000004"
+    },
+    {
+        "user": "U0440LRJX",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0440LRJX|makevoid> has joined the channel",
+        "ts": "1427041802.000005"
+    }
+]

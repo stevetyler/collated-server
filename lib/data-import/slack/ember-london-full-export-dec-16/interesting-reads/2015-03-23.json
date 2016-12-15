@@ -1,0 +1,68 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<http:\/\/adamrenklint.com\/making-boombap-beat-with-dilla\/>",
+        "attachments": [
+            {
+                "text": "An introduction to composing music with code, using the browser as sequencer runtime and Javascript to schedule notes with precise rhythmic timing.",
+                "fallback": "An introduction to composing music with code, using the browser as sequencer runtime and Javascript to schedule notes with precise rhythmic timing.",
+                "from_url": "http:\/\/adamrenklint.com\/making-boombap-beat-with-dilla\/",
+                "id": 1
+            }
+        ],
+        "ts": "1427132723.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<@U03V8V08M>: <https:\/\/skillsmatter.com\/skillscasts\/5809-live-coding-in-the-classroom>",
+        "attachments": [
+            {
+                "text": "LRUG: London Ruby User Group community cast. Xavier Riley, Sam Aaron:",
+                "fallback": "LRUG: London Ruby User Group community cast. Xavier Riley, Sam Aaron:",
+                "from_url": "https:\/\/skillsmatter.com\/skillscasts\/5809-live-coding-in-the-classroom",
+                "id": 1
+            }
+        ],
+        "ts": "1427135952.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "I have been there, seen him do this live!",
+        "ts": "1427135998.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/blog.makersacademy.com\/4-habits-will-make-better-developer\/>",
+        "attachments": [
+            {
+                "service_name": "Makers Academy Blog",
+                "title": "4 Habits That Will Make You a Better Developer - Makers Academy Blog",
+                "title_link": "http:\/\/blog.makersacademy.com\/4-habits-will-make-better-developer\/",
+                "text": "After observing hundreds of people go through Makers Academy, we\u2019ve identified some habits that our most successful students seem to follow. This isn\u2019t a universal truth, but as George E. P. Box said, \u201cAll models are wrong, but some are...",
+                "fallback": "Makers Academy Blog: 4 Habits That Will Make You a Better Developer - Makers Academy Blog",
+                "ts": 1401375093,
+                "from_url": "http:\/\/blog.makersacademy.com\/4-habits-will-make-better-developer\/",
+                "id": 1
+            }
+        ],
+        "ts": "1427138817.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/sethgodin.typepad.com\/seths_blog\/2015\/03\/the-difference-between-commitment-and-technique.html>",
+        "attachments": [
+            {
+                "text": "We spend way too much time teaching people technique. Teaching people to be good at flute, or C++ or soccer. It's a waste because the fact is, most people can learn to be good at something, if they only choose...",
+                "fallback": "We spend way too much time teaching people technique. Teaching people to be good at flute, or C++ or soccer. It's a waste because the fact is, most people can learn to be good at something, if they only choose...",
+                "from_url": "http:\/\/sethgodin.typepad.com\/seths_blog\/2015\/03\/the-difference-between-commitment-and-technique.html",
+                "id": 1
+            }
+        ],
+        "ts": "1427145117.000009"
+    }
+]

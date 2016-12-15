@@ -1,0 +1,110 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U051MHBQU>, you should cap off your scope creep by making your functionality available as a public addon :slightly_smiling_face:",
+        "ts": "1463668668.000084"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "<@U04BD6KB1>: hold on a second I add it to my 500 item backlog",
+        "ts": "1463668759.000085"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "LOL",
+        "ts": "1463668775.000086"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "like <http:\/\/Forecast.IO|Forecast.IO>\u2019s time machine functionality, very useful for me",
+        "ts": "1463668806.000087"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "it\u2019s for <http:\/\/isitshortsweathertoday.com\/>",
+        "attachments": [
+            {
+                "title": "       Is It Shorts Weather Today?     ",
+                "title_link": "http:\/\/isitshortsweathertoday.com\/",
+                "text": "Is it Shorts Weather where you are?",
+                "fallback": "       Is It Shorts Weather Today?     ",
+                "from_url": "http:\/\/isitshortsweathertoday.com\/",
+                "id": 1
+            }
+        ],
+        "ts": "1463668943.000088"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "i\u2019ve gotten actual complaints over the last few weeks that it doesn\u2019t work any more",
+        "ts": "1463668960.000090"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "came up with the idea in the pub about 5 years ago",
+        "ts": "1463668967.000091"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":slightly_smiling_face:",
+        "ts": "1463668991.000092"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what\u2019s your cutoff point for being shorts weather?",
+        "ts": "1463669015.000093"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I\u2019m Irish so it\u2019s not very high",
+        "ts": "1463669091.000094"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "<https:\/\/github.com\/tommyp\/shorts-weather\/blob\/gh-pages\/shorts.js#L53-L54>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "tommyp\/shorts-weather",
+                "title_link": "https:\/\/github.com\/tommyp\/shorts-weather\/blob\/gh-pages\/shorts.js#L53-L54",
+                "text": "shorts-weather - Little weather app",
+                "fallback": "GitHub: tommyp\/shorts-weather",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/449004?v=3&s=400",
+                "from_url": "https:\/\/github.com\/tommyp\/shorts-weather\/blob\/gh-pages\/shorts.js#L53-L54",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1463669093.000095"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "the codes are sky conditions",
+        "ts": "1463669099.000097"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I have a plan to make it smarter post my mammoth ember and <http:\/\/forecast.io|forecast.io> refactor",
+        "ts": "1463669116.000098"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I\u2019ll keep my shorts at hand :wink:",
+        "ts": "1463669149.000099"
+    }
+]

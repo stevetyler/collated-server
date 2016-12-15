@@ -1,0 +1,49 @@
+[
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<https:\/\/i.imgur.com\/AckNsBP.gifv>",
+        "attachments": [
+            {
+                "service_name": "Imgur",
+                "title": "Trolling a dude who's just about to drop in a virtual reality rollercoaster",
+                "title_link": "https:\/\/i.imgur.com\/AckNsBP.gifv",
+                "fallback": "Imgur: Trolling a dude who's just about to drop in a virtual reality rollercoaster",
+                "thumb_url": "https:\/\/i.imgur.com\/AckNsBPh.jpg",
+                "video_html_width": "602",
+                "video_html_height": "338",
+                "video_url": "https:\/\/i.imgur.com\/AckNsBP.mp4",
+                "video_html": "<video poster=\"https:\/\/i.imgur.com\/AckNsBPh.jpg\" src=\"https:\/\/i.imgur.com\/AckNsBP.mp4\" width=\"602\" height=\"338\" autoplay=\"autoplay\" preload=\"auto\" muted=\"muted\" loop=\"loop\" webkit-playsinline><\/video>",
+                "from_url": "https:\/\/i.imgur.com\/AckNsBP.gifv",
+                "thumb_width": 602,
+                "thumb_height": 338,
+                "id": 1
+            }
+        ],
+        "ts": "1440491974.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "bwah haha ha",
+        "ts": "1440492289.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve only tried the Oculus Rift once but basically had the same reaction",
+        "ts": "1440492327.000008"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "haha",
+        "ts": "1440492736.000009"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "terrifying",
+        "ts": "1440492740.000010"
+    }
+]

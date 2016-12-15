@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "has anyone tried these: <http:\/\/www.wolffepack.com\/#home-products>",
+        "attachments": [
+            {
+                "title": "     Wolffepack: The Orbital Backpack that Swings to your Front.   ",
+                "title_link": "http:\/\/www.wolffepack.com\/#home-products",
+                "text": "Wolffepack, the World's first Orbital Backpack, provides better access, more comfort and greater security",
+                "fallback": "     Wolffepack: The Orbital Backpack that Swings to your Front.   ",
+                "from_url": "http:\/\/www.wolffepack.com\/#home-products",
+                "service_icon": "http:\/\/cdn.shopify.com\/s\/files\/1\/0471\/9537\/t\/35\/assets\/favicon.png?4626867991342673839",
+                "service_name": "wolffepack.com",
+                "id": 1
+            }
+        ],
+        "ts": "1479212781.000034"
+    }
+]

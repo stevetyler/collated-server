@@ -1,0 +1,77 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: At last night\u2019s project night, we built a fastboot-powered ember app to visualise Olympics results:\n\n<https:\/\/emberlondon-rio.herokuapp.com\/>",
+                "ts": 1471612559,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/766624755755679745",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/766624755755679745>",
+                "text": "At last night\u2019s project night, we built a fastboot-powered ember app to visualise Olympics results:\n\n<https:\/\/emberlondon-rio.herokuapp.com\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/766624755755679745",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1471612560.000027"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Disclaimer: the flag addon we used defaults to USA when it doesn\u2019t recognise the ISO code. Apologies if your team has the wrong flag! :grimacing:",
+                "ts": 1471612671,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/766625225089974272",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/766625225089974272>",
+                "text": "Disclaimer: the flag addon we used defaults to USA when it doesn\u2019t recognise the ISO code. Apologies if your team has the wrong flag! :grimacing:",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/766625225089974272",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1471612671.000028"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/silentworks|@silentworks> PRs welcome! Typically it\u2019s because the team name doesn\u2019t match the ISO name:\n\n<https:\/\/github.com\/emberlondon\/rio\/blob\/master\/app\/helpers\/iso-code.js#L4-L9>",
+                "ts": 1471612864,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/766626034326376448",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/766626034326376448>",
+                "text": "<https:\/\/twitter.com\/silentworks|@silentworks> PRs welcome! Typically it\u2019s because the team name doesn\u2019t match the ISO name:\n\n<https:\/\/github.com\/emberlondon\/rio\/blob\/master\/app\/helpers\/iso-code.js#L4-L9>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/766626034326376448",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1471612864.000029"
+    }
+]

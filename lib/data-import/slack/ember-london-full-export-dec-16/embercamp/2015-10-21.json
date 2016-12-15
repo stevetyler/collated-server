@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0CTN02SZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTN02SZ|gavinjoyce> has joined the channel",
+        "ts": "1445438308.000002"
+    }
+]

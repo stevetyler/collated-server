@@ -1,0 +1,357 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Anyone wanting to get up in running on Docker and devops automation should really look at this book: <https:\/\/leanpub.com\/the-devops-2-toolkit>",
+        "attachments": [
+            {
+                "service_name": "Leanpub",
+                "title": "The DevOps 2.0 Toolkit",
+                "title_link": "https:\/\/leanpub.com\/the-devops-2-toolkit",
+                "text": "This book envelops the whole microservices development and deployment lifecycle using some of the latest and greatest practices and tools. We'll use Docker, Ku\u2026",
+                "fallback": "Leanpub: The DevOps 2.0 Toolkit",
+                "thumb_url": "https:\/\/s3.amazonaws.com\/titlepages.leanpub.com\/the-devops-2-toolkit\/medium?1466711069",
+                "from_url": "https:\/\/leanpub.com\/the-devops-2-toolkit",
+                "thumb_width": 240,
+                "thumb_height": 311,
+                "service_icon": "https:\/\/leanpub.com\/assets\/favicons\/apple-touch-icon-57x57-54e70e6f82df9577817a780b29ecda35.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467385330.000092"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Very well done",
+        "ts": "1467385338.000094"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U047GTU64>: unfortunately Kyle\u2019s talk has bad audio; takes a lot of effort to listen",
+        "ts": "1467385692.000095"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "does it? I can hear it fine here :smile:",
+        "ts": "1467385711.000096"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it\u2019s not horrible but dynamic range is very limited and has echo",
+        "ts": "1467385730.000097"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "words are \u201crounded\"",
+        "ts": "1467385739.000098"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "some rumble in background too",
+        "ts": "1467385754.000099"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh yeah I agree with that",
+        "ts": "1467385757.000100"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "great talk though",
+        "ts": "1467385759.000101"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i\u2019m enjoying it :slightly_smiling_face:",
+        "ts": "1467385769.000102"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "kyle kingsbury is my all time fav developer\/speaker",
+        "ts": "1467385771.000103"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "just not the audio",
+        "ts": "1467385774.000104"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh i\u2019ll look him up; not familiar with him",
+        "ts": "1467385793.000105"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "you probably have",
+        "ts": "1467385804.000106"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "his handle is aphyr",
+        "ts": "1467385809.000107"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/aphyr.com\/> ring a bell?",
+        "ts": "1467385836.000108"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "nope :stuck_out_tongue: but i\u2019m still replugging into tech from a 20 year vacation",
+        "ts": "1467385855.000109"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "have you used the Riemann stack?",
+        "ts": "1467385880.000110"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "nope but I intend to use tesser for a personal project",
+        "ts": "1467385903.000111"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "which is by him too!",
+        "ts": "1467385906.000112"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/aphyr\/tesser#tesser>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "aphyr\/tesser",
+                "title_link": "https:\/\/github.com\/aphyr\/tesser#tesser",
+                "text": "tesser - Clojure reducers, but for parallel execution: locally and on distributed systems.",
+                "fallback": "GitHub: aphyr\/tesser",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/3748?v=3&s=400",
+                "from_url": "https:\/\/github.com\/aphyr\/tesser#tesser",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467385922.000113"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i want to build a server stack for my \u201cHorizon\u201d addon using Docker",
+        "ts": "1467385955.000115"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and want to have monitoring \u201cout of the box\u201d \u2026 might consider Riemann",
+        "ts": "1467385982.000116"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think it would be a good choice",
+        "ts": "1467386049.000117"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I like the ideas and concepts behind it",
+        "ts": "1467386055.000118"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "never used it persoanlly",
+        "ts": "1467386059.000119"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i\u2019ll look at over weekend",
+        "ts": "1467386068.000120"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but aphyr\u2019s worked at stripe, soundcloud, etc. and focuses on reliability",
+        "ts": "1467386072.000121"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I am almost certainly using Consul",
+        "ts": "1467386137.000122"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "for service-discovery",
+        "ts": "1467386146.000123"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but also some basic monitoriing",
+        "ts": "1467386151.000124"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "Hashicorp is so good",
+        "ts": "1467386197.000125"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "their suite of products in general",
+        "ts": "1467386201.000126"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019ve had good experiences using Consul as a key value store for configs",
+        "ts": "1467386225.000127"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah I just want to jump in and bath in Hashicorp",
+        "ts": "1467386230.000128"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "through diplomat <https:\/\/github.com\/WeAreFarmGeek\/diplomat>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "WeAreFarmGeek\/diplomat",
+                "title_link": "https:\/\/github.com\/WeAreFarmGeek\/diplomat",
+                "text": "diplomat - A HTTP Ruby API for Consul",
+                "fallback": "GitHub: WeAreFarmGeek\/diplomat",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/7347738?v=3&s=400",
+                "from_url": "https:\/\/github.com\/WeAreFarmGeek\/diplomat",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467386231.000129"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is Kingsbury involved in RethinkDB? Seems like he might be. Certainly posts about it a lot.",
+        "ts": "1467387011.000131"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "He has a project called jepsen",
+        "ts": "1467387106.000132"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "where he tries to find bugs on major OSS data stores",
+        "ts": "1467387113.000133"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, yeah reading the content now",
+        "ts": "1467387132.000134"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "really well designed tests right?",
+        "ts": "1467387175.000135"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "very impressive work",
+        "ts": "1467387177.000136"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah; we\u2019re lucky to have people publishing content of this stature",
+        "ts": "1467387219.000137"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think it needs to happen if you\u2019re a contractor\/consultant",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1467387239.000000"
+        },
+        "ts": "1467387231.000138"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "good content -&gt; good rep -&gt; good leads",
+        "ts": "1467387246.000140"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "maybe but not always; get in as a \u201cproblem solver\u201d at the right level of a vertical industry or in the VC world then you aren\u2019t dependant on social media much \u2026 it\u2019s a small crowd and your brand can be marketed much more like a B2B business",
+        "ts": "1467387396.000141"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "anyway, happy to see his content; following on twitter now, added his RSS feed, patiently waiting for observations :slightly_smiling_face:",
+        "ts": "1467387462.000142"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":smile:",
+        "ts": "1467387534.000143"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "the elasticsearch ones are seared into my mind",
+        "ts": "1467391057.000144"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "no matter where I go, I can\u2019t escape ES and it\u2019s unending diet of excitement",
+        "ts": "1467391074.000145"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Sorry to be obtuse but is that a recommend or warning for ES",
+        "ts": "1467393766.000146"
+    }
+]

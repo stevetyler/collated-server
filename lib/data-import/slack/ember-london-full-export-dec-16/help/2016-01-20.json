@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "can you call this.destroy() on the component?",
+        "ts": "1453310718.000025"
+    },
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "<@U043AB2QT>:",
+        "ts": "1453310723.000026"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "I don't think so because `this` is not the component.....But I'm not sure...Will have to give it a shot.",
+        "ts": "1453310875.000027"
+    }
+]

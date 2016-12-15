@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0D95V1QB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D95V1QB|microfed> has joined the channel",
+        "ts": "1445957406.000015"
+    },
+    {
+        "user": "U0D9L7VSL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D9L7VSL|dominikstodolny> has joined the channel",
+        "ts": "1445964218.000016"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U062LD65Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U062LD65Q|akatov> has joined the channel",
+        "ts": "1433760999.000036"
+    },
+    {
+        "user": "U062TJYHW",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U062TJYHW|tomasbasham> has joined the channel",
+        "ts": "1433772216.000037"
+    }
+]

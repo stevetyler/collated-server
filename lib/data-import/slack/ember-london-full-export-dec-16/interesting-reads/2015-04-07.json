@@ -1,0 +1,48 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/gawker.com\/the-food-babe-blogger-is-full-of-shit-1694902226>",
+        "attachments": [
+            {
+                "service_name": "Gawker",
+                "title": "The \"Food Babe\" Blogger Is Full of Shit",
+                "title_link": "http:\/\/gawker.com\/the-food-babe-blogger-is-full-of-shit-1694902226",
+                "text": "Vani Hari, AKA the Food Babe, has amassed a loyal following in her Food Babe Army. The recent subject of profiles and interviews in the New York Times, the New York Post and New York Magazine, Hari implores her soldiers to petition food companies to change their formulas. She's also written a bestselling book telling you that you can change your life in 21 days by \"breaking free of the hidden toxins in your life.\" She and her army are out to change the world.",
+                "fallback": "Gawker: The \"Food Babe\" Blogger Is Full of Shit",
+                "image_url": "http:\/\/i.kinja-img.com\/gawker-media\/image\/upload\/s--TmjEQZLy--\/lh6dpf6ihthiuqnlqogx.jpg",
+                "from_url": "http:\/\/gawker.com\/the-food-babe-blogger-is-full-of-shit-1694902226",
+                "image_width": 375,
+                "image_height": 250,
+                "image_bytes": 162258,
+                "id": 1
+            }
+        ],
+        "ts": "1428432989.000002"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "I dont like people that mess with science :stuck_out_tongue_winking_eye:",
+        "ts": "1428432996.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "and I find it hilarious, because she went to Google University and Google moto is\/was \"dont be evil\"",
+        "ts": "1428436529.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": ":DD",
+        "ts": "1428436530.000006"
+    },
+    {
+        "user": "U049Y3RBJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U049Y3RBJ|jalagrange> has joined the channel",
+        "ts": "1428439620.000007"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U2WALE388",
+        "text": "<@U2WALE388|joseph.roffey> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1477926271.000011"
+    },
+    {
+        "user": "U2WGJLENM",
+        "text": "<@U2WGJLENM|rossant> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1477946172.000012"
+    }
+]

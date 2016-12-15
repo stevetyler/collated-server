@@ -1,0 +1,48 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0H3RHM0B|smita> shared a file: <https:\/\/emberlondon.slack.com\/files\/smita\/F1MMBR6CS\/-|Untitled>",
+        "file": {
+            "id": "F1MMBR6CS",
+            "created": 1467278904,
+            "timestamp": 1467279812,
+            "name": "-",
+            "title": "Untitled",
+            "mimetype": "text\/plain",
+            "filetype": "space",
+            "pretty_type": "Post",
+            "user": "U0H3RHM0B",
+            "editable": true,
+            "size": 2841,
+            "mode": "space",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1MMBR6CS\/-?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F1MMBR6CS\/download\/-?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/smita\/F1MMBR6CS\/-",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F1MMBR6CS-f80389c585",
+            "preview": "<document><p>Please tell me how to fetch the data from firebase<\/p><p><b>app\/template\/gmap.hbs<\/b><\/p><p>{{#leaflet-map lat=lat lng=lng zoom=zoom}}<\/p><p>{{tile-layer url=&quot;http:\/\/{s}.basemaps.cartocdn.com\/light_all\/{z}\/{x}\/{y}.png&quot;}}<\/p><\/document>",
+            "updated": 1467279385,
+            "editor": "U0H3RHM0B",
+            "last_editor": "U0H3RHM0B",
+            "state": "locked",
+            "channels": [
+                "C03V31B5T"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U0H3RHM0B",
+        "upload": false,
+        "display_as_bot": false,
+        "username": "<@U0H3RHM0B|smita>",
+        "bot_id": null,
+        "ts": "1467279666.000047"
+    }
+]

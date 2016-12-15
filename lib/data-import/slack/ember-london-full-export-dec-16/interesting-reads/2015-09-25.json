@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0BAFA2FJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0BAFA2FJ|daevid> has joined the channel",
+        "ts": "1443179658.000015"
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "type": "message",
+        "user": "U06BH5ZPW",
+        "text": "Hello all. I just updated from ember 1.12.1 to 1.13.3 and noticed a few differences in how my templates were  being rendered. As far as i can tell it seems when i try to directly render a controller passing it a hasMany association thats asynchronous. the template rendering now seems to wait until the promise is fulfilled. Previously i had been using PromiseProxyMixin on my controllers in order to handle unresolved association promise but it seems like now i dont need to. Did i miss something in the releasenotes of ember?",
+        "edited": {
+            "user": "U06BH5ZPW",
+            "ts": "1437214177.000000"
+        },
+        "ts": "1437214160.000007"
+    },
+    {
+        "type": "message",
+        "user": "U06BH5ZPW",
+        "text": "so previously doing something like `{{render \u201ctracks\/index\u201d model.tracks}}` meant my `tracks\/index` controller had to be Promise aware in order to resolve the association promise",
+        "ts": "1437214286.000009"
+    },
+    {
+        "type": "message",
+        "user": "U06BH5ZPW",
+        "text": "is this still true?",
+        "ts": "1437214291.000010"
+    },
+    {
+        "user": "U04A6P1QU",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04A6P1QU|jonbeer> has joined the channel",
+        "ts": "1437225371.000011"
+    }
+]

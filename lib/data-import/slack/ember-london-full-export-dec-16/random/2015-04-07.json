@@ -1,0 +1,62 @@
+[
+    {
+        "user": "U049Y3RBJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U049Y3RBJ|jalagrange> has joined the channel",
+        "ts": "1428439620.000002"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F049Y5NPS\/pasted_image_at_2015_04_07_09_50_pm.png|Pasted image at 2015-04-07, 9:50 PM>",
+        "file": {
+            "id": "F049Y5NPS",
+            "created": 1428439825,
+            "timestamp": 1428439825,
+            "name": "Pasted image at 2015_04_07 09_50 PM.png",
+            "title": "Pasted image at 2015-04-07, 9:50 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 1163740,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F049Y5NPS\/pasted_image_at_2015_04_07_09_50_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F049Y5NPS\/download\/pasted_image_at_2015_04_07_09_50_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F049Y5NPS-98eddd58b1\/pasted_image_at_2015_04_07_09_50_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F049Y5NPS-98eddd58b1\/pasted_image_at_2015_04_07_09_50_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F049Y5NPS-98eddd58b1\/pasted_image_at_2015_04_07_09_50_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 357,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F049Y5NPS-98eddd58b1\/pasted_image_at_2015_04_07_09_50_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F049Y5NPS-98eddd58b1\/pasted_image_at_2015_04_07_09_50_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 714,
+            "image_exif_rotation": 1,
+            "original_w": 938,
+            "original_h": 930,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F049Y5NPS\/pasted_image_at_2015_04_07_09_50_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F049Y5NPS-ffdeec7d81",
+            "channels": [
+                "C03SSL0H5"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1428439833.000003"
+    }
+]

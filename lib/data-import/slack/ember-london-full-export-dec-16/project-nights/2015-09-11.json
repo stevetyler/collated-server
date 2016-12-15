@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0AG590TB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0AG590TB|loglesby> has joined the channel",
+        "ts": "1441961758.000008"
+    }
+]

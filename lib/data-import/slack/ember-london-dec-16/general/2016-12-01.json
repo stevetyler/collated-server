@@ -1,0 +1,202 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BE0ELZ|nikoskatsikanis> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F39EKTW1J\/pasted_image_at_2016_12_01_04_03_pm.png|working on a new video, including pigeons:>",
+        "file": {
+            "id": "F39EKTW1J",
+            "created": 1480608217,
+            "timestamp": 1480608217,
+            "name": "Pasted image at 2016_12_01 04_03 PM.png",
+            "title": "working on a new video, including pigeons:",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BE0ELZ",
+            "editable": false,
+            "size": 439649,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F39EKTW1J\/pasted_image_at_2016_12_01_04_03_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F39EKTW1J\/download\/pasted_image_at_2016_12_01_04_03_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 247,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 330,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F39EKTW1J-34159b334d\/pasted_image_at_2016_12_01_04_03_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 495,
+            "image_exif_rotation": 1,
+            "original_w": 728,
+            "original_h": 500,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F39EKTW1J\/pasted_image_at_2016_12_01_04_03_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F39EKTW1J-ad6522d876",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BE0ELZ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BE0ELZ|nikoskatsikanis>",
+        "bot_id": null,
+        "ts": "1480608222.002365"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I\u2019m really confused by ember-simple-auth",
+        "ts": "1480611203.002366"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "can it authenticate just with cookies, no need of API token or anything like that?",
+        "ts": "1480611227.002367"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "as in: if I\u2019m authenticated on the site with a cookie, can it just go with that?",
+        "ts": "1480611241.002368"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U05485UQL> it's been ages since I used ember-simple-auth but my impression was that it work _in conjunction with_ a Authentication\/Authorization library\/framework rather than being it",
+        "ts": "1480611565.002369"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the \"cookies\" you are referring to are I guess just access-tokens from the end of an OAuth process?",
+        "ts": "1480611653.002370"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "no OAuth or anything. I just want to do the usual login\/password, get a cookie back, and have that cookie be sent with Ember Data requests",
+        "ts": "1480611702.002371"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "so the same as if this was just a non-JS webapp",
+        "ts": "1480611713.002372"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i think in the past I've used Torii and ember-simple-auth together",
+        "ts": "1480611717.002373"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I\u2019ll have to look into that",
+        "ts": "1480611731.002374"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "thank you",
+        "ts": "1480611737.002375"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sorry i couldn't be more help",
+        "ts": "1480611744.002376"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "btw, did you see the EmberMap tutorials on contextual components?",
+        "ts": "1480611765.002377"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "no worries. I do think I have some concepts wrong. Besides, there\u2019s an iframe involved that makes things more annoying",
+        "ts": "1480611771.002378"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "actually no! But thanks for reminding me. I had totally forgotten about that",
+        "ts": "1480611808.002379"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "EmberMap -- well Sam S. specifically -- always does a very good job of being clear and to the point",
+        "ts": "1480611846.002380"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/embermap.com\/topics\/contextual-components\/flexible-interfaces>",
+        "attachments": [
+            {
+                "title": "EmberMap | Video training for teams",
+                "title_link": "https:\/\/embermap.com\/topics\/contextual-components\/flexible-interfaces",
+                "text": "Video training for Ember.js teams",
+                "fallback": "EmberMap | Video training for teams",
+                "from_url": "https:\/\/embermap.com\/topics\/contextual-components\/flexible-interfaces",
+                "service_icon": "https:\/\/frontend.embermap.com\/assets\/images\/icons\/apple-touch-icon-152x152-precomposed-9d3e892178821c957914bf38ae127c21.png",
+                "service_name": "embermap.com",
+                "id": 1
+            }
+        ],
+        "ts": "1480611951.002381",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U05485UQL",
+                    "U37TYCZSQ"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "<@U05485UQL> check Torii",
+        "ts": "1480613323.002383"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "(<http:\/\/vestorly.github.io\/torii\/>)",
+        "attachments": [
+            {
+                "title": "Torii",
+                "title_link": "http:\/\/vestorly.github.io\/torii\/",
+                "text": "Torii is an authorization service library for your Ember.js application. Adding social login to your Ember.js app just got a whole lot simpler.",
+                "fallback": "Torii",
+                "from_url": "http:\/\/vestorly.github.io\/torii\/",
+                "thumb_url": "https:\/\/d1sva73gxwx496.cloudfront.net\/images\/homepage\/logo-white-0366f369.png",
+                "thumb_width": 161,
+                "thumb_height": 47,
+                "service_name": "vestorly.github.io",
+                "id": 1
+            }
+        ],
+        "ts": "1480613338.002384"
+    }
+]

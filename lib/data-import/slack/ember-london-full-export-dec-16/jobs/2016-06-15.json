@@ -1,0 +1,111 @@
+[
+    {
+        "user": "U0F26RK46",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0F26RK46|askl56> has joined the channel",
+        "ts": "1466022209.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "if one is a proven Rails dev with a functional knowledge of JS (in terms of front end), are there JS jobs in London that will take you based on your programming and teach you Ember\/more advanced JS?",
+        "ts": "1466022213.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0F26RK46>: yes, definitely",
+        "ts": "1466023397.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "beginning to get tired of Rails, and doing a lot more Elixir in my free time",
+        "ts": "1466023493.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you\u2019re definitely not alone there :slightly_smiling_face:",
+        "ts": "1466023508.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "btw I saw your talk on ember at remote polyconf?",
+        "ts": "1466023521.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "i think",
+        "ts": "1466023528.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "oh really? cool!",
+        "ts": "1466023543.000009"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I really enjoyed that event",
+        "ts": "1466023548.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "any excuse to speak on a panel with Rob Knight",
+        "ts": "1466023558.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "back to jobs\u2026 I\u2019d say companies like <http:\/\/showmyhomework.com> (hosting tomorrow evening\u2019s project night) are a good fit for what you describe above",
+        "ts": "1466023585.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Rails backend, Ember frontend, with definitely room to step into the frontend side in a big way if you wanted to",
+        "ts": "1466023607.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "yeah sounds sweet",
+        "ts": "1466023959.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "have heard of showmyhomework",
+        "ts": "1466023963.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0F26RK46",
+        "text": "i don\u2019t match their senior requirements",
+        "ts": "1466024045.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "come along to the project night, then you can ask them in more detail :wink:",
+        "ts": "1466024334.000017"
+    },
+    {
+        "type": "message",
+        "user": "U12T7S4CF",
+        "text": "They have a ping pong table, I like this company :smile:",
+        "ts": "1466026233.000018"
+    },
+    {
+        "type": "message",
+        "user": "U12T7S4CF",
+        "text": "fresh beer daily and fruits every Friday looks good too",
+        "ts": "1466026518.000019"
+    }
+]

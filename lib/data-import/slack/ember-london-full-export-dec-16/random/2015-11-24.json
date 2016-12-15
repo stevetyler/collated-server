@@ -1,0 +1,55 @@
+[
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "on the topic of most stupid thing I\u2019ve seen in a while\u2026",
+        "ts": "1448363209.000005"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<http:\/\/www.telegraph.co.uk\/technology\/12008689\/Why-is-Silicon-Valley-helping-the-tech-savvy-jihadists.html>",
+        "attachments": [
+            {
+                "service_name": "Telegraph.co.uk",
+                "title": "Why is Silicon Valley helping the tech-savvy jihadists?",
+                "title_link": "http:\/\/www.telegraph.co.uk\/technology\/12008689\/Why-is-Silicon-Valley-helping-the-tech-savvy-jihadists.html",
+                "text": "Developing apps and emails that are heavily encrypted is playing into the hands of Isil. Whose side are they on?",
+                "fallback": "Telegraph.co.uk: Why is Silicon Valley helping the tech-savvy jihadists?",
+                "image_url": "http:\/\/i.telegraph.co.uk\/multimedia\/archive\/02283\/data-security_2283310a.jpg",
+                "from_url": "http:\/\/www.telegraph.co.uk\/technology\/12008689\/Why-is-Silicon-Valley-helping-the-tech-savvy-jihadists.html",
+                "image_width": 399,
+                "image_height": 250,
+                "image_bytes": 155159,
+                "id": 1
+            }
+        ],
+        "ts": "1448363210.000006"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "and the teardown <https:\/\/www.techdirt.com\/articles\/20151123\/10050732890\/telegraph-publishes-dumbest-article-encryption-youll-ever-read-written-david-camerons-former-speechwriter.shtml>",
+        "attachments": [
+            {
+                "service_name": "Techdirt.",
+                "title": "Telegraph Publishes The Dumbest Article On Encryption You'll Ever Read... Written By David Cameron's Former Speechwriter | Techdirt",
+                "title_link": "https:\/\/www.techdirt.com\/articles\/20151123\/10050732890\/telegraph-publishes-dumbest-article-encryption-youll-ever-read-written-david-camerons-former-speechwriter.shtml",
+                "text": "Over the weekend, the Telegraph (which, really, is probably only the second or third worst UK tabloid), published perhaps the dumbest article ever on encryption, written by Clare Foges, who until recently, was a top speech writer for UK Prime Minister...",
+                "fallback": "Techdirt.: Telegraph Publishes The Dumbest Article On Encryption You'll Ever Read... Written By David Cameron's Former Speechwriter | Techdirt",
+                "thumb_url": "https:\/\/ii.techdirt.com\/s\/t\/i\/td-icon.jpg",
+                "from_url": "https:\/\/www.techdirt.com\/articles\/20151123\/10050732890\/telegraph-publishes-dumbest-article-encryption-youll-ever-read-written-david-camerons-former-speechwriter.shtml",
+                "thumb_width": 150,
+                "thumb_height": 150,
+                "id": 1
+            }
+        ],
+        "ts": "1448363350.000008"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "it\u2019s almost as if it\u2019s timed when the government are trying to pass through dodgy anti-encryption legislation",
+        "ts": "1448364774.000010"
+    }
+]

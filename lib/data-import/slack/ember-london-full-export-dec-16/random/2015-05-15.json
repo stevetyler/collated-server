@@ -1,0 +1,272 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "anyone like rts games?",
+        "ts": "1431684178.000052"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Yep\u2026Just don\u2019t have any bloody time to play them these days :wink:",
+        "ts": "1431684301.000053"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you mean like Command &amp; Conquer?",
+        "ts": "1431684378.000054"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "im playing Invisible Inc. at the moment",
+        "ts": "1431684890.000055"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "its really good",
+        "ts": "1431684894.000056"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not related, but I really miss a good game of age of empires",
+        "ts": "1431685196.000057"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "anno was really cool too",
+        "ts": "1431685203.000058"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this was the peak of videos games IMHO: <http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/88\/Commander_Keen_in_Goodbye_Galaxy_title_screen.png>",
+        "attachments": [
+            {
+                "from_url": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/88\/Commander_Keen_in_Goodbye_Galaxy_title_screen.png",
+                "fallback": "320x200px image",
+                "image_url": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/8\/88\/Commander_Keen_in_Goodbye_Galaxy_title_screen.png",
+                "image_width": 320,
+                "image_height": 200,
+                "image_bytes": 10069,
+                "id": 1
+            }
+        ],
+        "ts": "1431685364.000059"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": ":thumbsup: Good memories there <@U03V8V08M> .  Those were the days.",
+        "ts": "1431685461.000061"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Around the same time we were playing Commander Keen, this was also in high rotation in our house -&gt; <https:\/\/www.youtube.com\/watch?v=iE9GVn2mjs8>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "http:\/\/www.youtube.com\/",
+                "title": "Crystal Caves - Level 1",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=iE9GVn2mjs8",
+                "author_name": "Swizzley",
+                "author_link": "http:\/\/www.youtube.com\/user\/Swizzley",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/iE9GVn2mjs8\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Crystal Caves - Level 1",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/iE9GVn2mjs8?feature=oembed\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=iE9GVn2mjs8",
+                "id": 1
+            }
+        ],
+        "ts": "1431685566.000062"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "aoe related: <http:\/\/jenbennings.github.io\/wololo\/>",
+        "attachments": [
+            {
+                "title": "wololo.js",
+                "title_link": "http:\/\/jenbennings.github.io\/wololo\/",
+                "text": "wololo",
+                "fallback": "wololo.js",
+                "from_url": "http:\/\/jenbennings.github.io\/wololo\/",
+                "id": 1
+            }
+        ],
+        "ts": "1431685608.000064"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "OMG WOLOLO",
+        "ts": "1431685859.000066"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U03V8V08M>: yeah I'm trying to write a webgl rts game",
+        "ts": "1431691525.000067"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I used to get a real kick from converting AOE units",
+        "ts": "1431691594.000068"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U0417SBAP>:  how does dragging that button on a tab cause that script to run? mega lololol",
+        "ts": "1431691697.000069"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BE0ELZ>: did you mean to mention <@U0417SBAP> there?",
+        "ts": "1431691798.000070"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "opps",
+        "ts": "1431691811.000071"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "nope, <@U043951H9>",
+        "ts": "1431691829.000072"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve been looking for a game engine to try out with the kids at Code Club",
+        "ts": "1431691838.000073"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this looks promising: <http:\/\/phaser.io\/>",
+        "attachments": [
+            {
+                "text": "Phaser: The fun, fast and free HTML5 Game Framework",
+                "fallback": "Phaser: The fun, fast and free HTML5 Game Framework",
+                "from_url": "http:\/\/phaser.io\/",
+                "id": 1
+            }
+        ],
+        "ts": "1431691841.000074"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "yeah, I'm using babylon",
+        "ts": "1431691861.000076"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "for webgl by microsoft",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1431691870.000000"
+        },
+        "ts": "1431691866.000077"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "crikey",
+        "ts": "1431692063.000079"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<@U04BE0ELZ>: no idea, i guess its just a chrome thing",
+        "ts": "1431693981.000080"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "you can make it a bookmarklet as well and if you click it on a page it turns it on",
+        "ts": "1431694001.000081"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Funniest thing ever on a browser ",
+        "ts": "1431695921.000082"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F04SRDDE6\/pasted_image_at_2015_05_16_12_43_am.png|Pasted image at 2015-05-16, 12:43 AM>",
+        "file": {
+            "id": "F04SRDDE6",
+            "created": 1431733447,
+            "timestamp": 1431733447,
+            "name": "Pasted image at 2015_05_16 12_43 AM.png",
+            "title": "Pasted image at 2015-05-16, 12:43 AM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 3471304,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F04SRDDE6\/pasted_image_at_2015_05_16_12_43_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F04SRDDE6\/download\/pasted_image_at_2015_05_16_12_43_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 273,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 545,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F04SRDDE6-a8806c1eaf\/pasted_image_at_2015_05_16_12_43_am_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 775,
+            "image_exif_rotation": 1,
+            "original_w": 1788,
+            "original_h": 1354,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F04SRDDE6\/pasted_image_at_2015_05_16_12_43_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F04SRDDE6-bacdbf5e95",
+            "channels": [
+                "C03SSL0H5"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1431733456.000083"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U03SSL0FM>: actions speak louder than words in that case)",
+        "ts": "1431755235.000084"
+    }
+]

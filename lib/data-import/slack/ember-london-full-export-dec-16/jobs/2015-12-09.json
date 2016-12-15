@@ -1,0 +1,170 @@
+[
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "Hello Ember\/Rails LDN developers, we are looking for a strong developer willing to help us bring meritocracy to corporate hiring!  This is a unique opportunity to join a very ambitious project at still an early stage. The platform is already into its Alpha version (<http:\/\/assessup.com|assessup.com>). We need someone who would love the project and is not afraid to work on complex features (encryption, Ember with offline mode..). Please have a look at the spec below and contact me for any additional info - <mailto:lionel.viet@assessup.com|lionel.viet@assessup.com>",
+        "ts": "1449665680.000004"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0FTFSCJX|lionelviet> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0G7SE4TE\/assessup_developer.pdf|AssessUp_Developer.pdf>",
+        "file": {
+            "id": "F0G7SE4TE",
+            "created": 1449665692,
+            "timestamp": 1449665692,
+            "name": "AssessUp_Developer.pdf",
+            "title": "AssessUp_Developer.pdf",
+            "mimetype": "application\/pdf",
+            "filetype": "pdf",
+            "pretty_type": "PDF",
+            "user": "U0FTFSCJX",
+            "editable": false,
+            "size": 545798,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0G7SE4TE\/assessup_developer.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0G7SE4TE\/download\/assessup_developer.pdf?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0G7SE4TE\/assessup_developer.pdf",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F0G7SE4TE-97d5411d2d",
+            "channels": [
+                "C03U3R002"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U0FTFSCJX",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0FTFSCJX|lionelviet>",
+        "bot_id": null,
+        "ts": "1449665692.000005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "cool logo",
+        "ts": "1449665730.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "Thanks, that's one of the only things I haven't done, that's probably why!",
+        "ts": "1449665829.000007"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "haha its all about the logo!",
+        "ts": "1449665850.000008"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0FTFSCJX|lionelviet> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0G7YG154\/logo_180_v03.gif|logo_180_v03.gif>",
+        "file": {
+            "id": "F0G7YG154",
+            "created": 1449666009,
+            "timestamp": 1449666009,
+            "name": "logo_180_v03.gif",
+            "title": "logo_180_v03.gif",
+            "mimetype": "image\/gif",
+            "filetype": "gif",
+            "pretty_type": "GIF",
+            "user": "U0FTFSCJX",
+            "editable": false,
+            "size": 521220,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0G7YG154\/logo_180_v03.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0G7YG154\/download\/logo_180_v03.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 203,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 270,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_360.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_gif": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0G7YG154-0b6223a022\/logo_180_v03_480.gif?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 640,
+            "original_h": 360,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/lionelviet\/F0G7YG154\/logo_180_v03.gif",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F0G7YG154-6df491c2b4",
+            "channels": [
+                "C03U3R002"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U0FTFSCJX",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0FTFSCJX|lionelviet>",
+        "bot_id": null,
+        "ts": "1449666024.000009"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I misread that as \u201casses up\u201d first, totally different kind of company\u2026",
+        "ts": "1449667141.000010"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "probably says more about my mind than anything though",
+        "ts": "1449667181.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "Well you're not the first one, we thought about changing the name several times, then couldn't find any better, and actually thought this may be a way for people to remember it (though I probably will have to buy <http:\/\/assesup.com|assesup.com> domain name at some point and redirect..).",
+        "ts": "1449667226.000012"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "you must be getting a lot of traffic",
+        "ts": "1449667296.000013"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "gotta convert",
+        "ts": "1449667297.000014"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hahahahaha",
+        "ts": "1449667301.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0FTFSCJX",
+        "text": "actually this may be a good growth hacking strategy, though I'm not entirely persuaded that the targeted users are the same..",
+        "ts": "1449667352.000016"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "lol",
+        "ts": "1449667384.000017"
+    }
+]

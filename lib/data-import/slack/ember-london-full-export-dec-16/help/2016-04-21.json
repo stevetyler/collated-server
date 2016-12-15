@@ -1,0 +1,178 @@
+[
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "re: closure actions... I see they don't stopPropagation\/preventDefault by default, which makes them annoying to use in some contexts.",
+        "ts": "1461246971.000002"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "For example: `&lt;form onsubmit={{action 'save'}}&gt;`. I have to make an effort to capture the event and `preventDefault` it on the action handler.",
+        "ts": "1461246975.000003"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "On the other hand, I have seen in the past advice to prefer closure actions over \"classic\" ones.",
+        "ts": "1461246978.000004"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "So what is recommended here? Should I use them as I see more appropriate on each case, or should I actually prefer closure actions?",
+        "ts": "1461246981.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah that is an important gotcha",
+        "ts": "1461247315.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "The few times I\u2019ve come across this I\u2019ve opted to use `{{action \u201csave\u201d on=\u201csubmit\u201d}}` to get the `preventDefault` \"for free\"",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1461247372.000000"
+        },
+        "ts": "1461247367.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "does seem a shame to have both forms though \u00af\\_(\u30c4)_\/\u00af",
+        "ts": "1461247390.000009"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "yeah",
+        "ts": "1461247406.000010"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I just noticed the guides only mention the classic style (unless I missed something)",
+        "ts": "1461247426.000011"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "so I\u2019m going to continue using classic where it saves me that step",
+        "ts": "1461247445.000012"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "thanks",
+        "ts": "1461247450.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah \u2014\u00a0I don\u2019t think anyone\u2019s suggesting `{{action}}` will be removed",
+        "ts": "1461247578.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you have two styles for maximum flexibility",
+        "ts": "1461247586.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "though I think mixonic and mmun would really like us to have `&lt;div {{add-event-listener \u201cclick\u201d \u201cmyAction\u201d}}&gt;`",
+        "ts": "1461247624.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or even `&lt;div {{on \"click\" \"myAction\"}}&gt;`",
+        "ts": "1461247641.000017"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "ok\u2026 not familiar with those",
+        "ts": "1461247652.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "they don\u2019t exist\u2026 yet",
+        "ts": "1461247659.000019"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "tell you what though",
+        "ts": "1461247662.000020"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "phew!",
+        "ts": "1461247666.000021"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I wonder if you could do `&lt;form onsubmit={{action (prevent-default (action \u201cmyAction\u201d))}}&gt;`",
+        "ts": "1461247702.000022"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "i.e. curry your action in another action which does `event.preventDefault`",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1461247727.000000"
+        },
+        "ts": "1461247725.000023"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "hm, still a bit annoying, but interesting",
+        "ts": "1461247742.000025"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "by the way, all this is with view to the workshop I\u2019ll run here at the office tomorrow",
+        "ts": "1461247760.000026"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I\u2019m looking into stuff really closely, and suddenly I have a lot of questions",
+        "ts": "1461247777.000027"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah",
+        "ts": "1461247832.000028"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "keep in mind that ember\u2019s evolution is like that of the platform itself",
+        "ts": "1461247842.000029"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "i.e. old and new APIs coexisting",
+        "ts": "1461247848.000030"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "fair enough",
+        "ts": "1461248279.000031"
+    }
+]

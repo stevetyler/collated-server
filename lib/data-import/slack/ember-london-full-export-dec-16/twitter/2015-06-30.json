@@ -1,0 +1,119 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Many thanks to <https:\/\/twitter.com\/CrowdStrike|@CrowdStrike> for sponsoring our June project night.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/615796009038262273",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/615796009038262273>",
+                "text": "Many thanks to <https:\/\/twitter.com\/CrowdStrike|@CrowdStrike> for sponsoring our June project night.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1435652184.000028"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: July\u2019s meetup will be lazer focused on Ember. Watch this space for the line-up.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/221724935\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/615796440728649728",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/615796440728649728>",
+                "text": "July\u2019s meetup will be lazer focused on Ember. Watch this space for the line-up.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/221724935\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1435652287.000029"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Un-artificial Intelligence, a talk by <https:\/\/twitter.com\/mseckington|@mseckington> from our June meetup.\n\n<https:\/\/vimeo.com\/132196377>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/615862629148557316",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/615862629148557316>",
+                "text": "Un-artificial Intelligence, a talk by <https:\/\/twitter.com\/mseckington|@mseckington> from our June meetup.\n\n<https:\/\/vimeo.com\/132196377>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1435668067.000030"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: JavaScript Transformation, a talk by <https:\/\/twitter.com\/sebmck|@sebmck> from our June meetup.\n\n<https:\/\/vimeo.com\/132198620>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/615862715320508416",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/615862715320508416>",
+                "text": "JavaScript Transformation, a talk by <https:\/\/twitter.com\/sebmck|@sebmck> from our June meetup.\n\n<https:\/\/vimeo.com\/132198620>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1435668088.000031"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: SANE Stack: Progress Report, a talk by <https:\/\/twitter.com\/mpadourek|@mpadourek> from our June meetup.\n\n<https:\/\/vimeo.com\/132203795>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/615862822921236480",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/615862822921236480>",
+                "text": "SANE Stack: Progress Report, a talk by <https:\/\/twitter.com\/mpadourek|@mpadourek> from our June meetup.\n\n<https:\/\/vimeo.com\/132203795>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1435668113.000032"
+    },
+    {
+        "user": "U04AWR0TU",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U04AWR0TU|harveykandola> has left the channel",
+        "ts": "1435687280.000033"
+    }
+]

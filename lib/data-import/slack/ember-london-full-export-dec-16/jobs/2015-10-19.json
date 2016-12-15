@@ -1,0 +1,32 @@
+[
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "hey guys, I\u2019m a senior full stack developer with 3 years of Ember experience and I\u2019m now looking for contracting gigs in London. You can find my resume here <http:\/\/matteodepalo.com\/>.",
+        "ts": "1445242945.000002",
+        "reactions": [
+            {
+                "name": "100",
+                "users": [
+                    "U043951H9",
+                    "U08ABC8EN"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "user": "U0C6GLVL3",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0C6GLVL3|jonnygreen> has joined the channel",
+        "ts": "1445252925.000003"
+    },
+    {
+        "user": "U0CNE6C00",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CNE6C00|ricardo-localistico> has joined the channel",
+        "ts": "1445257815.000004"
+    }
+]

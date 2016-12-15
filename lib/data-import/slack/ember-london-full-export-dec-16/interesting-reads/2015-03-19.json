@@ -1,0 +1,79 @@
+[
+    {
+        "user": "U043951H9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043951H9|willrax> has joined the channel",
+        "ts": "1426796925.000002"
+    },
+    {
+        "user": "U0439TLAM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0439TLAM|keithbro> has joined the channel",
+        "ts": "1426800622.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<@U03V8V08M>: <http:\/\/revolutionarylifestyledesign.com\/real-estate-part-1-why-you-shouldnt-buy-a-house\/>",
+        "attachments": [
+            {
+                "service_name": "Revolutionary Lifestyle Design",
+                "title": "Real Estate Part 1: Why You Shouldn't Buy A House",
+                "title_link": "http:\/\/revolutionarylifestyledesign.com\/real-estate-part-1-why-you-shouldnt-buy-a-house\/",
+                "text": "This article debunks common reasons for buying a house and outlines why buying a house is a bad financial decision.",
+                "fallback": "Revolutionary Lifestyle Design: Real Estate Part 1: Why You Shouldn't Buy A House",
+                "image_url": "http:\/\/revolutionarylifestyledesign.com\/wp-content\/uploads\/2014\/08\/House1.jpg",
+                "ts": 1408448442,
+                "from_url": "http:\/\/revolutionarylifestyledesign.com\/real-estate-part-1-why-you-shouldnt-buy-a-house\/",
+                "image_width": 333,
+                "image_height": 250,
+                "image_bytes": 187399,
+                "id": 1
+            }
+        ],
+        "ts": "1426801188.000004"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/revolutionarylifestyledesign.com\/real-estate-part-2-shouldnt-invest-real-estate\/>",
+        "attachments": [
+            {
+                "service_name": "Revolutionary Lifestyle Design",
+                "title": "Real Estate Part 2: Why You Shouldn't Invest In Real Estate",
+                "title_link": "http:\/\/revolutionarylifestyledesign.com\/real-estate-part-2-shouldnt-invest-real-estate\/",
+                "text": "In part 2 of this series on real estate this article describes why investing in properties is a bad strategy for your financial future.",
+                "fallback": "Revolutionary Lifestyle Design: Real Estate Part 2: Why You Shouldn't Invest In Real Estate",
+                "image_url": "http:\/\/revolutionarylifestyledesign.com\/wp-content\/uploads\/2014\/08\/House-3.jpg",
+                "ts": 1408873210,
+                "from_url": "http:\/\/revolutionarylifestyledesign.com\/real-estate-part-2-shouldnt-invest-real-estate\/",
+                "image_width": 375,
+                "image_height": 250,
+                "image_bytes": 476296,
+                "id": 1
+            }
+        ],
+        "ts": "1426801191.000006"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "thanks for that",
+        "ts": "1426801209.000008"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "\"Its almost as bad as signing a lifelong contract based on a woman\u2019s emotions in a country where traditional women don\u2019t exist anymore.\" epic epic quote",
+        "ts": "1426801515.000009"
+    },
+    {
+        "user": "U043AB2QT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043AB2QT|aaron> has joined the channel",
+        "ts": "1426802898.000010"
+    }
+]

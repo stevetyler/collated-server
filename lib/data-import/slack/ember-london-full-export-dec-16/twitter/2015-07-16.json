@@ -1,0 +1,156 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Enjoy our July 2015 datablast (aka the \"intro ramble\")\n\n<https:\/\/vimeo.com\/133421896>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621725365661270016",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621725365661270016>",
+                "text": "Enjoy our July 2015 datablast (aka the \"intro ramble\")\n\n<https:\/\/vimeo.com\/133421896>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437065853.000032"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Testing with Ember CLI Mirage, a talk by <https:\/\/twitter.com\/willrax|@willrax> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133635981>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621725551611523072",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621725551611523072>",
+                "text": "Testing with Ember CLI Mirage, a talk by <https:\/\/twitter.com\/willrax|@willrax> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133635981>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437065897.000033"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Building a Side Cart with Spree Ember, a talk by <https:\/\/twitter.com\/_HHFF|@_HHFF> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133635980>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621725665885294592",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621725665885294592>",
+                "text": "Building a Side Cart with Spree Ember, a talk by <https:\/\/twitter.com\/_HHFF|@_HHFF> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133635980>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437065924.000034"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Recording acceptance tests with ember-cli-test-recorder, a talk by <https:\/\/twitter.com\/nikosMaths|@nikosMaths> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133657584>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621725778598866945",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621725778598866945>",
+                "text": "Recording acceptance tests with ember-cli-test-recorder, a talk by <https:\/\/twitter.com\/nikosMaths|@nikosMaths> from our July 2015 meetup.\n\n<https:\/\/vimeo.com\/133657584>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437065951.000035"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/JSummersMuir|@JSummersMuir> they\u2019re all up now on <https:\/\/vimeo.com\/emberlondon>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621726069914251264",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621726069914251264>",
+                "text": "<https:\/\/twitter.com\/JSummersMuir|@JSummersMuir> they\u2019re all up now on <https:\/\/vimeo.com\/emberlondon>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437066021.000036"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/_HHFF|@_HHFF> @ballPtPenguin@spreecommerce we didn\u2019t end up live streaming but the videos are up here:\n\n<https:\/\/vimeo.com\/emberlondon>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621726214407987200",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621726214407987200>",
+                "text": "<https:\/\/twitter.com\/_HHFF|@_HHFF> @ballPtPenguin@spreecommerce we didn\u2019t end up live streaming but the videos are up here:\n\n<https:\/\/vimeo.com\/emberlondon>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437066055.000037"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/chadhietala|@chadhietala> <https:\/\/twitter.com\/wycats|@wycats> <https:\/\/github.com\/brainshave\/ancient-oak> takes the same approach. Worth a look.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/621927521723006976",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/621927521723006976>",
+                "text": "<https:\/\/twitter.com\/chadhietala|@chadhietala> <https:\/\/twitter.com\/wycats|@wycats> <https:\/\/github.com\/brainshave\/ancient-oak> takes the same approach. Worth a look.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1437114050.000038"
+    }
+]

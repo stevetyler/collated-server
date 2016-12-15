@@ -1,0 +1,27 @@
+[
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "nw <@U0958RLPM>",
+        "ts": "1455697532.000003"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Anyone wants some StackOverflow karma? :simple_smile:\n<http:\/\/stackoverflow.com\/questions\/35449946\/404-like-error-from-ember-data-serializer>",
+        "attachments": [
+            {
+                "title": "404-like error from Ember-Data serializer",
+                "title_link": "http:\/\/stackoverflow.com\/questions\/35449946\/404-like-error-from-ember-data-serializer",
+                "text": "Using Ember and Ember-data, I work against an API that I don't control. In a very specific case, it returns an apparently valid response (status 200), that turns out to be not that useful after",
+                "fallback": "404-like error from Ember-Data serializer",
+                "thumb_url": "http:\/\/cdn.sstatic.net\/stackoverflow\/img\/apple-touch-icon@2.png?v=73d79a89bded&a",
+                "from_url": "http:\/\/stackoverflow.com\/questions\/35449946\/404-like-error-from-ember-data-serializer",
+                "thumb_width": 316,
+                "thumb_height": 316,
+                "id": 1
+            }
+        ],
+        "ts": "1455703934.000004"
+    }
+]

@@ -1,0 +1,225 @@
+[
+    {
+        "user": "U04TVH682",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TVH682|simonjefford> has joined the channel",
+        "ts": "1432024076.000009"
+    },
+    {
+        "user": "U04TVH6N8",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TVH6N8|benthompson> has joined the channel",
+        "ts": "1432024078.000010"
+    },
+    {
+        "user": "U04TVTLQ8",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TVTLQ8|bryancrotaz> has joined the channel",
+        "ts": "1432025855.000011"
+    },
+    {
+        "user": "U04UJ2HMT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04UJ2HMT|jonny> has joined the channel",
+        "ts": "1432027813.000012"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "anyone used this ? <https:\/\/github.com\/hammerjs\/hammer.js\/>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "hammerjs\/hammer.js",
+                "title_link": "https:\/\/github.com\/hammerjs\/hammer.js\/",
+                "text": "hammer.js - A javascript library for multi-touch gestures :\/\/ You can touch this",
+                "fallback": "GitHub: hammerjs\/hammer.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/7997161?v=3&s=400",
+                "from_url": "https:\/\/github.com\/hammerjs\/hammer.js\/",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1432028259.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, without success",
+        "ts": "1432028377.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1> has some opinions too",
+        "ts": "1432028391.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s lacking a maintainer",
+        "ts": "1432028411.000017"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "my frustrations mainly related to it interfering with scrolling",
+        "ts": "1432028429.000018"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this was many months ago, so I don\u2019t remember clearly",
+        "ts": "1432028440.000019"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i\u2019m mainly an external observer, my concern is what <@U03V8V08M> already pointed out \u2026 the maintainer has taken a bow and the issues are piling up.",
+        "ts": "1432028498.000020"
+    },
+    {
+        "user": "U04TZ8K6S",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TZ8K6S|cjroebuck> has joined the channel",
+        "ts": "1432041699.000021"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<http:\/\/techcrunch.com\/2015\/05\/19\/meteor-raises-20m-to-build-the-one-javascript-stack-to-rule-them-all\/>",
+        "attachments": [
+            {
+                "service_name": "TechCrunch",
+                "service_url": "http:\/\/techcrunch.com",
+                "title": "Meteor Raises $20M To Build The One JavaScript Stack To Rule Them\u00a0All",
+                "title_link": "http:\/\/techcrunch.com\/2015\/05\/19\/meteor-raises-20m-to-build-the-one-javascript-stack-to-rule-them-all\/",
+                "author_name": "Kyle Russell",
+                "thumb_url": "https:\/\/i0.wp.com\/tctechcrunch2011.files.wordpress.com\/2015\/05\/screen-shot-2015-05-18-at-5-41-57-pm.png?fit=200%2C150",
+                "thumb_width": 200,
+                "thumb_height": 110,
+                "text": "The competitive landscape for app development tool providers continues to become tighter, with Meteor Development Group raising $20 million for its stack of frameworks and tools for developing web and mobile applications in JavaScript.",
+                "fallback": "TechCrunch Link: Meteor Raises $20M To Build The One JavaScript Stack To Rule Them&nbsp;All",
+                "from_url": "http:\/\/techcrunch.com\/2015\/05\/19\/meteor-raises-20m-to-build-the-one-javascript-stack-to-rule-them-all\/",
+                "id": 1
+            }
+        ],
+        "ts": "1432052228.000022"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Does meteor work well with ember <@U047GTU64>?",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1432055184.000000"
+        },
+        "ts": "1432055181.000024"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "haha",
+        "ts": "1432055470.000026"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I would guess the answer is \"no\"",
+        "ts": "1432055633.000027"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "my impression is that you either opt into the complete meteor stack or choose something else",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1432055667.000000"
+        },
+        "ts": "1432055659.000028"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "very happy to be told I\u2019m wrong though",
+        "ts": "1432055727.000030"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "they have there own hbs: <https:\/\/atmospherejs.com\/meteor\/spacebars>",
+        "attachments": [
+            {
+                "text": "The best way to discover reliable Meteor packages to install in your apps.",
+                "fallback": "The best way to discover reliable Meteor packages to install in your apps.",
+                "from_url": "https:\/\/atmospherejs.com\/meteor\/spacebars",
+                "id": 1
+            }
+        ],
+        "ts": "1432055854.000031"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "all this churn just makes me do more with vanilla and microlibs :simple_smile:",
+        "ts": "1432055903.000033"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "nikoskatsikanis: the downside of that is when other developers come to work on your apps there will be some amount of extra overhead getting familiar",
+        "ts": "1432056244.000034"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "as opposed to a convention-driven framework where you pretty much know where everything will be",
+        "ts": "1432056279.000035"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "not saying it\u2019s a cut-and-dry argument",
+        "ts": "1432056301.000036"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "there absolutely are projects that don\u2019t warrant a framework",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1432056324.000000"
+        },
+        "ts": "1432056320.000037"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "to support this argument, I\u2019ve done ~60 remote pairing session on Ember apps",
+        "ts": "1432056751.000039"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and it really is true",
+        "ts": "1432056755.000040"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I was able to dive in, without knowing much in advance about any app",
+        "ts": "1432056792.000041"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Good points!",
+        "ts": "1432057009.000042"
+    }
+]

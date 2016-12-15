@@ -1,0 +1,185 @@
+[
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "basic question: I have a promise, result of using the ajax service. It\u2019s a computed property. How do I do so that code that reads from that comprop can deal with it as if it was an array?",
+        "ts": "1468578759.000042"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "relevant code:",
+        "ts": "1468579353.000043"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "```\nfutureDeliveries: Ember.computed(\"deliveries\", function() {\n  const now = new Date();\n  return this.get(\"deliveries\")\n    .filter(d =&gt; d.eta &gt;= now)\n    .sortBy(\"eta\");\n}),\n\ndeliveries: Ember.computed(\"storeId\", function() {\n  return this.fetchDeliveries();\n}),\n\nfetchDeliveries() {\n  const storeId = this.get(\"storeId\");\n  let promise = Ember.RSVP.Promise.resolve([]);\n  if (storeId) {\n    promise = this.get(\"ajax\")\n      .request(`\/stores\/${storeId}\/deliveries`)\n      .then(res =&gt; res.deliveries)\n      .then(delivs =&gt; delivs.map(parseDelivery));\n  }\n  return DS.PromiseArray.create({promise});\n},\n```",
+        "ts": "1468579357.000044"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "right. Seems to work if I make the comprop depend on `deliveries.content` as opposed to `deliveries`",
+        "ts": "1468579492.000045"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "bit annoying though...",
+        "ts": "1468579496.000046"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "to make it less horrible, I created an intermediate comprop:",
+        "ts": "1468579686.000047"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "```\ndeliveries: Ember.computed(\"deliveriesPromise.content\", function() {\n  return this.get(\"deliveriesPromise\");\n}),\n```",
+        "ts": "1468579697.000048"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U05485UQL>: you could look at using DS.PromiseArray",
+        "ts": "1468583035.000049"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or <https:\/\/github.com\/fivetanley\/ember-promise-helpers>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "fivetanley\/ember-promise-helpers",
+                "title_link": "https:\/\/github.com\/fivetanley\/ember-promise-helpers",
+                "text": "ember-promise-helpers - Promise-y sugar for your Ember templates.",
+                "fallback": "GitHub: fivetanley\/ember-promise-helpers",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/1275021?v=3&s=400",
+                "from_url": "https:\/\/github.com\/fivetanley\/ember-promise-helpers",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1468583046.000050"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "yes, I\u2019m returning a PromiseArray at `fetchDeliveries`, but it didn\u2019t quite do what I needed",
+        "ts": "1468583060.000052"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "oh sorry, I didn\u2019t read your code very thoroughyl!",
+        "ts": "1468583091.000053"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "no worries! :wink: It is a typeful",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1468583106.000000"
+        },
+        "ts": "1468583103.000054"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "your `futureDeliveries` CP should probably depend upon `\"deliveries.@each.eta\"`",
+        "ts": "1468583125.000056"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "hm, hm\u2026 right. I\u2019ll try that",
+        "ts": "1468583149.000057"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and I\u2019d be tempted to make `now` a separate CP",
+        "ts": "1468583157.000058"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "yes, I also did that. I have a `currentTime` CP (like `now`) that `futureDeliveries` now depends on",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1468583186.000000"
+        },
+        "ts": "1468583184.000059"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "```\nnow: computed(() =&gt; new Date()),\n\nfutureDeliveries: computed(\"deliveries.@each.eta\", \"now\", function() {\n  const now = this.get('now');\n\n  return this.get(\"deliveries\")\n    .filter(d =&gt; d.eta &gt;= now)\n    .sortBy(\"eta\");\n}),\n```",
+        "ts": "1468583201.000061"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "okay, yeah, perfect",
+        "ts": "1468583212.000062"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "might just be the dependency declaration then",
+        "ts": "1468583232.000063"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "incidentally, I have `now` getting updated with an ember-concurrency task",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1468583246.000000"
+        },
+        "ts": "1468583243.000064"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "nice",
+        "ts": "1468583250.000066"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "but it\u2019s pretty much what you got there, with the exception of the \u2018@each\u2019, that I\u2019m going to look into",
+        "ts": "1468583277.000067"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "thanks for that",
+        "ts": "1468583280.000068"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it could be `deliveries.@each.eta` or `deliveries.[]`",
+        "ts": "1468583298.000069"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "I have it working now, by the way. Now I\u2019m just wondering how it can be prettier",
+        "ts": "1468583304.000070"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":ok_hand:",
+        "ts": "1468583312.000071"
+    }
+]

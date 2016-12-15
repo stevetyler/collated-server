@@ -1,0 +1,23 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "what a brilliant idea: <https:\/\/www.zapchain.com\/create-a-community\/>",
+        "attachments": [
+            {
+                "service_name": "ZapChain",
+                "title": "How do you engage your community? Pay them.",
+                "title_link": "https:\/\/www.zapchain.com\/create-a-community\/",
+                "text": "Incentivize new posts and engagement with Bitcoin tips. Tiny bits of money on every post encourage your audience to share.",
+                "fallback": "ZapChain: How do you engage your community? Pay them.",
+                "image_url": "https:\/\/s3.amazonaws.com\/files.parsetfss.com\/f4ce45fa-ab12-4c24-a33c-a100a8133f3f\/tfss-9bcd5102-770c-4656-8145-60736470183e-ut2fjxHnvizapchain_communities.png",
+                "from_url": "https:\/\/www.zapchain.com\/create-a-community\/",
+                "image_width": 477,
+                "image_height": 250,
+                "image_bytes": 218498,
+                "id": 1
+            }
+        ],
+        "ts": "1447247634.000005"
+    }
+]

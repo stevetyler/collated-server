@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U07CK66U8",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U07CK66U8|joshcrowder> has left the channel",
+        "ts": "1450102992.000029"
+    }
+]

@@ -1,0 +1,131 @@
+[
+    {
+        "user": "U03SSL0FM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03SSL0FM|codepreneur> has joined the channel",
+        "ts": "1432028180.000002"
+    },
+    {
+        "user": "U03SSL0FM",
+        "purpose": "If you need help with Ember, ask here.",
+        "type": "message",
+        "subtype": "channel_purpose",
+        "text": "<@U03SSL0FM|codepreneur> set the channel purpose: If you need help with Ember, ask here.",
+        "ts": "1432028181.000003"
+    },
+    {
+        "user": "U04UJ2HMT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04UJ2HMT|jonny> has joined the channel",
+        "ts": "1432028283.000004"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "We\u2019re currently having trouble with our site <http:\/\/www.whichledlight.com|www.whichledlight.com> with it working on older IE browsers.. specifically we would like IE9 to actually work with it\u2026 does anyone know if any of these addons or dependencies screw up IE9. Routes to acquire a model don\u2019t seem to work at all on IE9.\n```\n\"devDependencies\": {\n   \"broccoli-asset-rev\": \"^2.0.0\",\n   \"broccoli-clean-css\": \"^1.0.0\",\n   \"broccoli-ember-hbs-template-compiler\": \"^1.6.1\",\n   \"broccoli-uglify-js\": \"^0.1.3\",\n   \"ember-cli\": \"0.1.6\",\n   \"ember-cli-compass-compiler\": \"0.0.17\",\n   \"ember-cli-content-security-policy\": \"0.3.0\",\n   \"ember-cli-dependency-checker\": \"0.0.7\",\n   \"ember-cli-esnext\": \"0.1.1\",\n   \"ember-cli-ic-ajax\": \"0.1.1\",\n   \"ember-cli-inject-live-reload\": \"^1.3.0\",\n   \"ember-cli-moment\": \"0.0.1\",\n   \"ember-cli-qunit\": \"0.1.2\",\n   \"ember-cli-scsslint\": \"tomasbasham\/ember-cli-scsslint\",\n   \"ember-cli-sitemap\": \"tomasbasham\/ember-cli-sitemap\",\n   \"ember-data\": \"1.0.0-beta.14.1\",\n   \"ember-validations\": \"whichledlight\/ember-validations#develop\",\n   \"express\": \"^4.8.5\",\n   \"glob\": \"^4.0.5\",\n   \"liquid-fire\": \"^0.15.2\",\n   \"shelljs\": \"^0.3.0\"\n },\n \"ember-addon\": {\n   \"paths\": [\n     \"lib\/ember-auth\",\n     \"lib\/ember-gatekeeper\",\n     \"lib\/ember-metaphor\",\n     \"lib\/ember-analytics\",\n     \"lib\/ember-dispatch\",\n     \"lib\/ember-braintree\"\n   ]\n }\n```\njonny [10:27 AM]\nSorry a sound like a beginner.. i\u2019m just the designer on the project :disappointed:",
+        "ts": "1432028287.000005"
+    },
+    {
+        "user": "U040LNZ6Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040LNZ6Y|kelvin> has joined the channel",
+        "ts": "1432028301.000006"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "would using older ember cli be a bad thing..? I think we didn't update to a newer version as we were reading that newer version was dropping support for older browsers",
+        "ts": "1432028467.000007"
+    },
+    {
+        "user": "U04BD6KB1",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04BD6KB1|ksnyde> has joined the channel",
+        "ts": "1432028956.000008"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "SCRIPT5022: Syntax error, unrecognised expression: [data-Times New Roman-offcanvas]\nvendor.js, line 25 character 5366",
+        "ts": "1432029344.000009"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "that's what we get in the console",
+        "ts": "1432029355.000010"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04UJ2HMT>: Ember-CLI is a great tool but it is a new tool and as its evolving quickly I would say it\u2019s a very good idea to stay fairly up-to-date with new versions. As for browser compatibility, that we be more down to the Ember version you\u2019re using (which relates to CLI but is not equiv). I don\u2019t have a succinct answer to the Ember to browser compatibility matrix, maybe someone else does?",
+        "ts": "1432030808.000011"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "thanks <@U04BD6KB1> , any one any ideas?",
+        "ts": "1432031161.000012"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04UJ2HMT>: I\u2019m afraid that\u2019s too little info for me by itself. What are you doing with \u201coffcanvas\u201d? Is this a jQuery plugin you\u2019re using? Foundation maybe?",
+        "ts": "1432031291.000013"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "If you google that error you\u2019ll find a number of people using Foundation with that error message.",
+        "ts": "1432031319.000014"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "it's our navigation, I've changed that over now as well :simple_smile:",
+        "ts": "1432031594.000015"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "yea, seems like the error message keeps coming up with foundation.. with other JS components, like dropdown..magnellan.. etc",
+        "ts": "1432031627.000016"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "oh, yes, offcanvas is foundation",
+        "ts": "1432031649.000017"
+    },
+    {
+        "type": "message",
+        "user": "U04UJ2HMT",
+        "text": "i think the foundation js components that have come up in other peoples errors all require JQuery",
+        "ts": "1432031686.000018"
+    },
+    {
+        "user": "U04TVH682",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04TVH682|simonjefford> has joined the channel",
+        "ts": "1432031921.000019"
+    },
+    {
+        "user": "U045B6S99",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U045B6S99|jamescroft> has joined the channel",
+        "ts": "1432036410.000020"
+    },
+    {
+        "user": "U044QMK6K",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U044QMK6K|rlivsey> has joined the channel",
+        "ts": "1432042044.000021"
+    }
+]

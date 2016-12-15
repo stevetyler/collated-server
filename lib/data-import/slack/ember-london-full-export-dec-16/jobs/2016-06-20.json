@@ -1,0 +1,15 @@
+[
+    {
+        "user": "U0ASPMFPS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ASPMFPS|silentworks> has joined the channel",
+        "ts": "1466415993.000020"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Good morning everyone.   Having landed some new contracts we're expanding our Dev team. I'm looking for two full stack or frontend only JS developers with experience of MVC frameworks, preferably Ember.js. This is a role suitable for someone with 2-4 years of relevant experience, not necessarily commercial. You need to be able to hit the ground running on day 1. \n\nBased at Mornington Crescent we have a small fun team, working on digital media and IoT, in JS, C# and C++, on PC, Raspberry Pi and embedded devices. \n\nThe first project you'd be working on are the scoreboards at Lord's cricket ground - a 280 sq m Ember app! We also work for a film studio in LA, amongst others. Very high profile customers means interesting and challenging problems to solve. It's never boring. \n\nSend CVs to me at <mailto:Bryan.crotaz@silvercurve.co.uk|Bryan.crotaz@silvercurve.co.uk> or pm me here for a chat",
+        "ts": "1466469256.000021"
+    }
+]

@@ -1,0 +1,8 @@
+[
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I\u2019ve got a helper returning a random value from an array. I\u2019d like to have a \u2018reload\u2019 button to change the value. What\u2019s the best way to go about this (short of a full page refresh) or should I be doing this somewhere other than a helper?",
+        "ts": "1462829408.000039"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0A48LWTG",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0A48LWTG|bugant> has joined the channel",
+        "ts": "1441297229.000034"
+    },
+    {
+        "user": "U0A49UQ8Z",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0A49UQ8Z|bugman> has joined the channel",
+        "ts": "1441298081.000035"
+    }
+]

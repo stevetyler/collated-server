@@ -1,0 +1,62 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U051MHBQU>: sounds reasonable. Probably doesn\u2019t even need to be an Ember object. Just a plain old javascript object often does the trick.",
+        "ts": "1463471844.000074"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you might want to create a service to be in charge of that piece of data",
+        "ts": "1463471883.000075"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but you may also find you don\u2019t need the extra complexity yet",
+        "ts": "1463471895.000076"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "<@U03V8V08M>: I\u2019ll give it a go with a plain old javascript object first then and see if the logic starts to bloat. In the meantime it turns out <http:\/\/forecast.io|forecast.io> doesn\u2019t like their API being used in a pure javascript app so I have to build an API proxy for it.",
+        "ts": "1463475817.000077"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "Back to Rails for now, maybe rebuild the API proxy in Phoenix further down the line",
+        "ts": "1463475836.000078"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "APIs, why do they have to be so inconvenient?",
+        "ts": "1463476196.000079"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "this is all because google have deprecated geolocation over HTTP, so I have to move to HTTPS but OpenWeather is only over HTTP and then I get the mix of secure and insecure origins error so I have to then get a HTTPS API which is <http:\/\/Forecast.IO|Forecast.IO> which I decided to do in Ember because Ember and it makes local SSL easy",
+        "ts": "1463476425.000080"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "all for a joke website",
+        "ts": "1463476430.000081"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "lol",
+        "ts": "1463476472.000082"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "talk about scope creep",
+        "ts": "1463476936.000083"
+    }
+]

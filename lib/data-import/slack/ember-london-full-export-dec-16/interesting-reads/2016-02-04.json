@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0L9R72E6",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0L9R72E6|rubycalling> has joined the channel",
+        "ts": "1454602613.000004"
+    }
+]

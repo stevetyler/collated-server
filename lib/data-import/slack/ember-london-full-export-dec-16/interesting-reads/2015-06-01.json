@@ -1,0 +1,22 @@
+[
+    {
+        "user": "U05485UQL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1433151440.000015"
+    },
+    {
+        "user": "U0548MFSE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0548MFSE|owain> has joined the channel",
+        "ts": "1433154072.000016"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03SSL0FM>: are you going to try it? Let me know if you do.",
+        "ts": "1433168261.000017"
+    }
+]

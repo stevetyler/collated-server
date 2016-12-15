@@ -1,0 +1,27 @@
+[
+    {
+        "user": "U04AW7GPM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04AW7GPM|mikebulpitt> has joined the channel",
+        "ts": "1439199323.000002"
+    },
+    {
+        "type": "message",
+        "user": "U04AW7GPM",
+        "text": "I work for a company called show my homework and we're current looking for a few ember.js developers. We're just about to launch our new app which is a rails 4 api and ember.js frontend. Ideally looking for permanent candidates. PM me if you're interested.",
+        "ts": "1439216460.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Hi <@U04AW7GPM>. Sorry for the slow reply. If you\u2019d like me to add a slide to this month\u2019s intro deck, please email full details to <mailto:info@emberlondon.com|info@emberlondon.com>",
+        "ts": "1439225389.000004"
+    },
+    {
+        "type": "message",
+        "user": "U04AW7GPM",
+        "text": "<@U03V8V08M>: Will do. Thanks :simple_smile:",
+        "ts": "1439229337.000005"
+    }
+]

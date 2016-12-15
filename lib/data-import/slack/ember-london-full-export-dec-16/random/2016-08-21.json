@@ -1,0 +1,73 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Anyone checked out monodraw yet (<http:\/\/monodraw.helftone.com\/>)",
+        "ts": "1471791104.000105"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I love that it\u2019s a \u201cthing\"",
+        "ts": "1471791111.000106"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I bought my license",
+        "ts": "1471791119.000107"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F23CW2F39\/-.txt|Untitled>",
+        "file": {
+            "id": "F23CW2F39",
+            "created": 1471791678,
+            "timestamp": 1471791678,
+            "name": "-.txt",
+            "title": "Untitled",
+            "mimetype": "text\/plain",
+            "filetype": "text",
+            "pretty_type": "Plain Text",
+            "user": "U04BD6KB1",
+            "editable": true,
+            "size": 2478,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F23CW2F39\/-.txt?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F23CW2F39\/download\/-.txt?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F23CW2F39\/-.txt",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F23CW2F39-1f74d7594a",
+            "edit_link": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F23CW2F39\/-.txt\/edit",
+            "preview": "\r\n\r\n\r\n                     ________.__\r\n                    \/  _____\/|__| _____   _____   ____     __________   _____   ____\r",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\" oncopy=\"if(event.clipboardData){event.clipboardData.setData('text\/plain',window.getSelection().toString().replace(\/\\u200b\/g,''));event.preventDefault();event.stopPropagation();}\">\n<div class=\"CodeMirror-code\">\n<div><pre><\/pre><\/div>\n<div><pre><\/pre><\/div>\n<div><pre><\/pre><\/div>\n<div><pre>                     ________.__<\/pre><\/div>\n<div><pre>                    \/  _____\/|__| _____   _____   ____     __________   _____   ____<\/pre><\/div>\n<div><pre><\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 34,
+            "lines_more": 29,
+            "preview_is_truncated": true,
+            "channels": [
+                "C03SSL0H5"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1471791679.000108"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U1AGPQ6BS> woudl\u2019ve love to build something like that",
+        "ts": "1471801723.000109"
+    }
+]

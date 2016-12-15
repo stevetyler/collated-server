@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U0CT5HFSS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CT5HFSS|opsb> has joined the channel",
+        "ts": "1445421966.000015"
+    },
+    {
+        "user": "U0CTN02SZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTN02SZ|gavinjoyce> has joined the channel",
+        "ts": "1445438285.000016"
+    },
+    {
+        "user": "U0CTS7988",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTS7988|gilles> has joined the channel",
+        "ts": "1445440021.000017"
+    }
+]

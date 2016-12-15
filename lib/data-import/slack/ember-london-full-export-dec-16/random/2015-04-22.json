@@ -1,0 +1,15 @@
+[
+    {
+        "type": "message",
+        "user": "U040LNZ6Y",
+        "text": "Anyone going to <https:\/\/edgeconf.com\/2015-london> ?",
+        "ts": "1429693380.000040"
+    },
+    {
+        "user": "U04G84Q3E",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04G84Q3E|simonki> has joined the channel",
+        "ts": "1429716115.000041"
+    }
+]

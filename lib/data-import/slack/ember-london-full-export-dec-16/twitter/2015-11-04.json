@@ -1,0 +1,31 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: This month we\u2019re talking validation, porting Rails UIs, and BDD with <https:\/\/twitter.com\/andrew_mcardle|@andrew_mcardle>, <https:\/\/twitter.com\/jonbeer|@jonbeer> and <https:\/\/twitter.com\/mschinis|@mschinis>.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/224459337\/>",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/661835422130139136",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/661835422130139136>",
+                "text": "This month we\u2019re talking validation, porting Rails UIs, and BDD with <https:\/\/twitter.com\/andrew_mcardle|@andrew_mcardle>, <https:\/\/twitter.com\/jonbeer|@jonbeer> and <https:\/\/twitter.com\/mschinis|@mschinis>.\n\n<http:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/224459337\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1446628835.000021"
+    },
+    {
+        "user": "U0DRL0LE9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0DRL0LE9|diego> has joined the channel",
+        "ts": "1446654021.000022"
+    }
+]

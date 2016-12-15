@@ -1,0 +1,24 @@
+[
+    {
+        "user": "U03V8V08M",
+        "members": [
+            "U03V5B7KY",
+            "U03V8V08M",
+            "U040MK408",
+            "U043951H9",
+            "U043AB2QT",
+            "U044QMK6K",
+            "U045SGGD8",
+            "U046D0DSD",
+            "U04BD6KB1",
+            "U04TVTLQ8",
+            "U095LRN06",
+            "U09ABGTUJ",
+            "U0C5RUAQ4"
+        ],
+        "type": "message",
+        "subtype": "channel_archive",
+        "text": "<@U03V8V08M|jgwhite> archived the channel (w\/ 13 members)",
+        "ts": "1463387996.000073"
+    }
+]

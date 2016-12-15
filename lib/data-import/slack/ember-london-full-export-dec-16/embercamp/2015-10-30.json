@@ -1,0 +1,31 @@
+[
+    {
+        "type": "message",
+        "user": "U0C6GLVL3",
+        "text": "Fantastic day yesterday. Great to put so many faces to names and meet so many new people. Congratulations and many thanks to <@U03V8V08M> for organising. ",
+        "ts": "1446198497.000002",
+        "reactions": [
+            {
+                "name": "blush",
+                "users": [
+                    "U03V8V08M",
+                    "U043AB2QT"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0C6GLVL3",
+        "text": "(I see appropriate eulogising has already taken place in <#C03SSL0GP|general> )",
+        "ts": "1446199041.000003"
+    },
+    {
+        "user": "U07CK66U8",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U07CK66U8|joshcrowder> has joined the channel",
+        "ts": "1446201067.000004"
+    }
+]

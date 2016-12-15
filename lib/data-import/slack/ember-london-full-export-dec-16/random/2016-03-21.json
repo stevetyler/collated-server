@@ -1,0 +1,92 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F0U62PFDG\/pasted_image_at_2016_03_21_10_19_am.png|Drumpf>",
+        "file": {
+            "id": "F0U62PFDG",
+            "created": 1458555563,
+            "timestamp": 1458555563,
+            "name": "Pasted image at 2016_03_21 10_19 AM.png",
+            "title": "Drumpf",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 256812,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0U62PFDG\/pasted_image_at_2016_03_21_10_19_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F0U62PFDG\/download\/pasted_image_at_2016_03_21_10_19_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0U62PFDG-1b56199eaa\/pasted_image_at_2016_03_21_10_19_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0U62PFDG-1b56199eaa\/pasted_image_at_2016_03_21_10_19_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0U62PFDG-1b56199eaa\/pasted_image_at_2016_03_21_10_19_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 269,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F0U62PFDG-1b56199eaa\/pasted_image_at_2016_03_21_10_19_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 470,
+            "original_h": 351,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F0U62PFDG\/pasted_image_at_2016_03_21_10_19_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F0U62PFDG-2bee8cff33",
+            "channels": [
+                "C03SSL0H5"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0,
+            "reactions": [
+                {
+                    "name": "grin",
+                    "users": [
+                        "U03V8V08M"
+                    ],
+                    "count": 1
+                },
+                {
+                    "name": "+1",
+                    "users": [
+                        "U0ENJ4F34"
+                    ],
+                    "count": 1
+                }
+            ]
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1458555564.000009"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Trying to update to ember-cli 2.4.2 (from 1.13.13) and I am getting this:\n\n```\nUncaught TypeError: Cannot read property 'extend' of undefined\n```\n\nHow would one begin to find out where this is coming from?",
+        "ts": "1458560833.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "<@U043AB2QT>: Did you manage to debug that one? I'm getting the same error as well",
+        "ts": "1458586459.000013"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U03V3P960>: Yep. Needed to import ActiveModelAdapter instead of use `DS.ActiveModelAdapter`",
+        "ts": "1458586565.000014"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "ah ok..thanks!",
+        "ts": "1458586623.000015"
+    }
+]

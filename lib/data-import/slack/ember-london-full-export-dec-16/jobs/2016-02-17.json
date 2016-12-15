@@ -1,0 +1,41 @@
+[
+    {
+        "user": "U062LD65Q",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U062LD65Q|akatov> has joined the channel",
+        "ts": "1455726790.000003"
+    },
+    {
+        "type": "message",
+        "user": "U062LD65Q",
+        "text": "We are looking for a senior software engineer to help us build the future of OTC commodity trading. We are building a real-time infrastructure with an Ember.js frontend. For more details have a look at <http:\/\/jobs.emberjs.com\/jobs\/102470-senior-software-engineer-at-tallarium> or DM me.",
+        "attachments": [
+            {
+                "service_name": "Ember Jobs",
+                "title": "Senior Software Engineer",
+                "title_link": "http:\/\/jobs.emberjs.com\/jobs\/102470-senior-software-engineer-at-tallarium",
+                "text": "We are a London-based startup building software for the $3tn+ commodity trading market. Our goal is to bring state-of-the-art web technologies and...",
+                "fallback": "Ember Jobs: Senior Software Engineer",
+                "from_url": "http:\/\/jobs.emberjs.com\/jobs\/102470-senior-software-engineer-at-tallarium",
+                "thumb_url": "https:\/\/d6dyoorq84mou.cloudfront.net\/uploads\/job\/logo\/102470\/tallarium.jpg",
+                "thumb_width": 100,
+                "thumb_height": 100,
+                "id": 1
+            }
+        ],
+        "ts": "1455726951.000004",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U08ABC8EN",
+                    "U062LD65Q",
+                    "U040MK408",
+                    "U047GTU64"
+                ],
+                "count": 4
+            }
+        ]
+    }
+]

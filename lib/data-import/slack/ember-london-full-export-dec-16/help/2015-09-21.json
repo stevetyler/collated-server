@@ -1,0 +1,8 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8C0DJ",
+        "text": "If data has changed server-side in between visiting the same route twice, I think you'll need to manually call an update as Ember won't know it needs to check.",
+        "ts": "1442851577.000008"
+    }
+]

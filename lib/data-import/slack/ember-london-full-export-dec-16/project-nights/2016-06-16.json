@@ -1,0 +1,29 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/github.com\/samdemaeyer\/predictor>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "samdemaeyer\/predictor",
+                "title_link": "https:\/\/github.com\/samdemaeyer\/predictor",
+                "text": "Contribute to predictor development by creating an account on GitHub.",
+                "fallback": "GitHub: samdemaeyer\/predictor",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/7160913?v=3&s=400",
+                "from_url": "https:\/\/github.com\/samdemaeyer\/predictor",
+                "thumb_width": 225,
+                "thumb_height": 225,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1466109955.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U14KVFYS3>: <http:\/\/ember-concurrency.com>",
+        "ts": "1466110451.000005"
+    }
+]

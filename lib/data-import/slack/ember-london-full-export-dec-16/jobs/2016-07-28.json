@@ -1,0 +1,45 @@
+[
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "Hello everyone, we have a new permanent JS dev position at British Gas. Check out <https:\/\/www.linkedin.com\/jobs2\/view\/175421455>",
+        "attachments": [
+            {
+                "service_name": "LinkedIn",
+                "title": "Javascript Developer\/Engineer",
+                "title_link": "https:\/\/www.linkedin.com\/jobs2\/view\/175421455",
+                "text": "The Overview BGIS Digital Team are looking for a JavaScript developer to work on our extensive suite of customer facing single page applications residing on <http:\/\/www.britishgas.co.uk|www.britishgas.co.uk>. You will work as a front end engineer on one of our cross functional, agile product teams to deliver best in class experiences for over 10 million customers on an exciting technology stack.Location: Staines (TW18), London Package: Depending on experience The Role What will you be doing?Working as a front end engineer on one of our core agile product teams, you will own the technical implementation of features for your product Ensuring a high level of automated test coverage so we can iterate quickly and effectively. Shaping the evolution of your product by looking at customer feedback, analytics, trends and opportunities along with the rest of your product team Reviewing code and technical designs from your peer developers Sharing development best practices and ideas Contributing to open source initiatives. We love open source! Attending various meet ups and conferences to keep you up to date with the latest trends. We are proudly sponsoring EmberCamp 2016 this year The Person What you will have:Strong grounding in JavaScript and HTML\/CSS A good chunk of knowledge\/experience around frameworks like Ember\/React\/Angular. Our apps are all powered by Ember, so experience with Ember would be a bonus but not a must as long as you have a good grasp of the basics of modern single page application development with JavaScript. We\u2019ll help you get up to speed! Experience with agile engineering practices including Continuous Integration, Test driven development and opportunistic refactoring Experience interacting with RESTful APIs from web applications Personal drive to stay updated with the latest web application technology trends and practices A passion to build and ship engaging, innovative web applications to market quickly Portfolios, demos of your work that will blow us away! The Company British Gas, part of the Centrica Group, supplies gas and electricity to UK residential and business customers, provides central heating and gas appliance installation and maintenance and low-carbon and energy efficient products and services. PLEASE APPLY ONLINE by hitting the 'Apply' button. Please upload your cover letter and CV as one document.Applications will ONLY be accepted via the \u2018Apply\u2019 <http:\/\/button.To|button.To> request an update on this role, or if you have any problems uploading your CV please email <mailto:Alaister.Mortlock@centrica.com|Alaister.Mortlock@centrica.com> typing 'Update Required: 'Javascript Developer\/Engineer (BGIS31940)' in the subject title. Agencies : British Gas operate a preferred supplier arrangement, however if you wish to be considered at the next review session please submit a brief overview of your capability to <mailto:PSL@centrica.com|PSL@centrica.com>",
+                "fallback": "LinkedIn: Javascript Developer\/Engineer",
+                "image_url": "https:\/\/media.licdn.com\/media\/AAEAAQAAAAAAAASVAAAAJGFjNDJlNTk4LWVlYjYtNDA5Yi05NTZiLWIzYjlhNGY5Y2MzZg.png",
+                "from_url": "https:\/\/www.linkedin.com\/jobs2\/view\/175421455",
+                "image_width": 250,
+                "image_height": 250,
+                "image_bytes": 68873,
+                "service_icon": "https:\/\/static.licdn.com\/scds\/common\/u\/img\/icon\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1469691678.000007",
+        "reactions": [
+            {
+                "name": "sun_with_face",
+                "users": [
+                    "U047GTU64"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "Been part of the British Gas team for over a week now, great facilities &amp; team :smile:",
+        "ts": "1469698215.000009"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and very interesting work",
+        "ts": "1469698220.000010"
+    }
+]

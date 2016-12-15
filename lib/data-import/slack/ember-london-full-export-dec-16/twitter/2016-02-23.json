@@ -1,0 +1,90 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> thanks! When we first started posting videos we preferred Vimeo\u2019s player UI and found YouTube a bit\u2026 noisy?",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/702269505364484096",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/702269505364484096>",
+                "text": "<https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> thanks! When we first started posting videos we preferred Vimeo\u2019s player UI and found YouTube a bit\u2026 noisy?",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1456269072.000012"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> YouTube\u2019s player has definitely caught up UI-wise though the surrounding content is still a little noisy and unrelated.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/702269736210604032",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/702269736210604032>",
+                "text": "<https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> YouTube\u2019s player has definitely caught up UI-wise though the surrounding content is still a little noisy and unrelated.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1456269127.000013"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> we\u2019ve been considering cross-posting to YouTube. Perhaps to the general Ember Meetup Videos channel. What do you think?",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/702270263514243072",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/702270263514243072>",
+                "text": "<https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> we\u2019ve been considering cross-posting to YouTube. Perhaps to the general Ember Meetup Videos channel. What do you think?",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1456269253.000014"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> Yup. I think we\u2019ll carry on posting to Vimeo too cos we like the platform. But totally agree the talks should be easy to find",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/702274002186846211",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/702274002186846211>",
+                "text": "<https:\/\/twitter.com\/joshua_hornby|@joshua&lowbar;hornby> Yup. I think we\u2019ll carry on posting to Vimeo too cos we like the platform. But totally agree the talks should be easy to find",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1456270144.000015"
+    }
+]

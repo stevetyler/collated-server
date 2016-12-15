@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U054SBPRC",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U054SBPRC|jonbstrong> has joined the channel",
+        "ts": "1433233957.000006"
+    },
+    {
+        "user": "U054XNZ16",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U054XNZ16|armstrjare> has joined the channel",
+        "ts": "1433257363.000007"
+    }
+]

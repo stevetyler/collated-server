@@ -1,0 +1,45 @@
+[
+    {
+        "user": "U0CT5HFSS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CT5HFSS|opsb> has joined the channel",
+        "ts": "1445421966.000014"
+    },
+    {
+        "user": "U0CTN02SZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTN02SZ|gavinjoyce> has joined the channel",
+        "ts": "1445438285.000015"
+    },
+    {
+        "user": "U0CTS7988",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0CTS7988|gilles> has joined the channel",
+        "ts": "1445440021.000016"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<https:\/\/medium.com\/backchannel\/the-joyless-world-of-data-driven-startups-b6f475f11f5f#.uyk1ymsig>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "The Joyless World of Data-Driven Startups \u2014 Backchannel",
+                "title_link": "https:\/\/medium.com\/backchannel\/the-joyless-world-of-data-driven-startups-b6f475f11f5f#.uyk1ymsig",
+                "text": "Everyone tells early-stage startups to use data for big strategic decisions. But does that really work, and whatever hap\u2026",
+                "fallback": "Medium: The Joyless World of Data-Driven Startups \u2014 Backchannel",
+                "image_url": "https:\/\/cdn-images-1.medium.com\/max\/800\/1*ZHmJq6Zpnv-pL23KsAAnZw.jpeg",
+                "ts": 1426010810,
+                "from_url": "https:\/\/medium.com\/backchannel\/the-joyless-world-of-data-driven-startups-b6f475f11f5f#.uyk1ymsig",
+                "image_width": 571,
+                "image_height": 250,
+                "image_bytes": 82501,
+                "id": 1
+            }
+        ],
+        "ts": "1445475154.000017"
+    }
+]

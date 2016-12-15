@@ -1,0 +1,54 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Share your experiences with Ember in the 2016 community survey! <http:\/\/emberjs.com\/ember-community-survey-2016\/> #emberjs",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/708996823881490434",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/708996823881490434>",
+                "text": "Share your experiences with Ember in the 2016 community survey! <http:\/\/emberjs.com\/ember-community-survey-2016\/> #emberjs",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1457872990.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0SCR16MU",
+        "text": "Can' t",
+        "ts": "1457902060.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0SCR16MU",
+        "text": "do this Thursday",
+        "ts": "1457902069.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0SCR16MU",
+        "text": "But i booked myself in for the 24",
+        "ts": "1457902075.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0SCR16MU",
+        "text": "We have a dodgy Backbone mess to fix. I am looking for alternative frameworks. Too many updates going on atm",
+        "ts": "1457902113.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0SCR16MU",
+        "text": "I don't really like react.js, at this point anyway. It may get better",
+        "ts": "1457902130.000009"
+    }
+]

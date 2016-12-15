@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0D95V1QB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0D95V1QB|microfed> has joined the channel",
+        "ts": "1445957665.000002"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "user": "U0Z487TGE",
+        "text": "<@U0Z487TGE|sam> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1471706297.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Hey guys, anybody notice that `computed.uniqBy` is documented, but is not working at all .. ? <http:\/\/emberjs.com\/api\/classes\/Ember.computed.html#method_uniqBy>",
+        "attachments": [
+            {
+                "title": "Ember.js: Ember.computed",
+                "title_link": "http:\/\/emberjs.com\/api\/classes\/Ember.computed.html#method_uniqBy",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Ember.computed",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/api\/classes\/Ember.computed.html#method_uniqBy",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "ts": "1471706362.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "`computed.uniqBy is not a function`",
+        "ts": "1471706366.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "nvm, its introduced from ember `2.7.0-beta.1` on :slightly_smiling_face:",
+        "ts": "1471716493.000006"
+    }
+]

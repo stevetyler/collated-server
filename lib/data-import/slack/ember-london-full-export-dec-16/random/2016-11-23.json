@@ -1,0 +1,120 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Got my MBP 15\" yesterday ... lost 5-6 hours ... i'd do it again :stuck_out_tongue:",
+        "ts": "1479898477.000037"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "have to say the speakers are superb ... I'm more of a headphones guy but wow",
+        "ts": "1479898501.000038"
+    },
+    {
+        "type": "message",
+        "user": "U0BR1H1FY",
+        "text": "<@U04BD6KB1> after all the shit reviews I\u2019m curious what you think. usb-c and keyboard wise :slightly_smiling_face:",
+        "ts": "1479903450.000039"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "really like the keyboard, the fingerprint reader is pretty nice, and the display is beautiful (though I'd like to see it next to the prior generation as a comparison point)",
+        "ts": "1479903517.000040"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "wrt to the touch bar, haven't used it enough to have a point of view",
+        "ts": "1479903539.000041"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "feels very snappy and again a bit early to weight in but feels faster than my \"faster\" iMac with 32gb",
+        "ts": "1479903588.000042"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> how about debugging in chrome with no fkeys?",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479907090.000000"
+        },
+        "ts": "1479907083.000043"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "no debugging yet ... real work still happening on the iMac but WRT to function keys, they're still there, you press the Fn button and they all appear.",
+        "ts": "1479910764.000045"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> you done any image uploading with \u03bb",
+        "ts": "1479916925.000046"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019m wanting to create an image upload service with it.",
+        "ts": "1479916970.000047"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i haven't but it wouldn't be hard and in fact I think one of the AWS examples follows along those lines",
+        "ts": "1479917436.000048"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "yeah I\u2019m playing with it",
+        "ts": "1479917540.000049"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "wonder how hard it would be to retrieve such images from a windows app, should be a c# lib",
+        "ts": "1479917568.000050"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "guess so: <https:\/\/aws.amazon.com\/documentation\/sdk-for-net\/>",
+        "ts": "1479917676.000051"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I was at this last week <https:\/\/www.youtube.com\/watch?v=OsgBazUtFeg>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "All day Dev ops, unlimited Pret food and AWS \u03bb intro",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=OsgBazUtFeg",
+                "author_name": "Quantum Information",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UC0XiDgtbFR8ohoGlstuFgGQ",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/OsgBazUtFeg\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: All day Dev ops, unlimited Pret food and AWS \u03bb intro",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/OsgBazUtFeg?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=OsgBazUtFeg",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479940460.000000"
+        },
+        "ts": "1479940237.000052"
+    }
+]

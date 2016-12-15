@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U043LP6SF",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043LP6SF|suprmax> has joined the channel",
+        "ts": "1426871294.000005"
+    }
+]

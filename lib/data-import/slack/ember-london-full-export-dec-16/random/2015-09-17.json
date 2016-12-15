@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U0ASPMFPS",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ASPMFPS|silentworks> has joined the channel",
+        "ts": "1442514575.000011"
+    },
+    {
+        "user": "U0ASNE2QN",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0ASNE2QN|andrewmcardle> has joined the channel",
+        "ts": "1442514971.000012"
+    }
+]

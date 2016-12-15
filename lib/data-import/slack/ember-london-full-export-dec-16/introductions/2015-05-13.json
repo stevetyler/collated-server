@@ -1,0 +1,16 @@
+[
+    {
+        "user": "U04S3TWBT",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04S3TWBT|joeprivett> has joined the channel",
+        "ts": "1431538056.000007"
+    },
+    {
+        "user": "U04RMJJE6",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04RMJJE6|nspehler> has joined the channel",
+        "ts": "1431558028.000008"
+    }
+]

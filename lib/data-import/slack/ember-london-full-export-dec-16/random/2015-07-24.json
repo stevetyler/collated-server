@@ -1,0 +1,15 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "shelljs vs grunt\/gulp, anyone have a preference?",
+        "ts": "1437734568.000003"
+    },
+    {
+        "user": "U084J8C72",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U084J8C72|alex_is> has joined the channel",
+        "ts": "1437738859.000004"
+    }
+]

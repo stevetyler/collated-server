@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U2A9G3KRV",
+        "text": "<@U2A9G3KRV|sebplace> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1473507641.000004"
+    }
+]

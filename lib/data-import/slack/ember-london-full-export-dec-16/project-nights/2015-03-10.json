@@ -1,0 +1,30 @@
+[
+    {
+        "user": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V2PZUB|karlfreeman> has joined the channel",
+        "ts": "1425983826.000002"
+    },
+    {
+        "user": "U03SSL0FM",
+        "inviter": "U03V2PZUB",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03SSL0FM|codepreneur> has joined the channel",
+        "ts": "1425983841.000003"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "there you go",
+        "ts": "1425983848.000004"
+    },
+    {
+        "user": "U03V8JE3Y",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8JE3Y|samm> has joined the channel",
+        "ts": "1426000654.000005"
+    }
+]

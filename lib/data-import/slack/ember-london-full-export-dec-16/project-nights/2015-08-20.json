@@ -1,0 +1,37 @@
+[
+    {
+        "user": "U09BZ4FSR",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09BZ4FSR|davidgriffiths> has joined the channel",
+        "ts": "1440069832.000011"
+    },
+    {
+        "user": "U09BZ08SY",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09BZ08SY|jonathankingston> has joined the channel",
+        "ts": "1440070353.000012"
+    },
+    {
+        "user": "U09CRGN9J",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09CRGN9J|oli> has joined the channel",
+        "ts": "1440097625.000013"
+    },
+    {
+        "user": "U09CS0TJ9",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09CS0TJ9|stevetyler> has joined the channel",
+        "ts": "1440097649.000014"
+    },
+    {
+        "user": "U09CRUH5M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09CRUH5M|fgh> has joined the channel",
+        "ts": "1440097813.000015"
+    }
+]

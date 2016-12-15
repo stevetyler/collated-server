@@ -1,0 +1,70 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/rachaelyaeger|@rachaelyaeger> could you email us a high res version of that pic? <mailto:info@emberlondon.com|info@emberlondon.com>\nThanks!",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/619414777299881985",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/619414777299881985>",
+                "text": "<https:\/\/twitter.com\/rachaelyaeger|@rachaelyaeger> could you email us a high res version of that pic? <mailto:info@emberlondon.com|info@emberlondon.com>\nThanks!",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1436514966.000020"
+    },
+    {
+        "user": "U03V8C0DJ",
+        "type": "message",
+        "subtype": "channel_leave",
+        "text": "<@U03V8C0DJ|lukenukem> has left the channel",
+        "ts": "1436516361.000021"
+    },
+    {
+        "user": "U07E9GKUZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U07E9GKUZ|arkham> has joined the channel",
+        "ts": "1436518887.000022"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Massive thanks to last night\u2019s speakers <https:\/\/twitter.com\/willrax|@willrax>, <https:\/\/twitter.com\/_HHFF|@_HHFF> &amp; <https:\/\/twitter.com\/nikosMaths|@nikosMaths>. We\u2019ll get the videos up as soon as we can.",
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/619435842218655744",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/619435842218655744>",
+                "text": "Massive thanks to last night\u2019s speakers <https:\/\/twitter.com\/willrax|@willrax>, <https:\/\/twitter.com\/_HHFF|@_HHFF> &amp; <https:\/\/twitter.com\/nikosMaths|@nikosMaths>. We\u2019ll get the videos up as soon as we can.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1436519988.000023"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "+1",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1436525866.000000"
+        },
+        "ts": "1436525864.000024"
+    }
+]

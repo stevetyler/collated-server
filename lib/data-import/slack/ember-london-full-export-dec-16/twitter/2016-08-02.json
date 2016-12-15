@@ -1,0 +1,59 @@
+[
+    {
+        "user": "U1XB7HR3J",
+        "text": "<@U1XB7HR3J|calumfodder> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1470134593.000012"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Tried Glimmer 2 or Engines on your app yet? Come along to the meetup next week to share your stories.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "ts": 1470148117,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/760482441685569536",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/760482441685569536>",
+                "text": "Tried Glimmer 2 or Engines on your app yet? Come along to the meetup next week to share your stories.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/760482441685569536",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1470148118.000013"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: <https:\/\/twitter.com\/tchak13|@tchak13> <https:\/\/twitter.com\/captaintrain|@captaintrain> we\u2019ll be sure to let everyone aware of this at the meetup next week.",
+                "ts": 1470148219,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/760482866635636736",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/760482866635636736>",
+                "text": "<https:\/\/twitter.com\/tchak13|@tchak13> <https:\/\/twitter.com\/captaintrain|@captaintrain> we\u2019ll be sure to let everyone aware of this at the meetup next week.",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/760482866635636736",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1470148221.000014"
+    }
+]

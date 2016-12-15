@@ -1,0 +1,22 @@
+[
+    {
+        "user": "U05485UQL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1440519223.000002"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "just exchanged a couple of emails with <mailto:enrique@codecantor.com|enrique@codecantor.com> - If anyone is interested they are looking for remote Ember freelancers in Europe (or perms in Madrid, if I understand correctly)",
+        "ts": "1440519358.000003"
+    },
+    {
+        "user": "U07R4RW2F",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U07R4RW2F|eugeniodepalo> has joined the channel",
+        "ts": "1440521938.000004"
+    }
+]

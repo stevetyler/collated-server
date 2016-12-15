@@ -1,0 +1,38 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hello welcomee",
+        "ts": "1445327561.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0CPGNPRN",
+        "text": "<@U043AB2QT> <@U047GTU64> thanks, will do! ",
+        "ts": "1445340004.000034"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hi <@U0CPGNPRN>!",
+        "ts": "1445340574.000035"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(a little belated, sorry!)",
+        "ts": "1445340580.000036"
+    },
+    {
+        "type": "message",
+        "user": "U0CNG49R9",
+        "text": "Yay <@U0CPGNPRN> , glad not to be the only Berliner around :)",
+        "ts": "1445340725.000037"
+    },
+    {
+        "type": "message",
+        "user": "U0CPGNPRN",
+        "text": "Hey there <@U03V8V08M> and <@U0CNG49R9>!  Emberliner high 5 :-) ",
+        "ts": "1445361456.000038"
+    }
+]

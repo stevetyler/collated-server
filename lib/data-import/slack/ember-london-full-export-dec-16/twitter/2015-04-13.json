@@ -1,0 +1,46 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Our very own regular speaker <https:\/\/twitter.com\/BryanCrotaz|@BryanCrotaz> has wrapped up <http:\/\/www.browser-update.org\/> in a handy <https:\/\/twitter.com\/emberjs|@emberjs> addon :D\n\n<http:\/\/discuss.emberlondon.com\/t\/new-addon-to-warn-if-user-is-using-old-browser\/153>",
+                "author_name": "Ember london",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/587527829832802304",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/587527829832802304>",
+                "text": "Our very own regular speaker <https:\/\/twitter.com\/BryanCrotaz|@BryanCrotaz> has wrapped up <http:\/\/www.browser-update.org\/> in a handy <https:\/\/twitter.com\/emberjs|@emberjs> addon :D\n\n<http:\/\/discuss.emberlondon.com\/t\/new-addon-to-warn-if-user-is-using-old-browser\/153>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1428912525.000002"
+    },
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Another of our fine speakers, <https:\/\/twitter.com\/deepanice|@deepanice>, has created ember-instance-scope to declaratively specify instance props.\n\n<https:\/\/github.com\/deepan83\/ember-instance-scope>",
+                "author_name": "Ember london",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/587528895127236609",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/587528895127236609>",
+                "text": "Another of our fine speakers, <https:\/\/twitter.com\/deepanice|@deepanice>, has created ember-instance-scope to declaratively specify instance props.\n\n<https:\/\/github.com\/deepan83\/ember-instance-scope>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1428912779.000003"
+    }
+]

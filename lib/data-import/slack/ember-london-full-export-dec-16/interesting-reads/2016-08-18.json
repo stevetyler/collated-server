@@ -1,0 +1,43 @@
+[
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<https:\/\/techcrunch.com\/2016\/08\/17\/cisco-and-fortinet-say-vulnerabilities-disclosed-in-nsa-hack-are-legit\/>",
+        "attachments": [
+            {
+                "service_name": "TechCrunch",
+                "service_url": "http:\/\/techcrunch.com",
+                "title": "Cisco and Fortinet say vulnerabilities disclosed in \u2018NSA hack\u2019 are\u00a0legit",
+                "title_link": "https:\/\/techcrunch.com\/2016\/08\/17\/cisco-and-fortinet-say-vulnerabilities-disclosed-in-nsa-hack-are-legit\/",
+                "author_name": "Kate Conger",
+                "thumb_url": "https:\/\/i2.wp.com\/tctechcrunch2011.files.wordpress.com\/2014\/01\/201372421726917734_20-11.jpg?fit=200%2C150&ssl=1",
+                "thumb_width": 200,
+                "thumb_height": 150,
+                "text": "A group calling itself the Shadow Brokers dumped data online this weekend that it claimed to have stolen from the Equation Group, a hacking team widely believed to be associated with the NSA. Firewall makers Cisco and Fortinet have now confirmed that vulnerabilities included in the data dump affected their products &amp;mdash; a disclosure that lends credence to the theory that the Equation Group is indeed an NSA operation.",
+                "fallback": "TechCrunch Link: Cisco and Fortinet say vulnerabilities disclosed in &#8216;NSA hack&#8217; are&nbsp;legit",
+                "from_url": "https:\/\/techcrunch.com\/2016\/08\/17\/cisco-and-fortinet-say-vulnerabilities-disclosed-in-nsa-hack-are-legit\/",
+                "service_icon": "https:\/\/s0.wp.com\/wp-content\/themes\/vip\/techcrunch-2013\/assets\/images\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1471503881.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "GCHQ is next",
+        "ts": "1471503888.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "everyone was expecting this",
+        "ts": "1471503893.000013"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "moronic governments and their illegal surveillance programs",
+        "ts": "1471503900.000014"
+    }
+]

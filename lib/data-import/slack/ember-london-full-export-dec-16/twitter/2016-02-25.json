@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U0P2A7WM8",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0P2A7WM8|nicolabrisotto> has joined the channel",
+        "ts": "1456415941.000016"
+    }
+]

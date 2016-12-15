@@ -1,0 +1,126 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "#vibes again",
+        "ts": "1467190637.000074"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/www.youtube.com\/watch?v=JasF1RABqFk>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Kidswaste - Underwater",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=JasF1RABqFk",
+                "author_name": "MrSuicideSheep",
+                "author_link": "https:\/\/www.youtube.com\/user\/MrSuicideSheep",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/JasF1RABqFk\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Kidswaste - Underwater",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/JasF1RABqFk?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=JasF1RABqFk",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467190638.000075"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think we need a #vibes channel <@U03V8V08M>",
+        "ts": "1467190650.000077"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "for posting music to program too",
+        "ts": "1467190655.000078"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":smile:",
+        "ts": "1467190656.000079"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "haha, make it so",
+        "ts": "1467190674.000080"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "If anyone\u2019s interested in using Horizon with a EmberJS SPA I have developed an addon: <https:\/\/github.com\/lifegadget\/ember-horizon>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "lifegadget\/ember-horizon",
+                "title_link": "https:\/\/github.com\/lifegadget\/ember-horizon",
+                "text": "ember-horizon - Use Horizon and ReThink DB with Ember and Ember Data",
+                "fallback": "GitHub: lifegadget\/ember-horizon",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/8763170?v=3&s=400",
+                "from_url": "https:\/\/github.com\/lifegadget\/ember-horizon",
+                "thumb_width": 80,
+                "thumb_height": 80,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467207048.000081"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "big shout-out to <@U0ASPMFPS> too for helping out",
+        "ts": "1467207061.000083"
+    },
+    {
+        "text": "never heard of him",
+        "type": "message",
+        "subtype": "me_message",
+        "user": "U0ASPMFPS",
+        "ts": "1467207076.000084",
+        "reactions": [
+            {
+                "name": "stuck_out_tongue_closed_eyes",
+                "users": [
+                    "U04BD6KB1",
+                    "U047GTU64"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "It isn\u2019t yet on `npm` as I haven\u2019t had the ownership transferred over to me yet but expect that in the next day or two",
+        "ts": "1467207078.000085"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "That was the most fun pair programming I have had in a while, thanks to you <@U04BD6KB1>",
+        "ts": "1467207108.000086"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "was fun and that one-liner you put into the adapter has to go down as the most impactful single line of code ever :stuck_out_tongue:",
+        "ts": "1467207145.000087"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": ":joy:",
+        "ts": "1467207590.000088"
+    }
+]

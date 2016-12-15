@@ -1,0 +1,31 @@
+[
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/twitter.com\/philip_roberts\/status\/702603165850587136>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/philip_roberts|@philip&lowbar;roberts>: So this just happened + <https:\/\/twitter.com\/mroth|@mroth>: <https:\/\/pbs.twimg.com\/tweet_video_thumb\/CcAlvOfWEAEgNC8.jpg>",
+                "ts": 1456348623,
+                "author_name": "Philip Roberts",
+                "author_link": "https:\/\/twitter.com\/philip_roberts\/status\/702603165850587136",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/657700482220216320\/UfMaYL1q_normal.jpg",
+                "author_subname": "@philip_roberts",
+                "text": "So this just happened + <https:\/\/twitter.com\/mroth|@mroth>:",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "thumb_url": "https:\/\/pbs.twimg.com\/tweet_video_thumb\/CcAlvOfWEAEgNC8.jpg",
+                "thumb_width": 600,
+                "thumb_height": 322,
+                "video_html_width": 600,
+                "video_html_height": 322,
+                "video_html": "<video autoplay loop muted poster=\"https:\/\/pbs.twimg.com\/tweet_video_thumb\/CcAlvOfWEAEgNC8.jpg\" src=\"https:\/\/pbs.twimg.com\/tweet_video\/CcAlvOfWEAEgNC8.mp4\" width=\"600\" height=\"322\"><source type=\"video\/mp4\" src=\"https:\/\/pbs.twimg.com\/tweet_video\/CcAlvOfWEAEgNC8.mp4\"><\/video>",
+                "from_url": "https:\/\/twitter.com\/philip_roberts\/status\/702603165850587136",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1456350460.000005"
+    }
+]

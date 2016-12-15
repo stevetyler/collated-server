@@ -1,0 +1,91 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03SSL0FM|codepreneur> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/codepreneur\/F05430DBU\/pasted_image_at_2015_06_01_01_02_am.png|Pasted image at 2015-06-01, 1:02 AM>",
+        "file": {
+            "id": "F05430DBU",
+            "created": 1433116946,
+            "timestamp": 1433116946,
+            "name": "Pasted image at 2015_06_01 01_02 AM.png",
+            "title": "Pasted image at 2015-06-01, 1:02 AM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03SSL0FM",
+            "editable": false,
+            "size": 984135,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F05430DBU\/pasted_image_at_2015_06_01_01_02_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F05430DBU\/download\/pasted_image_at_2015_06_01_01_02_am.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 227,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 303,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 454,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 606,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F05430DBU-7405adc147\/pasted_image_at_2015_06_01_01_02_am_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 646,
+            "image_exif_rotation": 1,
+            "original_w": 1160,
+            "original_h": 732,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/codepreneur\/F05430DBU\/pasted_image_at_2015_06_01_01_02_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F05430DBU-f40386c63c",
+            "channels": [
+                "C03V5K0FL"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03SSL0FM",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03SSL0FM|codepreneur>",
+        "bot_id": null,
+        "ts": "1433116956.000011"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "why biochemistry is useful to learn",
+        "ts": "1433116957.000012"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.brainprotips.com\/increase-slow-wave-sleep\/>",
+        "attachments": [
+            {
+                "service_name": "Brain Protips",
+                "title": "Increasing % time spent in slow wave sleep (SWS) to improve intellectual performance - Brain Protips",
+                "title_link": "http:\/\/www.brainprotips.com\/increase-slow-wave-sleep\/",
+                "text": "A blog about nootropics and the relentless (sometimes foolish) pursuit of cognitive enhancement.",
+                "fallback": "Brain Protips: Increasing % time spent in slow wave sleep (SWS) to improve intellectual performance - Brain Protips",
+                "thumb_url": "http:\/\/www.brainprotips.com\/wp-content\/uploads\/2015\/05\/hgh-2.jpg",
+                "ts": 1432715653,
+                "from_url": "http:\/\/www.brainprotips.com\/increase-slow-wave-sleep\/",
+                "thumb_width": 1024,
+                "thumb_height": 768,
+                "id": 1
+            }
+        ],
+        "ts": "1433116969.000013"
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "user": "U04UGLGMJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U04UGLGMJ|timrich> has joined the channel",
+        "ts": "1432120031.000043"
+    },
+    {
+        "type": "message",
+        "user": "U03SSL0FM",
+        "text": "<http:\/\/www.latimes.com\/local\/lanow\/la-me-ln-minimum-wage-hike-20150518-story.html#page=1>",
+        "attachments": [
+            {
+                "service_name": "latimes.com",
+                "title": "Los Angeles&apos; minimum wage on track to go up to $15 by 2020",
+                "title_link": "http:\/\/www.latimes.com\/local\/lanow\/la-me-ln-minimum-wage-hike-20150518-story.html#page=1",
+                "text": "The Los Angeles City Council on Tuesday backed a plan to raise the city&amp;rsquo;s minimum wage to $15 per hour, joining a trend sweeping cities across the country as elected leaders seek to boost stagnating pay for workers on the lowest rungs of the socio-economic ladder.",
+                "fallback": "latimes.com: Los Angeles&amp;apos; minimum wage on track to go up to $15 by 2020",
+                "thumb_url": "http:\/\/www.trbimg.com\/img-555ba272\/turbine\/la-me-ln-minimum-wage-hike-20150518",
+                "from_url": "http:\/\/www.latimes.com\/local\/lanow\/la-me-ln-minimum-wage-hike-20150518-story.html#page=1",
+                "thumb_width": 2000,
+                "thumb_height": 1287,
+                "id": 1
+            }
+        ],
+        "ts": "1432164885.000044"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "codepreneur: yes this is very interesting \u2026 i think we\u2019ll look back on this as an important decision as this puts minimum wage at new inflation adjusted high (previous high in late 60\u2019s).",
+        "ts": "1432186079.000046"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in fact, I was thinking about this news story when you mentioned your comment about immigration reform.",
+        "ts": "1432186103.000047"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in what is clearly an oversimplification .... IMO this decision will either result in:\n\n- the beginning of a more semi-socialist movement with income redistribution as a positive outcome for societal improvement\n- an accelerant of the increasingly apparent automation boom which will further displace low skilled workers as \u201cunemployable\u201d\n\nI hope for the first but feel the second is more more likely.",
+        "ts": "1432186393.000048"
+    }
+]

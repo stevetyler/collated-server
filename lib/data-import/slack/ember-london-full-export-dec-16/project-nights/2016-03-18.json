@@ -1,0 +1,23 @@
+[
+    {
+        "user": "U0TLSSR8S",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0TLSSR8S|gnchapman> has joined the channel",
+        "ts": "1458290837.000005"
+    },
+    {
+        "user": "U0TLUDGJJ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0TLUDGJJ|martin.hecher> has joined the channel",
+        "ts": "1458296757.000006"
+    },
+    {
+        "user": "U0TMZN5UY",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0TMZN5UY|benja> has joined the channel",
+        "ts": "1458305475.000007"
+    }
+]

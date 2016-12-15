@@ -1,0 +1,34 @@
+[
+    {
+        "bot_id": "B0429JVR5",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Happy August! This month we\u2019re talking Ember, JS, and Machine Learning with <https:\/\/twitter.com\/danielgynn|@danielgynn>, <https:\/\/twitter.com\/foxreymann|@foxreymann>, and <https:\/\/twitter.com\/arkh4m|@arkh4m>.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "ts": 1470051726,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/760078145085173760",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "pretext": "<https:\/\/twitter.com\/EmberLondon\/status\/760078145085173760>",
+                "text": "Happy August! This month we\u2019re talking Ember, JS, and Machine Learning with <https:\/\/twitter.com\/danielgynn|@danielgynn>, <https:\/\/twitter.com\/foxreymann|@foxreymann>, and <https:\/\/twitter.com\/arkh4m|@arkh4m>.\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614813\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/760078145085173760",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "text": null,
+        "type": "message",
+        "subtype": "bot_message",
+        "ts": "1470051726.000010"
+    },
+    {
+        "user": "U1X2C12TH",
+        "text": "<@U1X2C12TH|ernestoe> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1470064331.000011"
+    }
+]

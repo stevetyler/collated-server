@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U09EXEELV",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U09EXEELV|datamoshr> has joined the channel",
+        "ts": "1444384896.000004"
+    }
+]

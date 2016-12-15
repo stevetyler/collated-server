@@ -1,0 +1,9 @@
+[
+    {
+        "user": "U047GTU64",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U047GTU64|mariogintili> has joined the channel",
+        "ts": "1427876826.000002"
+    }
+]

@@ -1,0 +1,64 @@
+[
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "Hi everyone. I\u2019ve posted here before, but want to try again. Chattermill (<https:\/\/chattermill.io\/>) is a startup in the much-hyped AI space, building something like Mixpanel for customer feedback, particularly free form text. We\u2019ve used Ember and Rails from the start and love both although also intrigued by Elixir \/ Phoenix. We are now looking for our first in-house developer. You will effectively take over leading the engineering team from me and will work closely with the founders. The project is still in its infancy, so no legacy code and you get to make all the decisions. You will also work with our data scientist and will be able to learn \/ practice some cutting edge deep learning. Please ping me here or on <mailto:mikhail@chattermill.io|mikhail@chattermill.io> if you are interested",
+        "attachments": [
+            {
+                "service_name": "Chattermill",
+                "title": "Chattermill | Next Generation Customer Experience Analytics",
+                "title_link": "https:\/\/chattermill.io\/",
+                "text": "We are a new generation tool helping companies collect open-ended feedback at scale.",
+                "fallback": "Chattermill: Chattermill | Next Generation Customer Experience Analytics",
+                "from_url": "https:\/\/chattermill.io\/",
+                "id": 1
+            }
+        ],
+        "edited": {
+            "user": "U08ABC8EN",
+            "ts": "1469120689.000000"
+        },
+        "ts": "1469115115.000002",
+        "reactions": [
+            {
+                "name": "sunglasses",
+                "users": [
+                    "U03V8V08M",
+                    "U043951H9",
+                    "U07R4RW2F"
+                ],
+                "count": 3
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "Full details here: <https:\/\/chattermill.workable.com\/jobs\/165294>",
+        "attachments": [
+            {
+                "service_name": "https:\/\/www.workable.com",
+                "title": "Job opening: Full Stack Software Engineer at Chattermill",
+                "title_link": "https:\/\/chattermill.workable.com\/jobs\/165294",
+                "text": "Job opening: Full Stack Software Engineer at Chattermill. Apply at Workable.",
+                "fallback": "https:\/\/www.workable.com: Job opening: Full Stack Software Engineer at Chattermill",
+                "from_url": "https:\/\/chattermill.workable.com\/jobs\/165294",
+                "thumb_url": "https:\/\/www.workable.com\/assets\/facebook-preview.png",
+                "thumb_width": 200,
+                "thumb_height": 200,
+                "service_icon": "https:\/\/chattermill.workable.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1469115143.000004",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U043951H9"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

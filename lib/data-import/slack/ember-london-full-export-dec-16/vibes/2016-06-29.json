@@ -1,0 +1,226 @@
+[
+    {
+        "user": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U03V8V08M|jgwhite> has joined the channel",
+        "ts": "1467190681.000002"
+    },
+    {
+        "user": "U047GTU64",
+        "inviter": "U03V8V08M",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U047GTU64|mariogintili> has joined the channel",
+        "ts": "1467190688.000003"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: thanks!",
+        "ts": "1467190710.000004"
+    },
+    {
+        "user": "U047GTU64",
+        "topic": "VIBES",
+        "text": "<@U047GTU64|mariogintili> set the channel topic: VIBES",
+        "type": "message",
+        "subtype": "channel_topic",
+        "ts": "1467190717.000005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "its only 2 members",
+        "ts": "1467190724.000006"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but it will grow",
+        "ts": "1467190728.000007"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U040MK408>: <@U05485UQL>",
+        "ts": "1467190738.000008"
+    },
+    {
+        "user": "U040MK408",
+        "inviter": "U047GTU64",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U040MK408|cibernox> has joined the channel",
+        "ts": "1467190743.000009"
+    },
+    {
+        "user": "U05485UQL",
+        "inviter": "U047GTU64",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U05485UQL|pablobm> has joined the channel",
+        "ts": "1467190743.000010"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "my programming music: <https:\/\/soundcloud.com\/djrupture>",
+        "attachments": [
+            {
+                "service_name": "SoundCloud",
+                "service_url": "http:\/\/soundcloud.com",
+                "title": "djrupture",
+                "title_link": "https:\/\/soundcloud.com\/djrupture",
+                "author_name": "djrupture",
+                "author_link": "https:\/\/soundcloud.com\/djrupture",
+                "thumb_url": "http:\/\/i1.sndcdn.com\/avatars-000007284218-k798i4-t500x500.jpg",
+                "text": "many of my mixes can be downloaded here for free: <http:\/\/www.negrophonic.com\/dj-rupture-mixes-free-download\/\/>",
+                "fallback": "SoundCloud Audio: Link: djrupture",
+                "audio_html": "<iframe width=\"100%\" height=\"150\" scrolling=\"no\" frameborder=\"no\" src=\"https:\/\/w.soundcloud.com\/player\/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Fusers%2F18473&show_artwork=true&maxheight=150\"><\/iframe>",
+                "audio_html_width": 100,
+                "audio_html_height": 150,
+                "from_url": "https:\/\/soundcloud.com\/djrupture",
+                "thumb_width": 500,
+                "thumb_height": 500,
+                "service_icon": "https:\/\/soundcloud.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1467190942.000011"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":+1:",
+        "ts": "1467190997.000013"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what is this?",
+        "ts": "1467195282.000014"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "music channel",
+        "ts": "1467195556.000015"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":godmode:",
+        "ts": "1467195560.000016"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": ":metal: :skull:",
+        "ts": "1467201771.000017"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U043AB2QT>:",
+        "ts": "1467201825.000018"
+    },
+    {
+        "user": "U043AB2QT",
+        "inviter": "U047GTU64",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U043AB2QT|aaron> has joined the channel",
+        "ts": "1467201828.000019"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I want to invite everyone but I dont know everyone",
+        "ts": "1467201839.000020"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "makes we wonder how many channels are secretly undergoing activity :skull:",
+        "ts": "1467201855.000021"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "lol",
+        "ts": "1467201860.000022"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "bootleg ember slack",
+        "ts": "1467201863.000023"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":joy:",
+        "ts": "1467201865.000024"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/soundcloud.com\/arkpatrol\/ark-patrol-polygone>",
+        "attachments": [
+            {
+                "service_name": "SoundCloud",
+                "service_url": "http:\/\/soundcloud.com",
+                "title": "Ark Patrol - Polygone by Ark Patrol",
+                "title_link": "https:\/\/soundcloud.com\/arkpatrol\/ark-patrol-polygone",
+                "author_name": "Ark Patrol",
+                "author_link": "https:\/\/soundcloud.com\/arkpatrol",
+                "thumb_url": "http:\/\/i1.sndcdn.com\/artworks-000164594737-q8xzhw-t500x500.jpg",
+                "text": "Artwork by @jvkeclarke.\n\n\u03df Ark Patrol \u03df\nSoundcloud - @arkpatrol\nTwitter - <http:\/\/twitter.com\/ArkPatrol|twitter.com\/ArkPatrol>\nFacebook - <http:\/\/www.facebook.com\/ArkPatrol|www.facebook.com\/ArkPatrol>\nYouTube - <http:\/\/www.youtube.com\/arkpatrolUS|www.youtube.com\/arkpatrolUS>\nSongkick - <http:\/\/www.songkick.com\/artists\/8531119-ark-patrol|www.songkick.com\/artists\/8531119-ark-patrol>\nInstagram - <http:\/\/instagram.com\/arkpatrol|instagram.com\/arkpatrol>\n\n&lt;a href='https:\/\/theartistunion.com\/tracks\/848d95'&gt;Download for free on The Artist Union&lt;\/a&gt;",
+                "fallback": "SoundCloud Audio: Link: Ark Patrol - Polygone by Ark Patrol",
+                "audio_html": "<iframe width=\"100%\" height=\"150\" scrolling=\"no\" frameborder=\"no\" src=\"https:\/\/w.soundcloud.com\/player\/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F266054172&show_artwork=true&maxheight=150\"><\/iframe>",
+                "audio_html_width": 100,
+                "audio_html_height": 150,
+                "from_url": "https:\/\/soundcloud.com\/arkpatrol\/ark-patrol-polygone",
+                "thumb_width": 500,
+                "thumb_height": 500,
+                "service_icon": "https:\/\/soundcloud.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1467202966.000025"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/www.youtube.com\/watch?v=IjZwmasrbbQ>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Howling Boiler Room LIVE Show performing 'Howling'",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=IjZwmasrbbQ",
+                "author_name": "Boiler Room",
+                "author_link": "https:\/\/www.youtube.com\/user\/brtvofficial",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/IjZwmasrbbQ\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Howling Boiler Room LIVE Show performing 'Howling'",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/IjZwmasrbbQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=IjZwmasrbbQ",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467214321.000027"
+    },
+    {
+        "user": "U095LRN06",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U095LRN06|ernesto_jimenez> has joined the channel",
+        "ts": "1467252515.000029"
+    }
+]

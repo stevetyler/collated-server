@@ -1,0 +1,61 @@
+[
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "Hey all, some of you have seen me at past meetups. We are looking for an experienced Rails \/ Ember engineer. Preferably someone equally happy with front and back end. We are very young, so open to using whatever cool new thing that makes sense. Here is the job spec: <https:\/\/chattermill.workable.com\/j\/0EE4921AFE>",
+        "attachments": [
+            {
+                "service_name": "https:\/\/www.workable.com",
+                "title": "Job opening: Full Stack Software Engineer at Chattermill",
+                "title_link": "https:\/\/chattermill.workable.com\/j\/0EE4921AFE",
+                "text": "Job opening: Full Stack Software Engineer at Chattermill. Apply at Workable.",
+                "fallback": "https:\/\/www.workable.com: Job opening: Full Stack Software Engineer at Chattermill",
+                "from_url": "https:\/\/chattermill.workable.com\/j\/0EE4921AFE",
+                "thumb_url": "https:\/\/www.workable.com\/assets\/facebook-preview.png",
+                "thumb_width": 200,
+                "thumb_height": 200,
+                "id": 1
+            }
+        ],
+        "ts": "1450184261.000021",
+        "reactions": [
+            {
+                "name": "100",
+                "users": [
+                    "U043951H9",
+                    "U09ABGTUJ",
+                    "U07E9GKUZ",
+                    "U07R4RW2F"
+                ],
+                "count": 4
+            },
+            {
+                "name": "desktop_computer",
+                "users": [
+                    "U08ABC8EN",
+                    "U047GTU64"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "please hit me on Slack or email at <mailto:mikhail@chattermill.io|mikhail@chattermill.io> if you have any questions",
+        "ts": "1450184291.000023"
+    },
+    {
+        "type": "message",
+        "user": "U08ABC8EN",
+        "text": "I will be at the party tonight as well",
+        "ts": "1450184310.000024"
+    },
+    {
+        "user": "U07E9GKUZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U07E9GKUZ|arkham> has joined the channel",
+        "ts": "1450192261.000025"
+    }
+]

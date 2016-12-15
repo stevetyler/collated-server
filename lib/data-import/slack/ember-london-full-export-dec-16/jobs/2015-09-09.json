@@ -1,0 +1,49 @@
+[
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Just had a customer cancel a project this morning so I have a team of architect, 2 devs and graphic artist available for next two months. Full stack experience, ember, c#, AWS. Extensive contributors to the Ember ecosystem. Who needs a boost to their team?",
+        "ts": "1441788960.000034"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "paging <@U03V3P960>",
+        "ts": "1441789081.000035"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "<@U04TVTLQ8>: How much?",
+        "ts": "1441789728.000036"
+    },
+    {
+        "type": "message",
+        "user": "U072M1BRV",
+        "text": "CVs?",
+        "ts": "1441789739.000037"
+    },
+    {
+        "user": "U0A8GSHHA",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0A8GSHHA|keda> has joined the channel",
+        "ts": "1441789864.000038"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "We are looking for more Ember developers at AlphaSights.  <http:\/\/engineering.alphasights.com\/positions\/js-ember-developer>",
+        "edited": {
+            "user": "U043951H9",
+            "ts": "1441790283.000000"
+        },
+        "ts": "1441790205.000039"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "we\u2019re also looking for two apprentices as well. If you know anyone who is fairly new to programming let me know :simple_smile:",
+        "ts": "1441802210.000042"
+    }
+]
