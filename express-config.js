@@ -24,8 +24,8 @@ module.exports = function (app) {
 		})
 	}));
 
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({extended: true})); // parse application/x-www-form-urlencoded
+	app.use(bodyParser.json({limit: '50mb'}));
+	app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // parse application/x-www-form-urlencoded
 	app.use(fileUpload());
 	app.use(passport.initialize());
 	app.use(passport.session());
