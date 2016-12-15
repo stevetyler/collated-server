@@ -6,3 +6,4 @@ auth.js
 access.log
 nginx.log
 /schemas/examples
+/lib/data-import
