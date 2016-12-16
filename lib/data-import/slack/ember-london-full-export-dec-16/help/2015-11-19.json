@@ -1,8 +1,0 @@
-[
-    {
-        "type": "message",
-        "user": "U0BNR9FCY",
-        "text": "Hey guys, got an ember data question. I have a model that has a many relationship. I'm using the JSONAPI adapter but the api response doesn't have the relationships and I need to get them from another endpoint.\nHow can I make the two calls but still link the responses into the one model instance?",
-        "ts": "1447947514.000002"
-    }
-]
