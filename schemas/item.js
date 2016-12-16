@@ -65,14 +65,14 @@ itemSchema.methods.makeEmberItem = function() {
   return emberItem;
 };
 
-itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) {
-  const text = titleText.toLowerCase();
-  const query = groupId ? {userGroup: groupId} : {user: userId};
+itemSchema.statics.assignCategory = function(searchText, options) {
+  const text = searchText.toLowerCase();
+  const query = options.groupId ? {userGroup: options.groupId} : {user: options.userId};
   let categoryId;
   let defaultCategoryId;
 
   return Category.find(query).then(categories => {
-    if (!groupId && Array.isArray(categories)) {
+    if (Array.isArray(categories)) {
       categories.forEach(category => {
         let categoryname = category.name.toLowerCase();
 
@@ -86,33 +86,36 @@ itemSchema.statics.assignCategoryAndTags = function(titleText, groupId, userId) 
         }
       });
     }
-  }).then(() => {
-    if (categoryId) {
-      Object.assign(query, {category: categoryId});
+  }).then(category => {
+    if (category) {
+      return assignItemTags(searchText, category._id);
     }
-    else {
-      Object.assign(query, {category: defaultCategoryId});
+  });
+};
+
+itemSchema.statics.assignSlackChannelCategory = function(searchText, options) {
+  return Category.findOne({slackChannelId: options.slackChannelId}).then(category => {
+    if (category) {
+      return assignItemTags(searchText, category._id);
     }
-    return Tag.find(query);
-  }).then(tags => {
+  });
+};
+
+function assignItemTags(searchText, categoryId) {
+  return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
       return tags.reduce((arr, tag) => {
-  			let tagname = tag.name.toLowerCase();
+        let tagname = tag.name.toLowerCase();
 
-  	    if (text.indexOf(tagname) !== -1) {
-  	      console.log('tag found', tag);
-  	      arr.push(tag._id);
-  	    }
-  			return arr;
-  	  }, []);
+        if (searchText.indexOf(tagname) !== -1) {
+          console.log('tag found', tag);
+          arr.push(tag._id);
+        }
+        return arr;
+      }, []);
     }
-	}).then(arr => {
-		console.log('tags returned', arr);
-		return {
-      categoryId: categoryId ? categoryId : defaultCategoryId,
-      tagIds: arr,
-		};
-	});
-};
+  });
+}
+
 
 module.exports = itemSchema;

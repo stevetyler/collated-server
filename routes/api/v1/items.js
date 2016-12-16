@@ -515,46 +515,22 @@ function postSlackItemsHandler(req, res) {
 function saveSlackItem(message, options) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	const slackItem = {
-		author: message.user_name,
-		body: message.text,
-    createdDate: newTimestamp,
-		slackChannelId: message.channel_id,
-		slackTeamId: message.team_id,
-		slackUserId: message.user_id,
-		type: 'slack',
-		userGroup: options.userGroupId
-  };
 
 	// if categoryPerSlackChannel
-	return Category.findOne({userGroup: userGroup.id, slackChannelId: message.channel_id})
-	.then(slackCategory => {
-			// if group categoryPerSlackChannel
-			console.log('slackItem and category found', slackCategory, slackItem);
-
-		if (slackCategory !== null && typeof slackCategory === 'object') {
-			//console.log('slack category found', slackCategory);
-			Object.assign(slackItem, {category: slackCategory._id});
-		}
-		else {
-			// console.log('create new slack category');
-			// const slackCategory = {
-			// 	isDefault: message.channel_name.toLowerCase() === 'general' ? true : false,
-			// 	name: message.channel_name,
-			// 	slackChannelId: message.channel_id,
-			// 	userGroup: slackItem.userGroup
-			// };
-			// return Category.create(slackCategory);
-		}
-	}).then(category => {
-		if (category) {
-			Object.assign(slackItem, {category: category._id});
-		}
-		console.log('slack item to save', slackItem);
-		return Item.assignCategoryAndTags(message.text, slackItem.userGroup);
-	}).then(tagsObj => {
-		Object.assign(slackItem, {tags: tagsObj.tagIds});
-    return Item.create(slackItem);
+	return Item.assignCategoryAndTags(message.text, options)
+	.then(tagsObj => {
+    return Item.create({
+			author: message.user_name,
+			body: message.text,
+			category: tagsObj.categoryId,
+	    createdDate: newTimestamp,
+			slackChannelId: message.channel_id,
+			slackTeamId: message.team_id,
+			slackUserId: message.user_id,
+			tags: tagsObj.tagIds,
+			type: 'slack',
+			userGroup: options.userGroupId
+	  });
   });
 }
 
