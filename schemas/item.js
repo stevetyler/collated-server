@@ -92,19 +92,12 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
           Object.assign(idsObj, {category: category._id});
         }
       });
+      return idsObj.category;
     }
-  }).then(category => {
-    return category ? findItemTags(textToSearch, category._id) : [];
+  }).then(categoryId => {
+    return categoryId ? findItemTags(textToSearch, categoryId) : [];
   }).then(tagIdsArr => {
     return tagIdsArr.length ? Object.assign(idsObj, {tags: tagIdsArr}) : {};
-  });
-};
-
-itemSchema.statics.findSlackCategoryAndTags = function(textToSearch, options) {
-  return Category.findOne({slackChannelId: options.slackChannelId}).then(category => {
-    if (category) {
-      return findItemTags(textToSearch, category._id);
-    }
   });
 };
 
