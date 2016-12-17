@@ -320,52 +320,70 @@ function putItems(req, res) {
 	});
 }
 
-function postBookmarkItemsHandler(req, res) {
-	const moveFile = BPromise.promisify(req.files.file.mv);
-	const filename = req.files.file.name;
-	const userId = req.user.id;
-	let bookmarksArr;
-
-	if (!req.files) {
-    res.send('No files were uploaded.');
-    return;
-  }
-  moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
-		console.log('1 import file uploaded');
-		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
-
-		let tagsArrArr = bookmarksArr.map(obj => obj.tags);
-		let tagsArr = [].concat.apply([], tagsArrArr); // flatten array
-		let uniqTagnameArray = tagsArr.filter(function(tagname, i, self) {
-			return self.indexOf(tagname) === i;
-		});
-		console.log('2 unique array', uniqTagnameArray);
-		let tagPromisesArr = uniqTagnameArray.map(tagname => {
-			return Tag.findOne({user: userId, name: tagname}).then(tag => {
-				if (!tag) {
-					console.log('3 tag created', tagname);
-					Tag.create({
-						name: tagname,
-						colour: 'cp-colour-1',
-						user: userId,
-						itemCount: 0
-					});
-				}
-			});
-		});
-		return Promise.all(tagPromisesArr);
-  }).then(() => {
-		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
-			return saveBookmarkItem(bookmark, userId);
-		});
-		return Promise.all(bookmarkPromisesArr);
-	}).then(() => {
-		res.send('File uploaded!');
-	}).catch(err => {
-		console.log('import file error', err);
-		res.status(500).send(err);
-	});
-}
+// function postBookmarkItemsHandler(req, res) {
+// 	const moveFile = BPromise.promisify(req.files.file.mv);
+// 	const filename = req.files.file.name;
+// 	const userId = req.user.id;
+// 	let bookmarksArr;
+// 	let categoryName;
+// 	let uniqTagnameArray;
+//
+// 	if (!req.files) {
+//     res.send('No files were uploaded.');
+//     return;
+//   }
+//   moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
+// 		console.log('1 import file uploaded');
+// 		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
+//
+// 		const tagsArrArr = bookmarksArr.map(obj => obj.tags);
+// 		const tagsArr = [].concat.apply([], tagsArrArr); // flatten array
+// 		uniqTagnameArray = tagsArr.filter(function(tagname, i, self) {
+// 			return self.indexOf(tagname) === i;
+// 		});
+// 		categoryName = uniqTagnameArray[0];
+// 		console.log('2 unique array', uniqTagnameArray);
+//
+// 		return Category.findOne({ user: userId, name: categoryName });
+//   }).then(category => {
+// 		if (!category) {
+// 			console.log('3 category created', categoryName);
+// 			Category.create({
+// 				name: categoryName,
+// 				colour: 'cp-colour-1',
+// 				user: userId,
+// 				itemCount: 0
+// 			});
+// 		}
+// 	}).then(() => {
+// 		let tagnamesArr = uniqTagnameArray.splice(1, uniqTagnameArray.length-1);
+//
+// 		let tagPromisesArr = tagnamesArr.map(tagname => {
+// 			return Tag.findOne({ user: userId, category: categoryId, name: tagname }).then(tag => {
+// 				if (!tag) {
+// 					console.log('4 tag created', tagname);
+// 					Tag.create({
+// 						name: tagname,
+// 						colour: 'cp-colour-1',
+// 						user: userId,
+// 						itemCount: 0
+// 					});
+// 				}
+// 			});
+// 		});
+// 		return Promise.all(tagPromisesArr);
+// 	}).then(() => {
+// 		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
+// 			return saveBookmarkItem(bookmark, userId);
+// 		});
+// 		return Promise.all(bookmarkPromisesArr);
+// 	}).then(() => {
+// 		res.send('File uploaded!');
+// 	}).catch(err => {
+// 		console.log('import file error', err);
+// 		res.status(500).send(err);
+// 	});
+// }
 
 function saveBookmarkItem(bookmark, userId) {
   const body = bookmark.url;
@@ -423,18 +441,20 @@ function saveChromeItem(reqBody) {
 	const urlArr = reqBody.urlarr;
 	const titleArr = reqBody.titlearr;
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
+	const options = {};
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		return Item.assignCategoryAndTags(titleArr[0], null, user.id);
-	}).then(tagsObj => {
-		console.log('tags to be assigned', tagsObj);
-		return (typeof tagsObj === 'object') ? Item.create({
+		Object.assign(options, {userId: user.id});
+		return Item.findCategoryAndTags(titleArr[0], options);
+	}).then(idsObj => {
+		console.log('tags to be assigned', idsObj);
+		return (typeof idsObj === 'object') ? Item.create({
 			author: reqBody.username,
 			body: text,
-			category: tagsObj.categoryId,
+			category: idsObj.category,
 			createdDate: new Date(),
 			isPrivate: false,
-			tags: tagsObj.tagIds,
+			tags: idsObj.tags,
 			title: reqBody.titlearr,
 			type: 'bookmark',
 			user: reqBody.username,
@@ -518,30 +538,20 @@ function saveSlackItem(message, options) {
 	const newSlackItem = {
 		author: message.user_name,
 		body: message.text,
-		//category: tagsObj.categoryId,
 		createdDate: newTimestamp,
 		slackChannelId: message.channel_id,
 		slackTeamId: message.team_id,
 		slackUserId: message.user_id,
-		//tags: tagsObj.tagIds,
 		type: 'slack',
 		userGroup: options.userGroupId
 	};
+	Object.assign(options, {slackChannelId: message.channel_id});
 
-	if (options.categoryPerChannel) {
-		return Item.assignSlackCategoryAndTags(message.text, options)
-		.then(tagsObj => {
-			Object.assign(newSlackItem, tagsObj);
-	    return Item.create(newSlackItem);
-	  });
-	}
-	else {
-		return Item.assignCategoryAndTags(message.text, options)
-		.then(tagsObj => {
-			Object.assign(newSlackItem, tagsObj);
-	    return Item.create(newSlackItem);
-	  });
-	}
+	return Item.findCategoryAndTags(message.text, options)
+	.then(idsObj => {
+		Object.assign(newSlackItem, idsObj);
+    return Item.create(newSlackItem);
+  });
 }
 
 function deleteItems(req, res) {

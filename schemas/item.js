@@ -65,45 +65,50 @@ itemSchema.methods.makeEmberItem = function() {
   return emberItem;
 };
 
-itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
+itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
   const text = textToSearch.toLowerCase();
-  const query = options.groupId ? {userGroup: options.groupId} : {user: options.userId};
-  let categoryId;
-  let defaultCategoryId;
+  const query = options.userGroupId ? {userGroup: options.userGroupId} : {user: options.userId};
+  const idsObj = {};
 
   return Category.find(query).then(categories => {
     if (Array.isArray(categories)) {
-      categories.forEach(category => {
+      categories.forEach((category, i) => {
         let categoryname = category.name.toLowerCase();
 
-
-        
-        if (text.indexOf(categoryname) !== -1) {
-          console.log('category id found', category._id);
-          categoryId = category._id;
+        if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) {
+          console.log('slack category id found', category.name);
+          Object.assign(idsObj, {category: category._id});
         }
-        if (category.isDefault) {
+        else if (text.indexOf(categoryname) !== -1) {
+          console.log('category id found', category._id);
+          Object.assign(idsObj, {category: category._id});
+        }
+        else if (category.isDefault) {
           console.log('default category id found', category._id);
-          defaultCategoryId = category._id;
+          Object.assign(idsObj, {category: category._id});
+        }
+        else if (i === 0) {
+          console.log('default category id', category._id);
+          Object.assign(idsObj, {category: category._id});
         }
       });
     }
   }).then(category => {
-    if (category) {
-      return assignItemTags(textToSearch, category._id);
-    }
+    return category ? findItemTags(textToSearch, category._id) : [];
+  }).then(tagIdsArr => {
+    return tagIdsArr.length ? Object.assign(idsObj, {tags: tagIdsArr}) : {};
   });
 };
 
-itemSchema.statics.assignSlackCategoryAndTags = function(textToSearch, options) {
+itemSchema.statics.findSlackCategoryAndTags = function(textToSearch, options) {
   return Category.findOne({slackChannelId: options.slackChannelId}).then(category => {
     if (category) {
-      return assignItemTags(textToSearch, category._id);
+      return findItemTags(textToSearch, category._id);
     }
   });
 };
 
-function assignItemTags(textToSearch, categoryId) {
+function findItemTags(textToSearch, categoryId) {
   return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
       return tags.reduce((arr, tag) => {
