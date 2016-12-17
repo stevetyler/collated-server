@@ -77,7 +77,7 @@ itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
         let categoryname = category.name.toLowerCase();
 
 
-        
+
         if (text.indexOf(categoryname) !== -1) {
           console.log('category id found', category._id);
           categoryId = category._id;

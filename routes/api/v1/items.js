@@ -515,6 +515,7 @@ function postSlackItemsHandler(req, res) {
 function saveSlackItem(message, options) {
 	const slackTimestamp = message.timestamp || message.ts;
 	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
+<<<<<<< HEAD
 	const newSlackItem = {
 		author: message.user_name,
 		body: message.text,
@@ -542,6 +543,25 @@ function saveSlackItem(message, options) {
 	    return Item.create(newSlackItem);
 	  });
 	}
+=======
+
+	// if categoryPerSlackChannel
+	return Item.assignCategoryAndTags(message.text, options)
+	.then(tagsObj => {
+    return Item.create({
+			author: message.user_name,
+			body: message.text,
+			category: tagsObj.categoryId,
+	    createdDate: newTimestamp,
+			slackChannelId: message.channel_id,
+			slackTeamId: message.team_id,
+			slackUserId: message.user_id,
+			tags: tagsObj.tagIds,
+			type: 'slack',
+			userGroup: options.userGroupId
+	  });
+  });
+>>>>>>> 1e6c6c4cec830d910199870c91aa4ec678650c9c
 }
 
 function deleteItems(req, res) {
