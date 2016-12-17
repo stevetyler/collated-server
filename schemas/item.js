@@ -100,14 +100,6 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
   });
 };
 
-itemSchema.statics.findSlackCategoryAndTags = function(textToSearch, options) {
-  return Category.findOne({slackChannelId: options.slackChannelId}).then(category => {
-    if (category) {
-      return findItemTags(textToSearch, category._id);
-    }
-  });
-};
-
 function findItemTags(textToSearch, categoryId) {
   return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
