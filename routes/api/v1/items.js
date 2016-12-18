@@ -550,6 +550,7 @@ function saveSlackItem(message, options) {
 	return Item.findCategoryAndTags(message.text, options)
 	.then(idsObj => {
 		Object.assign(newSlackItem, idsObj);
+		console.log('new slack item to save', newSlackItem);
     return Item.create(newSlackItem);
   });
 }

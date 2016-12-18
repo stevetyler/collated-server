@@ -72,47 +72,33 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
 
   return Category.find(query).then(categories => {
     if (Array.isArray(categories)) {
-      categories.forEach((category, i) => {
+      //if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) { }
+      return categories.filter(category => {
         let categoryname = category.name.toLowerCase();
-
-        if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) {
-          console.log('slack category id found', category.name);
-          Object.assign(idsObj, {category: category._id});
-        }
-        else if (text.indexOf(categoryname) !== -1) {
-          console.log('category id found', category._id);
-          Object.assign(idsObj, {category: category._id});
-        }
-        else if (category.isDefault) {
-          console.log('default category id found', category._id);
-          Object.assign(idsObj, {category: category._id});
-        }
-        else if (i === 0) {
-          console.log('default category id', category._id);
-          Object.assign(idsObj, {category: category._id});
-        }
+        console.log('slack category id found', category.name);
+        //Object.assign(idsObj, {category: category._id});
+        return text.indexOf(categoryname) !== -1 || category.isDefault;
       });
-      return idsObj.category;
     }
-  }).then(categoryId => {
-    return categoryId ? findItemTags(textToSearch, categoryId) : [];
+  }).then(categoryArr => {
+    console.log('categories found', categoryArr);
+
+
+    //return category ? findItemTags(textToSearch, category.id) : [];
   }).then(tagIdsArr => {
-    return tagIdsArr.length ? Object.assign(idsObj, {tags: tagIdsArr}) : {};
+    console.log('tagIdsArr', tagIdsArr);
+    return Object.assign(idsObj, {tags: tagIdsArr});
   });
 };
 
 function findItemTags(textToSearch, categoryId) {
   return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
-      return tags.reduce((arr, tag) => {
+      return tags.filter(tag => {
         let tagname = tag.name.toLowerCase();
 
-        if (textToSearch.indexOf(tagname) !== -1) {
-          console.log('tag found', tag);
-          arr.push(tag._id);
-        }
-        return arr;
-      }, []);
+        return textToSearch.indexOf(tagname) !== -1;
+      });
     }
   });
 }
