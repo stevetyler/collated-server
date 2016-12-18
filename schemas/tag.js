@@ -8,6 +8,7 @@ var tagSchema = new Schema({
   itemCount: String,
   isPrivate: String,
   isReserved: String,
+  keywords: [String],
   name: String,
   user: String,
   userGroup: String
@@ -20,6 +21,7 @@ tagSchema.methods.makeEmberTag = function(count) {
 		colour: this.colour,
     itemCount: count,
     isPrivate: this.isPrivate,
+    keywords: this.keywords,
     name: this.name,
     user: this.user,
     userGroup: this.userGroup,
