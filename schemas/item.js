@@ -71,22 +71,32 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
   const idsObj = {};
 
   return Category.find(query).then(categories => {
+    console.log('categories found', categories);
     if (Array.isArray(categories)) {
-      //if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) { }
-      return categories.filter(category => {
-        let categoryname = category.name.toLowerCase();
-        console.log('slack category id found', category.name);
-        //Object.assign(idsObj, {category: category._id});
-        return text.indexOf(categoryname) !== -1 || category.isDefault;
+      categories.forEach(category => {
+        const categoryname = category.name.toLowerCase();
+        //if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) { }
+        if (category.isDefault) {
+          console.log('default category found', category.name);
+          Object.assign(idsObj, {defaultCategory: category._id});
+        }
+        if (text.indexOf(categoryname) !== -1) {
+          console.log('category matched to text', category.name);
+          Object.assign(idsObj, {category: category._id});
+        }
       });
     }
-  }).then(categoryArr => {
-    console.log('categories found', categoryArr);
+    return idsObj;
+  }).then(obj => {
+    if (!obj.category && obj.defaultCategory) {
+      Object.assign(idsObj, {category: obj.defaultCategory});
+    }
+    const categoryId = obj.category;
+    console.log('categoryId to find tags for', categoryId);
 
-
-    //return category ? findItemTags(textToSearch, category.id) : [];
+    return categoryId ? findItemTags(textToSearch, categoryId) : [];
   }).then(tagIdsArr => {
-    console.log('tagIdsArr', tagIdsArr);
+    console.log('idsObj, tagIdsArr', idsObj, tagIdsArr);
     return Object.assign(idsObj, {tags: tagIdsArr});
   });
 };
@@ -94,11 +104,12 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
 function findItemTags(textToSearch, categoryId) {
   return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
-      return tags.filter(tag => {
+      const tagsArrMatched = tags.filter(tag => {
         let tagname = tag.name.toLowerCase();
 
         return textToSearch.indexOf(tagname) !== -1;
       });
+      return tagsArrMatched.map(tag => tag._id);
     }
   });
 }
