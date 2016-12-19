@@ -191,7 +191,7 @@ function getFilteredItems(reqObj) {
 		}
 		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
-		console.log('pagedObj before making public or private', pagedObj);
+		//console.log('pagedObj before making public or private', pagedObj);
 		return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
@@ -550,7 +550,7 @@ function saveSlackItem(message, options) {
 	return Item.findCategoryAndTags(message.text, options)
 	.then(idsObj => {
 		Object.assign(newSlackItem, idsObj);
-		console.log('new slack item to save', newSlackItem);
+		//console.log('new slack item to save', newSlackItem);
     return Item.create(newSlackItem);
   });
 }
