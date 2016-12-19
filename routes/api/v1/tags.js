@@ -158,7 +158,7 @@ function putTag(req, res) {
 	const tagName = req.body.tag.name;
 
 	console.log('putTag', tagId, tagName);
-  if (req.user.id === req.body.tag.user || req.user.slackProfile.isTeamAdmin) {
+  if (req.user.id === req.body.tag.user) {
     Tag.update({_id: tagId}, // removed user: req.user.id temporarily
       {$set: {
         name: tagName,
@@ -183,7 +183,7 @@ function putTag(req, res) {
       return res.status(400).end();
     });
   }	else {
-		console.log('userId', req.user.id, 'tag user', req.body.tag.user, req.user.slackProfile.isTeamAdmin);
+		console.log('userId', req.user.id, 'tag user', req.body.tag.user);
 		return res.status(401).end();
 	}
 }
