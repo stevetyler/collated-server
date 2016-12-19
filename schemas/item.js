@@ -104,14 +104,30 @@ itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
 function findItemTags(textToSearch, categoryId) {
   return Tag.find({category: categoryId}).then(tags => {
     if (Array.isArray(tags)) {
-      const tagsArrMatched = tags.filter(tag => {
-        let tagname = tag.name.toLowerCase();
+      const tagsMatchedArr = tags.filter(tag => {
+        let tmpArr = tag.keywords.concat(tag.name);
+        let tmpArrLower = tmpArr.map(name => name.toLowerCase());
+        
+        let matchedSearchArr = tmpArrLower.filter(name => {
+          return textToSearch.indexOf(name) !== -1;
+        });
 
-        return textToSearch.indexOf(tagname) !== -1;
+        return matchedSearchArr.length ? tag : null;
       });
-      return tagsArrMatched.map(tag => tag._id);
+
+      return tagsMatchedArr.map(tag => tag._id);
     }
   });
 }
 
 module.exports = itemSchema;
+
+
+// let tagsArrMatched = tags.filter(tag => {
+//   let searchArr = tag.keywords.concat(tag.name);
+//   let matchedSearch = searchArr.filter(name => {
+//     return text.indexOf(name) !== -1;
+//   });
+//   console.log(matchedSearch);
+//
+// });
