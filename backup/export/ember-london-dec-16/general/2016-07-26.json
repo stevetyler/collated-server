@@ -1,0 +1,215 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "good morning guys",
+        "ts": "1469517486.000174"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Mornin' ",
+        "ts": "1469518480.000175"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "morning",
+        "ts": "1469519286.000176"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "g'day",
+        "ts": "1469520337.000177"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "buongiorno",
+        "ts": "1469522329.000178"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ciao <@U07E9GKUZ> :slightly_smiling_face:",
+        "ts": "1469522448.000179"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": ":wave: <@U0A48LWTG> :wave:",
+        "ts": "1469522477.000180"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U07E9GKUZ>: how are you? are you coming back to Italy for holidays?",
+        "ts": "1469522510.000181"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "just came back from Italy yesterday :smile:",
+        "ts": "1469522557.000182"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "so yeah.. maybe will take a couple of weeks off in September again :smile:",
+        "ts": "1469522580.000183"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "whereabouts did you go",
+        "ts": "1469523164.000184"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Sounding suitable Aussie this morning mate. Bloody bonza effort.",
+        "attachments": [
+            {
+                "fallback": "[July 26th, 2016 9:05 AM] rlivsey: g'day",
+                "author_subname": "rlivsey",
+                "ts": "1469520337.000177",
+                "channel_id": "C03SSL0GP",
+                "channel_name": "general",
+                "is_msg_unfurl": true,
+                "text": "g'day",
+                "author_link": "https:\/\/emberlondon.slack.com\/team\/rlivsey",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/c004d67820a114e24ccf6f2ddaf5b236.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0011-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": "D0D0D0",
+                "from_url": "https:\/\/emberlondon.slack.com\/archives\/general\/p1469520337000177",
+                "is_share": true,
+                "footer": "Posted in #general"
+            }
+        ],
+        "ts": "1469523217.000185"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I\u2019m a man of the world",
+        "ts": "1469524251.000186"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "guys, what\u2019s the best way to mock a service in a unit test?",
+        "ts": "1469528736.000187"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U0A48LWTG>: assuming is just a property on something",
+        "ts": "1469528974.000188"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "just re-assign that property to the mock object",
+        "ts": "1469528981.000189"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "there's a way you can hook into the injector, and just call your mock by the name of the real thing",
+        "ts": "1469529021.000190"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "but I forget it every time",
+        "ts": "1469529028.000191"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "and can never find it again",
+        "ts": "1469529033.000192"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yeah right <@U047GTU64> :slightly_smiling_face:",
+        "ts": "1469529033.000193"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Can I use ember-i18n to localize an addon?",
+        "ts": "1469538173.000194"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I tried generating a new locale but I did the same actions as for a \u201cnormal\u201d app",
+        "ts": "1469538203.000195"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "```installing locale\n  create app\/locales\/en\/config.js\n  create app\/locales\/en\/translations.js```",
+        "ts": "1469538215.000196"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "is it OK? I mean, I would expect to have some new file in the addon folder too",
+        "ts": "1469538428.000197"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<@U03V8V08M>: what was that recording thing you mentioned at the meetup?",
+        "ts": "1469549009.000198"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "the web app that records sessions and associates them with a bug",
+        "ts": "1469549025.000199"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U043951H9>: <https:\/\/fullstory.com\/>",
+        "attachments": [
+            {
+                "title": "FullStory",
+                "title_link": "https:\/\/fullstory.com\/",
+                "text": "Record, replay, search and analyze all user sessions on your site or web app.",
+                "fallback": "FullStory",
+                "from_url": "https:\/\/fullstory.com\/",
+                "service_name": "fullstory.com",
+                "id": 1
+            }
+        ],
+        "ts": "1469549770.000200"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "Thanks",
+        "ts": "1469554859.000202"
+    },
+    {
+        "user": "U1V9X16D6",
+        "text": "<@U1V9X16D6|tomj> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1469555668.000203"
+    },
+    {
+        "user": "U1VC5K5SL",
+        "text": "<@U1VC5K5SL|tomblakemore> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1469567290.000204"
+    }
+]

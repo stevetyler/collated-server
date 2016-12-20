@@ -1,0 +1,260 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408> yeah something strange is happening in my environment with a lot of flexbox stuff; i need to get to terms with what's happening there first as I now suspect the problem lies there more than it does with power select.",
+        "ts": "1472196967.001538"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "does anyone know of an addon which provides a convenient integration of the vibration API and sound effects?",
+        "ts": "1472208583.001539"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I think that the max specificitly of the selectors in EPS is 3",
+        "ts": "1472214582.001540"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`.ember-basic-dropdow.ember-powers-select-trigger[aria-expanded=true]` is probably the most specific one",
+        "ts": "1472214611.001541"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok thanks cibernox",
+        "ts": "1472214628.001542"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I also know that the margin of the trigger varies if the element has `dir=\"rtl\"`",
+        "ts": "1472214663.001543"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "for languages like arabic",
+        "ts": "1472214668.001544"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hola peeps",
+        "ts": "1472214792.001545"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "if I want to make a custom ajax call - which service\/primitive should I use?",
+        "ts": "1472214805.001546"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "`adapter#ajax` ?",
+        "ts": "1472214814.001547"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/ember-cli\/ember-ajax> :smile:",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "ember-cli\/ember-ajax",
+                "title_link": "https:\/\/github.com\/ember-cli\/ember-ajax",
+                "text": "ember-ajax - Service for making AJAX requests in Ember 1.13+ applications.",
+                "fallback": "GitHub: ember-cli\/ember-ajax",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/10262982?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli\/ember-ajax",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1472214950.001548"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "seems to be the best choice",
+        "ts": "1472214953.001550"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":+1: for ember-ajax",
+        "ts": "1472214988.001551",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "great ;D",
+        "ts": "1472215148.001552"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "adapter#ajax is useful if the adapter is already doing the work of specifying specialised headers etc.",
+        "ts": "1472215183.001553"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you could also use ember-network",
+        "ts": "1472215220.001554",
+        "reactions": [
+            {
+                "name": "top",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "which will give you the `fetch` polyfill in browser and node",
+        "ts": "1472215238.001555"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":point_up: :pray: :+1:",
+        "ts": "1472215271.001556"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I thought fetch was only for `GET` requests?",
+        "ts": "1472215285.001557"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "no, it\u2019s an all-purpose replacement for XHR",
+        "ts": "1472215463.001558"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it's vernacular is a bit misleading though",
+        "ts": "1472215478.001559"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "haha, true",
+        "ts": "1472215487.001560"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I say \"replacement for XHR\"",
+        "ts": "1472215497.001561"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "layer over the top of XHR",
+        "ts": "1472215501.001562"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "does anyone know how to create a shim out of a `bower_components` dependency?",
+        "ts": "1472215505.001563"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I would love to drop the word vernacular on a scrabble game",
+        "ts": "1472215528.001564",
+        "reactions": [
+            {
+                "name": "joy",
+                "users": [
+                    "U0C5RUAQ4"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "drop the mic - then leave the room",
+        "ts": "1472215535.001565"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "guys\u2026 is there something out there that helps me not write my own set wrapper that check for a destroyed object?",
+        "edited": {
+            "user": "U0A48LWTG",
+            "ts": "1472216273.000000"
+        },
+        "ts": "1472216269.001566"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "ember-concurrency? :troll:",
+        "ts": "1472216380.001568"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I introduced someone to ember-concurrency this week",
+        "ts": "1472222204.001569"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and his face was amazing",
+        "ts": "1472222214.001570"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "like \"what kind of sorcery is this?!\"",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1472222231.000000"
+        },
+        "ts": "1472222228.001571"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "priceless",
+        "ts": "1472222244.001573",
+        "reactions": [
+            {
+                "name": "grinning",
+                "users": [
+                    "U04BD6KB1",
+                    "U07E9GKUZ"
+                ],
+                "count": 2
+            }
+        ]
+    }
+]

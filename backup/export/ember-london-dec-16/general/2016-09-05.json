@@ -1,0 +1,167 @@
+[
+    {
+        "type": "message",
+        "user": "U1E99UG49",
+        "text": "Hey folks,\n\nI'm launching a new version of my funded startup that runs on Ember-Cli and need an extra pair of hands to help finish a couple time-resourceful views &amp; components (a performant infinite scroll feed for hundreds of items with filtering by category, a front-end filter for a few hundred elements and a form of medium complexity). I'm looking for an experienced Ember Dev to help me finish them up before 20th of September. Please DM me if you can help or can recommend anyone.",
+        "edited": {
+            "user": "U1E99UG49",
+            "ts": "1473066288.000000"
+        },
+        "ts": "1473066277.000003",
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U03V8V08M"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Thanks for posting <@U1E99UG49>",
+        "ts": "1473066341.000005"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "We can mention this at the meetup on Thursday too if you like",
+        "ts": "1473066353.000006"
+    },
+    {
+        "type": "message",
+        "user": "U1E99UG49",
+        "text": "<@U03V8V08M> will be glad, thanks :slightly_smiling_face:",
+        "ts": "1473066379.000007"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/twitter.com\/EmberLondon\/status\/772725373410930688>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/EmberLondon|@EmberLondon>: Meetup: Thursday\nTopics: Immense\nSpeakers: Glorious\n\nSee you there!\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614815\/>",
+                "ts": 1473067060,
+                "author_name": "Ember London",
+                "author_link": "https:\/\/twitter.com\/EmberLondon\/status\/772725373410930688",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/490089444473835522\/AbHfjBqC_normal.jpeg",
+                "author_subname": "@EmberLondon",
+                "text": "Meetup: Thursday\nTopics: Immense\nSpeakers: Glorious\n\nSee you there!\n\n<https:\/\/www.meetup.com\/London-Emberjs-User-Group\/events\/231614815\/>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/EmberLondon\/status\/772725373410930688",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1473067080.000008"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Hey all, i've created a public document that we can all collaborate on to identify tech podcasts which  we really get a lot out of.",
+        "ts": "1473081443.000010"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest>",
+        "ts": "1473081445.000011"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "please contribute to it when you have a sec",
+        "ts": "1473081453.000012"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the goal is two-fold:",
+        "ts": "1473081486.000013"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "1. create a resource we can all benefit",
+        "ts": "1473081493.000014"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "2. start to build a marketing strategy around which podcasts we should be aiming to have Ember topics on",
+        "ts": "1473081515.000015"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1> think that URL might be missing an ID?",
+        "ts": "1473081523.000016"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is that needed ... thought that was a versioning thing ... one sec",
+        "ts": "1473081544.000017"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd>",
+        "attachments": [
+            {
+                "service_name": "Canvas",
+                "title": "Podcasts of Interest",
+                "title_link": "https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd",
+                "text": "In an effort to identify the best ways to market Ember to the larger JS and Tech community, we're trying to collaborate with Emberinos in identifying a set of podcasts that they find valuable. Your contribution is very welcome. Thanks in advance. Ember.",
+                "fallback": "Canvas: Podcasts of Interest",
+                "from_url": "https:\/\/usecanvas.com\/ember-london\/podcasts-of-interest\/0g6Fk40P2E6kGZiWMZ7mDd",
+                "id": 1
+            }
+        ],
+        "ts": "1473081556.000018"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "much uglier (but apparently needed) URL",
+        "ts": "1473081567.000020"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> love usecanvas",
+        "ts": "1473082113.000021",
+        "reactions": [
+            {
+                "name": "tada",
+                "users": [
+                    "U04BD6KB1",
+                    "U06BGNMBL"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U047GTU64> sure you\u2019ve figured this out already, but only just saw the message",
+        "ts": "1473107091.000024"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "You can use directories &amp; bundler at the same time as described here: <https:\/\/docs.travis-ci.com\/user\/caching\/#Enabling-multiple-caching-features>",
+        "ts": "1473107108.000025"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": " <@U044QMK6K> I have but thanks :) ",
+        "ts": "1473137607.000026"
+    }
+]

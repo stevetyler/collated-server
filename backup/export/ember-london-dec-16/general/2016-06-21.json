@@ -1,0 +1,406 @@
+[
+    {
+        "type": "message",
+        "user": "U0K8HSK3K",
+        "text": "Can anyone point me at a good article that explains how to use await \/ async keywords with Ember? I\u2019ve tried sticking the `await` keyword in and getting compile errors. Using _ember-cli-babel_ version 5.1.6. Should I be able to use with this version? This article suggests I should: <https:\/\/topaxi.codes\/using-es7-async-functions-in-ember\/>, Have also added the polyfills...",
+        "attachments": [
+            {
+                "service_name": "topaxi.codes",
+                "title": "Using ES7 Async Functions In Ember",
+                "title_link": "https:\/\/topaxi.codes\/using-es7-async-functions-in-ember\/",
+                "text": "In my last Ember.js projects, I've began to use the new upcoming JavaScript async functions. While they are not yet officially included in the standard, they were recently moved to a \"Stage 3\" proposal on the tc39\/ecma262 document, this means they are ready to be implemented by browser",
+                "fallback": "topaxi.codes: Using ES7 Async Functions In Ember",
+                "ts": 1444805746,
+                "from_url": "https:\/\/topaxi.codes\/using-es7-async-functions-in-ember\/",
+                "service_icon": "https:\/\/topaxi.codes\/assets\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1466496469.000323"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0K8HSK3K>: I think you have to explicitly enable async\/await",
+        "ts": "1466496575.000325"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "```\nvar app = new EmberApp({\n  hinting: false,\n  babel: {\n    nonStandard: false,\n    optional: [\n      'es7.asyncFunctions',\n      'es7.decorators'\n    ]\n  }\n});\n```",
+        "ts": "1466496589.000326"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "based on <https:\/\/github.com\/stefanpenner\/ember-jobs\/blob\/master\/Brocfile.js>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "stefanpenner\/ember-jobs",
+                "title_link": "https:\/\/github.com\/stefanpenner\/ember-jobs\/blob\/master\/Brocfile.js",
+                "text": "Contribute to ember-jobs development by creating an account on GitHub.",
+                "fallback": "GitHub: stefanpenner\/ember-jobs",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/1377?v=3&s=400",
+                "from_url": "https:\/\/github.com\/stefanpenner\/ember-jobs\/blob\/master\/Brocfile.js",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1466496605.000327"
+    },
+    {
+        "type": "message",
+        "user": "U0K8HSK3K",
+        "text": "Thanks Jamie, will take a look at that :smile:",
+        "ts": "1466496682.000329"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "the ember-jobs example is a little out of date, but I think it still stands",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1466496777.000000"
+        },
+        "ts": "1466496702.000330"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "has anyone used the Ember.Location api before? <http:\/\/emberjs.com\/api\/classes\/Ember.Location.html>",
+        "attachments": [
+            {
+                "title": "Ember.js: Ember.Location",
+                "title_link": "http:\/\/emberjs.com\/api\/classes\/Ember.Location.html",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Ember.Location",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/api\/classes\/Ember.Location.html",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "ts": "1466502390.000332"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I played around with it a few months back. I think it\u2019s a pretty basic solution so might need a little extension here or there but that should be straight forward enough. For instance, think it either took a singular reading or kept watching when in many cases you want to geo-locate for 20 secs or so to get a more accurate reading and then drop.",
+        "ts": "1466502635.000334"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it\u2019s been a bit too long for me to comment though",
+        "ts": "1466502674.000335"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm.. for some reason ember doesn't seem to be picking up my extensions of the library",
+        "ts": "1466502722.000336"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "it says it looks in `app\/locations\/*`, but nothing so far",
+        "ts": "1466502741.000337"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "of course you can also use `ember-browser-info` for IP lookups from yours truly :slightly_smiling_face:",
+        "ts": "1466502814.000338"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/ember-browser-info.firebaseapp.com\/>",
+        "ts": "1466502815.000339"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "probably not what you\u2019re looking for though",
+        "ts": "1466502823.000340"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "geo-IP that is",
+        "ts": "1466502845.000341"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "this is cool",
+        "ts": "1466502845.000342"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "but not what I'm looking for :stuck_out_tongue:",
+        "ts": "1466502854.000343"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "thanks though man",
+        "ts": "1466502858.000344"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sure. good luck.",
+        "ts": "1466502863.000345"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "browser-info is awesome",
+        "ts": "1466502890.000346"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1>: This is real nice. Was looking for something really similar.",
+        "ts": "1466503669.000347"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":blush:",
+        "ts": "1466503704.000348"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "peeps",
+        "ts": "1466514006.000349"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "can any of you remember why using `store#filter` is a bad idea?",
+        "ts": "1466514014.000350"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "do you mean why did they remove it?",
+        "ts": "1466514132.000351"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or deprecate it, rather",
+        "ts": "1466514232.000352"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<http:\/\/emberjs.com\/blog\/2015\/06\/18\/ember-data-1-13-released.html#toc_ds-store-filter-moved-to-an-addon>",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1466514261.000000"
+        },
+        "ts": "1466514254.000353"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: well yeah",
+        "ts": "1466514274.000355"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\n. It currently only supports a limited number of uses cases and often is a source of memory leaks in long running applications. In order to give Ember Data time to iterate on a better filter API the \n```",
+        "ts": "1466514294.000356"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "a bit of an obscure comment",
+        "ts": "1466514304.000357"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I recall that newcomers were almost universally confused by `store.filter`",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1466514428.000000"
+        },
+        "ts": "1466514419.000358"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "vs. `query`",
+        "ts": "1466514434.000360"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "people seemed not to guess whether it would make a request or not, and what kind of request",
+        "ts": "1466514454.000361"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019ve always found a way to not use it",
+        "ts": "1466514494.000362"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "since they removed it",
+        "ts": "1466514499.000363"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and the way i found didn\u2019t involve more code",
+        "ts": "1466514512.000364"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "significantly",
+        "ts": "1466514537.000365"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "`store.peekAll(\u2018recordName\u2019).toArray().filter` ?",
+        "ts": "1466514550.000366"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that even without the `toArray`",
+        "ts": "1466514572.000367"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "what?",
+        "ts": "1466514579.000368"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you can call filter in a RecordArray I think",
+        "ts": "1466514592.000369"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "without converting it into a plain array",
+        "ts": "1466514608.000370"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "isn\u2019t it pointing to the same function?",
+        "ts": "1466514611.000371"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if so, why call `toArray()` then?",
+        "ts": "1466514633.000372"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the same function being store#filter*",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1466514664.000000"
+        },
+        "ts": "1466514662.000373"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "anyone have any experience with `store.push` or `store.pushPayload`?",
+        "ts": "1466514758.000375"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U04BD6KB1>: a little",
+        "ts": "1466515797.000376"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "main gotcha being pushPayload not returning the items pushed into the store unless you use canary &amp; a flag",
+        "ts": "1466515831.000377"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh? what do you mean?",
+        "ts": "1466515964.000378"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i am getting data from a Websocket and want to load ED without having to save() it and repeating the commit for this record",
+        "ts": "1466516008.000379"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "that\u2019s what I use pushPayload for yeah",
+        "ts": "1466516665.000380"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/gist.github.com\/rlivsey\/211fefe924cf6c19823c410cff7a7320>",
+        "ts": "1466516670.000381"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "most of that\u2019s irrelevant but that\u2019s where I\u2019m using it in one place in my app in a ws callback",
+        "ts": "1466516717.000382"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "have to do it in the next tick because of a double-add bug (<https:\/\/github.com\/emberjs\/data\/issues\/4262>) but other than that it \u201cjust works\"",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "pushPayload\/save can create duplicate records in the store \u00b7 Issue #4262 \u00b7 emberjs\/data \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/data\/issues\/4262",
+                "text": "I'm working on an app that uses websockets to push out changes from a server to multiple clients, keeping them in sync. (Specifically the server uses Rails Action Cable, and the client subscribes ...",
+                "fallback": "GitHub: pushPayload\/save can create duplicate records in the store \u00b7 Issue #4262 \u00b7 emberjs\/data",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/5545?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/data\/issues\/4262",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1466516750.000383"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U044QMK6K>: not the problem _I was_ having but it is now the problem _I am having_ Thanks. :smile:",
+        "ts": "1466535228.000385"
+    }
+]

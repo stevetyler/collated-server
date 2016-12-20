@@ -1,0 +1,95 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U04TVTLQ8> yes, ember-wormhole 0.4.1 works in wormhole",
+        "ts": "1474617888.000786"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is a documented bug still, but not something I do",
+        "ts": "1474617906.000787"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this one in particular: <https:\/\/github.com\/yapplabs\/ember-wormhole\/issues\/66>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "[Glimmer2] DOMException with {{#if}} helper \u00b7 Issue #66 \u00b7 yapplabs\/ember-wormhole \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/yapplabs\/ember-wormhole\/issues\/66",
+                "text": "When testing for compatibility of ember-bootstrap with Glimmer2, I get the following exception with the modal component that uses ember-wormhole: DOMException: Failed to execute 'removeChild' on ...",
+                "fallback": "GitHub: [Glimmer2] DOMException with {{#if}} helper \u00b7 Issue #66 \u00b7 yapplabs\/ember-wormhole",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/1325249?v=3&s=400",
+                "from_url": "https:\/\/github.com\/yapplabs\/ember-wormhole\/issues\/66",
+                "thumb_width": 385,
+                "thumb_height": 385,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1474617956.000788"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "What's the correct way to have assets in an addon?",
+        "ts": "1474644608.000790"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "I'va got a background image for a component",
+        "ts": "1474644619.000791"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "in the component sccs in the addon I have background-image: url('ember-command-control-ui\/images\/panel\/pnl-tl.png')",
+        "ts": "1474644641.000792"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "The files are currently in \/public\/images\/panel inside the addon",
+        "ts": "1474644666.000793"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "When I build the app I get dist\/ember-command-control-ui\/images\/panel\/pnl-tl.png",
+        "ts": "1474644688.000794"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "but the css refers to dist\/assets\/ember-command-control-ui\/images\/panel\/pnl-tl.png",
+        "ts": "1474644704.000795"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "so all my images break",
+        "ts": "1474644714.000796"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "what's the correct way to do this?",
+        "ts": "1474644725.000797"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'm not sure of what I am about to say, but ... vendor?",
+        "ts": "1474649945.000798"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Put the files in myaddon\/vendor you mean?",
+        "ts": "1474657447.000799"
+    }
+]

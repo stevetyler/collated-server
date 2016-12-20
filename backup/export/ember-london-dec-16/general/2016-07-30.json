@@ -1,0 +1,26 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s buggy still",
+        "ts": "1469908910.000406"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019ve open 3 issues",
+        "ts": "1469908913.000407"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but they are fixing them quicky",
+        "ts": "1469908929.000408"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "2 are closed and the third has a PR",
+        "ts": "1469908941.000409"
+    }
+]

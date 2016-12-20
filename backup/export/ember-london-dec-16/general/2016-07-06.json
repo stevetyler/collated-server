@@ -1,0 +1,593 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "in case someone\u2019s scrathing their head today",
+        "ts": "1467808839.000902"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/npm\/npm\/issues\/13284>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "conventional-changelog-atom 502 Bad Gateway \u00b7 Issue #13284 \u00b7 npm\/npm \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/npm\/npm\/issues\/13284",
+                "text": "I'm opening this issue because: npm is crashing. npm is producing an incorrect install. npm is doing something I don't understand. Other (see below for feature requests): What's going w...",
+                "fallback": "GitHub: conventional-changelog-atom 502 Bad Gateway \u00b7 Issue #13284 \u00b7 npm\/npm",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/6579616?v=3&s=400",
+                "from_url": "https:\/\/github.com\/npm\/npm\/issues\/13284",
+                "thumb_width": 268,
+                "thumb_height": 268,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467808839.000903"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "having some issues running unit tests of components that use the ember-power-select. Anyone had any luck doing so?",
+        "ts": "1467811256.000905"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "added power-select in the `needs` array, like so:\n\n```\n        'component:power-select',\n        'component:basic-dropdown',\n```\n\nbut I get this:\n```\nerror: Could not find component named \"power-select\/trigger\" (no component or template wi\nth that name was found)\n```\n\nusing ember-power-select v0.8.1",
+        "edited": {
+            "user": "U0C5RUAQ4",
+            "ts": "1467811361.000000"
+        },
+        "ts": "1467811352.000906"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019d be tempted to use a component integration test",
+        "ts": "1467811407.000908"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019ve pretty much buried unit tests for the better part",
+        "ts": "1467811423.000909"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "painful to maintain because of the high level of isolation",
+        "ts": "1467811433.000910"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "i,e having to change your `needs: whatever` everytime you add a relationship to a model",
+        "ts": "1467811451.000911"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and then that model has a unit test",
+        "ts": "1467811455.000912"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I know its not exactly your case though",
+        "ts": "1467811463.000913"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "to be honest, the actual test file is empty for this specific component, I can just remove it all together but I want to keep it there as a placeholder for me to write tests",
+        "ts": "1467811479.000914"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "If it were me, I wouldn't worry about it until I'm actually writing the test, whether that's ahead of time or what",
+        "ts": "1467811691.000915"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "otherwise you just end up yak-shaving for six hours",
+        "ts": "1467811701.000916"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "it's breaking all my tests on CircleCI though, so no deployments until this is fixed :smile:",
+        "ts": "1467811736.000917"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U040MK408>: I think you\u2019re needed",
+        "ts": "1467811753.000918"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "how so?",
+        "ts": "1467811765.000919"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I agree with <@U06BGNMBL>",
+        "ts": "1467811768.000920"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ah",
+        "ts": "1467811791.000921"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I never wrote an unit test involving EPS",
+        "ts": "1467811819.000922"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm, interesting",
+        "ts": "1467811829.000923"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I only write integration tests",
+        "ts": "1467811831.000924"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and acceptance",
+        "ts": "1467811841.000925"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "ok, will look into it. :beers:",
+        "ts": "1467811843.000926"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "thanks",
+        "ts": "1467811849.000927"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "are you familiar with `{ integration: true }`",
+        "ts": "1467811863.000928"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019ve found them far more useful the unit tests",
+        "ts": "1467811875.000929"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeah, I think I'm gonna migrate everything to integration tests",
+        "ts": "1467811897.000930"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "old project that didn't have integration tests by default for components at the time",
+        "ts": "1467811933.000931"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that said, what you pasted above sounds reasonable",
+        "ts": "1467812037.000932"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I guess the you just need to keep adding sub-components as dependencies",
+        "ts": "1467812053.000933"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`component:power-select\/trigger`",
+        "ts": "1467812061.000934"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`component:power-select\/before-options`",
+        "ts": "1467812070.000935"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ect ...",
+        "ts": "1467812079.000936"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "or mock it somehow?",
+        "ts": "1467812297.000937"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you know, just swap it out with something that'll render to `&lt;p&gt;Hello world&lt;\/p&gt;`",
+        "ts": "1467812334.000938"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm. I suppose I could use array destructuring and import the \"unit\" power-select dependencies like so:\n\n```\n\/\/ power-select-dependencies.js\n\nexport default [\n    'component:power-select',\n    'component:basic-dropdown',\n    'component:power-select\/trigger',\n    'component:power-select\/before-options',\n];\n```\n\n```\n\/\/ unit-test-file.js\nimport powerSelectOptions from 'power-select-dependencies.js';\n\nmoduleForComponent('unit-test-component', 'Unit | Component | unit test component', {\n  \/\/ Specify the other units that are required for this test\n  needs: [\n    ...powerSelectOptions\n],\n  unit: true\n});\n```",
+        "ts": "1467812339.000939"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "or, just create move everything to integration tests :smile:",
+        "ts": "1467812371.000940"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is probably a lot",
+        "ts": "1467812385.000941"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so yes",
+        "ts": "1467812387.000942"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "migrate all the things",
+        "ts": "1467812391.000943"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is 5 components in EPS and 3 in ember-basic-dropdown",
+        "ts": "1467812412.000944"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "that's not so bad tbh",
+        "ts": "1467812423.000945"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you probably don\u2019t need all of them",
+        "ts": "1467812434.000946"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "TBH, as long as you're being sensible about app state and treating your components as basically functions from data to markup, then there's limited benefit from hardcore unit test isolation anyway",
+        "ts": "1467812438.000947"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "rendering a bit of markup in a test is pretty quick",
+        "ts": "1467812469.000948"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeah, ok, I'm going for a migration to integration tests. makes more sense given the tests I have on the rest of the components",
+        "ts": "1467812549.000949"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "is anyone else using `store.peekAll`? I\u2019ve got a computed property for `@each` and it\u2019s triggering before the POST finishes for a new model :disappointed:",
+        "ts": "1467813082.000950"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "what am I doing wrong?",
+        "ts": "1467813090.000951"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "means everything on my model is `undefined`",
+        "ts": "1467813135.000952"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "isn't that the correct behavior? peekAll fetches the array of models in memory, so computed property should fire instantly, and then re-compute when the new data is pulled in",
+        "ts": "1467813195.000953"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "right, so it should fire for the `createRecord` and for the `save()`?",
+        "ts": "1467813244.000954"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I believe so",
+        "ts": "1467813303.000955"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "not 100% sure on this, so please do correct me if I'm wrong.",
+        "ts": "1467813328.000956"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U0C5RUAQ4>: you are quite correct",
+        "ts": "1467813447.000957"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "aaaah",
+        "ts": "1467813475.000958"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "`peekAll` gives you live `RecordArray` so you\u2019ll every change as it happens, including unpersisted records",
+        "ts": "1467813475.000959"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "ok",
+        "ts": "1467813475.000960"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "cool",
+        "ts": "1467813488.000961"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so that\u2019s fine, that means my problem is that I\u2019m not waiting for the save to finish before continuing",
+        "ts": "1467813492.000962"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V5B7KY>: might be best to create a CP that filters the records to just persisted ones",
+        "ts": "1467813496.000963"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "which\u2026 if I return a promise\u2026.",
+        "ts": "1467813497.000964"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "BOOM",
+        "ts": "1467813498.000965"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "eah",
+        "ts": "1467813501.000966"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yeah",
+        "ts": "1467813502.000967"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "`.@each.isNew`?",
+        "ts": "1467813514.000968"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "haha",
+        "ts": "1467813515.000969"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "return a promise from inside the computed property?",
+        "ts": "1467813520.000970"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I think that will return the actual promise, instead of the promise's value",
+        "ts": "1467813541.000971"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "return a PromiseArray  instead",
+        "ts": "1467813604.000972"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U03V8V08M>'s solution is the most elegant, filter non-persisted records out before you return them in the computed property",
+        "ts": "1467813618.000973"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but make sure you filter them in a CP, not in the model hook",
+        "ts": "1467813653.000974"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "otherwise you\u2019ll lose your live RecordArray",
+        "ts": "1467813660.000975"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "right",
+        "ts": "1467813750.000976"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I\u2019m already filtering out deleted ones",
+        "ts": "1467813770.000977"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "```    return this.get(\"resources\").filter((r) =&gt; {\n      return !r.get(\"isDeleted\") &amp;&amp; r.get(\"apiResourceSet.id\") === activeApiResourceSetId;\n    });```",
+        "ts": "1467813772.000978"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so I can just add `isNew` or whatever the property is to that",
+        "ts": "1467813782.000979"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1467813783.000980"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Might be able to make it to Ember Camp, will see how the next few days go. Anyone in the know aware of whether there are many tickets left?",
+        "ts": "1467813899.000981"
+    },
+    {
+        "text": "summons <@U03V8V08M|jgwhite>",
+        "type": "message",
+        "subtype": "me_message",
+        "user": "U044QMK6K",
+        "ts": "1467814018.000982"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U03V5B7KY>: yeah that should do it. Or maybe use `hasDirtyAttributes`",
+        "ts": "1467814023.000983"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U044QMK6K>: there are tickets left, yes",
+        "ts": "1467814033.000984"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "ember camp is gonna be awesome :smile:",
+        "ts": "1467814047.000985"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "can't hacking wait",
+        "ts": "1467814055.000986"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve had a sneak peak at some of the talks",
+        "ts": "1467814068.000987"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": ":slightly_smiling_face: cool, will see how things go and hopefully snap one up soon",
+        "ts": "1467814068.000988"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "big topics",
+        "ts": "1467814069.000989"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U044QMK6K>: Kayako might cover you, let me ask Tina",
+        "ts": "1467814080.000990"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U03V8V08M>: that would be awesome, no biggie if not as it\u2019s not super expensive but would be very welcome",
+        "ts": "1467814104.000991"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<@U03V8V08M>: hey, is it possible to release a sortable object from its \u201cy\u201d or \u201cx\u201d lock",
+        "ts": "1467822953.000992"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "in ember-sortable",
+        "ts": "1467822959.000993"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "No",
+        "ts": "1467822980.000994"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": ":(",
+        "ts": "1467822984.000995"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": ":disappointed:",
+        "ts": "1467823377.000996"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "ok",
+        "ts": "1467823381.000997"
+    },
+    {
+        "user": "U1PBKT095",
+        "text": "<@U1PBKT095|ste> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1467830381.000998"
+    }
+]

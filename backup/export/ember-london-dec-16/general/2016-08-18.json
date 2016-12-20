@@ -1,0 +1,1682 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ciao :slightly_smiling_face:",
+        "ts": "1471506032.000921"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M> : I\u2019m at 86.27% ```\"coverage\": {\n    \"total\": {\n      \"statementsTotal\": 204,\n      \"statementsCovered\": 176,\n      \"percentage\": 86.27\n    }```",
+        "ts": "1471506052.000922"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Interested to hear your mileage on code coverage <@U0A48LWTG>. It's not a metric that I get much value from personally.",
+        "ts": "1471507744.000923"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yeah me too <@U043AB2QT>, it\u2019s not something I will look constantly but it is just  a thing I\u2019ll look from time to time just to figure out If I should have a look at parts of code that are missing tests",
+        "ts": "1471507821.000924"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "this should not happen.. you know\u2026 but this can be a metric that helps you spot something is not working in the development workflow",
+        "ts": "1471507905.000925"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "guys, I\u2019m trying to understand how the style part of an ember-cli add-on works",
+        "ts": "1471509578.000926"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "do you have any good read about that?",
+        "ts": "1471509596.000927"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0A48LWTG>: I don't know of any posts about it but I imagine <@U040MK408> might have some info for you as he's had to think a about styling in terms of Ember Power Select.",
+        "ts": "1471509949.000928"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "that would be perfect :slightly_smiling_face:",
+        "ts": "1471509967.000929"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019m now working on an add-on that has Ember Power Select as a dependency",
+        "ts": "1471509986.000930"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "but currently the style for ember power select is not imported by my add-on",
+        "ts": "1471510018.000931"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "but it should (I think)",
+        "ts": "1471510033.000932"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0A48LWTG>: are you using SASS? If so have you included the @import directive?",
+        "ts": "1471510057.000933"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yes",
+        "ts": "1471510120.000934"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019ve added the `@import` on my `app\/style.scss`",
+        "ts": "1471510144.000935"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "sorry `app\/styles\/my-addon-name.scss`",
+        "ts": "1471510167.000936"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so you\u2019re developing an addon which uses power select, is that right?",
+        "ts": "1471510212.000937"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0A48LWTG>: -&gt; <http:\/\/www.ember-power-select.com\/docs\/styles>",
+        "ts": "1471510268.000938"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yes right <@U04BD6KB1>",
+        "ts": "1471510332.000939"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "interesting; the link Aaron has provided works very well for Apps but that extra level of indirection in using addons within addons is always a bit of a soft spot. How do you include power select in your addon? Is it an _npm dependency_ or does your blueprint \u201cinstall power-select\u201d?",
+        "ts": "1471510489.000940"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "indeed <@U04BD6KB1>! Ember power select is included as an nmp dependency",
+        "ts": "1471510579.000941"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you could try the `this.addAddonToProject('ember-power-select\u2019)` in the *afterInstall* hook of your blueprint",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1471510703.000000"
+        },
+        "ts": "1471510669.000942"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "they resolve slightly differently",
+        "ts": "1471510678.000943"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "admittedly i prefer the _npm deps_ route but i\u2019ve found that the above does solve some annoying cascading addon problems",
+        "ts": "1471510816.000945"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Query param + loading state question:\n\nGiven a route with a query param (e.g `q=search`) that `refreshModel`s (<https:\/\/guides.emberjs.com\/v2.7.0\/routing\/query-params\/#toc_opting-into-a-full-transition>). What is the \"correct\" way to have a loading state? Ordinarily I would utilise the routes loading template but that doesn't work as it pops in and out on every debounced keystroke.",
+        "ts": "1471510951.000946"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Example: <https:\/\/stg.filltray.com\/demo>",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1471511049.000000"
+        },
+        "ts": "1471511043.000947"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "My current thoughts are to move the routing\/controller logic somehow so that the \"loading\" states are internal to the frame.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1471511291.000000"
+        },
+        "ts": "1471511149.000950"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019ll try it <@U04BD6KB1>",
+        "ts": "1471511153.000951"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019m here",
+        "ts": "1471511403.000953"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U04BD6KB1>: would you use `addAddonToProject` or `addPackageToProject`?",
+        "ts": "1471511406.000954"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the style thing in ember adddons is funny, but I considered 2 approaches",
+        "ts": "1471511432.000955"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "the latter one",
+        "ts": "1471511454.000956"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "```Used to add an addon to the project's package.json and run it's defaultBlueprint if it provides one.```",
+        "ts": "1471511464.000957"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hey <@U040MK408> :slightly_smiling_face:",
+        "ts": "1471511472.000958"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "1. User uses sass. Then I do nothing and I let the user use @import as with any sass file",
+        "ts": "1471511477.000959"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "2. The user doesn\u2019t use sass. In that case I have a precompiled css file that I just add with `app.import(\u2018\/vendor\/styles.css')`",
+        "ts": "1471511539.000960"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in the index file",
+        "ts": "1471511544.000961"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I detect if the consumer app has sass by checking if `ember-cli-sass` is a dependency",
+        "ts": "1471511566.000962"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0A48LWTG>: `addAddonToProject` is better than `addPackageToProject`",
+        "ts": "1471511577.000963"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408>: is there any problem with `import` when using power select in an addon?",
+        "ts": "1471511596.000964"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> are you building and committing that vendor style css file out of the standard build process?",
+        "ts": "1471511615.000965"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, but only on releases",
+        "ts": "1471511629.000966"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I have `ember-cli-release`",
+        "ts": "1471511635.000967"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "with a custom `preCommit` hooks",
+        "ts": "1471511647.000968"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that compiles the styles and copies them in vendor",
+        "ts": "1471511658.000969"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "OK",
+        "ts": "1471511660.000970"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s very handy",
+        "ts": "1471511682.000971"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/config\/release.js#L17-L24>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-power-select",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/config\/release.js#L17-L24",
+                "text": "ember-power-select - The extensible select component built for ember.",
+                "fallback": "GitHub: cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/config\/release.js#L17-L24",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471511698.000972"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "thank you",
+        "ts": "1471511728.000974"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is the backup strategy for people not using sass",
+        "ts": "1471511748.000975"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that said, if you are creating and addon that uses ember-power-select inside",
+        "ts": "1471511766.000976"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "probably the only thing you have to do",
+        "ts": "1471511773.000977"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is in your `index.js`",
+        "ts": "1471511807.000978"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ensure that you call the included hooks of EPS",
+        "ts": "1471511838.000979"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because ember-cli only runs the hooks of the index.js of your direct dependencies",
+        "ts": "1471511857.000980"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not for those 2nd degree dependencies",
+        "ts": "1471511875.000981"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "this is why `addAddonToProject` works because it flattens the deps",
+        "ts": "1471511888.000982"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(i believe)",
+        "ts": "1471511893.000983"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "where are the docs for `addAddonToProject`?",
+        "ts": "1471511934.000984"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hmmm \u2026 not sure let me see if I can find something",
+        "ts": "1471511953.000985"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<https:\/\/ember-cli.com\/api\/classes\/Blueprint.html#method_addAddonToProject>",
+        "ts": "1471511957.000986"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> ^^^",
+        "ts": "1471511962.000987"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ok",
+        "ts": "1471511974.000988"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> which hooks should I call from my index?",
+        "ts": "1471511985.000989"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this adds one entry to the `package.json`",
+        "ts": "1471511985.000990"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is that right?",
+        "ts": "1471511992.000991"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yes",
+        "ts": "1471512024.000992"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ok",
+        "ts": "1471512027.000993"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is a different approach",
+        "ts": "1471512030.000994"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ok, I knew about this but I thought the option had a different name",
+        "ts": "1471512073.000995"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in that case there is tho options too",
+        "ts": "1471512094.000996"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "1. Use this and the project ends with `ember-power-select` and `my-custom-addon-that-uses-eps` in the package.json",
+        "ts": "1471512125.000997"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "2. Make your addons call the relevant hooks of `ember-power-select` transitively, so the user only has `my-custom-addon-that-uses-eps` in the package.json",
+        "ts": "1471512168.000998"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "2 seems cleaner to me",
+        "ts": "1471512187.000999"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is the approach I use with `ember-power-select` and `ember-basic-dropdown`",
+        "ts": "1471512190.001000"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "but I don\u2019t know which hooks I have to call",
+        "ts": "1471512198.001001"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "two",
+        "ts": "1471512206.001002"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`included` and `contentFor`",
+        "ts": "1471512211.001003"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L35-L40>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-power-select",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L35-L40",
+                "text": "ember-power-select - The extensible select component built for ember.",
+                "fallback": "GitHub: cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L35-L40",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471512253.001004"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is how you call the hook of an addon from another addon",
+        "ts": "1471512266.001006"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "EPS knows that it has to calls the `contentFor` hooks of EBD to add the placeholder used by `ember-wormhole` to the root of the app",
+        "ts": "1471512317.001007"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this approach is cleaner but requires more effort, and might break if the author of the addon you depend on adds a new hook and you don\u2019t call it",
+        "ts": "1471512372.001008"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it wasn\u2019t a concern of me because `ember-basic-dropdown` is also mine",
+        "ts": "1471512390.001009"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that said, I don\u2019t see EPS getting another hook",
+        "ts": "1471512414.001010"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408>: good summary on the pros\/cons, thanks",
+        "ts": "1471512513.001011"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yeah indeed, thank you <@U040MK408>",
+        "ts": "1471512731.001012"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "another thing to consider, but it\u2019s more of an edge case",
+        "ts": "1471512764.001013"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is that if, like EPS, you might expect to have several addons depending on it",
+        "ts": "1471512787.001014"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and calling it\u2019s `included` hooks",
+        "ts": "1471512796.001015"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you need to add a guard to be sure you return early the second time it\u2019s called",
+        "ts": "1471512817.001016"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L9>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-power-select",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L9",
+                "text": "ember-power-select - The extensible select component built for ember.",
+                "fallback": "GitHub: cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/master\/index.js#L9",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471512827.001017"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "otherwise you might end with the styles being included 3 o 4 times",
+        "ts": "1471512848.001019"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because 3 or 4 addons depend on EPS",
+        "ts": "1471512855.001020"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "sass\u2019 `@import` deduplicates, but `app.import` doesn't",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471512904.000000"
+        },
+        "ts": "1471512897.001021",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG",
+                    "U04BD6KB1"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so <@U040MK408> I did this <http:\/\/pastebin.com\/TJUCCqvM>",
+        "attachments": [
+            {
+                "service_name": "Pastebin",
+                "title": "[JavaScript]   included(app) {      this._super.included(app);      if (!app.__emberPowerSele - Pastebin.com",
+                "title_link": "http:\/\/pastebin.com\/TJUCCqvM",
+                "fallback": "Pastebin: [JavaScript]   included(app) {      this._super.included(app);      if (!app.__emberPowerSele - Pastebin.com",
+                "image_url": "http:\/\/pastebin.com\/i\/facebook.png",
+                "from_url": "http:\/\/pastebin.com\/TJUCCqvM",
+                "image_width": 250,
+                "image_height": 250,
+                "image_bytes": 19206,
+                "service_icon": "http:\/\/pastebin.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1471513498.001023"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "but in my add-on dummy app, styles for eps are not loaded",
+        "ts": "1471513516.001025"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "are you using sass?",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471513527.000000"
+        },
+        "ts": "1471513524.001026"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because if so, styles are not included",
+        "ts": "1471513555.001028"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ah right...",
+        "ts": "1471513580.001029"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "OK",
+        "ts": "1471513581.001030"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you addon is named `ember-flux-condensor`",
+        "ts": "1471513582.001031"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019d create a .scss file",
+        "ts": "1471513590.001032"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "inside `app\/styles\/ember-flux-condensor.scss`",
+        "ts": "1471513608.001033"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that contains",
+        "ts": "1471513613.001034"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "```\n\/\/ Variables to customize EPS if any\n@import \u2018ember-power-select\u2019;\n\/\/ Your styles\n```",
+        "ts": "1471513636.001035"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and then the consumer app can just do `@import \u2018ember-flux-condensor'`",
+        "ts": "1471513669.001036"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which in turn imports EPS too",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471513689.000000"
+        },
+        "ts": "1471513679.001037"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yeah right",
+        "ts": "1471513695.001039"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I did like that",
+        "ts": "1471513698.001040"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "but didn\u2019t include my own scss from the dummy app",
+        "ts": "1471513714.001041"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "by including it, now styles are loaded",
+        "ts": "1471513723.001042"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "cool",
+        "ts": "1471513731.001043"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you want to allow apps without sass",
+        "ts": "1471513743.001044"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you need to do a precompilation step like I did",
+        "ts": "1471513762.001045"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but if it\u2019s internal, don\u2019t worry",
+        "ts": "1471513770.001046"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "right, one last think <@U040MK408> :slightly_smiling_face: are the hooks things necessary If import my scss file?",
+        "ts": "1471513793.001047"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "without them the result is the same: i.e, by loading my scss from the dummy app, the eps styles are loaded",
+        "ts": "1471513819.001048"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the `contentFor` yes, the `included` isn't",
+        "ts": "1471513821.001049"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but you don\u2019t know",
+        "ts": "1471513830.001050"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I might add something to the `included` one",
+        "ts": "1471513845.001051"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so it\u2019s good to call it",
+        "ts": "1471513850.001052"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the same way its good to call `this._super(\u2026arguments)` when extending `init` or `didInsertElement`",
+        "ts": "1471513880.001053"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "for the sake of paranoia",
+        "ts": "1471513896.001054"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s safer",
+        "ts": "1471513910.001055"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ahah OK :slightly_smiling_face:",
+        "ts": "1471513985.001056"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so <@U040MK408>: calling `included` and `contentFor` hooks in my addon\u2019s `index.js` and then importing eps `scss` on my own would be OK, right?",
+        "ts": "1471514374.001057"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, that is the best solution for me",
+        "ts": "1471514639.001058"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that makes the fact your component uses EPS an implementation detail",
+        "ts": "1471514660.001059",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that the consumer app doesn\u2019t care about",
+        "ts": "1471514675.001060"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is also what I\u2019d do in my app if I want my own flavored version of EPS be reused across all apps in a company",
+        "ts": "1471514739.001061"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you can create the `kayako-select` addon, and use it transparently",
+        "ts": "1471514791.001062"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "#hail-corporate",
+        "ts": "1471515216.001063"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "`as-power-select` represent",
+        "ts": "1471515251.001064"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<https:\/\/raygun.com\/blog\/2016\/08\/ember-cli-raygun\/>",
+        "attachments": [
+            {
+                "service_name": "The Raygun Blog",
+                "title": "Ember CLI and Raygun: Get Setup Fast! - The Raygun Blog",
+                "title_link": "https:\/\/raygun.com\/blog\/2016\/08\/ember-cli-raygun\/",
+                "text": "Get started with Raygun in your Ember CLI app in less than five minutes! Capture powerful, useful exception and real user monitoring data in real-time.",
+                "fallback": "The Raygun Blog: Ember CLI and Raygun: Get Setup Fast! - The Raygun Blog",
+                "image_url": "https:\/\/raygun.com\/blog\/wp-content\/uploads\/2016\/08\/Ember.png",
+                "image_width": 500,
+                "image_height": 250,
+                "ts": 1471496407,
+                "from_url": "https:\/\/raygun.com\/blog\/2016\/08\/ember-cli-raygun\/",
+                "image_bytes": 470084,
+                "service_icon": "https:\/\/raygun.com\/favicon.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1471519912.001065"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "yay Ember!",
+        "ts": "1471519917.001067"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "ok fine",
+        "ts": "1471520591.001068"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "let me try out raygun :smile:",
+        "ts": "1471520598.001069",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "haha",
+        "ts": "1471520614.001070"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "LMK how you get on",
+        "ts": "1471520617.001071"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "have you ever handled i18n in an add-on?",
+        "ts": "1471524474.001072"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I feel like emberobserver should have a point for fastboot compatibility",
+        "ts": "1471525657.001073"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> I\u2019m still trying the hook things\u2026 I added a command-line print to debug EPS `included` and `contentFor` hooks and even if  I remove the hooks from my `index.js` (the one of my add-on) they are still invoked.",
+        "ts": "1471526982.001074"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so I\u2019m confused now on how, when and if invoke them :slightly_smiling_face:",
+        "ts": "1471527024.001075"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U0A48LWTG> don't take the behaviour of the dummy app as what is going to happen in the final app",
+        "ts": "1471527173.001076"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because for your addon, EPS is a 1st level dependency",
+        "ts": "1471527190.001077"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "oh right...",
+        "ts": "1471527196.001078"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "try to `npm link` the project in another app",
+        "ts": "1471527208.001079"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "to be sure",
+        "ts": "1471527211.001080"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i've been trolled by that too",
+        "ts": "1471527227.001081"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yeah, right going to try that now",
+        "ts": "1471527263.001082"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "are you aware of the `isDevelopingAddon` hook?",
+        "ts": "1471527319.001083"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "super useful for develop and addon but test it in a different app",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471527343.000000"
+        },
+        "ts": "1471527323.001084"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "no",
+        "ts": "1471527346.001086"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you implement that hook in the `index.js`",
+        "ts": "1471527363.001087"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and return true from it",
+        "ts": "1471527366.001088"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it will watch for changes",
+        "ts": "1471527372.001089"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and reload",
+        "ts": "1471527376.001090"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "just like if you were editing your own app",
+        "ts": "1471527387.001091"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "otherwise, every time you change the addon you need to stop and start ember-cli in the app",
+        "ts": "1471527415.001092"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "(I\u2019m in a call now\u2026 be back in minutes)",
+        "ts": "1471527665.001093"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Hey, anybody got some experience with ember-cli-deploy? the latest version?",
+        "ts": "1471528823.001094"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0Z487TGE> I have a little",
+        "ts": "1471528837.001095"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "I am trying to get the `deployer` printed in the slack webhook",
+        "ts": "1471528875.001096"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "but I can\u2019t seem to locate it .. :disappointed:",
+        "ts": "1471528888.001097"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "The deployer?",
+        "ts": "1471528909.001098"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "yes, the person who is running the deploy command",
+        "ts": "1471528937.001099"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> OK now I see the debug message for `included` but not the one for `contentFor`",
+        "ts": "1471528948.001100"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "<@U043AB2QT>, I am using the `didActivate(context)` hook",
+        "ts": "1471528985.001101"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0Z487TGE> Ok....So, where are you expecting that info to come from?",
+        "ts": "1471528991.001102"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "and from context received, I can get the revision info, but this is the info of the last commit, so I can get the last commiters name, email, \u2026 but I would like the deployer's info",
+        "ts": "1471529051.001103"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "I found this : <http:\/\/ember-cli-deploy.com\/docs\/v0.6.x\/pipeline-hooks\/>",
+        "ts": "1471529288.001104"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "it is mentioned for the deployer, but I can\u2019t seem to find it in the object",
+        "ts": "1471529307.001105"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Ok, so that docs page there is a bit misleading.....And probably a bit out of date. That is merely saying what a revision object must and may include.... For people that don't want to use the ember-cli-deploy-revision-data plugin and want to create their own. The revision data object should conform to that. However, that seems a bit out of date.",
+        "ts": "1471529423.001106"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "And deployer is probably a bit misleading as it's really referring to the committer I think.\n\nCurrently, the revision-data plugin exposes the following data including the `revisionKey`\n\n<https:\/\/github.com\/ember-cli-deploy\/ember-cli-deploy-revision-data\/blob\/master\/lib\/scm-data-generators\/git.js#L17-L22>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "ember-cli-deploy\/ember-cli-deploy-revision-data",
+                "title_link": "https:\/\/github.com\/ember-cli-deploy\/ember-cli-deploy-revision-data\/blob\/master\/lib\/scm-data-generators\/git.js#L17-L22",
+                "text": "ember-cli-deploy-revision-data - An ember-cli-plugin to create a unique revision key for the build",
+                "fallback": "GitHub: ember-cli-deploy\/ember-cli-deploy-revision-data",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/14264799?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli-deploy\/ember-cli-deploy-revision-data\/blob\/master\/lib\/scm-data-generators\/git.js#L17-L22",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471529471.001107"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "So, for your use case, <@U0Z487TGE>, what you want doesn't currently exist that I know of. So, if you want the person that's deploying you will need to build a plugin that can add this to the context (don't worry, creating a plugin is easy)",
+        "ts": "1471529514.001109"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "yeah, that is exactly what I got .. :sweat_smile:",
+        "ts": "1471529517.001110"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "You just need to work out _how_ you want to get that info.",
+        "ts": "1471529529.001111"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Ok, makes sense",
+        "ts": "1471529545.001112"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Not sure how to even begin on that ..",
+        "ts": "1471529561.001113"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "But thanks for the info. I will try to figure it out.",
+        "ts": "1471529647.001114"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U0Z487TGE>",
+        "ts": "1471529710.001115"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "If you use some git library",
+        "ts": "1471529722.001116"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Well, I guess you need to work out how, on the terminal, you can get the info you want. `whoami` gives you the currently logged in user id, but not sure if that gives you the info you want.",
+        "ts": "1471529722.001117"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "You could look in the gitconfig",
+        "ts": "1471529729.001118"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is what I was about to say",
+        "ts": "1471529738.001119"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "And get the user deets out of that",
+        "ts": "1471529741.001120"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Sorry to jump in <@U040MK408> :wink:",
+        "ts": "1471529747.001121"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "read the user &amp; email in the git config",
+        "ts": "1471529762.001122"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Yup",
+        "ts": "1471529765.001123"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "You wouldn't even need a git lib.... You could just look for the local and global .gitconfig files.",
+        "ts": "1471529788.001124"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U0A48LWTG> that is good news?",
+        "ts": "1471529789.001125"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "That is assuming that the deployer is using git of course :wink:",
+        "ts": "1471529795.001126"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if they are implementing they own slack bot I think that is a safe assumption",
+        "ts": "1471529813.001127"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> maybe :slightly_smiling_face: I mean.. I think I can skip the `included` because it\u2019s already called\u2026",
+        "ts": "1471529824.001128"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "`echo \"$(git config user.name) &lt;$(git config user.email)&gt;\u201d` should do :slightly_smiling_face:",
+        "ts": "1471529827.001129",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U043AB2QT"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> now I\u2019m trying to see if the `contentFor` gets called when needed.",
+        "ts": "1471529858.001130"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the consumer app only has your addon",
+        "ts": "1471529875.001131"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not EPS",
+        "ts": "1471529877.001132"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in the dependencies, correct?",
+        "ts": "1471529882.001133"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "also, is EPS a dependency or a dev-dependency in your addon?",
+        "ts": "1471529894.001134"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it should a runtime dependency",
+        "ts": "1471529910.001135"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "yes right only my addon",
+        "ts": "1471529923.001136"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "and EPS is a dependency on my addon",
+        "ts": "1471529937.001137"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Thanks <@U07E9GKUZ>! Will try it",
+        "ts": "1471529942.001138"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "sounds good then",
+        "ts": "1471529946.001139"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0Z487TGE> Hit us up if you have any more questions or need a hand with anything",
+        "ts": "1471531550.001140"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "Thank you! Just discussed with <@U07E9GKUZ>, and figured it out. If you are sure the users are using git and mac, you can do something like :\n```\nvar spawn = require('child_process').spawnSync;\nvar name = spawn('git', ['config', 'user.name']).stdout.toString();\n```",
+        "edited": {
+            "user": "U0Z487TGE",
+            "ts": "1471531624.000000"
+        },
+        "ts": "1471531612.001141"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> : so without explicitly calling `contentFor` I got this error `ember-wormhole.js:98 Uncaught Error: ember-wormhole failed to render into '#ember-basic-dropdown-wormhole' because the element is not in the DOM`",
+        "ts": "1471532034.001143"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "while if I call that hook from my addon the everything work as expected",
+        "ts": "1471532057.001144"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "is anyone using `npm` with private repos?",
+        "ts": "1471532366.001145"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "for some reason on ubuntu the whole `orgname\/reponame` syntax isn\u2019t playing ball",
+        "ts": "1471532388.001146"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "wonder if it\u2019s my npm ver",
+        "ts": "1471532392.001147"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "as expected",
+        "ts": "1471532402.001148"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that hook is mandatory",
+        "ts": "1471532410.001149"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you call it, and EPS in turns calls it in ember-basic-dropdown",
+        "ts": "1471532426.001150",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which is the one that adds that `#ember-basic-dropdown-wormhole` div",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1471532461.000000"
+        },
+        "ts": "1471532457.001151"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "thank you <@U040MK408> for the support along this long trip on add-on hooks :slightly_smiling_face:",
+        "ts": "1471532750.001153"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so at the end I\u2019m calling only `contentFor`",
+        "ts": "1471532766.001154"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "do you have any reason to NOT call the included hook?",
+        "ts": "1471532781.001155"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U0Z487TGE> Yep, sounds fair. Let me know if you have any issues with the ember-cli-deploy plugin side of things",
+        "ts": "1471532821.001156"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> well no :slightly_smiling_face:",
+        "ts": "1471532837.001157"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> it is just that it get called anyway",
+        "ts": "1471532846.001158"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so it does not seem necessary, am I wrong?",
+        "ts": "1471532860.001159"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "does it?",
+        "ts": "1471532880.001160"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I wouldn't expect it to be called",
+        "ts": "1471532891.001161"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "automatically",
+        "ts": "1471532899.001162"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is weird",
+        "ts": "1471532906.001163"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "`EPS: here we are: included.`",
+        "ts": "1471532922.001164"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "this is the message I\u2019ve put",
+        "ts": "1471532939.001165"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "oh\u2026 wait",
+        "ts": "1471532943.001166"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I\u2019ve put it in the `node_modules` EPS in my addon",
+        "ts": "1471532970.001167"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "so I think I see that message",
+        "ts": "1471532978.001168"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "not from the app, right?",
+        "ts": "1471532997.001169"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hmm don\u2019t know actuallY:=)",
+        "ts": "1471533077.001170"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> what do you think?",
+        "ts": "1471533334.001171"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no idea",
+        "ts": "1471533369.001172"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i'm just surprised that it's called",
+        "ts": "1471533376.001173"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "maybe the `included` hooks is special?",
+        "ts": "1471533412.001174"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "maybe it's because it's npm-linked?",
+        "ts": "1471533424.001175"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "just keep an eye on it",
+        "ts": "1471533435.001176"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and when you actually publish the addon",
+        "ts": "1471533456.001177"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "check if it works",
+        "ts": "1471533460.001178"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "although in your use case",
+        "ts": "1471533475.001179"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "using sass",
+        "ts": "1471533478.001180"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you're not going to see any difference because that hooks is only necessary if you don't use sass",
+        "ts": "1471533502.001181"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "right, thank you :slightly_smiling_face:",
+        "ts": "1471533563.001182"
+    },
+    {
+        "type": "message",
+        "user": "U0Z487TGE",
+        "text": "<@U043AB2QT>, thanks, will do!",
+        "ts": "1471534069.001183"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "#projectnight here I come!",
+        "ts": "1471537915.001184"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yo yo yo yo yo",
+        "ts": "1471540884.001185"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Well at least I'm trying",
+        "ts": "1471542972.001186"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "Waiting for uber. ",
+        "ts": "1471542975.001187"
+    }
+]

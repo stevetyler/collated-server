@@ -1,0 +1,530 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":bomb: `emberlondon-eslint-config` ? :bomb:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1476173860.000000"
+        },
+        "ts": "1476173854.001191"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Let the bike shedding begin :wink:",
+        "ts": "1476173905.001193"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "trololol",
+        "ts": "1476174102.001194"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I just found out that there is another 3 day strike in southern rail",
+        "ts": "1476174652.001195"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I lost track of public transport strikes already",
+        "ts": "1476174669.001196"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I've seen more strikes in 2 years than in my entire life combined, by a 3x factor at least",
+        "ts": "1476174699.001197"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V2PZUB|karlfreeman> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2MQEUK1D\/screen_shot_2016-10-11_at_09.38.25.png|Even more later on too...>",
+        "file": {
+            "id": "F2MQEUK1D",
+            "created": 1476175121,
+            "timestamp": 1476175121,
+            "name": "Screen Shot 2016-10-11 at 09.38.25.png",
+            "title": "Even more later on too...",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03V2PZUB",
+            "editable": false,
+            "size": 48266,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2MQEUK1D\/screen_shot_2016-10-11_at_09.38.25.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2MQEUK1D\/download\/screen_shot_2016-10-11_at_09.38.25.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2MQEUK1D-497a4bd270\/screen_shot_2016-10-11_at_09.38.25_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2MQEUK1D-497a4bd270\/screen_shot_2016-10-11_at_09.38.25_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2MQEUK1D-497a4bd270\/screen_shot_2016-10-11_at_09.38.25_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 177,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2MQEUK1D-497a4bd270\/screen_shot_2016-10-11_at_09.38.25_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 236,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2MQEUK1D-497a4bd270\/screen_shot_2016-10-11_at_09.38.25_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "image_exif_rotation": 1,
+            "original_w": 538,
+            "original_h": 264,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2MQEUK1D\/screen_shot_2016-10-11_at_09.38.25.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2MQEUK1D-cf67223e84",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03V2PZUB",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V2PZUB|karlfreeman>",
+        "bot_id": null,
+        "ts": "1476175123.001198"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "good thing I cycle",
+        "ts": "1476175248.001202"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "As a south Londoner in good standing, I despise Southern Rail with the fire of a thousand suns",
+        "ts": "1476177160.001204"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "at least my commute's on the orange line nowadays",
+        "ts": "1476177168.001205"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "and just about walkable in good weather",
+        "ts": "1476177179.001206"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "orange line means Overground?",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1476178085.000000"
+        },
+        "ts": "1476178082.001207"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "or its the name of one train route?",
+        "ts": "1476178106.001209"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I have to say that I commute 19 miles by bike atm",
+        "ts": "1476178186.001210"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "9.5 miles each way",
+        "ts": "1476178193.001211"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's on the edge of being acceptable",
+        "ts": "1476178258.001212"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "probably in the coldest of the winter it will be hard",
+        "ts": "1476178276.001213"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "besides, tower bridge is closed now",
+        "ts": "1476178300.001214"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that added like 5 extra minutes",
+        "ts": "1476178982.001215"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "yeah, overground, old East London line",
+        "ts": "1476183127.001216"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "and you can still walk across tower bridge, so that's fine by me",
+        "ts": "1476183140.001217"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "anyone have a view on how to intercede in all route transitions?",
+        "ts": "1476194989.001218"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I ask because I want to build a redux-router for ember",
+        "ts": "1476195001.001219"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "btw, I just learned the classical-cryptic but cool javascript snippet to perform a simple operation",
+        "ts": "1476196423.001220"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "create an array of number from 1 to XX",
+        "ts": "1476196433.001221"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`Array(...Array(someNumber)).map((_, i) =&gt; ++i);`",
+        "ts": "1476196447.001222"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "or just `Array(...Array(numberOfDays)).map((_, i) =&gt; i);` if you want it from `0` to `N-1`",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1476196498.000000"
+        },
+        "ts": "1476196491.001223"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<https:\/\/yarnpkg.com\/>",
+        "attachments": [
+            {
+                "title": "Yarn",
+                "title_link": "https:\/\/yarnpkg.com\/",
+                "text": "Fast, reliable, and secure dependency management.",
+                "fallback": "Yarn",
+                "from_url": "https:\/\/yarnpkg.com\/",
+                "service_icon": "https:\/\/yarnpkg.com\/favicon.ico",
+                "service_name": "yarnpkg.com",
+                "id": 1
+            }
+        ],
+        "ts": "1476200650.001225"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<https:\/\/code.facebook.com\/posts\/1840075619545360>",
+        "edited": {
+            "user": "U043951H9",
+            "ts": "1476200673.000000"
+        },
+        "ts": "1476200654.001227"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<http:\/\/yehudakatz.com\/2016\/10\/11\/im-excited-to-work-on-yarn-the-new-js-package-manager-2\/>",
+        "edited": {
+            "user": "U043951H9",
+            "ts": "1476200671.000000"
+        },
+        "ts": "1476200657.001229"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "link attack",
+        "ts": "1476200659.001231"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "looks promising though",
+        "ts": "1476200684.001234"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "and Yehuda having worked on cargo and bundler should mean good things",
+        "ts": "1476200701.001235"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U03V2PZUB|karlfreeman> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2N0JTK26\/screen_shot_2016-10-11_at_16.45.40.png|:raised_hands: The future is real :raised_hands:>",
+        "file": {
+            "id": "F2N0JTK26",
+            "created": 1476200757,
+            "timestamp": 1476200757,
+            "name": "Screen Shot 2016-10-11 at 16.45.40.png",
+            "title": ":raised_hands: The future is real :raised_hands:",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U03V2PZUB",
+            "editable": false,
+            "size": 73327,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2N0JTK26\/screen_shot_2016-10-11_at_16.45.40.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2N0JTK26\/download\/screen_shot_2016-10-11_at_16.45.40.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 110,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 146,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 219,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F2N0JTK26-4124e3785a\/screen_shot_2016-10-11_at_16.45.40_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 292,
+            "image_exif_rotation": 1,
+            "original_w": 1009,
+            "original_h": 307,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/karlfreeman\/F2N0JTK26\/screen_shot_2016-10-11_at_16.45.40.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2N0JTK26-6fd7dd893b",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U03V2PZUB",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U03V2PZUB|karlfreeman>",
+        "bot_id": null,
+        "ts": "1476200761.001238"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "is it a drop-in replacement for `npm`?",
+        "ts": "1476200931.001239"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "does it use the `package.json` file?",
+        "ts": "1476200941.001240"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Yes it uses your existing `package.json`",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1476201138.000000"
+        },
+        "ts": "1476200967.001241"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "cool :slightly_smiling_face:",
+        "ts": "1476201519.001244"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "any problems with `npm link`?",
+        "ts": "1476201590.001245"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or is there a parallel command in yarn?",
+        "ts": "1476201602.001246"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "npm's take -&gt; <http:\/\/blog.npmjs.org\/post\/151660845210\/hello-yarn>",
+        "ts": "1476202087.001247"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "looks like a \"yarned\" source can be linked using `npm link` to other repos",
+        "ts": "1476202089.001248"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Not quite as excited as Facebook :wink:",
+        "ts": "1476202100.001249"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "still a very nicely worded piece of cooperation",
+        "ts": "1476202205.001250"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh also found that `yarn link` is a thing (even though it's not documented and not in --help)",
+        "ts": "1476202263.001251"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "v. exciting :smile:",
+        "ts": "1476203340.001252"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "looks like it doesn\u2019t support packages of the form `git@github.com:kayako\/ember-eslint-no-server-logging.git` yet",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1476203474.000000"
+        },
+        "ts": "1476203468.001253"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "~but `kayako\/ember-eslint-no-server-logging#master` works fine~ spoke too soon",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1476203529.000000"
+        },
+        "ts": "1476203509.001255"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "there\u2019s probably something in the docs about GitHub deps",
+        "ts": "1476203539.001257"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I should RTFM",
+        "ts": "1476203542.001258"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "i couldnt spot it <@U03V8V08M>",
+        "ts": "1476203686.001259"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "had the same issue",
+        "ts": "1476203690.001260"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so `yarn add &lt;git remote url&gt;` <https:\/\/yarnpkg.com\/en\/docs\/cli\/add> doesn't address your needs?",
+        "attachments": [
+            {
+                "title": "Yarn",
+                "title_link": "https:\/\/yarnpkg.com\/en\/docs\/cli\/add",
+                "text": "Fast, reliable, and secure dependency management.",
+                "fallback": "Yarn",
+                "from_url": "https:\/\/yarnpkg.com\/en\/docs\/cli\/add",
+                "service_icon": "https:\/\/yarnpkg.com\/favicon.ico",
+                "service_name": "yarnpkg.com",
+                "id": 1
+            }
+        ],
+        "ts": "1476203747.001261"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Seems like it's work with an https URL",
+        "ts": "1476203806.001263"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "But not git:\/\/",
+        "ts": "1476203817.001264"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh ok, yeah that may be true; have you tried?",
+        "ts": "1476203837.001265"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Or the \"assumed GitHub\" `owner\/repo` form",
+        "ts": "1476203844.001266"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Not tried yet but will tomorrow",
+        "ts": "1476203880.001267"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Super excited about this ",
+        "ts": "1476203905.001268"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Could make life better on an epic scale",
+        "ts": "1476203908.001269"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i just tried `yarn add git@github.com:kayako\/ember-eslint-no-server-logging.git` and got a \"Repository not found\" message",
+        "ts": "1476203950.001270"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but yeah it looks quite promising",
+        "ts": "1476203992.001271"
+    }
+]

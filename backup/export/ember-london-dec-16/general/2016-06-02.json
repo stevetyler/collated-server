@@ -1,0 +1,379 @@
+[
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1464858596.002279"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "morning :wave:",
+        "ts": "1464858610.002280"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "GOOD MORNING :rage3:",
+        "ts": "1464858810.002281"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "g'day",
+        "ts": "1464858872.002282"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "morning",
+        "ts": "1464858889.002283"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I finally got SystemJS working, it now feels like the quickest sanest way to start working with React",
+        "ts": "1464859038.002284"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Plus the next version will have hot reloading",
+        "ts": "1464859053.002285"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I\u2019m just not happy that I have to use npm to install jspm to then install npm packages",
+        "ts": "1464859091.002286"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "have you guys seen hyperdev",
+        "ts": "1464859099.002287"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "it\u2019s pretty epic",
+        "ts": "1464859102.002288"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "link please",
+        "ts": "1464859108.002289"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<https:\/\/hyperdev.com\/>",
+        "ts": "1464859117.002290"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<http:\/\/www.joelonsoftware.com\/items\/2016\/05\/30.html>",
+        "ts": "1464859125.002291"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U043951H9>: you would love this I\u2019m sure",
+        "ts": "1464859133.002292"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "ah saw this yesterday and closed it right after I saw the modal screen",
+        "ts": "1464859241.002293"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "ahaha, joel\u2019s article is pretty good",
+        "ts": "1464859273.002294"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "this looks good, wonder if it works the same for front-end code if i add a `package.json`",
+        "ts": "1464859688.002295"
+    },
+    {
+        "user": "U1DG7MDDZ",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DG7MDDZ|staffan> has joined the channel",
+        "ts": "1464859727.002296"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "for people interested in what Apple has to say: thoughtbot will be hosting a small meetup to watch the WWDC keynote on Monday the 13th - <https:\/\/thoughtbot.com\/wwdc>",
+        "attachments": [
+            {
+                "title": " WWDC 2016 with thoughtbot ",
+                "title_link": "https:\/\/thoughtbot.com\/wwdc",
+                "text": "Join thoughtbot for WWDC 2016",
+                "fallback": " WWDC 2016 with thoughtbot ",
+                "from_url": "https:\/\/thoughtbot.com\/wwdc",
+                "service_icon": "https:\/\/thoughtbot.com\/favicon.ico",
+                "service_name": "thoughtbot.com",
+                "id": 1
+            }
+        ],
+        "ts": "1464865688.002297"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "there will be food and drinks",
+        "ts": "1464865701.002299"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U045SGGD8>, <@U03V5B7KY> and anyone else who fancies it: we'll be having a drink with Paul Chavard (ember Paris) tonight here: <https:\/\/goo.gl\/maps\/rQ1PMcWbkhE2>",
+        "ts": "1464870007.002300"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Probably ~7pm onwards",
+        "ts": "1464870021.002301"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "awesome, see you there!",
+        "ts": "1464870029.002302"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: what is your goal with SystemJS? Are you using JSPM too?",
+        "ts": "1464870602.002303"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah using both",
+        "ts": "1464870614.002304"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Looking for Webpack replacement",
+        "ts": "1464870624.002305"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Too much configuration to get a simple project started in Webpack",
+        "ts": "1464870640.002306"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "SystemJS makes it less painful",
+        "ts": "1464870648.002307"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "do you get \u201ctree shaking\u201d with that setup?",
+        "ts": "1464870674.002308"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "no",
+        "ts": "1464870841.002309"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Great idea",
+        "attachments": [
+            {
+                "fallback": "[June 2nd, 2016 12:08 PM] pablobm: for people interested in what Apple has to say: thoughtbot will be hosting a small meetup to watch the WWDC keynote on Monday the 13th - <https:\/\/thoughtbot.com\/wwdc>",
+                "author_subname": "pablobm",
+                "ts": "1464865688.002297",
+                "channel_id": "C03SSL0GP",
+                "channel_name": "general",
+                "is_msg_unfurl": true,
+                "text": "for people interested in what Apple has to say: thoughtbot will be hosting a small meetup to watch the WWDC keynote on Monday the 13th - <https:\/\/thoughtbot.com\/wwdc>",
+                "author_name": "Pablo Brasero",
+                "author_link": "https:\/\/emberlondon.slack.com\/team\/pablobm",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/567ff66aa34e3fc911fd6ac45469fea7.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0008-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": "D0D0D0",
+                "from_url": "https:\/\/emberlondon.slack.com\/archives\/general\/p1464865688002297",
+                "is_share": true,
+                "footer": "Posted in #general"
+            }
+        ],
+        "ts": "1464870886.002310"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: wait it looks like SystemJS does have tree shaking setup by default when you do a build",
+        "ts": "1464871094.002311"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: <https:\/\/github.com\/systemjs\/builder\/pull\/205>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "SFX optimization via rollup by guybedford \u00b7 Pull Request #205 \u00b7 systemjs\/builder \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/systemjs\/builder\/pull\/205",
+                "text": "This is a very first attempt for the simplest of scenarios to use rollup for SFX bundles when everything is ES6. The next stage will be to widen this to any tree via a zebra striping algorithm var...",
+                "fallback": "GitHub: SFX optimization via rollup by guybedford \u00b7 Pull Request #205 \u00b7 systemjs\/builder",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/598730?v=3&s=400",
+                "from_url": "https:\/\/github.com\/systemjs\/builder\/pull\/205",
+                "thumb_width": 300,
+                "thumb_height": 300,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1464871104.002312"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "seems its using `rollup` internally to do this",
+        "ts": "1464871145.002314"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "great. btw, just started listening to recent \u201cthe web platform\u201d on the this very topic. the folks on the podcast aren\u2019t crystal clear themselves but I still found it useful",
+        "ts": "1464871249.002315"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "topic = systemjs \/ jspm, not tree shaking",
+        "ts": "1464871269.002316"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the point was made that jspm beta (0.17) goes several steps beyond the stable release",
+        "ts": "1464871294.002317"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "which are you using?",
+        "ts": "1464871300.002318"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I am using 0.16 atm, I found 0.17 to not be stable enough to use",
+        "ts": "1464871486.002319"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "had problems getting hot reloading working and some other stuff",
+        "ts": "1464871500.002320"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "speaking of JSPM, Guy Bedford is speaking at <http:\/\/polyconf.com\/>",
+        "attachments": [
+            {
+                "service_name": "PolyConf",
+                "title": "PolyConf 16 A conference for polyglot programmers",
+                "title_link": "http:\/\/polyconf.com\/",
+                "text": "PolyConf is a three-day, single track, multi-disciplinary conference on advanced technologies for programmers interested in polyglot approach to software development.",
+                "fallback": "PolyConf: PolyConf 16 A conference for polyglot programmers",
+                "image_url": "http:\/\/polyconf.com\/assets\/polyconf16.png",
+                "image_width": 476,
+                "image_height": 250,
+                "from_url": "http:\/\/polyconf.com\/",
+                "image_bytes": 561641,
+                "id": 1
+            }
+        ],
+        "ts": "1464872248.002321"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "alongside Julia Evans (!) and Crockford",
+        "ts": "1464872257.002323"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah noticed that",
+        "ts": "1464872456.002324"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "bad timing for me",
+        "ts": "1464872460.002325"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "me too sadly",
+        "ts": "1464873057.002326"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Julia Evans is my programming hero",
+        "ts": "1464873064.002327"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U045SGGD8>, <@U03V5B7KY> : change of plan",
+        "ts": "1464886620.002328"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Old Fountain\n3 Baldwin St, London EC1V 9NU\n<https:\/\/goo.gl\/maps\/cmSQKJJbmWy>",
+        "ts": "1464886625.002329"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "that's a great goddamn boozer, and round the corner from my work and all",
+        "ts": "1464896458.002330"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "would have popped in",
+        "ts": "1464896465.002331"
+    },
+    {
+        "user": "U1DP99WFM",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1DP99WFM|henrique> has joined the channel",
+        "ts": "1464911385.002332"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Hola <@U1DP99WFM> :wave: ",
+        "ts": "1464934924.002333"
+    }
+]

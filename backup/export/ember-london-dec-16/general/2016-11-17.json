@@ -1,0 +1,1148 @@
+[
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is there a part 2?",
+        "ts": "1479375986.002012"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I don't think it's out yet",
+        "ts": "1479376012.002013"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "those bostoners ...",
+        "ts": "1479376111.002014",
+        "reactions": [
+            {
+                "name": "trollface",
+                "users": [
+                    "U040MK408"
+                ],
+                "count": 1
+            },
+            {
+                "name": "wink",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "does anyone have any insight why a perfectly functioning Ember app would suddenly no longer bring up the Ember Inspector in the developer tools?",
+        "ts": "1479376911.002015"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh ... it appears the inspector is corrupted ... nevermind",
+        "ts": "1479376980.002016"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is so many open fronts in ember",
+        "ts": "1479379325.002017"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Y have myself at least three things I want to work on but so little time",
+        "ts": "1479379340.002018"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "make the ember-inspector be engine based and allow \"ember-inspector-addons\" to extend it is one",
+        "ts": "1479379386.002019"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "something like an \"ember-cli-mirage-inspector\" addon",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1479379403.000000"
+        },
+        "ts": "1479379398.002020"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/medium.com\/friendship-dot-js\/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.85rupjuyv>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "I Peeked Into My Node_Modules Directory And You Won\u2019t Believe What Happened Next \u2013 friendship .js",
+                "title_link": "https:\/\/medium.com\/friendship-dot-js\/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.85rupjuyv",
+                "text": "The left-pad fiasco shook the JavaScript community to its core when a rouge developer removed a popular module from npm, causing tens of\u2026",
+                "fallback": "Medium: I Peeked Into My Node_Modules Directory And You Won\u2019t Believe What Happened Next \u2013 friendship .js",
+                "image_url": "https:\/\/d262ilb51hltx0.cloudfront.net\/max\/1200\/1*JJYhRr9rac1CMJdH2Sjj0A.jpeg",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "6 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1470410937,
+                "from_url": "https:\/\/medium.com\/friendship-dot-js\/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.85rupjuyv",
+                "image_width": 513,
+                "image_height": 250,
+                "image_bytes": 62900,
+                "service_icon": "https:\/\/d262ilb51hltx0.cloudfront.net\/proxy\/1*Akq8aSfZqfW1fceMxKqBZA.png",
+                "id": 1
+            }
+        ],
+        "ts": "1479383971.002022"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "This is a bit embarrassing for Glimmer",
+        "ts": "1479383984.002024"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(and Babel)",
+        "ts": "1479383988.002025"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sorry if this is old news; i just ran into it",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1479384053.000000"
+        },
+        "ts": "1479384045.002026"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "<@U04BD6KB1> - fortunately, it\u2019s a hoax :slightly_smiling_face:",
+        "ts": "1479384500.002028"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh really. ha!",
+        "ts": "1479384513.002029"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yeah, there is no Guy Fieri in babel",
+        "ts": "1479384528.002030"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "well, actually after this went viral they added it just for fun",
+        "ts": "1479384548.002031"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in ASCII art",
+        "ts": "1479384552.002032"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i guess i need to install that hoax addon to Chrome (they added two yesterday due to US election)",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1479384597.000000"
+        },
+        "ts": "1479384571.002033"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Don\u2019t worry, you are not alone. At my company\u2019s Slack, somebody also shared it as true",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1479384653.000000"
+        },
+        "ts": "1479384639.002035"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "If someone hasn't seen this yet, the work that Machty is doing with ember-concurrency is amazing",
+        "ts": "1479385814.002037"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "check this sorcery:",
+        "ts": "1479385820.002038"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Asynchronous computed properties:\n\n<https:\/\/ember-twiddle.com\/95ea1a66ff93de9cf92dc156a96b6996?numColumns=2&amp;openFiles=controllers.application.js%2Ctemplates.application.hbs>\n<https:\/\/ember-twiddle.com\/1383107538a3f8cacf10d275c1918156?openFiles=templates.application.hbs%2C>",
+        "attachments": [
+            {
+                "title": "Ember Twiddle",
+                "title_link": "https:\/\/ember-twiddle.com\/95ea1a66ff93de9cf92dc156a96b6996?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs",
+                "text": "A web-based Ember.js code sharing tool that follows ember-cli's conventions.",
+                "fallback": "Ember Twiddle",
+                "from_url": "https:\/\/ember-twiddle.com\/95ea1a66ff93de9cf92dc156a96b6996?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs",
+                "service_icon": "http:\/\/assets.ember-twiddle.com\/favicon-c53354b6e35d20e40c24c57b2504c321.ico",
+                "service_name": "ember-twiddle.com",
+                "id": 1
+            }
+        ],
+        "ts": "1479385865.002039"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": ":scream:",
+        "ts": "1479385982.002041"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "looks great. tomorrow I've carved out time to play with e-c. can't wait.",
+        "ts": "1479386043.002042"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this is experimental still",
+        "ts": "1479386229.002043"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "`.toFunction()` is a sort task modifier that returns a function than when called returns a taskInstance",
+        "ts": "1479386263.002044"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which is more or less like a regular task that is not bound to the lifetime of an object",
+        "ts": "1479386293.002045"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which makes it something similar to a cancellable promise with derived state",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1479386328.000000"
+        },
+        "ts": "1479386315.002046"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don't know if what I said makes sense, I get a bit lost in the terminology",
+        "ts": "1479386358.002048",
+        "reactions": [
+            {
+                "name": "stuck_out_tongue_winking_eye",
+                "users": [
+                    "U04BD6KB1"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019ll be publishing my slides on typescript if anyone wants them.",
+        "ts": "1479388791.002049"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sure, drop the URL here",
+        "ts": "1479388813.002050"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "ok, just have to get create-react-app to play nice with gh-pages or \/docs",
+        "ts": "1479388834.002051"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "gonna spend some time on the test-recorder to update it, so if anyone wants to test it with a real ember app, that would be awesome once its done.",
+        "ts": "1479388901.002052"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "converting all the code to typescript",
+        "ts": "1479388915.002053"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U040MK408> what was your biggest issue with ember+ts again?",
+        "ts": "1479389152.002054"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "not mine in particular, but it's an design issue with ember",
+        "ts": "1479389173.002055"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in ember you do `this.get('foo')`",
+        "ts": "1479389183.002056"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and `this.set('foo', 123)`",
+        "ts": "1479389195.002057"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so those methods are `key: String -&gt; Any` \/  `key: String, value: Any -&gt; Any`",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1479389256.000000"
+        },
+        "ts": "1479389229.002058"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sounds like Yahuda is committed to moving to a more TypeScript friendly future",
+        "ts": "1479389244.002059"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but yeah that does pose a number of problems for current Ember",
+        "ts": "1479389270.002061"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, but it will require some paradigm change",
+        "ts": "1479389278.002062"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i wonder how they got around this in glimmer",
+        "ts": "1479389292.002063"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or did that all avoid the get and set?",
+        "ts": "1479389306.002064"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they don't use KVO in glimmer",
+        "ts": "1479389314.002065"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which is why we ember has getters\/setters",
+        "ts": "1479389343.002066"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "(that and `setUnknownProperty`)",
+        "ts": "1479389358.002067"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I was at an angular talk last night, ng 2 projects are making really cool use of TS.",
+        "ts": "1479389358.002068"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so is glimmer2",
+        "ts": "1479389371.002069"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's written in typescript",
+        "ts": "1479389378.002070"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "wow",
+        "ts": "1479389381.002071"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "good news",
+        "ts": "1479389386.002072"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but the Ember object model defeats the type system",
+        "ts": "1479389401.002073"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "there is some plan to stop requiring getters\/setters",
+        "ts": "1479389422.002074"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "which would fix that situation",
+        "ts": "1479389431.002075"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04BE0ELZ> you should listen to the FrontSide podcast with Yahuda if you haven't",
+        "ts": "1479389440.002076"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "we saw angular beat react by 40% in speed",
+        "ts": "1479389450.002077"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "for rendering 200 elements and stuff",
+        "ts": "1479389457.002078"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "same benchmarks for glimmer2",
+        "ts": "1479389469.002079"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it was very fast (on its own, without ember)",
+        "ts": "1479389490.002080"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "cool",
+        "ts": "1479389497.002081"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but the ember compatibility layer kills many of those wins",
+        "ts": "1479389508.002082"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "thx <@U04BD6KB1>",
+        "ts": "1479389509.002083"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what is where glimmer-components enter",
+        "ts": "1479389514.002084"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "they don't need that compatibility layer because they use different semantics",
+        "ts": "1479389532.002085"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that is where we will start to see types",
+        "ts": "1479389562.002086"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "TBH I would just be over the moon if we just got 'proper' ES5+ getters and setters, that would be enough to make TS an option; I'm given to understand that there was some issue where a get for a nonexistent property had some fallback behaviour which was dependent on `Object.proxy` to recreate, but if I'm bringing in explicit types, then that's meaningless - the *compiler* should handle such things, not Ember",
+        "ts": "1479389712.002087"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U06BGNMBL> here here",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1479389747.000000"
+        },
+        "ts": "1479389745.002088"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04BE0ELZ> side note, do you know any good examples of gulpfiles (4.x ideally but 3.x is ok) that address good *watch* and *test* behaviour in a TS environment that uses TS for mocha testing as well as the code?",
+        "ts": "1479389751.002090"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "mine work but they're a bit less than ideal",
+        "ts": "1479389766.002091"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U040MK408> is there any timeframe\/release for glimmer components?",
+        "ts": "1479389821.002092"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if there is one, I'm not aware of it",
+        "ts": "1479389859.002093"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but if I had to guess",
+        "ts": "1479389867.002094"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "- using a crystal ball -",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1479389880.000000"
+        },
+        "ts": "1479389875.002095"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'd say stable or beta by EmberConf",
+        "ts": "1479389896.002097"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "for marketing purposes",
+        "ts": "1479389903.002098"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "makes sense. when you're done with that magic ball, can i borrow for a few days. :smirk:",
+        "ts": "1479389931.002099"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> I just use ts-loader + webpack",
+        "ts": "1479390029.002100"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "works great",
+        "ts": "1479390035.002101"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "```webpack \u2014watch \u2014watch-poll```",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479390107.000000"
+        },
+        "ts": "1479390050.002102"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that's for compilation; what about incremental testing\/compile and variant tsconfig for test as for code?",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1479390151.000000"
+        },
+        "ts": "1479390126.002105"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "no idea atm",
+        "ts": "1479390155.002107"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "Karma's got decent plugins for webpack and typescript, I'd just use that",
+        "ts": "1479390182.002108"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I heard webpack + karma was complex, how do you find it <@U06BGNMBL> ?",
+        "ts": "1479390223.002109"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i haven't been using webpack to date ... i have feared getting on the webpack bandwagon (just cuz i have no time)",
+        "ts": "1479390251.002110"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you can just set the `preprocessors` prop in karma.conf.js to stick your main file through webpack, you'll need the karma-webpack package",
+        "ts": "1479390423.002111"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "first test run can be slow because it has to compile your whole app, but incremental runs are fine",
+        "ts": "1479390448.002112"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "in my experience anyway",
+        "ts": "1479390452.002113"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "<https:\/\/github.com\/webpack\/karma-webpack>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "webpack\/karma-webpack",
+                "title_link": "https:\/\/github.com\/webpack\/karma-webpack",
+                "text": "karma-webpack - Use webpack with karma.",
+                "fallback": "GitHub: webpack\/karma-webpack",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/2105791?v=3&s=400",
+                "from_url": "https:\/\/github.com\/webpack\/karma-webpack",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1479390499.002114"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you also have to pass in your webpack config which is a bit sucky as you'd hope it would just autoload it, but that's just a matter of requiring webpack.config.js",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1479390545.000000"
+        },
+        "ts": "1479390532.002116"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U06BGNMBL> <@U04BE0ELZ> what's the best resource to come up to speed on webpack quickly?",
+        "ts": "1479390572.002118"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "have they written any docs yet?",
+        "ts": "1479390599.002119"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": ":troll:",
+        "ts": "1479390601.002120"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "also is webpack the right option for nodejs?",
+        "ts": "1479390630.002121"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i have no need for exporting to the browser (which I may be mistakenly thinking of webpack's primary mission)",
+        "ts": "1479390654.002122"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "TBH my current company was using it when I got here, and I haven't really touched it since",
+        "ts": "1479390663.002123"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "oh",
+        "ts": "1479390664.002124"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "don't bother in that case",
+        "ts": "1479390676.002125"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "and def not with Karma",
+        "ts": "1479390683.002126"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "interestingly the Serverless uses webpack for Lambda functions",
+        "ts": "1479390701.002127"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(or rather _can_ use it)",
+        "ts": "1479390714.002128"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I guess anything that can transpile to commonjs will do",
+        "ts": "1479390745.002129"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "for node, I pretty much never set up filesystem watches, just a few package.json scripts that'll run one or all of the tests",
+        "ts": "1479390822.002130"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but with TS you would, right?",
+        "ts": "1479390864.002131"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or you just transpile on demand",
+        "ts": "1479390888.002132"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "aka when testing or deploying",
+        "ts": "1479390895.002133"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "maybe, maybe not, depending on how snappy the compiler is",
+        "ts": "1479390898.002134"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "`tsc my.spec.ts | mocha` or something similar would be fine, unless it was really slow",
+        "ts": "1479390957.002135"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I haven't found it to be although if there's a lot of dependencies, maybe",
+        "ts": "1479390971.002136"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> survivejs",
+        "ts": "1479391460.002137"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "If your company needs training we can offer it.",
+        "ts": "1479391490.002138"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "for teams of 4-5",
+        "ts": "1479391568.002139"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "or larger",
+        "ts": "1479391569.002140"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U06BGNMBL> I like your approach to mocha, i do like watchers though as I put subtle sound effects to errors so I can have it in the background and \"hear errors\" (usually nice, occasionally annoying)",
+        "ts": "1479391575.002141"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> so you want to do incremental testing with Karma and typescript?",
+        "ts": "1479392583.002142"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "for instance, if I update a given test file then i want only the test files for that updated (and transpiled) file",
+        "ts": "1479392622.002143"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "likewise if I update source code, I want an incremental done after transpilation",
+        "ts": "1479392649.002144"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I see",
+        "ts": "1479392662.002145"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and i'd prefer it be Mocha and Typescript",
+        "ts": "1479392663.002146"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "and you still want to run all the tests?",
+        "ts": "1479392684.002147"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i can use webpack but am not exporting to the web",
+        "ts": "1479392685.002148"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i want to run all tests when I start watching; then i want incremental transpiles and incremental tests if the updated file was a test file",
+        "ts": "1479392727.002149"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019ve never heard of using WP for node",
+        "ts": "1479392733.002150"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i hadn't either until today",
+        "ts": "1479392743.002151"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but it is used in the serverless framework as i mentioned earlier",
+        "ts": "1479392755.002152"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and the serverless framework is all about nodejs running as lambda functions",
+        "ts": "1479392771.002153"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "I misunderstood him and thought he was talking about client side tests",
+        "ts": "1479392771.002154"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "hence jabbering on about WP\/karma",
+        "ts": "1479392796.002155"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I heard about serverless, I\u2019m gonna try Claudia 1st",
+        "ts": "1479392819.002156"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "why?",
+        "ts": "1479392847.002157"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> can you not try use karma+babel instead of webpack 1st?\nserverless is abstracting away AWS",
+        "ts": "1479392890.002158"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "and I want to get close to it",
+        "ts": "1479392896.002159"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "karma-babel npm",
+        "ts": "1479392908.002160"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "don\u2019t even need gulp",
+        "ts": "1479392921.002161"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "not sure about incremental",
+        "ts": "1479392937.002162"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'll have a look but serverless seems pretty nice, especially if you're exposing endpoints via api-gateway",
+        "ts": "1479392943.002163"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i used node-lambda in the past which is I guess similar to Claudia but maybe even more basic",
+        "ts": "1479392964.002164"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "yep",
+        "ts": "1479392975.002165"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "+ the hastle",
+        "ts": "1479392978.002166"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i mean serverless is dead easy",
+        "ts": "1479393032.002167"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "this whole TS\/Mocha bit is independant",
+        "ts": "1479393045.002168"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "does Claudia have financial backing?",
+        "ts": "1479393102.002169"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that's one of the nice things about Serverless, they're well funded",
+        "ts": "1479393156.002170"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i actually think Claudia is abstracting more away from AWS than Serverless (having just watched the video)",
+        "ts": "1479393235.002171"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I would ask you question on SO mate about TS + testing",
+        "ts": "1479393518.002172"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "or I can ask it;)",
+        "ts": "1479393521.002173"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i did already :slightly_smiling_face:",
+        "ts": "1479393530.002174"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "no good responses",
+        "ts": "1479393536.002175"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "link please?",
+        "ts": "1479393543.002176"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i can figure it out myself but big fan of not reinventing the wheel",
+        "ts": "1479393553.002177"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "just looked and I guess i just searched for the answer there; i'll take a stab at doing it myself",
+        "ts": "1479393660.002178"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "would sure like to know if you manage!",
+        "ts": "1479393851.002179"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "the more I know the better, TS consulting is on the rise",
+        "ts": "1479393868.002180"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok",
+        "ts": "1479393875.002181"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you could look at ts-node as well, which has a babel-style \"register\" module",
+        "ts": "1479394015.002182"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "got the idea from <http:\/\/stackoverflow.com\/questions\/26977722\/how-to-run-mocha-tests-written-in-typescript#answer-35661569>",
+        "attachments": [
+            {
+                "title": "How to run Mocha tests written in TypeScript?",
+                "title_link": "http:\/\/stackoverflow.com\/questions\/26977722\/how-to-run-mocha-tests-written-in-typescript#answer-35661569",
+                "text": "Setup: I have a Node project (pure Node, no browser bits) written in TypeScript. I can use the TypeScript compiler (tsc) from the typescript module to compile the code. So far so good.However, I ...",
+                "fallback": "How to run Mocha tests written in TypeScript?",
+                "thumb_url": "http:\/\/cdn.sstatic.net\/Sites\/stackoverflow\/img\/apple-touch-icon@2.png?v=73d79a89bded&a",
+                "from_url": "http:\/\/stackoverflow.com\/questions\/26977722\/how-to-run-mocha-tests-written-in-typescript#answer-35661569",
+                "thumb_width": 316,
+                "thumb_height": 316,
+                "service_icon": "http:\/\/cdn.sstatic.net\/Sites\/stackoverflow\/img\/favicon.ico?v=4f32ecc8f43d",
+                "service_name": "stackoverflow.com",
+                "id": 1
+            }
+        ],
+        "ts": "1479394022.002183"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "you can also use mocha's `--watch` flag and pass .ts to `--watch-extensions`",
+        "ts": "1479394050.002185"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "but that'll probably not have the incremental behaviour you want",
+        "ts": "1479394074.002186"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019ll switch my tests to ts (in a small project) and see how I manage too this weekend",
+        "ts": "1479394318.002187"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "thanks for the link <@U06BGNMBL>",
+        "ts": "1479394328.002188"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "np, now I really should do some goddamn work today",
+        "edited": {
+            "user": "U06BGNMBL",
+            "ts": "1479394357.000000"
+        },
+        "ts": "1479394347.002189"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019m sat at home all day in my Yoda outfit",
+        "ts": "1479394367.002191"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "correction my Jedi gown",
+        "ts": "1479394410.002192"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/www.amazon.co.uk\/Medium-Star-Fleece-Dressing-Gown-Jedi\/dp\/B005GJELOG\/ref=sr_1_3?s=clothing&amp;ie=UTF8&amp;qid=1479394421&amp;sr=1-3&amp;keywords=jedi+bathrobe>",
+        "ts": "1479394492.002193"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/pbs.twimg.com\/media\/CjlcrN4WsAIhU-O.jpg>",
+        "attachments": [
+            {
+                "fallback": "599x363px image",
+                "image_url": "https:\/\/pbs.twimg.com\/media\/CjlcrN4WsAIhU-O.jpg",
+                "image_width": 599,
+                "image_height": 363,
+                "image_bytes": 34968,
+                "from_url": "https:\/\/pbs.twimg.com\/media\/CjlcrN4WsAIhU-O.jpg",
+                "id": 1
+            }
+        ],
+        "ts": "1479404608.002194"
+    }
+]

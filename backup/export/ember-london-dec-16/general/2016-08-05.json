@@ -1,0 +1,14 @@
+[
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "I need to import a plain JS file into an addon. Should I put it in public and app.import('\/public\/yuk.js') in the addon blueprint?",
+        "ts": "1470403003.000560"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in that case, it should go in \/vendor I think",
+        "ts": "1470409458.000561"
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i have an `liquid-fire` transition that uses the default \u201ctoUp\u201d transition and it transitions but has a lot of jag. Anyone else experience this?",
+        "ts": "1471793123.001268"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F23CLBLBE\/2016-08-20_23-02-45.png|2016-08-20_23-02-45.png>",
+        "file": {
+            "id": "F23CLBLBE",
+            "created": 1471793133,
+            "timestamp": 1471793133,
+            "name": "2016-08-20_23-02-45.png",
+            "title": "2016-08-20_23-02-45.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BD6KB1",
+            "editable": false,
+            "size": 489851,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F23CLBLBE\/2016-08-20_23-02-45.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F23CLBLBE\/download\/2016-08-20_23-02-45.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 215,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 286,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 430,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 573,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F23CLBLBE-b0f8cc9cd0\/2016-08-20_23-02-45_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 611,
+            "image_exif_rotation": 1,
+            "original_w": 1731,
+            "original_h": 1033,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F23CLBLBE\/2016-08-20_23-02-45.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F23CLBLBE-13bbb0eb48",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1471793136.001269"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "The modal that is being transition is what you\u2019re seeing above",
+        "ts": "1471793170.001270"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i am also show the chrome inspectors perf metrics (which I\u2019m not very capable with)",
+        "ts": "1471793234.001271"
+    }
+]

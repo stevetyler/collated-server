@@ -1,0 +1,2035 @@
+[
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1467622187.000543"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "morning",
+        "ts": "1467622201.000544"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Next week is EmberCamp",
+        "ts": "1467622207.000545"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Can\u2019t wait, will be so much fun",
+        "ts": "1467622218.000546"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yup; excited",
+        "ts": "1467622219.000547"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: you ready to tag team on the audio?",
+        "ts": "1467622239.000548"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Geeze, that's come round quick....Can't wait",
+        "ts": "1467622279.000549"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: yup, we should have a quick Skype and talk about how we want to do that",
+        "ts": "1467622604.000550"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah we should",
+        "ts": "1467622736.000551"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "let me know what time you free later on",
+        "ts": "1467622744.000552"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "The price of addon of the week goes to: <https:\/\/github.com\/trentmwillis\/ember-exam>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "trentmwillis\/ember-exam",
+                "title_link": "https:\/\/github.com\/trentmwillis\/ember-exam",
+                "text": "ember-exam - Run your tests with better filtering, randomization, splitting, and parallelization for beautiful tests.",
+                "fallback": "GitHub: trentmwillis\/ember-exam",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/3526753?v=3&s=400",
+                "from_url": "https:\/\/github.com\/trentmwillis\/ember-exam",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467630553.000553"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "looks extremely promising",
+        "ts": "1467630561.000555"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I have a project with ~15m test suite",
+        "ts": "1467630575.000556"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "let\u2019s see how it works",
+        "ts": "1467630582.000557"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it should be pretty linear",
+        "ts": "1467630591.000558"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "I\u2019ve been using it for a while now, it works great :slightly_smiling_face:",
+        "ts": "1467630593.000559"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "we\u2019re using it on circleci and parallelizing it on 3 cores brought down the time by 50%",
+        "ts": "1467630626.000560"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s a shame that npm alone is nearly 1\/3 of the build time",
+        "ts": "1467630722.000561",
+        "reactions": [
+            {
+                "name": "cry",
+                "users": [
+                    "U040MK408"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also the splitting (even the weighted version) doesn\u2019t really make perfect slices of your tests",
+        "ts": "1467630777.000562"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "it would be nice to save the times each test took to run and then use that cache to split the tests",
+        "ts": "1467630801.000563"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "well, I don\u2019t think that my tests diverge in length enough to care about that",
+        "ts": "1467631716.000564"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if I go from ~15m to ~5m by spawning 3\/4 parallel builds",
+        "ts": "1467631754.000565"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I\u2019m ok with that",
+        "ts": "1467631759.000566"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/twitter.com\/sugarpirate_\/status\/749941627548991489>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/sugarpirate_|@sugarpirate_>: Excited to announce that I will be starting <https:\/\/twitter.com\/netflix|@netflix> this month, working on tools for producing Netflix Originals!",
+                "ts": 1467634991,
+                "author_name": "Lauren Tan \u2620",
+                "author_link": "https:\/\/twitter.com\/sugarpirate_\/status\/749941627548991489",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/680869652369666048\/ISzp7vfO_normal.jpg",
+                "author_subname": "@sugarpirate_",
+                "text": "Excited to announce that I will be starting <https:\/\/twitter.com\/netflix|@netflix> this month, working on tools for producing Netflix Originals!",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/sugarpirate_\/status\/749941627548991489",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1467635795.000567"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ that\u2019s a surprise",
+        "ts": "1467635805.000569"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "DockYard has proved itself to be a stepping-stone company for a lot of ember folks",
+        "ts": "1467635819.000570"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Wow",
+        "ts": "1467635821.000571"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "That sounds pretty awesome",
+        "ts": "1467635853.000572"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: I thought most of the big ember peeps there were contractors",
+        "ts": "1467636011.000573"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "like robert jackson",
+        "ts": "1467636018.000574"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Robert Jackson is at Twitch",
+        "ts": "1467636042.000575"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: no, surprisingly not",
+        "ts": "1467636051.000576"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I spoke to Brian Cardarella about this a while back",
+        "ts": "1467636058.000577"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "there\u2019s far less of a contractor culture in the US",
+        "ts": "1467636066.000578"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U043AB2QT>: before that was dockyard iirc",
+        "ts": "1467636070.000579"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "correct",
+        "ts": "1467636074.000580"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Yup",
+        "ts": "1467636080.000581"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "&gt;  less of a contractor culture in the US\n\nsalaries are higher for perm staff",
+        "ts": "1467636086.000582"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "also things like health insurance",
+        "ts": "1467636094.000583"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "my personal opinion here is that the tech employers need to acknowledge that they _have_ to make a perm job attractive if they want someone to stay",
+        "ts": "1467636110.000584"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm yeah I agree",
+        "ts": "1467636122.000585"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "they do get more off being perm that being temporary",
+        "ts": "1467636132.000586"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "feel like it contrasts with the UK - given the fiscal side of things, etc",
+        "ts": "1467636167.000587"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the main\/only reason to be a contractor is mostly tax-related",
+        "ts": "1467636377.000588"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Agreed, that is a big one for me",
+        "edited": {
+            "user": "U043AB2QT",
+            "ts": "1467636410.000000"
+        },
+        "ts": "1467636402.000589"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "huge IMO",
+        "ts": "1467636407.000590"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don\u2019t think that for a company paying a contractor vs hiring a perm",
+        "ts": "1467636420.000592"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is very different",
+        "ts": "1467636428.000593"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "money-wise",
+        "ts": "1467636430.000594"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but it is for the one that gets paid",
+        "ts": "1467636442.000595"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U040MK408>: I\u2019d say if its a mid-to big sized company with perks, etc",
+        "ts": "1467636446.000596"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the differences are fairly small",
+        "ts": "1467636455.000597"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah",
+        "ts": "1467636456.000598"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: how much would you say is the proportion here perm employees to contractors?",
+        "ts": "1467636484.000599"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "same question, but in the context of the US market",
+        "ts": "1467636496.000600"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "here in London or here in the UK?",
+        "ts": "1467636504.000601"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "UK",
+        "ts": "1467636508.000602"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "actually both",
+        "ts": "1467636518.000603"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":alien:",
+        "ts": "1467636522.000604"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don\u2019t know for sure, but I\u2019d say majority perm",
+        "ts": "1467636524.000605"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think here in this particular part of town we have a skewed sense of things",
+        "ts": "1467636540.000606"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I couldn\u2019t give a percentage",
+        "ts": "1467636549.000607"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "because there are lots of startups around who can\u2019t justify permanent staff at the outset",
+        "ts": "1467636559.000608"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but in london I don\u2019t think the % of contractors is &gt; 20%",
+        "ts": "1467636564.000609"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: yeah but I\u2019d say big employers also look for temporary work",
+        "ts": "1467636577.000610"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "that sounds about right to me",
+        "ts": "1467636578.000611"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "as the future of everything is becoming project-based",
+        "ts": "1467636583.000612"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so more on-demand team assembly",
+        "ts": "1467636590.000613"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "ship a project and then hand it over",
+        "ts": "1467636594.000614"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and work from Platja D'Aro",
+        "ts": "1467636599.000615"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in the middle of nowhere",
+        "ts": "1467636606.000616"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the training I delivered for a large company wasn\u2019t learning ember because they were oging to use it",
+        "ts": "1467636614.000617"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the company paid an agency to build a project and their tech team was being handed over that software",
+        "ts": "1467636634.000618"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U040MK408>: remember yuri?",
+        "ts": "1467636643.000619"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "he\u2019s based in Siberia!",
+        "ts": "1467636646.000620"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I know",
+        "ts": "1467636649.000621"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "lol",
+        "ts": "1467636651.000622"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I still suffer him",
+        "ts": "1467636653.000623"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "how cray is that",
+        "ts": "1467636653.000624"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "xD",
+        "ts": "1467636653.000625"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "HAHA",
+        "ts": "1467636656.000626"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "from time to time",
+        "ts": "1467636657.000627"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "#shotsfired",
+        "ts": "1467636660.000628"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "in my experience, most software companies are looking to build permanent teams",
+        "ts": "1467636663.000629"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":boom:",
+        "ts": "1467636663.000630"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yep thats the priority for a product-centric company",
+        "ts": "1467636682.000631"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but you still have agencies",
+        "ts": "1467636686.000632"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and not-so complex products",
+        "ts": "1467636690.000633"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "haha, well",
+        "ts": "1467636691.000634"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "having worked for an agency that went out of business this year",
+        "ts": "1467636701.000635"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I don't think the future is looking so rosy for agencies",
+        "ts": "1467636710.000636"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but, my point-of-view is also skewed there",
+        "ts": "1467636723.000637"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "there\u2019s another aspect to all this",
+        "ts": "1467636767.000638"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "which is career trajectory",
+        "ts": "1467636772.000639"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "something I must admit I\u2019d now thought about until relatively recently",
+        "ts": "1467636783.000640"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and another area where we differ from the US, I think",
+        "ts": "1467636797.000641"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "wait not sure if I got that",
+        "ts": "1467636825.000642"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "are agencies not a thing in the US?",
+        "ts": "1467636828.000643"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or at least not as much of a thing",
+        "ts": "1467636832.000644"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019m still talking UK-only",
+        "ts": "1467636854.000645"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "cos I don\u2019t know a thing about the US market",
+        "ts": "1467636861.000646"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "agencies certainly are a thing in the US",
+        "ts": "1467636872.000647"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "DockYard are a notable one",
+        "ts": "1467636879.000648"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I mixed my points together a little",
+        "ts": "1467636911.000649"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019m saying the \"career trajectory\" angle is something people prioritise differently between here and the US",
+        "ts": "1467636949.000650"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "how so?",
+        "ts": "1467637008.000651"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I doubt knowledge workers in the UK (especially London) will start to lean towards the majority being fulltime. Particularly with this in the pipeline: <http:\/\/www.bbc.co.uk\/news\/business-36699642>",
+        "attachments": [
+            {
+                "service_name": "BBC News",
+                "title": "Brexit: George Osborne pledges to cut corporation tax - BBC News",
+                "title_link": "http:\/\/www.bbc.co.uk\/news\/business-36699642",
+                "text": "Chancellor George Osborne plans to cut corporation tax to less than 15% to encourage businesses to still invest in the UK following the referendum vote.",
+                "fallback": "BBC News: Brexit: George Osborne pledges to cut corporation tax - BBC News",
+                "image_url": "http:\/\/ichef-1.bbci.co.uk\/news\/560\/cpsprodpb\/7131\/production\/_90277982_oi8qus91.jpg",
+                "from_url": "http:\/\/www.bbc.co.uk\/news\/business-36699642",
+                "image_width": 444,
+                "image_height": 250,
+                "image_bytes": 11211,
+                "service_icon": "http:\/\/static.bbci.co.uk\/news\/1.133.1302\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467637041.000652"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this is only anecdotal, but amongst peer groups in London and the US, the US crowd seem more interested in the idea of working towards roles with more responsibility (and larger salaries)",
+        "ts": "1467637065.000654"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "climbing the career ladder",
+        "ts": "1467637079.000655"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\nChancellor George Osborne plans to cut corporation tax to less than 15% to encourage businesses to still invest in the UK following the referendum vote.\n```\n\n:joy:",
+        "ts": "1467637086.000656"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or plainly translated to",
+        "ts": "1467637092.000657"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "\u201cpls do not leave us\"",
+        "ts": "1467637095.000658"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "If the corp tax goes close to Ireland and London retains passporting right to the EU its a no brainer.",
+        "ts": "1467637130.000659"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: I think thats because the margins are better for perm employees though",
+        "ts": "1467637134.000660"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "more benefits, more stable - yet quite highly remunerated - salaries",
+        "ts": "1467637146.000661"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: what do you predict for demand for contractors over the next 5 years?",
+        "ts": "1467637196.000662"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "increase? decrease? stay the same?",
+        "ts": "1467637207.000663"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "It will depend a lot on the terms of brexit tbh",
+        "ts": "1467637214.000664"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ha",
+        "ts": "1467637219.000665"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "But, anyway. Yeah, my experience of FT vs contracting is the the UK does *not* pay well enough on the high end to encourage career progression.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1467637260.000000"
+        },
+        "ts": "1467637224.000666"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "most temporary employees I\u2019ve met are foreign - so that has a weight",
+        "ts": "1467637235.000667"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V2PZUB>: is that true country-wide?",
+        "ts": "1467637240.000668"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or is that a London thing?",
+        "ts": "1467637248.000669"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I honestly have no idea",
+        "ts": "1467637251.000670"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "its a London thing",
+        "ts": "1467637264.000672"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I worked out in Milton Keynes and this wasn\u2019t a thing",
+        "ts": "1467637281.000673"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm not sure if its a london thing",
+        "ts": "1467637310.000674"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "theres definetly more opportunities in london",
+        "ts": "1467637316.000675"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but thats economies of scale",
+        "ts": "1467637320.000676"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "The company out there matched my London salary at the time, but there was no chance of progression and no chance of getting a pay rise",
+        "ts": "1467637322.000677"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not mindsets per se",
+        "ts": "1467637324.000678"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: Consider this, If your a head of tech at a small agency (50 people). I doubt very much your earning anywhere near 100K.",
+        "ts": "1467637358.000679"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "indeed",
+        "ts": "1467637386.000680"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "what industry are we using as our benchmark though?",
+        "ts": "1467637398.000681"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "100K is an enormous amount of money",
+        "ts": "1467637406.000682"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: Lets stick with agency-land.",
+        "ts": "1467637414.000683"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: 100K is a lot of money. However, thats the problem.",
+        "ts": "1467637428.000684"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "let\u2019s face it: programmers are for the most part extremely well compensated",
+        "ts": "1467637434.000685"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah",
+        "ts": "1467637434.000686"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "100k is not as uncommon in the US as it is here",
+        "ts": "1467637444.000687"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: but it makes sense given the nature of the work",
+        "ts": "1467637458.000688"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: Theres a ceiling that I feel the UK has with \"max salaries\"",
+        "ts": "1467637460.000689"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "there\u2019s endless margins per line of code written",
+        "ts": "1467637464.000690"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or thats how I reason why salaries are like that",
+        "ts": "1467637470.000691"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U047GTU64>: 100K in USD?",
+        "ts": "1467637484.000692"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah",
+        "ts": "1467637496.000693"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "or 150K USD",
+        "ts": "1467637497.000694"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "100K USD is more common to come across as a programmer salary in the US than it is in the UK",
+        "ts": "1467637519.000695"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or thats what I get from the job ads I\u2019ve seen",
+        "ts": "1467637528.000696"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<#C03SSL0GP> is :fire: today",
+        "ts": "1467637532.000697"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah I know a Drupal developer on 100K+ USD",
+        "ts": "1467637533.000698"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so 60\u201370K GBP",
+        "ts": "1467637534.000699"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Put simply if your earning close to 70\/80K then you've kind of \"reached the top\"",
+        "ts": "1467637536.000700"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: thats brute",
+        "ts": "1467637541.000701"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019m talking net :smile:",
+        "ts": "1467637547.000702"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U03V2PZUB>: but isn\u2019t that true for most sectors?",
+        "ts": "1467637562.000703"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "Mid to senior in London is about 100k USD, no?",
+        "ts": "1467637583.000704"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "how does one earn more than that without being climbing the management ladder at a big corporation?",
+        "ts": "1467637583.000705"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "$100,000 USD on paper ends up being far more than 60-70GBP when it reaches your pocket",
+        "ts": "1467637584.000706"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M>: true, but this is why contracting is so prevalent.",
+        "ts": "1467637597.000707"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U051MHBQU>: can you name 2 companies hiring mid @ 100k?",
+        "ts": "1467637600.000708"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "as in ~60-70k",
+        "ts": "1467637601.000709"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh",
+        "ts": "1467637605.000710"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "lol",
+        "ts": "1467637605.000711"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "nvm",
+        "ts": "1467637608.000712"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "As in 60-70 \u00a3",
+        "edited": {
+            "user": "U051MHBQU",
+            "ts": "1467637616.000000"
+        },
+        "ts": "1467637611.000713"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah yeah - quite a lot",
+        "ts": "1467637620.000715"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think 55-65 is like the range",
+        "ts": "1467637627.000716"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "Top end of the salary bracket for Devs at GDS is 60, so seniors are more than that",
+        "ts": "1467637640.000717"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I hope @netflix is willing to provide some business to Dockyard as a little reciprocity",
+        "ts": "1467637661.000718"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah but I reckon they work more than 40\/week",
+        "ts": "1467637665.000719"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "as in when you\u2019re on call if shit hits the fan",
+        "ts": "1467637679.000720"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "stuff like that",
+        "ts": "1467637680.000721"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "on call shifts at GDS don\u2019t require you to be senior",
+        "ts": "1467637698.000722"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "just have prod access and know what you\u2019re doing",
+        "ts": "1467637707.000723"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: they might not need to if she was the one to start the conversation",
+        "ts": "1467637713.000724"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "did y\u2019all see that Stanley Stuart has joined Heroku?",
+        "ts": "1467637747.000725"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I reckon there\u2019s definitely a few companies paying \u00a360-70k in London but people don\u2019t tend to publicly talk about salaries",
+        "ts": "1467637749.000726"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm a bit taboo for some",
+        "ts": "1467637775.000727"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "which is why I like Stevie Buckley\u2019s approach of explicitly stating how much the companies he is recruiting for actually pay",
+        "edited": {
+            "user": "U051MHBQU",
+            "ts": "1467637783.000000"
+        },
+        "ts": "1467637776.000728"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "at makers academy there was a spreadsheet with all the salaries\/jobs from grads",
+        "ts": "1467637785.000730"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and time in the market",
+        "ts": "1467637788.000731"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "gave you a good insight",
+        "ts": "1467637791.000732"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U03V8V08M>: that\u2019s pretty cool, haven\u2019t heard about that",
+        "ts": "1467637797.000733"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, excellent match",
+        "ts": "1467637807.000734"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U051MHBQU>: yeah he\u2019s cool guy",
+        "ts": "1467637808.000735"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "runs HNLondon",
+        "ts": "1467637810.000736"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "I saw him on a panel once about hiring designers and actually went \u201cIf you get offered shares in place of any percentage of salary tell them to fuck off\"",
+        "ts": "1467637851.000737"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "btw, I\u2019m a bit late to the conversation, are you guys talking about gross or net salary?",
+        "ts": "1467637855.000738"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "top lad",
+        "ts": "1467637856.000739"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: well I\u2019m sure they don\u2019t need to contractually but Dockyard is a great talent incubator; it would be nice to see the capital side of the chain contributing back to the incubator out of good will",
+        "ts": "1467637875.000740"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U07E9GKUZ>: gross",
+        "ts": "1467637888.000741"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: true",
+        "ts": "1467637893.000742"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1>: I wonder if the reason for folks leaving is because they are considering Elm over Ember now? I heard Brian saying it in a podcast some time ago",
+        "ts": "1467637980.000743"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS>: Elm, really? I would have thought that\u2019s still be a very small group",
+        "ts": "1467638029.000744"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I definitely get the sense that Brian sees Elixir as a bigger revenue source with clients",
+        "ts": "1467638163.000745"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1>: the benefit to using niche technologies is that once you write something it",
+        "ts": "1467638214.000746"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "is going to be really hard to your client to find other people that can work on it",
+        "ts": "1467638238.000747"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "although I think Elixir is really cool",
+        "ts": "1467638250.000748"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes but that\u2019s a double edged sword :slightly_smiling_face:",
+        "ts": "1467638267.000749"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "for everyone",
+        "ts": "1467638308.000750"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "(aka, if it\u2019s too niche than conservative buyers are already heading for the exit)",
+        "ts": "1467638316.000751"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in consulting the really attractive clients are the big ones; the big ones are typically conservative",
+        "ts": "1467638366.000752"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "one of the big motivations for DockYard adopting Elixir is because it was becoming increasingly hard to differentiate themselves as a Rails shop",
+        "ts": "1467638590.000753"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019m paraphrasing something Brian has said in blog posts\/podcasts",
+        "ts": "1467638606.000754"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "why is that a bad thing for them though?",
+        "ts": "1467638608.000755"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or not something convenient for them - to put in better words",
+        "ts": "1467638626.000756"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I wasn\u2019t saying it was",
+        "ts": "1467638632.000757"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "was following up on <@U04BD6KB1>\u2019s point here:\n&gt; I definitely get the sense that Brian sees Elixir as a bigger revenue source with clients",
+        "ts": "1467638659.000758"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh right",
+        "ts": "1467638664.000759"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah misread your comment",
+        "ts": "1467638668.000760"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah and i think micro-services do allow companies more opportunities to experiment with new server technologies",
+        "ts": "1467638720.000761"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "there was the changelog a while ago which basically said as much",
+        "ts": "1467638721.000762"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "\u201cRails is too easy to get good at\u201d or something",
+        "ts": "1467638731.000763"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so the performance story of Elixir, packaged up in container tech might be a nice way to get people to accept it",
+        "ts": "1467638760.000764"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i commented that in the Elixir meetup",
+        "ts": "1467638948.000765"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that unlike what most people or non techinical CEOs might think",
+        "ts": "1467638969.000766"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "build in top of a still-quite-niche technology like Elixir",
+        "ts": "1467638994.000767"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "can ease recruiting A LOT",
+        "ts": "1467639010.000768"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "even if the pool of people that know the tech is rather small",
+        "ts": "1467639029.000769"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because the pool of companies using the tech is even smaller",
+        "ts": "1467639048.000770"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s a built-in filter, effectively",
+        "ts": "1467639076.000771"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "you know that any candidate with experience of the technology is dedicated enough to have made headway in the early days",
+        "ts": "1467639113.000772"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "also elixir is the future, please do join, we have cookies",
+        "ts": "1467639113.000773",
+        "reactions": [
+            {
+                "name": "cookie",
+                "users": [
+                    "U03V8V08M",
+                    "U03V2PZUB",
+                    "U040MK408"
+                ],
+                "count": 3
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve observed that the same is true with Ember",
+        "ts": "1467639147.000774"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s a niche technology, so when somebody says they have Ember experience, chances are they\u2019ve a built a reasonably complex project with it",
+        "ts": "1467639175.000775"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "rather than a short-lived or hobby project",
+        "ts": "1467639187.000776"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "with massively popular tools like React or Angular, it\u2019s a way bigger tent and so you don\u2019t get that built-in self-selection",
+        "ts": "1467639225.000777"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "like much much bigger",
+        "ts": "1467639233.000778"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "How much experience would a candidate need if they were willing to join a new firm because of an interest in their tech choices.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1467639288.000000"
+        },
+        "ts": "1467639235.000779"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "i\u2019ll say it: angular is today\u2019s php",
+        "ts": "1467639240.000780"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "php 5.3",
+        "ts": "1467639272.000782"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":wink:",
+        "ts": "1467639282.000783"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U03V2PZUB>: to be honest, I think most companies are savy enough to look for bright people who can pick up almost anything rather than the rockstar expert in any technology",
+        "ts": "1467639396.000785"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "mostly because there are very few rockstar experts",
+        "ts": "1467639409.000786"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "true",
+        "ts": "1467639413.000787"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "though if companies are unsure how to narrow down a field, experience with a particular technology is useful",
+        "ts": "1467639444.000788"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "also, I think that experience in paradigms is far more important than experience in a specific tech",
+        "ts": "1467639448.000789"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "in practice, 100%",
+        "ts": "1467639463.000790"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "cibernox: agree totally on that",
+        "ts": "1467639475.000791"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "someone that has been building stuff in pythin can become a good ruby dev within a month",
+        "ts": "1467639481.000792"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "someone that has been building things in rails can build stuff in elixir also within weeks",
+        "ts": "1467639505.000793"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I found python really easy to learn as a rubyist",
+        "ts": "1467639510.000794"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "(although super annoying)",
+        "ts": "1467639520.000795"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "I can\u2019t say this in ruby meetups, but I like python very much",
+        "ts": "1467639528.000796"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I do like python too",
+        "ts": "1467639538.000797"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don\u2019t love it",
+        "ts": "1467639543.000798"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "I mean, I was doing data stuff with scipy so it was way better than ruby would have been",
+        "ts": "1467639551.000799"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but it\u2019s pretty ok",
+        "ts": "1467639559.000800"
+    },
+    {
+        "type": "message",
+        "user": "U045SGGD8",
+        "text": "but still there are some weird minor niggles",
+        "ts": "1467639560.000801"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "just spent some time doing machine learning experiments with scikit-learn and the libraries are sooo good",
+        "ts": "1467639586.000802"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s interesting that Python seems to be the language of choice for the scientific community",
+        "ts": "1467639630.000803"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "evidenced by projects like <http:\/\/rosalind.info\/problems\/locations\/>",
+        "ts": "1467639644.000804"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "a lot of the complex trading algorithms are Python too",
+        "ts": "1467639679.000805"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "really??",
+        "ts": "1467639685.000806"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I wouldn\u2019t have thought it\u2019d be fast enough",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1467639699.000000"
+        },
+        "ts": "1467639695.000807"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "python compiles to c",
+        "ts": "1467639703.000809"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes the abundance of statistical \/ math libraries makes it compelling",
+        "ts": "1467639717.000810"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "most folks run it as an interpreted language though right?",
+        "ts": "1467639727.000811"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Matlab is also a popular choice though",
+        "ts": "1467639730.000812"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019d imagine most high-frequency trading stuff is written in C\/C++ though, right?",
+        "ts": "1467639777.000813"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "We were working with Matlab years ago with tech to burn algo\u2019s down to hardware for greater performance",
+        "ts": "1467639786.000814"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(genuinely curious, not trying to second-guess)",
+        "ts": "1467639787.000815"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the banks were all interested",
+        "ts": "1467639791.000816"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah but the big margin algo trading is not high frequency :wink:",
+        "ts": "1467639829.000817"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yeah I have a peep that was interviewing for one of those positions",
+        "ts": "1467639866.000818"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "R&amp;D department at a hedge fund",
+        "ts": "1467639873.000819"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "140k base plus benefits",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1467639881.000000"
+        },
+        "ts": "1467639879.000820"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and the work seemed really interesting",
+        "ts": "1467639894.000822"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "actually <@U03V8V08M> that blogger you recommended me on ML did say something about people using ML inside that context",
+        "ts": "1467639910.000823"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "they\u2019re guided by the models but they dont let them make decisions for them",
+        "ts": "1467639921.000824"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah",
+        "ts": "1467639937.000825"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the tech is still complementary to the service not a full suplement",
+        "ts": "1467639939.000826"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "which I think its a very wise decision",
+        "ts": "1467639947.000827"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes it\u2019s just another input along with traditional means",
+        "ts": "1467639955.000828"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "people still have a future (at least for a while)",
+        "ts": "1467639966.000829"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "which blogger? I\u2019ve been so hyped on ML lately",
+        "ts": "1467639992.000830"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "one sec",
+        "ts": "1467640032.000831"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "whats her name <@U03V8V08M> ? keep forgetting",
+        "ts": "1467640092.000832"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Julia Evans",
+        "ts": "1467640299.000833"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<http:\/\/jvns.ca|jvns.ca>",
+        "ts": "1467640306.000834"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "best blog on internet",
+        "ts": "1467640315.000835"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "congrats kayako folks on the launch :smile:",
+        "ts": "1467640373.000836"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "aw thanks :slightly_smiling_face:",
+        "ts": "1467640411.000837"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "about to check it out :smile:",
+        "ts": "1467640424.000838"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "also a little birdie tells me that salaries of $140-160K are not uncommon for relatively senior peeps in the bay",
+        "ts": "1467640466.000839"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "so in summary: we all get paid more than we really need",
+        "ts": "1467640543.000840"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "big business is getting tax breaks in a desperate measure to keep them doing business in the UK",
+        "ts": "1467640571.000841"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and our flimsy-at-the-best-of-times government is crumbling like an old quiche",
+        "ts": "1467640619.000842"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "&gt; and our flimsy-at-the-best-of-times government is crumbling like an old quiche\nmost British metaphor I\u2019ve heard about Brexit yet",
+        "ts": "1467640772.000843"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "or is it an analogy?",
+        "ts": "1467640788.000844"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "something like that anyways",
+        "ts": "1467640791.000845"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "it\u2019s been a long discussion, so I\u2019m not sure if it has been mentioned, but I\u2019d like to remind people that in the US you have to pay for your own healthcare, which can get really expensive. Hence it\u2019s natural that they get paid more over there",
+        "ts": "1467640991.000846"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U05485UQL>: yeah Healthcare was mentioned at some point",
+        "ts": "1467644573.000847"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "don't (good) American jobs typically have health insurance coverage as a perk?",
+        "ts": "1467646851.000848"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U06BGNMBL>: most",
+        "ts": "1467646905.000849"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "however that leaves you in a bad position if you lose the perk in anyway, or if it doesn\u2019t cover enough",
+        "ts": "1467648078.000850"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "for example, going freelance",
+        "edited": {
+            "user": "U05485UQL",
+            "ts": "1467648287.000000"
+        },
+        "ts": "1467648228.000851"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I remember speaking to some friends who are both self-employed and therefore sort out their own health insurance, it sounds like a real faff",
+        "ts": "1467648237.000852"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and also a lot of money for very limited cover",
+        "ts": "1467648261.000853"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "Avdi Grimm (of Ruby Tapas fame) is an example of somebody in trouble for this",
+        "ts": "1467648271.000854"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "gosh, yeah",
+        "ts": "1467648278.000855"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "my heart really went out to him, reading that post",
+        "ts": "1467648286.000856"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "before that, he was complaining about the way Obamacare works for freelancers. Real pain in the lower back, and drain in your pockets",
+        "ts": "1467648354.000858"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "at least in Tennessee. I think it varies a bit by state",
+        "ts": "1467648431.000859"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "obviously there's a lot of cracks to fall through, I was merely pointing out that if you're talking about a $100,000 salary in the states, you're probably talking about a full time job with insurance cover",
+        "ts": "1467648562.000860"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "yeah, Avdi's post was sad, I've already bought all his books though",
+        "ts": "1467648581.000861"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "sure. It\u2019s just worth bearing in mind that there\u2019s more to it than just the price tag",
+        "ts": "1467648638.000862"
+    },
+    {
+        "type": "message",
+        "user": "U05485UQL",
+        "text": "oh, and housing in Bay Area is apparently worse than here!",
+        "ts": "1467648654.000863"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "yeah, fuck that",
+        "ts": "1467648672.000864"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "if I was going to move to the States, it would be Chicago or something",
+        "ts": "1467648686.000865"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Chicago is far too cold for my taste",
+        "ts": "1467662097.000866"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "cold as in weather or as in people?",
+        "ts": "1467663297.000867"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I'd have to guess weather ... it can be quite extreme. The people are mid-westerners so they'd be very friendly.",
+        "ts": "1467663368.000868"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "weather",
+        "ts": "1467663595.000869"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "those -20 C",
+        "ts": "1467663608.000870"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "brr",
+        "ts": "1467663609.000871"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "As for locations though there are so many options in the US. Boston, NYC, Seattle, Austin, Chicago, San Fran, even Houston and Research Triangle, and Miami",
+        "ts": "1467663632.000872"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Miami\/Orlando sounds right",
+        "ts": "1467663652.000873"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "In my experience jobs in the US in all of these locations provide more disposable income than Europe",
+        "ts": "1467663706.000874"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "But there are more hours expected",
+        "ts": "1467663723.000875"
+    },
+    {
+        "user": "U1NNSV1FE",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U1NNSV1FE|roncooper> has joined the channel",
+        "ts": "1467687678.000876"
+    }
+]

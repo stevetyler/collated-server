@@ -1,0 +1,418 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "ciao :slightly_smiling_face:",
+        "ts": "1471592159.001188"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Morning gang",
+        "ts": "1471595185.001189"
+    },
+    {
+        "user": "U03V8V08M",
+        "topic": "<http:\/\/emberlondon.com>",
+        "text": "<@U03V8V08M|jgwhite> set the channel topic: <http:\/\/emberlondon.com>",
+        "type": "message",
+        "subtype": "channel_topic",
+        "ts": "1471595197.001190",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Morgen",
+        "ts": "1471595210.001191"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Pagination",
+        "ts": "1471595223.001192"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "mornin",
+        "ts": "1471595228.001193"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "How was last night, did I miss much?",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1471596901.000000"
+        },
+        "ts": "1471596800.001194"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":coffee: :rain_cloud:",
+        "ts": "1471596910.001196"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "```const { get, set, run } = Ember```\nis probably my favourite decleration",
+        "ts": "1471611020.001197",
+        "reactions": [
+            {
+                "name": "top",
+                "users": [
+                    "U0A48LWTG",
+                    "U040MK408"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "`K` is my fav",
+        "ts": "1471611294.001198"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019m a nihilist though",
+        "ts": "1471611298.001199"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "so, it's like reading a code full of 'ok's :smile:",
+        "ts": "1471611353.001200"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "One result of yesterday\u2019s proj night:\n<https:\/\/emberlondon-rio.herokuapp.com>",
+        "ts": "1471612024.001201"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(running on fastboot)",
+        "ts": "1471612031.001202"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "that's pretty cool.",
+        "ts": "1471612146.001203"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "data from <http:\/\/medalbot.com|medalbot.com>",
+        "ts": "1471612253.001204"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<http:\/\/github.com\/emberlondon\/rio|github.com\/emberlondon\/rio>",
+        "ts": "1471612258.001205",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "makes use of fastboot\u2019s shoebox",
+        "ts": "1471612265.001206"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(data is fetched on the server)",
+        "ts": "1471612271.001207"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "OH YEAH",
+        "ts": "1471612306.001208"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<http:\/\/i.nikwakelin.com\/ej92cv0h56-m19.png>",
+        "attachments": [
+            {
+                "fallback": "440x156px image",
+                "image_url": "http:\/\/i.nikwakelin.com\/ej92cv0h56-m19.png",
+                "image_width": 440,
+                "image_height": 156,
+                "image_bytes": 11415,
+                "from_url": "http:\/\/i.nikwakelin.com\/ej92cv0h56-m19.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471612306.001209"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "nice work, new zealand",
+        "ts": "1471612506.001211"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "Cyprus is not on the list. hmm",
+        "ts": "1471612522.001212"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "ah lol. we didn't get anything",
+        "ts": "1471612549.001213"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "not on the list?",
+        "ts": "1471612589.001214"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ah right, so it\u2019s only teams that have placed",
+        "ts": "1471612606.001215"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeah",
+        "ts": "1471612610.001216"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "probably medalbot haven't added them",
+        "ts": "1471612617.001217"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "there are a bunch of teams that have the wrong flag too",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1471612769.000000"
+        },
+        "ts": "1471612760.001218"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "but that\u2019s our fault :facepalm:",
+        "ts": "1471612776.001220"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/github.com\/emberlondon\/rio\/blob\/master\/app\/helpers\/iso-code.js#L4-L9>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "emberlondon\/rio",
+                "title_link": "https:\/\/github.com\/emberlondon\/rio\/blob\/master\/app\/helpers\/iso-code.js#L4-L9",
+                "text": "Contribute to rio development by creating an account on GitHub.",
+                "fallback": "GitHub: emberlondon\/rio",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/5754590?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberlondon\/rio\/blob\/master\/app\/helpers\/iso-code.js#L4-L9",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1471612794.001221"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i'm surprised that Brazil",
+        "ts": "1471615172.001223"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "being the host",
+        "ts": "1471615176.001224"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "doesn't have more medals",
+        "ts": "1471615180.001225"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Does anyone have any experience with ember-twiddle being \"slow\"? (not the site but bindings)",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1471619400.000000"
+        },
+        "ts": "1471619350.001228"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "just wondering \u2026 what do folks use for \u201ctooltip\u201d functionality?",
+        "ts": "1471619868.001232"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U04BD6KB1> I try to use pure CSS tooltips",
+        "ts": "1471620329.001233"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "as much as I can",
+        "ts": "1471620338.001234"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what about HTML tooltips?",
+        "ts": "1471620350.001235"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "well, I mean tooltips that can have the label  \"no javascript is harmed for making this tooltip\"",
+        "ts": "1471620395.001236"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what I mean is that they are triggered by hovering one element",
+        "ts": "1471620435.001237"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hmmm. I\u2019m missing your distinction. what is it you\u2019re trying to avoid? or are you just saying, no JS for JS sake?",
+        "ts": "1471620530.001238"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "pure css tooltips ftw",
+        "ts": "1471620961.001239"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok. do you know of any good libraries that integrate it into Ember? would be easy to create but feeling lazy.",
+        "ts": "1471621051.001240"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Could you do something like?\n```\n[data-tooltip]:hover:after {\n  content: attr(data-tooltip);\n}\n```",
+        "ts": "1471621067.001241"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> <http:\/\/kushagragour.in\/lab\/hint\/>",
+        "attachments": [
+            {
+                "title": "Hint.css - A tooltip library in CSS",
+                "title_link": "http:\/\/kushagragour.in\/lab\/hint\/",
+                "text": "A CSS only tooltip library",
+                "fallback": "Hint.css - A tooltip library in CSS",
+                "from_url": "http:\/\/kushagragour.in\/lab\/hint\/",
+                "service_icon": "http:\/\/kushagragour.in\/favicon.ico",
+                "service_name": "kushagragour.in",
+                "id": 1
+            }
+        ],
+        "ts": "1471621110.001242"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i found those so blocky and ugly. What i meant to say is there an Ember Addon.",
+        "ts": "1471621155.001244"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "check out these: <http:\/\/tympanus.net\/Development\/TooltipStylesInspiration\/>",
+        "attachments": [
+            {
+                "title": "Tooltip Styles Inspiration | Classic",
+                "title_link": "http:\/\/tympanus.net\/Development\/TooltipStylesInspiration\/",
+                "text": "Various hover tooltip styles, shapes and effects for your inspiration",
+                "fallback": "Tooltip Styles Inspiration | Classic",
+                "from_url": "http:\/\/tympanus.net\/Development\/TooltipStylesInspiration\/",
+                "service_icon": "http:\/\/tympanus.net\/..\/favicon.ico",
+                "service_name": "tympanus.net",
+                "id": 1
+            }
+        ],
+        "ts": "1471621161.001245"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> Oh you want _fancy_ tooltips!",
+        "ts": "1471621180.001247"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well maybe not _super_ fancy but it is Friday",
+        "ts": "1471621196.001248"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i\u2019ll create an addon quickly and see where it goes",
+        "ts": "1471621242.001249"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "do you think it is possible to invoke a component\u2019s action from a unit test?",
+        "ts": "1471623610.001250"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "I did it via `send`",
+        "ts": "1471623728.001251"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U03V2PZUB> actually on second blush I think this is a great option (sharp edges and all)",
+        "ts": "1471631604.001252"
+    }
+]

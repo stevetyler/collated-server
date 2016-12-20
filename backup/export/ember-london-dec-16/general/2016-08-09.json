@@ -1,0 +1,132 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hi guys! good morning!",
+        "ts": "1470729716.000599"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Any advice on some add-on to use to see tests coverage in an ember-cli app?",
+        "edited": {
+            "user": "U0A48LWTG",
+            "ts": "1470729798.000000"
+        },
+        "ts": "1470729754.000600"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "Also, do you have some good settings for the js linter?",
+        "ts": "1470729886.000602"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Morning <@U0A48LWTG>",
+        "ts": "1470734536.000603"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I haven\u2019t used it personally but <https:\/\/emberobserver.com\/addons\/ember-cli-blanket> scores well and has a cute name",
+        "ts": "1470734574.000604"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and <https:\/\/emberobserver.com\/addons\/ember-cli-eslint> must be worth a look since it\u2019s maintained by Robert Jackson",
+        "ts": "1470734623.000605"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "thank you <@U03V8V08M> :slightly_smiling_face:",
+        "ts": "1470734818.000606"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "will be interested to hear how blanket works out for you",
+        "ts": "1470734939.000607"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V8V08M>: sure, if we decide to go with it I\u2019ll let you know!",
+        "ts": "1470736038.000608"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "does anyone know how to output a `console.log` when running your test suite with phantomJS",
+        "ts": "1470753347.000609"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019m having one of those amazing failures that happen in phantom and not chrome",
+        "ts": "1470753359.000610"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "failing with phantomjs `1.9.8` and `2.1.1`",
+        "ts": "1470753389.000611"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "<@U047GTU64>: have you tried with remote debugging? :slightly_smiling_face: <http:\/\/phantomjs.org\/troubleshooting.html#remote-debugging>",
+        "ts": "1470753531.000612"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U07E9GKUZ>: nope, lets try that :sun_with_face:",
+        "ts": "1470753550.000613"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "you can console.log too, but sticking a debugger is much better usually",
+        "ts": "1470753568.000614"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "how do you pass that option to the `ember test` ?",
+        "ts": "1470753587.000615"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "you can add things in the testem config",
+        "ts": "1470753604.000616"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "\"phantomjs_debug_port\": 9000",
+        "ts": "1470753605.000617"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U09ABGTUJ>: thanks!",
+        "ts": "1470753615.000618"
+    },
+    {
+        "type": "message",
+        "user": "U09ABGTUJ",
+        "text": "np :slightly_smiling_face:",
+        "ts": "1470753627.000619"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019m on `<http:\/\/127.0.0.1:9000\/webkit\/inspector\/inspector.html>` visiting the console tab",
+        "ts": "1470753872.000620"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "are there any",
+        "ts": "1475491122.001084"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "naming conventions for entities in ember CLI that are nested?",
+        "ts": "1475491142.001085"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "i,e: if my structure is\n\n```\napp\/services\/whatever-namespace\/foo.js\n```\n\nI should be performing a lookup by calling\n\n`lookup('service:whatever-namespace\/foo')`  ?",
+        "ts": "1475491188.001086"
+    }
+]

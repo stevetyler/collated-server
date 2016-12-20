@@ -1,0 +1,86 @@
+[
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U04BD6KB1> very interesting. Does redux replace the ember data store,or is it more concerned with app state (open popups, route state etc?)",
+        "ts": "1477471878.001706"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I think in many cases it would replace but there are no diffinitives",
+        "ts": "1477471922.001707"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and there is an active debate about how to best manage more transient types of state",
+        "ts": "1477471942.001708"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "We're rewriting the security addon I spoke about at ember London a couple of years ago. Anyone know of an addon that enables show\/hide and enable\/disable of ui chunks based on user roles? Anyone want to collaborate?",
+        "ts": "1477471989.001709"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "here's an interesting thread on ephemeral state management: <https:\/\/github.com\/reactjs\/redux\/issues\/159>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Investigate using Redux for pseudo-local component state \u00b7 Issue #159 \u00b7 reactjs\/redux \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/reactjs\/redux\/issues\/159",
+                "text": "As @slorber notes, once you go single-treeish, local component state begins to bother you. I don't feel strongly about it (I'm fine with some local component state here and there), but it would be...",
+                "fallback": "GitHub: Investigate using Redux for pseudo-local component state \u00b7 Issue #159 \u00b7 reactjs\/redux",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/810438?v=3&s=400",
+                "from_url": "https:\/\/github.com\/reactjs\/redux\/issues\/159",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1477472050.001710"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U04TVTLQ8>: Is ember-can in the space you're asking about?\n\n<https:\/\/www.npmjs.com\/package\/ember-can>",
+        "attachments": [
+            {
+                "service_name": "npm",
+                "title": "ember-can",
+                "title_link": "https:\/\/www.npmjs.com\/package\/ember-can",
+                "text": "Simple authorisation addon for Ember apps",
+                "fallback": "npm: ember-can",
+                "thumb_url": "https:\/\/www.npmjs.com\/static\/images\/touch-icons\/open-graph.png",
+                "from_url": "https:\/\/www.npmjs.com\/package\/ember-can",
+                "thumb_width": 1200,
+                "thumb_height": 630,
+                "service_icon": "https:\/\/www.npmjs.com\/static\/images\/touch-icons\/apple-touch-icon-57x57.png",
+                "id": 1
+            }
+        ],
+        "ts": "1477472810.001712"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Right space but we're looking to build something more declarative",
+        "ts": "1477472900.001714"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "And with groups of actions that you can disable as a whole",
+        "ts": "1477472940.001715"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04TVTLQ8> I'd be tempted to build something on top of ember-can",
+        "ts": "1477479510.001716"
+    }
+]

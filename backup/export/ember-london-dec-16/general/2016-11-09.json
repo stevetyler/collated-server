@@ -1,0 +1,38 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> thank you for adding material them to ember-power-select",
+        "ts": "1478692214.001869"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> much appreciated!",
+        "ts": "1478692218.001870"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's just light skin, not a real material theme",
+        "ts": "1478692238.001871"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you want real theme, check ember-paper",
+        "ts": "1478692250.001872"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U040MK408> no it\u2019s OK for us :slightly_smiling_face:",
+        "ts": "1478692264.001873"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it uses ember-power-select underneath",
+        "ts": "1478692265.001874"
+    }
+]

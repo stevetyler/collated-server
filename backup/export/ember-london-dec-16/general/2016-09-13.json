@@ -1,0 +1,655 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "returning HTML from a helper",
+        "ts": "1473756135.000252"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "yay or nay?",
+        "ts": "1473756147.000253"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U047GTU64> nay",
+        "ts": "1473756255.000254"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "good",
+        "ts": "1473756364.000255"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I thought the same",
+        "ts": "1473756366.000256"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "why nay? what about running it through `htmlSafe()`? Seems like there would be some use cases for this, no?",
+        "ts": "1473758540.000257"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I'm :+1: for `htmlSafe()` in helpers.",
+        "ts": "1473762976.000258"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "If anyone knows someone who might be interested in applying for a diversity scholarship to Railscamp EU, let me know (<http:\/\/diversitytickets.org\/events\/44>)",
+        "ts": "1473765692.000259"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1> because components",
+        "ts": "1473768018.000260"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "why not use a component instead?",
+        "ts": "1473768023.000261"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "performance for one",
+        "ts": "1473768032.000262"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "for simple operations i'd prefer a helper",
+        "ts": "1473768044.000263"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "right",
+        "ts": "1473768072.000264"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "in this case is an `icon` helper",
+        "ts": "1473768076.000265"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "that returns a span with some class names (that you pass as params)",
+        "ts": "1473768086.000266"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I would do an `tagName: i`",
+        "ts": "1473768094.000267"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and have it as a component",
+        "ts": "1473768106.000268"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yet I bet if you had hundreds of these icons you'd see a massive increase in speed to the helper",
+        "ts": "1473768130.000269"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "admittedly when I built `ui-icon`",
+        "ts": "1473768144.000270"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i built it as a component",
+        "ts": "1473768152.000271"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but helpers have been growing on me and I think they can often replace components",
+        "ts": "1473768173.000272"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I think helpers for inline simple content is a good compromise",
+        "ts": "1473768198.000273"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "so an icon would be a helper type of entity",
+        "ts": "1473768204.000274"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "rather than a component",
+        "ts": "1473768207.000275"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "been meaning to look into the \"all helper\" d3 library that's been getting attention as a much more composable solutions than the component based solutions prior to it but haven't had the bandwidth",
+        "ts": "1473768237.000276"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "_forgetting name at the moment_",
+        "ts": "1473768263.000277"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "I have to fix up my `ui-icon` component later today for a different reason; maybe I'll convert it to a helper too",
+        "ts": "1473768529.000278"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "Hi guys, hopefully a quick Ember Data question. I've recently implemented embedded comments on posts and when I create a comment I get a duplicate record and the error \"Your comment record was saved but it does not have an id. Please make sure the server provides an id in the createRecord response\" Creating posts is fine and seems this is a common problem with embedded documents in Ember Data? As a hack I\u2019m currently filtering comments by id to hide the duplicates, but the comment count is wrong. Any advice much appreciated.",
+        "ts": "1473771991.000279"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so on your backend you have `thingy: { comments: [ ... ], attr1: 'foo', attr2: 'bar' }` and when you serialize that into Ember you serialize \"comments\" into it's own model. Is that right?",
+        "ts": "1473772131.000280"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "Yes that\u2019s right Ken, thanks",
+        "ts": "1473772159.000281"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so you'll need to generate the 'id' on the client side then, correct? How are you doing this now?",
+        "ts": "1473772196.000282"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "I\u2019m not creating it on the client-side and just sending the id back from the server and it works for posts ok. Do I need to use a serializer for comments?",
+        "ts": "1473772281.000283"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "seems like an async issue?",
+        "ts": "1473772306.000284"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so check your server side backend; is it generating ID's? It may in some cases but in many implementations of embedded documents it would not",
+        "ts": "1473772389.000285"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and then you'd get an error similar to what you're describing",
+        "ts": "1473772400.000286"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "before you POST to the server I would expect you'd use a library like `node-uuid` to create an ID and send that back to the server",
+        "ts": "1473772484.000287"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "the response definitely has an id in it and you get 2 records created, one with an id and the other with null. Seems that createRecord is not waiting for the id to be returned? I\u2019m using Mongo which generates the ids",
+        "ts": "1473772539.000288"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hmmm. not sure then. you could still have the client set the ID and it might solve it but seems there might be something else happening.",
+        "ts": "1473772649.000289"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what's your API \/ App server?",
+        "ts": "1473772664.000290"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "ok thanks for your help, I\u2019ll keep looking. I\u2019m using REST with Node Express",
+        "ts": "1473772719.000291"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "JSON-API over the wire or normal JSON?",
+        "ts": "1473772753.000292"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "just normal JSON",
+        "ts": "1473772765.000293"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and you've set your adapter to expect this?",
+        "ts": "1473772778.000294"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "as the last part of the save the server responds with the _enriched_ object (which includes the ID) and if you're adapter is set wrong maybe it's not bringing it into the created record appropriately?",
+        "ts": "1473772830.000295"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "Ok thanks I\u2019ll check that. Is there a project night this week? May need some help with that. Thanks again",
+        "ts": "1473772948.000296"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "not sure, <@U03V8V08M> when's the next Project night?",
+        "ts": "1473773006.000297"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U09CS0TJ9> good luck with this",
+        "ts": "1473773023.000298"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "thanks Ken",
+        "ts": "1473773059.000299"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U09CS0TJ9> Can you post a gist of your two models please (`post` and `comment`)?",
+        "ts": "1473773156.000300"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Or twiddle or whatever",
+        "ts": "1473773168.000301"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "thanks <@U043AB2QT> I\u2019ll let you know",
+        "ts": "1473773469.000302"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "here\u2019s the gist <@U043AB2QT> thanks <https:\/\/gist.github.com\/stevetyler\/0a81fb779ad560f39ad5eecb02c64b6a>",
+        "ts": "1473773874.000303"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U09CS0TJ9> For starters, <https:\/\/gist.github.com\/stevetyler\/0a81fb779ad560f39ad5eecb02c64b6a#file-gistfile1-txt-L3> should be:\n\n```\ncomments: hasMany('comment'),\n```\n\n(no 's')",
+        "ts": "1473773971.000304"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "thanks..",
+        "ts": "1473774020.000305"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Could you also add the serializers for item and comment to the gist please?",
+        "ts": "1473774040.000306"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "The item just has attrs: { comments: { embedded: \u2018always\u2019} } and I don\u2019t have one for comment yet if I need one? Thanks again",
+        "ts": "1473774163.000307"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Ok, so, can you please post what the payload looks like that your API returns when you save an item with new comments added to it?",
+        "ts": "1473774238.000308"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U043AB2QT> <https:\/\/gist.github.com\/stevetyler\/7af13e84c7d576300e1c1eb52fda4271>",
+        "ts": "1473774755.000309"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U043AB2QT> just noticed 2 createdDates in the payload, will check that",
+        "ts": "1473775190.000310"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U043AB2QT> sorry forget that, haven\u2019t formatted it properly",
+        "ts": "1473775253.000311"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "hmm....Looks ok to me at first glance.\n\nNot sure just yet what your problem might be.",
+        "ts": "1473775474.000312"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "can you make available the code you're using to save? or did I miss that earlier in the thread?",
+        "ts": "1473775579.000313"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U043AB2QT> thanks for your time",
+        "ts": "1473775588.000314"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U04BD6KB1> no sorry here you go: <https:\/\/gist.github.com\/stevetyler\/e97c623b4e170ef5dbdebc92168a58d1>",
+        "ts": "1473775770.000315"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U047GTU64> I also use helpers for generating simple things like icons",
+        "ts": "1473777340.000316"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "without any events or things like that",
+        "ts": "1473777353.000317"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's much faster",
+        "ts": "1473777356.000318"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BD6KB1|ksnyde> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2B55JXLM\/wouldn_t_you_want_to_do_something_like_this_.js|wouldn't you want to do something like this?>",
+        "file": {
+            "id": "F2B55JXLM",
+            "created": 1473777902,
+            "timestamp": 1473777902,
+            "name": "wouldn_t_you_want_to_do_something_like_this_.js",
+            "title": "wouldn't you want to do something like this?",
+            "mimetype": "text\/plain",
+            "filetype": "javascript",
+            "pretty_type": "JavaScript\/JSON",
+            "user": "U04BD6KB1",
+            "editable": true,
+            "size": 464,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2B55JXLM\/wouldn_t_you_want_to_do_something_like_this_.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F2B55JXLM\/download\/wouldn_t_you_want_to_do_something_like_this_.js?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2B55JXLM\/wouldn_t_you_want_to_do_something_like_this_.js",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F2B55JXLM-6ede491a5e",
+            "edit_link": "https:\/\/emberlondon.slack.com\/files\/ksnyde\/F2B55JXLM\/wouldn_t_you_want_to_do_something_like_this_.js\/edit",
+            "preview": "publishComment(text, item) {\r\n  const user = this.get('userController.model');\r\n\r\n  if (text) {\r\n    const comment = this.store.createRecord('comment', {\r",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\" oncopy=\"if(event.clipboardData){event.clipboardData.setData('text\/plain',window.getSelection().toString().replace(\/\\u200b\/g,''));event.preventDefault();event.stopPropagation();}\">\n<div class=\"CodeMirror-code\">\n<div><pre><span class=\"cm-variable\">publishComment<\/span>(<span class=\"cm-variable\">text<\/span>, <span class=\"cm-variable\">item<\/span>) {<\/pre><\/div>\n<div><pre>  <span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">user<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-keyword\">this<\/span>.<span class=\"cm-property\">get<\/span>(<span class=\"cm-string\">'userController.model'<\/span>);<\/pre><\/div>\n<div><pre>&#8203;<\/pre><\/div>\n<div><pre>  <span class=\"cm-keyword\">if<\/span> (<span class=\"cm-variable\">text<\/span>) {<\/pre><\/div>\n<div><pre>    <span class=\"cm-keyword\">const<\/span> <span class=\"cm-def\">comment<\/span> <span class=\"cm-operator\">=<\/span> <span class=\"cm-keyword\">this<\/span>.<span class=\"cm-property\">store<\/span>.<span class=\"cm-property\">createRecord<\/span>(<span class=\"cm-string\">'comment'<\/span>, {<\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 21,
+            "lines_more": 16,
+            "preview_is_truncated": null,
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BD6KB1",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BD6KB1|ksnyde>",
+        "bot_id": null,
+        "ts": "1473777902.000319"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U09CS0TJ9> i just focused in on your publishComment() method and would have expected to see it link the new comment to the user like above",
+        "ts": "1473777949.000320"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "not sure that helps you with your problem though",
+        "ts": "1473777977.000321"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what is an \"item\" versus a \"comment\"?",
+        "ts": "1473778012.000322"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh items have comments which are owned by users?",
+        "ts": "1473778054.000323"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U04BD6KB1> thanks Ken I\u2019ll save the item as well. An item is effectively a post and could be a tweet or bookmark etc. Yes items belong to a user and comments belong to an item. Thanks again.",
+        "ts": "1473778170.000324"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it largely depends on whether your backend Mongo has a `comments` as a property to `item` or whether they are both off of the root database",
+        "ts": "1473778245.000325"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U04BD6KB1> items have a comments property in Mongo with a separate child schema for each comment.",
+        "ts": "1473778592.000326"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok then I'd normally expect you to only POST items and not comments; the comments would be sent along with the items, right?",
+        "ts": "1473778656.000327"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "that's where I was originally going with the serializer question",
+        "ts": "1473778670.000328"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and also why I wasn't sure that Mongo would auto-create the ID for you in this situation (I'm surprised it does)",
+        "ts": "1473778700.000329"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "maybe it's in the Express middleware that you're adding this?",
+        "ts": "1473778715.000330"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "in either case, you've chosen a more denormalised structure then the alternative which has its plusses and minuses but I'd _only_ post the items ... almost 100% positive that's what's causing your problem",
+        "ts": "1473778785.000331"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "thanks a lot Ken that makes sense now, I\u2019ll give it a go. Mongo creates an _id for every document and I just send back a new object with an id as _id by the way.",
+        "ts": "1473779483.000332"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but see in your case, you only have `item` documents not `comments` documents, they're just a property on the `item`",
+        "ts": "1473779548.000333"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so Mongo's `_id` applies to `item` but not `comments`",
+        "ts": "1473779566.000334"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "no I have a separate child schema for comments within the item schema, which is why Mongo creates an _id per comment. See this gist : <https:\/\/gist.github.com\/stevetyler\/810917e23971f9fe359e94a4a21c6d02>",
+        "ts": "1473779802.000335"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "<@U04BD6KB1> maybe I shouldn\u2019t do that?",
+        "ts": "1473779880.000336"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "on first glance I think what you have is mongoose doing that for you; Mongo is not",
+        "ts": "1473779903.000337"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "whether you do it on the server or client doesn't matter too much but just do it in one",
+        "ts": "1473779945.000338"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "based on your DB structure only POST items",
+        "ts": "1473779953.000339"
+    },
+    {
+        "type": "message",
+        "user": "U09CS0TJ9",
+        "text": "ok thanks again Ken",
+        "ts": "1473779974.000340"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<https:\/\/slack.com\/beta\/osx>",
+        "ts": "1473788808.000341"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "slackrewritten in Electron ^^",
+        "ts": "1473788814.000342"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "snappier",
+        "ts": "1473788815.000343"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> Good man.",
+        "ts": "1473789773.000344"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> Very snappy.",
+        "ts": "1473789777.000345"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "nice right",
+        "ts": "1473789784.000346"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> The themes are a little jarring for my choices across teams.",
+        "ts": "1473789811.000347"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> e.g a team with a light theme then switching to another.",
+        "ts": "1473789833.000348"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "ah right, i have purple then blue",
+        "ts": "1473789876.000349"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so it\u2019s fine for me",
+        "ts": "1473789879.000350"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> <https:\/\/cl.ly\/hSEX>",
+        "ts": "1473789973.000351"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V5B7KY> Time to spend far too much time changing themes!",
+        "ts": "1473789987.000352"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": ":smile:",
+        "ts": "1473790011.000353"
+    }
+]

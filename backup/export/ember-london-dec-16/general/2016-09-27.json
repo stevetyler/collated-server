@@ -1,0 +1,282 @@
+[
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "hmm interesting question posted by Ben Nadel on Twitter <https:\/\/twitter.com\/BenNadel\/status\/780741465014169600>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/BenNadel|@BenNadel>: How do #ReactJS and #AngularJS developers reconcile one-way data flow with browser-based navigation. <http:\/\/bjam.in\/browser-vs-data-flow>",
+                "ts": 1474978245,
+                "author_name": "Ben Nadel",
+                "author_link": "https:\/\/twitter.com\/BenNadel\/status\/780741465014169600",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/378800000641235880\/29f32f34a4f1247e0791ad55cb982f8f_normal.jpeg",
+                "author_subname": "@BenNadel",
+                "text": "How do #ReactJS and #AngularJS developers reconcile one-way data flow with browser-based navigation. <http:\/\/bjam.in\/browser-vs-data-flow>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/BenNadel\/status\/780741465014169600",
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1474981605.000834"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Does anyone know how this is handled in Ember?",
+        "ts": "1474981629.000836"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I never thought of the right click issue before",
+        "ts": "1474981643.000837"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "or is it just bad practise to add an action on an Anchor link anyway?",
+        "ts": "1474981663.000838"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "&gt; This works well for certain types of UI widgets; but, it's not really appropriate for widgets that render traditional anchor tags.",
+        "ts": "1474982297.000839"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Widgets rendering anchor tags?",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1474982308.000000"
+        },
+        "ts": "1474982303.000840"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "components with anchor tags in them",
+        "ts": "1474982453.000843"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "From what I can gather the issue is less about anchor tags and more about making sure scroll position is maintained?",
+        "ts": "1474982483.000845"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "no thats not the issue at all, a right click wouldn't fire an action on a anchor tag",
+        "ts": "1474982516.000846"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "so if that action was necessary to set a new state, which in turn updates the url of that anchor tag, that would never happen",
+        "ts": "1474982554.000847"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Ah right. So its an anchor tag _with_ an action on it",
+        "ts": "1474982681.000848"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Hmm, seems like very much an edge case to want a link that manipulates the state and then anchors to a position on a page?",
+        "ts": "1474982804.000849"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah I agree",
+        "ts": "1474982859.000850"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "An aside but worth noting is `allowedKeys` when using actions <https:\/\/guides.emberjs.com\/v2.8.0\/templates\/actions\/#toc_allowing-modifier-keys>",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1474982927.000000"
+        },
+        "ts": "1474982916.000851"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "hmm, so Ember kinds has this covered, I wonder if that works for the `cmd` key",
+        "ts": "1474982982.000853"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "surely `cmd + click` goes straight back up to the browser's control",
+        "ts": "1474983017.000854"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I stumbled on this with Filltray where I wanted to always open certain links in a new tab.",
+        "ts": "1474983023.000855"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "since its a shortcut to the context menu option of open in new tab\/window",
+        "edited": {
+            "user": "U0ASPMFPS",
+            "ts": "1474983069.000000"
+        },
+        "ts": "1474983029.000856"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/ember-twiddle.com\/db593cd20a5ad33bdab3d7c0eddc0bd3>",
+        "attachments": [
+            {
+                "title": "Ember Twiddle",
+                "title_link": "https:\/\/ember-twiddle.com\/db593cd20a5ad33bdab3d7c0eddc0bd3",
+                "text": "A web-based Ember.js code sharing tool that follows ember-cli's conventions.",
+                "fallback": "Ember Twiddle",
+                "from_url": "https:\/\/ember-twiddle.com\/db593cd20a5ad33bdab3d7c0eddc0bd3",
+                "service_icon": "http:\/\/assets.ember-twiddle.com\/favicon-c53354b6e35d20e40c24c57b2504c321.ico",
+                "service_name": "ember-twiddle.com",
+                "id": 1
+            }
+        ],
+        "ts": "1474983552.000860"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U0ASPMFPS> The fiddle doesn't do anchor tags well but is this along the lines of what the problem is?",
+        "ts": "1474983797.000862"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "TBH I'm not even sure what the desired outcome is.",
+        "ts": "1474983895.000863"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I don't get the issue",
+        "ts": "1474990489.000864"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if you open a click in a new window",
+        "ts": "1474990519.000865"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the app will load the proper route, with the proper data",
+        "ts": "1474990540.000866"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "to the extent the url contains enough information",
+        "ts": "1474990571.000867"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I understand that a properly constructed URL should contain enough data to allow it to be shared via slack",
+        "ts": "1474990616.000868"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "maybe some details like whether or not the sidebar is expanded is not worth serializing in the URL",
+        "ts": "1474990662.000869"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but things like `\/admin\/classes\/1\/students?filter[name]=Jon&amp;sort=name,-age`",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1474990714.000000"
+        },
+        "ts": "1474990686.000870"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "contains the ID of the class and enough information about filtering\/sorting to allow whoever opens that url to see the same data, assuming the data is not contextual to the session and both have permissions",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1474990778.000000"
+        },
+        "ts": "1474990766.000872"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah I think the use case he is asking about is a bit random",
+        "ts": "1474994567.000874"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "he wants the state of the url to be modified on click of the anchor tag and redirects after that",
+        "ts": "1474994602.000875"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "this wouldn't be possible if you are right clicking, but I am not sure why you would do that in either case",
+        "ts": "1474994621.000876"
+    },
+    {
+        "type": "message",
+        "user": "U072K0544",
+        "text": "I\u2019ve wrote some thoughts on Ember Fingerprinting and dynamic assets, would love some feedback :slightly_smiling_face: - <https:\/\/medium.com\/@ruslanzavacky\/ember-cli-fingerprinting-and-dynamic-assets-797a298d8dc6>\n\nAlso, I\u2019ve created an addon to solve this particular problem - <https:\/\/github.com\/RuslanZavacky\/ember-cli-ifa>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "Ember-cli fingerprinting and dynamic assets",
+                "title_link": "https:\/\/medium.com\/@ruslanzavacky\/ember-cli-fingerprinting-and-dynamic-assets-797a298d8dc6",
+                "text": "When we are building our Ember application sooner or later, we will have to deploy it to production. One of the issues that might arise\u2026",
+                "fallback": "Medium: Ember-cli fingerprinting and dynamic assets",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "3 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1474632285,
+                "from_url": "https:\/\/medium.com\/@ruslanzavacky\/ember-cli-fingerprinting-and-dynamic-assets-797a298d8dc6",
+                "service_icon": "https:\/\/cdn-static-1.medium.com\/_\/fp\/img\/apple-touch-icon-ipad-retina.Akq8aSfZqfW1fceMxKqBZA.png",
+                "id": 1
+            },
+            {
+                "service_name": "GitHub",
+                "title": "RuslanZavacky\/ember-cli-ifa",
+                "title_link": "https:\/\/github.com\/RuslanZavacky\/ember-cli-ifa",
+                "text": "ember-cli-ifa - Ember CLI addon for injecting fingerprinted asset map file into Ember app",
+                "fallback": "GitHub: RuslanZavacky\/ember-cli-ifa",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/103556?v=3&s=400",
+                "from_url": "https:\/\/github.com\/RuslanZavacky\/ember-cli-ifa",
+                "thumb_width": 336,
+                "thumb_height": 336,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 2
+            }
+        ],
+        "ts": "1474994844.000877"
+    }
+]

@@ -1,0 +1,206 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I had a creative outburst <https:\/\/www.youtube.com\/watch?v=YQKcde8OGt0>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Vanillajs vs frameworks - pigeon parody 1",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=YQKcde8OGt0",
+                "author_name": "Quantum Information",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UC0XiDgtbFR8ohoGlstuFgGQ",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/YQKcde8OGt0\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: Vanillajs vs frameworks - pigeon parody 1",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/YQKcde8OGt0?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=YQKcde8OGt0",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1481290687.000178"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U040MK408>: power select styling is broken in latest version including on the docs and cookbook pages on your site",
+        "ts": "1481294809.000180"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I see them just fine: <http:\/\/www.ember-power-select.com\/docs>",
+        "ts": "1481295416.000181"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "The logo power select",
+        "ts": "1481295834.000182"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U040MK408|cibernox> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/cibernox\/F3C5MBN9F\/screen_shot_2016-12-09_at_15.16.49.png|Screen Shot 2016-12-09 at 15.16.49.png>",
+        "file": {
+            "id": "F3C5MBN9F",
+            "created": 1481296628,
+            "timestamp": 1481296628,
+            "name": "Screen Shot 2016-12-09 at 15.16.49.png",
+            "title": "Screen Shot 2016-12-09 at 15.16.49.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U040MK408",
+            "editable": false,
+            "size": 31087,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F3C5MBN9F\/screen_shot_2016-12-09_at_15.16.49.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F3C5MBN9F\/download\/screen_shot_2016-12-09_at_15.16.49.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 82,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 109,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C5MBN9F-81cbea9091\/screen_shot_2016-12-09_at_15.16.49_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 163,
+            "image_exif_rotation": 1,
+            "original_w": 864,
+            "original_h": 196,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/cibernox\/F3C5MBN9F\/screen_shot_2016-12-09_at_15.16.49.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F3C5MBN9F-27eb2c4030",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U040MK408",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U040MK408|cibernox>",
+        "bot_id": null,
+        "ts": "1481296632.000183"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "what is wrong with it?",
+        "ts": "1481296643.000184"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U37TYCZSQ|mightykho> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/mightykho\/F3C6924QZ\/screen_shot_2016-12-09_at_15.57.12.png|Screen Shot 2016-12-09 at 15.57.12.png>",
+        "file": {
+            "id": "F3C6924QZ",
+            "created": 1481299053,
+            "timestamp": 1481299053,
+            "name": "Screen Shot 2016-12-09 at 15.57.12.png",
+            "title": "Screen Shot 2016-12-09 at 15.57.12.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U37TYCZSQ",
+            "editable": false,
+            "size": 31590,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F3C6924QZ\/screen_shot_2016-12-09_at_15.57.12.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F3C6924QZ\/download\/screen_shot_2016-12-09_at_15.57.12.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 84,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 112,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F3C6924QZ-674a8a7f33\/screen_shot_2016-12-09_at_15.57.12_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 168,
+            "image_exif_rotation": 1,
+            "original_w": 840,
+            "original_h": 196,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/mightykho\/F3C6924QZ\/screen_shot_2016-12-09_at_15.57.12.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F3C6924QZ-388b00cb4a",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U37TYCZSQ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U37TYCZSQ|mightykho>",
+        "bot_id": null,
+        "ts": "1481299056.000185"
+    },
+    {
+        "type": "message",
+        "user": "U37TYCZSQ",
+        "text": "Safari Mac",
+        "ts": "1481299058.000186"
+    },
+    {
+        "type": "message",
+        "user": "U37TYCZSQ",
+        "text": "You can fix it by assigning `vertical-align: middle;` on Ember logo",
+        "ts": "1481299150.000187"
+    },
+    {
+        "type": "message",
+        "user": "U37TYCZSQ",
+        "text": "actually I recommend to put same style on your logo as well",
+        "ts": "1481299222.000188"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I see",
+        "ts": "1481301566.000189"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in chrome it's fine",
+        "ts": "1481301568.000190"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in mac is broken",
+        "ts": "1481301584.000191"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'll fix it later",
+        "ts": "1481301592.000192"
+    }
+]

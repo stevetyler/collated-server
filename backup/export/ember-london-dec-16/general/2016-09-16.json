@@ -1,0 +1,731 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "good morning everyone",
+        "edited": {
+            "user": "U0A48LWTG",
+            "ts": "1474015216.000000"
+        },
+        "ts": "1474015210.000453"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1474015236.000455"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "guys, we want to organize our ember app into different components\u2026 now we have identified the components (so that if we have to built similar apps in the future we can re-use the code and so on). Now, what about models?",
+        "ts": "1474015288.000456"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "what\u2019s the best way to share model definitions?",
+        "ts": "1474015306.000457"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "via a blueprint?",
+        "ts": "1474015311.000458"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "could you use mixins for that?",
+        "ts": "1474015756.000459"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U0A48LWTG> Depending on how soon that future is you might want to consider looking into engines (<http:\/\/emberjs.com\/blog\/2016\/09\/08\/ember-2-8-and-2-9-beta-released.html#toc_engines>)",
+        "attachments": [
+            {
+                "title": "Ember.js: Ember.js 2.8 and 2.9 Beta Released",
+                "title_link": "http:\/\/emberjs.com\/blog\/2016\/09\/08\/ember-2-8-and-2-9-beta-released.html#toc_engines",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Ember.js 2.8 and 2.9 Beta Released",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/blog\/2016\/09\/08\/ember-2-8-and-2-9-beta-released.html#toc_engines",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1474016026.000000"
+        },
+        "ts": "1474016013.000460"
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U03V2PZUB> we are also using engines, at the moment only for sing-in\/sign-up stuff",
+        "ts": "1474016096.000463"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U0A48LWTG> Re-reading the current scope of engines I'm not actually sure it would work anyway. Models is a tricky one. In a previous codebase we took the view that models shouldn't be shared and instead defined lazily (even if it was not DRY). Will be interested to hear where you end up.",
+        "ts": "1474016211.000464",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0A48LWTG"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "<@U06BGNMBL> can you elaborate on your mixins idea? where would you define such mixins? and how would you use them?",
+        "ts": "1474017022.000465"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "It depends what you want to share - a mixin could bundle up some related methods, that called out to the Model where necessary",
+        "ts": "1474018086.000466"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "But if you're wanting to basically have a ready made API adapter layer, maybe engines would be better? Not looked at em yet",
+        "ts": "1474018136.000467"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "G'day",
+        "ts": "1474021941.000468"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "What does everyone use for tool-tips these days? Ideally not a JQuery wrapper",
+        "ts": "1474021954.000469"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Got my own custom thing, but it\u2019s not working with Glimmer2 and doesn\u2019t seem to be a workaround from what I can tell, so looking to move to something a bit more robust!",
+        "ts": "1474021984.000470"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "thanks to everyone who made it to the ember project night yesterday.  It was good seeing you all there :slightly_smiling_face:",
+        "ts": "1474022052.000471"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U044QMK6K> i've been meaning to build one for ages; nothing i've seen is perfect\/great",
+        "ts": "1474022067.000472"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I quite like the one that uses thether.js",
+        "ts": "1474022080.000473"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U044QMK6K> what about Glimmer 2 is causing you problems?",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1474022154.000000"
+        },
+        "ts": "1474022087.000474"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0C5RUAQ4> tether is a good system; which addon are your referring to?",
+        "ts": "1474022113.000475"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "let me find it",
+        "ts": "1474022122.000476"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<https:\/\/github.com\/sir-dunxalot\/ember-tooltips>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "sir-dunxalot\/ember-tooltips",
+                "title_link": "https:\/\/github.com\/sir-dunxalot\/ember-tooltips",
+                "text": "Easy and extendible tooltips for Ember components - <http:\/\/sir-dunxalot.github.io\/ember-tooltips\/>",
+                "fallback": "GitHub: sir-dunxalot\/ember-tooltips",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/4495352?v=3&s=400",
+                "from_url": "https:\/\/github.com\/sir-dunxalot\/ember-tooltips",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1474022207.000478"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "this one uses ember-tether",
+        "ts": "1474022213.000480"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i remember thinking I liked that one best but I was using a lot of tagless components which are a bit more awkward with his implementation",
+        "ts": "1474022260.000481"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "and I found the API surface a little harder to work with than i wanted",
+        "ts": "1474022275.000482"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "still it's good",
+        "ts": "1474022279.000483"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U044QMK6K> <http:\/\/kushagragour.in\/lab\/hint>",
+        "attachments": [
+            {
+                "title": "Hint.css - A tooltip library in CSS",
+                "title_link": "http:\/\/kushagragour.in\/lab\/hint",
+                "text": "A CSS only tooltip library",
+                "fallback": "Hint.css - A tooltip library in CSS",
+                "from_url": "http:\/\/kushagragour.in\/lab\/hint",
+                "service_icon": "http:\/\/kushagragour.in\/favicon.ico",
+                "service_name": "kushagragour.in",
+                "id": 1
+            }
+        ],
+        "ts": "1474022298.000484"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "could be worth extending the addon if you think it can be improved",
+        "ts": "1474022315.000486"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i did contribute to his repo",
+        "ts": "1474022328.000487"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but then I had to move to something else",
+        "ts": "1474022340.000488"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I'm sure its not the trendiest answer but for simple stuff I'd go with a css only solution.",
+        "ts": "1474022341.000489"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\nattr.js:24 Uncaught TypeError: Cannot read property '_attributes' of undefined\n```\n\nhas anyone ran into this?",
+        "ts": "1474022359.000490"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I literally just declared a couple of models that look about right and now this happens",
+        "ts": "1474022377.000491"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not very descriptive",
+        "ts": "1474022380.000492"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U047GTU64> :grimacing: ouch",
+        "ts": "1474022423.000493"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1> exactly",
+        "ts": "1474022431.000494"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not very descriptive",
+        "ts": "1474022435.000495"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "hate that those \"black hole errors\"",
+        "ts": "1474022449.000496"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "models are\n\n```\nimport DS from 'ember-data';\nimport Ember from 'ember';\n\nconst { attr, belongsTo } = DS;\nconst { computed } = Ember;\n\nexport default DS.Model.extend({\n\n  \/\/ Attrs\n  text: DS.attr('string'),\n  attachments: DS.attr(),\n  time: DS.attr('date'),\n  isBot: DS.attr('boolean'),\n  isCustomerSupport: DS.attr('boolean'),\n\n  \/\/ Relationship\n  thread: belongsTo('thread', { async: true })\n});\n```\n\n```\nimport DS from 'ember-data';\n\nexport default DS.Model.extend({\n  messages: DS.hasMany('message', { async: true })\n});\n\n```",
+        "ts": "1474022463.000497"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "looks fine",
+        "ts": "1474022509.000498"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "have you started commenting out chunks to see where it's originating yet?",
+        "ts": "1474022530.000499"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm dont know what to chunk out first",
+        "ts": "1474022561.000500"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "take out the whole thing; then add a line at a time back in :slightly_smiling_face:",
+        "ts": "1474022582.000501"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "starting with attrs and then reln",
+        "ts": "1474022597.000502"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh oh",
+        "ts": "1474022599.000503"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "wait wait",
+        "ts": "1474022600.000504"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "```\n  messages: computed('i18n', 'store', function () {\n    let { i18n, store } = this.getProperties('i18n', 'store');\n\n    const firstMessage = store.createRecord('message', { text: i18n.t('general.start'), isBot: true });\n\n    return Ember.A([firstMessage]);\n  }),\n```",
+        "ts": "1474022613.000505"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "commenting out that message works",
+        "ts": "1474022620.000506"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "unrelated note ... hoping to get toranb to accept a few PR on `ember-redux` ... really like that state machine and he's done an awesome job in making it super accessible to Ember",
+        "ts": "1474022723.000507"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if anyone's interested *<http:\/\/egghead.io|egghead.io>* has a number of really good redux video series",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1474022769.000000"
+        },
+        "ts": "1474022759.000508"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "one of which is free",
+        "ts": "1474022779.000510"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U04BD6KB1> I shall go look at those PRs",
+        "ts": "1474022830.000511"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well it's really \"a PR\" which is growing in scope :slightly_smiling_face:",
+        "ts": "1474022858.000512"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'd wait until EOD",
+        "ts": "1474022870.000513"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it'll be 100% clear at that stage",
+        "ts": "1474022881.000514"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "although the discussion thread may make it clear already",
+        "ts": "1474022892.000515"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "link plz",
+        "ts": "1474023022.000516"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "just go to the ember-redux repo and check the PR's (it's the only one currently)",
+        "ts": "1474023047.000517"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you have any Q's drop me direct line would love a sounding board",
+        "ts": "1474023292.000518"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0ASPMFPS> btw, as you may have guessed, i'm also building a redux version of the `ember-horizon` demo app",
+        "ts": "1474023467.000519"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "haha nice, I built a demo with ember-redux before",
+        "ts": "1474023554.000520"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "its on my github somewhere",
+        "ts": "1474023564.000521"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "based off Wes Bos redux course (which is also free)",
+        "ts": "1474023584.000522"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes i watched that a while back ... the non-free one on egghead though is MUCH better (and more advanced)",
+        "ts": "1474023616.000523"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "My tooltip is a tagless component, so it doesn't have an element, and I was looking up the parent element with `this._renderNode.contextualElement;` but that's gone in Glimmer 2 and has no alternative",
+        "attachments": [
+            {
+                "fallback": "[September 16th, 2016 11:34 AM] ksnyde: <@U044QMK6K> what about Glimmer 2 is causing you problems?",
+                "ts": "1474022087.000474",
+                "author_subname": "ksnyde",
+                "channel_id": "C03SSL0GP",
+                "channel_name": "general",
+                "is_msg_unfurl": true,
+                "text": "<@U044QMK6K> what about Glimmer 2 is causing you problems?",
+                "author_link": "https:\/\/emberlondon.slack.com\/team\/ksnyde",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/4d8154b3f9ba6f4190483c5231d577d3.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0004-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": "D0D0D0",
+                "from_url": "https:\/\/emberlondon.slack.com\/archives\/general\/p1474022087000474",
+                "is_share": true,
+                "footer": "Posted in #general"
+            }
+        ],
+        "ts": "1474023623.000524"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I had that so I could do things like `&lt;button&gt;{{tool-tip \u201cfoo\u201d}}&lt;\/button&gt;` etc\u2026",
+        "ts": "1474023659.000525"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "ember-tooltips looks ok, but a bit cumbersome `tooltip-on-element` vs `tooltip-on-component` etc\u2026",
+        "ts": "1474023696.000526"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i have run into similar issues and the addon that <@U0C5RUAQ4> mentioned is the same",
+        "ts": "1474023704.000527"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah that's what I thought",
+        "ts": "1474023722.000528"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "let me know if you do anything with this ... i'll do the same",
+        "ts": "1474023733.000529"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "we need a better answer for a basic UI pattern like this",
+        "ts": "1474023742.000530"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "should really be using CSS only tool-tips, but they don\u2019t do auto-adjusting for when they are at screen boundaries etc do they?",
+        "ts": "1474023772.000531"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I was using ember tether for that",
+        "ts": "1474023784.000532"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i think the answer in an addon is to offer css-only but then also allow graduating to a more sophisticated solution where you need it",
+        "ts": "1474023807.000533"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I might punt on it for now, make them non-tagless components and just hide the div with CSS so it doesn\u2019t break the layout, then come back to this later!",
+        "ts": "1474023860.000534"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":slightly_smiling_face:",
+        "ts": "1474023870.000535"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "punting is a popular option in our time starved world ... I may punt too",
+        "ts": "1474023892.000536"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Ah, looks like ember-tether is broken in glimmer at the moment anyway, using it for a fair few things so that\u2019s a bit of a dealbreaker",
+        "ts": "1474027160.000537"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "if I have: ```{{#tab-thing}} {{#tab-pane name=\u201dX\u201d}}{{\/tab-pane}} {{\/tab-thing}}```",
+        "ts": "1474035709.000538"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "if there any way to make `tab-pane` talk to `tab thing`",
+        "ts": "1474035719.000539"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "so that it enumerates all the child components?",
+        "ts": "1474035750.000540"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<http:\/\/emberjs.com\/api\/classes\/Ember.Component.html#method_nearestOfType>",
+        "attachments": [
+            {
+                "title": "Ember.js: Ember.Component",
+                "title_link": "http:\/\/emberjs.com\/api\/classes\/Ember.Component.html#method_nearestOfType",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Ember.Component",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/api\/classes\/Ember.Component.html#method_nearestOfType",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            }
+        ],
+        "ts": "1474035966.000541"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "maybe?",
+        "ts": "1474035967.000543"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U03V5B7KY> contextual components would be the best way to do that",
+        "ts": "1474036044.000544"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "<@U0C5RUAQ4> with the `as |x|`?",
+        "ts": "1474036070.000545"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeap",
+        "ts": "1474036074.000546"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "you can pass actions and attributes that the {{#tab-pane}} component can use",
+        "ts": "1474036096.000547"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "oooh",
+        "ts": "1474036145.000548"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "looks like I just do that in {{yield}}",
+        "ts": "1474036162.000549"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeap",
+        "ts": "1474036167.000550"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "Jamie also does something similar with his ember-sortable component <https:\/\/github.com\/jgwhite\/ember-sortable>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "jgwhite\/ember-sortable",
+                "title_link": "https:\/\/github.com\/jgwhite\/ember-sortable",
+                "text": "ember-sortable - Sortable UI primitives for Ember.js",
+                "fallback": "GitHub: jgwhite\/ember-sortable",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/34030?v=3&s=400",
+                "from_url": "https:\/\/github.com\/jgwhite\/ember-sortable",
+                "thumb_width": 256,
+                "thumb_height": 256,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1474036179.000551"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "check the \"Declaring a \u201cgroup model\u201d\u201d section",
+        "ts": "1474036190.000553"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "I wish there was an `afterYield` hook",
+        "ts": "1474038292.000554"
+    },
+    {
+        "type": "message",
+        "user": "U03V5B7KY",
+        "text": "haha",
+        "ts": "1474038293.000555"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Yeah I do that a lot these days, really nice",
+        "ts": "1474038757.000556"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "`{{#tab-thing as |t|}} {{#t.pane name=\u201dX\u201d}}{{\/t.pane}} {{\/tab-thing}}`",
+        "ts": "1474038776.000557"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i think contextual components are the single best thing that's happened to Ember this year :smile:",
+        "ts": "1474038804.000558"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": ":smile:",
+        "ts": "1474038822.000559"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "wouldn\u2019t leave out glimmer",
+        "ts": "1474038830.000560"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "they clean up so many things, no more child components walking the tree to find and register on the parent etc\u2026",
+        "ts": "1474038834.000561"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah glimmer is the sexy one but not sure the best one; i'll take both :wink:",
+        "ts": "1474038856.000562"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "haha greedy",
+        "ts": "1474039031.000563"
+    }
+]

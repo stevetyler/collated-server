@@ -1,0 +1,202 @@
+[
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<@U03V8V08M>: this is me reading the ember-sortable source code",
+        "ts": "1467894150.000999"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "<https:\/\/www.youtube.com\/watch?v=RXJKdh1KZ0w>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "Rockwell Retro Encabulator",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=RXJKdh1KZ0w",
+                "author_name": "rlcarnes",
+                "author_link": "https:\/\/www.youtube.com\/user\/rlcarnes",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/RXJKdh1KZ0w\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 358,
+                "fallback": "YouTube Video: Rockwell Retro Encabulator",
+                "video_html": "<iframe width=\"400\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/RXJKdh1KZ0w?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 300,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=RXJKdh1KZ0w",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467894151.001000"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "a lot to get your head around ha",
+        "ts": "1467894175.001002"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "lol me every time I look at OSS clojure projects",
+        "ts": "1467894224.001003"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "lol",
+        "ts": "1467894232.001004"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<https:\/\/github.com\/aphyr\/tesser\/blob\/master\/core\/src\/tesser\/core.clj#L274>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "aphyr\/tesser",
+                "title_link": "https:\/\/github.com\/aphyr\/tesser\/blob\/master\/core\/src\/tesser\/core.clj#L274",
+                "text": "tesser - Clojure reducers, but for parallel execution: locally and on distributed systems.",
+                "fallback": "GitHub: aphyr\/tesser",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/3748?v=3&s=400",
+                "from_url": "https:\/\/github.com\/aphyr\/tesser\/blob\/master\/core\/src\/tesser\/core.clj#L274",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467894257.001005"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04BD6KB1>: ^^ aphyr wrote that",
+        "ts": "1467894331.001007"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "same guy that those the cool articles on DBs",
+        "ts": "1467894345.001008"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U043951H9>: to be honest I don't know how ember-sortable too well anymore",
+        "ts": "1467895099.001009"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Accept a certain number of PRs and the project takes on a life of its own",
+        "ts": "1467895120.001010"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "yeah true",
+        "ts": "1467895125.001011"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "im getting there",
+        "ts": "1467895130.001012"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "just decoding it all",
+        "ts": "1467895133.001013"
+    },
+    {
+        "type": "message",
+        "user": "U043951H9",
+        "text": "figuring out how it all fits",
+        "ts": "1467895139.001014"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "anyone got any suggestions for having an ember app serving a dynamic image to facebook\u2019s opengraph?",
+        "ts": "1467895660.001015"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "basically I have a site that a user just types in a string and it shows up in big letters, I\u2019d like to serve an opengraph image of the string when someone pastes the link into facebook",
+        "ts": "1467895705.001016"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U051MHBQU>: maybe <https:\/\/github.com\/didacte\/ember-meta-meta> ?",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "didacte\/ember-meta-meta",
+                "title_link": "https:\/\/github.com\/didacte\/ember-meta-meta",
+                "text": "ember-meta-meta - Set meta tags (title, description, og, open graph, twitter card, etc) in routes",
+                "fallback": "GitHub: didacte\/ember-meta-meta",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/11947400?v=3&s=400",
+                "from_url": "https:\/\/github.com\/didacte\/ember-meta-meta",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467904885.001017"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I\u2019ve not tried it",
+        "ts": "1467904887.001019"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "that\u2019ll at least give me dynamic text which is good but I don\u2019t think I can do a dynamic image",
+        "ts": "1467905315.001020"
+    },
+    {
+        "type": "message",
+        "user": "U051MHBQU",
+        "text": "maybe I could generate an svg on the fly instead",
+        "ts": "1467905337.001021"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Challenge: apply inline style to divs inside an each loop without violating csp",
+        "ts": "1467910071.001022"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U04TVTLQ8>: You need a helper that takes the string",
+        "ts": "1467916134.001023"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "and returns an ember safe string",
+        "ts": "1467916138.001024"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "if iirc",
+        "ts": "1467916142.001025"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U047GTU64>: that doesn't work - setAttribute violated csp. Ended up having to set element.style directly. And a different method in phantom! Yuk",
+        "ts": "1467939854.001026"
+    }
+]

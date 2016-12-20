@@ -1,0 +1,136 @@
+[
+    {
+        "type": "message",
+        "user": "U0A48LWTG",
+        "text": "hello everyone :slightly_smiling_face:",
+        "ts": "1477383104.001686"
+    },
+    {
+        "type": "message",
+        "user": "U043ZC515",
+        "text": "hello",
+        "ts": "1477386875.001687"
+    },
+    {
+        "user": "U2TPZ9EH3",
+        "text": "<@U2TPZ9EH3|abrahamspaa> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1477387126.001688"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": ":raised_hand_with_fingers_splayed:",
+        "ts": "1477389683.001689"
+    },
+    {
+        "type": "message",
+        "user": "U0ENJ4F34",
+        "text": "Is the ember fest website down\/not allowing new registrations? \n\nA big red banner is showing up when trying to register ",
+        "edited": {
+            "user": "U0ENJ4F34",
+            "ts": "1477390248.000000"
+        },
+        "ts": "1477390209.001690"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Nothing like leaving it to the last minute <@U0ENJ4F34> :wink:",
+        "ts": "1477390419.001692"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no idea",
+        "ts": "1477390419.001693"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yeah, very last minute",
+        "ts": "1477390438.001694"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U040MK408> What day\/time do you get into Budpest?",
+        "ts": "1477390440.001695"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I flight tomorrow ~6",
+        "ts": "1477390450.001696"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "arrive ~9",
+        "ts": "1477390459.001697"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Ok....I fly tomorrow at 10:15am....I'll send you my Airbnb location when I'm settled in....",
+        "ts": "1477390479.001698"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "my airbnb is 350m away from the venue",
+        "ts": "1477390491.001699"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Yeh, mine is close too",
+        "ts": "1477390500.001700"
+    },
+    {
+        "type": "message",
+        "user": "U0ENJ4F34",
+        "text": "I tried to hurry hr, but you know the rest :)",
+        "ts": "1477390562.001701"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "you can tweet `@baaz`",
+        "ts": "1477390606.001702"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "he will be able to help",
+        "ts": "1477390612.001703"
+    },
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "Interesting conversation following <https:\/\/twitter.com\/andrestaltz\/status\/790817706861813760>",
+        "attachments": [
+            {
+                "fallback": "<https:\/\/twitter.com\/andrestaltz|@andrestaltz>: \"MVC didn't work because... Fat Models\"\nBut a Flux\/Redux Store is exactly a Fat Model too. <https:\/\/medium.freecodecamp.com\/is-mvc-dead-for-the-frontend-35b4d1fe39ec> <https:\/\/pbs.twimg.com\/media\/CvmMRm8WEAA2N62.jpg>",
+                "ts": 1477380608,
+                "author_name": "Salty Andrew in \ud83c\uddeb\ud83c\uddf7",
+                "author_link": "https:\/\/twitter.com\/andrestaltz\/status\/790817706861813760",
+                "author_icon": "https:\/\/pbs.twimg.com\/profile_images\/764523135186206720\/FMJJy_ZG_normal.jpg",
+                "author_subname": "@andrestaltz",
+                "text": "\"MVC didn't work because... Fat Models\"\nBut a Flux\/Redux Store is exactly a Fat Model too. <https:\/\/medium.freecodecamp.com\/is-mvc-dead-for-the-frontend-35b4d1fe39ec> <https:\/\/pbs.twimg.com\/media\/CvmMRm8WEAA2N62.jpg>",
+                "service_name": "twitter",
+                "service_url": "https:\/\/twitter.com\/",
+                "from_url": "https:\/\/twitter.com\/andrestaltz\/status\/790817706861813760",
+                "image_url": "https:\/\/pbs.twimg.com\/media\/CvmMRm8WEAA2N62.jpg",
+                "image_width": 1200,
+                "image_height": 612,
+                "image_bytes": 73888,
+                "id": 1,
+                "footer": "Twitter",
+                "footer_icon": "https:\/\/a.slack-edge.com\/6e067\/img\/services\/twitter_pixel_snapped_32.png"
+            }
+        ],
+        "ts": "1477390735.001704"
+    }
+]

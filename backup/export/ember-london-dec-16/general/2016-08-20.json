@@ -1,0 +1,114 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "how do you guys integrate intercom on ember apps?",
+        "ts": "1471684988.001253"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "there\u2019s `ember-intercom-io`",
+        "ts": "1471685001.001254"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "or just loading the script tag in a model hook",
+        "ts": "1471685007.001255"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "got around it :angel:",
+        "ts": "1471710867.001256"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but found another small hiccup",
+        "ts": "1471710873.001257"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "not sure if anyone else is riding 2.7 and\/or above\n\nbut it looks like changes to the build process seem to have affected peeps using ember-cli-deploy <@U043AB2QT> \n\nas the article suggests <http:\/\/emberjs.com\/blog\/2016\/04\/28\/baseURL.html>\n\nHowever my img tags with absolute or relative paths dont reference the asset host properly :disappointed: see <https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6199>",
+        "attachments": [
+            {
+                "title": "Ember.js: Upcoming deprecation of baseURL in Ember CLI 2.7",
+                "title_link": "http:\/\/emberjs.com\/blog\/2016\/04\/28\/baseURL.html",
+                "text": "Ember.js helps developers be more productive out of the box. Designed with developer ergonomics in mind, its friendly APIs help you get your job done\u2014fast.",
+                "fallback": "Ember.js: Upcoming deprecation of baseURL in Ember CLI 2.7",
+                "thumb_url": "http:\/\/emberjs.com\/images\/tomster-sm.png",
+                "from_url": "http:\/\/emberjs.com\/blog\/2016\/04\/28\/baseURL.html",
+                "thumb_width": 220,
+                "thumb_height": 220,
+                "service_icon": "http:\/\/emberjs.com\/images\/favicon.png",
+                "service_name": "emberjs.com",
+                "id": 1
+            },
+            {
+                "service_name": "GitHub",
+                "title": "Not sure if 2.7.1 breaks ember-cli-deploy \u00b7 Issue #6199 \u00b7 ember-cli\/ember-cli \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6199",
+                "text": "I'm following this article And my ember-cli-build looks like this: var assetHost = '<https:\/\/sunlight-production.s3.amazonaws.com\/>'; var app = new EmberApp(defaults, { fingerprint: { ...",
+                "fallback": "GitHub: Not sure if 2.7.1 breaks ember-cli-deploy \u00b7 Issue #6199 \u00b7 ember-cli\/ember-cli",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/3522106?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6199",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 2
+            }
+        ],
+        "ts": "1471710981.001258"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U047GTU64>: How had this broken for you in terms of ember-cli-deploy? The build plugin just uses ember-cli's builder class. Not clear how the baseUrl affects that. Got any more info?",
+        "ts": "1471711696.001260"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U043AB2QT> I thought you guys made use of the old `baseURL` somewhere which might be causing some issues",
+        "ts": "1471711781.001261"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but now that I think about it, must be something of ember-cli and nothing to do with ember-cli-deploy?",
+        "ts": "1471711795.001262"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "since my problem is that assetHost is not being prepended whenever I reference something on a tag, right?",
+        "ts": "1471711832.001263"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "let me update that issue title though :smile:",
+        "ts": "1471711851.001264"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Nothing to do with ember-cli-deploy I'd say. ",
+        "ts": "1471711861.001265"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "issue titled changed then :slightly_smiling_face: - thank you",
+        "ts": "1471711897.001266"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "I think you'll find its nothing to do with ember-cli-deploy. I suspect if you do an ember build you'll find the same thing. It's worth confirming that. ",
+        "ts": "1471712101.001267"
+    }
+]

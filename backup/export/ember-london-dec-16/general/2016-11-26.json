@@ -1,0 +1,302 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I still haven\u2019t managed to active AWS, waiting on support",
+        "ts": "1480186356.002332"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what do you mean?",
+        "ts": "1480186582.002333"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "keep getting errors about pools +keep getting told need to activate",
+        "ts": "1480186615.002334"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "waiting on phone calls etc",
+        "ts": "1480186620.002335"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "for account activation?",
+        "ts": "1480186637.002336"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "yeah",
+        "ts": "1480186641.002337"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "not sure if things have changed but used to be you could get AWS call you immediately if there was an account setup issue. good luck. sounds frustrating.",
+        "ts": "1480186689.002338"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "have you raised something on SO? might get some attention there too.",
+        "ts": "1480186725.002339"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Wheres the best place to ask on SO?",
+        "ts": "1480187165.002340"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "stack overflow itselft",
+        "ts": "1480187170.002341"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "or AWS forums",
+        "ts": "1480187174.002342"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "actually i've never tried aws forums so can't compare but SO has good volume itself",
+        "ts": "1480187219.002343"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "ok",
+        "ts": "1480187240.002344"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "send me the link when you've posted and I'll have a look at it",
+        "ts": "1480187344.002345"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "OK, just gonna wait a bit till support gets back in touch 1st",
+        "ts": "1480187367.002346"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "too many variables",
+        "ts": "1480187388.002347"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "and AWS UI is huge",
+        "ts": "1480187402.002348"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BE0ELZ|nikoskatsikanis> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F36L75ZDF\/pasted_image_at_2016_11_26_07_21_pm.png|I\u2019ve edited my talk, gonna release on Friday>",
+        "file": {
+            "id": "F36L75ZDF",
+            "created": 1480188093,
+            "timestamp": 1480188093,
+            "name": "Pasted image at 2016_11_26 07_21 PM.png",
+            "title": "I\u2019ve edited my talk, gonna release on Friday",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BE0ELZ",
+            "editable": false,
+            "size": 384206,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F36L75ZDF\/pasted_image_at_2016_11_26_07_21_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F36L75ZDF\/download\/pasted_image_at_2016_11_26_07_21_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 115,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 154,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 231,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 308,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F36L75ZDF-9acd28dcc1\/pasted_image_at_2016_11_26_07_21_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 328,
+            "image_exif_rotation": 1,
+            "original_w": 1649,
+            "original_h": 529,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F36L75ZDF\/pasted_image_at_2016_11_26_07_21_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F36L75ZDF-9b37f288e9",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BE0ELZ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BE0ELZ|nikoskatsikanis>",
+        "bot_id": null,
+        "ts": "1480188096.002349"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BE0ELZ|nikoskatsikanis> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F381FE7HV\/pasted_image_at_2016_11_26_07_22_pm.png|Pasted image at 2016-11-26, 7:22 PM>",
+        "file": {
+            "id": "F381FE7HV",
+            "created": 1480188132,
+            "timestamp": 1480188132,
+            "name": "Pasted image at 2016_11_26 07_22 PM.png",
+            "title": "Pasted image at 2016-11-26, 7:22 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BE0ELZ",
+            "editable": false,
+            "size": 102925,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F381FE7HV\/pasted_image_at_2016_11_26_07_22_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F381FE7HV\/download\/pasted_image_at_2016_11_26_07_22_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 95,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 127,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 191,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 254,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F381FE7HV-5cd8b6795d\/pasted_image_at_2016_11_26_07_22_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 271,
+            "image_exif_rotation": 1,
+            "original_w": 1031,
+            "original_h": 273,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F381FE7HV\/pasted_image_at_2016_11_26_07_22_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F381FE7HV-8ad46eb966",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BE0ELZ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BE0ELZ|nikoskatsikanis>",
+        "bot_id": null,
+        "ts": "1480188134.002350"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "its very heavily edited though",
+        "ts": "1480188164.002351"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "my audience has a habit of leaving my videos",
+        "ts": "1480188176.002352"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U04BE0ELZ|nikoskatsikanis> uploaded a file: <https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F37D7Q8TF\/pasted_image_at_2016_11_26_07_23_pm.png|Pasted image at 2016-11-26, 7:23 PM>",
+        "file": {
+            "id": "F37D7Q8TF",
+            "created": 1480188225,
+            "timestamp": 1480188225,
+            "name": "Pasted image at 2016_11_26 07_23 PM.png",
+            "title": "Pasted image at 2016-11-26, 7:23 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U04BE0ELZ",
+            "editable": false,
+            "size": 155999,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F37D7Q8TF\/pasted_image_at_2016_11_26_07_23_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T03SSL0FF-F37D7Q8TF\/download\/pasted_image_at_2016_11_26_07_23_pm.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_64.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_80.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_360.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_360_w": 360,
+            "thumb_360_h": 149,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_480.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_480_w": 480,
+            "thumb_480_h": 198,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_160.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_720.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_720_w": 720,
+            "thumb_720_h": 297,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_960.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_960_w": 960,
+            "thumb_960_h": 396,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T03SSL0FF-F37D7Q8TF-97367a4022\/pasted_image_at_2016_11_26_07_23_pm_1024.png?t=xoxe-3910680525-115741181265-116496169492-28d023e02c",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 422,
+            "image_exif_rotation": 1,
+            "original_w": 1418,
+            "original_h": 585,
+            "permalink": "https:\/\/emberlondon.slack.com\/files\/nikoskatsikanis\/F37D7Q8TF\/pasted_image_at_2016_11_26_07_23_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T03SSL0FF-F37D7Q8TF-eb6f374691",
+            "channels": [
+                "C03SSL0GP"
+            ],
+            "groups": [],
+            "ims": [],
+            "comments_count": 0
+        },
+        "user": "U04BE0ELZ",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U04BE0ELZ|nikoskatsikanis>",
+        "bot_id": null,
+        "ts": "1480188228.002353"
+    }
+]

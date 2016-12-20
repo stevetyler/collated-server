@@ -1,0 +1,249 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I heard somewhere that it\u2019s possible to use <https:\/\/www.npmjs.com\/package\/ember-source> today, in place of the bower package. Anyone got the trufax?",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1478247437.000000"
+        },
+        "ts": "1478247434.001826"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "dunno <@U03V8V08M> ... wonder if you'd get a response on the global site?",
+        "ts": "1478266576.001828"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1> <@U044QMK6K> assures me it is so",
+        "ts": "1478266615.001829"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Random survey for folks ... if you're getting a new Mac Laptop do you:\n\na) install apps on fresh build\nb) migrate from a timemachine backup (aka, roll your old laptop forward)",
+        "ts": "1478266633.001830"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "(a)",
+        "ts": "1478266643.001831",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U05485UQL",
+                    "U03V2PZUB",
+                    "U043ZC515",
+                    "U047GTU64"
+                ],
+                "count": 4
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i don't look forward to re-installing everything but I'm glad others are pointing me in that direction",
+        "ts": "1478266762.001833"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it does feel a lot cleaner",
+        "ts": "1478266771.001834"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U044QMK6K> <@U03V8V08M> any good examples\/docs for ember-source?",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1478266823.000000"
+        },
+        "ts": "1478266803.001835"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it\u2019s a good moment to re-assess which programs are essential",
+        "ts": "1478266855.001837"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes minimalism is important (and finding time for minimalism)",
+        "ts": "1478266884.001838"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "also a good time to find out where one is still dependent on non-cloud storage",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1478266933.000000"
+        },
+        "ts": "1478266928.001839"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yes pre-cloud world was a tough environment",
+        "ts": "1478266984.001841"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i still distinctly remember my first _aha moment_ for cloud when I lost a laptop on the first leg of a business trip and had to \"recover\" remotely for two weeks of meetings on a netbook bought on the fly. That it was even possible was a shock to me.",
+        "ts": "1478267082.001842"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1> do you use iCloud for photos?",
+        "ts": "1478267130.001843"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "I went through a phase of installing apps through brew, then you can script the fresh install",
+        "ts": "1478267163.001844"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i'm on Dropbox for most things (including photos)",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1478267192.000000"
+        },
+        "ts": "1478267173.001845"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<@U04BD6KB1> I don\u2019t know much about ember-source, just seen that various PRs have been merged in recent days",
+        "ts": "1478267230.001847"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i still really only use iCloud for very Apple exclusive things (like backups)",
+        "ts": "1478267233.001848"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "* <https:\/\/github.com\/emberjs\/ember.js\/pull\/13022> - provide ember-core from NPM\n* <https:\/\/github.com\/emberjs\/ember.js\/pull\/14556> - Use npm for rsvp instead of bower\n* <https:\/\/github.com\/emberjs\/ember.js\/pull\/14570> - Update router to npm",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "provide ember-core from NPM by stefanpenner \u00b7 Pull Request #13022 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/pull\/13022",
+                "text": "obviate the need to bower install ember.js provide an api for addons to retrieve paths to ember.debug.js, ember.prod.js and ember-template-compiler.js actually decide on name shims throw if embe...",
+                "fallback": "GitHub: provide ember-core from NPM by stefanpenner \u00b7 Pull Request #13022 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/1377?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/pull\/13022",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            },
+            {
+                "service_name": "GitHub",
+                "title": "Use npm for rsvp instead of bower by krisselden \u00b7 Pull Request #14556 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/pull\/14556",
+                "text": "ember.js - Ember.js - A JavaScript framework for creating ambitious web applications",
+                "fallback": "GitHub: Use npm for rsvp instead of bower by krisselden \u00b7 Pull Request #14556 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/61024?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/pull\/14556",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 2
+            },
+            {
+                "service_name": "GitHub",
+                "title": "Update router to npm by krisselden \u00b7 Pull Request #14570 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/pull\/14570",
+                "text": "ember.js - Ember.js - A JavaScript framework for creating ambitious web applications",
+                "fallback": "GitHub: Update router to npm by krisselden \u00b7 Pull Request #14570 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/61024?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/pull\/14570",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 3
+            }
+        ],
+        "ts": "1478267270.001849"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U044QMK6K> thanks i'll dig into those on my next break",
+        "ts": "1478267322.001851"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "We're working on a yarn PR to support private repos at which point we'll be migrating over. Then the more that moves from bower to npm the better. Fingers crossed. ",
+        "ts": "1478267544.001852"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04TVTLQ8>, have a question for you ... how do you see Shippable versus Bitbucket's Pipeline's stacking up?",
+        "ts": "1478267610.001853"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "<@U04BD6KB1> not sure yet. About to play with pipeline",
+        "ts": "1478271137.001854"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04TVTLQ8> would be interested in your opinion; you're much more of a power user than I",
+        "ts": "1478271187.001855"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "anyone seen this error in your CI for beta-builds `Cannot instantiate a component without a renderer.`",
+        "ts": "1478275131.001856"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i've never seen that",
+        "ts": "1478277864.001857"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "looking fwd to sharing my crazy code at the next meetup!",
+        "ts": "1478283582.001858"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1>: yup I had that error when trying to do `component.append` in an ancient unit test ",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1478284686.000000"
+        },
+        "ts": "1478284673.001859"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ok, let me see if I can find the same thing in my component ... it was definitely in the \"unit\" versus \"integration\" default days",
+        "ts": "1478285021.001861"
+    }
+]

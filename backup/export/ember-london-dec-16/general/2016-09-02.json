@@ -1,0 +1,285 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "How large (the unpacked size) are your Ember applications? Vendor \/ App",
+        "ts": "1472803902.000145"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Its rough but I decided to have a look at my application based on <https:\/\/medium.com\/square-corner-blog\/optimizing-ember-templates-c479d26fe58e> and wondering how it fares in comparison to others.",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "Optimizing Ember Templates \u2013 Square Corner Blog",
+                "title_link": "https:\/\/medium.com\/square-corner-blog\/optimizing-ember-templates-c479d26fe58e",
+                "text": "Templates make up 60% of your Ember app. Now what?",
+                "fallback": "Medium: Optimizing Ember Templates \u2013 Square Corner Blog",
+                "image_url": "https:\/\/cdn-images-1.medium.com\/max\/1200\/1*RZFCFalUhLVCZM47GpgVBw@2x.png",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "4 min read",
+                        "short": true
+                    }
+                ],
+                "ts": 1472660838,
+                "from_url": "https:\/\/medium.com\/square-corner-blog\/optimizing-ember-templates-c479d26fe58e",
+                "image_width": 796,
+                "image_height": 250,
+                "image_bytes": 128289,
+                "service_icon": "https:\/\/cdn-static-1.medium.com\/_\/fp\/icons\/favicon-medium.TAS6uQ-Y7kcKgi0xjcYHXw.ico",
+                "id": 1
+            }
+        ],
+        "ts": "1472804013.000146"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I disagree a lot with that article",
+        "ts": "1472805542.000148"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "having hidden DOM is one of the antipatterns in spagetti code that I consider more harmful",
+        "ts": "1472805590.000149"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and actually it also has a price: More dom, more memory",
+        "ts": "1472805609.000150"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and more computational power",
+        "ts": "1472805636.000151"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "since you have to generate and render of the inside content",
+        "ts": "1472805646.000152"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "even if you hide it",
+        "ts": "1472805650.000153"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "that content might be just a string, a call to a i18n helper",
+        "ts": "1472805667.000154"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "another component",
+        "ts": "1472805674.000155"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Oh, this article just prompted me to be more considered (and start tracking page weight). I'm :-1: on css `.hide` but :+1: on using component `tagName`.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1472805972.000000"
+        },
+        "ts": "1472805847.000156"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yes, I use that too",
+        "ts": "1472805888.000157"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "although I don't use it for save template size",
+        "ts": "1472805911.000158"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "just because I don't need\/want a wrapper `&lt;div&gt;`",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1472805935.000000"
+        },
+        "ts": "1472805927.000159"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "&gt; Extend Components instead of Wrapping\nThis is another one I disagree",
+        "ts": "1472805977.000162"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "It waves space, but you might be dealing with private API",
+        "ts": "1472805997.000163"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "unless the author gives you very clear instructions of what hooks you are expected to define",
+        "ts": "1472806022.000164"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "wrapping is safer",
+        "ts": "1472806031.000165"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it is good, and things like `ember-metrics` where you can create your own adapters are good",
+        "ts": "1472806075.000166"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but as a general advice is a bug waiting to happen",
+        "ts": "1472806096.000167"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "on the other hand, templates in Glimmer2 are ~ 75% smaller",
+        "ts": "1472806143.000168"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "this should remove a lot of this concern",
+        "ts": "1472806165.000169"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "also, even disregarding glimmer, templates now are big but extremely repetitive (most of that code are calls to `dom.createElement` and other DOM methods with long names",
+        "ts": "1472806220.000170"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "gzipping does a great job with files with this kind of repetition",
+        "ts": "1472806246.000171"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U040MK408> Really interesting. I'm sure others would love a little counter-blog post about this. Glimmer2 template size for interesting is a really solid point!",
+        "ts": "1472806336.000172"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U040MK408> _add that to your giant todo list :wink:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1472806708.000000"
+        },
+        "ts": "1472806348.000173"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "no way",
+        "ts": "1472806519.000174"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I'm going to holidays tomorrow",
+        "ts": "1472806525.000175"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "pleace and love",
+        "ts": "1472806532.000176"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "nothing else",
+        "ts": "1472806535.000177"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "for 10 days",
+        "ts": "1472806538.000178"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":sunglasses: :sunrise:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1472806694.000000"
+        },
+        "ts": "1472806677.000179"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "I don't want to know about your dirty holidays away <@U040MK408> :wink:",
+        "ts": "1472820798.000182"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "folks, is there a way to call a _route-action_ from JS? For instance in a component sometime I may want to do some initial processing with JS but then to transition to another route I'd prefer just to call up the route-chain to have a handler do that for me.",
+        "ts": "1472828613.000183"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U04BD6KB1> <https:\/\/github.com\/DockYard\/ember-route-action-helper>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "DockYard\/ember-route-action-helper",
+                "title_link": "https:\/\/github.com\/DockYard\/ember-route-action-helper",
+                "text": "ember-route-action-helper - Bubble closure actions in routes",
+                "fallback": "GitHub: DockYard\/ember-route-action-helper",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/873981?v=3&s=400",
+                "from_url": "https:\/\/github.com\/DockYard\/ember-route-action-helper",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1472829334.000184"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "yeah i guess that would work; you can do an \"action\" followed by an \"route-action\" right?",
+        "ts": "1472829409.000186"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "with the `pipe` operator",
+        "ts": "1472829432.000187"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "or it looks like `(pipe-action (action \"doIt\") (route-action \"navigate\"))` is the ticket",
+        "ts": "1472829534.000188"
+    }
+]

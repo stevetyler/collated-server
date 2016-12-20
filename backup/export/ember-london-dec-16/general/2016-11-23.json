@@ -1,0 +1,187 @@
+[
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "cool thanks <@U04BE0ELZ>",
+        "ts": "1479889446.002246"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Anyone using `ember-component-css` and have come across missing namespaced classes on their integration tests for components?",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1479892906.000000"
+        },
+        "ts": "1479892690.002247"
+    },
+    {
+        "type": "message",
+        "user": "U1U4TGPEX",
+        "text": "yup",
+        "ts": "1479894008.002250"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U1U4TGPEX> How did you resolve the problem?",
+        "ts": "1479896483.002251"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "Wanted to know if you think I could get away with converting my vanillajs-cookbook to typescript?",
+        "ts": "1479896906.002252"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<https:\/\/github.com\/QuantumInformation\/vanillajs-cookbook>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "QuantumInformation\/vanillajs-cookbook",
+                "title_link": "https:\/\/github.com\/QuantumInformation\/vanillajs-cookbook",
+                "text": "vanillajs-cookbook - Examples of how to use vanillajs to do common tasks that we commonly use frameworks for.",
+                "fallback": "GitHub: QuantumInformation\/vanillajs-cookbook",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/216566?v=3&s=400",
+                "from_url": "https:\/\/github.com\/QuantumInformation\/vanillajs-cookbook",
+                "thumb_width": 182,
+                "thumb_height": 182,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1479896917.002253"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "worried the die hard vanilla\u2019s might not appreciate it",
+        "ts": "1479896933.002255"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "how about a `vanillaTS-cookbook`?",
+        "ts": "1479897093.002256"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "oh i see ... you haven't created it yet. :slightly_smiling_face: Well then I'd stick to JS ... you'll unnecessarily limit your audience.",
+        "ts": "1479897155.002257"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "yeah, ts its just too useful",
+        "ts": "1479900869.002258"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "i think they will forgive me",
+        "ts": "1479900884.002259"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Pusher Sessions has launch, Ember videos aren\u2019t there yet though",
+        "ts": "1479917676.002260"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "<https:\/\/pusher.com\/sessions>",
+        "attachments": [
+            {
+                "title": "Sessions by Pusher",
+                "title_link": "https:\/\/pusher.com\/sessions",
+                "text": "Watch Talks. Get Inspired. Develop. We're bringing the meetup to you. With Sessions, you can watch recordings of top-notch talks from developer meetups -- wherever and whenever you want.",
+                "fallback": "Sessions by Pusher",
+                "thumb_url": "https:\/\/d2cy1obokpvee9.cloudfront.net\/manifest\/mstile-310x310.png",
+                "from_url": "https:\/\/pusher.com\/sessions",
+                "thumb_width": 558,
+                "thumb_height": 558,
+                "service_icon": "https:\/\/d2cy1obokpvee9.cloudfront.net\/manifest\/apple-touch-icon-57x57.png",
+                "service_name": "Sessions by Pusher",
+                "id": 1
+            }
+        ],
+        "ts": "1479917678.002261"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Interesting that they don\u2019t really show the meetup name at all in the listing",
+        "ts": "1479917697.002263"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "nice editing",
+        "ts": "1479917766.002264"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "great idea, gathering talk from different meetups!",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479917904.000000"
+        },
+        "ts": "1479917900.002265"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I hope they do well",
+        "ts": "1479917907.002267"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U044QMK6K> wow they transcript lol, good luck to them with my scottish",
+        "ts": "1479919271.002268"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "this is good <https:\/\/pusher.com\/sessions\/meetup\/front-end-london\/http2-what-where-why-and-when>",
+        "attachments": [
+            {
+                "title": "HTTP\/2 What, Where, Why and When?! - Sessions by Pusher",
+                "title_link": "https:\/\/pusher.com\/sessions\/meetup\/front-end-london\/http2-what-where-why-and-when",
+                "text": "The onset of HTTP\/2 is upon us. Now over 75% of your users browsers support the low-latency transfer protocol, yet adoption has been slow.",
+                "fallback": "HTTP\/2 What, Where, Why and When?! - Sessions by Pusher",
+                "thumb_url": "https:\/\/d2cy1obokpvee9.cloudfront.net\/manifest\/mstile-310x310.png",
+                "from_url": "https:\/\/pusher.com\/sessions\/meetup\/front-end-london\/http2-what-where-why-and-when",
+                "thumb_width": 558,
+                "thumb_height": 558,
+                "service_icon": "https:\/\/d2cy1obokpvee9.cloudfront.net\/manifest\/apple-touch-icon-57x57.png",
+                "service_name": "Sessions by Pusher",
+                "id": 1
+            }
+        ],
+        "ts": "1479919693.002269"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "noted",
+        "ts": "1479919834.002271"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so, pusher is going to record ember's meetups for a while?",
+        "ts": "1479919847.002272"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "or it was a one-time thing only?",
+        "ts": "1479919852.002273"
+    }
+]

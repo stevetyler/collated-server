@@ -1,0 +1,245 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/medium.com\/life-at-kayako\/help-the-helper-5d490357ae27#.hbqs38hac>",
+        "attachments": [
+            {
+                "service_name": "Medium",
+                "title": "Help the Helper: Chasing the cause of an unstable build in Travis \u2014 Life at Kayako",
+                "title_link": "https:\/\/medium.com\/life-at-kayako\/help-the-helper-5d490357ae27#.hbqs38hac",
+                "text": "Do you think travis is getting slower at running your ember build? Maybe it\u2019s your fault?",
+                "fallback": "Medium: Help the Helper: Chasing the cause of an unstable build in Travis \u2014 Life at Kayako",
+                "image_url": "https:\/\/cdn-images-1.medium.com\/max\/1200\/1*adPEDQUqWS8RdzCdgrnCsA.jpeg",
+                "fields": [
+                    {
+                        "title": "Reading time",
+                        "value": "2 mins",
+                        "short": true
+                    }
+                ],
+                "ts": 1467019762,
+                "from_url": "https:\/\/medium.com\/life-at-kayako\/help-the-helper-5d490357ae27#.hbqs38hac",
+                "image_width": 333,
+                "image_height": 250,
+                "image_bytes": 116675,
+                "service_icon": "https:\/\/cdn-static-1.medium.com\/_\/fp\/img\/apple-touch-icon-ipad-retina.Akq8aSfZqfW1fceMxKqBZA.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467191359.000513"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ a cautionary tale",
+        "ts": "1467191367.000515"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "<@U03V8V08M>: I can relate myself by just looking at the photo",
+        "ts": "1467191483.000516"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Does anyone have any decent links\/bookmarks to some solid Ember + D3 articles?",
+        "ts": "1467196174.000517"
+    },
+    {
+        "type": "message",
+        "user": "U0B47NPJ9",
+        "text": "<@U03V2PZUB>: not sure if it's quite what you're looking for but I found this talk and associated addon really interesting\n<https:\/\/www.youtube.com\/watch?v=SOfwqwqWhMU&amp;list=PL4eq2DPpyBblc8aQAd516-jGMdAhEeUiW>\n<https:\/\/github.com\/ivanvanderbyl\/maximum-plaid>",
+        "attachments": [
+            {
+                "service_name": "YouTube",
+                "service_url": "https:\/\/www.youtube.com\/",
+                "title": "EmberConf 2016: Compose Yourself with Ember and D3 by Ivan Vanderbyl",
+                "title_link": "https:\/\/www.youtube.com\/watch?v=SOfwqwqWhMU&amp;list=PL4eq2DPpyBblc8aQAd516-jGMdAhEeUiW",
+                "author_name": "Ember Meetup Videos",
+                "author_link": "https:\/\/www.youtube.com\/channel\/UCMmzJ82sCmooDdtzVY8FxEA",
+                "thumb_url": "https:\/\/i.ytimg.com\/vi\/SOfwqwqWhMU\/hqdefault.jpg",
+                "thumb_width": 480,
+                "thumb_height": 360,
+                "fallback": "YouTube Video: EmberConf 2016: Compose Yourself with Ember and D3 by Ivan Vanderbyl",
+                "video_html": "<iframe width=\"400\" height=\"225\" src=\"https:\/\/www.youtube.com\/embed\/videoseries?list=PL4eq2DPpyBblc8aQAd516-jGMdAhEeUiW\" frameborder=\"0\" allowfullscreen><\/iframe>",
+                "video_html_width": 400,
+                "video_html_height": 225,
+                "from_url": "https:\/\/www.youtube.com\/watch?v=SOfwqwqWhMU&amp;list=PL4eq2DPpyBblc8aQAd516-jGMdAhEeUiW",
+                "service_icon": "https:\/\/a.slack-edge.com\/2089\/img\/unfurl_icons\/youtube.png",
+                "id": 1
+            }
+        ],
+        "edited": {
+            "user": "U0B47NPJ9",
+            "ts": "1467196623.000000"
+        },
+        "ts": "1467196599.000518"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U0B47NPJ9>: This looks spot on. Just starting to scratch the surface with D3 (especially with the V4 release) and keen to \"do it right\".",
+        "ts": "1467196780.000521"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Ivan has a number of addons but I'd just use the primitives one if I were you",
+        "ts": "1467199410.000522"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "v4 is much better suited for ember",
+        "edited": {
+            "user": "U04BD6KB1",
+            "ts": "1467199444.000000"
+        },
+        "ts": "1467199432.000523"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "also i'd sign up for <http:\/\/dashingd3js.us6.list-manage.com\/track\/click?u=de8d917c7a8f266f6333b46e8&amp;id=aabb6ff2fc&amp;e=827cf0a9f2>",
+        "attachments": [
+            {
+                "service_name": "DashingD3js.com",
+                "title": "D3 Tutorials, D3 Screencasts, and a D3 Newsletter | DashingD3js.com",
+                "title_link": "http:\/\/dashingd3js.us6.list-manage.com\/track\/click?u=de8d917c7a8f266f6333b46e8&id=aabb6ff2fc&e=827cf0a9f2",
+                "text": "Welcome to <http:\/\/DashingD3js.com|DashingD3js.com> - a website full of D3 Tutorials, D3 Screencast Videos, and a D3 Newsletter.",
+                "fallback": "DashingD3js.com: D3 Tutorials, D3 Screencasts, and a D3 Newsletter | DashingD3js.com",
+                "thumb_url": "https:\/\/d1gg5jm9r4jrt6.cloudfront.net\/d3js_data_visualizations_280x356.png",
+                "from_url": "http:\/\/dashingd3js.us6.list-manage.com\/track\/click?u=de8d917c7a8f266f6333b46e8&id=aabb6ff2fc&e=827cf0a9f2",
+                "thumb_width": 280,
+                "thumb_height": 356,
+                "id": 1
+            }
+        ],
+        "ts": "1467199674.000525"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "lots of cool examples of usage that get your creative juices going",
+        "ts": "1467199701.000527"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "JavaScript Jabber: 218 JSJ Ember.js with Yehuda Katz\n<https:\/\/overcast.fm\/+BPabCfMf8>",
+        "attachments": [
+            {
+                "title": "218 JSJ Ember.js with Yehuda Katz \u2014 JavaScript Jabber",
+                "title_link": "https:\/\/overcast.fm\/+BPabCfMf8",
+                "text": "Check out Newbie Remote Conf! 02:38 - Yehuda Katz Introduction Twitter GitHub Blog Tilde Peter Solnic: My time with Rails is up Peter Solnic: Abstractions and the role of a framework (Follow-up) Ember.js The Skylight Blog: Inside Skylight 05:37 - Batching Updates 10:04 - Naming Fastboot Services glimmer 14:19 - Communication Skylight 16:21 - Decorators 19:46 - \u201cJunior Developer\u201d and Knowledge Bias CodeNewbie Ep. 90: Creating EmberJS - Part I with Yehuda Katz CodeNewbie Ep. 91: Creating EmberJS - Part II with Yehuda Katz 28:25 - Termanology in Tech 29:23 - Diversity Women Helping Women Picks Event Driven: How to Run Memorable Tech Conferences by Leah Silber (Yehuda) TypeScript (Yehuda) emberjs\/rfcs (Yehuda) rust-lang\/rfcs (Yehuda) Pretty Pull Requests (Aimee) Full-Stack Redux Tutorial by Tero Parviainen (Aimee) The mountains (AJ) The quadruple click in iTerm2 (Dave) 2016 UtahJS Conference (Dave) Start With Why by Simon Sinek (Chuck)",
+                "fallback": "218 JSJ Ember.js with Yehuda Katz \u2014 JavaScript Jabber",
+                "thumb_url": "https:\/\/d1eedt7bo0oujw.cloudfront.net\/art?s=a5f15c332933ee33567cabcc27081eeb4671d5d4fc92d162815997e42efb45fd&w=840&u=https%3A%2F%2Fs3.amazonaws.com%2Fdevchat.tv%2Fjavascript_jabber_thumb.jpg",
+                "from_url": "https:\/\/overcast.fm\/+BPabCfMf8",
+                "thumb_width": 840,
+                "thumb_height": 840,
+                "service_icon": "https:\/\/overcast.fm\/favicon.ico",
+                "service_name": "overcast.fm",
+                "id": 1
+            }
+        ],
+        "ts": "1467205379.000528"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "oooh\u2026 except it doesn\u2019t play. Maybe they published it ahead of schedule",
+        "ts": "1467205488.000530"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/vimeo.com\/kensnyder\/ember-horizon>",
+        "attachments": [
+            {
+                "service_name": "Vimeo",
+                "service_url": "https:\/\/vimeo.com\/",
+                "title": "ember-horizon",
+                "title_link": "https:\/\/vimeo.com\/kensnyder\/ember-horizon",
+                "author_name": "Ken Snyder",
+                "author_link": "https:\/\/vimeo.com\/kensnyder",
+                "thumb_url": "https:\/\/i.vimeocdn.com\/video\/578670010_200x150.jpg",
+                "thumb_width": 200,
+                "thumb_height": 150,
+                "text": "an ember add-on to integrate Horizon and RethinkDB into Ember Data",
+                "fallback": "Vimeo Video: ember-horizon",
+                "from_url": "https:\/\/vimeo.com\/kensnyder\/ember-horizon",
+                "service_icon": "https:\/\/i.vimeocdn.com\/favicon\/main-touch_180",
+                "id": 1
+            }
+        ],
+        "ts": "1467208906.000531"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<https:\/\/github.com\/lifegadget\/ember-horizon>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "lifegadget\/ember-horizon",
+                "title_link": "https:\/\/github.com\/lifegadget\/ember-horizon",
+                "text": "ember-horizon - Use Horizon and ReThink DB with Ember and Ember Data",
+                "fallback": "GitHub: lifegadget\/ember-horizon",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/8763170?v=3&s=400",
+                "from_url": "https:\/\/github.com\/lifegadget\/ember-horizon",
+                "thumb_width": 80,
+                "thumb_height": 80,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1467208934.000533",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U0BR1H1FY"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U03V2PZUB>: I'd highly recommend you through this book. It's based on v3 however does a really great job at explaining there concepts and thinking behind D3. Really gave me that \"aaahhhhh\" moment I needed to grok it \n\n<http:\/\/alignedleft.com\/work\/d3-book>",
+        "attachments": [
+            {
+                "title": "Interactive Data Visualization for the Web \u2014 Scott Murray \u2014 alignedleft",
+                "title_link": "http:\/\/alignedleft.com\/work\/d3-book",
+                "text": "Design, data, visualization, culture.",
+                "fallback": "Interactive Data Visualization for the Web \u2014 Scott Murray \u2014 alignedleft",
+                "from_url": "http:\/\/alignedleft.com\/work\/d3-book",
+                "service_icon": "http:\/\/alignedleft.com\/favicon.ico",
+                "service_name": "alignedleft.com",
+                "id": 1
+            }
+        ],
+        "ts": "1467222275.000535"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U043AB2QT>: perfection. I'll give it a bash!",
+        "ts": "1467222433.000537"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "Hint: The seeming \"chaining\" of functions doesn't work quite as you'd expect it to. Understanding how this works was a big unlock for me. ",
+        "ts": "1467222664.000538"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U043AB2QT>: :point_left: :beer:",
+        "ts": "1467268905.000539"
+    }
+]

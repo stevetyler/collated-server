@@ -1,0 +1,608 @@
+[
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Just trying out `2.9.0-beta` and I'm getting the error `Uncaught Error: Could not find module htmlbars-runtime`. I'm having a hard time debugging it. Anyone come across this error before?",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473412727.000000"
+        },
+        "ts": "1473412719.000083"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "_not using liquid fire which seems to be the cause of many previous user's errors_",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473412769.000000"
+        },
+        "ts": "1473412746.000085"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Ok, so its looking likely to be either `simple-auth` or `ember-a11y`.",
+        "ts": "1473413005.000087"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "ember-a11y",
+        "ts": "1473413009.000088"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "uses the same tricks as liquid-fire",
+        "ts": "1473413015.000089"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and will need the same effort to become glimmer2 compatible",
+        "ts": "1473413040.000090"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ <@U03V2PZUB>",
+        "ts": "1473413047.000091"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Right, perfect <@U03V8V08M>.",
+        "ts": "1473413063.000092"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "what is the characteristic which these addons fall on?",
+        "ts": "1473413078.000093"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "hooking into private APIs for `{{outlet}}`",
+        "ts": "1473413142.000094"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "ahhh i see; that makes sense",
+        "ts": "1473413159.000095"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M> Removed `ember-a11y`. Booting.",
+        "ts": "1473413176.000096"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U03V8V08M> Thing is, I wondered initially if I had done something wrong by not bumping `ember-cli-handlebars` or `ember-cli-handlebars-inline-precompile`.",
+        "ts": "1473413229.000097"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "yeah, I thought the same when I first saw this",
+        "ts": "1473413247.000098"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think both liquid-fire and ember-a11y do something like `import { registerKeyword } from 'htmlbars-runtime'`",
+        "edited": {
+            "user": "U03V8V08M",
+            "ts": "1473413334.000000"
+        },
+        "ts": "1473413327.000099"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Thanks <@U03V8V08M>.",
+        "ts": "1473413630.000101"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Just a blocker on `ember-power-select` but aside from that `2.8.0` to `2.9.0-beta.1` was a simple drop in. Lovely.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473416503.000000"
+        },
+        "ts": "1473416472.000102"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "eps has issues??",
+        "ts": "1473416608.000104"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I use ember-power-select but don't seem to have any issues",
+        "ts": "1473416634.000105"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "let me validate this though",
+        "ts": "1473416826.000106"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I'm using EPS `1.0.0-beta.14` and Ember `2.9.0-beta.1`",
+        "ts": "1473416848.000107"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Beta + Beta :wink:",
+        "ts": "1473416853.000108"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "and it appears that when you select EPS it triggers:",
+        "ts": "1473416876.000109"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "&gt; Assertion Failed: You modified concatenatedTriggerClasses twice in a single render. This was unreliable and slow in Ember 1.x and is no longer supported. See <https:\/\/github.com\/emberjs\/ember.js\/issues\/13948> for more details.",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "[Glimmer 2] &quot;Backtracking re-render&quot; is now an assertion \u00b7 Issue #13948 \u00b7 emberjs\/ember.js \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/ember.js\/issues\/13948",
+                "text": "Backtracking re-render refers to a scenario where, in the middle of the rendering process, you have modified something that has already been rendered. For example: {{foo}} {{foo-bar parent=this}}...",
+                "fallback": "GitHub: [Glimmer 2] \"Backtracking re-render\" is now an assertion \u00b7 Issue #13948 \u00b7 emberjs\/ember.js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/55829?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/ember.js\/issues\/13948",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473416877.000110"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm, interesting",
+        "ts": "1473416911.000112"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Also some ember-wormhole error too:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473417265.000000"
+        },
+        "ts": "1473416915.000113"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "&gt; Uncaught TypeError: Cannot read property 'document' of undefined",
+        "ts": "1473416919.000114"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":sleuth_or_spy: :coffee:",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473416931.000000"
+        },
+        "ts": "1473416925.000115"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "is that fastboot?",
+        "ts": "1473416929.000116"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "No fastboot.",
+        "ts": "1473416939.000118"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm, I wonder why it can't find document",
+        "ts": "1473416957.000119"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "wonder why it can't find `window` or `window.document` for the matter",
+        "edited": {
+            "user": "U0C5RUAQ4",
+            "ts": "1473416994.000000"
+        },
+        "ts": "1473416986.000120"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Yeah its weird: <https:\/\/cl.ly\/hPEB>",
+        "ts": "1473417035.000122"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "interesting",
+        "ts": "1473417089.000123"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "I'll try downgrading EPS",
+        "ts": "1473417108.000124"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Really weird that these both happen at the same time.",
+        "ts": "1473417218.000125"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<https:\/\/github.com\/cibernox\/ember-power-select\/blob\/1b6bf4da4e36e843691158b8552729d05ed35ee8\/addon\/components\/power-select.js#L173-L179>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "cibernox\/ember-power-select",
+                "title_link": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/1b6bf4da4e36e843691158b8552729d05ed35ee8\/addon\/components\/power-select.js#L173-L179",
+                "text": "ember-power-select - The extensible select component built for ember.",
+                "fallback": "GitHub: cibernox\/ember-power-select",
+                "thumb_url": "https:\/\/avatars1.githubusercontent.com\/u\/265339?v=3&s=400",
+                "from_url": "https:\/\/github.com\/cibernox\/ember-power-select\/blob\/1b6bf4da4e36e843691158b8552729d05ed35ee8\/addon\/components\/power-select.js#L173-L179",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473417219.000126"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "the `.isActive` is clearly causing some re-render that Glimmer 2 doesn't like.",
+        "ts": "1473417248.000128"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "But that wormhole error could easily be the _actual_ problem.",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473417278.000000"
+        },
+        "ts": "1473417269.000130"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "still running an `npm install` to check lol",
+        "ts": "1473417297.000132"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": ":pray:",
+        "ts": "1473417315.000133"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Seems to happen across several previous EPS versions (with the same 2.9 beta)",
+        "edited": {
+            "user": "U03V2PZUB",
+            "ts": "1473417538.000000"
+        },
+        "ts": "1473417345.000134"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hmm, even weirder, I get this:\n```_ember.default.$.ajax(...).success is not a function(\u2026)```",
+        "edited": {
+            "user": "U0C5RUAQ4",
+            "ts": "1473417551.000000"
+        },
+        "ts": "1473417543.000136"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "isn't ember meant to load the version of jquery it needs?",
+        "ts": "1473417720.000138"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Going to have to put that on the backburner. Weird though, seems like the CP is triggering a re-render whilst computing.",
+        "ts": "1473418118.000139"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "On holidays, but tl;dr; EPS is broken in glimmer. Ember wormhole was broken when I left so I couldn't track bugs because nothing worked at all. I'll fix it soon. ",
+        "ts": "1473436314.000140"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0C5RUAQ4> errors like that are tough but rarely so existential:",
+        "ts": "1473436487.000141"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "&gt; success is not a function",
+        "ts": "1473436494.000142"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "<@U040MK408> Back to relaxing! _but thanks :smile:_",
+        "ts": "1473436513.000143"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "does anyone know how to set a value inside a component integration test, without having to pass it in?",
+        "ts": "1473436811.000144"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "the value I want to set, is meant to be in the \"private\" api of the component",
+        "ts": "1473436829.000145"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I thing that you can't and that is precisely the point ",
+        "ts": "1473436845.000146"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Of integration tests",
+        "ts": "1473436854.000147"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "how would you test if something renders on the template based on an \"internal\" value?",
+        "ts": "1473436932.000148"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U0C5RUAQ4> what's an \"internal value\"?  shouldn't a component's state be set entirely by its API surface?",
+        "ts": "1473437073.000149"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "let me give you some context",
+        "ts": "1473437092.000150"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "```\nexport default Ember.Component.extend({\n    card: {\n        isValid: false,\n            number: {\n                error: false\n            }\n    }\n})\n```",
+        "edited": {
+            "user": "U0C5RUAQ4",
+            "ts": "1473437148.000000"
+        },
+        "ts": "1473437124.000151"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I have the card object in my component, and an error message appears based on `card.number.error`",
+        "ts": "1473437176.000153"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "the card object though is not meant to be passed as a parameter when inserting the component. It's only meant to be used as a state by the component",
+        "ts": "1473437240.000154"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I mean, I can pass in the whole card object just for the test, but that would mean I have to pass in the whole card object for every test",
+        "ts": "1473437289.000155"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "are you wanting to test that when error number is xxxx, you see yyyyy?",
+        "ts": "1473437315.000156"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "yeah",
+        "ts": "1473437321.000157"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "so why can't you just pass in `{{your-component card=(hash isValid=(hash number=(hash error=xxxxx))))}}` to the inline compiler?",
+        "ts": "1473437457.000158"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you wouldn't need to do it elsewhere",
+        "ts": "1473437476.000159"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "because I have a lot more keys than just isValid and number in the card object",
+        "ts": "1473437497.000160"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I've got like ~10 keys :stuck_out_tongue:",
+        "ts": "1473437520.000161"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "but are they part of the test?",
+        "ts": "1473437523.000162"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "nope",
+        "ts": "1473437542.000163"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if outcome is only dependant on the one the state of `error` I'd just test that",
+        "ts": "1473437577.000164"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "hm, ok fair enough",
+        "ts": "1473437591.000165"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "cool thanks",
+        "ts": "1473437602.000166"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "sure",
+        "ts": "1473437605.000167"
+    },
+    {
+        "type": "message",
+        "user": "U1XB7HR3J",
+        "text": "hi guys, has anyone used ADAL with ember before? <https:\/\/github.com\/AzureAD\/azure-activedirectory-library-for-js>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "AzureAD\/azure-activedirectory-library-for-js",
+                "title_link": "https:\/\/github.com\/AzureAD\/azure-activedirectory-library-for-js",
+                "text": "Contribute to azure-activedirectory-library-for-js development by creating an account on GitHub.",
+                "fallback": "GitHub: AzureAD\/azure-activedirectory-library-for-js",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/2966316?v=3&s=400",
+                "from_url": "https:\/\/github.com\/AzureAD\/azure-activedirectory-library-for-js",
+                "thumb_width": 140,
+                "thumb_height": 140,
+                "service_icon": "https:\/\/github.com\/apple-touch-icon.png",
+                "id": 1
+            }
+        ],
+        "ts": "1473437627.000168"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "still waiting on your reply regarding my \"existentialism\" though :laughing:",
+        "ts": "1473437639.000170"
+    },
+    {
+        "type": "message",
+        "user": "U1XB7HR3J",
+        "text": "we are looking to implement authentication against an AD and the MS docs point you strongly in this direction\u2026.when checking it out it seems to be very angular focussed\u2026even the npm install is 'npm install adal-angular'",
+        "ts": "1473437708.000171"
+    },
+    {
+        "type": "message",
+        "user": "U1XB7HR3J",
+        "text": "so the question is; is anyone aware of an adal-ember implementation that they have used and feel works well?",
+        "edited": {
+            "user": "U1XB7HR3J",
+            "ts": "1473437780.000000"
+        },
+        "ts": "1473437726.000172"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U04BD6KB1> lol your answer makes sense actually",
+        "ts": "1473437799.000174"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "I think I'm gonna set the full card object on the beforeEach() hook of the component, and then for each test, do `set(card, 'number.error', true')` and assert if the error appears",
+        "ts": "1473437865.000175"
+    },
+    {
+        "type": "message",
+        "user": "U0C5RUAQ4",
+        "text": "<@U1XB7HR3J> sorry, haven't tried it :pensive:",
+        "ts": "1473437877.000176"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U1XB7HR3J> I'm also not aware of any but having something like that would be very useful to the Ember community WRT to corporate clients (if not elsewhere); I'd ask that question on the \"ember-community\" slack as maybe you'll find some hits in the US",
+        "ts": "1473437945.000177"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "if you do find an answer I'd be interested",
+        "ts": "1473437961.000178"
+    },
+    {
+        "type": "message",
+        "user": "U1XB7HR3J",
+        "text": "<@U04BD6KB1> this is for a corporate client :grimacing:   if we can\u2019t find an answer from the wider community we may well look at rolling our own which we\u2019d be more than happy to contribute back",
+        "ts": "1473438162.000179"
+    },
+    {
+        "type": "message",
+        "user": "U1XB7HR3J",
+        "text": "<@U0C5RUAQ4> no probs :grinning:",
+        "ts": "1473438179.000180"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U1XB7HR3J> definitely hit the other Slack channel and see where you get ... good luck with it",
+        "ts": "1473438229.000181",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U1XB7HR3J"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

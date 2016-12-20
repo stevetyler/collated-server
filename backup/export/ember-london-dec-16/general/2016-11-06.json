@@ -1,0 +1,41 @@
+[
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<https:\/\/github.com\/emberjs\/rfcs\/pull\/176>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "RFC: JavaScript Modules API by tomdale \u00b7 Pull Request #176 \u00b7 emberjs\/rfcs \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/emberjs\/rfcs\/pull\/176",
+                "text": "Rendered",
+                "fallback": "GitHub: RFC: JavaScript Modules API by tomdale \u00b7 Pull Request #176 \u00b7 emberjs\/rfcs",
+                "thumb_url": "https:\/\/avatars0.githubusercontent.com\/u\/90888?v=3&s=400",
+                "from_url": "https:\/\/github.com\/emberjs\/rfcs\/pull\/176",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1478422009.001863"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "^ the big modules RFC",
+        "ts": "1478422037.001865"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "`import Component from '@ember\/component'`",
+        "ts": "1478422200.001866"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "Awesome",
+        "ts": "1478432266.001867"
+    }
+]

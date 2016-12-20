@@ -1,0 +1,263 @@
+[
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U04BD6KB1> great photos thx",
+        "ts": "1479113945.001897"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "That sounds like a reasonable feeling to me",
+        "attachments": [
+            {
+                "fallback": "[November 12th, 2016 8:50 PM] jgwhite: Kinda feel like any CP that returns a promise would be easier to work with as an ember-concurrency task",
+                "ts": "1478983810.001895",
+                "author_subname": "jgwhite",
+                "channel_id": "C03SSL0GP",
+                "channel_name": "general",
+                "is_msg_unfurl": true,
+                "text": "Kinda feel like any CP that returns a promise would be easier to work with as an ember-concurrency task",
+                "author_name": "Jamie White",
+                "author_link": "https:\/\/emberlondon.slack.com\/team\/jgwhite",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/bbbcbbdc9e73179d5e86a6244459ec4f.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0010-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": "D0D0D0",
+                "from_url": "https:\/\/emberlondon.slack.com\/archives\/general\/p1478983810001895",
+                "is_share": true,
+                "footer": "Posted in #general"
+            }
+        ],
+        "ts": "1479114451.001898"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U04BE0ELZ> thanks!",
+        "ts": "1479114583.001899"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "<@U043AB2QT>: <@U03V8V08M> are you two using ember-concurrency with regularity now? I've read up on it but haven't actually taken the first step into using it",
+        "ts": "1479114673.001900"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U04BD6KB1> yes",
+        "ts": "1479114703.001901"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "it has turned confusion into clarity every place I\u2019ve seen it used",
+        "ts": "1479114751.001902"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "<@U04BD6KB1> Yep. It's like when you first started using promises. Everything seems better with an ec task and you ask yourself \"How did we ever build stuff without it?\"",
+        "ts": "1479114793.001903"
+    },
+    {
+        "type": "message",
+        "user": "U043AB2QT",
+        "text": "(this comes with the usual caveats)",
+        "edited": {
+            "user": "U043AB2QT",
+            "ts": "1479114820.000000"
+        },
+        "ts": "1479114807.001904"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Cool. Good motivation for me to get with the program.",
+        "ts": "1479116186.001906"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "promises are a very good analogy",
+        "ts": "1479118360.001907"
+    },
+    {
+        "user": "U326W6T5J",
+        "text": "<@U326W6T5J|michal.szewczak> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1479120155.001908"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "yep, e-c is sweeeet",
+        "ts": "1479121031.001909"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "so much that I decided to use it in ember-power-select and ember-power-calendar",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1479121118.000000"
+        },
+        "ts": "1479121056.001910"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I has hesitant because I was bringing a non-despicable amount of code to people's project",
+        "ts": "1479121090.001911"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but the benefits worth the price by far",
+        "ts": "1479121107.001912"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and within months I bet that 75% of apps will be using it anyway",
+        "ts": "1479121142.001914"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "who's sending proposars for emberconf here?",
+        "ts": "1479122858.001915"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U03V8V08M> you being in the comitee means you can't send proposals?",
+        "ts": "1479122883.001916"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "<@U040MK408>: I can but I can't see my own",
+        "ts": "1479122915.001917"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if the proposals get rejected I might give a talk in Austria with my rejected ideas still",
+        "ts": "1479122984.001918"
+    },
+    {
+        "user": "U3281D18V",
+        "text": "<@U3281D18V|renitapinto> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1479124855.001919"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "how are things going with integration testing in ember land these days?",
+        "ts": "1479133434.001920"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I would like to update my test recorder one day.",
+        "ts": "1479133450.001921"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "still the same setup with qunit?",
+        "ts": "1479133463.001922"
+    },
+    {
+        "type": "message",
+        "user": "U3281D18V",
+        "text": "Hi everyone,\nI have upgraded ember from 2.3.0 to 2.9.1 and QUnit to 2.0.0. I get the following error while running the tests, \n'Uncaught Error: QUnit.start cannot be called inside a test context.This feature is removed in QUnit 2.0. For async tests, use QUnit.test() with assert.async() instead.'\nSource: <https:\/\/localhost:7357\/assets\/test-support.js:2711>\nLooks like QUnit.start() is called inside dist\/assets\/test-support.js.  Has anyone come accross this before?",
+        "ts": "1479136953.001923"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "what version of JQuery have you got installed?",
+        "ts": "1479141587.001924"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "When JQuery 3 came out, they changed the semantics of `$(document).ready()`",
+        "ts": "1479141759.001925"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "which caused a problem, which is fixed in ember-cli-qunit 2.2.2 and 3.0.1",
+        "ts": "1479141797.001926"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "see <https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6247>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Test failure in browser on clean ember-cli 2.8.0 install \u00b7 Issue #6247 \u00b7 ember-cli\/ember-cli \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6247",
+                "text": "With a fresh app generated with ember new with ember-cli 2.8.0, tests run in the browser (<http:\/\/localhost:4200>) have a failure. (When running the tests via ember test or ember test --serve, the fa...",
+                "fallback": "GitHub: Test failure in browser on clean ember-cli 2.8.0 install \u00b7 Issue #6247 \u00b7 ember-cli\/ember-cli",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/193435?v=3&s=400",
+                "from_url": "https:\/\/github.com\/ember-cli\/ember-cli\/issues\/6247",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "service_icon": "https:\/\/a.slack-edge.com\/e8ef6\/img\/unfurl_icons\/github.png",
+                "id": 1
+            }
+        ],
+        "ts": "1479141873.001927"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "<@U3281D18V> ^",
+        "ts": "1479141935.001929"
+    },
+    {
+        "type": "message",
+        "user": "U3281D18V",
+        "text": "Thanks <@U06BGNMBL>.  I found the solution. It was to do with the Ember-cli-blanket.  I fixed the problem by setting autostart to false in blanket-options.js",
+        "ts": "1479142476.001930"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "cool",
+        "ts": "1479142992.001931"
+    },
+    {
+        "type": "message",
+        "user": "U06BGNMBL",
+        "text": "wonder if they're having the same issue then?",
+        "ts": "1479143005.001932"
+    },
+    {
+        "user": "U32E552SF",
+        "text": "<@U32E552SF|tuzz> has joined the channel",
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1479168982.001933",
+        "reactions": [
+            {
+                "name": "wave",
+                "users": [
+                    "U32E552SF",
+                    "U03V8V08M"
+                ],
+                "count": 2
+            }
+        ]
+    }
+]

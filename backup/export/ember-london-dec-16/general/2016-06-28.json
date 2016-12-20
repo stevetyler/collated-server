@@ -1,0 +1,377 @@
+[
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "How many Brexiters does it take to change a lightbulb?",
+        "ts": "1467103222.000452"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "We never said anything about light bulbs...",
+        "ts": "1467103234.000453"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Cool technique I just re-invented. List of models represented by list of components. Wanted to call an action on one of those components. ",
+        "ts": "1467103303.000454"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Changed list of models to list of ObjectProxy.extend(Ember.Evented,{ content: model})",
+        "ts": "1467103352.000455"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Now can call modelProxy.trigger('jump')",
+        "ts": "1467103384.000456"
+    },
+    {
+        "type": "message",
+        "user": "U04TVTLQ8",
+        "text": "Used computed setter to hook event in component ",
+        "ts": "1467103416.000457"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1467108073.000458"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "mornin\u2019",
+        "ts": "1467108254.000459"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Anyone from here going to Django London tonight?",
+        "ts": "1467117950.000460"
+    },
+    {
+        "type": "message",
+        "user": "U14KVFYS3",
+        "text": "<@U0ASPMFPS> Laravel London :wink:",
+        "ts": "1467118934.000461"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "Elixir London",
+        "ts": "1467118944.000462"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "with Jose Valim btw",
+        "ts": "1467118950.000463"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "he\u2019s in town",
+        "ts": "1467118956.000464"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U040MK408>: really",
+        "ts": "1467118962.000465"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "that should be awesome",
+        "ts": "1467118968.000466"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "the meetup had 100 spots",
+        "ts": "1467118986.000467"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and 100ppl in the waiting list",
+        "ts": "1467118994.000468"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "lol",
+        "ts": "1467119001.000469"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "it sounds like the React London meetup",
+        "ts": "1467119011.000470"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "there is never any space",
+        "ts": "1467119016.000471"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s not usually that full",
+        "ts": "1467119029.000472"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "because since Jose is here, it got massive response",
+        "ts": "1467119040.000473"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I went to the first meetup, and we were ~15",
+        "ts": "1467119064.000474"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U040MK408>: whats the venue?",
+        "ts": "1467119145.000475"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U14KVFYS3>: how have those been?",
+        "ts": "1467119164.000476"
+    },
+    {
+        "type": "message",
+        "user": "U14KVFYS3",
+        "text": "<@U0ASPMFPS> It\u2019s always good, they\u2019re not often enough though!",
+        "ts": "1467119206.000477"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "yeah I been to only 1",
+        "ts": "1467119226.000478"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U0ASPMFPS>: the meetup is @ gocardless",
+        "ts": "1467119295.000479"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "<@U14KVFYS3>: I think the problem is not having a regular venue, seem to change venue each time",
+        "ts": "1467119298.000480"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "in Angel",
+        "ts": "1467119298.000481"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Are they using Elixir over at GoCardless now?",
+        "ts": "1467119317.000482"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I know they are primarily Rails ppl",
+        "ts": "1467119327.000483"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "and go",
+        "ts": "1467119859.000484"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "a lot of go",
+        "ts": "1467119861.000485"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "last time I checked they weren't",
+        "ts": "1467119874.000486"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "nah, they aren\u2019t using elixir",
+        "ts": "1467119926.000487"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "actually it\u2019s getting quite crowded lately",
+        "ts": "1467119953.000488"
+    },
+    {
+        "type": "message",
+        "user": "U07E9GKUZ",
+        "text": "last time I was there there were around 50 people",
+        "ts": "1467119968.000489"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I remember a while back GC did a big audit of alternatives to Rails",
+        "ts": "1467119991.000490"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "this was when Elixir was in its infancy",
+        "ts": "1467119998.000491"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "GC?",
+        "ts": "1467120002.000492"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "Go Cardless",
+        "ts": "1467120005.000493"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "oh",
+        "ts": "1467120007.000494"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "GoCardless*",
+        "ts": "1467120018.000495"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "they looked at a lot of languages\/frameworks, including Erlang",
+        "ts": "1467120021.000496"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": ":tm:",
+        "ts": "1467120023.000497"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "and in the end, decided it was too risky to change up",
+        "ts": "1467120034.000498"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "speaking to Steve, the guy who organises (organised?) the Elixir meetups, he said a lot of their infrastructure stuff is written in Go",
+        "ts": "1467120062.000499"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "cool",
+        "ts": "1467120121.000500"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Go seem to be getting stronger and stronger",
+        "ts": "1467120134.000501"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "indeed",
+        "ts": "1467120599.000502"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "i used go before it was cool",
+        "ts": "1467121329.000503"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "(but imho, it\u2019s not cool)",
+        "ts": "1467121344.000504"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s an ok language, gets the job done",
+        "ts": "1467121365.000505"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it\u2019s just not a language that I feel excited about",
+        "ts": "1467121376.000506",
+        "reactions": [
+            {
+                "name": "sharkdance",
+                "users": [
+                    "U047GTU64"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I am excited because of type safety, I like dynamic languages, but Go looks like a dream",
+        "ts": "1467132802.000507"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "I think the most exciting thing about Go is that you can\u2019t help but build totally portable self-contained programs",
+        "ts": "1467132837.000508"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "and that too",
+        "ts": "1467132848.000509"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "no runtimes to worry about, no complex environment",
+        "ts": "1467132850.000510"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "I like the idea of compiling to the platform I want it to run on",
+        "ts": "1467132861.000511"
+    },
+    {
+        "type": "message",
+        "user": "U03V8V08M",
+        "text": "totally",
+        "ts": "1467132869.000512"
+    }
+]

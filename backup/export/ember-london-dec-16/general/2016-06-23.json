@@ -1,0 +1,175 @@
+[
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "nope, but what are you looking to learn?",
+        "ts": "1466667602.000411"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Oh its not really for me. I just would like to know of good examples of helpful learning infrastructure w\/in the Ember community. ",
+        "ts": "1466668605.000412"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "hmm if you\u2019re learning ember - from scratch - I\u2019d start with the classic <https:\/\/leanpub.com\/ember-cli-101>",
+        "attachments": [
+            {
+                "service_name": "Leanpub",
+                "title": "ember 101",
+                "title_link": "https:\/\/leanpub.com\/ember-cli-101",
+                "text": "ember.js book - tutorial - Learn to write Ember.js apps with ember-cli.",
+                "fallback": "Leanpub: ember 101",
+                "thumb_url": "https:\/\/s3.amazonaws.com\/titlepages.leanpub.com\/ember-cli-101\/medium?1466437747",
+                "from_url": "https:\/\/leanpub.com\/ember-cli-101",
+                "thumb_width": 240,
+                "thumb_height": 311,
+                "service_icon": "https:\/\/leanpub.com\/assets\/favicons\/apple-touch-icon-57x57-54e70e6f82df9577817a780b29ecda35.png",
+                "id": 1
+            }
+        ],
+        "ts": "1466668669.000413"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "for people looking to learn patterns",
+        "ts": "1466668678.000415"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I honestly don\u2019t feel like that aspect of things is too mature yet",
+        "ts": "1466668689.000416"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but I\u2019m a big fan of DDAU",
+        "ts": "1466668693.000417"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "i should look at that book again. I found it's writing style very rough when I first looked at it. ",
+        "ts": "1466668719.000418"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "glad they changed the name to Ember 101 though as the \"CLI\" title didn't match up with the wandering content",
+        "ts": "1466668758.000419"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "its very easy to make sense of just out of reading out the code snippets",
+        "ts": "1466669407.000420"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "which in my opinion is paramount to software books",
+        "ts": "1466669417.000421"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "nothing worse than just reading and reading without doing :disappointed:",
+        "ts": "1466669428.000422"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I bought this amazing book - clojure on data science - oh <@U03V8V08M> might find it interesting",
+        "ts": "1466669450.000423"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "the composition is world class, the examples are world class",
+        "edited": {
+            "user": "U047GTU64",
+            "ts": "1466669460.000000"
+        },
+        "ts": "1466669457.000424"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "but it\u2019s not hands on so I have to try and construct my own examples as I go",
+        "ts": "1466669470.000426"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "well i think that explains the popularity of the \"cookbook\" styled books",
+        "ts": "1466669920.000427"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "definetly agree",
+        "ts": "1466669954.000428"
+    },
+    {
+        "type": "message",
+        "user": "U047GTU64",
+        "text": "I\u2019ve found the cookbook articles on the Ember guides to very helpful",
+        "ts": "1466669964.000429"
+    },
+    {
+        "type": "message",
+        "user": "U0ASPMFPS",
+        "text": "Good morning",
+        "ts": "1466671683.000430"
+    },
+    {
+        "type": "message",
+        "user": "U03V2PZUB",
+        "text": "Good morning :coffee:",
+        "ts": "1466671900.000431"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "mornin'",
+        "ts": "1466672126.000432"
+    },
+    {
+        "type": "message",
+        "user": "U044QMK6K",
+        "text": "G'day",
+        "ts": "1466673537.000433"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "Miremengjes (Albanian)",
+        "ts": "1466677927.000434"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "<@U04BD6KB1>: you know albanian or is just a random choice?",
+        "ts": "1466684456.000435"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": ":slightly_smiling_face: alphabetically first in my translation app",
+        "ts": "1466684486.000436"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "ha",
+        "edited": {
+            "user": "U040MK408",
+            "ts": "1466684572.000000"
+        },
+        "ts": "1466684568.000437"
+    }
+]

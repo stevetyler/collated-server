@@ -1,0 +1,252 @@
+[
+    {
+        "type": "message",
+        "user": "U03V3P960",
+        "text": "Anyone using headless firefox on travis?",
+        "ts": "1479983957.002274"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U040MK408> I hope so, the editing takes ages, so if its for free.. ) then good",
+        "ts": "1479985065.002275"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U040MK408>  do u have UTube channel?",
+        "ts": "1479985664.002276"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I\u2019m going to be expanding its scope to draw more people into programming!",
+        "ts": "1479985779.002277"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "I guess that by just being registered you have a channel",
+        "ts": "1479986184.002278"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "but I just used it to upload a couple videos I needed for some talks",
+        "ts": "1479986200.002279"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "<@U040MK408> its actually a very satisfying endeavour, if your not in it for the money",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479986450.000000"
+        },
+        "ts": "1479986430.002280"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "actually opens up some good opportunities",
+        "ts": "1479986484.002282"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it's a matter of time I think, I already have my hands in too many pockets",
+        "ts": "1479986489.002283"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "maybe I should do a talk at the ember meetup about how to run a programming youtube channel",
+        "ts": "1479986504.002284"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "how to edit vids etc",
+        "ts": "1479986535.002285"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "gain subs",
+        "ts": "1479986542.002286"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "by example, just for today, I have to\n1) Fix ember-modules-codemod so it works in addons  (right now it works in apps only)\n2) Do the same fix in my `ember-k-codemod`\n3) Check why the ember version of todomvc is failing",
+        "ts": "1479987967.002287"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "sheesh thats heavy",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1479988050.000000"
+        },
+        "ts": "1479988047.002288"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "today I am gonna try get started with a POC running on AWS",
+        "ts": "1479988071.002290"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "POC of what?",
+        "ts": "1479989430.002291"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "image uploading and processing <@U040MK408>",
+        "ts": "1479991606.002292"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "man AWS services are tied to regions",
+        "ts": "1480003790.002293"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "not very helpful error messages",
+        "ts": "1480003799.002294"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "being tied to regions is useful though for latency reasons",
+        "ts": "1480003823.002295"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "you can add a cloudfront cache on top too if you like",
+        "ts": "1480003852.002296"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "error messages can take some getting used to though",
+        "ts": "1480003873.002297"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "like I couldn't create a user pool but the error didnt specify I had to be in a specific region",
+        "ts": "1480003900.002298"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "never used cloudfront",
+        "ts": "1480003923.002299"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "most services in AWS are region specific",
+        "ts": "1480003963.002300"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "it's a learning curve like everything else but its worth it",
+        "ts": "1480003986.002301"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "believe it or not, it is getting better :wink:",
+        "ts": "1480004011.002302"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "gd gd",
+        "ts": "1480004035.002303"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "still trying to figure out billing alerts",
+        "edited": {
+            "user": "U04BE0ELZ",
+            "ts": "1480004536.000000"
+        },
+        "ts": "1480004531.002304"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "I joined the london meetup",
+        "ts": "1480004583.002306"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "some big aws meeting this month",
+        "ts": "1480004592.002307"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "if I want to mention only one thing about the AWS console",
+        "ts": "1480005473.002308"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "is that its UX made me love cli utilities",
+        "ts": "1480005495.002309"
+    },
+    {
+        "type": "message",
+        "user": "U040MK408",
+        "text": "it was sooooooo terribly messy",
+        "ts": "1480005509.002310",
+        "reactions": [
+            {
+                "name": "stuck_out_tongue_closed_eyes",
+                "users": [
+                    "U04BD6KB1",
+                    "U04BE0ELZ"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "it has good CLI for \u03bb and cognito?",
+        "ts": "1480007666.002311"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the UI is still the place to start but the CLI is fully functional",
+        "ts": "1480008234.002312"
+    },
+    {
+        "type": "message",
+        "user": "U04BD6KB1",
+        "text": "the UI's main navigation was updated just a week ago; its better but AWS have a LOT of services so clean is something it may never be",
+        "ts": "1480008276.002313"
+    },
+    {
+        "type": "message",
+        "user": "U04BE0ELZ",
+        "text": "roger",
+        "ts": "1480027372.002314"
+    }
+]
