@@ -119,7 +119,7 @@ function getGroupItemsHandler(req, res) {
 	};
 
 	getGroupItems(reqObj).then(obj => {
-		console.log('get group items obj returned before sending');
+		//console.log('get group items obj returned before sending');
 		res.send({
 			items: obj.all,
 			meta: {
