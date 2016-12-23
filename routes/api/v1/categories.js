@@ -45,14 +45,14 @@ function getGroupCategories(req, res) {
 
 function getUserCategories(req, res) {
 	const userId = req.query.userId;
-	console.log('user categories', userId);
+	//console.log('user categories', userId);
 
 	if (!userId) {
 		res.status(404).end();
 		return;
 	}
 	return Category.find({user: userId}).then(categories => {
-		console.log('categories found', categories.length);
+		//console.log('categories found', categories.length);
 		if (!categories.length) {
 			const newCategory = {
 				colour: 'cp-colour-17',
@@ -74,7 +74,7 @@ function getUserCategories(req, res) {
 			};
 		}
 	}).then(obj => {
-		console.log('obj returned', obj.all);
+		//console.log('obj returned', obj.all);
 		res.send({ categories: obj.all });
 	}, () => {
 		res.status(401).end();
