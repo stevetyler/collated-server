@@ -119,7 +119,6 @@ function getGroupItemsHandler(req, res) {
 	};
 
 	getGroupItems(reqObj).then(obj => {
-		//console.log('get group items obj returned before sending');
 		res.send({
 			items: obj.all,
 			meta: {
@@ -149,7 +148,7 @@ function getFilteredGroupItemsHandler(req, res) {
 		userOrGroupId: req.query.groupId,
 		userOrGroupQuery: {userGroup: req.query.groupId},
 	};
-	console.log('reqObj', reqObj);
+	//console.log('reqObj', reqObj);
 
 	getFilteredItems(reqObj).then(obj => {
 		res.send({
@@ -164,30 +163,39 @@ function getFilteredGroupItemsHandler(req, res) {
 }
 
 function getFilteredItems(reqObj) {
-	let tagPromisesArr = reqObj.tagNames.map((tagname, i) => {
-		let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: tagname});
-		if (i === 0) {
-			return Category.findOne(tagsQuery);
-		} else {
-			return Tag.findOne(tagsQuery);
+	console.log('reqObj tagnames', reqObj.tagNames);
+	const categoryQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: reqObj.tagNames[0]});
+	const tagNamesArr = reqObj.tagNames.slice(1, reqObj.tagNames.length);
+	let categoryId;
+
+	return Category.findOne(categoryQuery).then(category => {
+		categoryId = category._id;
+
+		if (tagNamesArr.length) {
+			const tagPromisesArr = tagNamesArr.map(tagName => {
+				let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: category._id, name: tagName});
+
+				return Tag.findOne(tagsQuery);
+			});
+
+			return Promise.all(tagPromisesArr).then((tagsArr) => {
+				return tagsArr.map(tag => {
+					if (tag !== null) {
+						return tag._id;
+					}
+				});
+			});
 		}
-	});
-
-	return Promise.all(tagPromisesArr).then((tagsArr) => {
-		return tagsArr.map(tag => {
-			if (tag !== null) {
-				return tag._id;
-			}
-		});
+		else {
+			return [];
+		}
 	}).then(tagsArrIds => {
-		let categoryId = tagsArrIds.slice(0,1);
-		let tagIds = tagsArrIds.slice(1, tagsArrIds.length);
 		let newQuery;
-
-		if (tagsArrIds.length === 1) {
-			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId});
-		} else {
-			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId, tags: {$all:tagIds}});
+		if (tagsArrIds.length) {
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId, tags: {$all:tagsArrIds} } );
+		}
+		else {
+			newQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: categoryId } );
 		}
 		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
