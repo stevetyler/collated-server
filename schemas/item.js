@@ -65,7 +65,7 @@ itemSchema.methods.makeEmberItem = function() {
   return emberItem;
 };
 
-itemSchema.statics.findCategoryAndTags = function(textToSearch, options) {
+itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
   const text = textToSearch.toLowerCase();
   const query = options.userGroupId ? {userGroup: options.userGroupId} : {user: options.userId};
   const idsObj = {};
