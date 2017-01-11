@@ -149,7 +149,6 @@ function getFilteredGroupItemsHandler(req, res) {
 		userOrGroupQuery: {userGroup: req.query.groupId},
 	};
 	//console.log('reqObj', reqObj);
-
 	getFilteredItems(reqObj).then(obj => {
 		res.send({
 			items: obj.all,
@@ -328,6 +327,212 @@ function putItems(req, res) {
 	});
 }
 
+function saveBookmarkItem(bookmark, userId) {
+  const body = bookmark.url;
+	const title = bookmark.title;
+  let tagnames;
+
+	if (bookmark.tags.length) {
+		tagnames = bookmark.tags.map((tag, i) => {
+	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags order
+	  });
+	} else {
+		tagnames = [];
+	}
+	console.log('4 tagnames', tagnames);
+	const tagPromises = tagnames.map(tagname => {
+		// when creating tag here, duplicates occur?
+		return Tag.findOne({user: userId, name: tagname}).then(tag => {
+			return tag._id;
+		}).catch(err => {
+			console.log(err);
+		});
+	});
+
+	return Promise.all(tagPromises).then(ids => {
+		console.log('item created with ids', ids);
+		return Item.create({
+			user: userId,
+	    createdDate: bookmark.date,
+	    body: body,
+			title: title,
+	    author: userId,
+	    tags: ids,
+	    isPrivate: false,
+	    type: 'bookmark'
+		});
+	});
+}
+
+function postChromeItemHandler(req, res) {
+	const reqBody = req.body;
+
+	saveChromeItem(reqBody).then(newItem => {
+		console.log('chrome item saved', newItem);
+		res.send({'item': newItem});
+		return;
+	}).catch((err) => {
+		console.log('error', err);
+		res.status(401).end();
+		return;
+	});
+}
+
+function saveChromeItem(reqBody) {
+	console.log('saveChrome Item body received', reqBody);
+	const urlArr = reqBody.urlarr;
+	const titleArr = reqBody.titlearr;
+	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
+	const options = {};
+
+	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
+		Object.assign(options, {userId: user.id});
+		return Item.assignCategoryAndTags(titleArr[0], options);
+	}).then(idsObj => {
+		console.log('tags to be assigned', idsObj);
+		return (typeof idsObj === 'object') ? Item.create({
+			author: reqBody.username,
+			body: text,
+			category: idsObj.category,
+			createdDate: new Date(),
+			isPrivate: false,
+			tags: idsObj.tags,
+			title: reqBody.titlearr,
+			type: 'bookmark',
+			user: reqBody.username,
+		}) : null;
+	});
+}
+
+// create item from Collated
+function postItemHandler(req, res) {
+	const body = req.body;
+	const user = req.user;
+
+	saveItem(body, user).then((emberItem) => {
+		res.send({'item': emberItem});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(404).end();
+		return;
+	});
+}
+
+function saveItem(body, user) {
+	const group = body.item.userGroup;
+	const item = {
+		author: body.item.author,
+    body: body.item.body,
+		createdDate: body.item.createdDate,
+		isPrivate: false,
+		title: body.item.title,
+		type: body.item.type,
+		user: group ? null : user.id,
+		userGroup: group ? group : null
+  };
+	const options = {
+		userId: group ? null : user.id,
+		userGroupId: group ? group : null
+	};
+
+	return Item.assignCategoryAndTags(body.item.body, options)
+	.then(idsObj => {
+		Object.assign(item, idsObj);
+		console.log('new item to save', item);
+		return Item.create(item);
+	}).then(newItem => {
+ 		return newItem.makeEmberItem();
+	});
+}
+
+function postSlackItemsHandler(req, res) {
+	console.log('post slack item called');
+	const messagesArr = Array.isArray(req.body) ? req.body : [req.body];
+	const slackTeamId = messagesArr[0].team_id;
+
+	UserGroup.findOne({slackTeamId: slackTeamId})
+	.then(userGroup => {
+		const options = {
+			userGroupId: userGroup.id,
+			categoryPerChannel: userGroup.categoryPerSlackChannel
+		};
+		const promiseArr = messagesArr.reduce((arr, message) => {
+			return containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
+		}, []);
+
+		return Promise.all(promiseArr);
+	}).then(() => {
+		res.status('201').send({});
+	}, (err) => {
+		console.log(err);
+		return res.status(500).end();
+	});
+}
+
+function saveSlackItem(message, options) {
+	const slackTimestamp = message.timestamp || message.ts;
+	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
+	const newSlackItem = {
+		author: message.user_name,
+		body: message.text,
+		createdDate: newTimestamp,
+		slackChannelId: message.channel_id,
+		slackTeamId: message.team_id,
+		slackUserId: message.user_id,
+		type: 'slack',
+		userGroup: options.userGroupId
+	};
+	Object.assign(options, {slackChannelId: message.channel_id});
+
+	return Item.assignCategoryAndTags(message.text, options)
+	.then(idsObj => {
+		Object.assign(newSlackItem, idsObj);
+		//console.log('new slack item to save', newSlackItem);
+    return Item.create(newSlackItem);
+  });
+}
+
+function deleteItems(req, res) {
+	Item.remove({ _id: req.params.id }).exec().then(function() {
+    return res.send({});
+  }).then(null, function(err) {
+		console.log(err);
+		return res.status(500).end();
+	});
+}
+
+function containsUrl(message) {
+	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
+}
+
+function makeUrlList(urlArr, titleArr) {
+	let bodyArr = urlArr.map((url, i) => {
+		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
+	});
+	let bodytext = bodyArr.reduce((str, url) => {
+		return str + '<li>' + url + '</li>';
+	}, '');
+	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
+}
+
+function getTitle(req, res) {
+  const client = new MetaInspector(req.query.data, { timeout: 5000 });
+
+	client.on('fetch', function(){
+		if (client) {
+			var title = client.title + ' | Link';
+
+			return res.send(title);
+		}
+  });
+  client.on('error', function(err){
+		console.log(err);
+		return res.status('404').end();
+  });
+  client.fetch();
+}
+
 // function postBookmarkItemsHandler(req, res) {
 // 	const moveFile = BPromise.promisify(req.files.file.mv);
 // 	const filename = req.files.file.name;
@@ -392,217 +597,6 @@ function putItems(req, res) {
 // 		res.status(500).send(err);
 // 	});
 // }
-
-function saveBookmarkItem(bookmark, userId) {
-  const body = bookmark.url;
-	const title = bookmark.title;
-  let tagnames;
-
-	if (bookmark.tags.length) {
-		tagnames = bookmark.tags.map((tag, i) => {
-	    return bookmark.tags[bookmark.tags.length -1 -i]; // reverse tags order
-	  });
-	} else {
-		tagnames = [];
-	}
-	console.log('4 tagnames', tagnames);
-	const tagPromises = tagnames.map(tagname => {
-		// when creating tag here, duplicates occur?
-		return Tag.findOne({user: userId, name: tagname}).then(tag => {
-			return tag._id;
-		}).catch(err => {
-			console.log(err);
-		});
-	});
-
-	return Promise.all(tagPromises).then(ids => {
-		console.log('item created with ids', ids);
-		return Item.create({
-			user: userId,
-	    createdDate: bookmark.date,
-	    body: body,
-			title: title,
-	    author: userId,
-	    tags: ids,
-	    isPrivate: false,
-	    type: 'bookmark'
-		});
-	});
-}
-
-function postChromeItemHandler(req, res) {
-	const reqBody = req.body;
-
-	saveChromeItem(reqBody).then(newItem => {
-		console.log('chrome item saved', newItem);
-		res.send({'item': newItem});
-		return;
-	}).catch((err) => {
-		console.log('error', err);
-		res.status(401).end();
-		return;
-	});
-}
-
-function saveChromeItem(reqBody) {
-	console.log('saveChrome Item body received', reqBody);
-	const urlArr = reqBody.urlarr;
-	const titleArr = reqBody.titlearr;
-	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
-	const options = {};
-
-	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		Object.assign(options, {userId: user.id});
-		return Item.findCategoryAndTags(titleArr[0], options);
-	}).then(idsObj => {
-		console.log('tags to be assigned', idsObj);
-		return (typeof idsObj === 'object') ? Item.create({
-			author: reqBody.username,
-			body: text,
-			category: idsObj.category,
-			createdDate: new Date(),
-			isPrivate: false,
-			tags: idsObj.tags,
-			title: reqBody.titlearr,
-			type: 'bookmark',
-			user: reqBody.username,
-		}) : null;
-	});
-}
-
-// create item from Collated
-function postItemHandler(req, res) {
-	const body = req.body;
-	const user = req.user;
-
-	saveItem(body, user).then((emberItem) => {
-		console.log('saveItem', emberItem);
-		res.send({'item': emberItem});
-		return;
-	}).catch(err => {
-		console.log(err);
-		res.status(401).end();
-		return;
-	});
-}
-
-function saveItem(body, user) {
-	const itemTags = body.item.tags;
-	const item = {
-    user: body.item.user,
-    createdDate: body.item.createdDate,
-    body: body.item.body,
-		title: body.item.title,
-    author: body.item.author,
-    tags: body.item.tags,
-		isPrivate: false,
-		type: body.item.type
-  };
-
-	return Tag.find({_id: {$in: itemTags}, user: user.id, isPrivate: 'true'}).then(function(tags) {
-		if (tags.length) {
-			return Object.assign(item, {isPrivate: true});
-		} else {
-			return item;
-		}
-	}).then(itemObj => {
-		if (user.id === body.item.user) {
-	    const newItem = new Item(itemObj);
-
-	    return newItem.save();
-	  }
-	}).then((newItem) => {
-		return newItem.makeEmberItem();
-	});
-}
-
-function postSlackItemsHandler(req, res) {
-	console.log('post slack item called');
-	const messagesArr = Array.isArray(req.body) ? req.body : [req.body];
-	const slackTeamId = messagesArr[0].team_id;
-
-	UserGroup.findOne({slackTeamId: slackTeamId})
-	.then(userGroup => {
-		const options = {
-			userGroupId: userGroup.id,
-			categoryPerChannel: userGroup.categoryPerSlackChannel
-		};
-		const promiseArr = messagesArr.reduce((arr, message) => {
-			return containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
-		}, []);
-
-		return Promise.all(promiseArr);
-	}).then(() => {
-		res.status('201').send({});
-	}, (err) => {
-		console.log(err);
-		return res.status(500).end();
-	});
-}
-
-function saveSlackItem(message, options) {
-	const slackTimestamp = message.timestamp || message.ts;
-	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	const newSlackItem = {
-		author: message.user_name,
-		body: message.text,
-		createdDate: newTimestamp,
-		slackChannelId: message.channel_id,
-		slackTeamId: message.team_id,
-		slackUserId: message.user_id,
-		type: 'slack',
-		userGroup: options.userGroupId
-	};
-	Object.assign(options, {slackChannelId: message.channel_id});
-
-	return Item.findCategoryAndTags(message.text, options)
-	.then(idsObj => {
-		Object.assign(newSlackItem, idsObj);
-		//console.log('new slack item to save', newSlackItem);
-    return Item.create(newSlackItem);
-  });
-}
-
-function deleteItems(req, res) {
-	Item.remove({ _id: req.params.id }).exec().then(function() {
-    return res.send({});
-  }).then(null, function(err) {
-		console.log(err);
-		return res.status(500).end();
-	});
-}
-
-function containsUrl(message) {
-	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
-}
-
-function makeUrlList(urlArr, titleArr) {
-	let bodyArr = urlArr.map((url, i) => {
-		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
-	});
-	let bodytext = bodyArr.reduce((str, url) => {
-		return str + '<li>' + url + '</li>';
-	}, '');
-	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
-}
-
-function getTitle(req, res) {
-  const client = new MetaInspector(req.query.data, { timeout: 5000 });
-
-	client.on('fetch', function(){
-		if (client) {
-			var title = client.title + ' | Link';
-
-			return res.send(title);
-		}
-  });
-  client.on('error', function(err){
-		console.log(err);
-		return res.status('404').end();
-  });
-  client.fetch();
-}
-
 
 // function copyEmberItems(req, res) {
 // 	// copy ember items to slack team
