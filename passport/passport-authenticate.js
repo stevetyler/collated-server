@@ -110,12 +110,11 @@ passport.use(new SlackStrategy({
       userName: profile._json.info.user.name,
       // userIdName: profile._json.user - not provided by Slack with identity scope
     };
-    //console.log('profileObj', profileObj);
+
     UserGroup.findOne({slackTeamId: profileObj.teamId}).then(group => {
       if (!group) {
   			let newId = UserGroup.makeGroupId(profileObj.teamName);
         //console.log('new group id created', newId);
-
         let newUserGroup = new UserGroup({
   				id: newId,
   				image: profileObj.teamImageUrl,
@@ -128,10 +127,11 @@ passport.use(new SlackStrategy({
       }
       return group;
     }).then(group => {
-      Object.assign(profileObj, {userGroup: group.id});
+      Object.assign(profileObj, {userGroup: group});
+
       return User.findOne({ name: profileObj.userName, email: profileObj.userEmail });
     })
-    .then(function(user) {
+    .then(user => {
       if (user !== null && typeof user === 'object') {
         console.log('user found', user);
         const updatedUser = Object.assign(user, {
@@ -148,14 +148,14 @@ passport.use(new SlackStrategy({
           if (user.slackUserIds.indexOf(profileObj.userId) === -1) {
             Object.assign(updatedUser, {
               slackUserIds: user.slackUserIds.concat(profileObj.userId),
-              userGroups: user.userGroups.concat(profileObj.userGroup)
+              userGroups: user.userGroups.concat(profileObj.userGroup.id)
             });
           }
           return updatedUser.save();
         } else {
           Object.assign(updatedUser, {
             slackUserIds: [profileObj.userId],
-            userGroups: [profileObj.userGroup]
+            userGroups: [profileObj.userGroup.id]
           });
           //console.log('user updated with new slack ids', updatedUser);
           return updatedUser.save();
@@ -172,27 +172,38 @@ passport.use(new SlackStrategy({
           imageUrl: profileObj.userImageUrl,
           name: profileObj.userName,
           slackUserIds: [profileObj.userId],
-          userGroups: [profileObj.userGroup]
+          userGroups: [profileObj.userGroup.id]
         });
       }
     })
-    .then(function(user) {
-      console.log('user created or updated', user);
-      return done(null, user);
+    .then(user => {
+      const group = profileObj.userGroup;
+      Object.assign(profileObj, {user: user});
+
+      if (group.users.indexOf(user.id) === -1) {
+        // have to return or group isn't updated ?
+        return group.update({
+          users: group.users.concat(user.id)
+        });
+      }
     })
-    .catch(function(err) {
+    .then(() => {
+      console.log('user created or updated', profileObj.user);
+      return done(null, profileObj.user);
+    })
+    .catch(err => {
       console.log('slack error', JSON.stringify(err));
       done(err);
     });
   }
 ));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
   done(null, user._id);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findOne({_id: id}, function(err, user) {
+passport.deserializeUser((id, done) => {
+  User.findOne({_id: id}, (err, user) => {
     if (err) {
       return done(err);
     }

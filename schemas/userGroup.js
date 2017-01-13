@@ -10,8 +10,8 @@ const userGroupSchema = new Schema({
   isPrivate: String,
   slackTeamId: String,
   slackTeamDomain: String,
-  slackTeamName: String
-  //user: [String]
+  slackTeamName: String,
+  users: [String]
 });
 
 userGroupSchema.methods.makeEmberUserGroup = function() {
