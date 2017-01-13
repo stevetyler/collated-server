@@ -13,9 +13,26 @@ function getUserGroupHandler(req, res) {
   const queryId = UserGroup.makeGroupId(req.params.id);
 
 	UserGroup.findOne({id: queryId}).then(userGroup => {
-		const emberUserGroup = userGroup.makeEmberUserGroup();
+		let userUserGroups;
+		try {
+			userUserGroups = req.user.userGroups || [];
+		} catch (err) {
+			console.log(err);
+		}
+		if (!userGroup.isPrivate) {
+			return userGroup;
+		}
+		else if (userGroup.isPrivate === 'true' && userUserGroups.indexOf(queryId) !== -1) {
+			return userGroup;
+		}
+	}).then(userGroup => {
+		if (userGroup) {
+			const emberUserGroup = userGroup.makeEmberUserGroup();
 
-		res.send({'userGroup': emberUserGroup});
+			res.send({'userGroup': emberUserGroup});
+		} else {
+			res.status(404).end();
+		}
 		return;
 	}).catch(err => {
 		console.log(err);
