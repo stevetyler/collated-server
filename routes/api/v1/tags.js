@@ -158,34 +158,29 @@ function putTag(req, res) {
 	const tagName = req.body.tag.name;
 
 	console.log('putTag', tagId, tagName);
-  if (req.user.id === req.body.tag.user) {
-    Tag.update({_id: tagId}, // removed user: req.user.id temporarily
-      {$set: {
-        name: tagName,
-        colour: req.body.tag.colour,
-        isPrivate: req.body.tag.isPrivate
-        }
+  Tag.update({_id: tagId}, // removed user: req.user.id temporarily
+    {$set: {
+      name: tagName,
+      colour: req.body.tag.colour,
+      isPrivate: req.body.tag.isPrivate
       }
-    ).then(() => {
-      Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
-        if (err) {
-          return res.status(404).send();
-        }
-        items.forEach((item) => {
-          item.isPrivate = isPrivate;
-          return item.save();
-        });
+    }
+  ).then(() => {
+    Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
+      if (err) {
+        return res.status(404).send();
+      }
+      items.forEach((item) => {
+        item.isPrivate = isPrivate;
+        return item.save();
       });
-    }).then(() => {
-      return res.send({});
-    }).then(null, (err) => {
-      console.log(err);
-      return res.status(400).end();
     });
-  }	else {
-		console.log('userId', req.user.id, 'tag user', req.body.tag.user);
-		return res.status(401).end();
-	}
+  }).then(() => {
+    return res.send({});
+  }).then(null, (err) => {
+    console.log(err);
+    return res.status(400).end();
+  });
 }
 
 function deleteTag(req, res){
