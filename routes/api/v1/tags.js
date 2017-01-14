@@ -154,7 +154,6 @@ function saveTag(tag) {
 
 function putTag(req, res) {
   const tagId = req.params.id;
-  const isPrivate = req.body.tag.isPrivate;
 	const tagName = req.body.tag.name;
 
 	console.log('putTag', tagId, tagName);
@@ -166,16 +165,6 @@ function putTag(req, res) {
       }
     }
   ).then(() => {
-    Item.find({user: req.user.id, tags: {$in: [tagId]}}, (err, items) => {
-      if (err) {
-        return res.status(404).send();
-      }
-      items.forEach((item) => {
-        item.isPrivate = isPrivate;
-        return item.save();
-      });
-    });
-  }).then(() => {
     return res.send({});
   }).then(null, (err) => {
     console.log(err);
