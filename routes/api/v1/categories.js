@@ -14,14 +14,21 @@ module.exports.autoroute = {
 	delete: {'/categories/:id': [ensureAuthenticated, deleteCategory]}
 };
 
-function getCategories(req, res){
+function getCategories(req, res) {
 	console.log('get categories called');
-	if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
+	if (req.query.filter) { getCategory(req, res); }
+	else if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
 	else {
 		res.status(404).end();
 	}
 }
+
+// function getCategory(req, res) {
+// 	console.log('getCategory', req.query);
+//
+// 	Category.findOne({});
+// }
 
 function getGroupCategories(req, res) {
 	const groupId = req.query.groupId;
@@ -74,8 +81,18 @@ function getUserCategories(req, res) {
 			};
 		}
 	}).then(obj => {
-		//console.log('obj returned', obj.all);
-		res.send({ categories: obj.all });
+		if (!req.user) {
+			console.log('public categories');
+			return obj.public;
+	  } else if (req.user.id === req.query.userId) {
+			console.log('all categories');
+			return obj.all;
+	  } else {
+			console.log('public categories');
+	    return obj.public;
+	  }
+	}).then(categories => {
+		res.send({ categories: categories });
 	}, () => {
 		res.status(401).end();
 		return;
@@ -184,7 +201,6 @@ function putCategory(req, res) {
   const isPrivate = req.body.category.isPrivate;
 	const categoryName = req.body.category.name;
 
-	//console.log('putCategory', categoryId, categoryName);
   Category.update({_id: categoryId}, // removed user: req.user.id temporarily
     {$set: {
       name: categoryName,
@@ -193,16 +209,13 @@ function putCategory(req, res) {
       }
     }
   ).then(() => {
-    Item.find({user: req.user.id, categories: {$in: [categoryId]}}, (err, items) => {
-      if (err) {
-        return res.status(404).send();
-      }
-      items.forEach((item) => {
-        item.isPrivate = isPrivate;
-        return item.save();
-      });
-    });
-  }).then(() => {
+    return Item.find({ user: req.user.id, category: categoryId });
+  }).then(items => {
+		items.forEach((item) => {
+			item.isPrivate = isPrivate;
+			return item.save();
+		});
+	}).then(() => {
     return res.send({});
   }).then(null, (err) => {
     console.log(err);
