@@ -427,6 +427,7 @@ function saveItem(body, user) {
 		createdDate: body.item.createdDate,
 		isPrivate: false,
 		title: body.item.title,
+		twitterTweetId: body.item.twitterTweetId,
 		type: body.item.type,
 		user: group ? null : user.id,
 		userGroup: group ? group : null
