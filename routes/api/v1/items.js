@@ -297,24 +297,16 @@ function getTwitterItems(user, options) {
 }
 
 function putItems(req, res) {
-	const itemTags = req.body.item.tags;
-	let isPrivate = false;
-
-	Tag.find({_id: {$in: itemTags}, user: req.user.id, isPrivate: 'true'}).then(function(tags) {
-		if (tags.length) {
-			isPrivate = true;
-		}
-		return Item.findOneAndUpdate(
-	    {_id: req.params.id},
-	    {$set: {
-				category: req.body.item.category,
-				tags: req.body.item.tags,
-				isPrivate: isPrivate,
-				comments: req.body.item.comments
-				}
-			}, { new: true }
-	  );
-	}).then(item => {
+	Item.findOneAndUpdate(
+    {_id: req.params.id},
+    {$set: {
+			category: req.body.item.category,
+			tags: req.body.item.tags,
+			isPrivate: req.body.item.isPrivate,
+			comments: req.body.item.comments
+			}
+		}, { new: true }
+  ).then(item => {
 		console.log('item updated', item);
 		var emberItem = item.makeEmberItem();
 
