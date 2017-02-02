@@ -39,10 +39,27 @@ function getGroupCategories(req, res) {
 		return;
 	}
 	Category.find({userGroup: groupId}).exec().then((categories) => {
-		if (categories) {
-			return makeEmberCategories(groupId, categories, 'group');
+		if (!categories.length) {
+			const newCategory = {
+				colour: 'cp-colour-17',
+				isDefault: true,
+				name: 'General',
+				userGroup: groupId,
+			};
+			return Category.create(newCategory);
+		} else {
+			return categories;
 		}
-	}).then((obj) => {
+	}).then(categoryData => {
+			if (Array.isArray(categoryData)) {
+				return makeEmberCategories(groupId, categoryData, 'group');
+			}
+			else {
+				return {
+					all: [categoryData]
+				};
+			}
+	}).then(obj => {
 		res.send({ categories: obj.all });
 	}, () => {
 		res.status(404).end();
