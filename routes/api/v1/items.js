@@ -319,6 +319,127 @@ function putItems(req, res) {
 	});
 }
 
+function postBookmarkItemsHandler(req, res) {
+	const moveFile = BPromise.promisify(req.files.file.mv);
+	const filename = req.files.file.name;
+	const userId = req.user.id;
+	let bookmarksArr;
+	let namesArrArr;
+	let idsObjArr = [];
+
+	if (!req.files) {
+    res.send('No files were uploaded.');
+    return;
+  }
+  moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
+		console.log('1 import file uploaded');
+		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
+
+		// add category to each tags array
+		namesArrArr = bookmarksArr.map(obj => obj.tags);
+		//const tagsArr = [].concat.apply([], tagsArrArr); // flatten array
+
+		const uniqNamesArrArr = mergeTagArrays(namesArrArr);
+		const categoryPromisesArr = uniqNamesArrArr.map(arr => {
+			return Category.findOne({ user: userId, name: arr[0]}).then(category => {
+				if (!category) {
+					console.log('3 category created', arr[0]);
+					Category.create({
+						name: arr[0],
+						colour: 'cp-colour-1',
+						user: userId,
+						itemCount: 0
+					}).then(category => {
+						idsObjArr.push({
+							category: category.name,
+							id: category._id,
+							tags: []
+						});
+					});
+				} else {
+					idsObjArr.push({
+						category: category.name,
+						id: category._id,
+						tags: []
+					});
+				}
+			});
+		});
+		Promise.all(categoryPromisesArr);
+		return;
+	}).then(() => {
+		const tagPromiseArr = namesArrArr.map(arr => {
+			return arr.map((name, i) => {
+				let categoryObj = idsObjArr.filter(obj => obj.name === name).pop();
+
+				if (i !== 0) {
+					return Tag.findOne({ user: userId, category: categoryObj.id, name: name }).then(tag => {
+						if (!tag) {
+							console.log('4 tag created', name);
+							Tag.create({
+								category: categoryObj.id,
+								name: name,
+								colour: 'cp-colour-1',
+								user: userId,
+								itemCount: 0
+							}).then(tag => {
+								categoryObj.tags.push({
+									id: tag._id,
+									name: tag.name
+								});
+								return categoryObj;
+							});
+						} else {
+							categoryObj.tags.push({
+								id: tag._id,
+								name: tag.name
+							});
+							return categoryObj;
+						}
+					});
+				}
+				return categoryObj;
+			});
+		});
+		return Promise.all(tagPromiseArr);
+	}).then(idsObjArr => {
+		console.log('idsObjArr', idsObjArr);
+		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
+			return saveBookmarkItem(bookmark, userId);
+		});
+		return Promise.all(bookmarkPromisesArr);
+	}).then(() => {
+		res.send('File uploaded!');
+	}).catch(err => {
+		console.log('import file error', err);
+		res.status(500).send(err);
+	});
+}
+
+function mergeTagArrays(tags) {
+	let tmpArr = [];
+	let newArrArr = [];
+
+	tags.forEach((arr, i) => {
+		if (i === 0) {
+			tmpArr = arr;
+		}
+		else if (arr[0] === tmpArr[0]) {
+			tmpArr = tmpArr.concat(arr);
+		} else {
+			newArrArr.push(tmpArr);
+			tmpArr = arr;
+		}
+	});
+	newArrArr.push(tmpArr);
+
+	return newArrArr.map(arr => {
+		return arr.filter((name, i, self) => {
+			return self.indexOf(name) === i;
+		});
+	});
+}
+
 function saveBookmarkItem(bookmark, userId) {
   const body = bookmark.url;
 	const title = bookmark.title;
@@ -526,70 +647,7 @@ function getTitle(req, res) {
   client.fetch();
 }
 
-// function postBookmarkItemsHandler(req, res) {
-// 	const moveFile = BPromise.promisify(req.files.file.mv);
-// 	const filename = req.files.file.name;
-// 	const userId = req.user.id;
-// 	let bookmarksArr;
-// 	let categoryName;
-// 	let uniqTagnameArray;
-//
-// 	if (!req.files) {
-//     res.send('No files were uploaded.');
-//     return;
-//   }
-//   moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
-// 		console.log('1 import file uploaded');
-// 		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
-//
-// 		const tagsArrArr = bookmarksArr.map(obj => obj.tags);
-// 		const tagsArr = [].concat.apply([], tagsArrArr); // flatten array
-// 		uniqTagnameArray = tagsArr.filter(function(tagname, i, self) {
-// 			return self.indexOf(tagname) === i;
-// 		});
-// 		categoryName = uniqTagnameArray[0];
-// 		console.log('2 unique array', uniqTagnameArray);
-//
-// 		return Category.findOne({ user: userId, name: categoryName });
-//   }).then(category => {
-// 		if (!category) {
-// 			console.log('3 category created', categoryName);
-// 			Category.create({
-// 				name: categoryName,
-// 				colour: 'cp-colour-1',
-// 				user: userId,
-// 				itemCount: 0
-// 			});
-// 		}
-// 	}).then(() => {
-// 		let tagnamesArr = uniqTagnameArray.splice(1, uniqTagnameArray.length-1);
-//
-// 		let tagPromisesArr = tagnamesArr.map(tagname => {
-// 			return Tag.findOne({ user: userId, category: categoryId, name: tagname }).then(tag => {
-// 				if (!tag) {
-// 					console.log('4 tag created', tagname);
-// 					Tag.create({
-// 						name: tagname,
-// 						colour: 'cp-colour-1',
-// 						user: userId,
-// 						itemCount: 0
-// 					});
-// 				}
-// 			});
-// 		});
-// 		return Promise.all(tagPromisesArr);
-// 	}).then(() => {
-// 		let bookmarkPromisesArr = bookmarksArr.map(bookmark => {
-// 			return saveBookmarkItem(bookmark, userId);
-// 		});
-// 		return Promise.all(bookmarkPromisesArr);
-// 	}).then(() => {
-// 		res.send('File uploaded!');
-// 	}).catch(err => {
-// 		console.log('import file error', err);
-// 		res.status(500).send(err);
-// 	});
-// }
+
 
 // function copyEmberItems(req, res) {
 // 	// copy ember items to slack team
