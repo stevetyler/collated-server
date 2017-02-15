@@ -8,6 +8,18 @@ const Category = mongoose.model('Category', categorySchema);
 const tagSchema = require('../schemas/tag.js');
 const Tag = mongoose.model('Tag', tagSchema);
 
+const itemMetaSchema = new Schema({
+  clickCount: String,
+  // commentCount: String, CP
+  item: String,
+  //rating: String, CP
+  lastClickedDate: String,
+  // lastCommentedDate: String, CP
+  lastSharedDate: String,
+  shareCount: String,
+  user: String
+});
+
 const commentSchema = new Schema({
   body: String,
   createdDate: String,
@@ -16,13 +28,14 @@ const commentSchema = new Schema({
 });
 
 const itemSchema = new Schema({
-  id: String,
+  //id: String,
   author: String,
   body: String,
   category: String,
   comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
+  meta: [itemMetaSchema],
   slackTeamId: String,
   slackChannelId: String,
   tags: [String],
@@ -107,7 +120,7 @@ function findItemTags(textToSearch, categoryId) {
       const tagsMatchedArr = tags.filter(tag => {
         let tmpArr = tag.keywords.concat(tag.name);
         let tmpArrLower = tmpArr.map(name => name.toLowerCase());
-        
+
         let matchedSearchArr = tmpArrLower.filter(name => {
           return textToSearch.indexOf(name) !== -1;
         });
