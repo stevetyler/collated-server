@@ -634,7 +634,7 @@ function getTitle(req, res) {
 
 	client.on('fetch', function(){
 		if (client) {
-			var title = client.title + ' | Link';
+			var title = client.title;
 
 			return res.send(title);
 		}
