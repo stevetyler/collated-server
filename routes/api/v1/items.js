@@ -1,6 +1,6 @@
 'use strict';
 const BPromise = require('bluebird');
-const MetaInspector = require('node-metainspector');
+const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
