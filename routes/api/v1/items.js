@@ -1,6 +1,6 @@
 'use strict';
 const BPromise = require('bluebird');
-const MetaInspector = require('node-metainspector');
+const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
@@ -634,7 +634,7 @@ function getTitle(req, res) {
 
 	client.on('fetch', function(){
 		if (client) {
-			var title = client.title + ' | Link';
+			var title = client.title;
 
 			return res.send(title);
 		}
