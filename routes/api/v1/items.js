@@ -3,6 +3,7 @@ const BPromise = require('bluebird');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
+const util = require('util');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
@@ -634,6 +635,15 @@ function getTitle(req, res) {
 
 	client.on('fetch', function(){
 		if (client) {
+			// var dataObj = {
+			// 	description: client.description,
+			// 	hostname: client.hostname,
+			// 	title: client.title,
+			// 	image: client.image,
+			// 	images: client.images
+			// };
+			// var JSONobj = JSON.stringify(util.inspect(dataObj));
+			// console.log('JSON', JSONobj);
 			var title = client.title;
 
 			return res.send(title);
