@@ -93,19 +93,14 @@ function getUserCategories(req, res) {
 			return makeEmberCategories(userId, categoryData, 'user');
 		}
 		else {
-			return {
-				all: [categoryData]
-			};
+			return makeEmberCategories(userId, [categoryData], 'user');
 		}
 	}).then(obj => {
 		if (!req.user) {
-			console.log('public categories');
 			return obj.public;
 	  } else if (req.user.id === req.query.userId) {
-			console.log('all categories');
 			return obj.all;
 	  } else {
-			console.log('public categories');
 	    return obj.public;
 	  }
 	}).then(categories => {

@@ -499,7 +499,9 @@ function saveChromeItem(reqBody) {
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
 		Object.assign(options, {userId: user.id});
-		return Item.assignCategoryAndTags(titleArr[0], options);
+		const textToSearch = urlArr[0].concat(titleArr[0]);
+		
+		return Item.assignCategoryAndTags(textToSearch, options);
 	}).then(idsObj => {
 		console.log('tags to be assigned', idsObj);
 		return (typeof idsObj === 'object') ? Item.create({
