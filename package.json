@@ -37,6 +37,7 @@
     "stripe": "^4.4.0",
     "twit": "^2.2.4",
     "twitter": "~1.3.0",
+    "unfurl-url": "1.0.0",
     "webshot": "0.18.0",
     "winston": "^2.2.0"
   },
