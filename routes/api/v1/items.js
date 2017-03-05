@@ -636,15 +636,6 @@ function getTitle(req, res) {
 
 	client.on('fetch', function(){
 		if (client) {
-			// var dataObj = {
-			// 	description: client.description,
-			// 	hostname: client.hostname,
-			// 	title: client.title,
-			// 	image: client.image,
-			// 	images: client.images
-			// };
-			// var JSONobj = JSON.stringify(util.inspect(dataObj));
-			// console.log('JSON', JSONobj);
 			var title = client.title;
 
 			return res.send(title);
@@ -657,14 +648,6 @@ function getTitle(req, res) {
   client.fetch();
 }
 
-function getScreenShot(url) {
-	let pathToSave;
-
-	webshot(url, pathToSave, function(err) {
-	  // screenshot now saved to google.png
-
-	});
-}
 
 // function copyEmberItems(req, res) {
 // 	// copy ember items to slack team
