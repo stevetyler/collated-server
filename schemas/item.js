@@ -10,12 +10,13 @@ const Tag = mongoose.model('Tag', tagSchema);
 
 const itemMetaSchema = new Schema({
   clickCount: String,
-  // commentCount: String, CP
   item: String,
-  //rating: String, CP
   lastClickedDate: String,
-  // lastCommentedDate: String, CP
   lastSharedDate: String,
+  previewDescription: String,
+  previewKeywords: String,
+  previewTitle: String,
+  previewUrl: String,
   shareCount: String,
   user: String
 });
