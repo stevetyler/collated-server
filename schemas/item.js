@@ -185,14 +185,14 @@ function getPreviewMeta(url) {
 
   return fetched.then(() => {
     console.log(client);
-    
+
     return {
       description: client.description,
       keywords: client.keywords,
       title: client.title,
       url: client.rootUrl
-      //return JSON.stringify(util.inspect(dataObj));
     };
+    //return JSON.stringify(util.inspect(dataObj)); for preview images, need to remove circular data
   }, err => {
     console.log(err);
   });
