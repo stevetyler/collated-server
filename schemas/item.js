@@ -84,7 +84,7 @@ itemSchema.methods.makeEmberItem = function() {
     user: this.user,
     userGroup: this.userGroup
   };
-  
+
   return emberItem;
 };
 
@@ -101,13 +101,7 @@ itemSchema.methods.getPreviewData = function(item) {
   }).then(obj => {
     // update item with metadata and path to screenshot
     console.log('preview meta obj', obj);
-
-    return {
-      description: obj.previewDescription,
-      keywords: obj.previewKeywords,
-      title: obj.previewTitle,
-      url: obj.previewUrl
-    };
+    return obj;
   });
 };
 
@@ -190,15 +184,15 @@ function getPreviewMeta(url) {
   client.fetch();
 
   return fetched.then(() => {
-    const previewObj = {
+    console.log(client);
+    
+    return {
       description: client.description,
       keywords: client.keywords,
       title: client.title,
-      previewUrl: client.rootUrl
+      url: client.rootUrl
       //return JSON.stringify(util.inspect(dataObj));
     };
-    console.log(previewObj);
-    return previewObj;
   }, err => {
     console.log(err);
   });
