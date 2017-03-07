@@ -1,31 +1,38 @@
 'use strict';
+const BPromise = require('bluebird');
+const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
-const Schema = mongoose.Schema;
+const unfurl = require('unfurl-url');
+const webshot = require('webshot');
 
 const categorySchema = require('../schemas/category.js');
 const Category = mongoose.model('Category', categorySchema);
+const Schema = mongoose.Schema;
 const tagSchema = require('../schemas/tag.js');
 const Tag = mongoose.model('Tag', tagSchema);
-
-const itemMetaSchema = new Schema({
-  clickCount: String,
-  item: String,
-  lastClickedDate: String,
-  lastSharedDate: String,
-  previewDescription: String,
-  previewKeywords: String,
-  previewTitle: String,
-  previewUrl: String,
-  shareCount: String,
-  user: String
-});
 
 const commentSchema = new Schema({
   body: String,
   createdDate: String,
   item: String,
   user: String
+});
+
+const metaSchema = new Schema({
+  clickCount: String,
+  item: String,
+  lastClickedDate: String,
+  lastSharedDate: String,
+  shareCount: String,
+});
+
+const previewSchema = new Schema({
+  item: String,
+  description: String,
+  keywords: String,
+  title: String,
+  url: String,
 });
 
 const itemSchema = new Schema({
@@ -36,7 +43,8 @@ const itemSchema = new Schema({
   comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
-  meta: [itemMetaSchema],
+  meta: metaSchema,
+  preview: previewSchema,
   slackTeamId: String,
   slackChannelId: String,
   tags: [String],
@@ -77,6 +85,29 @@ itemSchema.methods.makeEmberItem = function() {
     userGroup: this.userGroup
   };
   return emberItem;
+};
+
+itemSchema.methods.getPreviewData = function(item) {
+  let unfurledUrl;
+  const extractedUrl = extractUrl(item.body);
+
+  return unfurlUrl(extractedUrl).then(url => {
+    unfurledUrl = url;
+
+    return getPreviewScreenshot(url, item.user, item.id);
+  }).then(() => {
+    return getPreviewMeta(unfurledUrl);
+  }).then(obj => {
+    // update item with metadata and path to screenshot
+    console.log('preview meta obj', obj);
+
+    return {
+      description: obj.previewDescription,
+      keywords: obj.previewKeywords,
+      title: obj.previewTitle,
+      url: obj.previewUrl
+    };
+  });
 };
 
 itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
@@ -134,14 +165,57 @@ function findItemTags(textToSearch, categoryId) {
   });
 }
 
+function getPreviewScreenshot(url, userId, itemId) {
+  const pathToSave = 'images/' + userId + '/' + itemId + '-webshot' + '.png';
+  const getWebshot = BPromise.promisify(webshot);
+  console.log('getScreenshot called on ', url);
+
+  return getWebshot(url, pathToSave).then(() => {
+    console.log('image saved to' + ' ' + pathToSave);
+    return;
+  }).catch(err => {
+    console.log(err);
+    return;
+  });
+}
+
+function getPreviewMeta(url) {
+  const client = new MetaInspector(url, { timeout: 5000 });
+  const fetched = new Promise(function(resolve, reject) {
+    client.on('fetch', resolve);
+    client.on('error', reject);
+  });
+  console.log('get meta called');
+  client.fetch();
+
+  return fetched.then(() => {
+    const previewObj = {
+      description: client.description,
+      keywords: client.keywords,
+      title: client.title,
+      previewUrl: client.rootUrl
+      //return JSON.stringify(util.inspect(dataObj));
+    };
+    console.log(previewObj);
+    return previewObj;
+  }, err => {
+    console.log(err);
+  });
+}
+
+function extractUrl(text) {
+  let str = text ? text : '';
+  let urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+  let urls = str.match(urlRegex);
+
+  return urls ? urls[0] : null;
+}
+
+function unfurlUrl(url) {
+  const unfurlUrl = BPromise.promisify(unfurl.url);
+  console.log('unfurlUrl', url);
+
+  return url ? unfurlUrl(url) : null;
+}
+
 module.exports = itemSchema;
-
-
-// let tagsArrMatched = tags.filter(tag => {
-//   let searchArr = tag.keywords.concat(tag.name);
-//   let matchedSearch = searchArr.filter(name => {
-//     return text.indexOf(name) !== -1;
-//   });
-//   console.log(matchedSearch);
-//
-// });
