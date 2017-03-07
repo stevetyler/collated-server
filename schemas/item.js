@@ -88,7 +88,7 @@ itemSchema.methods.makeEmberItem = function() {
   return emberItem;
 };
 
-itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
+itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
   const text = textToSearch.toLowerCase();
   const query = options.userGroupId ? {userGroup: options.userGroupId} : {user: options.userId};
   const idsObj = {};
@@ -143,7 +143,7 @@ function findItemTags(textToSearch, categoryId) {
   });
 }
 
-itemSchema.methods.getPreviewData = function(item) {
+itemSchema.statics.getPreviewData = function(item) {
   let unfurledUrl;
   const extractedUrl = extractUrl(item.body);
 

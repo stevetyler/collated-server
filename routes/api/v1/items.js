@@ -3,8 +3,6 @@ const BPromise = require('bluebird');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
-const util = require('util');
-const webshot = require('webshot');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
@@ -502,8 +500,8 @@ function saveChromeItem(reqBody) {
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
 		Object.assign(options, {userId: user.id});
 		const textToSearch = urlArr[0].concat(titleArr[0]);
-		
-		return Item.assignCategoryAndTags(textToSearch, options);
+
+		return Item.getCategoryAndTags(textToSearch, options);
 	}).then(idsObj => {
 		console.log('tags to be assigned', idsObj);
 		return (typeof idsObj === 'object') ? Item.create({
@@ -553,7 +551,7 @@ function saveItem(body, user) {
 		userGroupId: group ? group : null
 	};
 
-	return Item.assignCategoryAndTags(body.item.body, options)
+	return Item.getCategoryAndTags(body.item.body, options)
 	.then(idsObj => {
 		Object.assign(item, idsObj);
 		console.log('new item to save', item);
@@ -602,7 +600,7 @@ function saveSlackItem(message, options) {
 	};
 	Object.assign(options, {slackChannelId: message.channel_id});
 
-	return Item.assignCategoryAndTags(message.text, options)
+	return Item.getCategoryAndTags(message.text, options)
 	.then(idsObj => {
 		Object.assign(newSlackItem, idsObj);
 		//console.log('new slack item to save', newSlackItem);
