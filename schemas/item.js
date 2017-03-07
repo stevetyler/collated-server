@@ -90,7 +90,7 @@ itemSchema.methods.makeEmberItem = function() {
 
 itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
   const text = textToSearch.toLowerCase();
-  const query = options.userGroupId ? {userGroup: options.userGroupId} : {user: options.userId};
+  const query = options.userGroup ? {userGroup: options.userGroup} : {user: options.user};
   const idsObj = {};
 
   return Category.find(query).then(categories => {
@@ -150,7 +150,7 @@ itemSchema.statics.getPreviewData = function(item) {
   return unfurlUrl(extractedUrl).then(url => {
     unfurledUrl = url;
 
-    return getPreviewScreenshot(url, item.user, item.id);
+    return getPreviewScreenshot(url, item.user, item._id);
   }).then(() => {
     return getPreviewMeta(unfurledUrl);
   }).then(obj => {

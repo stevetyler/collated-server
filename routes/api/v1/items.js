@@ -498,7 +498,7 @@ function saveChromeItem(reqBody) {
 	const options = {};
 
 	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
-		Object.assign(options, {userId: user.id});
+		Object.assign(options, {user: user.id});
 		const textToSearch = urlArr[0].concat(titleArr[0]);
 
 		return Item.getCategoryAndTags(textToSearch, options);
@@ -520,44 +520,39 @@ function saveChromeItem(reqBody) {
 
 // create item from Collated
 function postItemHandler(req, res) {
-	const body = req.body;
-	const user = req.user;
-
-	saveItem(body, user).then((emberItem) => {
-		res.send({'item': emberItem});
-		return;
-	}).catch(err => {
-		console.log(err);
-		res.status(404).end();
-		return;
-	});
-}
-
-function saveItem(body, user) {
-	const group = body.item.userGroup;
+	const bodyItem = req.body.item;
+	const userGroup = bodyItem.userGroup;
+	const idsObj = {
+		user: userGroup ? null : req.user.id,
+		userGroup: userGroup ? userGroup : null
+	};
 	const item = {
-		author: body.item.author,
-    body: body.item.body,
-		createdDate: body.item.createdDate,
+		author: bodyItem.author,
+		body: bodyItem.body,
+		createdDate: bodyItem.createdDate,
 		isPrivate: false,
-		title: body.item.title,
-		twitterTweetId: body.item.twitterTweetId,
-		type: body.item.type,
-		user: group ? null : user.id,
-		userGroup: group ? group : null
-  };
-	const options = {
-		userId: group ? null : user.id,
-		userGroupId: group ? group : null
+		title: bodyItem.title,
+		twitterTweetId: bodyItem.twitterTweetId,
+		type: bodyItem.type,
 	};
 
-	return Item.getCategoryAndTags(body.item.body, options)
-	.then(idsObj => {
-		Object.assign(item, idsObj);
-		console.log('new item to save', item);
-		return Item.create(item);
-	}).then(newItem => {
+	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
+		const newItem = Object.assign(item, idsObj, categoryIdsObj);
+		console.log('new item to create', newItem);
+
+		return Item.create(newItem);
+	}).then(savedItem => {
+		return Item.getPreviewData(savedItem);
+	})
+
+
+	.then(newItem => {
  		return newItem.makeEmberItem();
+	}).then(emberItem => {
+		return res.send({'item': emberItem});
+	}).catch(err => {
+		console.log(err);
+		return res.status(404).end();
 	});
 }
 
@@ -569,7 +564,7 @@ function postSlackItemsHandler(req, res) {
 	UserGroup.findOne({slackTeamId: slackTeamId})
 	.then(userGroup => {
 		const options = {
-			userGroupId: userGroup.id,
+			userGroup: userGroup.id,
 			categoryPerChannel: userGroup.categoryPerSlackChannel
 		};
 		const promiseArr = messagesArr.reduce((arr, message) => {
@@ -596,7 +591,7 @@ function saveSlackItem(message, options) {
 		slackTeamId: message.team_id,
 		slackUserId: message.user_id,
 		type: 'slack',
-		userGroup: options.userGroupId
+		userGroup: options.userGroup
 	};
 	Object.assign(options, {slackChannelId: message.channel_id});
 
