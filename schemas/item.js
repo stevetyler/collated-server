@@ -88,23 +88,6 @@ itemSchema.methods.makeEmberItem = function() {
   return emberItem;
 };
 
-itemSchema.methods.getPreviewData = function(item) {
-  let unfurledUrl;
-  const extractedUrl = extractUrl(item.body);
-
-  return unfurlUrl(extractedUrl).then(url => {
-    unfurledUrl = url;
-
-    return getPreviewScreenshot(url, item.user, item.id);
-  }).then(() => {
-    return getPreviewMeta(unfurledUrl);
-  }).then(obj => {
-    // update item with metadata and path to screenshot
-    console.log('preview meta obj', obj);
-    return obj;
-  });
-};
-
 itemSchema.statics.assignCategoryAndTags = function(textToSearch, options) {
   const text = textToSearch.toLowerCase();
   const query = options.userGroupId ? {userGroup: options.userGroupId} : {user: options.userId};
@@ -159,6 +142,23 @@ function findItemTags(textToSearch, categoryId) {
     }
   });
 }
+
+itemSchema.methods.getPreviewData = function(item) {
+  let unfurledUrl;
+  const extractedUrl = extractUrl(item.body);
+
+  return unfurlUrl(extractedUrl).then(url => {
+    unfurledUrl = url;
+
+    return getPreviewScreenshot(url, item.user, item.id);
+  }).then(() => {
+    return getPreviewMeta(unfurledUrl);
+  }).then(obj => {
+    // update item with metadata and path to screenshot
+    console.log('preview meta obj', obj);
+    return obj;
+  });
+};
 
 function getPreviewScreenshot(url, userId, itemId) {
   const pathToSave = 'images/' + userId + '/' + itemId + '-webshot' + '.png';
