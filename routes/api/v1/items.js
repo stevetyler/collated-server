@@ -22,7 +22,8 @@ const UserGroup = mongoose.model('UserGroup', userGroupSchema);
 module.exports.autoroute = {
 	get: {
 		'/items': getItems,
-		'/items/get-title': getTitle
+		'/items/get-title': getTitle,
+		'/items/get-preview': getItemPreviewHandler
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -57,6 +58,47 @@ function getItems(req, res) {
 			return res.status(404).end();
 	}
   return res.status(404).end();
+}
+
+function getTitle(req, res) {
+  const client = new MetaInspector(req.query.data, { timeout: 5000 });
+
+	client.on('fetch', function(){
+		if (client) {
+			var title = client.title;
+
+			return res.send(title);
+		}
+  });
+  client.on('error', function(err){
+		console.log(err);
+		return res.status('404').end();
+  });
+  client.fetch();
+}
+
+function getItemPreviewHandler(req, res) {
+	const item = req.query.item;
+	let itemId;
+
+	Item.findOne({_id: item.id}).then(item => {
+		itemId = item._id;
+		return Item.getPreviewData(item);
+	}).then(previewObj => {
+		return Item.update({_id: itemId}, {
+			$set: {
+				preview: previewObj
+			}
+		}, { new: true });
+	}).then(item => {
+		const emberItem = item.makeEmberItem();
+		console.log('emberItem with preview', emberItem);
+
+		return res.send({'items': emberItem});
+	}).catch(err => {
+		console.log(err);
+		return res.send();
+	});
 }
 
 function getUserItemsHandler(req, res) {
@@ -617,51 +659,8 @@ function makeUrlList(urlArr, titleArr) {
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
-function getTitle(req, res) {
-  const client = new MetaInspector(req.query.data, { timeout: 5000 });
-
-	client.on('fetch', function(){
-		if (client) {
-			var title = client.title;
-
-			return res.send(title);
-		}
-  });
-  client.on('error', function(err){
-		console.log(err);
-		return res.status('404').end();
-  });
-  client.fetch();
-}
 
 
-// function copyEmberItems(req, res) {
-// 	// copy ember items to slack team
-// 	return Item.find({user: 'stevetyler_uk', category: '5831be9314bdc60363409b95'}).then(items => {
-// 	  console.log('ember items found');
-// 	  let itemPromiseArr = items.map(item => {
-// 	    let newSlackItem = {
-// 				//category: '583354890885dcbe282927ed',
-// 	      userGroup: 'Ember-London',
-// 	      createdDate: item.createdDate,
-// 	      body: item.body,
-// 	      author: item.author,
-// 	  		isPrivate: false,
-// 				twitterTweetId: item.twitterTweetId,
-// 	  		type: item.type
-// 	    };
-// 	    console.log('save new ember item', newSlackItem);
-// 	    Item.create(newSlackItem);
-// 	  });
-// 	  return Promise.all(itemPromiseArr);
-// 	}).then(() => {
-// 		res.send({
-// 			items: ['success']
-// 		});
-// 	}).catch(err => {
-// 	  console.log(err);
-// 	});
-// }
 
 // update my items with new categories and update tags with new category
 // function updateMyItemsAndTagsHandler(req, res) {
@@ -762,20 +761,4 @@ function getTitle(req, res) {
 // 		}
 // 	});
 // 	return Promise.all(itemsPromiseArr);
-// }
-//
-// function updateItemTagsWithCategory(item) {
-// 	if (item && typeof item === 'object') {
-// 		console.log('item tags to be updated', item);
-// 		const tagsPromiseArr = item.tags.map(tagId => {
-//
-// 			return Tag.update({_id: tagId},
-// 				{$set: {
-// 					category: item.category
-// 					}
-// 				}
-// 			);
-// 		});
-// 		return Promise.all(tagsPromiseArr);
-// 	}
 // }

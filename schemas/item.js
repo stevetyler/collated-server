@@ -74,7 +74,23 @@ itemSchema.methods.makeEmberItem = function() {
     category: this.category,
     comments: comments,
     createdDate: this.createdDate,
+    itemMeta: {
+      id: this.itemMeta._id,
+      clickCount: this.itemMeta.clickCount,
+      item: this.preview.item,
+      lastClickedDate: this.preview.lastClickedDate,
+      lastSharedDate: this.itemMeta.lastSharedDate,
+      shareCount: this.itemMeta.switch.shareCount,
+    },
     isPrivate: this.isPrivate,
+    preview: {
+      id: this.preview._id,
+      item: this.preview.item,
+      description: this.preview.description,
+      keywords: this.preview.keywords,
+      title: this.preview.title,
+      url: this.preview.url
+    },
     slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId,
     tags: this.tags,
