@@ -19,20 +19,20 @@ const commentSchema = new Schema({
   user: String
 });
 
-const metaSchema = new Schema({
-  clickCount: String,
-  item: String,
-  lastClickedDate: String,
-  lastSharedDate: String,
-  shareCount: String,
-});
-
 const previewSchema = new Schema({
   item: String,
   description: String,
   keywords: String,
   title: String,
   url: String,
+});
+
+const itemMetaSchema = new Schema({
+  clickCount: String,
+  item: String,
+  lastClickedDate: String,
+  lastSharedDate: String,
+  shareCount: String,
 });
 
 const itemSchema = new Schema({
@@ -43,7 +43,7 @@ const itemSchema = new Schema({
   comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
-  meta: metaSchema,
+  meta: itemMetaSchema,
   preview: previewSchema,
   slackTeamId: String,
   slackChannelId: String,
