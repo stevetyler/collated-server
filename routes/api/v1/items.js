@@ -323,9 +323,7 @@ function postBookmarkItemsHandler(req, res) {
 	const moveFile = BPromise.promisify(req.files.file.mv);
 	const filename = req.files.file.name;
 	const userId = req.user.id;
-	let bookmarksArr;
-	let namesArrArr;
-	let categoryObjArr = [];
+	let bookmarksArr, namesArrArr, categoryObjArr = [];
 
 	if (!req.files) {
     res.send('No files were uploaded.');
@@ -334,11 +332,9 @@ function postBookmarkItemsHandler(req, res) {
   moveFile('./lib/data-import/bookmarks/' + filename).then(() => {
 		console.log('1 import file uploaded');
 		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
-
 		// add category to each tags array
 		namesArrArr = bookmarksArr.map(obj => obj.tags);
 		//const tagsArr = [].concat.apply([], tagsArrArr); // flatten array
-
 		const uniqNamesArrArr = mergeTagArrays(namesArrArr);
 		const categoryPromisesArr = uniqNamesArrArr.map(arr => {
 			return Category.findOne({ user: userId, name: arr[0]}).then(category => {
@@ -541,12 +537,7 @@ function postItemHandler(req, res) {
 		console.log('new item to create', newItem);
 
 		return Item.create(newItem);
-	}).then(savedItem => {
-		return Item.getPreviewData(savedItem);
-	})
-
-
-	.then(newItem => {
+	}).then(newItem => {
  		return newItem.makeEmberItem();
 	}).then(emberItem => {
 		return res.send({'item': emberItem});
