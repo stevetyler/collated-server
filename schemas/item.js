@@ -19,20 +19,20 @@ const commentSchema = new Schema({
   user: String
 });
 
-const previewSchema = new Schema({
-  item: String,
-  description: String,
-  keywords: String,
-  title: String,
-  url: String,
-});
-
 const itemMetaSchema = new Schema({
   clickCount: String,
   item: String,
   lastClickedDate: String,
   lastSharedDate: String,
   shareCount: String,
+});
+
+const previewSchema = new Schema({
+  item: String,
+  description: String,
+  keywords: String,
+  title: String,
+  url: String,
 });
 
 const itemSchema = new Schema({
@@ -67,6 +67,21 @@ itemSchema.methods.makeEmberItem = function() {
       user: comment.user
     };
   });
+  const itemMetaObj = {
+    id: this.itemMeta._id,
+    clickCount: this.itemMeta.clickCount,
+    item: this.itemMeta.item,
+    lastClickedDate: this.itemMeta.lastClickedDate,
+    lastSharedDate: this.itemMeta.lastSharedDate,
+    shareCount: this.itemMeta.shareCount,
+  };
+  const previewObj = {
+    item: this.preview.item,
+    description: this.preview.description,
+    keywords: this.preview.keywords,
+    title: this.preview.title,
+    url: this.preview.url,
+  };
   const emberItem = {
     id: this._id,
     author: this.author,
@@ -74,23 +89,9 @@ itemSchema.methods.makeEmberItem = function() {
     category: this.category,
     comments: comments,
     createdDate: this.createdDate,
-    itemMeta: {
-      id: this.itemMeta._id,
-      clickCount: this.itemMeta.clickCount,
-      item: this.preview.item,
-      lastClickedDate: this.preview.lastClickedDate,
-      lastSharedDate: this.itemMeta.lastSharedDate,
-      shareCount: this.itemMeta.switch.shareCount,
-    },
     isPrivate: this.isPrivate,
-    preview: {
-      id: this.preview._id,
-      item: this.preview.item,
-      description: this.preview.description,
-      keywords: this.preview.keywords,
-      title: this.preview.title,
-      url: this.preview.url
-    },
+    preview: previewObj,
+    itemMeta: itemMetaObj,
     slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId,
     tags: this.tags,
