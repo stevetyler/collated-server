@@ -66,22 +66,7 @@ itemSchema.methods.makeEmberItem = function() {
       user: comment.user
     };
   });
-  const itemMetaObj = {
-    id: this.itemMeta._id,
-    clickCount: this.itemMeta.clickCount,
-    item: this.itemMeta.item,
-    lastClickedDate: this.itemMeta.lastClickedDate,
-    lastSharedDate: this.itemMeta.lastSharedDate,
-    shareCount: this.itemMeta.shareCount
-  };
-  const itemPreviewObj = {
-    id: this.itemPreview._id,
-    item: this.itemPreview.item,
-    description: this.itemPreview.description,
-    keywords: this.itemPreview.keywords,
-    title: this.itemPreview.title,
-    url: this.itemPreview.url,
-  };
+
   const emberItem = {
     id: this._id,
     author: this.author,
@@ -90,8 +75,6 @@ itemSchema.methods.makeEmberItem = function() {
     comments: comments,
     createdDate: this.createdDate,
     isPrivate: this.isPrivate,
-    itemPreview: itemPreviewObj,
-    itemMeta: itemMetaObj,
     slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId,
     tags: this.tags,
@@ -101,6 +84,27 @@ itemSchema.methods.makeEmberItem = function() {
     user: this.user,
     userGroup: this.userGroup
   };
+
+  if (this.itemMeta) {
+    Object.assign(emberItem, {
+      id: this.itemMeta._id,
+      clickCount: this.itemMeta.clickCount,
+      item: this.itemMeta.item,
+      lastClickedDate: this.itemMeta.lastClickedDate,
+      lastSharedDate: this.itemMeta.lastSharedDate,
+      shareCount: this.itemMeta.shareCount,
+    });
+  }
+  if (this.itemPreview) {
+    Object.assign(emberItem, {
+      id: this.itemPreview._id,
+      description: this.itemPreview.description,
+      item: this.itemPreview.item,
+      keywords: this.itemPreview.keywords,
+      title: this.itemPreview.title,
+      url: this.itemPreview.url
+    });
+  }
 
   return emberItem;
 };
