@@ -57,6 +57,7 @@ const itemSchema = new Schema({
 itemSchema.plugin(mongoosePaginate);
 
 itemSchema.methods.makeEmberItem = function() {
+  console.log('emberItem', this);
   const comments = this.comments.map(function(comment) {
     return {
       id: comment._id,
@@ -85,24 +86,28 @@ itemSchema.methods.makeEmberItem = function() {
     userGroup: this.userGroup
   };
 
-  if (this.itemMeta) {
+  if (typeof this.itemMeta === 'object') {
     Object.assign(emberItem, {
-      id: this.itemMeta._id,
-      clickCount: this.itemMeta.clickCount,
-      item: this.itemMeta.item,
-      lastClickedDate: this.itemMeta.lastClickedDate,
-      lastSharedDate: this.itemMeta.lastSharedDate,
-      shareCount: this.itemMeta.shareCount,
+      itemMeta: {
+        id: this.itemMeta._id,
+        clickCount: this.itemMeta.clickCount,
+        item: this.itemMeta.item,
+        lastClickedDate: this.itemMeta.lastClickedDate,
+        lastSharedDate: this.itemMeta.lastSharedDate,
+        shareCount: this.itemMeta.shareCount
+      }
     });
   }
-  if (this.itemPreview) {
+  if (typeof this.itemPreview === 'object') {
     Object.assign(emberItem, {
-      id: this.itemPreview._id,
-      description: this.itemPreview.description,
-      item: this.itemPreview.item,
-      keywords: this.itemPreview.keywords,
-      title: this.itemPreview.title,
-      url: this.itemPreview.url
+      itemPreview: {
+        id: this.itemPreview._id,
+        description: this.itemPreview.description,
+        item: this.itemPreview.item,
+        keywords: this.itemPreview.keywords,
+        title: this.itemPreview.title,
+        url: this.itemPreview.url
+      }
     });
   }
 
