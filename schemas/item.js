@@ -171,7 +171,7 @@ itemSchema.statics.getPreviewData = function(item) {
   return unfurlUrl(extractedUrl).then(url => {
     unfurledUrl = url;
 
-    return getPreviewScreenshot(url, item.user, item._id);
+    return getPreviewScreenshot(url, item.user, item.id);
   }).then(() => {
     return getPreviewMeta(unfurledUrl);
   }).then(obj => {

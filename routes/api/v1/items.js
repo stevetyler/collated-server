@@ -79,18 +79,16 @@ function getTitle(req, res) {
 
 function getItemPreviewHandler(req, res) {
 	const item = req.query.item;
-	let itemId;
 
-	Item.findOne({_id: item.id}).then(item => {
-		itemId = item._id;
-		return Item.getPreviewData(item);
-	}).then(previewObj => {
-		return Item.update({_id: itemId}, {
+	return Item.getPreviewData(item).then(previewObj => {
+		console.log('preview obj received', previewObj);
+		return Item.findOneAndUpdate({_id: item.id}, {
 			$set: {
 				itemPreview: previewObj
 			}
 		}, { new: true });
 	}).then(item => {
+		console.log('item to make into emberItem', item);
 		const emberItem = item.makeEmberItem();
 		console.log('emberItem with preview', emberItem);
 
