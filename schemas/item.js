@@ -27,24 +27,23 @@ const itemMetaSchema = new Schema({
   shareCount: String,
 });
 
-const previewSchema = new Schema({
-  item: String,
+const itemPreviewSchema = new Schema({
   description: String,
+  item: String,
   keywords: String,
   title: String,
   url: String,
 });
 
 const itemSchema = new Schema({
-  //id: String,
   author: String,
   body: String,
   category: String,
   comments: [commentSchema],
   createdDate: Date,
   isPrivate: String,
-  meta: itemMetaSchema,
-  preview: previewSchema,
+  itemMeta: itemMetaSchema,
+  itemPreview: itemPreviewSchema,
   slackTeamId: String,
   slackChannelId: String,
   tags: [String],
@@ -73,14 +72,15 @@ itemSchema.methods.makeEmberItem = function() {
     item: this.itemMeta.item,
     lastClickedDate: this.itemMeta.lastClickedDate,
     lastSharedDate: this.itemMeta.lastSharedDate,
-    shareCount: this.itemMeta.shareCount,
+    shareCount: this.itemMeta.shareCount
   };
-  const previewObj = {
-    item: this.preview.item,
-    description: this.preview.description,
-    keywords: this.preview.keywords,
-    title: this.preview.title,
-    url: this.preview.url,
+  const itemPreviewObj = {
+    id: this.itemPreview._id,
+    item: this.itemPreview.item,
+    description: this.itemPreview.description,
+    keywords: this.itemPreview.keywords,
+    title: this.itemPreview.title,
+    url: this.itemPreview.url,
   };
   const emberItem = {
     id: this._id,
@@ -90,7 +90,7 @@ itemSchema.methods.makeEmberItem = function() {
     comments: comments,
     createdDate: this.createdDate,
     isPrivate: this.isPrivate,
-    preview: previewObj,
+    itemPreview: itemPreviewObj,
     itemMeta: itemMetaObj,
     slackChannelId: this.slackChannelId,
     slackTeamId: this.slackTeamId,
