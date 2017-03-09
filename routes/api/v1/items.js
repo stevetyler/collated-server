@@ -87,7 +87,7 @@ function getItemPreviewHandler(req, res) {
 	}).then(previewObj => {
 		return Item.update({_id: itemId}, {
 			$set: {
-				preview: previewObj
+				itemPreview: previewObj
 			}
 		}, { new: true });
 	}).then(item => {
@@ -569,6 +569,8 @@ function postItemHandler(req, res) {
 		body: bodyItem.body,
 		createdDate: bodyItem.createdDate,
 		isPrivate: false,
+		itemPreview: {},
+		itemMeta: {},
 		title: bodyItem.title,
 		twitterTweetId: bodyItem.twitterTweetId,
 		type: bodyItem.type,
