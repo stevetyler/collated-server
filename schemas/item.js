@@ -187,7 +187,7 @@ itemSchema.statics.getPreviewData = function(item) {
 };
 
 function getPreviewScreenshot(url, userId, itemId) {
-  const pathToSave = 'images/' + userId + '/' + itemId + '-webshot' + '.png';
+  const pathToSave = 'preview-images/' + userId + '/' + itemId + '-lrg' + '.png';
   const getWebshot = BPromise.promisify(webshot);
   console.log('getScreenshot called on ', url);
 
