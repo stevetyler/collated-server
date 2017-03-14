@@ -189,9 +189,12 @@ itemSchema.statics.getPreviewData = function(item) {
 function getPreviewScreenshot(url, userId, itemId) {
   const pathToSave = 'preview-images/' + userId + '/' + itemId + '-lrg' + '.png';
   const getWebshot = BPromise.promisify(webshot);
+  const options = {
+    cookies: null
+  };
   console.log('getScreenshot called on ', url);
 
-  return getWebshot(url, pathToSave).then(() => {
+  return getWebshot(url, pathToSave, options).then(() => {
     console.log('image saved to' + ' ' + pathToSave);
     return;
   }).catch(err => {
@@ -261,4 +264,16 @@ module.exports = itemSchema;
 //   console.log("Successfully uploaded data to " + params.Bucket + "/assets/images/preview/test" + params.Key, params.Body);
 // }).catch(function(err) {
 //   console.log(err);
+// });
+
+// const im = require('image-magick');
+
+// im.resize({
+//   srcPath: '/temp/id-.png',
+//   dstPath: 'kittens-small.jpg',
+//   width: 154, // sml // 308 lrg
+//   height: 115 // sml // 230 lrg
+// }, function(err, stdout, stderr){
+//   if (err) throw err;
+//   console.log('resized kittens.jpg to fit within 256x256px');
 // });
