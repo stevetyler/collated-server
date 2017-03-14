@@ -240,3 +240,25 @@ function unfurlUrl(url) {
 }
 
 module.exports = itemSchema;
+
+// var AWS = require('aws-sdk');
+// var bluebird = require('bluebird');
+//
+// AWS.config.setPromisesDependency(require('bluebird'));
+// // Create an S3 client
+// var s3 = new AWS.S3();
+// var bucketName = 'collated-assets/assets/images/preview/test';
+// var keyName = 'hello_world.txt';
+// var text = 'Hello World!';
+// var params = {
+//   Bucket: bucketName,
+//   Key: keyName,
+//   Body: text
+// };
+// var putObjectPromise = s3.putObject(params).promise();
+//
+// putObjectPromise.then(function(data) {
+//   console.log("Successfully uploaded data to " + params.Bucket + "/assets/images/preview/test" + params.Key, params.Body);
+// }).catch(function(err) {
+//   console.log(err);
+// });
