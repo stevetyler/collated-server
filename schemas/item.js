@@ -4,6 +4,7 @@ require('any-promise/register/bluebird');
 
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
+const gm = require('gm').subClass({imageMagick: true});
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -184,7 +185,8 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewScreenshot(url, item.user, item.id);
   }).then(() => {
-    // resize images for lrg, med , sml
+    return resizeImage(item);
+  }).then(() => {
     return uploadImageToS3(item);
     // delete temp image
   }).then(() => {
@@ -213,10 +215,23 @@ function getPreviewScreenshot(url, userId, itemId) {
   });
 }
 
+function resizeImage(item) {
+  // 400px lrg, 200px med, 100px sml
+  BPromise.promisifyAll(gm.prototype);
+  const tmpFolderPath = 'temp/previews/';
+  const srcPath = tmpFolderPath + item.id + '.png';
+  const dstPath = tmpFolderPath + item.id + '-lrg.png';
+
+  return gm(srcPath).resize(154, 115).noProfile().writeAsync(dstPath).then(() => {
+    console.log('resized successfully');
+  })
+  .catch(err => console.log(err));
+}
+
 function uploadImageToS3(item) {
   AWS.config.setPromisesDependency(BPromise);
   const s3 = new AWS.S3();
-  const fileName = item.id + '.png';
+  const fileName = item.id + '-lrg.png';
   const tmpFile = 'temp/previews/' + fileName;
   let bucketPath;
 
@@ -281,19 +296,3 @@ function unfurlUrl(url) {
 }
 
 module.exports = itemSchema;
-
-
-
-
-// const im = require('image-magick');
-
-// 400px lrg, 200px med, 100px sml
-// im.resize({
-//   srcPath: '/temp-images/id-.png',
-//   dstPath: 'kittens-small.jpg',
-//   width: 154, // sml // 308 lrg
-//   height: 115 // sml // 230 lrg
-// }, function(err, stdout, stderr){
-//   if (err) throw err;
-//   console.log('resized kittens.jpg to fit within 256x256px');
-// });
