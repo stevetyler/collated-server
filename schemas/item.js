@@ -217,7 +217,7 @@ function uploadImageToS3(item) {
   AWS.config.setPromisesDependency(BPromise);
   const s3 = new AWS.S3();
   const fileName = item.id + '.png';
-  const localPath = 'temp/previews/' + fileName;
+  const tmpFile = 'temp/previews/' + fileName;
   let bucketPath;
 
   if (process.env.NODE_ENV === 'production') {
@@ -226,7 +226,7 @@ function uploadImageToS3(item) {
     bucketPath = 'collated-assets/assets/images/previews/dev';
   }
 
-  return fs.readFile(localPath).then(data => {
+  return fs.readFile(tmpFile).then(data => {
     const params = {
       Bucket: bucketPath,
       Key: fileName,
@@ -236,7 +236,7 @@ function uploadImageToS3(item) {
 
     return s3.putObject(params).promise();
   }).then(function() {
-    console.log('Successfully uploaded data to ' + bucketPath + '/' + fileName);
+    return fs.unlink(tmpFile);
   }).catch(function(err) {
     console.log(err);
   });
