@@ -1,8 +1,13 @@
 'use strict';
-const BPromise = require('bluebird');
+
+require('any-promise/register/bluebird');
+
+const AWS = require('aws-sdk');
+const fs = require('fs');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
+const BPromise = require('any-promise');
 const unfurl = require('unfurl-url');
 const webshot = require('webshot');
 
@@ -205,9 +210,13 @@ function getPreviewScreenshot(url, userId, itemId) {
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
-  const fetched = new Promise(function(resolve, reject) {
-    client.on('fetch', resolve);
-    client.on('error', reject);
+  const fetched = new BPromise(function(resolve, reject) {
+    try {
+      client.on('fetch', resolve);
+    }
+    catch (err) {
+      client.on('error', reject);
+    }
   });
   console.log('get meta called');
   client.fetch();
@@ -244,30 +253,50 @@ function unfurlUrl(url) {
 
 module.exports = itemSchema;
 
-// var AWS = require('aws-sdk');
-// var bluebird = require('bluebird');
+
+function uploadImageToS3(filePath, item) {
+  AWS.config.setPromisesDependency(BPromise);
+  // Create an S3 client
+  var s3 = new AWS.S3();
+  var bucketName = 'collated-assets/assets/images/previews/';
+  var keyName = 'hello_world.txt';
+  var text = 'Hello World!';
+  var params = {
+    Bucket: bucketName,
+    Key: keyName,
+    Body: item.body
+  };
+  var putObjectPromise = s3.putObject(params).promise();
+
+  return putObjectPromise.then(function() {
+    console.log('Successfully uploaded data to ' + bucketName + '/assets/images/preview/test' + keyName, text);
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
+
+// Read in the file, convert it to base64, store to S3
+// fs.readFile('del.txt', function (err, data) {
+//   if (err) { throw err; }
 //
-// AWS.config.setPromisesDependency(require('bluebird'));
-// // Create an S3 client
-// var s3 = new AWS.S3();
-// var bucketName = 'collated-assets/assets/images/preview/test';
-// var keyName = 'hello_world.txt';
-// var text = 'Hello World!';
-// var params = {
-//   Bucket: bucketName,
-//   Key: keyName,
-//   Body: text
-// };
-// var putObjectPromise = s3.putObject(params).promise();
+//   var base64data = new Buffer(data, 'binary');
 //
-// putObjectPromise.then(function(data) {
-//   console.log("Successfully uploaded data to " + params.Bucket + "/assets/images/preview/test" + params.Key, params.Body);
-// }).catch(function(err) {
-//   console.log(err);
-// });
+//   var s3 = new AWS.S3();
+//   s3.client.putObject({
+//     Bucket: 'banners-adxs',
+//     Key: 'del2.txt',
+//     Body: base64data,
+//     ACL: 'public-read'
+//   },function (resp) {
+//     console.log(arguments);
+//     console.log('Successfully uploaded package.');
+//   });
+
+
 
 // const im = require('image-magick');
 
+// 400px lrg, 200px med, 100px sml
 // im.resize({
 //   srcPath: '/temp/id-.png',
 //   dstPath: 'kittens-small.jpg',
