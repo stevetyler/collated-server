@@ -3,7 +3,7 @@
 require('any-promise/register/bluebird');
 
 const AWS = require('aws-sdk');
-const fs = require('fs');
+const fs = require('fs-promise');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -174,6 +174,7 @@ function findItemTags(textToSearch, categoryId) {
   });
 }
 
+
 itemSchema.statics.getPreviewData = function(item) {
   let unfurledUrl;
   const extractedUrl = extractUrl(item.body);
@@ -183,16 +184,20 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewScreenshot(url, item.user, item.id);
   }).then(() => {
+    // resize images for lrg, med , sml
+    return uploadImageToS3(item);
+    // delete temp image
+  }).then(() => {
     return getPreviewMeta(unfurledUrl);
   }).then(obj => {
     // update item with metadata and path to screenshot
-    console.log('preview meta obj', obj);
+    console.log('preview meta obj to save', obj);
     return obj;
   });
 };
 
 function getPreviewScreenshot(url, userId, itemId) {
-  const pathToSave = 'preview-images/' + userId + '/' + itemId + '-lrg' + '.png';
+  const pathToSave = 'temp/previews/' + itemId + '.png';
   const getWebshot = BPromise.promisify(webshot);
   const options = {
     cookies: null
@@ -208,22 +213,46 @@ function getPreviewScreenshot(url, userId, itemId) {
   });
 }
 
+function uploadImageToS3(item) {
+  AWS.config.setPromisesDependency(BPromise);
+  const s3 = new AWS.S3();
+  const fileName = item.id + '.png';
+  const localPath = 'temp/previews/' + fileName;
+  let bucketPath;
+
+  if (process.env.NODE_ENV === 'production') {
+    bucketPath = 'collated-assets/assets/images/previews/';
+  } else {
+    bucketPath = 'collated-assets/assets/images/previews/dev';
+  }
+
+  return fs.readFile(localPath).then(data => {
+    const params = {
+      Bucket: bucketPath,
+      Key: fileName,
+      Body: data,
+      ACL: 'public-read'
+    };
+
+    return s3.putObject(params).promise();
+  }).then(function() {
+    console.log('Successfully uploaded data to ' + bucketPath + '/' + fileName);
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
+
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
   const fetched = new BPromise(function(resolve, reject) {
-    try {
-      client.on('fetch', resolve);
-    }
-    catch (err) {
-      client.on('error', reject);
-    }
+    client.on('fetch', resolve);
+    client.on('error', reject);
   });
   console.log('get meta called');
   client.fetch();
 
   return fetched.then(() => {
-    console.log(client);
-
+    //console.log(client);
     return {
       description: client.description,
       keywords: client.keywords,
@@ -254,51 +283,13 @@ function unfurlUrl(url) {
 module.exports = itemSchema;
 
 
-function uploadImageToS3(filePath, item) {
-  AWS.config.setPromisesDependency(BPromise);
-  // Create an S3 client
-  var s3 = new AWS.S3();
-  var bucketName = 'collated-assets/assets/images/previews/';
-  var keyName = 'hello_world.txt';
-  var text = 'Hello World!';
-  var params = {
-    Bucket: bucketName,
-    Key: keyName,
-    Body: item.body
-  };
-  var putObjectPromise = s3.putObject(params).promise();
-
-  return putObjectPromise.then(function() {
-    console.log('Successfully uploaded data to ' + bucketName + '/assets/images/preview/test' + keyName, text);
-  }).catch(function(err) {
-    console.log(err);
-  });
-}
-
-// Read in the file, convert it to base64, store to S3
-// fs.readFile('del.txt', function (err, data) {
-//   if (err) { throw err; }
-//
-//   var base64data = new Buffer(data, 'binary');
-//
-//   var s3 = new AWS.S3();
-//   s3.client.putObject({
-//     Bucket: 'banners-adxs',
-//     Key: 'del2.txt',
-//     Body: base64data,
-//     ACL: 'public-read'
-//   },function (resp) {
-//     console.log(arguments);
-//     console.log('Successfully uploaded package.');
-//   });
-
 
 
 // const im = require('image-magick');
 
 // 400px lrg, 200px med, 100px sml
 // im.resize({
-//   srcPath: '/temp/id-.png',
+//   srcPath: '/temp-images/id-.png',
 //   dstPath: 'kittens-small.jpg',
 //   width: 154, // sml // 308 lrg
 //   height: 115 // sml // 230 lrg
