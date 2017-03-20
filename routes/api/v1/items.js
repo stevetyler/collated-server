@@ -567,12 +567,11 @@ function postItemHandler(req, res) {
 		body: bodyItem.body,
 		createdDate: bodyItem.createdDate,
 		isPrivate: false,
-		// itemPreview: {},
-		// itemMeta: {},
 		title: bodyItem.title,
 		twitterTweetId: bodyItem.twitterTweetId,
 		type: bodyItem.type,
 	};
+	let itemId;
 
 	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
 		const newItem = Object.assign(item, idsObj, categoryIdsObj);
@@ -580,6 +579,17 @@ function postItemHandler(req, res) {
 
 		return Item.create(newItem);
 	}).then(newItem => {
+		itemId = newItem._id;
+		return Item.getPreviewData(newItem);
+	}).then(previewObj => {
+		console.log('preview obj received', previewObj);
+		return Item.findOneAndUpdate({_id: itemId}, {
+			$set: {
+				itemPreview: previewObj
+			}
+		}, { new: true });
+	}).then(newItem => {
+		console.log('newItem to make ember', newItem);
  		return newItem.makeEmberItem();
 	}).then(emberItem => {
 		return res.send({'item': emberItem});
