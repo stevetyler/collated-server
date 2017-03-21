@@ -205,9 +205,9 @@ itemSchema.statics.getPreviewData = function(item) {
     else {
       return takeWebshot(url, itemId);
     }
-  }).then(() => {
+  }).then(filepath => {
     console.log('image saved to temp');
-    return uploadImageToS3(filename);
+    return uploadImageToS3(filepath);
   }).then(() => {
     console.log('image saved to S3');
     return previewObj;
@@ -259,6 +259,7 @@ function unfurlUrl(url) {
 }
 
 function savePreviewImage(uri, itemId) {
+  const foldername = 'temp/previews/';
   let fileExt;
   let filename;
 
@@ -268,17 +269,19 @@ function savePreviewImage(uri, itemId) {
 
     return rp(uri, {encoding: null});
   }).then(data => {
-    filename = itemId + '-orig.' + fileExt;
+    filename = itemId + '.' + fileExt;
 
-    return fs.writeFile('temp/previews/' + filename, data);
+    return fs.writeFile(foldername + filename, data);
   }).then(() => {
-    console.log('file saved', filename);
-    return filename;
+    const filepath = foldername + filename;
+    console.log('file saved', filepath);
+    return filepath;
   });
 }
 
 function takeWebshot(url, itemId) {
-  const filepath = 'temp/previews/' + itemId + '.png';
+  const foldername = 'temp/previews/';
+  const filepath = foldername + itemId + '.png';
   const newWebshot = BPromise.promisify(webshot);
   const options = {
     cookies: null
@@ -296,6 +299,7 @@ function takeWebshot(url, itemId) {
 
 function uploadImageToS3(filepath) {
   const s3 = new AWS.S3();
+  const filename = filepath.split('/').pop();
   let bucketPath;
 
   if (process.env.NODE_ENV === 'production') {
@@ -307,7 +311,7 @@ function uploadImageToS3(filepath) {
   return fs.readFile(filepath).then(data => {
     const params = {
       Bucket: bucketPath,
-      Key: filepath.split('/').pop(),
+      Key: filename,
       Body: data,
       ACL: 'public-read'
     };
