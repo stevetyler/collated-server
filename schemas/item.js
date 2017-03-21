@@ -4,7 +4,7 @@ require('any-promise/register/bluebird');
 
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
-const imageMagick = require('gm').subClass({imageMagick: true});
+//const gm = require('gm').subClass({imageMagick: true});
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -185,72 +185,32 @@ function findItemTags(textToSearch, categoryId) {
 
 
 itemSchema.statics.getPreviewData = function(item) {
-  let unfurledUrl;
+  const extractedUrl = extractUrl(item.body);
+  const itemId = item._id || item.id;
+  let url;
   let previewObj;
 
-  const extractedUrl = extractUrl(item.body);
+  return unfurlUrl(extractedUrl).then(unfurledUrl => {
+    url = unfurledUrl;
 
-  return unfurlUrl(extractedUrl).then(url => {
-    unfurledUrl = url;
-
-    // TODO: if url is null mark item url as not found
-    return getPreviewMeta(unfurledUrl);
+    return getPreviewMeta(url);
   }).then(obj => {
     previewObj = obj;
-    // update item with metadata
-    //return saveImageToS3(item, previewObj.image);
+
+    if (previewObj.image) {
+      return savePreviewImage(url, itemId);
+    }
+    else {
+      return takeWebshot(url, itemId);
+    }
   }).then(() => {
-    console.log('preview meta obj to save', previewObj);
+    console.log('image saved to temp');
+    return uploadImageToS3(itemId);
+  }).then(() => {
+    console.log('image saved to S3');
     return previewObj;
   });
 };
-
-function saveExternalImage(uri) {
-  const download = function(uri, filename, callback) {
-    // rp.head(uri, function(err, res, body){
-    //   console.log('content-type:', res.headers['content-type']);
-    //   console.log('content-length:', res.headers['content-length']);
-    //
-    //   rp(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-    // });
-
-    rp.head(uri).then();
-  };
-
-  download('https://www.google.com/images/srpr/logo3w.png', 'temp/previews/' + 'filename', function(){
-    console.log('done');
-  });
-}
-
-function uploadImageToS3(item) {
-  AWS.config.setPromisesDependency(BPromise);
-  const s3 = new AWS.S3();
-
-  const fileName = item.id + '-lrg.png';
-  const tmpFile = 'temp/previews/' + fileName;
-  let bucketPath;
-
-  if (process.env.NODE_ENV === 'production') {
-    bucketPath = 'collated-assets/assets/images/previews/';
-  } else {
-    bucketPath = 'collated-assets/assets/images/previews/dev';
-  }
-
-  return fs.readFile(tmpFile).then(data => {
-    const params = {
-      Bucket: bucketPath,
-      Key: fileName,
-      Body: data,
-      ACL: 'public-read'
-    };
-
-    return s3.putObject(params).promise();
-  }).then(function() {
-    return fs.unlink(tmpFile);
-  }).catch(function(err) {
-    console.log(err);
-  });
-}
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -294,6 +254,70 @@ function unfurlUrl(url) {
   console.log('unfurlUrl', url);
 
   return url ? unfurlUrl(url) : null;
+}
+
+function savePreviewImage(uri, itemId) {
+  let fileExt;
+
+  rp.head(uri).then(res => {
+    console.log(res, res['content-type']);
+    fileExt = res['content-type'].split('/').pop();
+
+    return rp(uri, {encoding: null});
+  }).then(data => {
+    let filename = itemId + '-orig.' + fileExt;
+
+    return fs.writeFile('temp/previews/' + filename, data);
+  }).then(() => {
+    console.log('file saved');
+  });
+}
+
+function takeWebshot(url, itemId) {
+  const pathToSave = 'temp/previews/' + itemId + '.png';
+  const newWebshot = BPromise.promisify(webshot);
+  const options = {
+    cookies: null
+  };
+  console.log('getWebshot called on ', url);
+
+  return newWebshot(url, pathToSave, options).then(() => {
+    console.log('image saved to' + ' ' + pathToSave);
+    return;
+  }).catch(err => {
+    console.log(err);
+    return;
+  });
+}
+
+function uploadImageToS3(itemId) {
+  AWS.config.setPromisesDependency(BPromise);
+  const s3 = new AWS.S3();
+
+  const fileName = itemId + '-lrg.png';
+  const tmpFile = 'temp/previews/' + fileName;
+  let bucketPath;
+
+  if (process.env.NODE_ENV === 'production') {
+    bucketPath = 'collated-assets/assets/images/previews/';
+  } else {
+    bucketPath = 'collated-assets/assets/images/previews/dev';
+  }
+
+  return fs.readFile(tmpFile).then(data => {
+    const params = {
+      Bucket: bucketPath,
+      Key: fileName,
+      Body: data,
+      ACL: 'public-read'
+    };
+
+    return s3.putObject(params).promise();
+  }).then(function() {
+    return fs.unlink(tmpFile);
+  }).catch(function(err) {
+    console.log(err);
+  });
 }
 
 module.exports = itemSchema;
