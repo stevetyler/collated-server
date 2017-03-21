@@ -9,6 +9,7 @@ const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const BPromise = require('any-promise');
+const rp = require('request-promise');
 const unfurl = require('unfurl-url');
 const webshot = require('webshot');
 
@@ -185,6 +186,8 @@ function findItemTags(textToSearch, categoryId) {
 
 itemSchema.statics.getPreviewData = function(item) {
   let unfurledUrl;
+  let previewObj;
+
   const extractedUrl = extractUrl(item.body);
 
   return unfurlUrl(extractedUrl).then(url => {
@@ -193,11 +196,61 @@ itemSchema.statics.getPreviewData = function(item) {
     // TODO: if url is null mark item url as not found
     return getPreviewMeta(unfurledUrl);
   }).then(obj => {
+    previewObj = obj;
     // update item with metadata
-    console.log('preview meta obj to save', obj);
-    return obj;
+    //return saveImageToS3(item, previewObj.image);
+  }).then(() => {
+    console.log('preview meta obj to save', previewObj);
+    return previewObj;
   });
 };
+
+function saveExternalImage(uri) {
+  const download = function(uri, filename, callback) {
+    // rp.head(uri, function(err, res, body){
+    //   console.log('content-type:', res.headers['content-type']);
+    //   console.log('content-length:', res.headers['content-length']);
+    //
+    //   rp(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    // });
+
+    rp.head(uri).then();
+  };
+
+  download('https://www.google.com/images/srpr/logo3w.png', 'temp/previews/' + 'filename', function(){
+    console.log('done');
+  });
+}
+
+function uploadImageToS3(item) {
+  AWS.config.setPromisesDependency(BPromise);
+  const s3 = new AWS.S3();
+
+  const fileName = item.id + '-lrg.png';
+  const tmpFile = 'temp/previews/' + fileName;
+  let bucketPath;
+
+  if (process.env.NODE_ENV === 'production') {
+    bucketPath = 'collated-assets/assets/images/previews/';
+  } else {
+    bucketPath = 'collated-assets/assets/images/previews/dev';
+  }
+
+  return fs.readFile(tmpFile).then(data => {
+    const params = {
+      Bucket: bucketPath,
+      Key: fileName,
+      Body: data,
+      ACL: 'public-read'
+    };
+
+    return s3.putObject(params).promise();
+  }).then(function() {
+    return fs.unlink(tmpFile);
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -297,31 +350,3 @@ module.exports = itemSchema;
 //   .catch(err => console.log(err));
 // }
 //
-// function uploadImageToS3(item) {
-//   AWS.config.setPromisesDependency(BPromise);
-//   const s3 = new AWS.S3();
-//   const fileName = item.id + '-lrg.png';
-//   const tmpFile = 'temp/previews/' + fileName;
-//   let bucketPath;
-//
-//   if (process.env.NODE_ENV === 'production') {
-//     bucketPath = 'collated-assets/assets/images/previews/';
-//   } else {
-//     bucketPath = 'collated-assets/assets/images/previews/dev';
-//   }
-//
-//   return fs.readFile(tmpFile).then(data => {
-//     const params = {
-//       Bucket: bucketPath,
-//       Key: fileName,
-//       Body: data,
-//       ACL: 'public-read'
-//     };
-//
-//     return s3.putObject(params).promise();
-//   }).then(function() {
-//     return fs.unlink(tmpFile);
-//   }).catch(function(err) {
-//     console.log(err);
-//   });
-// }
