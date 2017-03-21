@@ -4,7 +4,7 @@ require('any-promise/register/bluebird');
 
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
-const imageMagick = require('gm').subClass({imageMagick: true});
+//const gm = require('gm').subClass({imageMagick: true});
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -65,6 +65,8 @@ const itemSchema = new Schema({
   user: String,
   userGroup: String
 });
+
+AWS.config.setPromisesDependency(BPromise);
 
 itemSchema.plugin(mongoosePaginate);
 
@@ -185,72 +187,32 @@ function findItemTags(textToSearch, categoryId) {
 
 
 itemSchema.statics.getPreviewData = function(item) {
-  let unfurledUrl;
+  const extractedUrl = extractUrl(item.body);
+  const itemId = item._id || item.id;
+  let url;
   let previewObj;
 
-  const extractedUrl = extractUrl(item.body);
+  return unfurlUrl(extractedUrl).then(unfurledUrl => {
+    url = unfurledUrl;
 
-  return unfurlUrl(extractedUrl).then(url => {
-    unfurledUrl = url;
-
-    // TODO: if url is null mark item url as not found
-    return getPreviewMeta(unfurledUrl);
+    return getPreviewMeta(url);
   }).then(obj => {
     previewObj = obj;
-    // update item with metadata
-    //return saveImageToS3(item, previewObj.image);
+
+    if (previewObj.image) {
+      return savePreviewImage(url, itemId);
+    }
+    else {
+      return takeWebshot(url, itemId);
+    }
   }).then(() => {
-    console.log('preview meta obj to save', previewObj);
+    console.log('image saved to temp');
+    return uploadImageToS3(filename);
+  }).then(() => {
+    console.log('image saved to S3');
     return previewObj;
   });
 };
-
-function saveExternalImage(uri) {
-  const download = function(uri, filename, callback) {
-    // rp.head(uri, function(err, res, body){
-    //   console.log('content-type:', res.headers['content-type']);
-    //   console.log('content-length:', res.headers['content-length']);
-    //
-    //   rp(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-    // });
-
-    rp.head(uri).then();
-  };
-
-  download('https://www.google.com/images/srpr/logo3w.png', 'temp/previews/' + 'filename', function(){
-    console.log('done');
-  });
-}
-
-function uploadImageToS3(item) {
-  AWS.config.setPromisesDependency(BPromise);
-  const s3 = new AWS.S3();
-
-  const fileName = item.id + '-lrg.png';
-  const tmpFile = 'temp/previews/' + fileName;
-  let bucketPath;
-
-  if (process.env.NODE_ENV === 'production') {
-    bucketPath = 'collated-assets/assets/images/previews/';
-  } else {
-    bucketPath = 'collated-assets/assets/images/previews/dev';
-  }
-
-  return fs.readFile(tmpFile).then(data => {
-    const params = {
-      Bucket: bucketPath,
-      Key: fileName,
-      Body: data,
-      ACL: 'public-read'
-    };
-
-    return s3.putObject(params).promise();
-  }).then(function() {
-    return fs.unlink(tmpFile);
-  }).catch(function(err) {
-    console.log(err);
-  });
-}
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -296,47 +258,72 @@ function unfurlUrl(url) {
   return url ? unfurlUrl(url) : null;
 }
 
+function savePreviewImage(uri, itemId) {
+  let fileExt;
+  let filename;
+
+  rp.head(uri).then(res => {
+    console.log(res, res['content-type']);
+    fileExt = res['content-type'].split('/').pop();
+
+    return rp(uri, {encoding: null});
+  }).then(data => {
+    filename = itemId + '-orig.' + fileExt;
+
+    return fs.writeFile('temp/previews/' + filename, data);
+  }).then(() => {
+    console.log('file saved', filename);
+    return filename;
+  });
+}
+
+function takeWebshot(url, itemId) {
+  const filepath = 'temp/previews/' + itemId + '.png';
+  const newWebshot = BPromise.promisify(webshot);
+  const options = {
+    cookies: null
+  };
+  console.log('getWebshot called on ', url);
+
+  return newWebshot(url, filepath, options).then(() => {
+    console.log('image saved to' + ' ' + filepath);
+    return filepath;
+  }).catch(err => {
+    console.log(err);
+    return;
+  });
+}
+
+function uploadImageToS3(filepath) {
+  const s3 = new AWS.S3();
+  let bucketPath;
+
+  if (process.env.NODE_ENV === 'production') {
+    bucketPath = 'collated-assets/assets/images/previews/';
+  } else {
+    bucketPath = 'collated-assets/assets/images/previews/dev';
+  }
+
+  return fs.readFile(filepath).then(data => {
+    const params = {
+      Bucket: bucketPath,
+      Key: filepath.split('/').pop(),
+      Body: data,
+      ACL: 'public-read'
+    };
+
+    return s3.putObject(params).promise();
+  }).then(function() {
+    return fs.unlink(filepath);
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
+
 module.exports = itemSchema;
 
-// itemSchema.statics.getPreviewData = function(item) {
-//   let unfurledUrl;
-//   const extractedUrl = extractUrl(item.body);
-//
-//   return unfurlUrl(extractedUrl).then(url => {
-//     unfurledUrl = url;
-//
-//     return getPreviewScreenshot(url, item.user, item.id);
-//   }).then(() => {
-//     return resizeImage(item);
-//   }).then(() => {
-//     return uploadImageToS3(item);
-//     // delete temp image
-//   }).then(() => {
-//     return getPreviewMeta(unfurledUrl);
-//   }).then(obj => {
-//     // update item with metadata
-//     console.log('preview meta obj to save', obj);
-//     return obj;
-//   });
-// };
 
-// function getPreviewScreenshot(url, userId, itemId) {
-//   const pathToSave = 'temp/previews/' + itemId + '.png';
-//   const getWebshot = BPromise.promisify(webshot);
-//   const options = {
-//     cookies: null
-//   };
-//   console.log('getScreenshot called on ', url);
-//
-//   return getWebshot(url, pathToSave, options).then(() => {
-//     console.log('image saved to' + ' ' + pathToSave);
-//     return;
-//   }).catch(err => {
-//     console.log(err);
-//     return;
-//   });
-// }
-//
+
 // function resizeImage(item) {
 //   // 400px lrg, 200px med, 100px sml
 //   BPromise.promisifyAll(imageMagick.prototype);
