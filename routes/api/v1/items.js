@@ -88,9 +88,9 @@ function getItemPreviewHandler(req, res) {
 			}
 		}, { new: true });
 	}).then(item => {
-		console.log('item to make into emberItem', item);
+		//console.log('item to make into emberItem', item);
 		const emberItem = item.makeEmberItem();
-		console.log('emberItem with preview', emberItem);
+		//console.log('emberItem with preview', emberItem);
 
 		return res.send({'items': emberItem});
 	}).catch(err => {

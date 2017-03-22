@@ -1,7 +1,6 @@
 'use strict';
 
 require('any-promise/register/bluebird');
-
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
 //const gm = require('gm').subClass({imageMagick: true});
@@ -71,7 +70,6 @@ AWS.config.setPromisesDependency(BPromise);
 itemSchema.plugin(mongoosePaginate);
 
 itemSchema.methods.makeEmberItem = function() {
-  console.log('emberItem', this);
   const comments = this.comments.map(function(comment) {
     return {
       id: comment._id,
@@ -198,17 +196,22 @@ itemSchema.statics.getPreviewData = function(item) {
     return getPreviewMeta(url);
   }).then(obj => {
     previewObj = obj;
+    const imageUrl = previewObj.image;
 
-    if (previewObj.image) {
-      return savePreviewImage(url, itemId);
+    if (imageUrl) {
+      console.log('save preview called', imageUrl, itemId);
+      return savePreviewImage(imageUrl, itemId);
     }
     else {
+      console.log('take webshot called');
       return takeWebshot(url, itemId);
     }
-  }).then(filepath => {
-    console.log('image saved to temp');
+  })
+  .then(filepath => {
+    console.log('image saved to temp', filepath);
     return uploadImageToS3(filepath);
-  }).then(() => {
+  })
+  .then(() => {
     console.log('image saved to S3');
     return previewObj;
   });
@@ -258,29 +261,29 @@ function unfurlUrl(url) {
   return url ? unfurlUrl(url) : null;
 }
 
-function savePreviewImage(uri, itemId) {
-  const foldername = 'temp/previews/';
+function savePreviewImage(imageUrl, itemId) {
+  const foldername = 'temp/';
   let fileExt;
   let filename;
 
-  rp.head(uri).then(res => {
-    console.log(res, res['content-type']);
+  return rp.head(imageUrl).then(res => {
+    //console.log(res, res['content-type']);
     fileExt = res['content-type'].split('/').pop();
 
-    return rp(uri, {encoding: null});
+    return rp(imageUrl, {encoding: null});
   }).then(data => {
     filename = itemId + '.' + fileExt;
-
+    //console.log('writing file to ', foldername + filename);
     return fs.writeFile(foldername + filename, data);
   }).then(() => {
     const filepath = foldername + filename;
-    console.log('file saved', filepath);
+    //console.log('file saved', filepath);
     return filepath;
   });
 }
 
 function takeWebshot(url, itemId) {
-  const foldername = 'temp/previews/';
+  const foldername = 'temp/';
   const filepath = foldername + itemId + '.png';
   const newWebshot = BPromise.promisify(webshot);
   const options = {
