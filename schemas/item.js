@@ -287,6 +287,8 @@ function takeWebshot(url, itemId) {
   const filepath = foldername + itemId + '.png';
   const newWebshot = BPromise.promisify(webshot);
   const options = {
+    width: 600,
+    height: 450,
     cookies: null
   };
   console.log('getWebshot called on ', url);
