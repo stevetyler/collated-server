@@ -650,25 +650,26 @@ function saveSlackItem(message, options) {
 
 function deleteItems(req, res) {
 	let bucketPath;
+	let fileType;
 
-	// if (process.env.NODE_ENV === 'production') {
-	// 	bucketPath = 'collated-assets/assets/images/previews/';
-	// } else {
-	// 	bucketPath = 'collated-assets/assets/images/previews/dev';
-	// }
-	Item.remove({ _id: req.params.id }).then(() => {
+	if (process.env.NODE_ENV === 'production') {
+		bucketPath = 'collated-assets/assets/images/previews/';
+	} else {
+		bucketPath = 'collated-assets/assets/images/previews/dev';
+	}
+
+	Item.findOne({_id: req.params.id}).then(item => {
+		fileType = item.itemPreview.imageType;
+
+		return Item.remove({ _id: item._id });
+	}).then(() => {
 		const s3 = new AWS.S3();
 		const params = {
-      Bucket: 'collated-assets/assets/images/previews/dev/',
-			//Prefix: '/assets/images/previews/dev/',
-      Key: req.params.id + '.jpeg'
+      Bucket: bucketPath,
+      Key: req.params.id + '.' + fileType
     };
-		console.log('params', params);
+		
 		return s3.deleteObject(params).promise();
-	}).then(obj =>  {
-		console.log(obj);
-		//const s3 = new AWS.S3();
-    //return s3.deleteObject(params).promise();
 	}).then(() => {
     return res.send({});
   }).then(null, function(err) {
