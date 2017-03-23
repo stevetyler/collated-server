@@ -36,6 +36,7 @@ const itemMetaSchema = new Schema({
 const itemPreviewSchema = new Schema({
   description: String,
   image: String,
+  imageType: String,
   item: String,
   keywords: String,
   title: String,
@@ -116,6 +117,7 @@ itemSchema.methods.makeEmberItem = function() {
         id: this.itemPreview._id,
         description: this.itemPreview.description,
         image: this.itemPreview.image,
+        imageType: this.itemPreview.imageType,
         item: this.itemPreview.item,
         keywords: this.itemPreview.keywords,
         rootUrl: this.itemPreview.rootUrl,
@@ -189,6 +191,7 @@ itemSchema.statics.getPreviewData = function(item) {
   const itemId = item._id || item.id;
   let url;
   let previewObj;
+  let fileExt;
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
     url = unfurledUrl;
@@ -208,12 +211,15 @@ itemSchema.statics.getPreviewData = function(item) {
     }
   })
   .then(filepath => {
+    fileExt = filepath.split('/').pop().split('.').pop();
+
     console.log('image saved to temp', filepath);
     return uploadImageToS3(filepath);
   })
   .then(() => {
     console.log('image saved to S3');
-    return previewObj;
+    console.log('preview object to return', previewObj);
+    return Object.assign(previewObj, {imageType: fileExt});
   });
 };
 
