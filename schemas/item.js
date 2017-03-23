@@ -3,11 +3,12 @@
 require('any-promise/register/bluebird');
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
-//const gm = require('gm').subClass({imageMagick: true});
+const gm = require('gm').subClass({imageMagick: true});
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const BPromise = require('any-promise');
+BPromise.promisifyAll(gm.prototype);
 const rp = require('request-promise');
 const unfurl = require('unfurl-url');
 const webshot = require('webshot');
@@ -185,13 +186,11 @@ function findItemTags(textToSearch, categoryId) {
   });
 }
 
-
 itemSchema.statics.getPreviewData = function(item) {
+  let url, previewObj, fileExt;
   const extractedUrl = extractUrl(item.body);
   const itemId = item._id || item.id;
-  let url;
-  let previewObj;
-  let fileExt;
+  const folder = 'temp/';
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
     url = unfurledUrl;
@@ -210,11 +209,20 @@ itemSchema.statics.getPreviewData = function(item) {
       return takeWebshot(url, itemId);
     }
   })
-  .then(filepath => {
-    fileExt = filepath.split('/').pop().split('.').pop();
+  .then(filename => {
+    fileExt = filename.split('.').pop();
 
-    console.log('image saved to temp', filepath);
-    return uploadImageToS3(filepath);
+    return resizeImage(folder, filename, 308);
+  })
+  .then(filename => {
+    console.log('image saved ' + folder + filename);
+
+    return uploadImageToS3(folder, filename);
+  })
+  .then(filename => {
+    const filepath = folder + filename;
+
+    return fs.unlink(filepath);
   })
   .then(() => {
     console.log('image saved to S3');
@@ -282,15 +290,14 @@ function savePreviewImage(imageUrl, itemId) {
     //console.log('writing file to ', foldername + filename);
     return fs.writeFile(foldername + filename, data);
   }).then(() => {
-    const filepath = foldername + filename;
-    //console.log('file saved', filepath);
-    return filepath;
+    return filename;
   });
 }
 
 function takeWebshot(url, itemId) {
-  const foldername = 'temp/';
-  const filepath = foldername + itemId + '.png';
+  const tempFolder = 'temp/';
+  const filename = itemId + '.png';
+  const filepath = tempFolder + filename;
   const newWebshot = BPromise.promisify(webshot);
   const options = {
     width: 600,
@@ -301,16 +308,29 @@ function takeWebshot(url, itemId) {
 
   return newWebshot(url, filepath, options).then(() => {
     console.log('image saved to' + ' ' + filepath);
-    return filepath;
+    return filename;
   }).catch(err => {
     console.log(err);
     return;
   });
 }
 
-function uploadImageToS3(filepath) {
+function resizeImage(folder, filename, width) {
+  // [308, 230], [154, 115]
+  let ext = filename.split('.').pop();
+  const newFilename = filename.split('.')[0] + '-' + width + '.' + ext;
+  const srcPath = folder + filename;
+  const dstPath = folder + newFilename;
+
+  return gm(srcPath).resize(width).noProfile().writeAsync(dstPath).then(() => {
+    console.log('resized successfully');
+    return newFilename;
+  })
+  .catch(err => console.log(err));
+}
+
+function uploadImageToS3(folder, filename) {
   const s3 = new AWS.S3();
-  const filename = filepath.split('/').pop();
   let bucketPath;
 
   if (process.env.NODE_ENV === 'production') {
@@ -319,7 +339,7 @@ function uploadImageToS3(filepath) {
     bucketPath = 'collated-assets/assets/images/previews/dev';
   }
 
-  return fs.readFile(filepath).then(data => {
+  return fs.readFile(folder + filename).then(data => {
     const params = {
       Bucket: bucketPath,
       Key: filename,
@@ -328,27 +348,11 @@ function uploadImageToS3(filepath) {
     };
 
     return s3.putObject(params).promise();
-  }).then(function() {
-    return fs.unlink(filepath);
+  }).then(() => {
+    return filename;
   }).catch(function(err) {
     console.log(err);
   });
 }
 
 module.exports = itemSchema;
-
-
-
-// function resizeImage(item) {
-//   // 400px lrg, 200px med, 100px sml
-//   BPromise.promisifyAll(imageMagick.prototype);
-//   const tmpFolderPath = 'temp/previews/';
-//   const srcPath = tmpFolderPath + item.id + '.png';
-//   const dstPath = tmpFolderPath + item.id + '-lrg.png';
-//
-//   return imageMagick(srcPath).resize(154, 115).noProfile().writeAsync(dstPath).then(() => {
-//     console.log('resized successfully');
-//   })
-//   .catch(err => console.log(err));
-// }
-//
