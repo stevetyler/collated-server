@@ -659,7 +659,12 @@ function deleteItems(req, res) {
 	}
 
 	Item.findOne({_id: req.params.id}).then(item => {
-		fileType = item.itemPreview.imageType;
+		try {
+			fileType = item.itemPreview.imageType;
+		}
+		catch (err) {
+			//console.log(err);
+		}
 
 		return Item.remove({ _id: item._id });
 	}).then(() => {
@@ -668,7 +673,7 @@ function deleteItems(req, res) {
       Bucket: bucketPath,
       Key: req.params.id + '.' + fileType
     };
-		
+
 		return s3.deleteObject(params).promise();
 	}).then(() => {
     return res.send({});
