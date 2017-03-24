@@ -191,6 +191,7 @@ itemSchema.statics.getPreviewData = function(item) {
   const extractedUrl = extractUrl(item.body);
   const itemId = item._id || item.id;
   const folder = 'temp/';
+  const filenameArr = [];
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
     url = unfurledUrl;
@@ -200,33 +201,39 @@ itemSchema.statics.getPreviewData = function(item) {
     previewObj = obj;
     const imageUrl = previewObj.image;
 
-    if (imageUrl) {
-      console.log('save preview called', imageUrl, itemId);
-      return savePreviewImage(imageUrl, itemId);
-    }
-    else {
-      console.log('take webshot called');
-      return takeWebshot(url, itemId);
-    }
+    return imageUrl ? savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
     fileExt = filename.split('.').pop();
+    filenameArr.push(filename);
 
-    return resizeImage(folder, filename, 308);
+    return Promise.all([
+      resizeImage(folder, filename, 126, 'sml'),
+      resizeImage(folder, filename, 252, 'med'),
+      resizeImage(folder, filename, 504, 'lrg')
+    ]);
   })
-  .then(filename => {
-    console.log('image saved ' + folder + filename);
+  .then(arr => {
+    const filesArr = arr;
+    const filenamePromises = filesArr.map(filename => {
+      //console.log('image saved ' + folder + filename);
+      return uploadImageToS3(folder, filename);
+    });
 
-    return uploadImageToS3(folder, filename);
+    return Promise.all(filenamePromises);
   })
-  .then(filename => {
-    const filepath = folder + filename;
+  .then(arr => {
+    const tempfilesArr = filenameArr.concat(arr);
+    const promisesArr = tempfilesArr.map(filename => {
+      const filepath = folder + filename;
 
-    return fs.unlink(filepath);
+      return fs.unlink(filepath);
+    });
+
+    return Promise.all(promisesArr);
   })
   .then(() => {
-    console.log('image saved to S3');
-    console.log('preview object to return', previewObj);
+    //console.log('preview object to return', previewObj);
     return Object.assign(previewObj, {imageType: fileExt});
   });
 };
@@ -237,7 +244,7 @@ function getPreviewMeta(url) {
     client.on('fetch', resolve);
     client.on('error', reject);
   });
-  console.log('get meta called');
+
   client.fetch();
 
   return fetched.then(() => {
@@ -254,7 +261,6 @@ function getPreviewMeta(url) {
       ogUpdatedTime: client.ogUpdatedTime,
       ogLocale: client.ogLocale
     };
-    //return JSON.stringify(util.inspect(dataObj)); for preview images, need to remove circular data
   }, err => {
     console.log(err);
   });
@@ -270,7 +276,7 @@ function extractUrl(text) {
 
 function unfurlUrl(url) {
   const unfurlUrl = BPromise.promisify(unfurl.url);
-  console.log('unfurlUrl', url);
+  //console.log('unfurlUrl', url);
 
   return url ? unfurlUrl(url) : null;
 }
@@ -315,15 +321,14 @@ function takeWebshot(url, itemId) {
   });
 }
 
-function resizeImage(folder, filename, width) {
-  // [308, 230], [154, 115]
-  let ext = filename.split('.').pop();
-  const newFilename = filename.split('.')[0] + '-' + width + '.' + ext;
+function resizeImage(folder, filename, width, sizename) {
+  const ext = filename.split('.').pop();
+  const newFilename = filename.split('.')[0] + '-' + sizename + '.' + ext;
   const srcPath = folder + filename;
   const dstPath = folder + newFilename;
 
   return gm(srcPath).resize(width).noProfile().writeAsync(dstPath).then(() => {
-    console.log('resized successfully');
+    //console.log('resized successfully');
     return newFilename;
   })
   .catch(err => console.log(err));
