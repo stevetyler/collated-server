@@ -584,14 +584,14 @@ function postItemHandler(req, res) {
 		itemId = newItem._id;
 		return Item.getPreviewData(newItem);
 	}).then(previewObj => {
-		console.log('preview obj received', previewObj);
+		//console.log('preview obj received', previewObj);
 		return Item.findOneAndUpdate({_id: itemId}, {
 			$set: {
 				itemPreview: previewObj
 			}
 		}, { new: true });
 	}).then(newItem => {
-		console.log('newItem to make ember', newItem);
+		//console.log('newItem to make ember', newItem);
  		return newItem.makeEmberItem();
 	}).then(emberItem => {
 		return res.send({'item': emberItem});
@@ -649,13 +649,13 @@ function saveSlackItem(message, options) {
 }
 
 function deleteItems(req, res) {
-	let bucketPath;
+	let s3folder;
 	let fileType;
 
 	if (process.env.NODE_ENV === 'production') {
-		bucketPath = 'collated-assets/assets/images/previews/';
+		s3folder = 'assets/images/previews/';
 	} else {
-		bucketPath = 'collated-assets/assets/images/previews/dev';
+		s3folder = 'assets/images/previews/dev/';
 	}
 
 	Item.findOne({_id: req.params.id}).then(item => {
@@ -670,11 +670,17 @@ function deleteItems(req, res) {
 	}).then(() => {
 		const s3 = new AWS.S3();
 		const params = {
-      Bucket: bucketPath,
-      Key: req.params.id + '.' + fileType
+      Bucket: 'collated-assets',
+			Delete: {
+				Objects: [
+					{ Key: s3folder + req.params.id + '-sml.' + fileType },
+					{	Key: s3folder + req.params.id + '-med.' + fileType },
+					{	Key: s3folder + req.params.id + '-lrg.' + fileType }
+				]
+			}
     };
 
-		return s3.deleteObject(params).promise();
+		return s3.deleteObjects(params).promise();
 	}).then(() => {
     return res.send({});
   }).then(null, function(err) {
