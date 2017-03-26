@@ -25,7 +25,8 @@ module.exports.autoroute = {
 	get: {
 		'/items': getItems,
 		'/items/get-title': getTitle,
-		'/items/get-preview': getItemPreviewHandler
+		'/items/get-preview': getItemPreviewHandler,
+		'/items/get-user-previews': getItemsPreviewHandler
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -98,6 +99,21 @@ function getItemPreviewHandler(req, res) {
 	}).catch(err => {
 		console.log(err);
 		return res.send();
+	});
+}
+
+function getItemsPreviewHandler(req, res) {
+	console.log('query', req.query);
+	const user = req.query.user;
+	const category = req.query.category;
+
+	return Category.find({user: user, name: category}).then(category => {
+		return Item.find({user: user, category: category._id}).then(items => {
+			const itemPromises = items.map(item => {
+				return Item.getPreviewData(item);
+			});
+			return Promise.all(itemPromises);
+		});
 	});
 }
 
@@ -702,107 +718,3 @@ function makeUrlList(urlArr, titleArr) {
 	}, '');
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
-
-
-
-
-// update my items with new categories and update tags with new category
-// function updateMyItemsAndTagsHandler(req, res) {
-// 	console.log('update my items called');
-// 	updateMyItemsAndTags().then(() => {
-// 		res.send({items: []});
-// 	})
-// 	.catch(err => {
-// 		console.log(err);
-// 		res.status(401).end();
-// 	});
-// }
-//
-// function updateMyItemsAndTags() {
-// 	const dataObj = {};
-//
-// 	return Tag.find({user: 'stevetyler_uk'}).then(tags => {
-// 		Object.assign(dataObj, {tags: tags});
-// 		const unassignedTagArr = tags.filter(tag => {
-// 			return tag.name === 'unassigned';
-// 		});
-// 		Object.assign(dataObj, {unassignedId: unassignedTagArr[0]._id});
-// 		makeCategoriesFromTags(tags);
-// 	}).then(() => {
-// 		return Category.find({user: 'stevetyler_uk'});
-// 	}).then(categories => {
-// 		Object.assign(dataObj, {categories: categories});
-// 		return Item.find({user: 'stevetyler_uk'});
-// 	}).then(items => {
-// 		return updateItemsWithCategories(dataObj, items);
-// 	}).then(() => {
-// 		return Item.find({user: 'stevetyler_uk'});
-// 	}).then(updatedItems => {
-// 		console.log('4 update item tags', updatedItems.length);
-// 		if (Array.isArray(updatedItems) && updatedItems.length > 0) {
-// 			const itemsTagsPromiseArr = updatedItems.forEach(item => {
-// 				if (item.category) {
-// 					return updateItemTagsWithCategory(item);
-// 				}
-// 			});
-// 			Promise.all(itemsTagsPromiseArr);
-// 		}
-// 	});
-// }
-//
-// function makeCategoriesFromTags(tags) {
-// 	console.log('makeCategories called');
-// 	const categoryTagsArr = tags.filter(tag => {
-// 		return tag.colour !== 'cp-colour-1';
-// 	});
-// 	const categoryPromiseArr = categoryTagsArr.map(tag => {
-// 		return Category.create({
-// 			colour: tag.colour,
-// 			isPrivate: tag.isPrivate,
-// 			name: tag.name,
-// 			user: tag.user
-// 		});
-// 	});
-//
-// 	return Promise.all(categoryPromiseArr);
-// }
-//
-// function updateItemsWithCategories(dataObj, items) {
-// 	console.log('update item with categories', dataObj.categories, items.length);
-// 	const filteredItems = items.filter(item => {
-// 		return item.tags.indexOf(dataObj.unassignedId) === -1;
-// 	});
-//
-// 	const itemsPromiseArr = filteredItems.map(item => {
-// 		let categoryArr = [];
-// 		const primaryTagId = item.tags[0];
-// 		console.log('primaryTagId', primaryTagId, 'dataObj.tags', dataObj.tags.length);
-// 		const primaryTagArr = dataObj.tags.filter(tag => {
-// 			return tag._id == primaryTagId;
-// 		});
-//
-// 		if (primaryTagArr.length) {
-// 			console.log('primaryTag found', primaryTagArr, 'categories', dataObj.categories.length);
-// 			categoryArr = dataObj.categories.filter(category => {
-// 				console.log('category name to filter', category.name, primaryTagArr[0].name);
-// 				return category.name === primaryTagArr[0].name;
-// 			});
-// 			console.log('category found', categoryArr);
-// 		}
-//
-// 		if (categoryArr.length && categoryArr[0]) {
-// 			const categoryId = categoryArr[0]._id;
-// 			const newTags = item.tags;
-// 			newTags.shift();
-// 			console.log('new tags to apply to item', item);
-// 			return Item.update({_id: item._id},
-// 				{$set: {
-// 					category: categoryId,
-// 					tags: newTags
-// 					}
-// 				}
-// 			);
-// 		}
-// 	});
-// 	return Promise.all(itemsPromiseArr);
-// }
