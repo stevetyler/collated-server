@@ -10,6 +10,7 @@ const ensureAuthenticated = require('../../../middlewares/ensure-authenticated')
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const categorySchema = require('../../../schemas/category.js');
+const extractUrl = require('../../../lib/utilities/extractUrl.js');
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
@@ -105,21 +106,25 @@ function getItemPreviewHandler(req, res) {
 function getItemsPreviewHandler(req, res) {
 	const userId = req.query.user;
 	const categoryname = req.query.category;
-	console.log('get item preview called', userId, categoryname);
 
 	Category.findOne({'name': categoryname, 'user': userId}).then(category => {
-		console.log('category found', category._id);
 		return Item.find({user: userId, category: category._id});
 	}).then(items => {
 		console.log('items found', items);
 		const itemPromises = items.map(item => {
-			return Item.getPreviewData(item).then(previewObj => {
-				return Item.findOneAndUpdate({_id: item.id}, {
-					$set: {
-						itemPreview: previewObj
-					}
-				}, { new: true });
-			});
+			const url = extractUrl(item.body);
+
+			if (url && !item.itemPreview) {
+				return Item.getPreviewData(item).then(previewObj => {
+					return Item.findOneAndUpdate({_id: item.id}, {
+						$set: {
+							itemPreview: previewObj
+						}
+					}, { new: true });
+				});
+			} else {
+				return null;
+			}
 		});
 		return Promise.all(itemPromises);
 	}).then(itemsArr => {
@@ -731,3 +736,11 @@ function makeUrlList(urlArr, titleArr) {
 	}, '');
 	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
+
+// function extractUrl(text) {
+//   let str = text ? text : '';
+//   let urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+//   let urls = str.match(urlRegex);
+//
+//   return urls ? urls[0] : null;
+// }
