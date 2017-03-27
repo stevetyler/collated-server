@@ -199,6 +199,7 @@ itemSchema.statics.getPreviewData = function(item) {
     return getPreviewMeta(url);
   }).then(obj => {
     previewObj = obj;
+    //console.log('preview obj received', previewObj);
     const imageUrl = previewObj.image;
 
     return imageUrl ? savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
