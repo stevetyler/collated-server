@@ -26,7 +26,7 @@ module.exports.autoroute = {
 		'/items': getItems,
 		'/items/get-title': getTitle,
 		'/items/get-preview': getItemPreviewHandler,
-		'/items/get-user-previews': getItemsPreviewHandler
+		'/items/get-item-previews': getItemsPreviewHandler
 	},
 	post: {
 		'/items': [ensureAuthenticated, postItemHandler],
@@ -75,7 +75,7 @@ function getTitle(req, res) {
   });
   client.on('error', function(err){
 		console.log(err);
-		return res.status('404').end();
+		return res.status(404).end();
   });
   client.fetch();
 }
@@ -103,17 +103,30 @@ function getItemPreviewHandler(req, res) {
 }
 
 function getItemsPreviewHandler(req, res) {
-	console.log('query', req.query);
-	const user = req.query.user;
-	const category = req.query.category;
+	const userId = req.query.user;
+	const categoryname = req.query.category;
+	console.log('get item preview called', userId, categoryname);
 
-	return Category.find({user: user, name: category}).then(category => {
-		return Item.find({user: user, category: category._id}).then(items => {
-			const itemPromises = items.map(item => {
-				return Item.getPreviewData(item);
+	Category.findOne({'name': categoryname, 'user': userId}).then(category => {
+		console.log('category found', category._id);
+		return Item.find({user: userId, category: category._id});
+	}).then(items => {
+		console.log('items found', items);
+		const itemPromises = items.map(item => {
+			return Item.getPreviewData(item).then(previewObj => {
+				return Item.findOneAndUpdate({_id: item.id}, {
+					$set: {
+						itemPreview: previewObj
+					}
+				}, { new: true });
 			});
-			return Promise.all(itemPromises);
 		});
+		return Promise.all(itemPromises);
+	}).then(itemsArr => {
+		res.send({items: itemsArr});
+	}).catch(err => {
+		console.log(err);
+		res.status(404).end();
 	});
 }
 
@@ -335,7 +348,7 @@ function getTwitterItemsHandler(req, res) {
 		items => res.send({'items': items}),
 		e => {
 			console.log(e);
-			res.status('400').end();
+			res.status(400).end();
 		}
 	);
 }
@@ -634,7 +647,7 @@ function postSlackItemsHandler(req, res) {
 
 		return Promise.all(promiseArr);
 	}).then(() => {
-		res.status('201').send({});
+		res.status(201).send({});
 	}, (err) => {
 		console.log(err);
 		return res.status(500).end();
