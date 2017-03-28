@@ -11,6 +11,7 @@ const BPromise = require('any-promise');
 BPromise.promisifyAll(gm.prototype);
 const rp = require('request-promise');
 const unfurl = require('unfurl-url');
+const Url = require('url');
 const webshot = require('webshot');
 
 const categorySchema = require('../schemas/category.js');
@@ -188,7 +189,7 @@ function findItemTags(textToSearch, categoryId) {
 }
 
 itemSchema.statics.getPreviewData = function(item) {
-  let url, previewObj, fileExt;
+  let url, previewObj, fileExt, imageUrl;
   const extractedUrl = extractUrl(item.body);
   const itemId = item._id || item.id;
   const folder = 'temp/';
@@ -199,21 +200,43 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewMeta(url);
   }).then(obj => {
-    previewObj = obj;
-    //console.log('preview obj received', previewObj);
-    const imageUrl = previewObj.image;
+    previewObj = obj || {
+      url: url,
+    };
+    console.log('preview meta obj received', previewObj);
+    imageUrl = previewObj.image;
+    console.log('imageUrl', previewObj.image);
 
-    return imageUrl ? savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
+    if (imageUrl) {
+      let options = {
+        method: 'GET',
+        uri: imageUrl,
+        simple: false,
+        resolveWithFullResponse: true
+      }; // resolve if 404
+      console.log('rp called');
+
+      return rp(options);
+    } else {
+      return {};
+    }
+  }).then(res => {
+    console.log('check url', res.statusCode);
+    return imageUrl && res.statusCode !== 404 ?
+      savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
-    fileExt = filename.split('.').pop();
-    filenameArr.push(filename);
+    if (filename) {
+      fileExt = filename.split('.').pop();
+      filenameArr.push(filename);
 
-    return Promise.all([
-      resizeImage(folder, filename, 126, 'sml'),
-      resizeImage(folder, filename, 252, 'med'),
-      resizeImage(folder, filename, 504, 'lrg')
-    ]);
+      return Promise.all([
+        resizeImage(folder, filename, 105, '-sml'),
+        resizeImage(folder, filename, 210, '-med'),
+        resizeImage(folder, filename, 420, '-lrg')
+      ]);
+    }
+    else { throw Error('error creating image'); }
   })
   .then(arr => {
     const filesArr = arr;
@@ -237,6 +260,9 @@ itemSchema.statics.getPreviewData = function(item) {
   .then(() => {
     //console.log('preview object to return', previewObj);
     return Object.assign(previewObj, {imageType: fileExt});
+  }).catch(err => {
+    console.log('caught error', err.statusCode);
+    return null;
   });
 };
 
@@ -315,9 +341,9 @@ function takeWebshot(url, itemId) {
   });
 }
 
-function resizeImage(folder, filename, width, sizename) {
+function resizeImage(folder, filename, width, suffix) {
   const ext = filename.split('.').pop();
-  const newFilename = filename.split('.')[0] + '-' + sizename + '.' + ext;
+  const newFilename = filename.split('.')[0] + suffix + '.' + ext;
   const srcPath = folder + filename;
   const dstPath = folder + newFilename;
 
@@ -330,18 +356,18 @@ function resizeImage(folder, filename, width, sizename) {
 
 function uploadImageToS3(folder, filename) {
   const s3 = new AWS.S3();
-  let bucketPath;
+  let uploadFolder;
 
   if (process.env.NODE_ENV === 'production') {
-    bucketPath = 'collated-assets/assets/images/previews/';
+    uploadFolder = 'assets/images/previews/';
   } else {
-    bucketPath = 'collated-assets/assets/images/previews/dev';
+    uploadFolder = 'assets/images/previews/dev/';
   }
 
   return fs.readFile(folder + filename).then(data => {
     const params = {
-      Bucket: bucketPath,
-      Key: filename,
+      Bucket: 'collated-assets',
+      Key: uploadFolder + filename,
       Body: data,
       ACL: 'public-read'
     };
