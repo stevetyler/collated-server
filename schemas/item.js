@@ -11,7 +11,7 @@ const BPromise = require('any-promise');
 BPromise.promisifyAll(gm.prototype);
 const rp = require('request-promise');
 const unfurl = require('unfurl-url');
-const Url = require('url');
+//const Url = require('url');
 const webshot = require('webshot');
 
 const categorySchema = require('../schemas/category.js');
@@ -200,28 +200,26 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewMeta(url);
   }).then(obj => {
-    previewObj = obj || {
-      url: url,
-    };
+    previewObj = obj;
     console.log('preview meta obj received', previewObj);
     imageUrl = previewObj.image;
-    console.log('imageUrl', previewObj.image);
-
+    //console.log('imageUrl', previewObj.image);
     if (imageUrl) {
       let options = {
         method: 'GET',
         uri: imageUrl,
         simple: false,
         resolveWithFullResponse: true
-      }; // resolve if 404
-      console.log('rp called');
+      };
 
       return rp(options);
     } else {
       return {};
     }
+  }, () => {
+    throw Error('error unfurling url');
   }).then(res => {
-    console.log('check url', res.statusCode);
+    //console.log('check url', typeof res.statusCode);
     return imageUrl && res.statusCode !== 404 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
@@ -259,10 +257,17 @@ itemSchema.statics.getPreviewData = function(item) {
   })
   .then(() => {
     //console.log('preview object to return', previewObj);
-    return Object.assign(previewObj, {imageType: fileExt});
+    return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
-    console.log('caught error', err.statusCode);
-    return null;
+    console.log('caught error', err);
+    if (err.statusCode === 404) {
+      return {
+        url: 'url not found'
+      };
+    }
+    else {
+      return null;
+    }
   });
 };
 
@@ -277,11 +282,11 @@ function getPreviewMeta(url) {
 
   return fetched.then(() => {
     return {
-      description: client.description,
+      description: client.description || client.title,
       image: client.image,
       keywords: client.keywords,
       title: client.title,
-      url: client.url,
+      url: client.url || url,
       rootUrl: client.rootUrl,
       ogDescription: client.ogDescription,
       ogTitle: client.ogTitle,
@@ -290,7 +295,7 @@ function getPreviewMeta(url) {
       ogLocale: client.ogLocale
     };
   }, err => {
-    console.log(err);
+    throw Error('preview meta error', err);
   });
 }
 
@@ -302,6 +307,7 @@ function unfurlUrl(url) {
 }
 
 function savePreviewImage(imageUrl, itemId) {
+  console.log('save preview image called');
   const foldername = 'temp/';
   let fileExt;
   let filename;
@@ -328,7 +334,9 @@ function takeWebshot(url, itemId) {
   const options = {
     width: 600,
     height: 450,
-    cookies: null
+    cookies: null,
+    //timeout: 3000,
+    //renderDelay: 1500, // causes phantomjs timeout issues due to promise chain
   };
   console.log('getWebshot called on ', url);
 

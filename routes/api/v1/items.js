@@ -110,12 +110,13 @@ function getItemsPreviewHandler(req, res) {
 	Category.findOne({'name': categoryname, 'user': userId}).then(category => {
 		return Item.find({user: userId, category: category._id});
 	}).then(items => {
-		console.log('items found', items.length);
+		//console.log('items found', items.length);
 		const filteredItems = items.filter(item => {
-			console.log('url found in item', item.author, extractUrl(item.body));
+			// const doCreatePreview = item.itemPreview ? !!item.itemPreview.title : false;
+			// check for title
 			return extractUrl(item.body) && !item.itemPreview;
 		});
-		console.log('filtered items', filteredItems.length);
+		//console.log('filtered items', filteredItems.length);
 		const itemPreviewPromises = filteredItems.map(item => {
 			return Item.getPreviewData(item).then(previewObj => {
 				console.log('preview obj', previewObj);
@@ -128,7 +129,7 @@ function getItemsPreviewHandler(req, res) {
 				}
 			});
 		});
-		
+
 		return Promise.all(itemPreviewPromises);
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
