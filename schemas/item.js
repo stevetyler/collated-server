@@ -192,7 +192,7 @@ itemSchema.statics.getPreviewData = function(item) {
   let url, previewObj, fileExt, imageUrl;
   const extractedUrl = extractUrl(item.body);
   const itemId = item._id || item.id;
-  const folder = 'temp/';
+  const folder = '../collated-temp/';
   const filenameArr = [];
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
@@ -308,7 +308,7 @@ function unfurlUrl(url) {
 
 function savePreviewImage(imageUrl, itemId) {
   console.log('save preview image called');
-  const foldername = 'temp/';
+  const foldername = '../collated-temp/';
   let fileExt;
   let filename;
 
@@ -327,7 +327,7 @@ function savePreviewImage(imageUrl, itemId) {
 }
 
 function takeWebshot(url, itemId) {
-  const tempFolder = 'temp/';
+  const tempFolder = '../collated-temp/';
   const filename = itemId + '.png';
   const filepath = tempFolder + filename;
   const newWebshot = BPromise.promisify(webshot);
