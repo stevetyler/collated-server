@@ -106,7 +106,7 @@ function getItemPreviewHandler(req, res) {
 function getItemsPreviewHandler(req, res) {
 	const userId = req.query.user;
 	const categoryname = req.query.category;
-	const groupId = req.query.userGroup;
+	const groupId = req.query.group;
 	const userOrGroup = userId ? { 'user': userId } : { 'userGroup' : groupId };
 	const query = Object.assign({'name': categoryname}, userOrGroup);
 
