@@ -336,7 +336,7 @@ function takeWebshot(url, itemId) {
     height: 450,
     cookies: null,
     //timeout: 3000,
-    renderDelay: 2000, // causes phantomjs timeout issues due to promise chain
+    renderDelay: 2000, // remove if creating link manually
   };
   console.log('getWebshot called on ', url);
 
