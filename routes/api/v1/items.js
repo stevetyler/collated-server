@@ -105,13 +105,13 @@ function getItemPreviewHandler(req, res) {
 
 function getItemsPreviewHandler(req, res) {
 	const userId = req.query.user;
-	const categoryname = req.query.category;
+	const tagname = req.query.tag;
 	const groupId = req.query.group;
 	const userOrGroup = userId ? { 'user': userId } : { 'userGroup' : groupId };
-	const query = Object.assign({'name': categoryname}, userOrGroup);
+	const query = Object.assign({'name': tagname}, userOrGroup);
 
-	Category.findOne(query).then(category => {
-		return Item.find({user: userId, category: category._id});
+	Tag.findOne(query).then(tag => {
+		return Item.find({user: userId, tags: {$in: [tag._id]} });
 	}).then(items => {
 		//console.log('items found', items.length);
 		const filteredItems = items.filter(item => {
