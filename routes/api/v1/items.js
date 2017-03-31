@@ -121,7 +121,7 @@ function getItemPreviewsHandler(req, res) {
 		});
 
 		const filteredItems = filterByPreviewArr.filter((item, i) => {
-			return extractUrl(item.body) && i < 25;
+			return extractUrl(item.body) && i < 10;
 		});
 		//console.log('filtered items', filteredItems.length);
 		const itemPreviewPromises = filteredItems.map(item => {
