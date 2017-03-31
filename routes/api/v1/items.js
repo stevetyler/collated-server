@@ -85,7 +85,7 @@ function getItemPreviewHandler(req, res) {
 	const item = req.query.item;
 
 	return Item.getPreviewData(item).then(previewObj => {
-		console.log('preview obj received', previewObj);
+		//console.log('preview obj received', previewObj);
 		return Item.findOneAndUpdate({_id: item.id}, {
 			$set: {
 				itemPreview: previewObj

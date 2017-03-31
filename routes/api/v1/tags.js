@@ -72,7 +72,7 @@ function makeEmberTags(id, tags, type) {
 
 function getSlackTeamTags(req, res) {
 	const groupId = req.query.groupId;
-	console.log('slack tags', groupId);
+	//console.log('slack tags', groupId);
 
 	if (!groupId) {
 		return res.status(404).end();
@@ -156,7 +156,7 @@ function putTag(req, res) {
   const tagId = req.params.id;
 	const tagName = req.body.tag.name;
 
-	console.log('putTag', tagId, tagName);
+	//console.log('putTag', tagId, tagName);
   Tag.update({_id: tagId}, // removed user: req.user.id temporarily
     {$set: {
       name: tagName,

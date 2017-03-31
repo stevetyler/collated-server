@@ -15,7 +15,6 @@ module.exports.autoroute = {
 };
 
 function getCategories(req, res) {
-	console.log('get categories called');
 	if (req.query.filter) { getCategory(req, res); }
 	else if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
@@ -24,15 +23,9 @@ function getCategories(req, res) {
 	}
 }
 
-// function getCategory(req, res) {
-// 	console.log('getCategory', req.query);
-//
-// 	Category.findOne({});
-// }
-
 function getGroupCategories(req, res) {
 	const groupId = req.query.groupId;
-	console.log('group categories', groupId);
+	//console.log('group categories', groupId);
 
 	if (!groupId) {
 		res.status(404).end();
@@ -180,11 +173,11 @@ function saveCategory(category) {
 }
 
 function makeEmberCategories(id, categories, type) {
-	console.log('make ember categories called');
+	//console.log('make ember categories called');
 	let categoryPromises;
 
 	if (type === 'user') {
-		console.log('make ember user categories called');
+		//console.log('make ember user categories called');
 		categoryPromises = categories.map(category => Item.count({ user: id, category: category._id }));
 	}	else if (type === 'group') {
 		categoryPromises = categories.map(category => Item.count({ userGroup: id, category: category._id }));
