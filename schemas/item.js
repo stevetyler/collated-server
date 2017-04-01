@@ -139,17 +139,17 @@ itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
   const idsObj = {};
 
   return Category.find(query).then(categories => {
-    console.log('categories found', categories);
+    //console.log('categories found', categories);
     if (Array.isArray(categories)) {
       categories.forEach(category => {
         const categoryname = category.name.toLowerCase();
         //if (options.categoryPerChannel && category.slackChannelId === options.slackChannelId) { }
         if (category.isDefault) {
-          console.log('default category found', category.name);
+          //console.log('default category found', category.name);
           Object.assign(idsObj, {defaultCategory: category._id});
         }
         if (text.indexOf(categoryname) !== -1) {
-          console.log('category matched to text', category.name);
+          //console.log('category matched to text', category.name);
           Object.assign(idsObj, {category: category._id});
         }
       });
@@ -160,11 +160,11 @@ itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
       Object.assign(idsObj, {category: obj.defaultCategory});
     }
     const categoryId = obj.category;
-    console.log('categoryId to find tags for', categoryId);
+    //console.log('categoryId to find tags for', categoryId);
 
     return categoryId ? findItemTags(textToSearch, categoryId) : [];
   }).then(tagIdsArr => {
-    console.log('idsObj, tagIdsArr', idsObj, tagIdsArr);
+    //console.log('idsObj, tagIdsArr', idsObj, tagIdsArr);
     return Object.assign(idsObj, {tags: tagIdsArr});
   });
 };
@@ -199,16 +199,18 @@ itemSchema.statics.getPreviewData = function(item) {
     url = unfurledUrl;
 
     return getPreviewMeta(url);
+  }, () => {
+    throw Error('error unfurling url');
   }).then(obj => {
     previewObj = obj;
-    console.log('preview meta obj received', previewObj);
-    imageUrl = previewObj.image;
-    //console.log('imageUrl', previewObj.image);
+    //console.log('preview meta obj received', previewObj);
+    imageUrl = formatImageUrl(previewObj.image);
+    console.log('imageUrl', previewObj.image);
     if (imageUrl) {
       let options = {
         method: 'GET',
         uri: imageUrl,
-        simple: false,
+        simple: false, // don't reject errors
         resolveWithFullResponse: true
       };
 
@@ -216,11 +218,10 @@ itemSchema.statics.getPreviewData = function(item) {
     } else {
       return {};
     }
-  }, () => {
-    throw Error('error unfurling url');
   }).then(res => {
-    //console.log('check url', typeof res.statusCode);
-    return imageUrl && res.statusCode !== 404 ?
+    console.log('check url', JSON.stringify(res));
+
+    return imageUrl && imageUrl !== 'error' && res.statusCode !== 404 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
@@ -299,6 +300,21 @@ function getPreviewMeta(url) {
   });
 }
 
+function formatImageUrl(url) {
+  if (!url) {
+    return null;
+  }
+  else if (url.indexOf('cdn') === 0 ) {
+    return 'http://' + url;
+  }
+  else if (url.indexOf('//cdn') === 0) {
+    return 'http:' + url;
+  }
+  else {
+    return url;
+  }
+}
+
 function unfurlUrl(url) {
   const unfurlUrl = BPromise.promisify(unfurl.url);
   //console.log('unfurlUrl', url);
@@ -319,7 +335,7 @@ function savePreviewImage(imageUrl, itemId) {
     return rp(imageUrl, {encoding: null});
   }).then(data => {
     filename = itemId + '.' + fileExt;
-    //console.log('writing file to ', foldername + filename);
+    console.log('writing file to ', foldername + filename);
     return fs.writeFile(foldername + filename, data);
   }).then(() => {
     return filename;
@@ -341,7 +357,7 @@ function takeWebshot(url, itemId) {
   console.log('getWebshot called on ', url);
 
   return newWebshot(url, filepath, options).then(() => {
-    console.log('image saved to' + ' ' + filepath);
+    //console.log('image saved to' + ' ' + filepath);
     return filename;
   }).catch(err => {
     console.log(err);

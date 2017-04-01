@@ -35,7 +35,7 @@ userGroupSchema.statics.makeGroupId = function(name) {
 		let nameArr = name.split(' ').map(str => {
       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		});
-    console.log('format id', nameArr.join('-'));
+    //console.log('format id', nameArr.join('-'));
     return nameArr.join('-');
 	}
 	return name.split(' ').join('-');
