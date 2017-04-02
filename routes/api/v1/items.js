@@ -254,7 +254,7 @@ function getFilteredGroupItemsHandler(req, res) {
 }
 
 function getFilteredItems(reqObj) {
-	console.log('reqObj tagnames', reqObj.tagNames);
+	//console.log('reqObj tagnames', reqObj.tagNames);
 	const categoryQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: reqObj.tagNames[0]});
 	const tagNamesArr = reqObj.tagNames.slice(1, reqObj.tagNames.length);
 	let categoryId;
