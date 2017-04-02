@@ -115,9 +115,14 @@ function getItemPreviewsHandler(req, res) {
 	}).then(items => {
 		//console.log('items found', items.length);
 		const filterByPreviewArr = items.filter(item => {
-			// const doCreatePreview = item.itemPreview ? !!item.itemPreview.title : false;
-			// check for title
-			return !item.itemPreview;
+			let hasUrl = false;
+			try {
+				hasUrl = !!item.itemPreview.url;
+			} catch (err) {
+				console.log(err);
+			}
+
+			return !item.itemPreview && !hasUrl;
 		});
 
 		const filteredItems = filterByPreviewArr.filter((item, i) => {

@@ -221,7 +221,7 @@ itemSchema.statics.getPreviewData = function(item) {
   }).then(res => {
     console.log('check url', JSON.stringify(res));
 
-    return imageUrl && imageUrl !== 'error' && res.statusCode !== 404 ?
+    return imageUrl && res.statusCode.indexOf(40) === -1 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
