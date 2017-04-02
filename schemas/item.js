@@ -267,7 +267,7 @@ itemSchema.statics.getPreviewData = function(item) {
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err);
-    if (err.statusCode === 404) {
+    if (err.statusCode === 404 || 'meta error') {
       return {
         url: 'url not found'
       };
@@ -301,8 +301,8 @@ function getPreviewMeta(url) {
       ogUpdatedTime: client.ogUpdatedTime,
       ogLocale: client.ogLocale
     };
-  }, err => {
-    throw Error('preview meta error', err);
+  }, () => {
+    throw 'meta error';
   });
 }
 
