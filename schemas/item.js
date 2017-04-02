@@ -220,8 +220,14 @@ itemSchema.statics.getPreviewData = function(item) {
     }
   }).then(res => {
     console.log('check url', JSON.stringify(res));
+    let statusCode;
+    try {
+      statusCode = res.statusCode;
+    } catch (err) {
+      console.log(err);
+    }
 
-    return imageUrl && res.statusCode.indexOf(40) === -1 ?
+    return imageUrl && statusCode !== 404 || 403 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
