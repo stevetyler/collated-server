@@ -4,6 +4,7 @@ require('any-promise/register/bluebird');
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
 const gm = require('gm').subClass({imageMagick: true});
+const imageType = require('image-type');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -148,7 +149,7 @@ itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
           //console.log('default category found', category.name);
           Object.assign(idsObj, {defaultCategory: category._id});
         }
-        if (text.indexOf(categoryname) !== -1) {
+        if (text.includes(categoryname)) {
           //console.log('category matched to text', category.name);
           Object.assign(idsObj, {category: category._id});
         }
@@ -177,7 +178,7 @@ function findItemTags(textToSearch, categoryId) {
         let tmpArrLower = tmpArr.map(name => name.toLowerCase());
 
         let matchedSearchArr = tmpArrLower.filter(name => {
-          return textToSearch.indexOf(name) !== -1;
+          return textToSearch.includes(name);
         });
 
         return matchedSearchArr.length ? tag : null;
@@ -200,7 +201,7 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewMeta(url);
   }, () => {
-    throw Error('error unfurling url');
+    throw 'error unfurling url';
   }).then(obj => {
     previewObj = obj;
     //console.log('preview meta obj received', previewObj);
@@ -219,7 +220,7 @@ itemSchema.statics.getPreviewData = function(item) {
       return {};
     }
   }).then(res => {
-    console.log('check url', JSON.stringify(res));
+    console.log('check image url', JSON.stringify(res));
     let statusCode;
     try {
       statusCode = res.statusCode;
@@ -241,7 +242,7 @@ itemSchema.statics.getPreviewData = function(item) {
         resizeImage(folder, filename, 420, '-lrg')
       ]);
     }
-    else { throw Error('error creating image'); }
+    else { throw 'error creating image'; }
   })
   .then(arr => {
     const filesArr = arr;
@@ -310,10 +311,10 @@ function formatImageUrl(url) {
   if (!url) {
     return null;
   }
-  else if (url.indexOf('cdn') === 0 ) {
+  else if (url.includes('cdn')) {
     return 'http://' + url;
   }
-  else if (url.indexOf('//cdn') === 0) {
+  else if (url.includes('//cdn')) {
     return 'http:' + url;
   }
   else {
@@ -333,6 +334,8 @@ function savePreviewImage(imageUrl, itemId) {
   const foldername = '../collated-temp/';
   let fileExt;
   let filename;
+  //const mimeTypes = ['png', 'jpeg', 'gif'];
+  //let mime = imageType(res).mime;
 
   return rp.head(imageUrl).then(res => {
     //console.log(res, res['content-type']);
