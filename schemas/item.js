@@ -383,6 +383,10 @@ function takeWebshot(url, itemId) {
     height: 450,
     cookies: null,
     //timeout: 3000,
+    phantomConfig: {
+      'ignore-ssl-errors': 'true',
+      'ssl-protocol': 'any'
+    },
     renderDelay: 2000, // remove if creating link manually
   };
   console.log('getWebshot called on ', url);
