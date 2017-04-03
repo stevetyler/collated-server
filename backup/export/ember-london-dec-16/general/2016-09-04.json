@@ -1,8 +1,0 @@
-[
-    {
-        "type": "message",
-        "user": "U047GTU64",
-        "text": "does anyone know if theres a way to cache both a set of directories and bundler in travis?",
-        "ts": "1472994893.000002"
-    }
-]
