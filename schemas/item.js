@@ -332,7 +332,10 @@ function unfurlUrl(url) {
 
 function makeRequest(url) {
   return new Promise((resolve, reject) => {
-    const request = http.get(url, response => {
+    // select http or https module, depending on reqested url
+    const lib = url.startsWith('https') ? require('https') : require('http');
+
+    const request = lib.get(url, response => {
       if (response.statusCode < 200 || response.statusCode > 299) {
          reject(new Error('Failed to load page, status code: ' + response.statusCode));
        }
