@@ -201,7 +201,7 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return getPreviewMeta(url);
   }, () => {
-    throw 'error unfurling url';
+    throw new Error('error unfurling url');
   }).then(obj => {
     previewObj = obj;
     //console.log('preview meta obj received', previewObj);
@@ -242,7 +242,7 @@ itemSchema.statics.getPreviewData = function(item) {
         resizeImage(folder, filename, 420, '-lrg')
       ]);
     }
-    else { throw 'error creating image'; }
+    else { throw new Error('error creating image'); }
   })
   .then(arr => {
     const filesArr = arr;
@@ -303,7 +303,7 @@ function getPreviewMeta(url) {
       ogLocale: client.ogLocale
     };
   }, () => {
-    throw 'meta error';
+    throw new Error('meta error');
   });
 }
 
