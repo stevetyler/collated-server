@@ -229,7 +229,7 @@ itemSchema.statics.getPreviewData = function(item) {
       console.log(err);
     }
 
-    return imageUrl && statusCode !== 404 || 403 ?
+    return imageUrl && statusCode > 200 || statusCode < 299 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   })
   .then(filename => {
