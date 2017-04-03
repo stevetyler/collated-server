@@ -387,7 +387,7 @@ function takeWebshot(url, itemId) {
       'ignore-ssl-errors': 'true',
       'ssl-protocol': 'any'
     },
-    renderDelay: 2000, // remove if creating link manually
+    //renderDelay: 2000, // remove if creating link manually
   };
   console.log('getWebshot called on ', url);
 
