@@ -4,7 +4,8 @@ require('any-promise/register/bluebird');
 const AWS = require('aws-sdk');
 const fs = require('fs-promise');
 const gm = require('gm').subClass({imageMagick: true});
-const imageType = require('image-type');
+const fileType = require('file-type');
+const http = require('http');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -149,7 +150,7 @@ itemSchema.statics.getCategoryAndTags = function(textToSearch, options) {
           //console.log('default category found', category.name);
           Object.assign(idsObj, {defaultCategory: category._id});
         }
-        if (text.includes(categoryname)) {
+        if (text.indexOf(categoryname) !== -1) {
           //console.log('category matched to text', category.name);
           Object.assign(idsObj, {category: category._id});
         }
@@ -178,7 +179,7 @@ function findItemTags(textToSearch, categoryId) {
         let tmpArrLower = tmpArr.map(name => name.toLowerCase());
 
         let matchedSearchArr = tmpArrLower.filter(name => {
-          return textToSearch.includes(name);
+          return textToSearch.indexOf(name) !== -1;
         });
 
         return matchedSearchArr.length ? tag : null;
@@ -220,7 +221,7 @@ itemSchema.statics.getPreviewData = function(item) {
       return {};
     }
   }).then(res => {
-    console.log('check image url', JSON.stringify(res));
+    console.log('check image url', JSON.stringify(res.statusCode));
     let statusCode;
     try {
       statusCode = res.statusCode;
@@ -267,7 +268,7 @@ itemSchema.statics.getPreviewData = function(item) {
     //console.log('preview object to return', previewObj);
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
-    console.log('caught error', err);
+    console.log('caught error', err.message);
     if (err.statusCode === 404 || 'meta error') {
       return {
         url: 'url not found'
@@ -311,10 +312,10 @@ function formatImageUrl(url) {
   if (!url) {
     return null;
   }
-  else if (url.includes('cdn')) {
+  else if (url.indexOf('cdn') !== -1) {
     return 'http://' + url;
   }
-  else if (url.includes('//cdn')) {
+  else if (url.indexOf('//cdn') !== -1) {
     return 'http:' + url;
   }
   else {
@@ -329,23 +330,41 @@ function unfurlUrl(url) {
   return url ? unfurlUrl(url) : null;
 }
 
+function makeRequest(url) {
+  return new Promise((resolve, reject) => {
+    const request = http.get(url, response => {
+      if (response.statusCode < 200 || response.statusCode > 299) {
+         reject(new Error('Failed to load page, status code: ' + response.statusCode));
+       }
+      const body = [];
+      response.on('data', (chunk) => body.push(chunk));
+      response.on('end', () => resolve(Buffer.concat(body)));
+    });
+    request.on('error', (err) => reject(err));
+  });
+}
+
 function savePreviewImage(imageUrl, itemId) {
-  console.log('save preview image called');
+  console.log('save preview image called', imageUrl);
   const foldername = '../collated-temp/';
-  let fileExt;
+  const extTypes = ['png', 'jpeg', 'gif'];
   let filename;
-  //const mimeTypes = ['png', 'jpeg', 'gif'];
-  //let mime = imageType(res).mime;
+  let fileExt;
 
-  return rp.head(imageUrl).then(res => {
-    //console.log(res, res['content-type']);
-    fileExt = res['content-type'].split('/').pop();
+  return makeRequest(imageUrl).then(res => {
+    //console.log('save preview image', res);
+    console.log('file type', fileType(res).mime);
+    //fileExt = res['content-type'].split('/').pop();
+    fileExt = fileType(res).mime.split('/').pop();
 
-    return rp(imageUrl, {encoding: null});
-  }).then(data => {
-    filename = itemId + '.' + fileExt;
-    console.log('writing file to ', foldername + filename);
-    return fs.writeFile(foldername + filename, data);
+    if (extTypes.indexOf(fileExt) !== -1) {
+      filename = itemId + '.' + fileExt;
+      console.log('writing file to ', foldername + filename);
+      return fs.writeFile(foldername + filename, res);
+    }
+    else {
+      throw new Error('invalid mime type');
+    }
   }).then(() => {
     return filename;
   });
