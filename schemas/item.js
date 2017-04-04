@@ -197,14 +197,19 @@ itemSchema.statics.getPreviewData = function(item) {
   const filenameArr = [];
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
-    url = unfurledUrl;
+    if (!unfurledUrl) {
+      throw new Error('error unfurling url');
+    }
+    else {
+      url = unfurledUrl;
+    }
 
     return getPreviewMeta(url);
   }, () => {
     throw new Error('error unfurling url');
   }).then(obj => {
     previewObj = obj;
-    //console.log('preview meta obj received', previewObj);
+    console.log('preview meta obj received', previewObj);
     imageUrl = formatImageUrl(previewObj.image);
     console.log('imageUrl', previewObj.image);
     if (imageUrl) {
@@ -281,7 +286,7 @@ itemSchema.statics.getPreviewData = function(item) {
   });
 };
 
-function getPreviewMeta(url) {
+function getPreviewMeta(url) {  
   const client = new MetaInspector(url, { timeout: 5000 });
   const fetched = new BPromise(function(resolve, reject) {
     client.on('fetch', resolve);
