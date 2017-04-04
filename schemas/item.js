@@ -230,8 +230,7 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return imageUrl && statusCode > 200 || statusCode < 299 ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
-  })
-  .then(filename => {
+  }).then(filename => {
     if (filename) {
       fileExt = filename.split('.').pop();
       filenameArr.push(filename);
@@ -245,6 +244,10 @@ itemSchema.statics.getPreviewData = function(item) {
     else { throw new Error('error creating image'); }
   })
   .then(arr => {
+    if (!arr || !arr.length) {
+      throw new Error('empty file array');
+    }
+
     const filesArr = arr;
     const filenamePromises = filesArr.map(filename => {
       //console.log('image saved ' + folder + filename);
@@ -254,21 +257,19 @@ itemSchema.statics.getPreviewData = function(item) {
     return Promise.all(filenamePromises);
   })
   .then(arr => {
-    const tempfilesArr = filenameArr.concat(arr);
-    const promisesArr = tempfilesArr.map(filename => {
-      const filepath = folder + filename;
-
-      return fs.unlink(filepath);
-    });
-
-    return Promise.all(promisesArr);
-  })
-  .then(() => {
+    if (!arr || !arr.length) {
+      throw new Error('empty file array');
+    } else {
+      arr.map(filename => {
+        filenameArr.push(filename);
+      });
+    }
+    //console.log('file arr', filenameArr);
     //console.log('preview object to return', previewObj);
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err.message);
-    if (err.statusCode === 404 || 'meta error') {
+    if (err.statusCode > 200 || err.statusCode < 299) {
       return {
         url: 'url not found'
       };
@@ -276,6 +277,15 @@ itemSchema.statics.getPreviewData = function(item) {
     else {
       return null;
     }
+  })
+  .finally(() => {
+    const promisesArr = filenameArr.map(filename => {
+      const filepath = folder + filename;
+      //console.log('deleting file', filepath);
+      return fs.unlink(filepath);
+    });
+
+    return Promise.all(promisesArr);
   });
 };
 
@@ -344,17 +354,6 @@ function makeRequest(url) {
     });
     request.on('error', (err) => reject(err));
   });
-}
-
-function detectBlankImage(image) {
-  //http://www.imagemagick.org/script/identify.php
-
-  // With command:
-  // $ identify -format "%#" source.png
-  // If the number of colors is 1, you have a blank page.
-  // You can also use the command:
-  // identify -verbose source.png
-  // The standard deviation, skew and kurtosis will be 0 for a blank image.
 }
 
 function savePreviewImage(imageUrl, itemId) {
@@ -450,3 +449,26 @@ function uploadImageToS3(folder, filename) {
 }
 
 module.exports = itemSchema;
+
+// function isBlankImage(folder, image) {
+//   const path = folder + image;
+//   // if blank image, take webshot and change renderDelay to 2000
+//   return new Promise((resolve, reject) => {
+//     // promisify only works for writeAsync ops
+//     return gm(path).identify((err, data) => {
+//       if (err) {
+//         reject(err);
+//       }
+//       if (data.Colors === '1') {
+//         console.log('blank image');
+//         return resolve(true);
+//       }
+//       else {
+//         console.log('image isn\'t blank');
+//         return resolve(false);
+//       }
+//     });
+//   }).catch(() => {
+//     throw new Error('error identifying image');
+//   });
+// }
