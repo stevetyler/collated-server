@@ -142,6 +142,10 @@ function getItemPreviewsHandler(req, res) {
 			});
 		});
 
+		// while(filteredItems.length) {
+		// define async func
+		// 	return await Promise.all(filteredItems.splice(0, 10));
+		// }
 		return Promise.all(itemPreviewPromises);
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
