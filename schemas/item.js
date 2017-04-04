@@ -264,21 +264,6 @@ itemSchema.statics.getPreviewData = function(item) {
         filenameArr.push(filename);
       });
     }
-    //console.log('file arr', filenameArr);
-    //console.log('preview object to return', previewObj);
-    return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
-  }).catch(err => {
-    console.log('caught error', err.message);
-    if (err.statusCode > 200 || err.statusCode < 299) {
-      return {
-        url: 'url not found'
-      };
-    }
-    else {
-      return null;
-    }
-  })
-  .finally(() => {
     const promisesArr = filenameArr.map(filename => {
       const filepath = folder + filename;
       //console.log('deleting file', filepath);
@@ -286,6 +271,13 @@ itemSchema.statics.getPreviewData = function(item) {
     });
 
     return Promise.all(promisesArr);
+  }).then(() => {
+    //console.log('file arr', filenameArr);
+    //console.log('preview object to return', previewObj);
+    return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
+  }).catch(err => {
+    console.log('caught error', err.message);
+    return err.statusCode > 200 || err.statusCode < 299 ? { url: 'url not found' } : null;
   });
 };
 
