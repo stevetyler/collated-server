@@ -63,7 +63,7 @@ function Strategy(options, verify) {
   this.extendedUserProfile = (options.extendedUserProfile == null) ? true : options.extendedUserProfile;
   this._team = options.team;
 
-  console.log('strategy options', this, options);
+  //console.log('strategy options', this, options);
   OAuth2Strategy.call(this, options, verify);
   this.name = options.name || 'slack';
 }
