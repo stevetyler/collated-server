@@ -5,7 +5,6 @@ const AWS = require('aws-sdk');
 const fs = require('fs-promise');
 const gm = require('gm').subClass({imageMagick: true});
 const fileType = require('file-type');
-const http = require('http');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
@@ -347,6 +346,17 @@ function makeRequest(url) {
   });
 }
 
+function detectBlankImage(image) {
+  //http://www.imagemagick.org/script/identify.php
+
+  // With command:
+  // $ identify -format "%#" source.png
+  // If the number of colors is 1, you have a blank page.
+  // You can also use the command:
+  // identify -verbose source.png
+  // The standard deviation, skew and kurtosis will be 0 for a blank image.
+}
+
 function savePreviewImage(imageUrl, itemId) {
   console.log('save preview image called', imageUrl);
   const foldername = '../collated-temp/';
@@ -387,7 +397,7 @@ function takeWebshot(url, itemId) {
       'ignore-ssl-errors': 'true',
       'ssl-protocol': 'any'
     },
-    //renderDelay: 2000, // remove if creating link manually
+    renderDelay: 2000, // remove if creating link manually
   };
   console.log('getWebshot called on ', url);
 
