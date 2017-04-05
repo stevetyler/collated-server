@@ -125,14 +125,14 @@ function getItemPreviewsHandler(req, res) {
 			return !item.itemPreview && !hasUrl;
 		});
 
-		const filteredItems = filterByPreviewArr.filter((item, i) => {
-			return extractUrl(item.body) && i < 10;
+		const filteredItems = filterByPreviewArr.filter(item => {
+			return extractUrl(item.body);
 		});
+		//const filteredItemsPromises = filteredItems.map(itemPreviewPromises);
+		console.log('filtered items length', filteredItems.length);
+		//return Promise.all(filteredItems.map(previewMapper));
 
-		// while(filteredItems.length) {
-		// 	await Promise.all(filteredItems.splice(0, 10).map(itemPreviewPromises));
-		// }
-		return Promise.all(filteredItems.map(itemPreviewPromises));
+		return BPromise.map(filteredItems, previewMapper, {concurrency: 10});
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
 	}).catch(err => {
@@ -141,7 +141,7 @@ function getItemPreviewsHandler(req, res) {
 	});
 }
 
-function itemPreviewPromises(item) {
+function previewMapper(item) {
 	return Item.getPreviewData(item).then(previewObj => {
 		console.log('preview obj', previewObj);
 		if (previewObj && typeof previewObj === 'object') {
