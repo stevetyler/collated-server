@@ -392,8 +392,8 @@ function takeWebshot(url, itemId) {
     phantomConfig: {
       'ignore-ssl-errors': 'true',
       'ssl-protocol': 'any',
-      'errorIfJSException': 'true',
-      'errorIfStatusIsNot200': 'true'	
+      //'errorIfJSException': 'true',
+      //'errorIfStatusIsNot200': 'true'
     },
     renderDelay: 2000, // remove if creating link manually
   };
