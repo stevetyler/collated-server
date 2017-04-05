@@ -84,17 +84,8 @@ function getTitle(req, res) {
 function getItemPreviewHandler(req, res) {
 	const item = req.query.item;
 
-	return Item.getPreviewData(item).then(previewObj => {
-		//console.log('preview obj received', previewObj);
-		return Item.findOneAndUpdate({_id: item.id}, {
-			$set: {
-				itemPreview: previewObj
-			}
-		}, { new: true });
-	}).then(item => {
-		//console.log('item to make into emberItem', item);
-		const emberItem = item.makeEmberItem();
-		//console.log('emberItem with preview', emberItem);
+	return getPreviewData(item).then(newItem => {
+		const emberItem = newItem.makeEmberItem();
 
 		return res.send({'items': emberItem});
 	}).catch(err => {
@@ -113,14 +104,11 @@ function getItemPreviewsHandler(req, res) {
 	Category.findOne(query).then(category => {
 		return Item.find({ user: userId, category: category._id });
 	}).then(function(items) {
-		//console.log('items found', items.length);
 		const filterByPreviewArr = items.filter(item => {
 			let hasUrl = false;
 			try {
 				hasUrl = !!item.itemPreview.url;
-			} catch (err) {
-				console.log(err);
-			}
+			} catch (err) {}
 
 			return !item.itemPreview && !hasUrl;
 		});
@@ -128,11 +116,9 @@ function getItemPreviewsHandler(req, res) {
 		const filteredItems = filterByPreviewArr.filter(item => {
 			return extractUrl(item.body);
 		});
-		//const filteredItemsPromises = filteredItems.map(itemPreviewPromises);
 		console.log('filtered items length', filteredItems.length);
-		//return Promise.all(filteredItems.map(previewMapper));
 
-		return BPromise.map(filteredItems, previewMapper, {concurrency: 10});
+		return BPromise.map(filteredItems, getPreviewData, {concurrency: 10});
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
 	}).catch(err => {
@@ -141,7 +127,7 @@ function getItemPreviewsHandler(req, res) {
 	});
 }
 
-function previewMapper(item) {
+function getPreviewData(item) {
 	return Item.getPreviewData(item).then(previewObj => {
 		console.log('preview obj', previewObj);
 		if (previewObj && typeof previewObj === 'object') {
@@ -570,9 +556,11 @@ function saveBookmarkItem(bookmark, userId) {
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
 
-	saveChromeItem(reqBody).then(newItem => {
+	saveChromeItem(reqBody).then(item => {
+		return getPreviewData(item);
+	}).then(newItem => {
 		console.log('chrome item saved', newItem);
-		res.send({'item': newItem});
+		res.send({});
 		return;
 	}).catch((err) => {
 		console.log('error', err);
