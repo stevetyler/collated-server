@@ -286,7 +286,7 @@ itemSchema.statics.getPreviewData = function(item) {
   });
 };
 
-function getPreviewMeta(url) {  
+function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
   const fetched = new BPromise(function(resolve, reject) {
     client.on('fetch', resolve);
@@ -391,7 +391,9 @@ function takeWebshot(url, itemId) {
     //timeout: 3000,
     phantomConfig: {
       'ignore-ssl-errors': 'true',
-      'ssl-protocol': 'any'
+      'ssl-protocol': 'any',
+      'errorIfJSException': 'true',
+      'errorIfStatusIsNot200': 'true'	
     },
     renderDelay: 2000, // remove if creating link manually
   };
