@@ -112,7 +112,7 @@ function getItemPreviewsHandler(req, res) {
 
 	Category.findOne(query).then(category => {
 		return Item.find({ user: userId, category: category._id });
-	}).then(items => {
+	}).then(function(items) {
 		//console.log('items found', items.length);
 		const filterByPreviewArr = items.filter(item => {
 			let hasUrl = false;
@@ -128,30 +128,29 @@ function getItemPreviewsHandler(req, res) {
 		const filteredItems = filterByPreviewArr.filter((item, i) => {
 			return extractUrl(item.body) && i < 10;
 		});
-		//console.log('filtered items', filteredItems.length);
-		const itemPreviewPromises = filteredItems.map(item => {
-			return Item.getPreviewData(item).then(previewObj => {
-				console.log('preview obj', previewObj);
-				if (previewObj && typeof previewObj === 'object') {
-					return Item.findOneAndUpdate({_id: item.id}, {
-						$set: {
-							itemPreview: previewObj
-						}
-					}, { new: true });
-				}
-			});
-		});
 
 		// while(filteredItems.length) {
-		// define async func
-		// 	return await Promise.all(filteredItems.splice(0, 10));
+		// 	await Promise.all(filteredItems.splice(0, 10).map(itemPreviewPromises));
 		// }
-		return Promise.all(itemPreviewPromises);
+		return Promise.all(filteredItems.map(itemPreviewPromises));
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
 	}).catch(err => {
 		console.log(err);
 		res.status(404).end();
+	});
+}
+
+function itemPreviewPromises(item) {
+	return Item.getPreviewData(item).then(previewObj => {
+		console.log('preview obj', previewObj);
+		if (previewObj && typeof previewObj === 'object') {
+			return Item.findOneAndUpdate({_id: item.id}, {
+				$set: {
+					itemPreview: previewObj
+				}
+			}, { new: true });
+		}
 	});
 }
 
