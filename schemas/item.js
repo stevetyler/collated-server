@@ -210,19 +210,22 @@ itemSchema.statics.getPreviewData = function(item) {
     //console.log('preview meta obj received', previewObj);
     imageUrl = formatImageUrl(previewObj.image);
     console.log('imageUrl', previewObj.image);
-    if (imageUrl) {
-      return makeRequest(imageUrl);
-    } else {
-      return {};
-    }
-  }).then(res => {
-    const resSuccess = isResSuccessful(res);
     //console.log('response successful', resSuccess);
-
-    return imageUrl && resSuccess ?
-      savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
+    if (imageUrl) {
+      return savePreviewImage(imageUrl, itemId);
+    }
   }).then(filename => {
     if (filename) {
+      fileExt = filename.split('.').pop();
+      filenameArr.push(filename);
+    }
+    else {
+      return takeWebshot(url, itemId);
+    }
+  }).then(filename => {
+    let tmpfile = filename || filenameArr[0];
+
+    if (tmpfile) {
       fileExt = filename.split('.').pop();
       filenameArr.push(filename);
 
@@ -278,26 +281,7 @@ itemSchema.statics.getPreviewData = function(item) {
   });
 };
 
-function isResSuccessful(res) {
-  //console.log('check image url statusCode', JSON.stringify(res.statusCode));
-  let statusCode;
-  let hasData; // response may include data
-  try {
-    statusCode = res.statusCode;
-    console.log('statusCode', statusCode);
-  } catch (err) {
-    console.log(err);
-  }
-  try {
-    let resObj = JSON.parse(JSON.stringify(res));
-    hasData = resObj.data.length;
-    console.log('data', resObj.data.length);
-  } catch (err) {
-    console.log(err);
-  }
 
-  return (statusCode > 200 || statusCode < 299) || hasData ? true : false;
-}
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -482,4 +466,25 @@ module.exports = itemSchema;
 //   }).catch(() => {
 //     throw new Error('error identifying image');
 //   });
+// }
+
+// function isResSuccessful(res) {
+//   //console.log('check image url statusCode', JSON.stringify(res.statusCode));
+//   let statusCode;
+//   let hasData; // response may include data
+//   try {
+//     statusCode = res.statusCode;
+//     console.log('statusCode', statusCode);
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   try {
+//     let resObj = JSON.parse(JSON.stringify(res));
+//     hasData = resObj.data.length;
+//     console.log('data', resObj.data.length);
+//   } catch (err) {
+//     console.log(err);
+//   }
+//
+//   return (statusCode > 200 || statusCode < 299) || hasData ? true : false;
 // }
