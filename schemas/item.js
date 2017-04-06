@@ -10,9 +10,9 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const BPromise = require('any-promise');
 BPromise.promisifyAll(gm.prototype);
-const rp = require('request-promise');
+//const rp = require('request-promise');
 const unfurl = require('unfurl-url');
-//const Url = require('url');
+const Url = require('url');
 const webshot = require('webshot');
 
 const categorySchema = require('../schemas/category.js');
@@ -197,9 +197,7 @@ itemSchema.statics.getPreviewData = function(item) {
   const filenameArr = [];
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
-    if (!unfurledUrl) {
-      throw new Error('error unfurling url');
-    }
+    if (!unfurledUrl) { throw new Error('error unfurling url'); }
     else {
       url = unfurledUrl;
     }
@@ -209,31 +207,19 @@ itemSchema.statics.getPreviewData = function(item) {
     throw new Error('error unfurling url');
   }).then(obj => {
     previewObj = obj;
-    console.log('preview meta obj received', previewObj);
+    //console.log('preview meta obj received', previewObj);
     imageUrl = formatImageUrl(previewObj.image);
     console.log('imageUrl', previewObj.image);
     if (imageUrl) {
-      let options = {
-        method: 'GET',
-        uri: imageUrl,
-        simple: false, // don't reject errors
-        resolveWithFullResponse: true
-      };
-
-      return rp(options);
+      return makeRequest(imageUrl);
     } else {
       return {};
     }
   }).then(res => {
-    console.log('check image url', JSON.stringify(res.statusCode));
-    let statusCode;
-    try {
-      statusCode = res.statusCode;
-    } catch (err) {
-      console.log(err);
-    }
+    const resSuccess = isResSuccessful(res);
+    //console.log('response successful', resSuccess);
 
-    return imageUrl && statusCode > 200 || statusCode < 299 ?
+    return imageUrl && resSuccess ?
       savePreviewImage(imageUrl, itemId) : takeWebshot(url, itemId);
   }).then(filename => {
     if (filename) {
@@ -277,14 +263,41 @@ itemSchema.statics.getPreviewData = function(item) {
 
     return Promise.all(promisesArr);
   }).then(() => {
-    //console.log('file arr', filenameArr);
-    //console.log('preview object to return', previewObj);
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err.message);
-    return err.statusCode > 200 || err.statusCode < 299 ? { url: 'url not found' } : null;
+    if (err.message === 'error unfurling url') {
+      return { url: 'url not found' };
+    }
+    else if (err.statusCode > 200 || err.statusCode < 299) {
+      return { url: 'url not found' };
+    }
+    else {
+      return null;
+    }
   });
 };
+
+function isResSuccessful(res) {
+  //console.log('check image url statusCode', JSON.stringify(res.statusCode));
+  let statusCode;
+  let hasData; // response may include data
+  try {
+    statusCode = res.statusCode;
+    console.log('statusCode', statusCode);
+  } catch (err) {
+    console.log(err);
+  }
+  try {
+    let resObj = JSON.parse(JSON.stringify(res));
+    hasData = resObj.data.length;
+    console.log('data', resObj.data.length);
+  } catch (err) {
+    console.log(err);
+  }
+
+  return (statusCode > 200 || statusCode < 299) || hasData ? true : false;
+}
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -318,10 +331,10 @@ function formatImageUrl(url) {
   if (!url) {
     return null;
   }
-  else if (url.indexOf('cdn') !== -1) {
+  else if (url.startsWith('cdn')) {
     return 'http://' + url;
   }
-  else if (url.indexOf('//cdn') !== -1) {
+  else if (url.startsWith('//cdn')) {
     return 'http:' + url;
   }
   else {
@@ -340,8 +353,9 @@ function makeRequest(url) {
   return new Promise((resolve, reject) => {
     // select http or https module, depending on reqested url
     const lib = url.startsWith('https') ? require('https') : require('http');
-
-    const request = lib.get(url, response => {
+    const options = Url.parse(url);
+    //console.log('get options', url, options);
+    const request = lib.get(options, response => {
       if (response.statusCode < 200 || response.statusCode > 299) {
          reject(new Error('Failed to load page, status code: ' + response.statusCode));
        }
@@ -354,21 +368,19 @@ function makeRequest(url) {
 }
 
 function savePreviewImage(imageUrl, itemId) {
-  console.log('save preview image called', imageUrl);
+  //console.log('save preview image called', imageUrl);
   const foldername = '../collated-temp/';
-  const extTypes = ['png', 'jpeg', 'gif'];
+  const extTypes = ['png', 'jpeg'];
   let filename;
   let fileExt;
 
   return makeRequest(imageUrl).then(res => {
-    //console.log('save preview image', res);
-    console.log('file type', fileType(res).mime);
-    //fileExt = res['content-type'].split('/').pop();
+    //console.log('save preview image', res, fileType(res).mime);
     fileExt = fileType(res).mime.split('/').pop();
 
     if (extTypes.indexOf(fileExt) !== -1) {
       filename = itemId + '.' + fileExt;
-      console.log('writing file to ', foldername + filename);
+      //console.log('writing file to ', foldername + filename);
       return fs.writeFile(foldername + filename, res);
     }
     else {
