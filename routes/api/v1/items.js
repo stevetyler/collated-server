@@ -84,7 +84,7 @@ function getTitle(req, res) {
 function getItemPreviewHandler(req, res) {
 	const item = req.query.item;
 
-	return getPreviewData(item).then(newItem => {
+	return getPreviewAndUpdate(item).then(newItem => {
 		const emberItem = newItem.makeEmberItem();
 
 		return res.send({'items': emberItem});
@@ -118,7 +118,7 @@ function getItemPreviewsHandler(req, res) {
 		});
 		console.log('filtered items length', filteredItems.length);
 
-		return BPromise.map(filteredItems, getPreviewData, {concurrency: 10});
+		return BPromise.map(filteredItems, getPreviewAndUpdate, {concurrency: 10});
 	}).then(itemsArr => {
 		res.send({items: itemsArr});
 	}).catch(err => {
@@ -127,7 +127,7 @@ function getItemPreviewsHandler(req, res) {
 	});
 }
 
-function getPreviewData(item) {
+function getPreviewAndUpdate(item) {
 	return Item.getPreviewData(item).then(previewObj => {
 		console.log('preview obj', previewObj);
 		if (previewObj && typeof previewObj === 'object') {
@@ -556,9 +556,7 @@ function saveBookmarkItem(bookmark, userId) {
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
 
-	saveChromeItem(reqBody).then(item => {
-		return getPreviewData(item);
-	}).then(newItem => {
+	saveChromeItem(reqBody).then(newItem => {
 		console.log('chrome item saved', newItem);
 		res.send({});
 		return;
@@ -594,6 +592,8 @@ function saveChromeItem(reqBody) {
 			type: 'bookmark',
 			user: reqBody.username,
 		}) : null;
+	}).then(item => {
+		return getPreviewAndUpdate(item);
 	});
 }
 
@@ -686,7 +686,9 @@ function saveSlackItem(message, options) {
 		Object.assign(newSlackItem, idsObj);
 		//console.log('new slack item to save', newSlackItem);
     return Item.create(newSlackItem);
-  });
+  }).then(item => {
+		return getPreviewAndUpdate(item);
+	});
 }
 
 function deleteItems(req, res) {
