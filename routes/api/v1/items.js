@@ -618,7 +618,7 @@ function postItemHandler(req, res) {
 
 	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
 		const newItem = Object.assign(item, idsObj, categoryIdsObj);
-		console.log('new item to create', newItem);
+		//console.log('new item to create', newItem);
 
 		return Item.create(newItem);
 	}).then(newItem => {
