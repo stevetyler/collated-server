@@ -264,7 +264,7 @@ itemSchema.statics.getPreviewData = function(item) {
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err.message);
-    if (err.message !== 'meta error') { return { url: 'url not found' }; }
+    if (err.message !== 'meta error') { return { url: 'preview error' }; }
   });
 };
 
