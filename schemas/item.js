@@ -247,9 +247,8 @@ itemSchema.statics.getPreviewData = function(item) {
     return Promise.all(filenamePromises);
   })
   .then(arr => {
-    if (!arr || !arr.length) {
-      throw new Error('empty file array');
-    } else {
+    if (!arr || !arr.length) { throw new Error('empty file array'); }
+    else {
       arr.map(filename => {
         filenameArr.push(filename);
       });
@@ -265,9 +264,7 @@ itemSchema.statics.getPreviewData = function(item) {
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err.message);
-    if (err.message) {
-      return { url: 'url not found' };
-    }
+    if (err.message !== 'meta error') { return { url: 'url not found' }; }
   });
 };
 
