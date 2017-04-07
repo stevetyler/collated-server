@@ -198,9 +198,7 @@ itemSchema.statics.getPreviewData = function(item) {
 
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
     if (!unfurledUrl) { throw new Error('error unfurling url'); }
-    else {
-      url = unfurledUrl;
-    }
+    else { url = unfurledUrl; }
 
     return getPreviewMeta(url);
   }, () => {
@@ -211,36 +209,38 @@ itemSchema.statics.getPreviewData = function(item) {
     imageUrl = formatImageUrl(previewObj.image);
     console.log('imageUrl', previewObj.image);
     //console.log('response successful', resSuccess);
-    if (imageUrl) {
-      return savePreviewImage(imageUrl, itemId);
-    }
+    return imageUrl ? saveMetaImage(imageUrl, itemId) : null;
   }).then(filename => {
-    if (filename) {
+    console.log('1 filename returned from saveMetaImage', filename);
+    if (typeof filename === 'string') {
+      //console.log('2 filename returned from saveMetaImage', filename);
       fileExt = filename.split('.').pop();
       filenameArr.push(filename);
+      return;
     }
     else {
       return takeWebshot(url, itemId);
     }
-  }).then(filename => {
-    let tmpfile = filename || filenameArr[0];
+  }).then(file => {
+    console.log('filename returned from takeWebshot', file);
+    if (file && typeof file === 'string') {
+      fileExt = file.split('.').pop();
+      filenameArr.push(file);
+    }
+    const tmpfile = file || filenameArr[0];
+    console.log('tmpFile', tmpfile);
 
-    if (tmpfile) {
-      fileExt = filename.split('.').pop();
-      filenameArr.push(filename);
-
+    if (tmpfile && typeof file === 'string') {
       return Promise.all([
-        resizeImage(folder, filename, 105, '-sml'),
-        resizeImage(folder, filename, 210, '-med'),
-        resizeImage(folder, filename, 420, '-lrg')
+        resizeImage(folder, file, 105, '-sml'),
+        resizeImage(folder, file, 210, '-med'),
+        resizeImage(folder, file, 420, '-lrg')
       ]);
     }
     else { throw new Error('error creating image'); }
   })
   .then(arr => {
-    if (!arr || !arr.length) {
-      throw new Error('empty file array');
-    }
+    if (!arr || !arr.length) { throw new Error('empty file array'); }
 
     const filesArr = arr;
     const filenamePromises = filesArr.map(filename => {
@@ -272,16 +272,8 @@ itemSchema.statics.getPreviewData = function(item) {
     if (err.message === 'error unfurling url') {
       return { url: 'url not found' };
     }
-    else if (err.statusCode > 200 || err.statusCode < 299) {
-      return { url: 'url not found' };
-    }
-    else {
-      return null;
-    }
   });
 };
-
-
 
 function getPreviewMeta(url) {
   const client = new MetaInspector(url, { timeout: 5000 });
@@ -347,11 +339,12 @@ function makeRequest(url) {
       response.on('data', (chunk) => body.push(chunk));
       response.on('end', () => resolve(Buffer.concat(body)));
     });
-    request.on('error', (err) => reject(err));
+    //request.on('error', (err) => reject(err));
+    request.on('error', () => resolve(null));
   });
 }
 
-function savePreviewImage(imageUrl, itemId) {
+function saveMetaImage(imageUrl, itemId) {
   //console.log('save preview image called', imageUrl);
   const foldername = '../collated-temp/';
   const extTypes = ['png', 'jpeg'];
@@ -359,19 +352,27 @@ function savePreviewImage(imageUrl, itemId) {
   let fileExt;
 
   return makeRequest(imageUrl).then(res => {
-    //console.log('save preview image', res, fileType(res).mime);
-    fileExt = fileType(res).mime.split('/').pop();
+    console.log('save preview image', fileType(res).mime);
+    try {
+      fileExt = fileType(res).mime.split('/').pop();
+    }
+    catch (err) {
+      console.log('make request error');
+    }
 
-    if (extTypes.indexOf(fileExt) !== -1) {
+    if (extTypes.indexOf(fileExt) > -1) {
       filename = itemId + '.' + fileExt;
       //console.log('writing file to ', foldername + filename);
       return fs.writeFile(foldername + filename, res);
     }
     else {
-      throw new Error('invalid mime type');
+      //throw new Error('invalid mime type');
+      return null;
     }
   }).then(() => {
     return filename;
+  }).catch(() => {
+    return null;
   });
 }
 
