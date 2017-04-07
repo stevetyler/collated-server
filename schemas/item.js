@@ -196,45 +196,41 @@ itemSchema.statics.getPreviewData = function(item) {
   const folder = '../collated-temp/';
   const filenameArr = [];
 
+  console.log('extractedUrl', extractedUrl);
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
+    //console.log('unfurledUrl', unfurledUrl);
     if (!unfurledUrl) { throw new Error('error unfurling url'); }
     else { url = unfurledUrl; }
 
     return getPreviewMeta(url);
-  }, () => {
-    throw new Error('error unfurling url');
   }).then(obj => {
+    //console.log('previewobj', obj);
     previewObj = obj;
-    //console.log('preview meta obj received', previewObj);
     imageUrl = formatImageUrl(previewObj.image);
-    console.log('imageUrl', previewObj.image);
-    //console.log('response successful', resSuccess);
+
     return imageUrl ? saveMetaImage(imageUrl, itemId) : null;
-  }).then(filename => {
-    console.log('1 filename returned from saveMetaImage', filename);
-    if (typeof filename === 'string') {
-      //console.log('2 filename returned from saveMetaImage', filename);
-      fileExt = filename.split('.').pop();
-      filenameArr.push(filename);
+  }).then(metaImage => {
+    if (metaImage) {
+      fileExt = metaImage.split('.').pop();
+      filenameArr.push(metaImage);
       return;
     }
     else {
+      console.log('meta file returned', metaImage, 'taking webshot');
       return takeWebshot(url, itemId);
     }
-  }).then(file => {
-    console.log('filename returned from takeWebshot', file);
-    if (file && typeof file === 'string') {
-      fileExt = file.split('.').pop();
-      filenameArr.push(file);
+  }).then(screenshot => {
+    if (screenshot && typeof screenshot === 'string') {
+      fileExt = screenshot.split('.').pop();
+      filenameArr.push(screenshot);
     }
-    const tmpfile = file || filenameArr[0];
-    console.log('tmpFile', tmpfile);
-
-    if (tmpfile && typeof file === 'string') {
+    const tmpfile = screenshot || filenameArr[0];
+    //console.log('tmpFile', tmpfile, typeof tmpfile);
+    if (tmpfile && typeof tmpfile === 'string') {
       return Promise.all([
-        resizeImage(folder, file, 105, '-sml'),
-        resizeImage(folder, file, 210, '-med'),
-        resizeImage(folder, file, 420, '-lrg')
+        resizeImage(folder, tmpfile, 105, '-sml'),
+        resizeImage(folder, tmpfile, 210, '-med'),
+        resizeImage(folder, tmpfile, 420, '-lrg')
       ]);
     }
     else { throw new Error('error creating image'); }
@@ -244,7 +240,7 @@ itemSchema.statics.getPreviewData = function(item) {
 
     const filesArr = arr;
     const filenamePromises = filesArr.map(filename => {
-      //console.log('image saved ' + folder + filename);
+      console.log('image saved ' + folder + filename);
       return uploadImageToS3(folder, filename);
     });
 
@@ -269,7 +265,7 @@ itemSchema.statics.getPreviewData = function(item) {
     return previewObj ? Object.assign(previewObj, {imageType: fileExt}) : null;
   }).catch(err => {
     console.log('caught error', err.message);
-    if (err.message === 'error unfurling url') {
+    if (err.message) {
       return { url: 'url not found' };
     }
   });
@@ -352,7 +348,7 @@ function saveMetaImage(imageUrl, itemId) {
   let fileExt;
 
   return makeRequest(imageUrl).then(res => {
-    console.log('save preview image', fileType(res).mime);
+    //console.log('save meta image', fileType(res).mime);
     try {
       fileExt = fileType(res).mime.split('/').pop();
     }
@@ -366,12 +362,13 @@ function saveMetaImage(imageUrl, itemId) {
       return fs.writeFile(foldername + filename, res);
     }
     else {
-      //throw new Error('invalid mime type');
+      console.log('invalid mime type');
       return null;
     }
   }).then(() => {
     return filename;
-  }).catch(() => {
+  }).catch(err => {
+    console.log('error saving image', err.message);
     return null;
   });
 }
@@ -394,7 +391,7 @@ function takeWebshot(url, itemId) {
     },
     renderDelay: 2000, // remove if creating link manually
   };
-  console.log('getWebshot called on ', url);
+  console.log('getWebshot called on', url);
 
   return newWebshot(url, filepath, options).then(() => {
     //console.log('image saved to' + ' ' + filepath);
@@ -406,6 +403,7 @@ function takeWebshot(url, itemId) {
 }
 
 function resizeImage(folder, filename, width, suffix) {
+  //console.log('resize image called on', filename);
   const ext = filename.split('.').pop();
   const newFilename = filename.split('.')[0] + suffix + '.' + ext;
   const srcPath = folder + filename;
@@ -467,25 +465,4 @@ module.exports = itemSchema;
 //   }).catch(() => {
 //     throw new Error('error identifying image');
 //   });
-// }
-
-// function isResSuccessful(res) {
-//   //console.log('check image url statusCode', JSON.stringify(res.statusCode));
-//   let statusCode;
-//   let hasData; // response may include data
-//   try {
-//     statusCode = res.statusCode;
-//     console.log('statusCode', statusCode);
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   try {
-//     let resObj = JSON.parse(JSON.stringify(res));
-//     hasData = resObj.data.length;
-//     console.log('data', resObj.data.length);
-//   } catch (err) {
-//     console.log(err);
-//   }
-//
-//   return (statusCode > 200 || statusCode < 299) || hasData ? true : false;
 // }

@@ -106,11 +106,15 @@ function getItemPreviewsHandler(req, res) {
 	}).then(function(items) {
 		const filterByPreviewArr = items.filter(item => {
 			let hasUrl = false;
+			let hasMetaImage = false;
 			try {
 				hasUrl = !!item.itemPreview.url;
 			} catch (err) {}
+			try {
+				hasMetaImage = !!item.itemPreview.image;
+			} catch (err) {}
 
-			return !item.itemPreview && !hasUrl;
+			return !item.itemPreview || hasMetaImage; // temp to replace screenshots
 		});
 
 		const filteredItems = filterByPreviewArr.filter(item => {
@@ -129,7 +133,7 @@ function getItemPreviewsHandler(req, res) {
 
 function getPreviewAndUpdate(item) {
 	return Item.getPreviewData(item).then(previewObj => {
-		console.log('preview obj', previewObj);
+		//console.log('preview obj returned', previewObj);
 		if (previewObj && typeof previewObj === 'object') {
 			return Item.findOneAndUpdate({_id: item.id}, {
 				$set: {
@@ -388,7 +392,7 @@ function putItems(req, res) {
 			}
 		}, { new: true }
   ).then(item => {
-		console.log('item updated', item);
+		//console.log('item updated', item);
 		var emberItem = item.makeEmberItem();
 
 		return res.send({'items': emberItem});
