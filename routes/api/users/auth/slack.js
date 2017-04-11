@@ -4,7 +4,7 @@ if(process.env.NODE_ENV === 'production') {
 	module.exports.autoroute = {
 		get: {
 			'/slack' : passport.authenticate('slack'),
-	    	'/slack/callback' : passport.authenticate('slack', { successRedirect: 'https://app.collated.net/with-account', failureRedirect: '/'}),
+	    	'/slack/callback' : passport.authenticate('slack', { successRedirect: 'https://www.collated.net/with-account', failureRedirect: '/'}),
 		}
 	};
 } else {
