@@ -5,7 +5,7 @@ if(process.env.NODE_ENV === 'production') {
 	module.exports.autoroute = {
 		get: {
 			'/facebook' : passport.authenticate('facebook'),
-	    	'/facebook/callback' : passport.authenticate('facebook', { successRedirect: 'https://www.collated.net/with-account', failureRedirect: '/'}),
+	    	'/facebook/callback' : passport.authenticate('facebook', { successRedirect: 'https://app.collated.net/with-account', failureRedirect: '/'}),
 		}
 	};
 } else {
