@@ -300,6 +300,9 @@ function formatImageUrl(url) {
   if (!url) {
     return null;
   }
+  else if (url.toLowerCase().indexOf('blank') > -1) {
+    return null;
+  }
   else if (url.startsWith('cdn')) {
     return 'http://' + url;
   }
