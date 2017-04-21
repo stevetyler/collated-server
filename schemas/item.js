@@ -8,6 +8,7 @@ const fileType = require('file-type');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
+mongoose.Promise = global.Promise;
 const BPromise = require('any-promise');
 BPromise.promisifyAll(gm.prototype);
 //const rp = require('request-promise');

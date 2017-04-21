@@ -1,12 +1,13 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const Schema = mongoose.Schema;
 
-var facebookProfileSchema = new Schema({
+const facebookProfileSchema = new Schema({
   facebookId: String
 });
 
-var slackProfileSchema = new Schema({
+const slackProfileSchema = new Schema({
   //isTeamAdmin: String,
   //isTeamOwner: String,
   teamId: String,
@@ -17,7 +18,7 @@ var slackProfileSchema = new Schema({
   userName: String, // displayName
 });
 
-var twitterProfileSchema = new Schema({
+const twitterProfileSchema = new Schema({
   autoImport: String,
   latestLikeId: String,
   oldestLikeId: String,
@@ -27,7 +28,7 @@ var twitterProfileSchema = new Schema({
   user: String
 });
 
-var userSchema = new Schema({
+const userSchema = new Schema({
   id: String,
   name: String,
   password: String,
@@ -52,7 +53,7 @@ var userSchema = new Schema({
 });
 
 userSchema.methods.makeEmberUser = function () {
-  var emberUser = {
+  const emberUser = {
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
@@ -96,7 +97,7 @@ userSchema.methods.makeEmberUser = function () {
 module.exports = userSchema;
 
 // userSchema.statics.assignAvatar = function (id) {
-//   var image, path;
+//   const image, path;
 //
 //   switch (id) {
 //     case 'css-tricks' : image = 'css-tricks.jpg';
@@ -127,7 +128,7 @@ module.exports = userSchema;
 //   });
 // };
 // userSchema.statics.createUser = function(user, done) {
-//   var User = this.model('User');
+//   const User = this.model('User');
 //
 //   // User.encryptPassword async function, then create user in database
 //   User.encryptPassword(user.password, function (err, encryptedPassword) {
@@ -148,7 +149,7 @@ module.exports = userSchema;
 
 // userSchema.methods.isFollowed = function (loggedInUser) {
 //   if (loggedInUser) {
-//     var userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
+//     const userIsFollowing = loggedInUser.following.indexOf(this.id) !== -1 ? true : false;
 //     // logger.info('The loggedin user is following user \'' + user.id + '\': ', userIsFollowing);
 //     return userIsFollowing ? true : false;
 //   }
