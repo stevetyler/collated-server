@@ -563,7 +563,9 @@ function postChromeItemHandler(req, res) {
 	saveChromeItem(reqBody).then(newItem => {
 		console.log('chrome item saved', newItem);
 		res.send({});
-		return;
+		return newItem;
+	}).then(item => {
+		return getPreviewAndUpdate(item);
 	}).catch((err) => {
 		console.log('error', err);
 		res.status(401).end();
@@ -596,8 +598,6 @@ function saveChromeItem(reqBody) {
 			type: 'bookmark',
 			user: reqBody.username,
 		}) : null;
-	}).then(item => {
-		return getPreviewAndUpdate(item);
 	});
 }
 
