@@ -198,6 +198,8 @@ itemSchema.statics.getPreviewData = function(item) {
   const filenameArr = [];
 
   console.log('extractedUrl', extractedUrl);
+  if (!extractedUrl) { throw new Error('no url found'); }
+
   return unfurlUrl(extractedUrl).then(unfurledUrl => {
     //console.log('unfurledUrl', unfurledUrl);
     if (!unfurledUrl) { throw new Error('error unfurling url'); }
