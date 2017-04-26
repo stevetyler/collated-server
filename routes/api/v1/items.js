@@ -370,7 +370,9 @@ function getTwitterItemsHandler(req, res) {
 function getTwitterItems(user, options) {
   const emberItems = [];
 
-  return twitterItemImporter(user, options).then(items => {
+  return twitterItemImporter(user, options).then(twitterItems => {
+		return BPromise.map(twitterItems, getPreviewAndUpdate, {concurrency: 15});
+	}).then(items => {
 		items.forEach(function(item) {
 			const newItem = new Item(item);
 			const emberItem = newItem.makeEmberItem();
