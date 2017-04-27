@@ -359,7 +359,7 @@ function makeEmberItems(pagedObj) {
 
 function getTwitterItemsHandler(req, res) {
 	return getTwitterItems(req.user, req.query.options).then(
-		items => res.send({'items': items}),
+		() => res.send({'items': [] }),
 		e => {
 			console.log(e);
 			res.status(400).end();
@@ -368,22 +368,12 @@ function getTwitterItemsHandler(req, res) {
 }
 
 function getTwitterItems(user, options) {
-  const emberItems = [];
-
   return twitterItemImporter(user, options).then(twitterItems => {
 		const filteredItems = twitterItems.filter(item => {
-			extractUrl(item.body);
+			return extractUrl(item.body);
 		});
 
 		return BPromise.map(filteredItems, getPreviewAndUpdate, {concurrency: 10});
-	}).then(items => {
-		items.forEach(function(item) {
-			const newItem = new Item(item);
-			const emberItem = newItem.makeEmberItem();
-
-      emberItems.push(emberItem);
-    });
-		return emberItems;
 	});
 }
 
