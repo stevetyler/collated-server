@@ -36,8 +36,8 @@ const userSchema = new Schema({
   email: String,
   permissions: String,
   schemaVersion: String,
-  //twitterId: String,
   apiKeys: {
+    collatedToken: String,
     facebookAccessToken: String,
     facebookSecretToken: String,
     slackAccessToken: String,

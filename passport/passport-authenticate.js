@@ -2,6 +2,8 @@
 //var bcrypt = require('bcrypt');
 //var LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport');
+const randtoken = require('rand-token');
+
 const TwitterStrategy = require('passport-twitter').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const SlackStrategy = require('./passport-slack-updated');
@@ -19,20 +21,23 @@ passport.use(new TwitterStrategy({
     callbackURL: configAuth.twitterAuth.callbackURL
   },
   function(token, tokenSecret, profile, done) {
-    User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).exec().then(function(user) {
+    User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).then(function(user) {
       console.log('user found', user);
       if (user) {
         user.apiKeys.twitterAccessToken = token;
         user.apiKeys.twitterSecretToken = tokenSecret;
         user.imageUrl = modifyTwitterImageURL(profile._json.profile_image_url);
-        //user.twitterProfile.twitterId = profile._json.id_str;
-        // console.log(user.imageUrl);
+
+        if (!user.apiKeys.collatedToken) {
+          user.apiKeys.collatedToken = randtoken.generate(16);
+        }
         return user.save();
       } else {
         return User.create({
           imageUrl: modifyTwitterImageURL(profile._json.profile_image_url),
           name: profile._json.name,
           apiKeys: {
+            collatedToken: randtoken.generate(16),
             twitterAccessToken: token,
             twitterSecretToken:tokenSecret,
           },
@@ -64,12 +69,17 @@ passport.use(new FacebookStrategy({
         user.apiKeys.facebookAccessToken = accessToken;
         user.apiKeys.facebookSecretToken = secretToken;
         user.imageUrl = profile.photos[0].value;
+
+        if (!user.apiKeys.collatedToken) {
+          user.apiKeys.collatedToken = randtoken.generate(16);
+        }
         return user.save();
       } else {
         return User.create({
           name: profile.displayName,
           imageUrl: profile.photos[0].value,
           apiKeys: {
+            collatedToken: randtoken.generate(16),
             facebookAccessToken: accessToken,
             facebookSecretToken: secretToken
           },
