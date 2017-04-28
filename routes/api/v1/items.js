@@ -576,7 +576,7 @@ function saveChromeItem(reqBody) {
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
 	const options = {};
 
-	return User.findOne({id: reqBody.username, email: reqBody.email}).then(user => {
+	return User.findOne({id: reqBody.username, 'apiKeys.collatedToken': reqBody.token}).then(user => {
 		Object.assign(options, {user: user.id});
 		const textToSearch = urlArr[0].concat(titleArr[0]);
 
@@ -594,6 +594,8 @@ function saveChromeItem(reqBody) {
 			type: 'bookmark',
 			user: reqBody.username,
 		}) : null;
+	}).catch(() => {
+		throw new Error ('user or token not found');
 	});
 }
 
