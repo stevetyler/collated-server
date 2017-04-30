@@ -55,6 +55,7 @@ const itemPreviewSchema = new Schema({
 const itemSchema = new Schema({
   author: String,
   body: String,
+  bodyArr: [String],
   category: String,
   comments: [commentSchema],
   createdDate: Date,
@@ -90,6 +91,7 @@ itemSchema.methods.makeEmberItem = function() {
     id: this._id,
     author: this.author,
     body: this.body,
+    bodyArr: this.bodyArr,
     category: this.category,
     comments: comments,
     createdDate: this.createdDate,
