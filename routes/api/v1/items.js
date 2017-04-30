@@ -556,7 +556,7 @@ function saveBookmarkItem(bookmark, userId) {
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
 	// disable saving tabs temporarily
-	if (!reqBody.token || reqBody.urlarr.length > 1) {
+	if (!reqBody.token) {
 		res.status(401).end();
 		return;
 	}
@@ -576,9 +576,9 @@ function postChromeItemHandler(req, res) {
 
 function saveChromeItem(reqBody) {
 	//console.log('saveChrome Item body received', reqBody);
-	const urlArr = reqBody.urlarr;
-	const titleArr = reqBody.titlearr;
-	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
+	const urlArr = reqBody.urlArr;
+	const titleArr = reqBody.titleArr;
+	let text = urlArr.length > 1 ? makeBodyArr(urlArr, titleArr) : urlArr[0];
 	const options = {};
 	let userId;
 
@@ -592,12 +592,13 @@ function saveChromeItem(reqBody) {
 		//console.log('tags to be assigned', idsObj);
 		return (typeof idsObj === 'object') ? Item.create({
 			author: userId,
-			body: text,
+			body: typeof text === 'string' ? text : '',
+			bodyArr: Array.isArray(text) ? text : null,
 			category: idsObj.category,
 			createdDate: new Date(),
 			isPrivate: false,
 			tags: idsObj.tags,
-			title: reqBody.titlearr,
+			title: reqBody.titleArr,
 			type: 'bookmark',
 			user: userId,
 		}) : null;
@@ -745,14 +746,24 @@ function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
 }
 
-function makeUrlList(urlArr, titleArr) {
-	let bodyArr = urlArr.map((url, i) => {
-		return '<a href="' + url + '" >' + titleArr[i] + '</a>';
-	});
-	let bodytext = bodyArr.reduce((str, url) => {
-		return str + '<li>' + url + '</li>';
-	}, '');
-	return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
+function makeBodyArr(urlArr, titleArr) {
+	var bodyArr = [];
+
+	for (var i = 0; i < urlArr.length; i++) {
+	  var tmpArr = [];
+	  tmpArr.push(urlArr[i]);
+	  tmpArr.push(titleArr[i]);
+	  bodyArr.push(tmpArr);
+	}
+	return bodyArr;
+
+	// let bodyArr = urlArr.map((url, i) => {
+	// 	return '<a href="' + url + '" >' + titleArr[i] + '</a>';
+	// });
+	// let bodytext = bodyArr.reduce((str, url) => {
+	// 	return str + '<li>' + url + '</li>';
+	// }, '');
+	// return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
 }
 
 // function extractUrl(text) {
