@@ -62,6 +62,13 @@ userSchema.methods.makeEmberUser = function () {
     userGroups: this.userGroups
   };
 
+  if (this.apiKeys) {
+    Object.assign(emberUser, {
+      apiKeys: {
+        collatedToken: this.apiKeys.collatedToken
+      }
+    });
+  }
   if (this.facebookProfile) {
     Object.assign(emberUser, {
       facebookProfile: {
