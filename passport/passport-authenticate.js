@@ -39,7 +39,7 @@ passport.use(new TwitterStrategy({
           apiKeys: {
             collatedToken: randtoken.generate(16),
             twitterAccessToken: token,
-            twitterSecretToken:tokenSecret,
+            twitterSecretToken: tokenSecret,
           },
           twitterProfile: {
             twitterId: profile._json.id_str
@@ -220,10 +220,11 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   User.findOne({_id: id}, (err, user) => {
+    const emberUser = user.makeEmberUser();
     if (err) {
       return done(err);
     }
-    return done(null, user);
+    return done(null, emberUser);
   });
 });
 
