@@ -555,9 +555,14 @@ function saveBookmarkItem(bookmark, userId) {
 
 function postChromeItemHandler(req, res) {
 	const reqBody = req.body;
+	// disable saving tabs temporarily
+	if (!reqBody.token || reqBody.urlarr.length > 1) {
+		res.status(401).end();
+		return;
+	}
 
 	saveChromeItem(reqBody).then(newItem => {
-		console.log('chrome item saved', newItem);
+		//console.log('chrome item saved', newItem);
 		res.send({});
 		return newItem;
 	}).then(item => {
@@ -570,21 +575,23 @@ function postChromeItemHandler(req, res) {
 }
 
 function saveChromeItem(reqBody) {
-	console.log('saveChrome Item body received', reqBody);
+	//console.log('saveChrome Item body received', reqBody);
 	const urlArr = reqBody.urlarr;
 	const titleArr = reqBody.titlearr;
 	let text = urlArr.length > 1 ? makeUrlList(urlArr, titleArr) : urlArr[0];
 	const options = {};
+	let userId;
 
-	return User.findOne({id: reqBody.username, 'apiKeys.collatedToken': reqBody.token}).then(user => {
+	return User.findOne({'apiKeys.collatedToken': reqBody.token}).then(user => {
+		userId = user.id;
 		Object.assign(options, {user: user.id});
 		const textToSearch = urlArr[0].concat(titleArr[0]);
 
 		return Item.getCategoryAndTags(textToSearch, options);
 	}).then(idsObj => {
-		console.log('tags to be assigned', idsObj);
+		//console.log('tags to be assigned', idsObj);
 		return (typeof idsObj === 'object') ? Item.create({
-			author: reqBody.username,
+			author: userId,
 			body: text,
 			category: idsObj.category,
 			createdDate: new Date(),
@@ -592,10 +599,10 @@ function saveChromeItem(reqBody) {
 			tags: idsObj.tags,
 			title: reqBody.titlearr,
 			type: 'bookmark',
-			user: reqBody.username,
+			user: userId,
 		}) : null;
 	}).catch(() => {
-		throw new Error ('user or token not found');
+		throw new Error('user or token not found');
 	});
 }
 
