@@ -58,6 +58,8 @@ function getItems(req, res) {
 			return getFilteredGroupItemsHandler(req, res);
 		case 'importItems':
 			return getTwitterItemsHandler(req, res);
+		case 'exportItems':
+		  return getUserExportItemsHandler(req, res);
 		default:
 			return res.status(404).end();
 	}
@@ -169,6 +171,61 @@ function getUserItems(reqObj) {
 	return Item.paginate(reqObj.userOrGroupQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
 		return makePublicOrPrivateItems(reqObj, pagedObj);
+	});
+}
+
+function getUserExportItemsHandler(req, res) {
+	const reqObj = {
+		authUser: req.user,
+		pageLimit: req.query.limit,
+		pageNumber: req.query.page,
+		userOrGroupId: req.query.userId,
+		userOrGroupQuery: {user: req.query.userId},
+	};
+
+	getUserExportItems(reqObj).then(obj => {
+		res.send({
+			items: obj.items
+		});
+	}, () => {
+		res.status(404).end();
+	});
+}
+
+function getUserExportItems(reqObj) {
+	let exportItems;
+	let exportCategories;
+	let exportTags;
+
+	return Item.find({user: reqObj.authUser}).then(items => {
+		exportItems = items;
+
+		return Category.find({user: reqObj.authUser});
+	}).then(categories => {
+		exportCategories = categories;
+
+		return Tag.find({user: reqObj.authUser});
+	}).then(tags => {
+		exportTags = tags;
+		exportData = {};
+
+		exportCategories.map(category => {
+
+
+		});
+		var data = [
+		['Link 1', 'Title 2', 'Title 3'],
+		['row1cell1', 'row1cell2', 'row1cell3'],
+		['row2cell1', 'row2cell2', 'row2cell3']
+		];
+
+		// if (type === 'Excel') {
+		// 	this.get('excel').export(data, 'sheet1', 'test.xlsx');
+		// } else if (type === 'CSV') {
+		// 	this.get('csv').export(data, 'test.csv');
+		// }
+
+
 	});
 }
 
