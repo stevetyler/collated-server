@@ -202,22 +202,44 @@ function getUserExportItems(reqObj) {
 
 		return Category.find({user: reqObj.authUser});
 	}).then(categories => {
-		exportCategories = categories;
+		exportCategories = categories.sort();
 
 		return Tag.find({user: reqObj.authUser});
 	}).then(tags => {
 		exportTags = tags;
-		exportData = {};
 
-		exportCategories.map(category => {
-
-
+		exportItems.map(item => {
+			let tmpArr = [];
+			tmpArr.push(item.body);
+			let tagnames = item.tags.forEach(tagId => {
+				exportTags.filter(tag => {
+					if (tag.id === tagId) {
+						return tag.name;
+					};
+				});
+				//tmpArr.push(tag);
+			});
+			return tmpArr;
 		});
-		var data = [
-		['Link 1', 'Title 2', 'Title 3'],
-		['row1cell1', 'row1cell2', 'row1cell3'],
-		['row2cell1', 'row2cell2', 'row2cell3']
-		];
+
+
+		// exportTags = tags;
+		// exportData = {};
+		//
+		//
+		// {
+		// 	'General': []
+		// }
+
+		// exportCategories.map(category => {
+		//
+		//
+		// });
+		//var data = [
+		// ['Link 1', 'Title 2', 'Title 3'],
+		// ['row1cell1', 'row1cell2', 'row1cell3'],
+		// ['row2cell1', 'row2cell2', 'row2cell3']
+		// ];
 
 		// if (type === 'Excel') {
 		// 	this.get('excel').export(data, 'sheet1', 'test.xlsx');
