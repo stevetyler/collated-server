@@ -90,7 +90,7 @@ passport.use(new FacebookStrategy({
       }
     })
     .then(function(user){
-      console.log('fb user', user);
+      //console.log('fb user', user);
       return done(null, user);
     })
     .then(null, function(err){

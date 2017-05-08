@@ -54,6 +54,7 @@ const userSchema = new Schema({
 
 userSchema.methods.makeEmberUser = function () {
   const emberUser = {
+    _id: this._id,
     id: this.id,
     name: this.name,
     imageUrl: this.imageUrl,
