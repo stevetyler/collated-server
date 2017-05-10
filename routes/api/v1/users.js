@@ -1,13 +1,11 @@
-//var logger = require('nlogger').logger(module);
-//var passwordGenerator = require('password-generator');
-//var ensureAuthenticated = require('../../middlewares/ensure-authenticated').ensureAuthenticated;
-var bodyParser = require('body-parser');
+'use strict';
+const bodyParser = require('body-parser');
 
-var mailchimp = require('../../../lib/mailchimp');
-var mailchimpListID = '2867adef0d';
+const mailchimp = require('../../../lib/mailchimp');
+const mailchimpListID = '2867adef0d';
 
-var db = require('../../../database/database');
-var User = db.model('User');
+const db = require('../../../database/database');
+const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
@@ -26,9 +24,9 @@ module.exports.autoroute = {
 };
 
 function getUser(req, res) {
-  var userId = req.params.id;
-  //var loggedInUser = req.user;
-	var emberUser;
+  const userId = req.params.id;
+  //const loggedInUser = req.user;
+	let emberUser;
 	//console.log('get user called', userId);
 	return User.findOne({id: userId})
 	.exec().then(function(user) {
@@ -50,19 +48,19 @@ function getUser(req, res) {
 }
 
 function putUser(req, res) {
-	var query = req.user.id;
+	const query = req.user.id;
 
 	if (req.user.id === req.params.id) {
 		User.findOne({id: query})
 		.exec().then(function(user) {
-			var newObj = {
+			const newObj = {
 				autoImport: req.body.user.twitterProfile.autoImport
 			};
 			Object.assign(user.twitterProfile, newObj);
 			return user.save();
 		})
 		.then(function(user) {
-			var emberUser = user.makeEmberUser();
+			const emberUser = user.makeEmberUser();
 			return res.send({'user': emberUser});
 		});
 	}
@@ -72,10 +70,10 @@ function putUser(req, res) {
 }
 
 function updateUser(req, res) {
-	var id = req.body.id;
-	var name = req.body.name;
-	var email = req.body.email;
-	var subscribe = req.body.subscribe;
+	const id = req.body.id;
+	const name = req.body.name;
+	const email = req.body.email;
+	const subscribe = req.body.subscribe;
 
 	User.findOne({_id: req.user._id}).exec().then(function(user) {
 		if(!user) {
@@ -94,7 +92,10 @@ function updateUser(req, res) {
 	})
 	.then(function(user){
 		if(subscribe === 'true'){
-			mailchimp(email, mailchimpListID).then( function() {
+			const fname = name.split(' ')[0];
+			const lname = name.split(' ')[1];
+
+			mailchimp(email, mailchimpListID, fname, lname).then( function() {
 				console.log(`Successfully subscribed ${email} to ${mailchimpListID}`);
 			}, function(err){
 				console.error('Error subscribing user to mailchimp', err);
@@ -111,7 +112,7 @@ function updateUser(req, res) {
 }
 
 function checkIdExists(req, res) {
-	var queryId = req.query.id;
+	const queryId = req.query.id;
 
 	return User.find({id: queryId}).exec().then(function(user) {
 		if (!queryId) {
@@ -158,7 +159,7 @@ function handleIsAuthenticatedRequest(req, res) {
 //             if (err) {
 //               return res.status(500).end();
 //             }
-//             var emberUser = user.makeEmberUser(null); // null because no loggedinuser
+//             const emberUser = user.makeEmberUser(null); // null because no loggedinuser
 //             return res.send({'user': emberUser});
 //           });
 //         });
@@ -171,7 +172,7 @@ function handleIsAuthenticatedRequest(req, res) {
 // }
 
 // Plans.findOne({_id: user.plan}).exec().then(function(plan){
-// 	var permissions;
+// 	const permissions;
 // 	if(!plan){
 // 		permissions = [];
 // 	} else {
