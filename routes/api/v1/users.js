@@ -72,6 +72,7 @@ function putUser(req, res) {
 function updateUser(req, res) {
 	const id = req.body.id;
 	const name = req.body.name;
+	const nameArr = name.split(' ');
 	const email = req.body.email;
 	const subscribe = req.body.subscribe;
 
@@ -92,8 +93,9 @@ function updateUser(req, res) {
 	})
 	.then(function(user){
 		if(subscribe === 'true'){
-			const fname = name.split(' ')[0];
-			const lname = name.split(' ')[1];
+			const fname = nameArr[0];
+			nameArr.splice(0,1);
+			const lname = nameArr.concat();
 
 			mailchimp(email, mailchimpListID, fname, lname).then( function() {
 				console.log(`Successfully subscribed ${email} to ${mailchimpListID}`);
