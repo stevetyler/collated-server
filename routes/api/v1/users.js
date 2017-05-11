@@ -9,6 +9,7 @@ const User = db.model('User');
 
 module.exports.autoroute = {
 	get: {
+		'/users': getUsers,
 		'/users/authenticated': handleIsAuthenticatedRequest,
 		'/users/checkIdExists': checkIdExists,
     '/users/:id' : getUser
@@ -44,6 +45,44 @@ function getUser(req, res) {
 	})
 	.then(null, function(){
 		return res.status(500).end();
+	});
+}
+
+function getUsers(req, res) {
+	if (req.query.keyword || req.query.keyword === '') {
+		return getSearchUsersHandler(req, res);
+	}
+}
+
+function getSearchUsersHandler(req, res) {
+	console.log('get searchUsers called');
+	const reqObj = {
+		authUser: req.user,
+		keyword: req.query.keyword,
+		userId: req.query.userId
+	};
+
+	getSearchUsers(reqObj).then(users => {
+		res.send({
+			users: users
+		});
+	}, () => {
+		res.status(404).end();
+	});
+}
+
+function getSearchUsers(reqObj) {
+	const searchQuery = {
+		id: reqObj.userId,
+		$text: {
+			$search: reqObj.keyword
+		}
+	};
+	console.log('search query', searchQuery);
+	return User.find(searchQuery)
+	.then(users => {
+		return users;
+		//return makePublicOrPrivateItems(reqObj, pagedObj);
 	});
 }
 
