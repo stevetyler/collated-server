@@ -55,7 +55,6 @@ function getUsers(req, res) {
 }
 
 function getSearchUsersHandler(req, res) {
-	console.log('get searchUsers called');
 	const reqObj = {
 		authUser: req.user,
 		keyword: req.query.keyword,
@@ -73,16 +72,21 @@ function getSearchUsersHandler(req, res) {
 
 function getSearchUsers(reqObj) {
 	const searchQuery = {
-		id: reqObj.userId,
 		$text: {
 			$search: reqObj.keyword
 		}
 	};
-	console.log('search query', searchQuery);
+
 	return User.find(searchQuery)
 	.then(users => {
-		return users;
-		//return makePublicOrPrivateItems(reqObj, pagedObj);
+		//console.log('users found', users.length);
+		const emberUsers = users.map(user => {
+			return user.makeEmberUser();
+		});
+
+		return emberUsers;
+	}).catch(err => {
+		console.log(err);
 	});
 }
 
