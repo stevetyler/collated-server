@@ -15,7 +15,9 @@ module.exports.autoroute = {
 };
 
 function getCategories(req, res) {
-	if (req.query.filter) { getCategory(req, res); }
+	if (req.query.filter) {
+		//getCategory(req, res); 
+	}
 	else if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
 	else {
