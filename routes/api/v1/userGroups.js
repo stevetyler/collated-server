@@ -17,8 +17,9 @@ function getUserGroupHandler(req, res) {
 		try {
 			userUserGroups = req.user.userGroups || [];
 		} catch (err) {
-			console.log(err);
+			console.log('caught error', err);
 		}
+
 		if (!userGroup.isPrivate) {
 			return userGroup;
 		}
@@ -35,9 +36,8 @@ function getUserGroupHandler(req, res) {
 		}
 		return;
 	}).catch(err => {
-		console.log(err);
 		res.status(404).end();
-		return;
+		throw new Error(err);
 	});
 }
 
