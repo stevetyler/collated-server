@@ -189,7 +189,8 @@ function getFilteredUserItemsHandler(req, res) {
 				total_pages: obj.pages
 			}
 		});
-	}, () => {
+	}, err => {
+		console.log(err);
 		res.status(404).end();
 	});
 }
@@ -285,6 +286,8 @@ function getFilteredItems(reqObj) {
 	}).then((pagedObj) => {
 		//console.log('pagedObj before making public or private', pagedObj);
 		return makePublicOrPrivateItems(reqObj, pagedObj);
+	}).catch(err => {
+		console.log('err', err);
 	});
 }
 
