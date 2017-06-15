@@ -381,11 +381,12 @@ function getTwitterItems(user, options) {
 }
 
 function putItems(req, res) {
+	let tags = req.body.item.tags;
 	Item.findOneAndUpdate(
     {_id: req.params.id},
     {$set: {
 			category: req.body.item.category,
-			tags: req.body.item.tags,
+			tags: Array.isArray(tags) ? tags : [],
 			isPrivate: req.body.item.isPrivate,
 			comments: req.body.item.comments
 			}
@@ -549,7 +550,7 @@ function saveBookmarkItem(bookmark, userId) {
 	    body: body,
 			title: title,
 	    author: userId,
-	    tags: ids,
+	    tags: Array.isArray(ids) ? ids : [],
 	    isPrivate: false,
 	    type: 'bookmark'
 		});
@@ -596,11 +597,11 @@ function saveChromeItem(reqBody) {
 		return (typeof idsObj === 'object') ? Item.create({
 			author: userId,
 			body: typeof text === 'string' ? text : '',
-			bodyArr: Array.isArray(text) ? text : null,
+			bodyArr: Array.isArray(text) ? text : [],
 			category: idsObj.category,
 			createdDate: new Date(),
 			isPrivate: false,
-			tags: idsObj.tags,
+			tags: Array.isArray(idsObj.tags) ? idsObj.tags : [],
 			title: reqBody.titleArr,
 			type: 'bookmark',
 			user: userId,
