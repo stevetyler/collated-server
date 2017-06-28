@@ -7,10 +7,10 @@ const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
+const extractUrl = require('../../../lib/utilities/extractUrl.js');
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const categorySchema = require('../../../schemas/category.js');
-const extractUrl = require('../../../lib/utilities/extractUrl.js');
 const itemSchema = require('../../../schemas/item.js');
 const tagSchema = require('../../../schemas/tag.js');
 const userSchema = require('../../../schemas/user.js');
@@ -65,7 +65,7 @@ function getItems(req, res) {
 }
 
 function getTitle(req, res) {
-  const client = new MetaInspector(req.query.data, { timeout: 5000 });
+  let client = new MetaInspector(req.query.data, { timeout: 5000 });
 
 	client.on('fetch', function(){
 		if (client) {
@@ -82,10 +82,10 @@ function getTitle(req, res) {
 }
 
 function getItemPreviewHandler(req, res) {
-	const item = req.query.item;
+	let item = req.query.item;
 
 	return getPreviewAndUpdate(item).then(newItem => {
-		const emberItem = newItem.makeEmberItem();
+		let emberItem = newItem.makeEmberItem();
 
 		return res.send({'items': emberItem});
 	}).catch(err => {
@@ -95,16 +95,16 @@ function getItemPreviewHandler(req, res) {
 }
 
 function getItemPreviewsHandler(req, res) {
-	const userId = req.query.user;
-	const categoryname = req.query.category;
-	const groupId = req.query.group;
-	const userOrGroup = userId ? { 'user': userId } : { 'userGroup' : groupId };
-	const query = Object.assign({'name': categoryname}, userOrGroup);
+	let userId = req.query.user;
+	let categoryname = req.query.category;
+	let groupId = req.query.group;
+	let userOrGroup = userId ? { 'user': userId } : { 'userGroup' : groupId };
+	let query = Object.assign({'name': categoryname}, userOrGroup);
 
 	Category.findOne(query).then(category => {
 		return Item.find({ user: userId, category: category._id });
 	}).then(function(items) {
-		const filterByPreviewArr = items.filter(item => {
+		let filterByPreviewArr = items.filter(item => {
 			let hasUrl = false;
 			let hasMetaImage = false;
 			try {
@@ -117,7 +117,7 @@ function getItemPreviewsHandler(req, res) {
 			return !item.itemPreview || hasMetaImage; // temp to replace screenshots
 		});
 
-		const filteredItems = filterByPreviewArr.filter(item => {
+		let filteredItems = filterByPreviewArr.filter(item => {
 			return extractUrl(item.body);
 		});
 		console.log('filtered items length', filteredItems.length);
@@ -145,7 +145,7 @@ function getPreviewAndUpdate(item) {
 }
 
 function getUserItemsHandler(req, res) {
-	const reqObj = {
+	let reqObj = {
 		authUser: req.user,
 		pageLimit: req.query.limit,
 		pageNumber: req.query.page,
@@ -173,7 +173,7 @@ function getUserItems(reqObj) {
 }
 
 function getFilteredUserItemsHandler(req, res) {
-	const reqObj = {
+	let reqObj = {
 		authUser: req.user,
 		pageLimit: req.query.limit,
 		pageNumber: req.query.page,
@@ -196,7 +196,7 @@ function getFilteredUserItemsHandler(req, res) {
 }
 
 function getGroupItemsHandler(req, res) {
-	const reqObj = {
+	let reqObj = {
 		authUser: req.user,
 		pageLimit: req.query.limit,
 		pageNumber: req.query.page,
@@ -226,7 +226,7 @@ function getGroupItems(reqObj) {
 }
 
 function getFilteredGroupItemsHandler(req, res) {
-	const reqObj = {
+	let reqObj = {
 		authUser: req.user,
 		pageLimit: req.query.limit,
 		pageNumber: req.query.page,
@@ -249,15 +249,15 @@ function getFilteredGroupItemsHandler(req, res) {
 
 function getFilteredItems(reqObj) {
 	//console.log('reqObj tagnames', reqObj.tagNames);
-	const categoryQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: reqObj.tagNames[0]});
-	const tagNamesArr = reqObj.tagNames.slice(1, reqObj.tagNames.length);
+	let categoryQuery = Object.assign({}, reqObj.userOrGroupQuery, {name: reqObj.tagNames[0]});
+	let tagNamesArr = reqObj.tagNames.slice(1, reqObj.tagNames.length);
 	let categoryId;
 
 	return Category.findOne(categoryQuery).then(category => {
 		categoryId = category._id;
 
 		if (tagNamesArr.length) {
-			const tagPromisesArr = tagNamesArr.map(tagName => {
+			let tagPromisesArr = tagNamesArr.map(tagName => {
 				let tagsQuery = Object.assign({}, reqObj.userOrGroupQuery, {category: category._id, name: tagName});
 
 				return Tag.findOne(tagsQuery);
@@ -292,7 +292,7 @@ function getFilteredItems(reqObj) {
 }
 
 function getSearchItemsHandler(req, res) {
-	const reqObj = {
+	let reqObj = {
 		authUser: req.user,
 		keyword: req.query.keyword,
 		pageLimit: req.query.limit,
@@ -314,7 +314,7 @@ function getSearchItemsHandler(req, res) {
 }
 
 function getSearchItems(reqObj) {
-	const searchQuery = reqObj.groupId ? {
+	let searchQuery = reqObj.groupId ? {
 		userGroup : reqObj.groupId,
 		$text: {
 			$search: reqObj.keyword
@@ -333,7 +333,7 @@ function getSearchItems(reqObj) {
 }
 
 function makePublicOrPrivateItems(reqObj, pagedObj) {
-	const newObj = makeEmberItems(pagedObj);
+	let newObj = makeEmberItems(pagedObj);
 
 	if (!reqObj.authUser) {
 		return Object.assign({}, newObj, {items: newObj.public});
@@ -348,7 +348,7 @@ function makePublicOrPrivateItems(reqObj, pagedObj) {
 
 function makeEmberItems(pagedObj) {
 	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
-		const emberItem = item.makeEmberItem();
+		let emberItem = item.makeEmberItem();
 		return item.isPrivate === 'true' ?
 			{
 				all: obj.all.concat(emberItem),
@@ -372,7 +372,7 @@ function getTwitterItemsHandler(req, res) {
 
 function getTwitterItems(user, options) {
   return twitterItemImporter(user, options).then(twitterItems => {
-		const filteredItems = twitterItems.filter(item => {
+		let filteredItems = twitterItems.filter(item => {
 			return extractUrl(item.body);
 		});
 
@@ -405,9 +405,9 @@ function putItems(req, res) {
 }
 
 function postBookmarkItemsHandler(req, res) {
-	const moveFile = BPromise.promisify(req.files.file.mv);
-	const filename = req.files.file.name;
-	const userId = req.user.id;
+	let moveFile = BPromise.promisify(req.files.file.mv);
+	let filename = req.files.file.name;
+	let userId = req.user.id;
 	let bookmarksArr, namesArrArr, categoryObjArr = [];
 
 	if (!req.files) {
@@ -419,9 +419,9 @@ function postBookmarkItemsHandler(req, res) {
 		bookmarksArr = parseHtml('./lib/data-import/bookmarks/' + filename, ['Bookmarks', 'Bookmarks Bar']);
 		// add category to each tags array
 		namesArrArr = bookmarksArr.map(obj => obj.tags);
-		//const tagsArr = [].concat.apply([], tagsArrArr); // flatten array
-		const uniqNamesArrArr = mergeTagArrays(namesArrArr);
-		const categoryPromisesArr = uniqNamesArrArr.map(arr => {
+		//let tagsArr = [].concat.apply([], tagsArrArr); // flatten array
+		let uniqNamesArrArr = mergeTagArrays(namesArrArr);
+		let categoryPromisesArr = uniqNamesArrArr.map(arr => {
 			return Category.findOne({ user: userId, name: arr[0]}).then(category => {
 				if (!category) {
 					console.log('3 category created', arr[0]);
@@ -450,7 +450,7 @@ function postBookmarkItemsHandler(req, res) {
 		return;
 	}).then(() => {
 		// return array of categoryObjs with tags object
-		const tagPromiseArr = namesArrArr.map(arr => {
+		let tagPromiseArr = namesArrArr.map(arr => {
 			return arr.map((name, i) => {
 				let categoryObj = categoryObjArr.filter(obj => obj.name === name).pop();
 
@@ -521,8 +521,8 @@ function mergeTagArrays(tags) {
 }
 
 function saveBookmarkItem(bookmark, userId) {
-  const body = bookmark.url;
-	const title = bookmark.title;
+  let body = bookmark.url;
+	let title = bookmark.title;
   let tagnames;
 
 	if (bookmark.tags.length) {
@@ -533,7 +533,7 @@ function saveBookmarkItem(bookmark, userId) {
 		tagnames = [];
 	}
 	console.log('4 tagnames', tagnames);
-	const tagPromises = tagnames.map(tagname => {
+	let tagPromises = tagnames.map(tagname => {
 		// when creating tag here, duplicates occur?
 		return Tag.findOne({user: userId, name: tagname}).then(tag => {
 			return tag._id;
@@ -558,7 +558,7 @@ function saveBookmarkItem(bookmark, userId) {
 }
 
 function postChromeItemHandler(req, res) {
-	const reqBody = req.body;
+	let reqBody = req.body;
 	// disable saving tabs temporarily
 	if (!reqBody.token) {
 		res.status(401).end();
@@ -580,29 +580,29 @@ function postChromeItemHandler(req, res) {
 
 function saveChromeItem(reqBody) {
 	//console.log('saveChrome Item body received', reqBody);
-	const urlArr = reqBody.urlArr;
-	const titleArr = reqBody.titleArr;
-	let text = urlArr.length > 1 ? makeBodyArr(urlArr, titleArr) : urlArr[0];
-	const options = {};
+	let urlArr = reqBody.urlArr;
+	let titleArr = reqBody.titleArr;
+	let options = {};
 	let userId;
 
 	return User.findOne({'apiKeys.collatedToken': reqBody.token}).then(user => {
 		userId = user.id;
-		Object.assign(options, {user: user.id});
-		const textToSearch = urlArr[0].concat(titleArr[0]);
+		Object.assign(options, { user: user.id });
+		let textToSearch = urlArr[0].concat(titleArr[0]);
 
 		return Item.getCategoryAndTags(textToSearch, options);
 	}).then(idsObj => {
 		//console.log('tags to be assigned', idsObj);
 		return (typeof idsObj === 'object') ? Item.create({
 			author: userId,
-			body: typeof text === 'string' ? text : '',
-			bodyArr: Array.isArray(text) ? text : [],
+			body: urlArr.length < 2 ? urlArr[0] : '',
+			bodyArr: urlArr.length > 1 ? urlArr : '',
 			category: idsObj.category,
 			createdDate: new Date(),
 			isPrivate: false,
 			tags: Array.isArray(idsObj.tags) ? idsObj.tags : [],
-			title: reqBody.titleArr,
+			title: titleArr.length < 2 ? titleArr[0] : '',
+			titleArr: titleArr.length > 1 ? titleArr : '',
 			type: 'bookmark',
 			user: userId,
 		}) : null;
@@ -613,13 +613,13 @@ function saveChromeItem(reqBody) {
 
 // create item from Collated
 function postItemHandler(req, res) {
-	const bodyItem = req.body.item;
-	const userGroup = bodyItem.userGroup;
-	const idsObj = {
+	let bodyItem = req.body.item;
+	let userGroup = bodyItem.userGroup;
+	let idsObj = {
 		user: userGroup ? null : req.user.id,
 		userGroup: userGroup ? userGroup : null
 	};
-	const item = {
+	let item = {
 		author: bodyItem.author,
 		body: bodyItem.body,
 		createdDate: bodyItem.createdDate,
@@ -631,7 +631,7 @@ function postItemHandler(req, res) {
 	let itemId;
 
 	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
-		const newItem = Object.assign(item, idsObj, categoryIdsObj);
+		let newItem = Object.assign(item, idsObj, categoryIdsObj);
 		//console.log('new item to create', newItem);
 
 		return Item.create(newItem);
@@ -658,16 +658,16 @@ function postItemHandler(req, res) {
 
 function postSlackItemsHandler(req, res) {
 	console.log('post slack item called');
-	const messagesArr = Array.isArray(req.body) ? req.body : [req.body];
-	const slackTeamId = messagesArr[0].team_id;
+	let messagesArr = Array.isArray(req.body) ? req.body : [req.body];
+	let slackTeamId = messagesArr[0].team_id;
 
 	UserGroup.findOne({slackTeamId: slackTeamId})
 	.then(userGroup => {
-		const options = {
+		let options = {
 			userGroup: userGroup.id,
 			categoryPerChannel: userGroup.categoryPerSlackChannel
 		};
-		const promiseArr = messagesArr.reduce((arr, message) => {
+		let promiseArr = messagesArr.reduce((arr, message) => {
 			return containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
 		}, []);
 
@@ -681,9 +681,9 @@ function postSlackItemsHandler(req, res) {
 }
 
 function saveSlackItem(message, options) {
-	const slackTimestamp = message.timestamp || message.ts;
-	const newTimestamp = slackTimestamp.split('.')[0] * 1000;
-	const newSlackItem = {
+	let slackTimestamp = message.timestamp || message.ts;
+	let newTimestamp = slackTimestamp.split('.')[0] * 1000;
+	let newSlackItem = {
 		author: message.user_name,
 		body: message.text,
 		createdDate: newTimestamp,
@@ -725,8 +725,8 @@ function deleteItems(req, res) {
 
 		return Item.remove({ _id: item._id });
 	}).then(() => {
-		const s3 = new AWS.S3();
-		const params = {
+		let s3 = new AWS.S3();
+		let params = {
       Bucket: 'collated-assets',
 			Delete: {
 				Objects: [
@@ -750,25 +750,6 @@ function containsUrl(message) {
 	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
 }
 
-function makeBodyArr(urlArr, titleArr) {
-	var bodyArr = [];
-
-	for (var i = 0; i < urlArr.length; i++) {
-	  var tmpArr = [];
-	  tmpArr.push(urlArr[i]);
-	  tmpArr.push(titleArr[i]);
-	  bodyArr.push(tmpArr);
-	}
-	return bodyArr;
-
-	// let bodyArr = urlArr.map((url, i) => {
-	// 	return '<a href="' + url + '" >' + titleArr[i] + '</a>';
-	// });
-	// let bodytext = bodyArr.reduce((str, url) => {
-	// 	return str + '<li>' + url + '</li>';
-	// }, '');
-	// return '<span>' + 'Tab URLs saved: ' + '</span>' + '<ul>' + bodytext + '</ul>';
-}
 
 // function extractUrl(text) {
 //   let str = text ? text : '';
