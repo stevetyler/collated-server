@@ -66,6 +66,7 @@ const itemSchema = new Schema({
   slackChannelId: String,
   tags: [String],
   title: String,
+  titleArr: [String],
   twitterTweetId: String,
   type: String, // slack, twitter, bookmark
   user: String,
@@ -100,6 +101,7 @@ itemSchema.methods.makeEmberItem = function() {
     slackTeamId: this.slackTeamId,
     tags: this.tags,
     title: this.title,
+    titleArr: this.titleArr,
     twitterTweetId: this.twitterTweetId,
     type: this.type,
     user: this.user,
