@@ -1,4 +1,4 @@
-# Collated-server
+# Collated-Server
 
 This README outlines the details of collaborating on this Node application.
 
@@ -8,7 +8,9 @@ This README outlines the details of collaborating on this Node application.
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
+* [Node.js](http://nodejs.org/) (with NPM) "^6.10.2"
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
+
 
 ## Installation
 
