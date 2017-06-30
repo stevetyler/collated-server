@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const extractUrl = require('../../../lib/utilities/extractUrl.js');
+const utils = require('../../../lib/utilities/utils.js');
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const categorySchema = require('../../../schemas/category.js');
@@ -118,7 +118,7 @@ function getItemPreviewsHandler(req, res) {
 		});
 
 		let filteredItems = filterByPreviewArr.filter(item => {
-			return extractUrl(item.body);
+			return utils.extractUrl(item.body);
 		});
 		console.log('filtered items length', filteredItems.length);
 
@@ -373,7 +373,7 @@ function getTwitterItemsHandler(req, res) {
 function getTwitterItems(user, options) {
   return twitterItemImporter(user, options).then(twitterItems => {
 		let filteredItems = twitterItems.filter(item => {
-			return extractUrl(item.body);
+			return utils.extractUrl(item.body);
 		});
 
 		return BPromise.map(filteredItems, getPreviewAndUpdate, {concurrency: 10});
@@ -668,7 +668,7 @@ function postSlackItemsHandler(req, res) {
 			categoryPerChannel: userGroup.categoryPerSlackChannel
 		};
 		let promiseArr = messagesArr.reduce((arr, message) => {
-			return containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
+			return utils.containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
 		}, []);
 
 		return Promise.all(promiseArr);
@@ -745,16 +745,3 @@ function deleteItems(req, res) {
 		return res.status(500).end();
 	});
 }
-
-function containsUrl(message) {
-	return /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig.test(message);
-}
-
-
-// function extractUrl(text) {
-//   let str = text ? text : '';
-//   let urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-//   let urls = str.match(urlRegex);
-//
-//   return urls ? urls[0] : null;
-// }
