@@ -613,22 +613,38 @@ function saveChromeItem(reqBody) {
 
 // create item from Collated
 function postItemHandler(req, res) {
-	let bodyItem = req.body.item;
 	let userGroup = bodyItem.userGroup;
 	let idsObj = {
 		user: userGroup ? null : req.user.id,
 		userGroup: userGroup ? userGroup : null
 	};
-	let item = {
-		author: bodyItem.author,
-		body: bodyItem.body,
-		createdDate: bodyItem.createdDate,
+	let newItem = {
+		author: req.body.item.author,
+		body: req.body.item.body,
+		createdDate: req.body.item.createdDate,
 		isPrivate: false,
-		title: bodyItem.title,
-		twitterTweetId: bodyItem.twitterTweetId,
-		type: bodyItem.type,
+		title: req.body.item.title,
+		twitterTweetId: req.body.item.twitterTweetId,
+		type: req.body.item.type,
 	};
 	let itemId;
+
+	if (!newItem.body) {
+
+	}
+	else {
+		saveUrlItem(bodyItem).then(emberItem => {
+			res.send({'item': emberItem});
+			return;
+		}).catch(err => {
+			console.log(err);
+			res.status(404).end();
+			return;
+		});
+	}
+}
+
+function saveUrlItem(bodyItem) {
 
 	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
 		let newItem = Object.assign(item, idsObj, categoryIdsObj);
@@ -648,11 +664,6 @@ function postItemHandler(req, res) {
 	}).then(newItem => {
 		//console.log('newItem to make ember', newItem);
  		return newItem.makeEmberItem();
-	}).then(emberItem => {
-		return res.send({'item': emberItem});
-	}).catch(err => {
-		console.log(err);
-		return res.status(404).end();
 	});
 }
 
