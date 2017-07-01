@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const parseHtml = require('../../../lib/bookmark-parser.js');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
-const utils = require('../../../lib/utilities/utils.js');
+const helpers = require('../../../lib/utilities/helpers.js');
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const categorySchema = require('../../../schemas/category.js');
@@ -118,7 +118,7 @@ function getItemPreviewsHandler(req, res) {
 		});
 
 		let filteredItems = filterByPreviewArr.filter(item => {
-			return utils.extractUrl(item.body);
+			return helpers.extractUrl(item.body);
 		});
 		console.log('filtered items length', filteredItems.length);
 
@@ -373,7 +373,7 @@ function getTwitterItemsHandler(req, res) {
 function getTwitterItems(user, options) {
   return twitterItemImporter(user, options).then(twitterItems => {
 		let filteredItems = twitterItems.filter(item => {
-			return utils.extractUrl(item.body);
+			return helpers.extractUrl(item.body);
 		});
 
 		return BPromise.map(filteredItems, getPreviewAndUpdate, {concurrency: 10});
@@ -668,7 +668,7 @@ function postSlackItemsHandler(req, res) {
 			categoryPerChannel: userGroup.categoryPerSlackChannel
 		};
 		let promiseArr = messagesArr.reduce((arr, message) => {
-			return utils.containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
+			return helpers.containsUrl(message.text) ? arr.concat(saveSlackItem(message, options)) : arr;
 		}, []);
 
 		return Promise.all(promiseArr);

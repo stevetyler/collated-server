@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 const categorySchema = require('../schemas/category.js');
 const Category = mongoose.model('Category', categorySchema);
-const utils = require('../lib/utilities/utils.js');
+const helpers = require('../lib/utilities/helpers.js');
 
 const Schema = mongoose.Schema;
 const tagSchema = require('../schemas/tag.js');
@@ -185,7 +185,7 @@ function findItemTags(textToSearch, categoryId) {
 
 itemSchema.statics.getPreviewData = function(item) {
   let url, previewObj, fileExt, imageUrl;
-  const extractedUrl = utils.extractUrl(item.body);
+  const extractedUrl = helpers.extractUrl(item.body);
   const itemId = item._id || item.id;
   const folder = '../collated-temp/';
   const filenameArr = [];
@@ -193,18 +193,18 @@ itemSchema.statics.getPreviewData = function(item) {
   console.log('extractedUrl', extractedUrl);
   if (!extractedUrl) { throw new Error('no url found'); }
 
-  return utils.unfurlUrl(extractedUrl).then(unfurledUrl => {
+  return helpers.unfurlUrl(extractedUrl).then(unfurledUrl => {
     //console.log('unfurledUrl', unfurledUrl);
     if (!unfurledUrl) { throw new Error('error unfurling url'); }
     else { url = unfurledUrl; }
 
-    return utils.getPreviewMeta(url);
+    return helpers.getPreviewMeta(url);
   }).then(obj => {
     //console.log('previewobj', obj);
     previewObj = obj;
-    imageUrl = utils.formatImageUrl(previewObj.image);
+    imageUrl = helpers.formatImageUrl(previewObj.image);
 
-    return imageUrl ? utils.saveMetaImage(imageUrl, itemId) : null;
+    return imageUrl ? helpers.saveMetaImage(imageUrl, itemId) : null;
   }).then(metaImage => {
     if (metaImage) {
       fileExt = metaImage.split('.').pop();
@@ -213,7 +213,7 @@ itemSchema.statics.getPreviewData = function(item) {
     }
     else {
       console.log('meta file returned', metaImage, 'taking webshot');
-      return utils.takeWebshot(url, itemId);
+      return helpers.takeWebshot(url, itemId);
     }
   }).then(screenshot => {
     if (screenshot && typeof screenshot === 'string') {
@@ -224,9 +224,9 @@ itemSchema.statics.getPreviewData = function(item) {
     //console.log('tmpFile', tmpfile, typeof tmpfile);
     if (tmpfile && typeof tmpfile === 'string') {
       return Promise.all([
-        utils.resizeImage(folder, tmpfile, 105, '-sml'),
-        utils.resizeImage(folder, tmpfile, 210, '-med'),
-        utils.resizeImage(folder, tmpfile, 420, '-lrg')
+        helpers.resizeImage(folder, tmpfile, 105, '-sml'),
+        helpers.resizeImage(folder, tmpfile, 210, '-med'),
+        helpers.resizeImage(folder, tmpfile, 420, '-lrg')
       ]);
     }
     else { throw new Error('error creating image'); }
@@ -237,7 +237,7 @@ itemSchema.statics.getPreviewData = function(item) {
     const filesArr = arr;
     const filenamePromises = filesArr.map(filename => {
       console.log('image saved ' + folder + filename);
-      return utils.uploadImageToS3(folder, filename);
+      return helpers.uploadImageToS3(folder, filename);
     });
 
     return Promise.all(filenamePromises);
