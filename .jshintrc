@@ -12,5 +12,9 @@
   "regexp": false,
   "strict": false,
   "undef": true,
-  "unused": true
+  "unused": true,
+  "globals": {
+    "it": true,
+    "describe": true
+  }
 }

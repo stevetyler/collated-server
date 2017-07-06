@@ -54,5 +54,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^2.0.1"
+  },
+  "scripts" : {
+    "test": "mocha"
   }
 }
