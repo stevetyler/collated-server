@@ -613,43 +613,49 @@ function saveChromeItem(reqBody) {
 
 // create item from Collated
 function postItemHandler(req, res) {
-	let userGroup = bodyItem.userGroup;
+	console.log(req.body.item);
+	let userGroup = req.body.item.userGroup;
 	let idsObj = {
 		user: userGroup ? null : req.user.id,
 		userGroup: userGroup ? userGroup : null
 	};
+	let hasBody = !!req.body.item.body;
 	let newItem = {
 		author: req.body.item.author,
-		body: req.body.item.body,
+		body: hasBody ? req.body.item.body : req.body.item.title,
 		createdDate: req.body.item.createdDate,
 		isPrivate: false,
 		title: req.body.item.title,
 		twitterTweetId: req.body.item.twitterTweetId,
 		type: req.body.item.type,
 	};
-	let itemId;
 
-	if (!newItem.body) {
+	let itemPromise = new Promise(function(resolve) {
+		let item = hasBody ? saveUrlItem(newItem, idsObj) : Item.create(newItem);
 
-	}
-	else {
-		saveUrlItem(bodyItem).then(emberItem => {
-			res.send({'item': emberItem});
-			return;
-		}).catch(err => {
-			console.log(err);
-			res.status(404).end();
-			return;
-		});
-	}
+		resolve(item);
+	});
+
+	return itemPromise.then(item => {
+		//console.log('newItem to make ember', item);
+		return item.makeEmberItem();
+	})
+	.then(emberItem => {
+		res.send({'item': emberItem});
+		return;
+	}).catch(err => {
+		console.log(err);
+		res.status(404).end();
+		return;
+	});
 }
 
-function saveUrlItem(bodyItem) {
+function saveUrlItem(item, idsObj) {
+	let itemId;
 
-	return Item.getCategoryAndTags(bodyItem.body, idsObj).then(categoryIdsObj => {
+	return Item.getCategoryAndTags(item.body, idsObj).then(categoryIdsObj => {
 		let newItem = Object.assign(item, idsObj, categoryIdsObj);
 		//console.log('new item to create', newItem);
-
 		return Item.create(newItem);
 	}).then(newItem => {
 		itemId = newItem._id;
@@ -661,9 +667,6 @@ function saveUrlItem(bodyItem) {
 				itemPreview: previewObj
 			}
 		}, { new: true });
-	}).then(newItem => {
-		//console.log('newItem to make ember', newItem);
- 		return newItem.makeEmberItem();
 	});
 }
 
