@@ -7,23 +7,23 @@ const helpers = require('../lib/utilities/helpers.js');
 chai.use(chaiHttp);
 
 describe('helpers.extractUrl', function() {
-  it('should extract http:// url from item body string', function(done) {
+  it("should extract url from 'ghgdh http://bbc.co.uk ghgjhagsgd'", function(done) {
     chai.assert.equal(helpers.extractUrl('ghgdh http://bbc.co.uk ghgjhagsgd'), 'http://bbc.co.uk');
     done();
   });
-  it('should extract http://www url from item body string', function(done) {
+  it("should extract url from 'ghgdhg http://www.bbc.co.uk ghgjhagsgd'", function(done) {
     chai.assert.equal(helpers.extractUrl('ghgdhg http://www.bbc.co.uk ghgjhagsgd'), 'http://www.bbc.co.uk');
     done();
   });
-  it('should extract https:// url from item body string', function(done) {
+  it("should extract url from 'ghgdhgjdhgas https://www.facebook.com ghgjhagsgd'", function(done) {
     chai.assert.equal(helpers.extractUrl('ghgdhgjdhgas https://www.facebook.com ghgjhagsgd'), 'https://www.facebook.com');
     done();
   });
-  it('should return null from non http url from item body string', function(done) {
+  it("should return null from non http url from 'ghgdhgjdhgas www.facebook.com ghgjhagsgd'", function(done) {
     chai.assert.equal(helpers.extractUrl('ghgdhgjdhgas www.facebook.com ghgjhagsgd'), null);
     done();
   });
-  it('should return null for non url in item body string', function(done) {
+  it("should return null for non url in 'ghgdhgjdhgas http//bbc.co.uk'", function(done) {
     chai.assert.equal(helpers.extractUrl('ghgdhgjdhgas http//bbc.co.uk'), null);
     done();
   });
