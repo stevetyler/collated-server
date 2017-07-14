@@ -621,10 +621,10 @@ function postItemHandler(req, res) {
 	};
 	let item = {
 		author: bodyItem.author,
-		body: bodyItem.body,
+		body: req.sanitize().escape(bodyItem.body),
 		createdDate: bodyItem.createdDate,
 		isPrivate: false,
-		title: bodyItem.title,
+		title: req.sanitize().escape(bodyItem.title),
 		twitterTweetId: bodyItem.twitterTweetId,
 		type: bodyItem.type,
 	};

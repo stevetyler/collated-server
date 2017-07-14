@@ -17,11 +17,11 @@ function postItemComment(req, res) {
   //console.log('post comment called');
   const newComment = {
     createdDate: req.body.comment.createdDate,
-    body: req.body.comment.body,
+    body: req.sanitize().escape(req.body.comment.body),
     item: req.body.comment.item,
     user: req.body.comment.user
   };
-  console.log('post comment called', newComment);
+  //console.log('post comment called', newComment);
 
   Item.findOne({_id: req.body.comment.item})
   .then((item) => {
