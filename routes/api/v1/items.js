@@ -558,14 +558,14 @@ function saveBookmarkItem(bookmark, userId) {
 }
 
 function postChromeItemHandler(req, res) {
-	let reqBody = req.body;
+	//let reqBody = req.body;
 	// disable saving tabs temporarily
-	if (!reqBody.token) {
+	if (!req.body.token) {
 		res.status(401).end();
 		return;
 	}
 
-	saveChromeItem(reqBody).then(newItem => {
+	saveChromeItem(req).then(newItem => {
 		//console.log('chrome item saved', newItem);
 		res.send({});
 		return newItem;
@@ -578,14 +578,18 @@ function postChromeItemHandler(req, res) {
 	});
 }
 
-function saveChromeItem(reqBody) {
+function saveChromeItem(req) {
 	//console.log('saveChrome Item body received', reqBody);
-	let urlArr = reqBody.urlArr;
-	let titleArr = reqBody.titleArr;
+	let urlArr = req.body.urlArr.map(url => {
+		return req.sanitize().escape(url);
+	});
+	let titleArr = req.body.titleArr.map(title => {
+		return req.sanitize().escape(title);
+	});
 	let options = {};
 	let userId;
 
-	return User.findOne({'apiKeys.collatedToken': reqBody.token}).then(user => {
+	return User.findOne({'apiKeys.collatedToken': req.body.token}).then(user => {
 		userId = user.id;
 		Object.assign(options, { user: user.id });
 		let textToSearch = urlArr[0].concat(titleArr[0]);
