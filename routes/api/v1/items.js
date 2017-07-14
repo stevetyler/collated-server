@@ -580,12 +580,11 @@ function postChromeItemHandler(req, res) {
 
 function saveChromeItem(req) {
 	//console.log('saveChrome Item body received', reqBody);
-	let urlArr = req.body.urlArr.map(url => {
-		return req.sanitize().escape(url);
-	});
-	let titleArr = req.body.titleArr.map(title => {
-		return req.sanitize().escape(title);
-	});
+	let urlArr = req.sanitize('urlArr').escape();
+
+	let titleArr = req.sanitize('titleArr').escape();
+	console.log('arrays', urlArr, titleArr);
+
 	let options = {};
 	let userId;
 

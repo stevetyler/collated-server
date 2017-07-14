@@ -31,9 +31,7 @@ module.exports = function (app) {
 
 	app.use(bodyParser.json({limit: '50mb'}));
 	app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // parse application/x-www-form-urlencoded
-	app.use(expressValidator({
-		
-	})); // this line must be immediately after any of the bodyParser middlewares!
+	app.use(expressValidator()); // this line must be immediately after any of the bodyParser middlewares!
 	app.use(fileUpload());
 	app.use(passport.initialize());
 	app.use(passport.session());
