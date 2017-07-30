@@ -333,26 +333,35 @@ function getSearchItems(reqObj) {
 }
 
 function makePublicOrPrivateItems(reqObj, pagedObj) {
-	let newObj = makeEmberItems(pagedObj);
+	// check for group??
+	return Category.find({user: reqObj.userOrGroupId, isPrivate: 'true'})
+	.then(categories => {
+		let privateCategories = categories.map(category => category.id);
+		console.log('private categories', privateCategories);
+		let newObj = makeEmberItems(pagedObj, privateCategories);
 
-	if (!reqObj.authUser) {
-		return Object.assign({}, newObj, {items: newObj.public});
-	}
-	else if (reqObj.userOrGroupId === reqObj.authUser.id) {
-		return Object.assign({}, newObj, {items: newObj.all});
-	}
-	else {
-		return Object.assign({}, newObj, {items: newObj.public});
-	}
+		if (!reqObj.authUser) {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+		else if (reqObj.userOrGroupId === reqObj.authUser.id) {
+			return Object.assign({}, newObj, {items: newObj.all});
+		}
+		else {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+	});
 }
 
-function makeEmberItems(pagedObj) {
+function makeEmberItems(pagedObj, privateCategories) {
 	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
 		let emberItem = item.makeEmberItem();
-		return item.isPrivate === 'true' ?
+ 		console.log('item category', item.category, privateCategories.includes(item.category));
+
+		return privateCategories.includes(item.category) ?
 			{
 				all: obj.all.concat(emberItem),
-				public: obj.public } :
+				public: obj.public
+			} :
 			{
 				all: obj.all.concat(emberItem),
 				public: obj.public.concat(emberItem),
