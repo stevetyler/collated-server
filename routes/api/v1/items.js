@@ -333,17 +333,22 @@ function getSearchItems(reqObj) {
 }
 
 function makePublicOrPrivateItems(reqObj, pagedObj) {
-	let newObj = makeEmberItems(pagedObj);
+	Category.find({user: reqObj.userOrGroupId, isPrivate: 'true'})
+	.then(categories => {
+		let privateCategories = categories.map(category => category.id);
 
-	if (!reqObj.authUser) {
-		return Object.assign({}, newObj, {items: newObj.public});
-	}
-	else if (reqObj.userOrGroupId === reqObj.authUser.id) {
-		return Object.assign({}, newObj, {items: newObj.all});
-	}
-	else {
-		return Object.assign({}, newObj, {items: newObj.public});
-	}
+		let newObj = makeEmberItems(pagedObj, privateCategories);
+
+		if (!reqObj.authUser) {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+		else if (reqObj.userOrGroupId === reqObj.authUser.id) {
+			return Object.assign({}, newObj, {items: newObj.all});
+		}
+		else {
+			return Object.assign({}, newObj, {items: newObj.public});
+		}
+	});
 }
 
 function makeEmberItems(pagedObj) {
