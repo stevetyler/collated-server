@@ -168,7 +168,7 @@ function getUserItemsHandler(req, res) {
 function getUserItems(reqObj) {
 	return Item.paginate(reqObj.userOrGroupQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then(pagedObj => {
-		return makePublicOrPrivateItems(reqObj, pagedObj);
+		return makePublicOrPrivateUserItems(reqObj, pagedObj);
 	});
 }
 
@@ -220,7 +220,9 @@ function getGroupItems(reqObj) {
 	return Item.paginate(reqObj.userOrGroupQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
 		//console.log('slack items found', pagedObj);
-		return makeEmberItems(pagedObj);
+		let privateCategoryIds = []; // groups are public or private, not categories
+
+		return makeEmberItems(pagedObj, privateCategoryIds);
 		}
 	);
 }
@@ -285,7 +287,7 @@ function getFilteredItems(reqObj) {
 		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
 		//console.log('pagedObj before making public or private', pagedObj);
-		return makePublicOrPrivateItems(reqObj, pagedObj);
+		return makePublicOrPrivateUserItems(reqObj, pagedObj);
 	}).catch(err => {
 		console.log('err', err);
 	});
@@ -328,17 +330,15 @@ function getSearchItems(reqObj) {
 
 	return Item.paginate(searchQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } })
 	.then((pagedObj) => {
-		return makePublicOrPrivateItems(reqObj, pagedObj);
+		return makePublicOrPrivateUserItems(reqObj, pagedObj);
 	});
 }
 
-function makePublicOrPrivateItems(reqObj, pagedObj) {
-	// check for group??
+function makePublicOrPrivateUserItems(reqObj, pagedObj) {
 	return Category.find({user: reqObj.userOrGroupId, isPrivate: 'true'})
 	.then(categories => {
-		let privateCategories = categories.map(category => category.id);
-		console.log('private categories', privateCategories);
-		let newObj = makeEmberItems(pagedObj, privateCategories);
+		let privateCategoryIds = categories.map(category => category.id);
+		let newObj = makeEmberItems(pagedObj, privateCategoryIds);
 
 		if (!reqObj.authUser) {
 			return Object.assign({}, newObj, {items: newObj.public});
@@ -349,15 +349,24 @@ function makePublicOrPrivateItems(reqObj, pagedObj) {
 		else {
 			return Object.assign({}, newObj, {items: newObj.public});
 		}
+	}).catch(err => {
+		console.log(err);
+		return {items: []};
 	});
 }
 
-function makeEmberItems(pagedObj, privateCategories) {
+function makeEmberItems(pagedObj, privateCategoryIds) {
+	//console.log('make emberItems called, pagedObj, categories', pagedObj, privateCategoryIds);
 	return Object.assign({}, pagedObj, pagedObj.docs.reduce((obj, item) => {
-		let emberItem = item.makeEmberItem();
- 		console.log('item category', item.category, privateCategories.includes(item.category));
+		let itemCategoryId,
+				emberItem;
 
-		return privateCategories.includes(item.category) ?
+		if (item && typeof item === 'object') {
+			itemCategoryId = item.category;
+			emberItem = item.makeEmberItem();
+		}
+
+		return privateCategoryIds.includes(itemCategoryId) ?
 			{
 				all: obj.all.concat(emberItem),
 				public: obj.public
