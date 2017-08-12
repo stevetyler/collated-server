@@ -4,6 +4,7 @@ const ensureAuthenticated = require('../../../middlewares/ensure-authenticated')
 
 const Item = db.model('Item');
 const Category = db.model('Category');
+const Tag = db.model('Tag');
 const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
@@ -16,7 +17,7 @@ module.exports.autoroute = {
 
 function getCategories(req, res) {
 	if (req.query.filter) {
-		//getCategory(req, res); 
+		//getCategory(req, res);
 	}
 	else if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
@@ -231,10 +232,23 @@ function putCategory(req, res) {
 }
 
 function deleteCategory(req, res){
-  Category.remove({ _id: req.params.id }).exec().then(() => {
-    return res.send({});
-  }).then(null, (err) => {
-		console.log(err);
-		return res.status(500).end();
+	let categoryId = req.params.id;
+
+	Tag.find({category: categoryId}).then(tags => {
+		if (tags.length) {
+			let tagsPromises = tags.map(tag => {
+				return Tag.remove({_id: tag._id});
+			});
+
+			return Promise.all(tagsPromises);
+		}
+		else { return; }
+	}).then(() => {
+	  Category.remove({ _id: req.params.id }).then(() => {
+	    return res.send({});
+	  }).then(null, (err) => {
+			console.log(err);
+			return res.status(500).end();
+		});
 	});
 }
