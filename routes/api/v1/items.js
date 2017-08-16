@@ -366,7 +366,7 @@ function makeEmberItems(pagedObj, privateCategoryIds) {
 			emberItem = item.makeEmberItem();
 		}
 
-		return privateCategoryIds.includes(itemCategoryId) ?
+		return privateCategoryIds.indexOf(itemCategoryId) > -1 ?
 			{
 				all: obj.all.concat(emberItem),
 				public: obj.public
