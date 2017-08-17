@@ -1,50 +1,58 @@
 'use strict';
 
-let passport = require('../../../../passport/passport-authenticate');
-//let isIos;
+const passport = require('../../../../passport/passport-authenticate');
 
 if (process.env.NODE_ENV === 'production') {
 	module.exports.autoroute = {
-		get: {
-			'/twitter' : passport.authenticate('twitter'),
-	    '/twitter/callback' : passport.authenticate('twitter', {
-				successRedirect: 'https://app.collated.net/with-account',
-				failureRedirect: '/'
-			}),
-		}
+		// get: {
+		// 	'/twitter' : passport.authenticate('twitter'),
+	  //   '/twitter/callback' : [
+		// 		passport.authenticate('twitter', {
+		// 			failureRedirect: '/'
+		// 		}),
+		// 		function(req, res) {
+		// 			//console.log(req.cookies.ios);
+		// 			if (req.cookies.ios) {
+		// 				res.redirect('net.collated.ios://');
+		// 			}
+		// 			else {
+		// 				res.redirect('https://app.collated.net/with-account');
+		// 			}
+		// 		}
+		// 	],
+		// }
 	};
 } else {
 	module.exports.autoroute = {
 		get: {
 			'/twitter' : passport.authenticate('twitter'),
 	    '/twitter/callback' : [
-				//getQueryParam,
+				//setStateParam,
 				passport.authenticate('twitter', {
-					//successRedirect: isIos ? 'net.collated.ios://' : 'http://www.collated-dev.net/with-account', // isIos always false
 					failureRedirect: '/'
 				}),
 				function(req, res) {
-					console.log('query', req.query, 'req.user', req.user);
-					//console.log('get isIos ', isIos);
-					if (req.user.ios) {
-						res.redirect('net.collated.ios://');
+					console.log('req headers received', req.headers);
+					try {
+						if (req.headers.cookie.indexOf('ios=true') > -1) {
+							res.redirect('net.collated.ios://');
+						}
+						else {
+							res.redirect('http://www.collated-dev.net/with-account');
+						}
 					}
-					else {
-						res.redirect('http://www.collated-dev.net/with-account');
-					}
+					catch(err) {}
 				}
 			]
 		}
 	};
 }
 
-
-function getQueryParam(req, res, next) {
-	console.log('get queryParam iOS ', req.query.ios);
-
-	if (req.query.ios === 'true') {
-		req.user.ios = true;
-	}
-	//console.log('get query iOS ', isIos);
-	next();
-}
+// function setStateParam(req, res, next) {
+// 	if (req.query.ios) {
+// 		Object.assign(express.request, {query : {ios : true}});
+// 		//base64url(JSON.stringify({ios: 'true'}));
+// 	}
+// 	console.log('req query', req.query);
+// 	next();
+// }

@@ -18,11 +18,13 @@ const UserGroup = db.model('UserGroup');
 passport.use(new TwitterStrategy({
     consumerKey: configAuth.twitterAuth.consumerKey,
     consumerSecret: configAuth.twitterAuth.consumerSecret,
-    callbackURL: configAuth.twitterAuth.callbackURL
+    callbackURL: configAuth.twitterAuth.callbackURL,
+    passReqToCallback: true
   },
-  function(token, tokenSecret, profile, done) {
+  function(req, token, tokenSecret, profile, done) {
+    console.log('req received from Twitter', req.query);
     User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).then(function(user) {
-      console.log('user found', user);
+      //console.log('user found', user);
       if (user) {
         user.apiKeys.twitterAccessToken = token;
         user.apiKeys.twitterSecretToken = tokenSecret;
