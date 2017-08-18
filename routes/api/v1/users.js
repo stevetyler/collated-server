@@ -183,39 +183,32 @@ function handleLogoutRequest(req, res) {
 function handleIsAuthenticatedRequest(req, res) {
 	console.log('handle req', req);
 
-	if (req.headers.cookie.indexOf('ios-token') > -1) {
-
-
-	}
-
   if (req.isAuthenticated()) {
-    return res.send({ users:[req.user] });
-  } else {
-    return res.send({ users: [] } );
+    res.send({ users:[req.user] });
+		return;
+  }
+	if (req.headers.cookies.indexOf('ios-token') > -1) {
+		authoriseIOS(req, res);
+		return;
+	}
+	else {
+    res.send({ users: [] } );
+		return;
   }
 }
 
-
 function authoriseIOS(req, res) {
-  //console.log('req', req.query);
-  User.findOne({'apiKeys.collatedToken' : req.query.token}).then(user => {
+  console.log('req headers', req.headers);
+  User.findOne({'apiKeys.collatedToken' : req.headers.cookies['ios-token']}).then(user => {
     if (user) {
       let emberUser = user.makeEmberUser();
-      let withAccountPath = process.env.NODE_ENV === 'production' ?
-        'https://app.collated.net/with-account' : 'http://www.collated-dev.net/with-account';
-
-      //console.log('user found', user);
-      res.user = emberUser;
-      res.cookie('ios-token', req.query.token, { expires: new Date(Date.now() + 60000), httpOnly: true });
-    	res.redirect(withAccountPath);
+			res.send({ users:[emberUser] });
     }
     else {
-      res.status('401').end();
+      res.send({ users: [] } );
     }
   });
 }
-
-
 
 // function postUser(req, res) {
 //   console.log('post log');
