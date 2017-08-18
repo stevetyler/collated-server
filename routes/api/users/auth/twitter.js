@@ -11,10 +11,12 @@ if (process.env.NODE_ENV === 'production') {
 					failureRedirect: '/'
 				}),
 				function(req, res) {
-					console.log('req headers received', req.headers);
+					//console.log('req headers received', req.headers);
 					try {
 						if (req.headers.cookie.indexOf('ios=true') > -1) {
-							res.redirect('net.collated.ios://');
+							let token = req.user.apiKeys.collatedToken;
+							//console.log('net.collated.ios://' + token);
+							res.redirect('net.collated.ios://' + token);
 						}
 						else {
 							res.redirect('https://app.collated.net/with-account');
@@ -34,10 +36,13 @@ if (process.env.NODE_ENV === 'production') {
 					failureRedirect: '/'
 				}),
 				function(req, res) {
-					console.log('req headers received', req.headers);
+					//console.log('req user received', req.user);
+
 					try {
 						if (req.headers.cookie.indexOf('ios=true') > -1) {
-							res.redirect('net.collated.ios://');
+							let token = req.user.apiKeys.collatedToken;
+							//console.log('net.collated.ios://' + token);
+							res.redirect('net.collated.ios://' + token);
 						}
 						else {
 							res.redirect('http://www.collated-dev.net/with-account');
