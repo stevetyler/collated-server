@@ -181,12 +181,63 @@ function handleLogoutRequest(req, res) {
 }
 
 function handleIsAuthenticatedRequest(req, res) {
+	//console.log('handle req', req);
+
   if (req.isAuthenticated()) {
-    return res.send({ users:[req.user] });
-  } else {
-    return res.send({ users: [] } );
+    res.send({ users:[req.user] });
+		return;
+  }
+	else if (req.headers.cookie.indexOf('ios-token') > -1) {
+		authoriseIOS(req, res);
+		return;
+	}
+	else {
+    res.send({ users: [] } );
+		return;
   }
 }
+
+function authoriseIOS(req, res) {
+  //console.log('req headers', req.headers);
+	let apiToken = extractToken(req.headers.cookie);
+
+  User.findOne({'apiKeys.collatedToken' : apiToken}).then(user => {
+		//console.log('user found', user);
+    if (user) {
+      let emberUser = user.makeEmberUser();
+			res.send({ users:[emberUser] });
+			return;
+    }
+    else {
+      res.send({ users: [] } );
+			return;
+    }
+  });
+}
+
+function extractToken(str) {
+  var arr = str.split('; ');
+
+  return arr.reduce((string, str)  => {
+    var i = str.indexOf('ios-token');
+
+    if (i > -1) {
+      return string + str.replace('ios-token=', '');
+    }
+    else {
+      return string + '';
+    }
+  }, '');
+}
+
+// unit tests
+// console.log(extractToken('connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ; ios-token=bcfsX89jFTsCXurT') === 'bcfsX89jFTsCXurT');
+// console.log(extractToken('ios-token=bcfsX89jFTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ') === 'bcfsX89jFTsCXurT');
+// console.log(extractToken('token=bcfsX89jFTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ') === '');
+// console.log(extractToken('connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ; ios-token=bcfsX89jFTsCXurT; connect.sid=s%k4ibrZH6Oh3xsGnQ; connect.sid=s%3AtVkH6Oh3xsGnQ;') === 'bcfsX89jFTsCXurT');
+
+
+
 
 // function postUser(req, res) {
 //   console.log('post log');
