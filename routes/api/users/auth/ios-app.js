@@ -1,6 +1,4 @@
-
-//const db = require('../../../../database/database');
-//const User = db.model('User');
+'user strict';
 
 module.exports.autoroute = {
   get: {
