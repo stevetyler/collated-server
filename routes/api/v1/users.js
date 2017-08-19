@@ -5,6 +5,7 @@ const mailchimp = require('../../../lib/mailchimp');
 const mailchimpListID = '2867adef0d';
 
 const db = require('../../../database/database');
+const helpers = require('../../../lib/utilities/helpers');
 const User = db.model('User');
 
 module.exports.autoroute = {
@@ -199,7 +200,7 @@ function handleIsAuthenticatedRequest(req, res) {
 
 function authoriseIOS(req, res) {
   //console.log('req headers', req.headers);
-	let apiToken = extractToken(req.headers.cookie);
+	let apiToken = helpers.extractToken(req.headers.cookie);
 
   User.findOne({'apiKeys.collatedToken' : apiToken}).then(user => {
 		//console.log('user found', user);
@@ -214,29 +215,6 @@ function authoriseIOS(req, res) {
     }
   });
 }
-
-function extractToken(str) {
-  var arr = str.split('; ');
-
-  return arr.reduce((string, str)  => {
-    var i = str.indexOf('ios-token');
-
-    if (i > -1) {
-      return string + str.replace('ios-token=', '');
-    }
-    else {
-      return string + '';
-    }
-  }, '');
-}
-
-// unit tests
-// console.log(extractToken('connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ; ios-token=bcfsX89jFTsCXurT') === 'bcfsX89jFTsCXurT');
-// console.log(extractToken('ios-token=bcfsX89jFTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ') === 'bcfsX89jFTsCXurT');
-// console.log(extractToken('token=bcfsX89jFTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ') === '');
-// console.log(extractToken('connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ; ios-token=bcfsX89jFTsCXurT; connect.sid=s%k4ibrZH6Oh3xsGnQ; connect.sid=s%3AtVkH6Oh3xsGnQ;') === 'bcfsX89jFTsCXurT');
-
-
 
 
 // function postUser(req, res) {

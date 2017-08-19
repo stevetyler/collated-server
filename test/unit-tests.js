@@ -43,3 +43,22 @@ describe('helpers.containsUrl', function() {
     done();
   });
 });
+
+describe('helpers.extractToken', function() {
+  it('should return token string', function(done) {
+    chai.assert.equal(helpers.extractToken('connect.sid=s%3AtVk4ib6Oh3xsGnQ; ios-token=bcfsX867oup9sCXurT'), 'bcfsX867oup9sCXurT');
+    done();
+  });
+  it('should return token string', function(done) {
+    chai.assert.equal(helpers.extractToken('ios-token=bcfsX8gsfgdfg9jFTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ'), 'bcfsX8gsfgdfg9jFTsCXurT');
+    done();
+  });
+  it('should return empty string', function(done) {
+    chai.assert.equal(helpers.extractToken('token=bcfsX89jFsdfgsdfTsCXurT; connect.sid=s%3AtVk4ibrZH6Oh3xsGnQ'), '');
+    done();
+  });
+  it('should return token string', function(done) {
+    chai.assert.equal(helpers.extractToken('connect.sid=s%3AtVk4ib6Oh3xsGnQ;ios-token=bcfsX8sdfgdfs67oup9sCXurT'), 'bcfsX8sdfgdfs67oup9sCXurT');
+    done();
+  });
+});
