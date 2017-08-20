@@ -11,6 +11,6 @@ function iosRedirect(req, res) {
     'https://app.collated.net/with-account' : 'http://www.collated-dev.net/with-account';
 
   //console.log('req', req.query);
-  res.cookie('ios-token', req.query.token, { expires: new Date(Date.now() + 60000), httpOnly: true });
+  res.cookie('ios-token', req.query.token, { expires: new Date(Date.now() + 600000), httpOnly: true });
   res.redirect(withAccountPath);
 }
