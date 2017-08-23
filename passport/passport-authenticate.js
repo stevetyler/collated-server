@@ -4,6 +4,7 @@
 const passport = require('passport');
 const randtoken = require('rand-token');
 
+const IosStrategy = require('passport-custom').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const SlackStrategy = require('./passport-slack-updated');
@@ -14,6 +15,14 @@ const db = require('./../database/database');
 
 const User = db.model('User');
 const UserGroup = db.model('UserGroup');
+
+passport.use(new IosStrategy(function(req, done) {
+  User.findOne({'apiKeys.collatedToken': req.query.token})
+    .then(user => {
+        return done(null, user);
+    });
+  })
+);
 
 passport.use(new TwitterStrategy({
     consumerKey: configAuth.twitterAuth.consumerKey,
