@@ -183,15 +183,18 @@ function handleLogoutRequest(req, res) {
 
 function handleIsAuthenticatedRequest(req, res) {
 	//console.log('handle req', req);
+	try {
+		if (req.headers.cookie.indexOf('ios-token') > -1) {
+			authoriseIOS(req, res);
+			return;
+		}
+	}
+	catch(err) {}
 
   if (req.isAuthenticated()) {
     res.send({ users:[req.user] });
 		return;
   }
-	else if (req.headers.cookie.indexOf('ios-token') > -1) {
-		authoriseIOS(req, res);
-		return;
-	}
 	else {
     res.send({ users: [] } );
 		return;
