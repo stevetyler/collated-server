@@ -6,11 +6,9 @@ const helpers = require('../../../../lib/utilities/helpers');
 module.exports.autoroute = {
 	get: {
 		'/slack' : passport.authenticate('slack'),
-    '/slack/callback' : [
-			passport.authenticate('slack', {
-				failureRedirect: '/'
-			}),
-			helpers.authSuccessRedirect
-		]
+    '/slack/callback' : passport.authenticate('slack', {
+			failureRedirect: '/',
+			successRedirect: helpers.authSuccessRedirect
+		})
 	}
 };

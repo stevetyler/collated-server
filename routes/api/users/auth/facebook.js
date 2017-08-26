@@ -6,11 +6,9 @@ const helpers = require('../../../../lib/utilities/helpers');
 module.exports.autoroute = {
 	get: {
 		'/facebook' : passport.authenticate('facebook'),
-  	'/facebook/callback' : [
-			passport.authenticate('facebook', {
-				failureRedirect: '/'
-			}),
-			helpers.authSuccessRedirect
-		]
+  	'/facebook/callback' : passport.authenticate('facebook', {
+			failureRedirect: '/',
+			successRedirect: helpers.authSuccessRedirect
+		})
 	}
 };
