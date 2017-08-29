@@ -24,7 +24,7 @@ passport.use(new IosStrategy(function(req, done) {
     })
     .then(null, err => {
       console.log(err);
-      return done(err, null);
+      done(err, null);
     });
   })
 );
@@ -231,10 +231,12 @@ passport.use(new SlackStrategy({
 ));
 
 passport.serializeUser((user, done) => {
+  console.log('serializeUser', user._id);
   done(null, user._id);
 });
 
 passport.deserializeUser((id, done) => {
+  console.log('deserializeUser', id);
   User.findOne({_id: id}, (err, user) => {
     const emberUser = user.makeEmberUser();
     if (err) {
