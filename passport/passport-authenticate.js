@@ -20,6 +20,10 @@ passport.use(new IosStrategy(function(req, done) {
   User.findOne({'apiKeys.collatedToken': req.query.token})
     .then(user => {
         return done(null, user);
+    })
+    .then(null, function(err){
+      console.log(err);
+      done(err);
     });
   })
 );

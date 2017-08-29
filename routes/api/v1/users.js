@@ -188,33 +188,29 @@ function handleIsAuthenticatedRequest(req, res) {
     res.send({ users:[req.user] });
 		return;
   }
-	else if (req.headers.cookie.indexOf('ios-token') > -1) {
-		authoriseIOS(req, res);
-		return;
-	}
 	else {
     res.send({ users: [] } );
 		return;
   }
 }
 
-function authoriseIOS(req, res) {
-  //console.log('req headers', req.headers);
-	let apiToken = helpers.extractToken(req.headers.cookie);
-
-  User.findOne({'apiKeys.collatedToken' : apiToken}).then(user => {
-		//console.log('user found', user);
-    if (user) {
-      let emberUser = user.makeEmberUser();
-			res.send({ users:[emberUser] });
-			return;
-    }
-    else {
-      res.send({ users: [] } );
-			return;
-    }
-  });
-}
+// function authoriseIOS(req, res) {
+//   //console.log('req headers', req.headers);
+// 	let apiToken = helpers.extractToken(req.headers.cookie);
+//
+//   User.findOne({'apiKeys.collatedToken' : apiToken}).then(user => {
+// 		//console.log('user found', user);
+//     if (user) {
+//       let emberUser = user.makeEmberUser();
+// 			res.send({ users:[emberUser] });
+// 			return;
+//     }
+//     else {
+//       res.send({ users: [] } );
+// 			return;
+//     }
+//   });
+// }
 
 
 // function postUser(req, res) {
