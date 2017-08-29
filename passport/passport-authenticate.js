@@ -19,10 +19,11 @@ const UserGroup = db.model('UserGroup');
 passport.use(new IosStrategy(function(req, done) {
   User.findOne({'apiKeys.collatedToken': req.query.token})
     .then(user => {
-        return done(null, user);
+      return done(null, user);
     })
     .then(null, err => {
-        return done(err, null);
+      console.log(err);
+      return done(err, null);
     });
   })
 );
