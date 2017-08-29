@@ -6,7 +6,7 @@ module.exports.autoroute = {
   get: {
     '/ios-app' : [
       passport.authenticate('custom', {
-        failureRedirect: 'net.collated.ios://',
+        failureRedirect: '/',
       }),
       helpers.authSuccessRedirect
     ]
