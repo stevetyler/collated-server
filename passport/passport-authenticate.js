@@ -21,9 +21,8 @@ passport.use(new IosStrategy(function(req, done) {
     .then(user => {
         return done(null, user);
     })
-    .then(null, function(err){
-      console.log(err);
-      done(err);
+    .then(null, err => {
+        return done(err, null);
     });
   })
 );
