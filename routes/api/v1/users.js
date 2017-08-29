@@ -194,53 +194,6 @@ function handleIsAuthenticatedRequest(req, res) {
   }
 }
 
-// function authoriseIOS(req, res) {
-//   //console.log('req headers', req.headers);
-// 	let apiToken = helpers.extractToken(req.headers.cookie);
-//
-//   User.findOne({'apiKeys.collatedToken' : apiToken}).then(user => {
-// 		//console.log('user found', user);
-//     if (user) {
-//       let emberUser = user.makeEmberUser();
-// 			res.send({ users:[emberUser] });
-// 			return;
-//     }
-//     else {
-//       res.send({ users: [] } );
-// 			return;
-//     }
-//   });
-// }
-
-
-// function postUser(req, res) {
-//   console.log('post log');
-//   if (req.body.user) {
-//     User.findOne({id: req.body.user.id}).then(function(user) {
-//       if (user) {
-//         return res.status(400).end();
-//       }
-//       else {
-//         User.createUser(req.body.user, function(err, user) {
-//           if (err) {
-//             return res.status(500).end();
-//           }
-//           req.logIn(user, function(err) {
-//             if (err) {
-//               return res.status(500).end();
-//             }
-//             const emberUser = user.makeEmberUser(null); // null because no loggedinuser
-//             return res.send({'user': emberUser});
-//           });
-//         });
-//       }
-//     });
-//   }
-// 	else {
-// 		return res.status(401).end();
-// 	}
-// }
-
 // Plans.findOne({_id: user.plan}).exec().then(function(plan){
 // 	const permissions;
 // 	if(!plan){
@@ -249,22 +202,3 @@ function handleIsAuthenticatedRequest(req, res) {
 // 		permissions = plan.permission;
 // 	}
 // })
-
-// function handleLoginRequest(req, res) {
-//   passport.authenticate('local', function(err, user, info) {
-//     logger.info(user);
-//     if (err) {
-//       return res.status(500).end();
-//     }
-//     if (!user) {
-//       return res.status(404).end();
-//     }
-//     // req.logIn sets cookie
-//     req.logIn(user, function(err) {
-//       if (err) {
-//         return res.status(500).end();
-//       }
-//       return res.send({'users': [user]});
-//     });
-//   })(req, res);
-// }
