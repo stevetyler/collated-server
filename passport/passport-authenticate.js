@@ -239,6 +239,7 @@ passport.deserializeUser((id, done) => {
   console.log('deserializeUser', id);
   User.findOne({_id: id}, (err, user) => {
     const emberUser = user.makeEmberUser();
+    console.log('ember user', emberUser);
     if (err) {
       return done(err);
     }
