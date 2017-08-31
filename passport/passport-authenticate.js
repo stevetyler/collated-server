@@ -1,6 +1,5 @@
 'use strict';
-//var bcrypt = require('bcrypt');
-//var LocalStrategy = require('passport-local').Strategy;
+
 const passport = require('passport');
 const randtoken = require('rand-token');
 
@@ -19,7 +18,6 @@ const UserGroup = db.model('UserGroup');
 passport.use(new IosStrategy(function(req, done) {
   User.findOne({'apiKeys.collatedToken': req.query.token})
     .then(user => {
-      console.log('ios user found', user.id);
       return done(null, user);
     })
     .then(null, err => {
