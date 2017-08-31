@@ -37,6 +37,7 @@
     "node-metainspector-with-headers": "1.2.1",
     "nodemon": "^1.10.0",
     "passport": "~0.2.2",
+    "passport-custom": "1.0.5",
     "passport-facebook": "^2.1.0",
     "passport-local": "^1.0.0",
     "passport-slack": "0.0.6",
