@@ -16,7 +16,7 @@ module.exports = function (app) {
 	app.use(cookieParser());
 	app.use(session({
 		cookie: {
-			maxAge: 8.64 * Math.pow(10, 7) // 1 week
+			maxAge: 1000 * 60 * 60 * 24 * 7
 		},
 		secret: auth.session.secret,
 		resave: true,  // true forces session to be saved even when unmodified. Not needed for Mongo
@@ -32,7 +32,7 @@ module.exports = function (app) {
 	app.use(bodyParser.json({limit: '50mb'}));
 	app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // parse application/x-www-form-urlencoded
 	app.use(expressValidator({
-		
+
 	})); // this line must be immediately after any of the bodyParser middlewares!
 	app.use(fileUpload());
 	app.use(passport.initialize());
