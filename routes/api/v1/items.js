@@ -152,8 +152,18 @@ function getUserItemsHandler(req, res) {
 		userOrGroupId: req.query.userId,
 		userOrGroupQuery: {user: req.query.userId},
 	};
-	//console.log('query', query);
-	getUserItems(reqObj).then(obj => {
+	let latestLikeId = req.user.twitterProfile.latestLikeId;
+	let latestTweetId = req.user.twitterProfile.latestTweetId;
+	let importOptions;
+
+	if (latestTweetId || latestLikeId) {
+		importOptions = { getLatest: true };
+	}
+
+	getTwitterItems(reqObj.authUser, importOptions)
+	.then(() => {
+		return getUserItems(reqObj);
+	}).then(obj => {
 		res.send({
 			items: obj.items,
 			meta: {
