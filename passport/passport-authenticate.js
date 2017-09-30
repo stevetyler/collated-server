@@ -229,15 +229,15 @@ passport.use(new SlackStrategy({
 ));
 
 passport.serializeUser((user, done) => {
-  console.log('serializeUser', user._id);
+  //console.log('serializeUser', user._id);
   done(null, user._id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('deserializeUser', id);
+  //console.log('deserializeUser', id);
   User.findOne({_id: id}, (err, user) => {
     const emberUser = user.makeEmberUser();
-    console.log('ember user', emberUser);
+    //console.log('ember user', emberUser);
     if (err) {
       return done(err);
     }
