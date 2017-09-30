@@ -157,7 +157,7 @@ function getUserItemsHandler(req, res) {
 	let importOptions;
 
 	if (latestTweetId || latestLikeId) {
-		importOptions = { getLatest: true, getOldest: false, amount: null };
+		importOptions = { getOldest: 'false', getLatest: 'true', amount: '10' };
 	}
 
 	getTwitterItems(reqObj.authUser, importOptions)
