@@ -157,22 +157,37 @@ function getUserItemsHandler(req, res) {
 	let importOptions;
 
 	if (latestTweetId || latestLikeId) {
-		importOptions = { getOldest: 'false', getLatest: 'true', amount: '10' };
+		importOptions = { getOldest: 'false', getLatest: 'true', amount: '200' };
 	}
 
-	getTwitterItems(reqObj.authUser, importOptions)
-	.then(() => {
-		return getUserItems(reqObj);
-	}).then(obj => {
-		res.send({
-			items: obj.items,
-			meta: {
-				total_pages: obj.pages,
-			}
+	if (importOptions) {
+		getTwitterItems(reqObj.authUser, importOptions)
+		.then(() => {
+			return getUserItems(reqObj);
+		}).then(obj => {
+			res.send({
+				items: obj.items,
+				meta: {
+					total_pages: obj.pages,
+				}
+			});
+		}, () => {
+			res.status(404).end();
 		});
-	}, () => {
-		res.status(404).end();
-	});
+	}
+	else {
+		return getUserItems(reqObj)
+		.then(obj => {
+			res.send({
+				items: obj.items,
+				meta: {
+					total_pages: obj.pages,
+				}
+			});
+		}, () => {
+			res.status(404).end();
+		});
+	}
 }
 
 function getUserItems(reqObj) {
