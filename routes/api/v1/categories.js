@@ -4,6 +4,7 @@ const ensureAuthenticated = require('../../../middlewares/ensure-authenticated')
 
 const Item = db.model('Item');
 const Category = db.model('Category');
+const Tag = db.model('Tag');
 const User = db.model('User');
 const UserGroup = db.model('UserGroup');
 
@@ -16,7 +17,7 @@ module.exports.autoroute = {
 
 function getCategories(req, res) {
 	if (req.query.filter) {
-		//getCategory(req, res); 
+		//getCategory(req, res);
 	}
 	else if (req.query.operation === 'userCategories') { getUserCategories(req, res); }
 	else if (req.query.operation === 'groupCategories') { getGroupCategories(req, res); }
@@ -124,7 +125,7 @@ function postCategory(req, res){
 function postUserCategoryHandler(req, res) {
 	User.findOne({id: req.user.id}).then(user => {
 		if (user !== null && typeof user === 'object') {
-			console.log('user category to save');
+			//console.log('user category to save');
 			return saveCategory(req.body.category);
 		}
 		res.status(404).end();
@@ -230,8 +231,18 @@ function putCategory(req, res) {
   });
 }
 
-function deleteCategory(req, res){
-  Category.remove({ _id: req.params.id }).exec().then(() => {
+function deleteCategory(req, res) {
+	Tag.find({category: req.params.id}).then(tags => {
+		if (tags.length) {
+			let tagsPromises = tags.map(tag => {
+				return Tag.remove({_id: tag._id});
+			});
+
+			return Promise.all(tagsPromises);
+		}
+	}).then(() => {
+		return Category.remove({ _id: req.params.id });
+	}).then(() => {
     return res.send({});
   }).then(null, (err) => {
 		console.log(err);
