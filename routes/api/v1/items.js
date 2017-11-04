@@ -2,12 +2,14 @@
 
 const AWS = require('aws-sdk');
 const BPromise = require('bluebird');
+const isEqual = require('lodash.isequal');
 const MetaInspector = require('node-metainspector-with-headers');
 const mongoose = require('mongoose');
-const parseHtml = require('../../../lib/bookmark-parser.js');
+const uniqWith = require('lodash.uniqwith');
 
 const ensureAuthenticated = require('../../../middlewares/ensure-authenticated').ensureAuthenticated;
 const helpers = require('../../../lib/utilities/helpers.js');
+const parseHtml = require('../../../lib/bookmark-parser.js');
 const twitterItemImporter = require('../../../lib/import-twitter-items.js');
 
 const categorySchema = require('../../../schemas/category.js');
@@ -158,6 +160,7 @@ function getUserItemsHandler(req, res) {
 			items: obj.items,
 			meta: {
 				total_pages: obj.pages,
+				tags: []
 			}
 		});
 	}, () => {
@@ -194,6 +197,22 @@ function getFilteredUserItemsHandler(req, res) {
 		res.status(404).end();
 	});
 }
+
+function getTagIdsArrArr(items) {
+  let arrArr = items.reduce((acc, obj) => {
+    if (!Array.isArray(obj.tags)) {
+      return acc;
+    }
+    if (obj.tags.length > 0) {
+      acc.push(obj.tags.sort());
+    }
+    return acc;
+  }, []);
+
+  return uniqWith(arrArr, isEqual);
+}
+
+
 
 function getGroupItemsHandler(req, res) {
 	let reqObj = {
