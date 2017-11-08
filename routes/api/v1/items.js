@@ -186,10 +186,17 @@ function getFilteredUserItemsHandler(req, res) {
 	};
 
 	getFilteredItems(reqObj).then(obj => {
+		let userId = reqObj.userOrGroupId;
+		let categoryId = obj.categoryId;
+
+		return getItemTagIds(userId, categoryId, obj);
+	}).then(itemsObj => {
+		console.log('itemsObj', itemsObj);
 		res.send({
-			items: obj.items,
+			items: itemsObj.items,
 			meta: {
-				total_pages: obj.pages
+				item_tags: itemsObj.itemTags,
+				total_pages: itemsObj.pages
 			}
 		});
 	}, err => {
@@ -198,20 +205,28 @@ function getFilteredUserItemsHandler(req, res) {
 	});
 }
 
-function getTagIdsArrArr(items) {
-  let arrArr = items.reduce((acc, obj) => {
-    if (!Array.isArray(obj.tags)) {
-      return acc;
-    }
-    if (obj.tags.length > 0) {
-      acc.push(obj.tags.sort());
-    }
-    return acc;
-  }, []);
+function getItemTagIds(userId, categoryId, obj) {
+	let itemsPromise = new Promise(resolve => {
+		let items = Item.find({user: userId, category: categoryId});
 
-  return uniqWith(arrArr, isEqual);
+		return resolve(items);
+	});
+
+	return itemsPromise.then(items => {
+		console.log('items found for ', userId, categoryId, items.length);
+		let arrArr = items.reduce((acc, obj) => {
+	    if (!Array.isArray(obj.tags)) {
+	      return acc;
+	    }
+	    if (obj.tags.length > 0) {
+	      acc.push(obj.tags.sort());
+	    }
+	    return acc;
+	  }, []);
+
+	  return Object.assign({}, obj, {itemTags: uniqWith(arrArr, isEqual)});
+	});
 }
-
 
 
 function getGroupItemsHandler(req, res) {
@@ -305,8 +320,8 @@ function getFilteredItems(reqObj) {
 		}
 		return Item.paginate(newQuery, { page: reqObj.pageNumber, limit: reqObj.pageLimit, sort: { createdDate: -1 } });
 	}).then((pagedObj) => {
-		//console.log('pagedObj before making public or private', pagedObj);
-		return makePublicOrPrivateUserItems(reqObj, pagedObj);
+		//console.log('pagedObj before making public or private', );
+		return makePublicOrPrivateUserItems(reqObj, pagedObj, categoryId);
 	}).catch(err => {
 		console.log('err', err);
 	});
@@ -353,20 +368,20 @@ function getSearchItems(reqObj) {
 	});
 }
 
-function makePublicOrPrivateUserItems(reqObj, pagedObj) {
+function makePublicOrPrivateUserItems(reqObj, pagedObj, categoryId) {
 	return Category.find({user: reqObj.userOrGroupId, isPrivate: 'true'})
 	.then(categories => {
 		let privateCategoryIds = categories.map(category => category.id);
 		let newObj = makeEmberItems(pagedObj, privateCategoryIds);
 
 		if (!reqObj.authUser) {
-			return Object.assign({}, newObj, {items: newObj.public});
+			return Object.assign({}, newObj, {items: newObj.public, categoryId: categoryId});
 		}
 		else if (reqObj.userOrGroupId === reqObj.authUser.id) {
-			return Object.assign({}, newObj, {items: newObj.all});
+			return Object.assign({}, newObj, {items: newObj.all, categoryId: categoryId});
 		}
 		else {
-			return Object.assign({}, newObj, {items: newObj.public});
+			return Object.assign({}, newObj, {items: newObj.public, categoryId: categoryId});
 		}
 	}).catch(err => {
 		console.log(err);
