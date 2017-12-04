@@ -33,7 +33,9 @@ module.exports.autoroute = {
 		'/items': [ensureAuthenticated, postItemHandler],
 		//'/items/bookmarks': [ensureAuthenticated, postBookmarkItemsHandler],
 		'/items/slack': postSlackItemsHandler,
-		'/items/chrome': postChromeItemHandler
+		'/items/chrome': postAppItemHandler, // used for iOS at present
+		'/items/ios': postAppItemHandler,
+		'/items/android': postAppItemHandler
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
@@ -575,7 +577,7 @@ function saveBookmarkItem(bookmark, userId) {
 	});
 }
 
-function postChromeItemHandler(req, res) {
+function postAppItemHandler(req, res) {
 	let reqBody = req.body;
 	// disable saving tabs temporarily
 	if (!reqBody.token) {
@@ -583,7 +585,7 @@ function postChromeItemHandler(req, res) {
 		return;
 	}
 
-	saveChromeItem(reqBody).then(newItem => {
+	saveAppItem(reqBody).then(newItem => {
 		//console.log('chrome item saved', newItem);
 		res.send({});
 		return newItem;
@@ -596,7 +598,7 @@ function postChromeItemHandler(req, res) {
 	});
 }
 
-function saveChromeItem(reqBody) {
+function saveAppItem(reqBody) {
 	//console.log('saveChrome Item body received', reqBody);
 	let urlArr = reqBody.urlArr;
 	let titleArr = reqBody.titleArr;
