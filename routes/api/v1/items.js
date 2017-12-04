@@ -35,7 +35,8 @@ module.exports.autoroute = {
 		'/items': [ensureAuthenticated, postItemHandler],
 		//'/items/bookmarks': [ensureAuthenticated, postBookmarkItemsHandler],
 		'/items/slack': postSlackItemsHandler,
-		'/items/chrome': postChromeItemHandler
+		'/items/chrome': postChromeItemHandler, // used for iOS as well
+		'/items/android': postChromeItemHandler
 	},
 	put: {
 		'/items/:id': [ensureAuthenticated, putItems]
