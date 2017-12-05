@@ -600,12 +600,14 @@ function postAppItemHandler(req, res) {
 
 function saveAppItem(reqBody) {
 	//console.log('saveChrome Item body received', reqBody);
-	let urlArr = reqBody.urlArr;
-	let titleArr = reqBody.titleArr;
-	let options = {};
-	let userId;
+	let urlArr = reqBody.urlArr,
+	    titleArr = reqBody.titleArr,
+	    options = {},
+	    userId,
+	    reqToken = reqBody.token,
+			parsedToken = parseToken(reqToken);
 
-	return User.findOne({'apiKeys.collatedToken': reqBody.token}).then(user => {
+	return User.findOne({'apiKeys.collatedToken': parsedToken}).then(user => {
 		userId = user.id;
 		Object.assign(options, { user: user.id });
 		let textToSearch = urlArr[0].concat(titleArr[0]);
@@ -629,6 +631,19 @@ function saveAppItem(reqBody) {
 	}).catch(() => {
 		throw new Error('user or token not found');
 	});
+}
+
+function parseToken(token) {
+	// FB adds characters to token for Android
+	let chars = '#_=_';
+  let tokenLength = token.length;
+
+  if (token.indexOf(chars) === (tokenLength - chars.length)) {
+    return token.slice(0, -chars.length);
+  }
+  else {
+    return token;
+  }
 }
 
 // create item from Collated
