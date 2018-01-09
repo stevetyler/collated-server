@@ -8,7 +8,7 @@ module.exports.autoroute = {
 
       res.cookie('android', 'true', options);
       //res.redirect('/api/users/auth/twitter/callback');
-      res.redirect('https://www.collated.net/twitter-android.html');
+      res.redirect('https://app.collated.net/twitter-android');
     }
   }
 };
