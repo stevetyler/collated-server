@@ -13,8 +13,9 @@ module.exports.autoroute = {
 };
 
 function authSuccessRedirect(req, res) {
-  let withAccountPath = process.env.NODE_ENV === 'production' ?
-		'https://app.collated.net/with-account' : 'http://www.collated-dev.net/with-account';
+  // let withAccountPath = process.env.NODE_ENV === 'production' ?
+	// 	'https://app.collated.net/with-account' : 'http://www.collated-dev.net/with-account';
 
-  res.redirect(withAccountPath);
+  res.redirect('https://app.collated.net/twitter-android');
+  //res.redirect(withAccountPath);
 }
