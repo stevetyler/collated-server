@@ -7,10 +7,10 @@ module.exports.autoroute = {
       let options = helpers.authCookieOptions;
 
       res.cookie('android', 'true', options);
-      //console.log('redirecting to Twitter callback from twitter-android');
-      console.log('redirecting android continue route from twitter-android');
-      res.redirect('https://app.collated.net/twitter-android');
-      //res.redirect('/api/users/auth/twitter/callback');
+      console.log('redirecting to Twitter callback from twitter-android');
+      //console.log('redirecting android continue route from twitter-android');
+      //res.redirect('https://app.collated.net/twitter-android');
+      res.redirect('/api/users/auth/twitter/callback');
     }
   }
 };
