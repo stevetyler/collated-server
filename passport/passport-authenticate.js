@@ -34,7 +34,7 @@ passport.use(new TwitterStrategy({
     passReqToCallback: true
   },
   function(req, token, tokenSecret, profile, done) {
-    console.log('req received from Twitter', req.query);
+    console.log('profile received from Twitter', req.query);
     User.findOne({ 'twitterProfile.twitterId': profile._json.id_str } ).then(function(user) {
       //console.log('user found', user);
       if (user) {
