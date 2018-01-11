@@ -16,7 +16,8 @@ module.exports = function (app) {
 	app.use(cookieParser());
 	app.use(session({
 		cookie: {
-			maxAge: 1000 * 60 * 60 * 24 * 7
+			maxAge: 1000 * 60 * 60 * 24 * 7,
+			secure: true
 		},
 		secret: auth.session.secret,
 		resave: true,  // true forces session to be saved even when unmodified. Not needed for Mongo
