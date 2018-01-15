@@ -600,8 +600,8 @@ function postAppItemHandler(req, res) {
 
 function saveAppItem(reqBody) {
 	//console.log('saveChrome Item body received', reqBody);
-	let urlArr = reqBody.urlArr,
-	    titleArr = reqBody.titleArr,
+	let urlArr = Array.isArray(reqBody.urlArr) ? reqBody.urlArr : [reqBody.urlArr],
+	    titleArr = Array.isArray(reqBody.titleArr) ? reqBody.titleArr : [reqBody.titleArr],
 	    options = {},
 	    userId,
 	    reqToken = reqBody.token,
