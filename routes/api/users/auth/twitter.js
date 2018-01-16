@@ -7,11 +7,6 @@ module.exports.autoroute = {
 	get: {
 		'/twitter' : passport.authenticate('twitter'),
 		'/twitter/callback' : [
-			function(req, res, next) {
-				console.log('HEADERS FROM TWITTER');
-				console.log(req.headers);
-				next();
-			},
 			passport.authenticate('twitter', {
 				failureRedirect: '/'
 			}),
@@ -19,3 +14,11 @@ module.exports.autoroute = {
 		],
 	}
 };
+
+// to debug callback route, add :
+
+// function(req, res, next) {
+// 	console.log('HEADERS FROM TWITTER');
+// 	console.log(req.headers);
+// 	next();
+// },

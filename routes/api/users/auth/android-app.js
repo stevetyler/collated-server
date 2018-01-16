@@ -13,7 +13,6 @@ module.exports.autoroute = {
 };
 
 function authSuccessRedirect(req, res) {
-  console.log('authSuccessRedirect called from android-app route');
   let withAccountPath = process.env.NODE_ENV === 'production' ?
 	'https://app.collated.net/with-account' : 'http://www.collated-dev.net/with-account';
 
