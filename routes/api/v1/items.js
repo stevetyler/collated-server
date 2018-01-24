@@ -71,9 +71,10 @@ function getTitle(req, res) {
 
 	client.on('fetch', function(){
 		if (client) {
+			var url = client.url;
 			var title = client.title;
 
-			return res.send(title);
+			return res.send([url, title]);
 		}
   });
   client.on('error', function(err){
