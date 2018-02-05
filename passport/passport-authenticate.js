@@ -163,9 +163,18 @@ passport.use(new SlackStrategy({
       }
     }).then(user => {
       if (user !== null && typeof user === 'object') {
-        console.log('user found', user);
+        let token;
+
+        try {
+          token = user.apiKeys.collatedToken;
+        }
+        catch(err) {
+          // console.log(err);
+        }
+
         const updatedUser = Object.assign(user, {
           apiKeys: {
+            collatedToken: token ? token : randtoken.generate(16),
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
@@ -194,6 +203,7 @@ passport.use(new SlackStrategy({
       else {
         return User.create({
           apiKeys: {
+            collatedToken: randtoken.generate(16),
             slackAccessToken: accessToken,
             slackRefreshToken: refreshToken
           },
