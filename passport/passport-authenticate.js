@@ -75,7 +75,10 @@ passport.use(new FacebookStrategy({
     clientID : configAuth.facebookAuth.clientID,
     clientSecret : configAuth.facebookAuth.clientSecret,
     callbackURL : configAuth.facebookAuth.callbackURL,
-    profileFields : ['id', 'displayName', 'photos', 'profileUrl']
+    profileFields : ['id', 'displayName', 'photos', 'profileUrl'],
+    profileURL: 'https://graph.facebook.com/v2.8/me',
+    authorizationURL: 'https://www.facebook.com/v2.8/dialog/oauth',
+    tokenURL: 'https://graph.facebook.com/v2.8/oauth/access_token'
   },
   function(accessToken, secretToken, profile, done) {
     User.findOne({ 'facebookProfile.facebookId' : profile.id}).exec().then(function(user) {
