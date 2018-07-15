@@ -10,6 +10,8 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM) "^6.10.2"
 * [MongoDB](https://docs.mongodb.com/manual/installation/)
+* [PhantomJS]
+* [AWS-CLI] optional
 
 
 ## Installation
@@ -23,3 +25,7 @@ You will need the following things properly installed on your computer.
 
 * `node server.js`
 * Visit your app at [http://localhost:3000](http://localhost:3000).
+
+## Authentication
+
+* Set AWS secret and id in ~/.aws/credentials
