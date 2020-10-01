@@ -15,11 +15,12 @@ const planSchema = require('../schemas/plan');
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
 }
-else if (process.env.NODE_ENV === 'test') {
-  mongoose.connect('mongodb://localhost/test');
-  console.log('connected to test db');
+else if (process.env.NODE_ENV === 'Atlas test') {
+  mongoose.connect(`mongodb://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
+  console.log('connected to Atlas test db');
 }
 else {
+  console.log('connected to local Collated db');
   mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
 }
 
