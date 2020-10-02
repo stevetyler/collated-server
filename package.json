@@ -36,6 +36,7 @@
     "mongoose": "^5.10.7",
     "mongoose-paginate": "^5.0.3",
     "mongoose-text-search": "0.0.2",
+    "natives": "^1.1.6",
     "node-metainspector-with-headers": "1.2.1",
     "nodemon": "^1.10.0",
     "passport": "~0.2.2",
