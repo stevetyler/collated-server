@@ -9,7 +9,7 @@ const session = require('express-session');
 const expressValidator = require('express-validator');
 const passport = require('./passport/passport-authenticate');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session); // check docs for new config
  
 module.exports = function (app) {
 	app.use(cookieParser());
