@@ -1,17 +1,16 @@
 // Middleware calls
 // http://expressjs.com/guide/using-middleware.html#middleware.application
 //var cookieParser = require('cookie-parser');
+const auth = require('./auth');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const expressValidator = require('express-validator');
-
-const auth = require('./auth');
 const passport = require('./passport/passport-authenticate');
-const MongoStore = require('connect-mongostore')(session);
 const mongoose = require('mongoose');
-
+const MongoStore = require('connect-mongo')(session);
+ 
 module.exports = function (app) {
 	app.use(cookieParser());
 	app.use(session({
