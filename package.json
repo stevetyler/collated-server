@@ -45,6 +45,7 @@
     "passport-slack": "^0.0.6",
     "passport-twitter": "~1.0.3",
     "password-generator": "~1.0.0",
+    "q": "^1.5.1",
     "rand-token": "0.3.0",
     "request": "^2.70.0",
     "request-promise": "^4.1.1",
@@ -62,6 +63,6 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "NODE_ENV='Atlas test' nodemon server.js"
+    "start": "nodemon --inspect server.js"
   }
 }

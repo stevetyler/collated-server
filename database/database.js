@@ -22,7 +22,8 @@ else if (process.env.NODE_ENV === 'Atlas test') {
 }
 else {
   console.log('connected to local Collated db');
-  mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
+  //mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
 }
 
 mongoose.connection.model('Category', categorySchema);
