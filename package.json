@@ -17,7 +17,7 @@
     "cors": "^2.7.1",
     "cron": "^1.1.0",
     "debug": "2.6.1",
-    "express": "^4.12.4",
+    "express": "^4.17.1",
     "express-autoroute": "^2.1.1",
     "express-autoroute-json": "^3.0.0-alpha2.10",
     "express-fileupload": "0.0.5",
