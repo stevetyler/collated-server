@@ -34,7 +34,7 @@ const userSchema = new Schema({
   password: String,
   imageUrl: String,
   email: String,
-  permissions: String,
+  permissions: [String],
   schemaVersion: String,
   apiKeys: {
     collatedToken: String,
