@@ -13,12 +13,8 @@ const planSchema = require('../schemas/plan');
 
 
 if (process.env.NODE_ENV === 'production') {
-  mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
-}
-else if (process.env.NODE_ENV === 'Atlas test') {
+  console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
   mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
-  console.log('connected to Atlas test db');
-  //console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
 }
 else {
   console.log('connected to local Collated db');
