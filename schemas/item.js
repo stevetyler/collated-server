@@ -34,7 +34,7 @@ const itemPreviewSchema = new Schema({
   image: String,
   imageType: String,
   item: String,
-  keywords: String,
+  keywords: [String],
   title: String,
   url: String,
   ogDescription: String,
