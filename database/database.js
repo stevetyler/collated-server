@@ -14,7 +14,10 @@ const planSchema = require('../schemas/plan');
 
 if (process.env.NODE_ENV === 'production') {
   console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
-  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`, { useNewUrlParser: true });
+  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`, { 
+    useNewUrlParser: true, 
+    useFindAndModify: false 
+  });
 }
 else {
   mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
