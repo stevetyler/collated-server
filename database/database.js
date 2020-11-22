@@ -17,9 +17,7 @@ if (process.env.NODE_ENV === 'production') {
   mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
 }
 else {
-  console.log('connected to local Collated db');
-  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
-  //mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+  mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
 }
 
 mongoose.connection.model('Category', categorySchema);
