@@ -8,10 +8,12 @@ This README outlines the details of collaborating on this Node application.
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM) "^6.10.2"
+* [Node.js](http://nodejs.org/) 
 * [MongoDB](https://docs.mongodb.com/manual/installation/)
 * [PhantomJS]
+* [ImageMagick] (https://www.npmjs.com/package/imagemagick)
 * [AWS-CLI] optional
+* [PM2]
 
 
 ## Installation
@@ -25,6 +27,7 @@ You will need the following things properly installed on your computer.
 
 * `node server.js`
 * Visit your app at [http://localhost:3000](http://localhost:3000).
+* Express Lightning Deploy running on localhost:4000
 
 ## Authentication
 
