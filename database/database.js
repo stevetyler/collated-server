@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === 'production') {
   console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
   mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`, { 
     useNewUrlParser: true, 
-    useFindAndModify: false 
+    useFindAndModify: false,
+    useUnifiedTopology: true 
   });
 }
 else {
