@@ -23,11 +23,17 @@ You will need the following things properly installed on your computer.
 * `npm install`
 
 
+
 ## Running / Development
 
-* `node server.js`
-* Visit your app at [http://localhost:3000](http://localhost:3000).
-* Express Lightning Deploy running on localhost:4000
+* `npm start`
+* Visit your app at [http://collated-dev.net]
+
+## Running / Production
+
+* PM2 start ecosystem.config.js
+* Visit your app at https://app.collated.net
+* Express Lightning Deploy running on localhost:4000 which serves index.html
 
 ## Authentication
 
