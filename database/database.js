@@ -3,6 +3,11 @@
 //logger.info('load database.js');
 const auth = require('../auth');
 const mongoose = require('mongoose');
+const connectOptions = {
+  useNewUrlParser: true, 
+  useFindAndModify: false,
+  useUnifiedTopology: true 
+}
 
 const categorySchema = require('../schemas/category');
 const itemSchema = require('../schemas/item');
@@ -15,13 +20,11 @@ const planSchema = require('../schemas/plan');
 if (process.env.NODE_ENV === 'production') {
   console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
   mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`, { 
-    useNewUrlParser: true, 
-    useFindAndModify: false,
-    useUnifiedTopology: true 
+    connectOptions
   });
 }
 else {
-  mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+  mongoose.connect('mongodb://localhost/collated', connectOptions); // pending, then emits 'open' event
 }
 
 mongoose.connection.model('Category', categorySchema);
