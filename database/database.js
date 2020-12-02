@@ -24,7 +24,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 else {
-  mongoose.connect('mongodb://localhost/collated', connectOptions); // pending, then emits 'open' event
+  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated-test?retryWrites=true&w=majority`, { 
+    connectOptions
+  });
 }
 
 mongoose.connection.model('Category', categorySchema);
