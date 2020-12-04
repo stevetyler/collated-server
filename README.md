@@ -10,7 +10,6 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) 
 * [MongoDB](https://docs.mongodb.com/manual/installation/)
-* [PhantomJS]
 * [ImageMagick] (https://www.npmjs.com/package/imagemagick)
 * [AWS-CLI] optional
 * [PM2]
@@ -38,3 +37,4 @@ You will need the following things properly installed on your computer.
 ## Authentication
 
 * Set AWS secret and id in ~/.aws/credentials
+* Set auth.js file in /
