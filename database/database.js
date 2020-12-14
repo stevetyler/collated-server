@@ -3,6 +3,11 @@
 //logger.info('load database.js');
 const auth = require('../auth');
 const mongoose = require('mongoose');
+const connectOptions = {
+  useNewUrlParser: true, 
+  useFindAndModify: false,
+  useUnifiedTopology: true 
+}
 
 const categorySchema = require('../schemas/category');
 const itemSchema = require('../schemas/item');
@@ -13,14 +18,15 @@ const planSchema = require('../schemas/plan');
 
 
 if (process.env.NODE_ENV === 'production') {
-  mongoose.connect(`mongodb://${auth.mlabAuth.user}:${auth.mlabAuth.password}@ds013291-a0.mlab.com:13291,ds013291-a1.mlab.com:13291/collated?replicaSet=rs-ds013291`);
-}
-else if (process.env.NODE_ENV === 'test') {
-  mongoose.connect('mongodb://localhost/test');
-  console.log('connected to test db');
+  console.log(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`);
+  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated?retryWrites=true&w=majority`, { 
+    connectOptions
+  });
 }
 else {
-  mongoose.connect('mongodb://localhost/collated'); // pending, then emits 'open' event
+  mongoose.connect(`mongodb+srv://${auth.atlasAuth.user}:${auth.atlasAuth.password}@collatedlive.monbi.mongodb.net/collated-test?retryWrites=true&w=majority`, { 
+    connectOptions
+  });
 }
 
 mongoose.connection.model('Category', categorySchema);
