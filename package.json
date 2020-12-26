@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "express-autoroute": "^2.1.1",
     "express-autoroute-json": "^3.0.0-alpha2.10",
-    "express-fileupload": "0.0.5",
+    "express-fileupload": "1.1.10",
     "express-paginate": "^0.2.2",
     "express-session": "^1.12.1",
     "express-validator": "^3.2.1",
