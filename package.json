@@ -24,7 +24,7 @@
     "express-paginate": "^0.2.2",
     "express-session": "^1.12.1",
     "express-validator": "^3.2.1",
-    "file-type": "4.1.0",
+    "file-type": "16.5.4",
     "fs-promise": "2.0.0",
     "gm": "^1.23.0",
     "image-type": "^3.0.0",
